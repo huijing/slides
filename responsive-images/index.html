@@ -177,8 +177,89 @@
 				</section>
 
 				<section>
-					<h2>The &lt;picture&gt; element</h2>
-					<p>A wrapper for the image and its sources.</p>
+					<section>
+						<h2>The &lt;picture&gt; element</h2>
+						<p>A <strong>wrapper</strong> for the image and its sources.</p>
+						<pre><code>&lt;picture>
+   &lt;source media="(min-width: 40rem)"
+           srcset="full-large.jpg 1024w,
+                   full-medium.jpg 640w,
+                   full-small.jpg 320w"
+           sizes="33.3vw" /&gt;
+   &lt;source srcset="cropped-large.jpg 2x,
+                   cropped-small.jpg 1x" /&gt;
+   &lt;img src="full-small.jpg" alt="An awesome image" /&gt;
+&lt;/picture&gt;</code></pre>
+					</section>
+
+					<section>
+						<h2>The &lt;source&gt; element</h2>
+						<p>Allows us to declare multiple sets of image sources.</p>
+						<p>Syntax: <strong><em>&lt;media attribute&gt;|&lt;type attribute&gt;</em> &lt;srcset attribute&gt;</strong></p>
+						<p><small>The <strong>&lt;media attribute&gt;</strong> and <strong>&lt;type attribute&gt;</strong> are optional for a single source, but either one is required when using multiple <strong>&lt;source&gt;</strong>s.</small></p>
+						<pre><code>&lt;source media="(min-width: 1280px)" srcset="wide-large.jpg 1280w, wide-medium.jpg 960w, wide-small.jpg 640w" sizes="33.3vw"&gt;
+&lt;source media="(min-width: 960px)" srcset="cropped-large.jpg 960w, cropped-medium.jpg 720w, cropped-small.jpg 480w" sizes="50vw"&gt;
+&lt;source srcset="narrow-large.jpg 2x, narrow-small.jpg 1x"&gt;</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<h2>Art direction use-case</h2>
+					<picture>
+						<source media="(min-width: 960px)" srcset="img/ticker-tape-large.jpg">
+						<source media="(min-width: 575px)" srcset="img/ticker-tape-medium.jpg">
+						<img data-src="img/ticker-tape-small.jpg" alt="USWNT ticker-tape parade">
+					</picture>
+					<pre><code>&lt;picture&gt;
+  &lt;source media="(min-width: 960px)" srcset="ticker-tape-large.jpg"&gt;
+  &lt;source media="(min-width: 575px)" srcset="ticker-tape-medium.jpg"&gt;
+  &lt;img src="ticker-tape-small.jpg" alt="USWNT ticker-tape parade"&gt;
+&lt;/picture&gt;</code></pre>
+				</section>
+
+				<section>
+					<h2>Image format use-case</h2>
+					<p>Order of source matters.</p>
+					<p>Falls back to original &lt;img&gt; element.</p>
+					<pre><code>&lt;picture&gt;
+  &lt;source type="image/vnd.ms-photo" src="wwc2015.jxr"&gt;
+  &lt;source type="image/jp2" src="wwc2015.jp2"&gt;
+  &lt;source type="image/webp" src="wwc2015.webp"&gt;
+  &lt;img src="wwc2015.png" alt="WWC 2015"&gt;
+&lt;/picture&gt;</code></pre>
+				</section>
+
+				<section>
+					<section>
+						<h2>Can I use...srcset?</h2>
+						<img data-src="img/srcset.jpg" alt="Can I use srcset?">
+					</section>
+					<section>
+						<h2>Can I use...picture?</h2>
+						<img data-src="img/picture.jpg" alt="Can I use picture?">
+					</section>
+					<section>
+						<h2>Polyfill</h2>
+						<p>The go-to polyfill for responsive images is <a href="https://scottjehl.github.io/picturefill/">Picturefill</a> by <a href="https://twitter.com/scottjehl">Scott Jehl</a>.
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>To find out more...</h2>
+						<p><a href="https://dev.opera.com/articles/native-responsive-images/">Native Responsive Images</a> by <a href="https://twitter.com/yoavweiss">Yoav Weiss</a></p>
+						<p><a href="http://www.zeldman.com/2014/02/25/responsive-images-with-mat-marquis/">Responsive images get real</a> with <a href="https://twitter.com/wilto">Mat Marquis</a></p>
+						<p><a href="https://jakearchibald.com/2015/anatomy-of-responsive-images/">The anatomy of responsive images</a> by <a href="https://twitter.com/jaffathecake">Jake Archibald</a></p>
+						<p><a href="https://ericportis.com/posts/2014/srcset-sizes/">Srcset and sizes</a> by <a href="https://twitter.com/etportis">Yoav Weiss</a></p>
+						<p><a href="https://ericportis.com/posts/2014/srcset-sizes/">Responsive Images 101</a> by <a href="https://twitter.com/grigs">Jason Grigsby</a></p>	
+					</section>
+					<section>
+						<h2>For latest updates...</h2>
+						<img data-src="img/ricg.jpg" alt="Responsive Images Community Group">
+						<p>Join the <a href="https://responsiveimages.org/">Responsive Images Community Group</a>.</p>
+						<p>Sign up for their <a href="https://responsiveimages.org/">newsletter</a>.</p>
+						<p>Follow the RICG on <a href="https://twitter.com/respimg">Twitter</a>.</p>
+					</section>
 				</section>
 
 				<section style="text-align: left;">
