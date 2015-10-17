@@ -227,9 +227,7 @@ body {
  *********************************************/
 .reveal section img {
   margin: 15px 0px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 4px solid #2a2a2a;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
+  background: rgba(255, 255, 255, 0.12); }
 
 .reveal a img {
   -webkit-transition: all 0.15s linear;
@@ -289,3 +287,25 @@ body {
  *********************************************/
 .reveal .slide-number {
   color: #4abc41; }
+
+.j-col2-50 {
+  width: 49.1525423729%;
+  float: left;
+  margin-right: 1.6949152542%; }
+  .j-col2-50:last-child {
+    float: right;
+    margin-right: 0; }
+
+.j-col2-25 {
+  width: 23.7288135593%;
+  float: left;
+  margin-right: 1.6949152542%; }
+  .j-col2-25:last-child {
+    width: 74.5762711864%;
+    float: right;
+    margin-right: 0; }
+
+section img.j-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1rem; }
