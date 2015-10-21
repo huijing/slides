@@ -161,7 +161,12 @@
 					<pre><code>&lt;img srcset="crest-383.jpg 1.5x, crest-510.jpg 2x" 
      src="crest-255.jpg" 
      alt="USWNT crest" /&gt;</code></pre>
+					<aside class="notes">
+						Use x-descriptors<br>
+						Browser picks the image that matches device-pixel-ratio
+					</aside>
 				</section>
+
 
 				<section>
 					<h2>Fluid width images</h2>
@@ -174,6 +179,11 @@
             (max-width: 960px) 75vw, 
             640px" 
      src="uswnt-640.jpg" alt="USWNT World Cup victory"&gt;</code></pre>
+					<aside class="notes">
+						w-descriptors inform browser of image width<br>
+						Browser will pick the smallest image larger than the required width<br>
+						If a larger image was served, browser will use it for smaller widths
+					</aside>
 				</section>
 
 				<section>
