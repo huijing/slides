@@ -1,3 +1,3 @@
 # Slide decks
 ###Slides for talks and stuff
-1. [Using responsive images (now)](http://www.chenhuijing.com/slide-decks/responsive-images/#/)
+1. [Using responsive images (now)](http://www.chenhuijing.com/slides/responsive-images)
