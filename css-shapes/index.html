@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Why you should be excited about CSS shapes</title>
+
+		<meta name="description" content="Tired of rectangular layouts that look like a brick wall? With CSS shapes, your content can now flow around Beyoncé's elbow, like a boss.">
+		<meta name="author" content="Chen Hui Jing">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/jing.css" id="theme">
+
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+				<section>
+					<h1>Why you should be excited about CSS shapes</h1>
+					<p><small>By <a href="http://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
+				</section>
+
+				<section>
+					<section>
+						<h3>Long ago, the web looked like this:</h3>
+						<div class="j-col3-33">
+							<img data-src="img/90s-a.jpg" alt="Disneyland 90s website">
+						</div>
+						<div class="j-col3-33">
+							<img data-src="img/90s-b.jpg" alt="Playboy 90s website">
+						</div>
+						<div class="j-col3-33">
+							<img data-src="img/90s-c.jpg" alt="Space Jam website">
+						</div>
+						<aside class="notes">
+							Interesting layouts<br>
+							Hacky, but creative<br>
+							Space Jam site still up
+						</aside>
+					</section>
+					<section>
+						<h3>Then, came floats. And now most of our sites look like this:</h3>
+						<div class="j-col3-33">
+							<img data-src="img/10s-a.jpg" alt="ESPN website">
+						</div>
+						<div class="j-col3-33">
+							<img data-src="img/10s-b.jpg" alt="IGN website">
+						</div>
+						<div class="j-col3-33">
+							<img data-src="img/10s-c.jpg" alt="Gamespot website">
+						</div>
+						<aside class="notes">
+							Rectangular columns<br>
+							Different ways to stack them
+						</aside>
+					</section>
+					<section>
+						<h3>Lots of variations of stacked rectangles...</h3>
+						<div class="j-col3-33">
+							<img data-src="img/std-layout1.jpg" alt="Rectangular layout 1">
+						</div>
+						<div class="j-col3-33">
+							<img data-src="img/std-layout2.jpg" alt="Rectangular layout 2">
+						</div>
+						<div class="j-col3-33">
+							<img data-src="img/std-layout3.jpg" alt="Rectangular layout 3">
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Let's look at some magazine layouts...</h3>
+						<div class="j-col2-50">
+							<img data-src="img/magazine-layout2.jpg" alt="Magazine layout 2">
+						</div>
+						<div class="j-col2-50">
+							<img data-src="img/magazine-layout3.jpg" alt="Magazine layout 3">
+						</div>
+					</section>
+					<section>
+						<img data-src="img/magazine-layout1.jpg" alt="Magazine layout 1">
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>But on the web, we were stuck with this:</h3>
+						<div class="j-floated">
+							<img data-src="img/beyonce.png" alt="Beyoncé" class="j-floated__img">
+							<p class="j-floated__txt">Beyoncé is ready to receive you now. From the chair where she’s sitting, in the conference room of her sleek office suite in midtown Manhattan, at a round table elegantly laden with fine china, crisp cloth napkins, and take-out sushi from Nobu, she could toss some edamame over her shoulder and hit her sixteen Grammys, each wall-mounted in its own Plexiglas box.</p>
+							<p class="j-floated__txt">She is luminous, with that perfect smile and smooth coffee skin that shines under a blondish topknot and bangs. Today she’s showing none of the bodaciously thick, hush-your-mouth body that’s on display onstage, in her videos, and on these pages.</p>
+							<p class="j-floated__txt">This is Business Beyoncé, hypercomposed Beyoncé—fashionable, elegant, in charge. She’s wearing the handiwork of no fewer than seven designers, among them Givenchy (the golden pin at her neck), Day Birger et Mikkelsen (her dainty gray-pink petal-collar blouse), Christian Louboutin (her pink five-inch studded heels), and Isabel Marant (her floral pants).</p>
+						</div>
+					</section>
+					<section>
+						<h3>Not any more :)</h3>
+						<div class="j-floated">
+							<img data-src="img/beyonce.png" alt="Beyoncé" class="j-shape">
+							<p class="j-floated__txt">Beyoncé is ready to receive you now. From the chair where she’s sitting, in the conference room of her sleek office suite in midtown Manhattan, at a round table elegantly laden with fine china, crisp cloth napkins, and take-out sushi from Nobu, she could toss some edamame over her shoulder and hit her sixteen Grammys, each wall-mounted in its own Plexiglas box.</p>
+							<p class="j-floated__txt">She is luminous, with that perfect smile and smooth coffee skin that shines under a blondish topknot and bangs. Today she’s showing none of the bodaciously thick, hush-your-mouth body that’s on display onstage, in her videos, and on these pages.</p>
+							<p class="j-floated__txt">This is Business Beyoncé, hypercomposed Beyoncé—fashionable, elegant, in charge. She’s wearing the handiwork of no fewer than seven designers, among them Givenchy (the golden pin at her neck), Day Birger et Mikkelsen (her dainty gray-pink petal-collar blouse), Christian Louboutin (her pink five-inch studded heels), and Isabel Marant (her floral pants).She does not get up—a video camera has already been aimed at her face and turned on—so you greet her as you sit down.</p>
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<h3>Some background</h3>
+					<div class="j-col2-25">
+						<img data-src="img/avatar.jpg" alt="Jing">
+						<p>🎮 🏀 🚲 💻 👟</p>
+					</div>
+					<div class="j-col2-25">
+						<p>My name is Chen Hui Jing.</p>
+						<p>Self taught designer and developer.</p>
+						<p>Work at Nurun Singapore.</p>
+						<p>Write blog posts from time to time.</p>
+					</div>
+				</section>
+
+				<section>
+					<h2>CSS shapes (Level 1)</h2>
+					<ul>
+						<li><strong>shape-outside</strong> CSS property</li>
+						<li>Defines the <strong>float area</strong> for inline content to <strong>wrap</strong> around the shape instead of the float's bounding box.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>4 basic shape functions</h2>
+					<ul>
+						<li>The <strong>circle()</strong> function</li>
+						<li>The <strong>ellipse()</strong> function</li>
+						<li>The <strong>inset()</strong> function</li>
+						<li>The <strong>polygon()</strong> function</li>
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<h2>The circle() function</h2>
+						<img data-src="img/circle.jpg" alt="Circle function example">
+						<pre><code>.circle {
+  /* general styles for the div*/
+  width: 200px;
+  height: 200px;
+  background-color: #A4F4B0;
+  border-radius: 50%;
+
+  /* make it a shape!*/
+  shape-outside: circle();
+  float: left;
+}</code></pre>
+					</section>
+					<section>
+						<h2>Basic syntax</h2>
+						<pre><code>shape-outside: circle( [&lt;shape-radius&gt;]? [at &lt;position&gt;]? )</code></pre>
+						<p><strong>shape-radius</strong> takes any CSS length.</p>
+						<p><strong>position</strong> refers to the x, y coordinates, which default to the centre of the element, (0, 0).</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>The ellipse() function</h2>
+						<img data-src="img/ellipse.jpg" alt="Ellipse function example">
+						<pre><code>.ellipse {
+  width: 100px;
+  height: 200px;
+  background-color: #A4F4B0;
+  border-radius: 50%;
+  
+  shape-outside: ellipse();
+  float: left;
+}</code></pre>
+					</section>
+					<section>
+						<h2>Basic syntax</h2>
+						<pre><code>shape-outside: ellipse( [&lt;shape-radius&gt;{2}]? [at &lt;position&gt;]? )</code></pre>
+						<p><strong>shape-radius</strong> takes in 2 variables, length of radius along the <strong>x-axis</strong> and along the <strong>y-axis</strong>.</p>
+						<p><strong>position</strong> refers to the x, y coordinates, which default to the centre of the element, (0, 0).</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>The inset() function</h2>
+						<img data-src="img/inset.jpg" alt="Inset function example">
+						<pre><code>.inset {
+  width: 200px;
+  height: 160px;
+  background-color: #A4F4B0;
+  border-radius: 50px;
+  
+  shape-outside: inset(0px round 50px);
+  float: left;
+}</code></pre>
+					</section>
+					<section>
+						<h2>Basic syntax</h2>
+						<pre><code>shape-outside: inset( &lt;shape-arg&gt;{1,4} [round &lt;border-radius&gt;]? )</code></pre>
+						<p><strong>shape-arg</strong> syntax is similar to margin or padding: top, right, bottom, left.</p>
+						<p>Inset is applied from the edge of the element inwards toward the centre.</p>
+						<p><strong>border-radius</strong> is optional.</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>The polygon() function</h2>
+						<img data-src="img/polygon.jpg" alt="Polygon function example">
+						<pre><code>.polygon {
+  width: 200px;
+  height: 200px;
+  clip-path: polygon(0 0, 0 200px, 200px 100px);
+  background-color: #A4F4B0;
+  
+  shape-outside: polygon(0 0, 0 200px, 200px 100px);
+  float:left;
+}</code></pre>
+					</section>
+					<section>
+						<h2>Basic syntax</h2>
+						<pre><code>shape-outside: polygon( [&lt;fill-rule&gt;,]? [&lt;shape-arg&gt; &lt;shape-arg&gt;]# )</code></pre>
+						<p><strong>fill-rule</strong> is optional, default value is nonzero.</p>
+						<p>Create your polygon using clip-path.</p>
+						<p>For complex shapes, try using the <a href="http://razvancaliman.com/writing/css-shapes-editor-chrome/">CSS Shapes Editor for Chrome</a> extension.</p>
+						<aside class="notes">
+							At least 3 points required<br>
+							Each coordinate pair represents a point
+						</aside>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Use an image with alpha properties</h2>
+						<pre><code>.shape {
+	  shape-outside: url("path/to/nicely-cropped-image.png");
+	  shape-image-threshold: 0.5;
+	  shape-margin: 10px;
+	  float: left;
+	}</code></pre>
+					</section>
+					<section>
+						<img data-src="img/image.jpg" alt="CSS shapes on images">
+						<p><strong>shape-image-threshold</strong> defines the float area, and ranges from 0.0 (transparent) to 1.0 (opaque).</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Can I use...CSS shapes?</h2>
+						<img data-src="img/css-shapes.jpg" alt="Can I use CSS shapes?">
+					</section>
+					<section>
+						<h2>Polyfill</h2>
+						<p>The go-to polyfill for CSS Shapes is the <a href="http://blogs.adobe.com/webplatform/2014/05/12/css-shapes-polyfill/">CSS Shapes Polyfill</a> by <a href="https://twitter.com/adobeweb">the Adobe Web Platform team</a>.
+					</section>
+				</section>
+
+				<section>
+					<h2>To find out more...</h2>
+					<p><a href="http://www.w3.org/TR/css-shapes-1/">CSS Shapes Module Level 1</a></p>
+					<p><a href="http://razvancaliman.com/writing/css-shapes-reference-boxes/">Understanding Reference Boxes for CSS Shapes</a> and <a href="http://www.html5rocks.com/en/tutorials/shapes/getting-started/">Getting Started with CSS Shapes</a> by <a href="https://twitter.com/razvancaliman">Razvan Caliman</a></p>
+					<p><a href="http://sarasoueidan.com/blog/css-shapes/">Creating Non-Rectangular Layouts With CSS Shapes</a> and <a href="http://alistapart.com/article/css-shapes-101/">CSS Shapes 101</a> by <a href="https://twitter.com/SaraSoueidan">Sara Soueidan</a></p>
+				</section>
+
+				<section>
+					<h2>More good stuff on the way...</h2>
+					<p><a href-"https://drafts.csswg.org/css-shapes-2/">CSS Shapes Module Level 2</a></p>
+					<p>The <strong>shape-inside</strong> property let's us put content inside a defined shape</p>
+					<p><a href-"http://www.w3.org/TR/css3-exclusions/">CSS Exclusions Module Level 1</a></p>
+					<p>Defines arbitrary areas around which inline content can flow</p>
+
+				</section>
+
+				<section style="text-align: left;">
+					<h1>THE END</h1>
+					<p><img class="j-icon" data-src="img/home.png" alt="Website"><a href="http://www.chenhuijing.com">http://www.chenhuijing.com</a></p>
+					<p><img class="j-icon" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen">@hj_chen</a></p>
+					<p><img class="j-icon" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen">@hj_chen</a></p>
+					<p><img class="j-icon" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/">@huijing</a></p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
