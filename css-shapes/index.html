@@ -141,11 +141,32 @@
 				</section>
 
 				<section>
-					<h2>CSS shapes (Level 1)</h2>
-					<ul>
-						<li><strong>shape-outside</strong> CSS property</li>
-						<li>Defines the <strong>float area</strong> for inline content to <strong>wrap</strong> around the shape instead of the float's bounding box.</li>
-					</ul>
+					<section>
+						<h2>CSS shapes (Level 1)</h2>
+						<ul>
+							<li><strong>shape-outside</strong> CSS property</li>
+							<li>Defines the <strong>float area</strong> for inline content to <strong>wrap</strong> around the shape instead of the float's bounding box.</li>
+						</ul>
+						<aside class="notes">
+							Future levels of CSS Shapes will allow use of shapes on elements other than floats.
+						</aside>
+					</section>
+					<section>
+						<h2>Let's talk about the box model</h2>
+						<svg viewBox="0 0 500 500" height="500" width="500"><rect stroke="#333333" stroke-width="2" stroke-dasharray="5" fill="#FACD9A" x="0" y="0" width="500" height="500"></rect><rect stroke="#333333" stroke-width="2" stroke-dasharray="5" fill="#FEDE97" x="50" y="50" width="400" height="400"></rect><rect stroke="#333333" stroke-width="2" stroke-dasharray="5" fill="#C2D086" x="100" y="100" width="300" height="300"></rect><rect stroke="#333333" stroke-width="2" stroke-dasharray="5" fill="#8AB5C1" x="150" y="150" width="200" height="200"></rect><text font-family="Roboto Slab" font-size="24" font-weight="700" fill="#333"><tspan x="210" y="34">Margin</tspan></text><text font-family="Roboto Slab" font-size="24" font-weight="700" fill="#333"><tspan x="211" y="84">Border</tspan></text><text font-family="Roboto Slab" font-size="24" font-weight="700" fill="#333"><tspan x="205" y="134">Padding</tspan></text><text font-family="Roboto Slab" font-size="24" font-weight="700" fill="#333"><tspan x="204" y="257">Content</tspan></text></svg>
+						<aside class="notes">
+							Box model does not change<br>
+						</aside>
+					</section>
+					<section>
+						<h2>On box models and floats</h2>
+						<p>Shape is clipped to <strong>margin-box</strong></p>
+						<p>Can only ever <strong>reduce</strong> the float area</p>
+						<p>Wrapping only occurs on one side (for now)</p>
+						<aside class="notes">
+							Floating left allows content to wrap on the right and vice versa<br>
+						</aside>
+					</section>
 				</section>
 
 				<section>
