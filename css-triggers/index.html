@@ -60,73 +60,77 @@
 				</section>
 
 				<section>
-					<h2>Layout</h2>
-					<ul>
-						<li>Generate geometry and position of each element</li>
-						<li>Very expensive because engine must reflow the relevant element and all its children to take into account the new layout</li>
-						<li>Occurs when the DOM tree is manipulated, or a style which affects layout is changed, when browser window size is changed, when className property is changed</li>
-					</ul>
+					<section>
+						<h2>Layout</h2>
+						<ul>
+							<li>Generate geometry and position of each element</li>
+							<li>Very expensive because engine must reflow the relevant element and all its children to take into account the new layout</li>
+							<li>Occurs when the DOM tree is manipulated, or a style which affects layout is changed, when browser window size is changed, when className property is changed</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>CSS properties that trigger Layout</h2>
+						<ul class="j-multi">
+							<li>width</li>
+							<li>height</li>
+							<li>padding</li>
+							<li>margin</li>
+							<li>display</li>
+							<li>border-width</li>
+							<li>border</li>
+							<li>top</li>
+							<li>position</li>
+							<li>font-size</li>
+							<li>float</li>
+							<li>text-align</li>
+							<li>overflow-y</li>
+							<li>font-weight</li>
+							<li>overflow</li>
+							<li>left</li>
+							<li>font-family</li>
+							<li>line-height</li>
+							<li>vertical-align</li>
+							<li>right</li>
+							<li>clear</li>
+							<li>white-space</li>
+							<li>bottom</li>
+							<li>min-height</li>
+						</ul>
+					</section>
 				</section>
 
 				<section>
-					<h2>CSS properties that trigger Layout</h2>
-					<ul class="j-multi">
-						<li>width</li>
-						<li>height</li>
-						<li>padding</li>
-						<li>margin</li>
-						<li>display</li>
-						<li>border-width</li>
-						<li>border</li>
-						<li>top</li>
-						<li>position</li>
-						<li>font-size</li>
-						<li>float</li>
-						<li>text-align</li>
-						<li>overflow-y</li>
-						<li>font-weight</li>
-						<li>overflow</li>
-						<li>left</li>
-						<li>font-family</li>
-						<li>line-height</li>
-						<li>vertical-align</li>
-						<li>right</li>
-						<li>clear</li>
-						<li>white-space</li>
-						<li>bottom</li>
-						<li>min-height</li>
-					</ul>
-				</section>
+					<section>
+						<h2>Paint</h2>
+						<ul>
+							<li>Fill out pixels for each element into layers</li>
+							<li>Make something visible when it previously was not, like adding outline or changing background colour</li>
+							<li>Expensive because the engine searches through all elements to determine what is visible and what should be displayed</li>
+							<li>Browser vendors are scrambling to improve the renderer, but until recently browsers weren't built to handle animations efficiently</li>
+						</ul>
+					</section>
 
-				<section>
-					<h2>Paint</h2>
-					<ul>
-						<li>Fill out pixels for each element into layers</li>
-						<li>Make something visible when it previously was not, like adding outline or changing background colour</li>
-						<li>Expensive because the engine searches through all elements to determine what is visible and what should be displayed</li>
-						<li>Browser vendors are scrambling to improve the renderer, but until recently browsers weren't built to handle animations efficiently</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>CSS properties that trigger Paint</h2>
-					<ul class="j-multi">
-						<li>color</li>
-						<li>border-style</li>
-						<li>visibility</li>
-						<li>background</li>
-						<li>text-decoration</li>
-						<li>background-image</li>
-						<li>background-position</li>
-						<li>background-repeat</li>
-						<li>outline-color</li>
-						<li>outline</li>
-						<li>outline-style</li>
-						<li>border-radius</li>
-						<li>outline-width</li>
-						<li>box-shadow</li>
-						<li>background-size</li>
-					</ul>
+					<section>
+						<h2>CSS properties that trigger Paint</h2>
+						<ul class="j-multi">
+							<li>color</li>
+							<li>border-style</li>
+							<li>visibility</li>
+							<li>background</li>
+							<li>text-decoration</li>
+							<li>background-image</li>
+							<li>background-position</li>
+							<li>background-repeat</li>
+							<li>outline-color</li>
+							<li>outline</li>
+							<li>outline-style</li>
+							<li>border-radius</li>
+							<li>outline-width</li>
+							<li>box-shadow</li>
+							<li>background-size</li>
+						</ul>
+					</section>
 				</section>
 
 				<section>
