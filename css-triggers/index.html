@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Let's talk about CSS triggers</title>
+
+		<meta name="description" content="Impromptu lightning talk on browser rendering and which CSS properties can be animated safely">
+		<meta name="author" content="Chen Hui Jing">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/jing.css" id="theme">
+
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+				<section>
+					<h1>Let's <span class="j-emoji">⚡</span> talk about CSS triggers</h1>
+					<p><small>By <a href="http://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
+				</section>
+
+				<section>
+					<h2>How browsers render stuff (generally)</h2>
+					<ul>
+						<li>Different browsers use different rendering engines but follow similar flow</li>
+						<li>Browser will parse the markup, then "Recalculate Style" to figure out what styles apply to which elements</li>
+						<li>Next, it will "Layout" all the DOM elements</li>
+						<li>Then, "Paint" the pixel data for the elements</li>
+						<li>And, "Composite" will combine and draw the painted layers out onto the screen</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Think of it as a pyramid</h2>
+					<img class="plain" srcset="img/rendering-pyramid@2x.jpg 2x" data-src="img/rendering-pyramid.jpg" alt="Rendering pyramid" />
+					<p>If you change something at the bottom, the pyramid has to be rebuilt from the bottom.</p>
+				</section>
+
+				<section>
+					<h2>Layout</h2>
+					<ul>
+						<li>Generate geometry and position of each element</li>
+						<li>Very expensive because engine must reflow the relevant element and all its children to take into account the new layout</li>
+						<li>Occurs when the DOM tree is manipulated, or a style which affects layout is changed, when browser window size is changed, when className property is changed</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>CSS properties that trigger Layout</h2>
+					<ul class="j-multi">
+						<li>width</li>
+						<li>height</li>
+						<li>padding</li>
+						<li>margin</li>
+						<li>display</li>
+						<li>border-width</li>
+						<li>border</li>
+						<li>top</li>
+						<li>position</li>
+						<li>font-size</li>
+						<li>float</li>
+						<li>text-align</li>
+						<li>overflow-y</li>
+						<li>font-weight</li>
+						<li>overflow</li>
+						<li>left</li>
+						<li>font-family</li>
+						<li>line-height</li>
+						<li>vertical-align</li>
+						<li>right</li>
+						<li>clear</li>
+						<li>white-space</li>
+						<li>bottom</li>
+						<li>min-height</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Paint</h2>
+					<ul>
+						<li>Fill out pixels for each element into layers</li>
+						<li>Make something visible when it previously was not, like adding outline or changing background colour</li>
+						<li>Expensive because the engine searches through all elements to determine what is visible and what should be displayed</li>
+						<li>Browser vendors are scrambling to improve the renderer, but until recently browsers weren't built to handle animations efficiently</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>CSS properties that trigger Paint</h2>
+					<ul class="j-multi">
+						<li>color</li>
+						<li>border-style</li>
+						<li>visibility</li>
+						<li>background</li>
+						<li>text-decoration</li>
+						<li>background-image</li>
+						<li>background-position</li>
+						<li>background-repeat</li>
+						<li>outline-color</li>
+						<li>outline</li>
+						<li>outline-style</li>
+						<li>border-radius</li>
+						<li>outline-width</li>
+						<li>box-shadow</li>
+						<li>background-size</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Composite</h2>
+					<ul>
+						<li>Only Opacity and Transforms trigger composite</li>
+						<li>Blink and Webkit creates new layer for elements with CSS transforms or opacity</li>
+						<li>translateZ(0) is used to force layer creation which ensures both the layer is painted as soon as the animation starts</li>
+						<li>Watch <a href="https://www.youtube.com/watch?v=9rizDPIIYEY">The Web's Black Magic</a> for best explanation on rendering and compositing</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>To find out more...</h2>
+					<ul>
+						<li><a href="http://jankfree.org/">Jank Free</a> (website)</li>
+						<li><a href="http://csstriggers.com/">CSS Triggers</a> by <a href="https://twitter.com/aerotwist">Paul Lewis</a> (website)</li>
+						<li><a href="http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/">High Performance Animations</a> by <a href="https://twitter.com/aerotwist">Paul Lewis</a> and <a href="https://twitter.com/paul_irish">Paul Irish</a></li>
+						<li><a href="http://calendar.perfplanet.com/2014/hardware-accelerated-css-the-nice-vs-the-naughty/">Hardware Accelerated CSS: The Nice vs The Naughty</a> by <a href="https://twitter.com/ariyahidayat">Ariya Hidayat</a></li>
+						<li><a href="https://developers.google.com/web/fundamentals/design-and-ui/animations/animations-and-performance#css-vs-javascript-performance">Animations and performance</a> by <a href="https://twitter.com/paul_irish">Paul Irish</a> and <a href="https://twitter.com/samthor">Sam Thorogood</a></li>
+						<li><a href="https://www.youtube.com/watch?v=9rizDPIIYEY">The Web's Black Magic</a> by <a href="https://twitter.com/iammatt">Matthew Delaney</a> and <a href="https://twitter.com/jingidy">Jing Jin</a> (conference talk)</li>
+						<li><a href="http://thewebahead.net/103">Animating the Web with Rachel Nabors</a> (podcast)</li>
+					</ul>
+				</section>
+
+				<section style="text-align: left;">
+					<h1>THE END</h1>
+					<p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="http://www.chenhuijing.com">http://www.chenhuijing.com</a></p>
+					<p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen">@hj_chen</a></p>
+					<p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen">@hj_chen</a></p>
+					<p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/">@huijing</a></p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
