@@ -13,7 +13,7 @@
   ],
   "dependencies": {
     "headjs": "~1.0.3",
-    "susy": "~2.2.12",
+    "susy": "~2.2.12"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "test"
-  ],
+    "test",
+    "tests"
+  ]
 }
