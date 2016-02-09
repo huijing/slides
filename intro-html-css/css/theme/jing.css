@@ -292,6 +292,9 @@ body {
   margin-bottom: .85em;
   border-bottom: 1px solid; }
 
+.j-border-bottom {
+  border-bottom: 1px solid !important; }
+
 .j-col2-50 {
   width: 49.1525423729%;
   float: left;

@@ -53,6 +53,10 @@ $heading4Size: 1.0em;
     border-bottom: 1px solid;
 }
 
+.j-border-bottom {
+    border-bottom: 1px solid !important;
+}
+
 .j-col2-50 {
     @include span(6 of 12);
     &:last-child {
