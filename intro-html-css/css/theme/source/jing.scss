@@ -53,6 +53,10 @@ $heading4Size: 1.0em;
     border-bottom: 1px solid;
 }
 
+.j-lowercase {
+    text-transform: lowercase;
+}
+
 .j-border-bottom {
     border-bottom: 1px solid !important;
 }
@@ -78,6 +82,15 @@ $heading4Size: 1.0em;
 
 .j-svgimg {
     width: 70%;
+}
+
+ul.j-multi {
+    width: 100%;
+    list-style-position: inside;
+    -webkit-column-width: 12rem;
+    -moz-column-width: 12rem;
+    column-width: 12rem;
+    font-size: 65%;
 }
 
 section img.j-icon {

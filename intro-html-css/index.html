@@ -810,7 +810,164 @@
 							Tags are markers wrapped around text in the document to indicate how user-agents should interpret it
 						</aside>
 					</section>
-					
+					<section>
+						<h2>History of HTML</h2>
+						<ul>
+							<li>Invented by <strong>Tim Berners-Lee</strong> in 1989 as a means for easy linking of references in research papers using hypertext</li>
+							<li>Created the Hypertext Transfer Protocol for retrieving text from other documents via hypertext links</li>
+							<li>Specifications were introduced as a guide for standardisation among browser vendors</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Structure of HTML document</h2>
+						<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Example page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello world&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+					</section>
+					<section>
+						<h2>Document type element</h2>
+						<pre><code>&lt;!DOCTYPE html&gt;</code></pre>
+						<ul>
+							<li>Appears just above the &lt;html&gt; tag
+							<li>Tells the browser to render the HTML in <strong>standards</strong> mode</li>
+							<li>Let's validation software know which version of HTML to validate against</li>
+							<li>Advised to use the HTML5 doctype</li>
+						</ul>
+						<aside class="notes">
+							Standards mode means browsers try to render the page according to CSS specifications<br>
+							Outdated or incomplete doctypes will be rendered in quirks mode, things may not appear as you expect
+						</aside>
+					</section>
+					<section>
+						<h2><code class="j-lowercase">&lt;html&gt;</code> element</h2>
+						<pre><code>&lt;html lang="en"&gt;
+// HTML code for web page
+&lt;/html&gt;</code></pre>
+						<ul>
+							<li>Represents the root of an HTML document</li>
+							<li>Encouraged to specify a language attribute</li>
+							<li>Aids speech synthesis (screen readers), translation tools and other language-related functionality</li>
+						</ul>
+						<aside class="notes">
+							The web was built with accessibility and semantics in mind<br>
+							All this functionality is built into HTML
+						</aside>
+					</section>
+					<section>
+						<h2><code class="j-lowercase">&lt;head&gt;</code> element</h2>
+						<pre><code>&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;Your site title&lt;/title&gt;
+  &lt;meta name="description" content="A short description of your website"&gt;
+  &lt;meta name="author" content="Your name"&gt;
+  
+  &lt;link rel="stylesheet" href="css/styles.css?v=1.0"&gt;
+&lt;/head&gt;</code></pre>
+						<ul>
+							<li>Contains instructions for the browser and meta data for the website</li>
+							<li>Title and description are what shows up on search engine results</li>
+							<li>Stylesheets are also declared here</li>
+						</ul>
+					</section>
+					<section>
+						<h2><code class="j-lowercase">&lt;body&gt;</code> element</h2>
+						<pre><code>&lt;body&gt;
+  &lt;header&gt;
+    &lt;img src="img/logo.png" alt="Site logo"&gt;
+    &lt;nav&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav>
+  &lt;/header&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Page header&lt;/h1&gt;
+    &lt;p&gt;Some content in a paragraph. Brownie tiramisu toffee sweet roll sesame snaps halvah. Fruitcake donut pie ice cream jujubes danish dragée. Bear claw jelly dessert lemon drops bonbon donut. Sugar plum sugar plum candy canes ice cream powder tootsie roll sweet. Sugar plum biscuit macaroon fruitcake cookie cupcake jelly-o cupcake. &lt;/p&gt;
+  &lt;main&gt;
+&lt;/body&gt;</code></pre>
+						<ul>
+							<li>Represents the main content of the document</li>
+							<li>Should only be one &lt;body&gt; element on a web page</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Formatting your web page</h2>
+						<ul class="j-multi">
+							<li><code>&lt;article&gt;</code></li>
+							<li><code>&lt;section&gt;</code></li>
+							<li><code>&lt;nav&gt;</code></li>
+							<li><code>&lt;aside&gt;</code></li>
+							<li><code>&lt;h1&gt;</code></li>
+							<li><code>&lt;h2&gt;</code></li>
+							<li><code>&lt;h3&gt;</code></li>
+							<li><code>&lt;h4&gt;</code></li>
+							<li><code>&lt;h5&gt;</code></li>
+							<li><code>&lt;and&gt;</code></li>
+							<li><code>&lt;h6&gt;</code></li>
+							<li><code>&lt;s&gt;</code></li>
+							<li><code>&lt;hgroup&gt;</code></li>
+							<li><code>&lt;header&gt;</code></li>
+							<li><code>&lt;footer&gt;</code></li>
+							<li><code>&lt;address&gt;</code></li>
+							<li><code>&lt;p&gt;</code></li>
+							<li><code>&lt;hr&gt;</code></li>
+							<li><code>&lt;pre&gt;</code></li>
+							<li><code>&lt;blockquote&gt;</code></li>
+							<li><code>&lt;ol&gt;</code></li>
+							<li><code>&lt;ul&gt;</code></li>
+							<li><code>&lt;li&gt;</code></li>
+							<li><code>&lt;dl&gt;</code></li>
+							<li><code>&lt;dt&gt;</code></li>
+							<li><code>&lt;dd&gt;</code></li>
+							<li><code>&lt;figure&gt;</code></li>
+							<li><code>&lt;figcaption&gt;</code></li>
+							<li><code>&lt;main&gt;</code></li>
+							<li><code>&lt;div&gt;</code></li>
+							<li><code>&lt;a&gt;</code></li>
+							<li><code>&lt;em&gt;</code></li>
+							<li><code>&lt;strong&gt;</code></li>
+							<li><code>&lt;small&gt;</code></li>
+							<li><code>&lt;s&gt;</code></li>
+							<li><code>&lt;cite&gt;</code></li>
+							<li><code>&lt;q&gt;</code></li>
+							<li><code>&lt;dfn&gt;</code></li>
+							<li><code>&lt;abbr&gt;</code></li>
+							<li><code>&lt;ruby&gt;</code></li>
+							<li><code>&lt;rt&gt;</code></li>
+							<li><code>&lt;rp&gt;</code></li>
+							<li><code>&lt;data&gt;</code></li>
+							<li><code>&lt;time&gt;</code></li>
+							<li><code>&lt;code&gt;</code></li>
+							<li><code>&lt;var&gt;</code></li>
+							<li><code>&lt;samp&gt;</code></li>
+							<li><code>&lt;kbd&gt;</code></li>
+							<li><code>&lt;sub&gt;</code></li>
+							<li><code>&lt;and&gt;</code></li>
+							<li><code>&lt;sup&gt;</code></li>
+							<li><code>&lt;s&gt;</code></li>
+							<li><code>&lt;i&gt;</code></li>
+							<li><code>&lt;b&gt;</code></li>
+							<li><code>&lt;u&gt;</code></li>
+							<li><code>&lt;mark&gt;</code></li>
+							<li><code>&lt;bdi&gt;</code></li>
+							<li><code>&lt;bdo&gt;</code></li>
+							<li><code>&lt;span&gt;</code></li>
+							<li><code>&lt;br&gt;</code></li>
+							<li><code>&lt;wbr&gt;</code></li>
+						</ul>
+						<aside class="notes">
+							The web was built with accessibility and semantics in mind<br>
+							All this functionality is built into HTML
+						</aside>
+					</section>
 				</section>
 
 				<section>
