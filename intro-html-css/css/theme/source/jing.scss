@@ -61,6 +61,10 @@ $heading4Size: 1.0em;
     border-bottom: 1px solid !important;
 }
 
+.j-nowrap {
+    white-space: nowrap;
+}
+
 .j-col2-50 {
     @include span(6 of 12);
     &:last-child {
@@ -87,10 +91,10 @@ $heading4Size: 1.0em;
 ul.j-multi {
     width: 100%;
     list-style-position: inside;
-    -webkit-column-width: 12rem;
-    -moz-column-width: 12rem;
-    column-width: 12rem;
-    font-size: 65%;
+    -webkit-column-width: 10rem;
+    -moz-column-width: 10rem;
+    column-width: 10rem;
+    font-size: 55%;
 }
 
 section img.j-icon {
@@ -102,4 +106,12 @@ section img.j-icon {
 span.j-emoji {
     font-family: $mainFont;
     font-weight: 400;
+}
+
+// CSS for PC mockup ------------------------------
+@import "computer";
+
+.brain-wrapper {
+    float: left;
+    width: calc(100% - 720px);
 }
