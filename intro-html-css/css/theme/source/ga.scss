@@ -48,6 +48,12 @@ $heading4Size: 1.0em;
 // Additional styles ------------------------------
 @import "../../../bower_components/susy/sass/susy";
 
+section.ga-reverse {
+    h1, h3, p {
+        color: $backgroundColor;
+    }
+}
+
 .reveal table {
     font-size: 1.5rem;
     margin-bottom: .85em;
@@ -101,9 +107,14 @@ div.ga-col4-25 {
     width: 50%;
 }
 
+.ga-invert {
+    -webkit-filter: invert(100%);
+            filter: invert(100%);
+}
+
 header.ga-header {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-top: 1px solid $backgroundColor;
+    border-bottom: 1px solid $backgroundColor;
     text-align: left;
     margin-bottom: 15vh;
     svg {
