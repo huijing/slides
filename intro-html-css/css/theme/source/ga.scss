@@ -1,5 +1,5 @@
 /**
- * Custom theme for Reveal.js presentations.
+ * General Assembly theme for Reveal.js presentations.
  *
  * Copyright (C) 2015 Chen Hui Jing, http://www.chenhuijing.com/
  */
@@ -10,23 +10,23 @@
 // ---------------------------------------------
 
 // Include theme-specific fonts
-@import url(../../lib/font/palo-alto/palo-alto.css);
-@import url(../../lib/font/roboto-slab/roboto-slab.css);
+@import url(../../lib/font/pfdintextcomppro-bold/pfdintextcomppro-bold.css);
+@import url(../../lib/font/news-706/news-706.css);
 
 // Override theme settings (see ../template/settings.scss)
-$backgroundColor: rgba(250, 255, 250, 1);
+$backgroundColor: rgba(255, 255, 255, 1);
 
-$mainColor: rgba(42, 42, 42, 1);
-$headingColor: rgba(55, 40, 34, 1);
+$mainColor: rgba(0, 0, 0, 1);
+$headingColor: rgba(0, 0, 0, 1);
 
 $mainFontSize: 38px;
-$mainFont: 'Roboto Slab', 'Rockwell', serif;
-$headingFont: 'Palo Alto', 'Arial Black', sans-serif;
+$mainFont: 'News 706', 'Georgia', serif;
+$headingFont: 'PF Din Text Comp Pro' , 'Impact', Arial, sans-serif;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
 $headingTextTransform: uppercase;
 $headingFontWeight: 600;
-$linkColor: rgba(74, 188, 65, 1);
+$linkColor: rgba(229, 27, 36, 1);
 $linkColorHover: lighten( $linkColor, 15% );
 $selectionBackgroundColor: lighten( $linkColor, 25% );
 
@@ -53,42 +53,59 @@ $heading4Size: 1.0em;
     border-bottom: 1px solid;
 }
 
-.j-lowercase {
+.ga-lowercase {
     text-transform: lowercase;
 }
 
-.j-border-bottom {
+.ga-border-bottom {
     border-bottom: 1px solid !important;
 }
 
-.j-nowrap {
+.ga-nowrap {
     white-space: nowrap;
 }
 
-.j-col2-50 {
+div.ga-col2-50 {
     @include span(6 of 12);
-    &:last-child {
+    &:nth-of-type(2n) {
         @include last;
     }
 }
 
-.j-col3-33 {
+div.ga-col3-33 {
     @include span(4 of 12);
     &:nth-of-type(3n) {
         @include last;
     }
 }
 
-.j-svgicon {
+div.ga-col4-25 {
+    @include span(3 of 12);
+    &:nth-of-type(4n) {
+        @include last;
+    }
+}
+
+.ga-svgicon {
     width: 8rem;
     height: 8rem;
 }
 
-.j-svgimg {
+.ga-svgimg {
     width: 70%;
 }
 
-ul.j-multi {
+.ga-svgimg-small {
+    margin-top: 2rem;
+    width: 50%;
+}
+
+div.ga-box {
+    font-size: 200%;
+    border: 3px solid green;
+    padding: 2rem 0;
+}
+ul.ga-multi {
     width: 100%;
     list-style-position: inside;
     -webkit-column-width: 10rem;
@@ -97,13 +114,13 @@ ul.j-multi {
     font-size: 55%;
 }
 
-section img.j-icon {
+section img.ga-icon {
     display: inline-block;
     vertical-align: middle;
     margin-right: 1rem;
 }
 
-span.j-emoji {
+span.ga-emoji {
     font-family: $mainFont;
     font-weight: 400;
 }

@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'News 706';
+  src: url('news-706-roman.eot'); /* IE9 Compat Modes */
+  src: url('news-706-roman.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('news-706-roman.woff2') format('woff2'),
+       url('news-706-roman.woff') format('woff'), /* Modern Browsers */
+       url('news-706-roman.ttf')  format('truetype'), /* Safari, Android, iOS */
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'News 706';
+  src: url('news-706-italic.eot'); /* IE9 Compat Modes */
+  src: url('news-706-italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('news-706-italic.woff2') format('woff2'),
+       url('news-706-italic.woff') format('woff'), /* Modern Browsers */
+       url('news-706-italic.ttf')  format('truetype'), /* Safari, Android, iOS */       
+  font-style:   italic;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'News 706';
+  src: url('news-706-bold-bt.eot'); /* IE9 Compat Modes */
+  src: url('news-706-bold-bt.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('news-706-bold-bt.woff2') format('woff2'),
+       url('news-706-bold-bt.woff') format('woff'), /* Modern Browsers */
+       url('news-706-bold-bt.ttf')  format('truetype'), /* Safari, Android, iOS */
+  font-style:   normal;
+  font-weight:  700;
+}
