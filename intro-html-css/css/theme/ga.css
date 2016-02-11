@@ -336,9 +336,24 @@ div.ga-col4-25 {
   margin-top: 2rem;
   width: 50%; }
 
+header.ga-header {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  text-align: left;
+  margin-bottom: 15vh; }
+  header.ga-header svg {
+    height: 4rem;
+    width: 4rem;
+    display: inline-block;
+    vertical-align: middle; }
+  header.ga-header h3 {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0; }
+
 div.ga-box {
   font-size: 200%;
-  border: 3px solid green;
+  border: 3px solid #e51b24;
   padding: 2rem 0; }
 
 ul.ga-multi {
