@@ -1,0 +1,164 @@
+/**
+ * General Assembly theme for Reveal.js presentations.
+ *
+ * Copyright (C) 2015 Chen Hui Jing, http://www.chenhuijing.com/
+ */
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url(../../lib/font/pfdintextcomppro-bold/pfdintextcomppro-bold.css);
+@import url(../../lib/font/news-706/news-706.css);
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: rgba(255, 255, 255, 1);
+
+$mainColor: rgba(0, 0, 0, 1);
+$headingColor: rgba(0, 0, 0, 1);
+$highlightColor: rgba(229, 27, 36, 1);
+
+$mainFontSize: 38px;
+$mainFont: 'News 706', 'Georgia', serif;
+$headingFont: 'PF Din Text Comp Pro' , 'Impact', Arial, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingFontWeight: 600;
+$linkColor: rgba(229, 27, 36, 1);
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+// Theme template ------------------------------
+@import "../template/theme";
+
+.reveal pre code {
+    background: #3F3F3F;
+    color: #DCDCDC;
+}
+// ---------------------------------------------
+
+// Additional styles ------------------------------
+@import "../../../bower_components/susy/sass/susy";
+
+section.ga-reverse {
+    h1, h3, p {
+        color: $backgroundColor;
+    }
+}
+
+.reveal table {
+    font-size: 1.5rem;
+    margin-bottom: .85em;
+    border-bottom: 1px solid;
+}
+
+.ga-lowercase {
+    text-transform: lowercase;
+}
+
+.ga-border-bottom {
+    border-bottom: 1px solid !important;
+}
+
+.ga-nowrap {
+    white-space: nowrap;
+}
+
+div.ga-col2-50 {
+    @include span(6 of 12);
+    &:nth-of-type(2n) {
+        @include last;
+    }
+}
+
+div.ga-col3-33 {
+    @include span(4 of 12);
+    &:nth-of-type(3n) {
+        @include last;
+    }
+}
+
+div.ga-col4-25 {
+    @include span(3 of 12);
+    &:nth-of-type(4n) {
+        @include last;
+    }
+}
+
+.ga-svgicon {
+    width: 8rem;
+    height: 8rem;
+}
+
+.ga-svgimg {
+    width: 70%;
+}
+
+.ga-svgimg-small {
+    margin-top: 2rem;
+    width: 50%;
+}
+
+.ga-invert {
+    -webkit-filter: invert(100%);
+            filter: invert(100%);
+}
+
+header.ga-header {
+    border-top: 1px solid $backgroundColor;
+    border-bottom: 1px solid $backgroundColor;
+    text-align: left;
+    margin-bottom: 15vh;
+    svg {
+        height: 4rem;
+        width: 4rem;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    h3 {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+    }
+}
+
+div.ga-box {
+    font-size: 200%;
+    border: 3px solid $highlightColor;
+    padding: 2rem 0;
+}
+ul.ga-multi {
+    width: 100%;
+    list-style-position: inside;
+    -webkit-column-width: 10rem;
+    -moz-column-width: 10rem;
+    column-width: 10rem;
+    font-size: 55%;
+}
+
+section img.ga-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1rem;
+}
+
+span.ga-emoji {
+    font-family: $mainFont;
+    font-weight: 400;
+}
+
+// CSS for PC mockup ------------------------------
+@import "computer";
+
+.brain-wrapper {
+    float: left;
+    width: calc(100% - 720px);
+}
