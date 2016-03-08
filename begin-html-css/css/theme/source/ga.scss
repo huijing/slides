@@ -83,6 +83,26 @@ section.ga-reverse {
     white-space: nowrap;
 }
 
+div.ga-example-1 {
+    text-align: left;
+    font-size: 50%;
+    ul li {
+        color: green;
+    }
+    ul {
+        margin-bottom: 1rem;
+    }
+}
+
+div.ga-example-2 {
+    text-align: left;
+    font-size: 65%;
+    a:hover {
+        text-decoration: underline;
+        color: green;
+    }
+}
+
 div.ga-col2-50 {
     @include span(6 of 12);
     &:nth-of-type(2n) {

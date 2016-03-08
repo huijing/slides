@@ -860,9 +860,6 @@ static int count_leading_ones(char c) {
 								</linearGradient>
 							</defs>
 							<g fill="none" fill-rule="evenodd">
-								<text font-size="16" fill="#000">
-									<tspan x="79" y="31">https://www.unicorn.com/rainbow.html</tspan>
-								</text>
 								<path d="M580.333 112.358l20.305-20.256h67.683l20.306 20.256v162.037H580.333V112.358z" stroke="#7D7D7D" stroke-width="3.75" fill="#E1E1E1"/>
 								<path d="M590.486 115.734l16.92-16.88h54.147l16.92 16.88h-87.987zM592.178 119.11h84.603c.94 0 1.693.75 1.693 1.688v145.164c0 .93-.753 1.688-1.692 1.688H592.18c-.932 0-1.692-.758-1.692-1.688V120.798c0-.937.76-1.688 1.692-1.688" stroke="#9C9C9C" stroke-width="1.25" fill="#BDBDBD"/>
 								<path d="M598.946 129.237h71.067c.938 0 1.692.752 1.692 1.688v16.88c0 .93-.754 1.688-1.692 1.688h-71.067c-.932 0-1.692-.758-1.692-1.688v-16.88c0-.936.76-1.688 1.692-1.688M598.946 159.62h71.067c.938 0 1.692.752 1.692 1.69v16.878c0 .93-.754 1.688-1.692 1.688h-71.067c-.932 0-1.692-.758-1.692-1.688v-16.88c0-.936.76-1.687 1.692-1.687M629.403 196.756h40.61c.932 0 1.692.75 1.692 1.688v13.503c0 .93-.76 1.688-1.692 1.688h-40.61c-.938 0-1.692-.758-1.692-1.688v-13.503c0-.937.755-1.688 1.693-1.688" stroke="#7D7D7D" stroke-width="3.75" fill="#9C9C9C"/>
@@ -886,6 +883,9 @@ static int count_leading_ones(char c) {
 									<path d="M39.054 31.452c3.336 0 6.04-2.708 6.04-6.05 0-3.34-2.704-6.047-6.04-6.047-3.335 0-6.04 2.708-6.04 6.048s2.705 6.05 6.04 6.05z" fill="#E6AA34"/>
 									<ellipse fill="#85C33D" cx="57.575" cy="25.403" rx="6.039" ry="6.048"/>
 									<path fill="#FFF" opacity=".85" d="M72.472 11.29h346.255v27.242H72.472z"/>
+									<text font-size="16" fill="#000">
+										<tspan x="79" y="31">https://www.unicorn.com/rainbow.html</tspan>
+									</text>
 									<text font-size="26" fill="#000">
 										<tspan x="28" y="103">Rainbows</tspan>
 									</text>
@@ -1338,6 +1338,71 @@ static int count_leading_ones(char c) {
 							<li><strong>ID</strong>: matches the element with the specified id attribute, e.g. <code class="ga-nowrap">&lt;div id="example"&gt;</code>
 							<pre><code>#example {}</code></pre></li>
 						</ul>
+					</section>
+					<section>
+						<h2>Descendent selectors</h2>
+						<p>Used to select tags that are children of other tags</p>
+						<div class="ga-col2-50">
+							<pre><code>&lt;ul&gt;
+  &lt;li&gt;4 large eggs&lt;/li&gt;
+  &lt;li&gt;1/4 cup milk&lt;/li&gt;
+  &lt;li&gt;2 tsp. butter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+  &lt;li&gt;BEAT eggs, milk, salt and pepper in medium bowl until blended.&lt;/li&gt;
+  &lt;li&gt;HEAT butter in large nonstick skillet over medium heat until hot. POUR IN egg mixture. As eggs begin to set, GENTLY PULL the eggs across the pan with a spatula, forming large soft curds.&lt;/li&gt;
+  &lt;li&gt;CONTINUE cooking – pulling, lifting and folding eggs – until thickened and no visible liquid egg remains. Do not stir constantly. REMOVE from heat. SERVE immediately.&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+							<pre><code>ul li {
+  color: green;
+}</code></pre>
+						</div>
+						<div class="ga-col2-50">
+							<div class="ga-example-1">
+								<ul>
+									<li>4 large eggs</li>
+									<li>1/4 cup milk</li>
+									<li>2 tsp. butter</li>
+								</ul>
+								<ol>
+									<li>BEAT eggs, milk, salt and pepper in medium bowl until blended.</li>
+									<li>HEAT butter in large nonstick skillet over medium heat until hot. POUR IN egg mixture. As eggs begin to set, GENTLY PULL the eggs across the pan with a spatula, forming large soft curds.</li>
+									<li>CONTINUE cooking – pulling, lifting and folding eggs – until thickened and no visible liquid egg remains. Do not stir constantly. REMOVE from heat. SERVE immediately.</li>
+								</ol>
+							</div>
+							<p>Selector list is read from right-to-left, with the left-most being the parent.</p>
+						</div>
+					</section>
+					<section>
+						<h2>Pseudo-selectors</h2>
+						<p>Applies to selectors when certain conditions occur</p>
+						<div class="ga-col2-50">
+							<pre><code>a {
+  /* removes underlines from 
+     all text links */
+  text-decoration: none;
+}
+a:hover {
+ /* adds an underline and makes
+    the font green when hovered */
+  text-decoration: underline;
+  color: green;
+}</code></pre>
+						</div>
+						<div class="ga-col2-50">
+							<div class="ga-example-2">
+								<ul>
+									<li><a href="javascript:void(0)">Link 1</a></li>
+									<li><a href="javascript:void(0)">Link 2</a></li>
+									<li><a href="javascript:void(0)">Link 3</a></li>
+								</ul>
+							</div>
+							<p>There are many other pseudo-selectors you can use as well. The full list is available <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes" target="_blank">here</a>.</p>
+						</div>
+					</section>
+					<section>
+						<h2>Writing your styles</h2>
+
 					</section>
 					<section>
 						<h2>CSS Specificity</h2>
