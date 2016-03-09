@@ -59,10 +59,42 @@ $heading4Size: 1.0em;
 // Additional styles ------------------------------
 @import "../../../bower_components/susy/sass/susy";
 
-section.ga-reverse {
-    h1, h3, p {
-        color: $backgroundColor;
-    }
+.ga-lowercase {
+    text-transform: lowercase;
+}
+
+.ga-border-bottom {
+    border-bottom: 1px solid !important;
+}
+
+.ga-nowrap {
+    white-space: nowrap;
+}
+
+.ga-text-left {
+    text-align: left;
+}
+
+.ga-svgicon {
+    width: 8rem;
+    height: 8rem;
+}
+
+.ga-svgimg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+.ga-svgimg-small {
+    margin-top: 2rem;
+    width: 50%;
+}
+
+.ga-invert {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
 }
 
 .reveal table {
@@ -76,16 +108,35 @@ section.ga-reverse {
     margin-bottom: 1rem;
 }
 
-.ga-lowercase {
-    text-transform: lowercase;
+.reveal figcaption {
+    font-size: 75%;
+    font-style: italic;
 }
 
-.ga-border-bottom {
-    border-bottom: 1px solid !important;
+header.ga-header {
+    border-top: 1px solid $backgroundColor;
+    border-bottom: 1px solid $backgroundColor;
+    text-align: left;
+    margin-bottom: 15vh;
+    svg {
+        height: 4rem;
+        width: 4rem;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    h3 {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+    }
 }
 
-.ga-nowrap {
-    white-space: nowrap;
+section.ga-reverse {
+    h1,
+    h3,
+    p {
+        color: $backgroundColor;
+    }
 }
 
 div.ga-example-1 {
@@ -106,6 +157,105 @@ div.ga-example-2 {
         text-decoration: underline;
         color: green;
     }
+}
+
+div.ga-example-3 {
+    text-align: left;
+    font-size: 40%;
+    h1 {
+        border: 2px dashed map-get($secondary-colors, coral-red);
+    }
+    p {
+        border: 2px dashed map-get($secondary-colors, school-bus);
+    }
+    h2 {
+        border: 2px dashed map-get($secondary-colors, java);
+    }
+    ul {
+        border: 2px dashed map-get($secondary-colors, brink-pink);
+    }
+    li {
+        border: 2px dashed map-get($secondary-colors, sundown);
+    }
+}
+
+p.ga-example-4 {
+    padding: 1rem;
+    font-size: 65%;
+    text-align: left;
+    border: 2px solid map-get($secondary-colors, mercury);
+    a {
+        border: 2px dashed map-get($secondary-colors, sundown);
+    }
+}
+
+div.ga-example-5,
+div.ga-example-6 {
+    text-align: left;
+    font-size: 40%;
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    p {
+        border: 2px dashed map-get($secondary-colors, school-bus);
+    }
+    h2 {
+        border: 2px dashed map-get($secondary-colors, java);
+    }
+    ul {
+        border: 2px dashed map-get($secondary-colors, brink-pink);
+        list-style-position: inside;
+    }
+}
+
+div.ga-example-5a {
+    h2 {
+        margin: 5px 0;
+    }
+}
+
+div.ga-example-5b {
+    h2 {
+        margin: 20px 0;
+    }
+}
+
+div.ga-example-6b {
+    h2 {
+        padding: 20px 0;
+    }
+}
+
+div.ga-example-7 {
+    height: 30vh;
+    background-color: #170104;
+    background: url(../../img/background.jpg);
+    font-size: 65%;
+    p {
+        color: white;
+        line-height: 30vh;
+    }
+}
+
+div.ga-example-7a {
+    background-size: cover;
+}
+
+div.ga-example-7b {
+    background-position: center;
+}
+
+div.ga-example-7c {
+    background-position: left bottom;
+}
+
+div.ga-example-8 {
+    padding: 1rem;
+    height: 30vh;
+    background-color: #EBEBEB;
+    background: url(../../img/sativa.jpg) repeat;
+    font-size: 65%;
 }
 
 div.ga-col2-50 {
@@ -129,58 +279,24 @@ div.ga-col4-25 {
     }
 }
 
-.ga-svgicon {
-    width: 8rem;
-    height: 8rem;
-}
-
-.ga-svgimg {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 70%;
-}
-
-.ga-svgimg-small {
-    margin-top: 2rem;
-    width: 50%;
-}
-
-.ga-invert {
-    -webkit-filter: invert(100%);
-            filter: invert(100%);
-}
-
-header.ga-header {
-    border-top: 1px solid $backgroundColor;
-    border-bottom: 1px solid $backgroundColor;
-    text-align: left;
-    margin-bottom: 15vh;
-    svg {
-        height: 4rem;
-        width: 4rem;
-        display: inline-block;
-        vertical-align: middle;
-    }
-    h3 {
-        display: inline-block;
-        vertical-align: middle;
-        margin: 0;
-    }
-}
-
 div.ga-box {
     font-size: 200%;
     border: 3px solid $highlightColor;
     padding: 2rem 0;
 }
+
 ul.ga-multi {
     width: 100%;
     list-style-position: inside;
     -webkit-column-width: 13rem;
     -moz-column-width: 13rem;
     column-width: 13rem;
-    font-size: 55%;
+    font-size: 45%;
+}
+
+span.ga-emoji {
+    font-family: $mainFont;
+    font-weight: 400;
 }
 
 section img.ga-icon {
@@ -189,14 +305,8 @@ section img.ga-icon {
     margin-right: 1rem;
 }
 
-span.ga-emoji {
-    font-family: $mainFont;
-    font-weight: 400;
-}
-
 // CSS for PC mockup ------------------------------
 @import "computer";
-
 .brain-wrapper {
     float: left;
     width: calc(100% - 720px);
