@@ -295,6 +295,10 @@ section.ga-reverse h1, section.ga-reverse h3, section.ga-reverse p {
   margin-bottom: .85em;
   border-bottom: 1px solid; }
 
+.reveal ul {
+  display: block;
+  margin-bottom: 1rem; }
+
 .ga-lowercase {
   text-transform: lowercase; }
 
@@ -348,6 +352,9 @@ div.ga-col4-25 {
   height: 8rem; }
 
 .ga-svgimg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   width: 70%; }
 
 .ga-svgimg-small {

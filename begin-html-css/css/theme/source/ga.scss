@@ -71,6 +71,11 @@ section.ga-reverse {
     border-bottom: 1px solid;
 }
 
+.reveal ul {
+    display: block;
+    margin-bottom: 1rem;
+}
+
 .ga-lowercase {
     text-transform: lowercase;
 }
@@ -130,6 +135,9 @@ div.ga-col4-25 {
 }
 
 .ga-svgimg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     width: 70%;
 }
 
