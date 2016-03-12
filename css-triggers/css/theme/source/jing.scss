@@ -39,28 +39,28 @@ $heading4Size: 1.0em;
 @import "../template/theme";
 
 .reveal pre code {
-    background: #3F3F3F;
-    color: #DCDCDC;
+  background: #3F3F3F;
+  color: #DCDCDC;
 }
 // ---------------------------------------------
 
 // Additional styles ------------------------------
 
 section img.j-icon {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 1rem;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1rem;
 }
 
 span.j-emoji {
-    font-family: $mainFont;
-    font-weight: 400;
+  font-family: $mainFont;
+  font-weight: 400;
 }
 
 .j-multi {
-    width: 100%;
-    list-style-position: inside;
-    -webkit-column-width: 15rem;
-    -moz-column-width: 15rem;
-    column-width: 15rem;
+  width: 100%;
+  list-style-position: inside;
+  -webkit-column-width: 15rem;
+  -moz-column-width: 15rem;
+  column-width: 15rem;
 }
