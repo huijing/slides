@@ -38,10 +38,10 @@ $heading4Size: 1.0em;
 // Theme template ------------------------------
 @import "../template/theme";
 
-.reveal pre code {
-  background: #3F3F3F;
-  color: #DCDCDC;
+.reveal pre {
+  font-size: inherit;
 }
+
 // ---------------------------------------------
 
 // Additional styles ------------------------------
