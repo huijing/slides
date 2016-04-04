@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>The epic git 💣</title>
+
+		<meta name="description" content="How a git noob learned about git history the hard way">
+		<meta name="author" content="Chen Hui Jing">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/jing.css" id="theme">
+
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+				<section>
+					<h1>The epic git <span class="j-emoji">💣</span></h1>
+					<p><small>By <a href="http://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
+				</section>
+
+				<section>
+					<img class="plain" data-src="img/fire-drill.jpg" alt="In case of fire">
+				</section>
+
+				<section>
+					<h2>A little back-story</h2>
+					<svg class="fragment j-eqn" viewBox="0 0 334 334">
+					  <g fill="#000" fill-rule="evenodd">
+					    <path d="M119.58 159.816c-12.377 0-12.377 19.19 0 19.19 12.377.005 12.377-19.19 0-19.19zM180.356 177.803c12.377 0 12.377-19.188 0-19.188s-12.377 19.188 0 19.188zM179.18 200.806c0-4.472-3.623-8.1-8.1-8.1-3.602 0-6.652 2.347-7.707 5.595-1.793.966-6.416 2.396-13.397 2.396-6.98 0-11.61-1.435-13.397-2.395-1.053-3.253-4.108-5.595-7.705-5.595-4.478 0-8.1 3.63-8.1 8.1 0 11.117 14.666 16.09 29.207 16.09 14.543 0 29.198-4.978 29.198-16.09z"/>
+					    <path d="M294.737 183.74c3.102-5.62 4.884-12.07 4.884-18.925 0-21.353-17.085-38.794-38.3-39.366-16.754-45.442-61.637-76.653-111.35-76.653-3.25 0-6.472.146-9.676.41-5.463-.642-10.858-1.8-15.934-3.732-8.366-3.18-21.72-14.33-10.87-23.554 8.59-7.305 24.494-9.4 35.14-6.032 5.715 1.81 13.166 7.182 4.808 11.49-6.09 3.14-11.783 2.8-17.972.154-8.543-3.657-12.625 10.162-4.195 13.774 10.414 4.456 23.317 3.73 32.375-3.546 6.48-5.208 11.385-15.008 6.365-22.995-11.15-17.73-38.708-17.42-55.933-9.87-16.973 7.442-26.13 30.24-10.583 44.49 2.49 2.278 5.27 4.143 8.166 5.817-33.336 11.328-60.75 36.93-73.037 70.242-21.215.572-38.3 18.014-38.3 39.366s17.085 38.792 38.294 39.367c16.757 45.446 61.63 76.654 111.354 76.654 8.702 0 17.232-1.006 25.514-2.825 10.6 32.463 41.133 56.004 77.087 56.004 44.73 0 81.117-36.388 81.117-81.117 0-29.268-15.642-54.893-38.95-69.152zM252.57 317.814c-28.612 0-52.913-18.63-61.53-44.38-1.713-5.11-2.773-10.506-3.163-16.09-.1-1.478-.222-2.943-.222-4.446 0-34.746 27.464-63.123 61.815-64.758 1.033-.048 2.046-.153 3.096-.153 11.4 0 22.11 2.974 31.435 8.157 19.945 11.09 33.487 32.363 33.487 56.76 0 35.79-29.12 64.91-64.916 64.91zm-102.6-53.177c-44.844 0-85.107-29.31-97.906-71.276l-2.03-6.666-6.89 1.013c-1.123.17-2.262.296-3.436.296-12.78 0-23.182-10.4-23.182-23.183 0-12.78 10.402-23.182 23.182-23.182 1.173 0 2.312.124 3.436.298l6.89 1.015 2.03-6.662c12.8-41.972 53.062-71.28 97.907-71.28 44.846 0 85.115 29.31 97.908 71.28l2.035 6.663 6.888-1.014c1.124-.17 2.263-.298 3.434-.298 12.783 0 23.183 10.402 23.183 23.182 0 4.35-1.282 8.38-3.375 11.86-8.596-3.106-17.82-4.89-27.475-4.89-44.725 0-81.114 36.383-81.114 81.112 0 3.143.222 6.228.572 9.275-7.154 1.568-14.53 2.46-22.054 2.46z"/>
+					    <path d="M232.805 274.078l-41.336-17.23v-8.723l41.335-17.273v11.343l-25.524 10.27 25.525 10.226v11.388zm37.082-56.976l-20.625 72.23h-13.15l20.755-72.23h13.02zm3.308 13.75l41.336 17.187v8.765l-41.335 17.273v-11.344l25.524-10.27-25.525-10.226v-11.386z"/>
+					  </g>
+					</svg>
+					<span class="fragment j-operator">+</span>
+					<svg class="fragment j-eqn" viewBox="0 0 36 37">
+					  <g fill="#000" fill-rule="evenodd">
+					    <path d="M16.9 19.6H0v16.9h16.9V19.6zM6.3 32L6 33.4l-.8-1.1-1.4.1.8-1.2-.6-1.3 1.3.4 1-.9v1.4l1.2.7-1.2.5zm6.9-8.4l-.9-.4-.8.6.1-1-.8-.6 1-.2.3-.9.5.8h1l-.6.8.2.9zM19.1.5v13.7c.4.1.8.1 1.2.1 2.9 0 5.3-2.4 5.3-5.3 0-2.4-1.6-4.5-3.9-5.1.6-.1 1.2-.2 1.8-.2 4.7 0 8.4 3.8 8.4 8.4 0 2-.7 3.8-1.8 5.2H36V.5H19.1zM23.5 20.6c-1.5 0-2.8-.4-4-1h-.4v16.9H36V19.6h-8.5c-1.2.6-2.5 1-4 1zm7.5 7.8l.7-1 .3 1.2 1.2.4-1 .6v1.2l-1-.8-1.2.4.5-1.1-.7-1 1.2.1zM15.1 12.2c0-.6.1-1.2.2-1.8.3 1 .8 1.9 1.6 2.5V.5H0v16.9h16.9c-1.1-1.5-1.8-3.3-1.8-5.2zM6.9 7l-1 1.2-.3-1.6L4.1 6l1.4-.7.1-1.6 1.1 1.1 1.5-.4-.7 1.4.8 1.4L6.9 7z"/>
+					  </g>
+					</svg>
+					<span class="fragment j-operator">+</span>
+					<svg class="fragment j-eqn" viewBox="0 0 33 17">
+					  <path d="M32.5 5.4H24C22.8 2.7 20 .7 16.8.7s-6 1.9-7.2 4.7H.8v6.5h8.8c1.2 2.7 4 4.7 7.2 4.7s6-1.9 7.2-4.7h8.5V5.4zm-15.7 7.2c-2.2 0-3.9-1.8-3.9-3.9 0-2.2 1.8-3.9 3.9-3.9 2.2 0 3.9 1.8 3.9 3.9 0 2.1-1.7 3.9-3.9 3.9z" fill="#000" fill-rule="evenodd"/>
+					</svg>
+					<span class="fragment j-operator">=</span>
+					<svg class="fragment j-eqn" viewBox="0 0 90 78">
+					  <path d="M67.1 11s.3 0 .4.2c.1.3.2.6.2 1 0 1.2-.9 2.1-2.1 2.1-1.2 0-2.1-.9-2.1-2.1 0-.3.1-.5.1-.7 0-.1.2-.1.2-.1l3.3-.4zm-4 4c-.2-.3-.6-.3-.9 0-.2.3-.4.5-.4.5-.1.1-.1.2-.1.4 0 .3.2.6.5.6.2 0 .4-.1.5-.3.1.2.3.3.5.3.3 0 .5-.3.5-.6 0-.1 0-.3-.1-.4l-.5-.5zm-1.2-3.5c0-.1-.2-.1-.2-.1l-3.2-.4s-.3 0-.4.2c-.1.3-.2.6-.2 1 0 1.2.9 2.1 2.1 2.1 1.2 0 2.1-.9 2.1-2.1 0-.3-.1-.5-.2-.7zm28 37.2l-4 6.2v-6s-1.1 1-1.8 1.7-.6-.4-.6-.4v-3.6l-3.8.6-5.4-11.9 2.4 42.6H45.6L48.2 36 45 38.2l-11.5 4.1v-7.8l-2 .8 6.7 42.5h-2.9l-6.6-41.4-1.3.5c-.8.3-1.7-.3-1.7-1.2v-4.9c0-.7.6-1.3 1.3-1.3h.7L24.4 9C19.8 10.2 9.8 13.9 0 25.9c0 0 4.5-16.4 26.2-21.8l.3.3.2.2 3.9 25h2.9v-.5l11.1-2 9.3-9c.2-.3.5-.5.8-.7-.7-1.3-1.2-2.5-1.4-3.3-.2-.5-.3-1-.3-1.5v-2.5c0-2.2.9-4.2 2.5-5.7L60 1c1.5-1.2 3.7-1.2 5.2 0l4.6 3.5c1.6 1.4 2.5 3.5 2.5 5.7v2.5c0 .5-.1 1-.3 1.5-.4 1-1.1 2.9-2.2 4.5.2.2.4.5.6.7l18.8 26.3-1 .2 1.5 1.7c.3.3.4.7.2 1.1zM69.1 11.1c0-3.9-3.5-7-7.5-6.3-2.4.4-4.4 2.2-5.1 4.5-.8 2.8.3 5.4 2.1 6.9l.6.4c.1.1.2.3.1.4-.1.1-.2.1-.3.1h-.2V17v1.7c0 .4.3.7.7.7l3.2-.3h.3l3.4.3c.4 0 .6-.4.6-.7V17l-.4.1h-.3c-.1 0-.3-.1-.3-.1-.1-.1-.1-.3.1-.4l.5-.3c1.5-1.2 2.5-3.1 2.5-5.2z" fill="#000" fill-rule="evenodd"/>
+					</svg>
+				</section>
+
+				<section>
+					<h2>To find out more...</h2>
+					<ul>
+						
+					</ul>
+				</section>
+
+				<section style="text-align: left;">
+					<h1>THE END</h1>
+					<p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="http://www.chenhuijing.com">http://www.chenhuijing.com</a></p>
+					<p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen">@hj_chen</a></p>
+					<p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen">@hj_chen</a></p>
+					<p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/">@huijing</a></p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

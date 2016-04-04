@@ -1,0 +1,73 @@
+/**
+ * Custom theme for Reveal.js presentations.
+ *
+ * Copyright (C) 2015 Chen Hui Jing, http://www.chenhuijing.com/
+ */
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url(../../lib/font/palo-alto/palo-alto.css);
+@import url(../../lib/font/roboto-slab/roboto-slab.css);
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: rgba(250, 255, 250, 1);
+
+$mainColor: rgba(42, 42, 42, 1);
+$headingColor: rgba(55, 40, 34, 1);
+
+$mainFontSize: 38px;
+$mainFont: 'Roboto Slab', 'Rockwell', serif;
+$headingFont: 'Palo Alto', 'Arial Black', sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingFontWeight: 600;
+$linkColor: rgba(74, 188, 65, 1);
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+// Theme template ------------------------------
+@import "../template/theme";
+
+.reveal pre code {
+  background: #3F3F3F;
+  color: #DCDCDC;
+}
+// ---------------------------------------------
+
+// Additional styles ------------------------------
+
+section img.j-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1rem;
+}
+
+span.j-emoji {
+  font-family: $mainFont;
+  font-weight: 400;
+}
+
+.j-eqn {
+  display: inline-block;
+  height: 18%;
+  vertical-align: middle;
+  width: 18%;
+}
+
+span.j-operator {
+  display: inline-block;
+  font-size: 2.5em;
+  font-weight: bold;
+  margin: 0 0.1em;
+  vertical-align: middle;
+}
