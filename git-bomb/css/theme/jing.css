@@ -307,3 +307,12 @@ span.j-operator {
   font-weight: bold;
   margin: 0 0.1em;
   vertical-align: middle; }
+
+.j-col2-25 {
+  width: 23.7288135593%;
+  float: left;
+  margin-right: 1.6949152542%; }
+  .j-col2-25:last-child {
+    width: 74.5762711864%;
+    float: right;
+    margin-right: 0; }

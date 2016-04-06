@@ -45,6 +45,7 @@ $heading4Size: 1.0em;
 // ---------------------------------------------
 
 // Additional styles ------------------------------
+@import '../../../node_modules/susy/sass/susy';
 
 section img.j-icon {
   display: inline-block;
@@ -70,4 +71,11 @@ span.j-operator {
   font-weight: bold;
   margin: 0 0.1em;
   vertical-align: middle;
+}
+
+.j-col2-25 {
+  @include span(3 of 12);
+  &:last-child {
+    @include span(9 of 12 last);
+  }
 }
