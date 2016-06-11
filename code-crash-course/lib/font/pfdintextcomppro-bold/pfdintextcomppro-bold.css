@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'PF Din Text Comp Pro';
+  src: url('pfdintextcomppro-bold.eot'); /* IE9 Compat Modes */
+  src: url('pfdintextcomppro-bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('pfdintextcomppro-bold.woff2') format('woff2'),
+       url('pfdintextcomppro-bold.woff') format('woff'), /* Modern Browsers */
+       url('pfdintextcomppro-bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+  font-style:   normal;
+  font-weight:  700;
+}
+
