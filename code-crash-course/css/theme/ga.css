@@ -287,14 +287,6 @@ body {
   background: #3F3F3F;
   color: #DCDCDC; }
 
-section.ga-reverse h1, section.ga-reverse h3, section.ga-reverse p {
-  color: white; }
-
-.reveal table {
-  font-size: 1.5rem;
-  margin-bottom: .85em;
-  border-bottom: 1px solid; }
-
 .ga-lowercase {
   text-transform: lowercase; }
 
@@ -303,6 +295,150 @@ section.ga-reverse h1, section.ga-reverse h3, section.ga-reverse p {
 
 .ga-nowrap {
   white-space: nowrap; }
+
+.ga-text-left {
+  text-align: left; }
+
+.ga-svgicon {
+  width: 8rem;
+  height: 8rem; }
+
+.ga-svgimg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%; }
+
+.ga-svgimg-small {
+  margin-top: 2rem;
+  width: 50%; }
+
+.ga-invert {
+  -webkit-filter: invert(100%);
+  filter: invert(100%); }
+
+.reveal table {
+  font-size: 1.5rem;
+  margin-bottom: .85em;
+  border-bottom: 1px solid; }
+
+.reveal ul {
+  display: block;
+  margin-bottom: 1rem; }
+
+.reveal figcaption {
+  font-size: 75%;
+  font-style: italic; }
+
+header.ga-header {
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  text-align: left;
+  margin-bottom: 15vh; }
+  header.ga-header svg {
+    height: 4rem;
+    width: 4rem;
+    display: inline-block;
+    vertical-align: middle; }
+  header.ga-header h3 {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0; }
+
+section.ga-reverse h1,
+section.ga-reverse h3,
+section.ga-reverse p {
+  color: white; }
+
+div.ga-example-1 {
+  text-align: left;
+  font-size: 50%; }
+  div.ga-example-1 ul li {
+    color: green; }
+  div.ga-example-1 ul {
+    margin-bottom: 1rem; }
+
+div.ga-example-2 {
+  text-align: left;
+  font-size: 65%; }
+  div.ga-example-2 a:hover {
+    text-decoration: underline;
+    color: green; }
+
+div.ga-example-3 {
+  text-align: left;
+  font-size: 40%; }
+  div.ga-example-3 h1 {
+    border: 2px dashed #F83C4B; }
+  div.ga-example-3 p {
+    border: 2px dashed #FFDB01; }
+  div.ga-example-3 h2 {
+    border: 2px dashed #21C9C9; }
+  div.ga-example-3 ul {
+    border: 2px dashed #F76477; }
+  div.ga-example-3 li {
+    border: 2px dashed #FEB1C1; }
+
+p.ga-example-4 {
+  padding: 1rem;
+  font-size: 65%;
+  text-align: left;
+  border: 2px solid #E9E9E9; }
+  p.ga-example-4 a {
+    border: 2px dashed #FEB1C1; }
+
+div.ga-example-5,
+div.ga-example-6 {
+  text-align: left;
+  font-size: 40%; }
+  div.ga-example-5 *,
+  div.ga-example-6 * {
+    margin: 0;
+    padding: 0; }
+  div.ga-example-5 p,
+  div.ga-example-6 p {
+    border: 2px dashed #FFDB01; }
+  div.ga-example-5 h2,
+  div.ga-example-6 h2 {
+    border: 2px dashed #21C9C9; }
+  div.ga-example-5 ul,
+  div.ga-example-6 ul {
+    border: 2px dashed #F76477;
+    list-style-position: inside; }
+
+div.ga-example-5a h2 {
+  margin: 5px 0; }
+
+div.ga-example-5b h2 {
+  margin: 20px 0; }
+
+div.ga-example-6b h2 {
+  padding: 20px 0; }
+
+div.ga-example-7 {
+  height: 30vh;
+  background-color: #170104;
+  background: url(../../img/background.jpg);
+  font-size: 65%; }
+  div.ga-example-7 p {
+    color: white;
+    line-height: 30vh; }
+
+div.ga-example-7a {
+  background-size: cover; }
+
+div.ga-example-7b {
+  background-position: center; }
+
+div.ga-example-7c {
+  background-position: left bottom; }
+
+div.ga-example-8 {
+  padding: 1rem;
+  height: 30vh;
+  background-color: #EBEBEB;
+  background: url(../../img/sativa.jpg) repeat;
+  font-size: 65%; }
 
 div.ga-col2-50 {
   width: 49.1525423729%;
@@ -328,36 +464,6 @@ div.ga-col4-25 {
     float: right;
     margin-right: 0; }
 
-.ga-svgicon {
-  width: 8rem;
-  height: 8rem; }
-
-.ga-svgimg {
-  width: 70%; }
-
-.ga-svgimg-small {
-  margin-top: 2rem;
-  width: 50%; }
-
-.ga-invert {
-  -webkit-filter: invert(100%);
-  filter: invert(100%); }
-
-header.ga-header {
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
-  text-align: left;
-  margin-bottom: 15vh; }
-  header.ga-header svg {
-    height: 4rem;
-    width: 4rem;
-    display: inline-block;
-    vertical-align: middle; }
-  header.ga-header h3 {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0; }
-
 div.ga-box {
   font-size: 200%;
   border: 3px solid #e51b24;
@@ -371,14 +477,14 @@ ul.ga-multi {
   column-width: 13rem;
   font-size: 45%; }
 
+span.ga-emoji {
+  font-family: "News 706", "Georgia", serif;
+  font-weight: 400; }
+
 section img.ga-icon {
   display: inline-block;
   vertical-align: middle;
   margin-right: 1rem; }
-
-span.ga-emoji {
-  font-family: "News 706", "Georgia", serif;
-  font-weight: 400; }
 
 .pc-wrapper {
   float: left;
