@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>So your designer wants a masthead...</title>
+
+		<meta name="description" content="Some CSS techniques involving the background property and the object-fit property in the context of building a masthead. Though these techniques can apply in other use-cases as well.">
+		<meta name="author" content="Chen Hui Jing">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/jing.css" id="theme">
+
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+				<section>
+					<h1>So your designer wants a masthead...</h1>
+					<p><small>By <a href="http://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
+				</section>
+
+				<section>
+					<h2>Looks familiar?</h2>
+					<svg viewBox="0 0 844 519"><defs><path id="a" d="M0 0h840v515H0z"/><mask id="e" width="844" height="519" x="-2" y="-2"><path fill="#fff" d="M-2-2h844v519H-2z"/><use xlink:href="#a"/></mask><radialGradient id="f" cx="5.374%" cy="0%" r="116.802%" fx="5.374%" fy="0%"><stop stop-color="#3023AE" offset="0%"/><stop stop-color="#53A0FE" offset="47.525%"/><stop stop-color="#B4ED50" offset="100%"/></radialGradient><path id="b" d="M303.188 263h236.25v120h-236.25z"/><mask id="g" width="236.25" height="120" x="0" y="0" fill="#fff"><use xlink:href="#b"/></mask><path id="c" d="M570.938 263h236.25v120h-236.25z"/><mask id="h" width="236.25" height="120" x="0" y="0" fill="#fff"><use xlink:href="#c"/></mask><path id="d" d="M34.125 263h236.25v120H34.125z"/><mask id="i" width="236.25" height="120" x="0" y="0" fill="#fff"><use xlink:href="#d"/></mask></defs><g fill="none" fill-rule="evenodd" transform="translate(2 2)"><use stroke="#979797" stroke-width="4" mask="url(#e)" xlink:href="#a"/><path fill="url(#f)" d="M0 0h840v200H0z"/><text fill="#FFF" font-family="AvenirNext-DemiBoldItalic, Avenir Next" font-size="24" font-style="italic" font-weight="500"><tspan x="102.18" y="91">Some (hopefully) </tspan> <tspan x="128.244" y="124">relevant text</tspan></text><text fill="#000" font-family="AvenirNext-DemiBoldItalic, Avenir Next" font-size="24" font-style="italic" font-weight="500"><tspan x="197.364" y="239">Be thankful they didn’t ask for a carousel</tspan></text><use fill="#D8D8D8" stroke="#979797" stroke-width="4" mask="url(#g)" xlink:href="#b"/><use fill="#D8D8D8" stroke="#979797" stroke-width="4" mask="url(#h)" xlink:href="#c"/><use fill="#D8D8D8" stroke="#979797" stroke-width="4" mask="url(#i)" xlink:href="#d"/><text fill="#000" font-family="AvenirNext-DemiBoldItalic, Avenir Next" font-size="18" font-style="italic" font-weight="500"><tspan x="43.313" y="417">Probably some more marketing copy for each of the 3 images above that will only get </tspan> <tspan x="43.313" y="442">passed to you after you’ve built most of site, which is never the length of the lorem ipsum </tspan> <tspan x="43.313" y="467">your designer used and hence he/she will ask you how come the columns cannot be the </tspan> <tspan x="43.313" y="492">same height. </tspan></text></g></svg>
+				</section>
+
+				<section>
+					<h2>Get image ratio</h2>
+					<a href="http://codepen.io/huijing/pen/pbRXjO"><img class="plain" src="img/masthead.jpg" alt="Masthead image example"></a>
+					<p>Ratio = Height / Width</p>
+					<p>1057 / 2560 = 0.41289 or <strong>41.289%</strong></p>
+				</section>
+
+				<section>
+					<section>
+						<h2>Scenario #1</h2>
+						<p>Designer wants the masthead to maintain its aspect ratio regardless off screen size.</p>
+					</section>
+
+					<section>
+						<h2>Option 1: Use padding bottom</h2>
+						<pre><code>div {
+  background-size: contain;
+  padding-bottom: 41.289%;
+}</code></pre>
+						<p><code>contain</code> tells the browser to always show the entire image, even if it means there is empty space left in the container.</p>
+						<p><code>padding-bottom</code> value gives the container a height corresponding to the image ratio</p>
+					</section>
+
+					<section>
+						<h2>Option 2: Use viewport units</h2>
+						<pre><code>div {
+  background-size: cover;
+  height: 41.289vw;
+}</code></pre>
+						<p><code>cover</code> tells the browser to always cover the entire container, even if the sides have to be cut off.</p>
+						<p><code>height</code> value gives the container a height corresponding to the image ratio, because of the relative unit viewport width.</p>
+					</section>
+
+					<section>
+						<h2>Option 3: Do nothing</h2>
+						<pre><code>img {
+	  max-width: 100%;
+	}</code></pre>
+						<p>If you use a content image, you don't need anything.</p>
+						<p>Maybe not entirely nothing. <code>max-width: 100%</code> makes sure the image doesn't overflow the container.</p>
+						<p>May occur if you're working with a CMS.</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Scenario #2</h2>
+						<p>Designer wants the masthead to have a minimum height (otherwise the magnificent image's focal point will end up too tiny to make sense).</p>
+					</section>
+
+					<section>
+						<h2>Option 1: Adjust with <code>background-position</code></h2>
+						<pre><code>div {
+  background-size: cover;
+  background-position: 75% 10%;
+  min-height: 480px;
+}</code></pre>
+						<p>For background images applied on a container, just use <code>cover</code>.
+						<p>Control the position of the "crop" based on percentage values along the x-axis and y-axis respectively.</p>
+					</section>
+
+					<section>
+						<h2>Option 2: Use <code>object-fit</code></h2>
+						<pre><code>img {
+  width: 100%;
+  min-height: 480px;
+  object-fit: cover;
+  object-position: 75% 10%;
+}</code></pre>
+						<p><code>object-fit: cover</code> behaves similarly to <code>background-size: cover</code>.</p>
+						<p><code>object-position</code> behaves similarly to <code>background-position</code>.</p>
+						<p>Again, may be relevant if you're working with a CMS.</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>How about text?</h2>
+						<p class="fragment">If it was up to me...</p>
+						<p class="fragment">(╯°□°）╯︵ ┻━┻</p>
+					</section>
+
+					<section>
+						<h2>Use <code>position: absolute;</code></h2>
+						<p>This removes the text from the normal document flow, so all the previous examples will work fine.</p>
+						<p>Just remember to set the <code>position: relative</code> property on the parent container.</p>
+					</section>
+
+					<section>
+						<h2>Use <code>calc()</code></h2>
+						<p>If your text is within the normal document flow, it takes up space in the <code>div</code>.</p>
+						<p>This extra space needs to be offset, using <code>calc()</code> is a good option.</p>
+
+						<pre><code>h1 {
+  font-size: 5em;
+}
+.background {
+  background-size: cover;
+  height: calc(41.289vw - 5em);
+}</code></pre>
+						<p>Need to also account for margins and padding, if any.</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>To find out more...</h2>
+					<ul>
+						<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Background_and_Borders/Scaling_background_images">Scaling background images</a></li>
+						<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-position">background-position on MDN</a></li>
+						<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit">object-fit on MDN</a></li>
+						<li><a href="https://css-tricks.com/almanac/properties/o/object-fit/">object-fit on CSS-Tricks</a></li>
+						<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/object-position">object-position on MDN</a></li>
+					</ul>
+				</section>
+
+				<section style="text-align: left;">
+					<h1>THE END</h1>
+					<p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="http://www.chenhuijing.com">http://www.chenhuijing.com</a></p>
+					<p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen">@hj_chen</a></p>
+					<p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen">@hj_chen</a></p>
+					<p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/">@huijing</a></p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
