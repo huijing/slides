@@ -302,3 +302,11 @@ span.j-emoji {
   -webkit-column-width: 15rem;
   -moz-column-width: 15rem;
   column-width: 15rem; }
+
+div.j-col2-50 {
+  width: 49.1525423729%;
+  float: left;
+  margin-right: 1.6949152542%; }
+  div.j-col2-50:nth-of-type(2n) {
+    float: right;
+    margin-right: 0; }
