@@ -1,0 +1,116 @@
+@charset 'utf-8';
+
+@font-face {
+  font-family: 'Building';
+  src: url('../fonts/building_typeface.eot');
+  src: url('../fonts/building_typeface.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/building_typeface.woff2') format('woff2'),
+       url('../fonts/building_typeface.woff') format('woff'),
+       url('../fonts/building_typeface.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Hallo';
+  src: url('../fonts/hallo_sans.eot');
+  src: url('../fonts/hallo_sans.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/hallo_sans.woff2') format('woff2'),
+       url('../fonts/hallo_sans.woff') format('woff'),
+       url('../fonts/hallo_sans.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$header-font: 'Building', Arial, sans-serif;
+$base-font: 'Hallo', Arial, sans-serif;
+
+$dark: #000;
+$light: #fff;
+$accent: rgba(74, 188, 65, 1);
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+body {
+  font-family: $base-font;
+  height: 100%;
+  text-align: center;
+  overflow: hidden;
+}
+
+h1 {
+  font-family: $header-font;
+  font-size: 30vmin;
+  text-transform: uppercase;
+}
+
+a {
+  color: $accent;
+  text-decoration: none;
+  transition: transform 300ms;
+
+  &:hover {
+    text-decoration: underline;
+    transform: scale(1.2);
+  }
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 1s, opacity 0.8s;
+  width: 100%;
+}
+
+.rotate {
+  transform: rotate(-90deg);
+  transform-origin: 0 0;
+  z-index: 0;
+}
+
+[id^=slide]:target ~ #start {
+  display: none;
+}
+
+[id^=slide]:target {
+  transform: rotate(0);
+  z-index: 1;
+  height: 100vh;
+}
+
+[id^=slide]:target ~ [id^=slide] {
+  opacity: 0;
+  z-index: 0;
+  transform: rotate(90deg);
+}
+
+.inverse {
+  background: $dark;
+  color: $light;
+}
+
+.start {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    border-radius: 50%;
+  }
+}
+
+.links {
+  font-size: 2em;
+  display: block;
+}

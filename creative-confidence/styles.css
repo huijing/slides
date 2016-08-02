@@ -1,0 +1,110 @@
+@font-face {
+  font-family: 'Building';
+  src: url("../fonts/building_typeface.eot");
+  src: url("../fonts/building_typeface.eot?#iefix") format("embedded-opentype"), url("../fonts/building_typeface.woff2") format("woff2"), url("../fonts/building_typeface.woff") format("woff"), url("../fonts/building_typeface.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Hallo';
+  src: url("../fonts/hallo_sans.eot");
+  src: url("../fonts/hallo_sans.eot?#iefix") format("embedded-opentype"), url("../fonts/hallo_sans.woff2") format("woff2"), url("../fonts/hallo_sans.woff") format("woff"), url("../fonts/hallo_sans.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit; }
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 100%; }
+
+body {
+  font-family: "Hallo", Arial, sans-serif;
+  height: 100%;
+  text-align: center;
+  overflow: hidden; }
+
+h1 {
+  font-family: "Building", Arial, sans-serif;
+  font-size: 30vmin;
+  text-transform: uppercase; }
+
+a {
+  color: #4abc41;
+  text-decoration: none;
+  -webkit-transition: -webkit-transform 300ms;
+  transition: -webkit-transform 300ms;
+  transition: transform 300ms;
+  transition: transform 300ms, -webkit-transform 300ms; }
+  a:hover {
+    text-decoration: underline;
+    -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+            transform: scale(1.2); }
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: opacity 0.8s, -webkit-transform 1s;
+  transition: opacity 0.8s, -webkit-transform 1s;
+  transition: transform 1s, opacity 0.8s;
+  transition: transform 1s, opacity 0.8s, -webkit-transform 1s;
+  width: 100%; }
+
+.rotate {
+  -webkit-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  -webkit-transform-origin: 0 0;
+      -ms-transform-origin: 0 0;
+          transform-origin: 0 0;
+  z-index: 0; }
+
+[id^=slide]:target ~ #start {
+  display: none; }
+
+[id^=slide]:target {
+  -webkit-transform: rotate(0);
+      -ms-transform: rotate(0);
+          transform: rotate(0);
+  z-index: 1;
+  height: 100vh; }
+
+[id^=slide]:target ~ [id^=slide] {
+  opacity: 0;
+  z-index: 0;
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg); }
+
+.inverse {
+  background: #000;
+  color: #fff; }
+
+.start {
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .start img {
+    -webkit-border-radius: 50%;
+            border-radius: 50%; }
+
+.links {
+  font-size: 2em;
+  display: block; }
