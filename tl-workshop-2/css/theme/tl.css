@@ -287,8 +287,11 @@ body {
   background: #3F3F3F;
   color: #DCDCDC; }
 
-.tl-logo {
-  font-family: "Sassy Molassy", cursive; }
+h1.tl-logo {
+  font-family: "Sassy Molassy", cursive;
+  font-weight: 400;
+  font-size: 5em;
+  letter-spacing: 16px; }
 
 .tl-lowercase {
   text-transform: lowercase; }
