@@ -291,7 +291,8 @@ h1.tl-logo {
   font-family: "Sassy Molassy", cursive;
   font-weight: 400;
   font-size: 5em;
-  letter-spacing: 16px; }
+  letter-spacing: 16px;
+  text-transform: none; }
 
 .tl-lowercase {
   text-transform: lowercase; }
