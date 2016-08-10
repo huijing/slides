@@ -11,6 +11,7 @@
 
 // Include theme-specific fonts
 @import url(../../lib/font/chivo/chivo.css);
+@import url(../../lib/font/sassy_molassy/sassy_molassy.css);
 
 // Override theme settings (see ../template/settings.scss)
 $backgroundColor: rgba(255, 255, 255, 1);
@@ -33,6 +34,7 @@ $secondary-colors: (
 $mainFontSize: 38px;
 $mainFont: 'Chivo', Arial, sans-serif;
 $headingFont: 'Chivo', Arial, sans-serif;
+$logoFont: 'Sassy Molassy', cursive;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
 $headingTextTransform: uppercase;
@@ -57,6 +59,10 @@ $heading4Size: 1.0em;
 
 // Additional styles ------------------------------
 @import "../../../node_modules/susy/sass/susy";
+
+.tl-logo {
+  font-family: $logoFont;
+}
 
 .tl-lowercase {
   text-transform: lowercase;

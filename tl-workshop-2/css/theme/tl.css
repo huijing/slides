@@ -4,6 +4,7 @@
  * Copyright (C) 2015 Chen Hui Jing, http://www.chenhuijing.com/
  */
 @import url(../../lib/font/chivo/chivo.css);
+@import url(../../lib/font/sassy_molassy/sassy_molassy.css);
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -285,6 +286,9 @@ body {
 .reveal pre code {
   background: #3F3F3F;
   color: #DCDCDC; }
+
+.tl-logo {
+  font-family: "Sassy Molassy", cursive; }
 
 .tl-lowercase {
   text-transform: lowercase; }
