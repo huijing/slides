@@ -60,8 +60,11 @@ $heading4Size: 1.0em;
 // Additional styles ------------------------------
 @import "../../../node_modules/susy/sass/susy";
 
-.tl-logo {
+h1.tl-logo {
   font-family: $logoFont;
+  font-weight: 400;
+  font-size: 5em;
+  letter-spacing: 16px;
 }
 
 .tl-lowercase {
