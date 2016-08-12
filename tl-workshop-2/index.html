@@ -1966,6 +1966,40 @@ background-color: transparent</code></pre>
         </section>
 
         <section>
+          <section section data-background="#000" class="tl-reverse">
+            <h1>Web typography</h1>
+          </section>
+          <section>
+            <h2>Typography terminology</h2>
+            <blockquote>Typography is, quite simply, the art and technique of arranging type.</blockquote>
+            <img src="img/typography.jpg" alt="Typography terminology">
+          </section>
+          <section>
+            <h2>General guidelines</h2>
+            <ul>
+              <li>Default font-size is 16px. Don't go smaller than that for body copy.</li>
+              <li>Adjust the measure to around 45-75 characters per line.</li>
+              <li>Have a line-height of around 140%.</li>
+              <li>Ensure sufficient contrast between the text and the background.</li>
+              <li>Create a visual hierarchy, through size or text styles.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Web fonts</h2>
+            <p class="tl-text-left">Don't go crazy with the number of fonts used. Usually 2 is enough.</p>
+            <p class="tl-text-left">Serve the font files yourself using <code>@font-face</code> or use a hosted service, like Google Fonts, using <code>@import</code></p>
+            <pre><code>@import url(https://fonts.googleapis.com/css?family=Fjalla+One|Average);</code></pre>
+            <pre><code>body {
+  font-family: "Average", serif;
+}
+
+h1 {
+  font-family: "Fjalla One", sans-serif;
+}</code></pre>
+          </section>
+        </section>
+
+        <section>
           <section data-background="#000" class="tl-reverse">
             <h1>Browser developer tools</h1>
           </section>
