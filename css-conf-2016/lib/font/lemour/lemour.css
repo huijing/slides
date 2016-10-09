@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Lemour';
+  src: url('lemourserif-regular.eot');
+  src: url('lemourserif-regular.eot?#iefix') format('embedded-opentype'),
+       url('lemourserif-regular.woff2') format('woff2'),
+       url('lemourserif-regular.woff') format('woff'),
+       url('lemourserif-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

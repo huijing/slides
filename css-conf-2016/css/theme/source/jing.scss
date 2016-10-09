@@ -1,0 +1,78 @@
+/**
+ * Custom theme for Reveal.js presentations.
+ *
+ * Copyright (C) 2015 Chen Hui Jing, http://www.chenhuijing.com/
+ */
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url(../../lib/font/lemour/lemour.css);
+@import url(../../lib/font/infinity/infinity.css);
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #000;
+
+$mainColor: #e0e0ce;
+$headingColor: #f2af29;
+
+$mainFontSize: 2.5em;
+$mainFont: 'Lemour', 'Rockwell', serif;
+$headingFont: 'Infinity', 'Arial Black', sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingFontWeight: 600;
+$linkColor: #ad343e;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.827em;
+$heading2Size: 1.999em;
+$heading3Size: 1.414em;
+$heading4Size: 1em;
+
+// Theme template ------------------------------
+@import "../template/theme";
+
+.reveal pre code {
+  background: #3F3F3F;
+  color: #DCDCDC;
+}
+// ---------------------------------------------
+
+// Additional styles ------------------------------
+@import "../../../node_modules/susy/sass/susy";
+
+section img.j-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1rem;
+}
+
+span.j-emoji {
+  font-family: $mainFont;
+  font-weight: 400;
+}
+
+div.j-col2-50 {
+  @include span(6 of 12);
+  &:nth-of-type(2n) {
+    @include last;
+  }
+}
+
+.round {
+  border-radius: 50%;
+}
+
+.invisible {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}

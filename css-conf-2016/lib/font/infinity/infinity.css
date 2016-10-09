@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Infinity';
+  src: url('infinity.eot');
+  src: url('infinity.eot?#iefix') format('embedded-opentype'),
+       url('infinity.woff2') format('woff2'),
+       url('infinity.woff') format('woff'),
+       url('infinity.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
