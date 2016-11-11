@@ -39,8 +39,8 @@ $heading4Size: 1em;
 @import "../template/theme";
 
 .reveal pre code {
-  background: #3F3F3F;
-  color: #DCDCDC;
+  background: #3f3f3f;
+  color: #dcdcdc;
 }
 // ---------------------------------------------
 
@@ -53,6 +53,11 @@ section img.j-icon {
   margin-right: 1rem;
 }
 
+section img.shadow {
+  border: 0;
+  box-shadow: 4px 4px 16px $headingColor;
+}
+
 span.j-emoji {
   font-family: $mainFont;
   font-weight: 400;
@@ -63,6 +68,10 @@ div.j-col2-50 {
   &:nth-of-type(2n) {
     @include last;
   }
+}
+
+.text-left {
+  text-align: left;
 }
 
 .round {

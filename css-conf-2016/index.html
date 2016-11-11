@@ -39,8 +39,25 @@
 			<div class="slides">
 				<section>
 					<h1>How I learn to <span class="invisible">CSS</span></h1>
-					<img class="plain" data-src="img/logo.png" alt="CSS">
+					<img class="plain" data-src="img/qrcode.jpg" alt="CSS">
 					<p><small>By <a href="http://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
+				</section>
+
+				<section>
+					<h2>Get inspired</h2>
+					<ul>
+						<li class="fragment">Read articles</li>
+						<li class="fragment">Listen to podcasts</li>
+						<li class="fragment">Watch talks</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Start building</h2>
+				</section>
+
+				<section>
+					<blockquote>People go to conferences to get inspired and to learn about things that exist or maybe an overview of how to use it. <br>But then, they really learn that thing, that technology, when they go home and practice it themselves.<br>&#8213; Una Kravets, <a href="http://toolsday.io/episodes/conferencespeaking.html">Toolsday #34</a></blockquote>
 				</section>
 
 				<section data-background-image="img/emoji-bg.png" data-background-repeat="repeat" data-background-size="200px">
@@ -57,19 +74,143 @@
 				</section>
 
 				<section>
+					<section>
+						<h2>Demo #1: OTT radio buttons</h2>
+						<img class="shadow" data-src="img/demo1.jpg" alt="Demo #1 screenshot">
+						<small>Inspired by Ethan Marcotte's <a href="https://vimeo.com/165061923">Laziness in the Time of Responsive Design</a></small>
+					</section>
+					<section>
+						<h2>The checkbox hack (1/2)</h2>
+						<p>Uses the <code>:checked</code> pseudo-class and sibling selectors</p>
+						<pre><code>.o-option__input {
+  opacity: 0;
+  position: absolute;
+  
+  &:checked + .o-option__img {
+    border-color: #860038;
+  }
+  
+  &:checked ~ .o-option__txt {
+    color: #860038;
+  }
+}</code></pre>
+					</section>
+					<section>
+						<h2>The checkbox hack (2/2)</h2>
+						<p>The <code>input</code> and its <code>label</code> must be linked</p>
+						<p class="text-left">Either wrap the <code>input</code> in the <code>label</code></p>
+						<pre><code>&lt;label&gt;
+  &lt;input type="radio" name="moment" value="block"&gt;
+  &lt;img src="img/block.jpg" srcset="img/block.jpg 2x" alt="The Block"&gt;
+  &lt;span&gt;The Block&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+						<p class="text-left">Or use the <code>for="ID_OF_INPUT"</code> attribute on the <code>label</code></p>
+						<pre><code>&lt;input type="radio" name="moment" value="block" id="block"&gt;
+&lt;label for="block"&gt;
+  &lt;img src="img/block.jpg" srcset="img/block.jpg 2x" alt="The Block"&gt;
+  &lt;span&gt;The Block&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+					</section>
+					<section>
+						<h2>CSS animations (1/3)</h2>
+						<p>The <code>transform: translateX()</code> property with <code>nth-child</code> selectors</p>
+						<pre><code>.is-active.c-4options {
+  z-index: -1;
+
+  .is-checked.o-option:nth-child(1) {
+    transform: translateX(100%);
+  }
+
+  .is-checked.o-option:nth-child(3) {
+    transform: translateX(-100%);
+  }
+
+  .is-checked.o-option:nth-child(4) {
+    transform: translateX(-200%);
+  }
+}</code></pre>
+					</section>
+					<section>
+						<h2>CSS animations (2/3)</h2>
+						<p>The <code>transform: scale()</code> and <code>opacity</code> property</p>
+						<pre><code>  .c-action,
+  .c-logo__img,
+  .is-active .o-option:not(.is-checked) {
+    transform: scale(0);
+    opacity: 0;
+    z-index: 0;
+  }
+
+  .is-active .c-action,
+  .is-active .c-logo__img {
+    opacity: 1;
+    transform: scale(1);
+  }</code></pre>
+					</section>
+					<section>
+						<h2>CSS animations (3/3)</h2>
+						<p>The <code>transition</code> and <code>transition-delay</code> property</p>
+						<pre><code>.o-option,
+.c-action,
+.c-logo__img {
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-out;
+  transition-delay: 0.1s;
+}</code></pre>
+					</section>
+					<section>
+						<h2>Seperation of concerns</h2>
+						<pre><code>&lt;label class="l-option o-option js-option"&gt;
+  &lt;input class="o-option__input" type="radio" name="moment" value="block"&gt;
+  &lt;img src="https://res.cloudinary.com/huijing/image/upload/w_200/v1475591378/block_kkj8lq.jpg" srcset="https://res.cloudinary.com/huijing/image/upload/w_400/v1475591378/block_kkj8lq.jpg 2x" alt="The Block" class="o-option__img"&gt;
+  &lt;span class="o-option__txt"&gt;The Block&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+					</section>
+					<section>
+						<h2>Accessibility problem</h2>
+						<p></p>
+					</section>
+					<section>
+						<h2>Source code</h2>
+						<a href="">https://www.github.com/</a>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Demo #2: CSS Album Art</h2>
+						<img class="shadow" data-src="img/demo2.jpg" alt="Demo #2 screenshot">
+						<small>Inspired by Scott Hansen's <a href="http://blog.iso50.com/34853/epoch-artwork-lineage/">blog post</a></small>
+					</section>
+					<section>
+						<h2>Pseudo-elements</h2>
+					</section>
+					<section>
+						<h2>Shapes with CSS</h2>
+					</section>
+					<section>
+						<h2>Box shadow trick</h2>
+						<p></p>
+					</section>
+					<section>
+						<h2>CSS Scroll Snap</h2>
+						<p>Needs a polyfill for now</p>
+					</section>
+					<section>
+						<h2>Source code</h2>
+						<a href="">https://www.github.com/</a>
+					</section>
+				</section>
+
+				<section>
 					<h2>To find out more...</h2>
 					<ul>
-						<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Background_and_Borders/Scaling_background_images">Scaling background images</a></li>
-						<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-position">background-position on MDN</a></li>
-						<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit">object-fit on MDN</a></li>
-						<li><a href="https://css-tricks.com/almanac/properties/o/object-fit/">object-fit on CSS-Tricks</a></li>
-						<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/object-position">object-position on MDN</a></li>
+						<li><a href="https://css-tricks.com/introducing-css-scroll-snap-points/">Introducing CSS Scroll Snap Points</a></li>
 					</ul>
 				</section>
 
 				<section style="text-align: left;">
 					<h1>THE END</h1>
-					<p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="http://www.chenhuijing.com">http://www.chenhuijing.com</a></p>
+					<p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com">https://www.chenhuijing.com</a></p>
 					<p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen">@hj_chen</a></p>
 					<p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen">@hj_chen</a></p>
 					<p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/">@huijing</a></p>
