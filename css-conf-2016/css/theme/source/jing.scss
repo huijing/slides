@@ -74,6 +74,15 @@ div.j-col2-50 {
   text-align: left;
 }
 
+figure.inline {
+  display: inline-block;
+  margin-right: 2em;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
 .round {
   border-radius: 50%;
 }

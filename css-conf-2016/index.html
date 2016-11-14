@@ -45,11 +45,20 @@
 
 				<section>
 					<h2>Get inspired</h2>
-					<ul>
-						<li class="fragment">Read articles</li>
-						<li class="fragment">Listen to podcasts</li>
-						<li class="fragment">Watch talks</li>
-					</ul>
+					
+						<figure class="inline fragment">
+							<img class="plain" data-src="img/read.svg" alt="Read articles and books">
+							<figcaption>Read articles</figcaption>
+						</figure>
+						<figure class="inline fragment">
+							<img class="plain" data-src="img/listen.svg" alt="Listen to podcasts">
+							<figcaption>Listen to podcasts</figcaption>
+						</figure>
+						<figure class="inline fragment">
+							<img class="plain" data-src="img/attend.svg" alt="Attend or watch talks">
+							<figcaption>Watch talks</figcaption>
+						</figure>
+					
 				</section>
 
 				<section>
@@ -159,15 +168,22 @@
 					</section>
 					<section>
 						<h2>Seperation of concerns</h2>
+						<ul>
+							<li>Layout-specific classes prefixed with <code>l-</code></li>
+							<li>Javascript hooks prefixed with <code>js-</code></li>
+							<li>Styling of objects prefixed with <code>o-</code></li>
+						</ul>
 						<pre><code>&lt;label class="l-option o-option js-option"&gt;
   &lt;input class="o-option__input" type="radio" name="moment" value="block"&gt;
-  &lt;img src="https://res.cloudinary.com/huijing/image/upload/w_200/v1475591378/block_kkj8lq.jpg" srcset="https://res.cloudinary.com/huijing/image/upload/w_400/v1475591378/block_kkj8lq.jpg 2x" alt="The Block" class="o-option__img"&gt;
+  &lt;img src="https://res.cloudinary.com/huijing/image/upload/w_200/block.jpg" srcset="https://res.cloudinary.com/huijing/image/upload/w_400/block.jpg 2x" alt="The Block" class="o-option__img"&gt;
   &lt;span class="o-option__txt"&gt;The Block&lt;/span&gt;
 &lt;/label&gt;</code></pre>
+						<small>Inspired by Harry Roberts' <a href="https://vimeo.com/177216958">CSS for Software Engineers for CSS Developers</a>.</small>
 					</section>
 					<section>
 						<h2>Accessibility problem</h2>
-						<p></p>
+						<p>Does not play nice with keyboard controls 😔</p>
+						<p class="fragment">Make the enhancement a choice that can be toggled</p>
 					</section>
 					<section>
 						<h2>Source code</h2>

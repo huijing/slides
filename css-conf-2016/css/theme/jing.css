@@ -312,6 +312,12 @@ div.j-col2-50 {
 .text-left {
   text-align: left; }
 
+figure.inline {
+  display: inline-block;
+  margin-right: 2em; }
+  figure.inline:last-child {
+    margin-right: 0; }
+
 .round {
   border-radius: 50%; }
 
