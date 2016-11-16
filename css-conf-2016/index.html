@@ -48,15 +48,15 @@
 					
 						<figure class="inline fragment">
 							<img class="plain" data-src="img/read.svg" alt="Read articles and books">
-							<figcaption>Read articles</figcaption>
+							<figcaption>Read articles<br>& books</figcaption>
 						</figure>
 						<figure class="inline fragment">
 							<img class="plain" data-src="img/listen.svg" alt="Listen to podcasts">
-							<figcaption>Listen to podcasts</figcaption>
+							<figcaption>Listen to podcasts<br>&nbsp;</figcaption>
 						</figure>
 						<figure class="inline fragment">
 							<img class="plain" data-src="img/attend.svg" alt="Attend or watch talks">
-							<figcaption>Watch talks</figcaption>
+							<figcaption>Watch talks<br>&nbsp;</figcaption>
 						</figure>
 					
 				</section>
@@ -200,7 +200,8 @@
 					</section>
 					<section>
 						<h2>Source code</h2>
-						<a href="https://github.com/huijing/ott-radio-btns">https://github.com/huijing/ott-radio-btns</a>
+						<p><a href="https://github.com/huijing/ott-radio-btns">https://github.com/huijing/ott-radio-btns</a></p>
+						<p><a href="http://codepen.io/huijing/pen/vKdzwo">Codepen link</a></p>
 					</section>
 				</section>
 
@@ -237,9 +238,15 @@
 					</section>
 					<section>
 						<h2>Shapes with CSS (2/3)</h2>
-						<p>This be a triangle</p>
-						<div class="triangle"></div>
-						<pre><code>.triangle {
+						<div class="fragment fade-out border-box"></div>
+						<div class="fragment fade-in">
+							<div class="fragment fade-out borders"></div>
+						</div>
+						<div class="fragment">
+							<p>This be a triangle</p>
+							<div class="triangle"></div>
+						</div>
+						<pre class="fragment"><code>.triangle {
   border-top: 18.75vmin solid transparent;
   border-bottom: 18.75vmin solid transparent;
   border-left: 18.75vmin solid #1e292f;
@@ -255,12 +262,20 @@
   background: #1e292f;
   clip-path: polygon(33% 0, 67% 0, 100% 100%, 0% 100%); /* This is the key line, right here */
 }</code></pre>
-					<p class="fragement">Unfortunately, <code>clip-path</code> is NOT supported in Edge or IE 😔</p>
+					<p class="fragment">Unfortunately, <code>clip-path</code> is NOT supported in Edge or IE 😔</p>
 					</section>
 					<section>
 						<h2>Box shadow trick</h2>
-						<p></p>
-						<pre><code>.o-logo-basic {
+						<div class="fragment">
+							<p>Multiple box shadows are a thing</p>
+							<pre><code>box-shadow: [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color];</code></pre>
+							<p>Make use of the offsets for positioning, and the blur radius for sizing</p>
+						</div>
+						<pre class="fragment"><code>.o-logo-basic {
+  border-radius: 50%;
+  height: 1px;
+  width: 1px;
+  position: absolute;
   bottom: 10%;
   left: 50%;
   box-shadow: -6vmin     0 0 0.5vmin #47473f, -4vmin     0 0 0.5vmin #47473f,
@@ -273,17 +288,41 @@
 					</section>
 					<section>
 						<h2>CSS Scroll Snap</h2>
-						<p>Needs a polyfill for now</p>
+						<p>Okay fine, it's scroll-jacking ¯\_(ツ)_/¯</p>
+						<p class="fragment">Only works on Firefox and Edge 😔</p>
+						<pre class="fragment"><code>main {
+  width: 100vw;
+  height: 85vmin;
+  white-space: nowrap;
+  overflow-y: hidden;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: mandatory; /* this is the key line */
+}
+
+section {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  scroll-snap-coordinate: 0 0; /* this is the key line */
+}</code></pre>
 					</section>
 					<section>
 						<h2>Source code</h2>
-						<a href="https://github.com/huijing/album-art">https://github.com/huijing/album-art</a>
+						<p><a href="https://github.com/huijing/album-art">https://github.com/huijing/album-art</a></p>
+						<p><a href="http://codepen.io/huijing/pen/QGKMjX">Codepen link</a></p>
 					</section>
 				</section>
 
 				<section>
 					<h2>To find out more...</h2>
 					<ul>
+						<li><a href="https://css-tricks.com/the-checkbox-hack/">Stuff you can do with the “Checkbox Hack”</a></li>
+						<li><a href="https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/">High Performance Animations</a></li>
+						<li><a href="https://www.smashingmagazine.com/2011/07/learning-to-use-the-before-and-after-pseudo-elements-in-css/">Learning To Use The :before And :after Pseudo-Elements In CSS</a></li>
+						<li><a href="https://www.smashingmagazine.com/2015/05/creating-responsive-shapes-with-clip-path/
+						http://a.singlediv.com/">Creating Responsive Shapes With Clip-Path And Breaking Out Of The Box</a></li>
+						<li><a href="https://hacks.mozilla.org/2014/09/single-div-drawings-with-css/">Single Div Drawings with CSS</a></li>
 						<li><a href="https://css-tricks.com/introducing-css-scroll-snap-points/">Introducing CSS Scroll Snap Points</a></li>
 					</ul>
 				</section>
