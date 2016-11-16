@@ -58,10 +58,6 @@ section img.shadow {
   box-shadow: 4px 4px 16px $headingColor;
 }
 
-span.j-emoji {
-  font-family: $mainFont;
-  font-weight: 400;
-}
 
 div.j-col2-50 {
   @include span(6 of 12);
@@ -93,4 +89,28 @@ figure.inline {
   width: 1px;
   overflow: hidden;
   clip: rect(1px, 1px, 1px, 1px);
+}
+
+div.circle {
+  width: 30vmin;
+  height: 30vmin;
+  background: $headingColor;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+div.triangle {
+  border-top: 15vmin solid transparent;
+  border-bottom: 15vmin solid transparent;
+  border-left: 15vmin solid $headingColor;
+  width: 0;
+  margin: 0 auto;
+}
+
+div.trapezium {
+  width: 60vmin;
+  height: 30vmin;
+  clip-path: polygon(33% 0, 67% 0, 100% 100%, 0% 100%);
+  background: $headingColor;
+  margin: 0 auto;
 }

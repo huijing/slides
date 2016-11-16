@@ -69,6 +69,18 @@
 					<blockquote>People go to conferences to get inspired and to learn about things that exist or maybe an overview of how to use it. <br>But then, they really learn that thing, that technology, when they go home and practice it themselves.<br>&#8213; Una Kravets, <a href="http://toolsday.io/episodes/conferencespeaking.html">Toolsday #34</a></blockquote>
 				</section>
 
+				<section>
+					<h2>Share with the world</h2>
+					<figure class="inline fragment">
+						<img class="plain" data-src="img/write.svg" alt="Write blog posts">
+						<figcaption>Write blog posts</figcaption>
+					</figure>
+					<figure class="inline fragment">
+						<img class="plain" data-src="img/speak.svg" alt="Give a talk">
+						<figcaption>Give a talk</figcaption>
+					</figure>
+				</section>
+
 				<section data-background-image="img/emoji-bg.png" data-background-repeat="repeat" data-background-size="200px">
 					<h2>Some background</h2>
 					<div class="j-col2-50">
@@ -90,22 +102,6 @@
 					</section>
 					<section>
 						<h2>The checkbox hack (1/2)</h2>
-						<p>Uses the <code>:checked</code> pseudo-class and sibling selectors</p>
-						<pre><code>.o-option__input {
-  opacity: 0;
-  position: absolute;
-  
-  &:checked + .o-option__img {
-    border-color: #860038;
-  }
-  
-  &:checked ~ .o-option__txt {
-    color: #860038;
-  }
-}</code></pre>
-					</section>
-					<section>
-						<h2>The checkbox hack (2/2)</h2>
 						<p>The <code>input</code> and its <code>label</code> must be linked</p>
 						<p class="text-left">Either wrap the <code>input</code> in the <code>label</code></p>
 						<pre><code>&lt;label&gt;
@@ -119,6 +115,22 @@
   &lt;img src="img/block.jpg" srcset="img/block.jpg 2x" alt="The Block"&gt;
   &lt;span&gt;The Block&lt;/span&gt;
 &lt;/label&gt;</code></pre>
+					</section>
+					<section>
+						<h2>The checkbox hack (2/2)</h2>
+						<p>Uses the <code>:checked</code> pseudo-class and sibling selectors</p>
+						<pre><code>.o-option__input {
+  opacity: 0;
+  position: absolute;
+  
+  &:checked + .o-option__img {
+    border-color: #860038;
+  }
+  
+  &:checked ~ .o-option__txt {
+    color: #860038;
+  }
+}</code></pre>
 					</section>
 					<section>
 						<h2>CSS animations (1/3)</h2>
@@ -165,6 +177,7 @@
   transition: transform 0.4s ease-in-out, opacity 0.4s ease-out;
   transition-delay: 0.1s;
 }</code></pre>
+					<p class="fragment">That 0.1s pause does make a difference ¯\_(ツ)_/¯</p>
 					</section>
 					<section>
 						<h2>Seperation of concerns</h2>
@@ -199,11 +212,50 @@
 					</section>
 					<section>
 						<h2>Pseudo-elements</h2>
-						<p><code>:before</code> and <code>:after</code> </p>
-						<p>Makes single div CSS art possible</p>
+						<p><code>::before</code> and <code>::after</code></p>
+						<pre><code>.element::before {
+  content: '';
+  display: block;
+  width: 50%;
+  height: 50%;
+}</code></pre>
+						<p>Must have the <code>content</code> property to work</p>
+						<p>At least have empty quotes</p>
+						<p>Not visible in the page's source, only in CSS</p>
 					</section>
 					<section>
-						<h2>Shapes with CSS</h2>
+						<h2>Shapes with CSS (1/3)</h2>
+						<p>This be a circle</p>
+						<div class="circle"></div>
+						<pre><code>.circle {
+  width: 30vmin;
+  height: 30vmin;
+  background: #f2af29;
+  border-radius: 50%; /* This is the key line, right here */
+  margin: 0 auto;
+}</code></pre>
+					</section>
+					<section>
+						<h2>Shapes with CSS (2/3)</h2>
+						<p>This be a triangle</p>
+						<div class="triangle"></div>
+						<pre><code>.triangle {
+  border-top: 18.75vmin solid transparent;
+  border-bottom: 18.75vmin solid transparent;
+  border-left: 18.75vmin solid #1e292f;
+}</code></pre>
+					</section>
+					<section>
+						<h2>Shapes with CSS (3/3)</h2>
+						<p>This be a trapezium</p>
+						<div class="trapezium"></div>
+						<pre><code>.trapezium {
+  width: 60vmin;
+  height: 30vmin;
+  background: #1e292f;
+  clip-path: polygon(33% 0, 67% 0, 100% 100%, 0% 100%); /* This is the key line, right here */
+}</code></pre>
+					<p class="fragement">Unfortunately, <code>clip-path</code> is NOT supported in Edge or IE 😔</p>
 					</section>
 					<section>
 						<h2>Box shadow trick</h2>
@@ -226,19 +278,6 @@
 					<section>
 						<h2>Source code</h2>
 						<a href="https://github.com/huijing/album-art">https://github.com/huijing/album-art</a>
-					</section>
-				</section>
-
-				<section>
-					<section>
-						<h2>Demo #3: Chinese typography</h2>
-						<img class="shadow" data-src="img/demo3.jpg" alt="Demo #3 screenshot">
-						<small>Inspired by Jen Simmon's <a href="https://twitter.com/jensimmons/status/787524303650639872">tweet</a></small>
-					</section>
-					<section>
-						<h2>Shameless plug for Talk.CSS</h2>
-						<img class="plain" data-src="img/talkcss.jpg" alt="Talk.CSS meetup link">
-						<p><a href="https://www.meetup.com/SingaporeCSS/events/232466438/">RSVP for Talk.CSS on Tue, 22 Nov</a></p>
 					</section>
 				</section>
 
