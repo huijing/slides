@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Klinic Slab Medium';
+  src: url('klinicslabmedium.eot');
+  src: url('klinicslabmedium.eot?#iefix') format('embedded-opentype'),
+       url('klinicslabmedium.woff2') format('woff2'),
+       url('klinicslabmedium.woff') format('woff'),
+       url('klinicslabmedium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

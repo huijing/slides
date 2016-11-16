@@ -1,0 +1,85 @@
+/**
+ * Custom theme for Reveal.js presentations.
+ *
+ * Copyright (C) 2015 Chen Hui Jing, http://www.chenhuijing.com/
+ */
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url(../../lib/font/westfalia/westfalia.css);
+@import url(../../lib/font/klinic/klinic.css);
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #288ae2;
+
+$mainColor: #fff;
+$headingColor: #fff;
+
+$mainFontSize: 2.5em;
+$mainFont: 'Klinic Slab Medium', 'Rockwell', serif;
+$headingFont: 'Westfalia', 'Arial Black', sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingFontWeight: 600;
+$linkColor: #ffc91d;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.827em;
+$heading2Size: 1.999em;
+$heading3Size: 1.414em;
+$heading4Size: 1em;
+
+// Theme template ------------------------------
+@import "../template/theme";
+
+.reveal pre code {
+  background: #3f3f3f;
+  color: #dcdcdc;
+}
+
+.reveal h1 {
+  display: inline-block;
+  width: 49%;
+  vertical-align: middle;
+}
+// ---------------------------------------------
+
+// Additional styles ------------------------------
+@import "../../../node_modules/susy/sass/susy";
+
+section img.j-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1rem;
+
+  ~ a {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+section img.shadow {
+  border: 0;
+  box-shadow: 4px 4px 16px darken($backgroundColor, 30%);
+}
+
+.text-left {
+  text-align: left;
+}
+
+h1.vert-text {
+  font-family: "KaiU", "標楷體", "BiauKai", sans-serif;
+  font-size: 2.2em;
+  writing-mode: vertical-rl;
+  width: 20%;
+}
+
+.zh-text {
+  font-family: "Microsoft JhengHei", "微軟正黑體", "Heiti TC", "黑體-繁", sans-serif !important;
+}

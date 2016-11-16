@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Westfalia';
+  src: url('westfalia-regular.eot');
+  src: url('westfalia-regular.eot?#iefix') format('embedded-opentype'),
+       url('westfalia-regular.woff2') format('woff2'),
+       url('westfalia-regular.woff') format('woff'),
+       url('westfalia-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
