@@ -17,11 +17,11 @@ And then, just start building stuff.
 Una Kravets once said this on a her excellent podcast, P.S. subscribe to it right now.  
 People go to conferences to get inspired and to learn about things that exist or maybe an overview of how to use it.  
 But then, they really learn that thing, that technology, when they go home and practice it themselves.  
-So hopefully by the end of today, you'll be sufficiently inspired to CSS something when you go home tonight.  
+So that's what I'm going to do, give you an overview of some things I learnt while CSS-ing and hopefully by the end of today, after all these great talks, you too will be sufficiently inspired to CSS something when you go home tonight.  
 -->  
 But that's not enough. You really ought to share what you've done with world. Either write about it or talk about it. Because when you do that, you have to explain stuff, and that forces you to really understand what's going on.  
 -->  
-So who is this person standing up here rambling on about CSS? If you were here last year, I might look familiar to you, cos I hosted this last year. So this is me, I'm Hui Jing, a self taught designer and developer working at a company called Deep Labs and I write blog posts from time to time.  
+So who is this person standing up here rambling on about CSS? If you were here last year, I might look familiar to you, cos I hosted this last year. So this is me, I'm Hui Jing, a self-taught designer and developer working at a company called Deep Labs and I write blog posts from time to time.  
 -->  
 So I built some stuff recently, and now here I am, sharing it with you. Because I only have 15 minutes, key points only.  
 First up is what I call over-the-top radio buttons. I watched a video of Ethan Marcotte's excellent talk at An Event Apart earlier this year, link in the slide, and was particularly enamoured with his demo demonstrating progressively enhanced radio buttons.  
