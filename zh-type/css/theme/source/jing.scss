@@ -27,10 +27,10 @@ $headingLetterSpacing: normal;
 $headingTextTransform: uppercase;
 $headingFontWeight: 600;
 $linkColor: #ffc91d;
-$linkColorHover: lighten( $linkColor, 15% );
-$selectionBackgroundColor: lighten( $linkColor, 25% );
+$linkColorHover: lighten($linkColor, 15%);
+$selectionBackgroundColor: lighten($linkColor, 25%);
 
-$heading1Size: 2.827em;
+$heading1Size: 2.627em;
 $heading2Size: 1.999em;
 $heading3Size: 1.414em;
 $heading4Size: 1em;
