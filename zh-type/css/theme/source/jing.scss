@@ -83,3 +83,30 @@ h1.vert-text {
 .zh-text {
   font-family: "Microsoft JhengHei", "微軟正黑體", "Heiti TC", "黑體-繁", sans-serif !important;
 }
+
+.font {
+  height: 50vh;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+div.flex-wrap {
+  display: flex;
+  min-height: 50vh;
+  max-height: 75vh;
+
+  img,
+  figure {
+    flex-grow: 1;
+  }
+}
+
+.reveal table {
+  font-size: 70%;
+
+  td {
+    vertical-align: middle;
+  }
+}
