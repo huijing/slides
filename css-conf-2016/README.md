@@ -3,7 +3,7 @@
 *For CSSConf.Asia 2016. This is sort of a transcript of the talk.*
   
 Hello everyone.  
-Today I'm going to talk about how I learn to CSS.  
+Today I'm going to talk about how I learn to CSS. I'm also paranoid about the presentation malfunctioning in some way, so you can scan the QR code and load the slides on your mobile device, if you so wish.    
 I've talked a lot of people about CSS and a number of them have told me they don't like CSS, that CSS is hard to wrap their head around.  
 So I'm going to share with you how I wrap my head around CSS.  
 The purpose of CSS is to make stuff on the web look good. I mean, you can't have Cascading Style Sheets without Style. I see CSS as a tool for creative expression, you know, some people write, some people paint, some make music. I just like to CSS.  
@@ -19,9 +19,9 @@ People go to conferences to get inspired and to learn about things that exist or
 But then, they really learn that thing, that technology, when they go home and practice it themselves.  
 So that's what I'm going to do, give you an overview of some things I learnt while CSS-ing and hopefully by the end of today, after all these great talks, you too will be sufficiently inspired to CSS something when you go home tonight.  
 -->  
-But that's not enough. You really ought to share what you've done with world. Either write about it or talk about it. Because when you do that, you have to explain stuff, and that forces you to really understand what's going on.  
+But building things is not enough. You really ought to share what you've done with world. Either write about it or talk about it. Because when you do that, you have to explain stuff, and that forces you to really understand what's going on.  
 -->  
-So who is this person standing up here rambling on about CSS? If you were here last year, I might look familiar to you, cos I hosted this last year. So this is me, I'm Hui Jing, a self-taught designer and developer working at a company called Deep Labs and I write blog posts from time to time.  
+So who is this person standing up here rambling on about CSS? If you were here last year, I might look familiar to you, cos I hosted this last year. But this is me, I'm Hui Jing, a self-taught designer and developer working at a company called Deep Labs and I write blog posts from time to time.  
 -->  
 So I built some stuff recently, and now here I am, sharing it with you. Because I only have 15 minutes, key points only.  
 First up is what I call over-the-top radio buttons. I watched a video of Ethan Marcotte's excellent talk at An Event Apart earlier this year, link in the slide, and was particularly enamoured with his demo demonstrating progressively enhanced radio buttons.  
@@ -51,9 +51,9 @@ So you can see use of the :not selector here is helpful, because once you check 
 The classes prefixed with is- are added and removed via Javascript. Those were the classes I was talking about earlier.  
 -->  
 Transitions are what make the animation possible, otherwise the options would just jump into place, none of the smooth sliding and zooming.  
-I use transitions quite often, but what I never used before was the transition-delay.  
+I use transitions quite often, but what I never used before was the transition-delay. You use it to specify the amount of time the browser waits from when you request the transition to when it actually starts.  
 Turns out that 0.1s pause after you click, does make a difference.  
-I also have the demo on Codepen so you can fork it and mess around with it.  
+I also have the demo on Codepen so you can fork it and mess around with the timing to see its effect.  
 -->  
 Another talk I watched was by Harry Roberts, on structuring your CSS.  
 It was great, there was Subway involved, like the sandwich not the trains.  
@@ -76,9 +76,9 @@ So here's the demo.
 All of it is pure CSS, no images.  
 Annnd, some gratuitous latest-and-greatest thrown in, with the CSS scroll snap property.  
 -->  
-For some reason, I thought it'd be cool to try this single div, if I could help it. So pseudo-elements are definitely necessary.  
-But they are inserted content, which means you must have the content property for them to work. At least empty quotes.  
-The thing about inserted content is it's not visible in the page's source. So ideally you probably don't wanna put any critical content on your page that way.  
+For some reason, I thought it'd be cool to try this single div, if I could help it. So pseudo-elements are definitely necessary. With ::before and ::after, I end up with 3 elements to play with.  
+But pseudo-elements are inserted content, which means you must have the content property for them to work. At least empty quotes.  
+The thing about inserted content is it's not visible in the page's source. So ideally, you probably don't wanna put any critical content on your page that way.  
 For decorative purposes I think this is fine.  
 -->  
 So here we go. Shapes with CSS. We'll start off with something everyone is familiar with.  
