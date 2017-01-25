@@ -1,0 +1,402 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>CSS grid + writing-mode = 🎉</title>
+  <meta name="description" content="CSS writing-mode is a nifty property that allows us to literally turn the browser on its side. Unfortunately, it doesn't play too nicely with Flexbox on Firefox and Edge 😭. On the bright side, it seems to like CSS grid much better.">
+  <meta name="author" content="Chen Hui Jing">
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/jing.css">
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+  <!-- Printing and PDF exports -->
+  <script>
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+  document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+</head>
+
+<body>
+  <div class="reveal">
+
+    <div class="slides">
+      <section>
+        <h1>CSS grid + writing-mode = <span class="emoji" role="img" tabindex="0" aria-label="party popper">&#x1F389;</span></h1>
+        <p><small>By <a href="http://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
+      </section>
+
+      <section>
+        <h2>What is CSS grid?</h2>
+        <p>Grid Layout is a new layout model for CSS that has powerful abilities to control the sizing and positioning of boxes and their contents.</p>
+        <p>Unlike Flexible Box Layout, which is single-axis–oriented, Grid Layout is optimized for 2-dimensional layouts.</p>
+        <small>Source: <a href="https://www.w3.org/TR/css-grid-1/">CSS Grid Layout Module Level 1</a></small>
+      </section>
+
+      <section>
+      <h2>When is CSS grid supported?</h2>
+      <p class="txt-left fragment">Gecko: intent to ship in Firefox 52 (7 March, 2017)</p>
+      <p class="txt-left fragment">Blink: intent to ship in Chrome 57 (14 March, 2017)</p>
+      <p class="txt-left fragment">Webkit: ships in Safari 10.1 (release date March/April-ish)</p>
+      <p class="txt-left fragment">Edge: on the backlog with High priority <span class="emoji" role="img" tabindex="0" aria-label="person shrugging">&#x1F937;</span></p>
+      </section>
+
+      <section>
+        <h2>Enable CSS Grid Layout</h2>
+        <ul class="browsers">
+          <li>
+            <div class="browser__img">
+              <img class="plain" data-src="img/chrome.png" alt="Chrome logo">
+            </div>
+            <div class="browser__txt">
+              <h3><a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a></h3>
+              <p>Enable the flag called <strong>Enable experimental Web Platform features</strong> going to:<br>
+              <a href="chrome://flags/#enable-experimental-web-platform-features">chrome://flags/#enable-experimental-web-platform-features</a></p>
+            </div>
+          </li>
+
+          <li>
+            <div class="browser__img">
+              <img class="plain" data-src="img/firefox.png" alt="Firefox logo">
+            </div>
+            <div class="browser__txt">
+              <h3><a href="https://mozilla.org/firefox">Firefox</a></h3>
+              <p>Enable the flag called <strong>layout.css.grid.enabled</strong> going to:
+              <br><a href="about:config">about:config</a></p>
+            </div>
+          </li>
+
+          <li class="clear">
+            <div class="browser__img">
+              <img class="plain" data-src="img/edge.png" alt="Edge logo">
+            </div>
+            <div class="browser__txt">
+              <h3><a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">IE / Edge</a></h3>
+              <p>Enabled by default since IE10 (old syntax).</p>
+              <p><span>Prefixed</span> <code>-ms</code></p>
+            </div>
+          </li>
+
+          <li>
+            <div class="browser__img">
+              <img class="plain" data-src="img/opera.png" alt="Opera logo">
+            </div>
+            <div class="browser__txt">
+              <h3><a href="http://www.opera.com/">Opera</a></h3>
+              <p>Enable the flag called <strong>Enable experimental Web Platform features</strong> going to:<br>
+              <a href="opera://flags/#enable-experimental-web-platform-features">opera://flags/#enable-experimental-web-platform-features</a></p>
+            </div>
+          </li>
+
+          <li>
+            <div class="browser__img">
+              <img class="plain" data-src="img/webkit.png" alt="WebKit logo">
+            </div>
+            <div class="browser__txt">
+              <h3><a href="https://webkit.org/downloads/">WebKit</a></h3>
+              <p>In Safari Technology Preview and WebKit Nightly Builds you can enable the experimental feature called <strong>CSS Grid</strong> using the menu: <em>Develop &gt; Expermiental Features &gt; CSS Grid</em></p>
+            </div>
+          </li>
+
+          <li>
+            <div class="browser__img">
+              <img class="plain" data-src="img/epiphany.png" alt="Epiphany logo">
+            </div>
+            <div class="browser__txt">
+              <h3><a href="https://wiki.gnome.org/Apps/Web">Epiphany</a></h3>
+              <p>Set the environment variable
+                <code>WEBKITGTK_EXPERIMENTAL_FEATURES</code>:
+                <br>
+              </p>
+              <pre><code>$ export WEBKITGTK_EXPERIMENTAL_FEATURES="CSS_GRID_LAYOUT=1"</code></pre>
+            </div>
+          </li>
+        </ul>
+        <small>Source: <a href="https://igalia.github.io/css-grid-layout/enable.html">Igalia</a></small>
+      </section>
+
+      <section>
+        <h2>So I built something the other day...</h2>
+        <a href="http://penang-hokkien.gitlab.io">
+          <img class="plain" data-src="img/pghk.png" alt="Screenshot of penang-hokkien@gitlab.io">
+        </a>
+      </section>
+
+      <section>
+        <h2>What is CSS writing-mode?</h2>
+        <div class="fragment fade-in">
+          <img class="fragment fade-out plain" data-src="img/magic.gif" alt="Magic by Shia Labeouf">
+        </div>
+        <div class="fragment fade-in">
+          <p class="fragment fade-out">CSS Writing Modes Level 3 defines CSS features to support for various international writing modes, such as left-to-right (e.g. Latin or Indic), right-to-left (e.g. Hebrew or Arabic), bidirectional (e.g. mixed Latin and Arabic) and vertical (e.g. Asian scripts).</p>
+        </div>
+        <div class="fragment" style="max-height: 50vh; width: 100%; display: flex; align-items: center; justify-content: center;">
+          <p class="txt-left" style="writing-mode: vertical-lr;">You can make your browser literally turn on its side from left-to-right.</p>
+          <span class="fragment emoji" style="margin: 0 0.5em;" role="img" tabindex="0" aria-label="upside-down face">&#x1F643;</span>
+          <p class="fragment txt-left" style="writing-mode: vertical-rl;">Or make it read from right-to-left.</p>
+          <span class="fragment emoji" style="margin: 0 0.5em;" role="img" tabindex="0" aria-label="upside-down face">&#x1F642;</span>
+          <p class="fragment txt-left" style="writing-mode: vertical-lr; text-orientation: upright; letter-spacing:-0.375em;">Vertical text is fun!</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Different but same</h2>
+        <p class="fragment">Centring things is no fun</p>
+        <p data-height="400" data-theme-id="9162" data-slug-hash="dNRKWq" data-default-tab="css,result" data-user="huijing" data-embed-version="2" data-pen-title="Vertical layout behaviour" class="codepen">See the Pen <a href="http://codepen.io/huijing/pen/dNRKWq/">Vertical layout behaviour</a> by Chen Hui Jing (<a href="http://codepen.io/huijing">@huijing</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+      </section>
+
+      <section>
+        <h2>Today we learnt</h2>
+        <ul>
+          <li class="fragment">Centre along vertical axis using:
+            <pre><code>margin-top: auto;
+margin-bottom: auto;</code></pre>
+          </li>
+          <li class="fragment">Sideways equivalent of vertical centring is <span class="emoji" role="img" tabindex="0" aria-label="pile of poo">&#x1F4A9;</span></li>
+          <li class="fragment">Flexbox no like writing-mode on Firefox (for now)</li>
+          <li class="fragment">Browsers are very inconsistent at the moment <span class="emoji" role="img" tabindex="0" aria-label="tired face">&#x1F62B;</span></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Can I Use? <span class="fragment">Can.</span></h2>
+        <div class="fragment"> 
+          <p>Browser support: CSS Writing Mode</p>
+          <p class="ciu_embed" data-feature="css-writing-mode" data-periods="future_1,current,past_1,past_2">
+            <a href="http://caniuse.com/#feat=css-writing-mode">Can I Use css-writing-mode?</a> Data on support for the css-writing-mode feature across the major browsers from caniuse.com.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>CSS Logical Properties Level 1</h2>
+        <p>Introduces logical properties and values that provide the author with the ability to control layout through logical, rather than physical, direction and dimension mappings.</p>
+        <small>Source: <a href="https://drafts.csswg.org/css-logical-props/">CSSWG</a></small>
+        <p class="fragment"><code>start</code> and <code>end</code> vs. <code>left</code> and <code>right</code>
+      </section>
+
+      <section>
+        <h2>Can I Use? <span class="fragment">Cannot.</span></h2>
+        <div class="fragment">
+          <p>Browser support: CSS Logical Properties</p>
+          <p class="ciu_embed" data-feature="css-logical-props" data-periods="future_1,current,past_1,past_2">
+            <a href="http://caniuse.com/#feat=css-logical-props">Can I Use css-logical-props?</a> Data on support for the css-logical-props feature across the major browsers from caniuse.com.
+          </p>
+          <small>Disclaimer: If you're reading this from the future, maybe can.</small>
+        </div>
+      </section>
+
+      <section>
+        <h2>But, we have CSS Grid</h2>
+        <div class="fragment">
+          <p>Disclaimer: you cannot learn CSS grid overnight.</p>
+          <ruby>
+            <rb>不是一番寒彻骨</rb>
+            <rt>bù shì yī fān hán chè gǔ</rt>
+          </ruby>
+          <ruby>
+            <rb>怎得梅花扑鼻香</rb>
+            <rt>zěn de méi huā pū bí xiāng</rt>
+          </ruby>
+          <p>It'd be nice if you read <a href="https://www.w3.org/TR/css-grid-1/">the specification</a> <span class="emoji" role="img" tabindex="0" aria-label="nerd face">&#x1F913;</span></p>
+        </div>
+        <div class="fragment">
+          <table>
+            <thead>
+              <tr>
+                <th>Grid container</th>
+                <th>Grid item</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul>
+                    <li>display: grid;</li>
+                    <li>grid-template-columns</li>
+                    <li>grid-template-rows</li>
+                    <li>grid-column-gap</li>
+                    <li>grid-row-gap</li>
+                </td>
+                <td>
+                  <ul>
+                    <li>grid-row</li>
+                    <li>grid-column</li>
+                    <li>align-self</li>
+                    <li>justify-self</li>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>Switching to Grid</h2>
+        <img class="plain" data-src="img/front.png" alt="PGHK homepage grid">
+      </section>
+
+      <section>
+        <h2>Simple grid</h2>
+        <div style="display:inline-block; width:49%; vertical-align:middle;">
+          <img class="plain" data-src="img/simple.svg" alt="Intro section of PGHK">
+        </div>
+        <pre style="display:inline-block; width:49%; vertical-align:middle; font-size:75%"><code>.container {
+  display: grid;
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+}
+
+.top-left {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+  align-self: center;
+  justify-self: end;
+}
+
+.top-right {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  align-self: center;
+  justify-self: start;
+}
+
+.bottom {
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+  justify-self: center;
+}</code></pre>
+      </section>
+
+      <section>
+        <h2>Another simple grid</h2>
+        <p><code>fr</code> &rarr; represents a fraction of the free space in the grid container.</p>
+        <div style="display:inline-block; width:49%; vertical-align:middle;">
+          <img class="plain" data-src="img/simpler.svg" alt="Stories section of PGHK">
+        </div>
+        <pre style="display:inline-block; width:49%; vertical-align:middle; font-size:75%"><code>.container {
+  display: grid;
+  grid-template-columns: 3.6em 1fr;
+  grid-column-gap: 0.5em;
+  grid-row-gap: 1em;
+}
+
+.left {
+  grid-row: 1 / 2;
+  align-self: center;
+}
+
+.top-right {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  align-self: center;
+  justify-self: start;
+}
+
+.bottom {
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+  justify-self: center;
+}</code></pre>
+      </section>
+
+      <section>
+        <h2>Moderate grid</h2>
+        <p><code>repeat()</code> &rarr; represents a repeated fragment of the track list</p>
+        <div style="display:inline-block; width:49%; vertical-align:middle;">
+          <img class="plain" data-src="img/moderate.svg" alt="Resources section of PGHK">
+        </div>
+        <pre style="display:inline-block; width:49%; vertical-align:middle; font-size:75%"><code>.outer-container {
+  display: grid;
+  grid-template-columns: 1fr 2em;
+}
+
+.inner-container {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+
+  display: grid;
+  grid-column-gap: 0.5em;
+  grid-row-gap: 1em;
+
+  @media all and (max-width: 719px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media all and (min-width: 720px) and (max-width: 1279px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media all and (min-width: 1280px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.right {
+  align-self: center;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}</code></pre>
+      </section>
+
+      <section>
+        <h2>Further reading</h2>
+        <ul>
+          <li>
+            <a href="https://www.w3.org/TR/css-grid-1/">CSS Grid Layout Module Level 1</a>
+          </li>
+          <li>
+            <a href="http://gridbyexample.com/">Grid by Example</a> by Rachel Andrew
+          </li>
+          <li>
+            <a href="https://igalia.github.io/css-grid-layout/index.html">CSS Grid Layout Examples</a> by Igalia
+          </li>
+          <li>
+            <a href="https://css-tricks.com/snippets/css/complete-guide-grid/">A Complete Guide to Grid</a> by Chris House
+          </li>
+        </ul>
+      </section>
+
+      <section style="text-align: left;">
+          <h1>THE END</h1>
+          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="http://www.chenhuijing.com">http://www.chenhuijing.com</a></p>
+          <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/">@huijing</a></p>
+        </section>
+
+    </div>
+  </div>
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+  <script>
+  // More info https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    history: true,
+
+    // More info https://github.com/hakimel/reveal.js#dependencies
+    dependencies: [{
+      src: 'plugin/markdown/marked.js'
+    }, {
+      src: 'plugin/markdown/markdown.js'
+    }, {
+      src: 'plugin/notes/notes.js',
+      async: true
+    }, {
+      src: 'plugin/highlight/highlight.js',
+      async: true,
+      callback: function() {
+        hljs.initHighlightingOnLoad();
+      }
+    }]
+  });
+  </script>
+  <script src="//cdn.jsdelivr.net/caniuse-embed/1.0.1/caniuse-embed.min.js"></script>
+</body>
+
+</html>
