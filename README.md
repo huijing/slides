@@ -23,3 +23,5 @@
 10. [A Chinese typography experiment](https://www.chenhuijing.com/slides/zh-type)
 
 11. [How I learn to CSS](https://www.chenhuijing.com/slides/css-conf-2016)
+
+12. [CSS writing-mode + grid = 🎉](https://www.chenhuijing.com/slides/css-grid)
