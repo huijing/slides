@@ -25,3 +25,5 @@
 11. [How I learn to CSS](https://www.chenhuijing.com/slides/css-conf-2016)
 
 12. [CSS writing-mode + grid = 🎉](https://www.chenhuijing.com/slides/css-grid)
+
+13. [TechLadies in KL 🇲🇾](https://www.chenhuijing.com/slides/tl-in-kl)
