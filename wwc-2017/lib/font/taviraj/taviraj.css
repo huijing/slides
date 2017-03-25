@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'Taviraj';
+  src: url('taviraj-regular.eot');
+  src: url('taviraj-regular.eot?#iefix') format('embedded-opentype'),
+     url('taviraj-regular.woff2') format('woff2'),
+     url('taviraj-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Taviraj';
+  src: url('taviraj-italic.eot');
+  src: url('taviraj-italic.eot?#iefix') format('embedded-opentype'),
+     url('taviraj-italic.woff2') format('woff2'),
+     url('taviraj-italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Taviraj';
+  src: url('taviraj-bold.eot');
+  src: url('taviraj-bold.eot?#iefix') format('embedded-opentype'),
+     url('taviraj-bold.woff2') format('woff2'),
+     url('taviraj-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
