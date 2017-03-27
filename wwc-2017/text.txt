@@ -46,11 +46,16 @@ From the hardware to the software, the whole thing was built to be open. No cent
 
 But that being said, the web is still reasonably open. However, some of us may be unintentionally creating barriers to access. You see, web technologies have advanced really quickly. What it took to build a website 10 years ago was a lot simpler than what we have today. At the same time, bandwidth has improved, internet speeds have gotten much faster, browsers have gotten much smarter. The problem is, this progress has been very uneven. 
 
-The web is an informational medium. We go online to find out about things. Sure that information can come in all formats nowadays, as opposed to mostly text when the web started out. But the priority is still content. So understand that when we go online to access information, this data has to be sent to our devices from somewhere else. The explanation I gave earlier was super abridged and super simplified but when you think about data packets flying around, quite a lot can go wrong.
+The web is an informational medium. We go online to find out about things. Sure that information can come in all formats nowadays, as opposed to mostly text when the web started out. But the priority is still content. So understand that when we go online to access information, this data has to be sent to our devices from somewhere else. Here's a simplified explanation of how a website renders on your browser.
 
 I'm going to make the bold assumption that almost everyone here has experienced websites that take forever to load, or sometimes not at all. Especially if you're surfing on your mobile device, and the line isn't all that good. Singapore is still not bad, it's like the world's second best country for digital connectivity. But Singapore is like the Asian exception. Because the whole country is a city.
 
-I'm Malaysian, and I just got back from Perhentian last week. For those who don't know, Perhentian is up in Terengganu and is a very beautiful and chill place. And there was barely any cell service. When we're traveling between states, on the highway, connectivity is also sporadic.
+I'm Malaysian, and I just got back from Perhentian last week. For those who don't know, Perhentian is up in Terengganu and is a very beautiful and chill place. And there was barely any cell service. When we're travelling between states, on the highway, connectivity is also sporadic.
 
 Most people now use smartphones to go online. That's how the direction we're moving in. Especially in developing countries like India, Indonesia, Africa. In China, almost 90% of its internet users go online using a mobile device. The main difference across countries is the type of mobile device used, the content we are trying access, is pretty much similar.
 
+So if after tonight, you feel inspired and interested to pursue this web development thing further. I'd like to bring your attention to a couple of concepts that I hope will form the foundation of your approach to developing for the web.
+
+You may have or will soon hear the term progressive enhancement. This term has been around for more than a decade and still, some people are confused about what it really means. The definition I've settled on is that the core functionality of a website should be available without CSS or Javascript. Progressive enhancement is a development approach, not a technology choice.
+
+In fact, if the purpose of your website is to inform and communicate a message, then it's mandatory, and if content is not accessible, that's considered failure. Networks can be unreliable. We want to reduce the incidence of such failures in spite of unreliable networks.
