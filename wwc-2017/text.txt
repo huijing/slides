@@ -20,7 +20,7 @@ The internet is the entire network of networks that connect all the world's devi
 
 So these are the 4 original computers that were connected by the first network ever built. As you can see, computers were monolithic machines, mostly found in universities, that took up rooms, were very expensive to build, and couldn't talk to each other. In fact, you couldn't copy a program from one machine to another, you had to rewrite it for your own machine.
 
-Another thing was, given how expensive computers were at the time, it wasn't efficient to let just one user use the computer at a time. So there's this thing called time-sharing, which allowed a large group of users to access and run programs on the mainframe at the same time. Data used to be transferred over telephone lines, which was unreliable, costly and inefficient.
+Another thing was, given how expensive computers were at the time, it wasn't efficient to let just one user use the computer at a time. So there's this thing called time-sharing, which allowed a large group of users to access and run programs on the mainframe at the same time. Data used to be transferred over telephone lines, but it was unreliable, costly and inefficient.
 
 Data communications is different from making a phone call. A phone call needs a constant open line of communication for the conversation to take place smoothly. Data, however, is bursty, in that it torrents out in a short burst, followed by periods of non-activity. So most of the time the line is kept open, it's practically wasted bandwidth.
 
@@ -37,6 +37,8 @@ The original protocol was written to handle communications between hosts on the 
 What came out of that was TCP/IP, which is still in use today. It is the foundation on which open-architecture networking was built on. This concept that allows any computer and network to speak freely with one another regardless of what hardware or software they are running. The internet was built to be open.
 
 Now, the web is much more recent, formally invented by Sir Tim Berners-Lee on March 12, 1989 as a means for researchers to share information. This is what he wrote in an open letter during the web's 28th birthday earlier this month.
+
+“I imagined the web as an open platform that would allow everyone everywhere to share information, access opportunities and collaborate across geographic and cultural boundaries.”
 
 An open platform. think about it. That isn't normal. I'm sure most of us have used Microsoft Office at some point in our lives, if not every other day. Guess what, my dad still has Office 97 on his computer at home. And if you tried to open a document you created using the latest version of Office on my dad's computer, you couldn't. But that's a pretty common situation when it comes to software, isn't it?
 
@@ -58,4 +60,24 @@ So if after tonight, you feel inspired and interested to pursue this web develop
 
 You may have or will soon hear the term progressive enhancement. This term has been around for more than a decade and still, some people are confused about what it really means. The definition I've settled on is that the core functionality of a website should be available without CSS or Javascript. Progressive enhancement is a development approach, not a technology choice.
 
-In fact, if the purpose of your website is to inform and communicate a message, then it's mandatory, and if content is not accessible, that's considered failure. Networks can be unreliable. We want to reduce the incidence of such failures in spite of unreliable networks.
+In fact, if the purpose of your website is to inform and communicate a message, then it's mandatory, and if content is not accessible, that's considered failure. Networks can be unreliable. We want to reduce the incidence of such failures in spite of unreliable networks. Assuming you typed your URL correctly, and your device has some semblance of a connection to the web, HTML is the first thing that your browser receives after the initial response was made. The content should be in here.
+
+Remember I mentioned that as the browser parses the HTML, it will send additional requests to the server for these extra resources? Think of it like shooting a basketball. If you take one shot and make it, you're 100% accurate. The more shots you take, the odds that you will miss also go up. Same concept. The more requests you make, odds that some of them will fail also goes up. So if you're relying on CSS or Javascript to render the content on your site, I'm not saying you can't, I'm just saying you're increasing the odds that your user might be faced with a blank site.
+
+This quote here, was pulled from a case study by Airbnb. They are a very popular site these days, and performance is important to them, as it should be. So they went through an optimisation process, and found that the secret to making their site load super fast, was to serve up real HTML instead of waiting for the client to download Javascript before rendering. Who knew?
+
+Optimisation is not optional. The lighter the site or app, the faster it loads, the less data it consumes, and the less expensive it is to visit. So optimisation encompasses a lot of things. It's a long checklist. Some of them are things you can automate, or take care of near the end of the development process. Like for images and fonts. Minification can quite easily be automated before deployment.
+
+But being mindful of how you structure and write your code has to happen from the start. And that comes with experience. Reading articles and tutorials helps, but you'll learn best from actually writing the code yourself. Everyone will have settle into their own style of writing code. And that's fine. If you work with a team, you will all have to agree to certain standards and practices as well. But there are some universal principles that apply regardless of your style.
+
+Learn vanilla HTML, CSS and Javascript first. I really want to stress this point. All the frameworks and libraries can come later, they will always be there waiting for you. Understanding and mastery of the basics will put you in control of the framework or library, instead of the other way around. 
+
+HTML and CSS are quite forgiving, in that, even if you write it rubbishly, your website can probably still work, albeit not very well. I don't know if you've experienced this, but I've visited websites that made my CPU go from 46 degrees to 76 degrees and my fan to start spinning super loudly. Or sites that load megabytes of unoptimised images and 1001 Javascript libraries, half of which are probably not even used. I'm sure we can all do better than that.
+
+Being a web developer doesn't sound like much. We're just building a website or web app, right? But remember, the web is a gateway to a treasure trove of knowledge and information. And I'm speaking for myself right now, but even though I sometimes will rant about why some things are so hard to do, I truly don't think what I do for a living is hard. To me, hard is being a refugee fleeing from war, hard is being a migrant worker earning a pittance to support a large family back home you don't even get to see, hard is having to make a choice between paying your rent so you won't get kicked out or buying food to feed your young kids.
+
+No, what we do is not really that hard. And our actions, however small, do make an impact. Making knowledge accessible to everyone, regardless of their social status, can make a difference. Even if just one person benefits, that's one more than if we didn't make the effort.
+
+I just want to close off with a quote from one of my all-time favourite conference talks, by a designer called Mike Monteiro. “The world is generally changed by people who just want to live out their ordinary lives. By people who are just trying to get home.” Ordinary people, just like you and me.
+
+Thank you.
