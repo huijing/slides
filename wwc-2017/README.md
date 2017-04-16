@@ -34,7 +34,7 @@ Such an implementation would require routers, which were “small” computers k
 
 The contract was awarded to a small company called Bolt, Beranek and Newman, beating out established players like IBM and Raytheon. This was indicative of the anti-bureaucratic nature of how the internet was built. 
 
-Even though they were small in size, Robert Khan, one of their researchers, described them as the “cognac of the research business, very distilled.” It was clear they knew exactly what they were doing, because they were the only guys who submitted a 200 page proposal, complete with flowcharts, tables and detailed calculations on exactly how the IMP would work.
+Even though they were small in size, Robert Kahn, one of their researchers, described them as the “cognac of the research business, very distilled.” It was clear they knew exactly what they were doing, because they were the only guys who submitted a 200 page proposal, complete with flowcharts, tables and detailed calculations on exactly how the IMP would work.
 
 The original protocol was written to handle communications between hosts on the same network. But after a successful demonstration at the International Conference on Computer Communication (ICCC) in 1972, the challenge was then how to expand this protocol to allow different networks, that ran on different technologies to communicate with each other as well. How to create an internet, if you may.
 
