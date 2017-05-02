@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Web Typography: where East meets West</title>
+    <meta name="description" content="Modern CSS gives us the ability to set type for a dynamic medium, which is something relatively new, and requires us to look at typography with a fresh perspective. Chinese typography traversed its own parallel path of evolution over the centuries and this talk will cover the use of CSS as the typesetting tool of the web for both Chinese and Latin-based languages.">
+    <meta name="author" content="Chen Hui Jing">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/jing.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-background="img/cover.jpg" data-transition="fade">
+          <h1 class="c-twotone" data-heading="Web Typography">Web Typography</h1>
+          <h2 class="c-twotone" data-heading="where East meets West">where East meets West</h2>
+        </section>
+
+        <section data-background-image="img/emoji-bg.png" data-background-repeat="repeat" data-background-size="200px">
+          <span style="font-size:calc(2em + 7vw);margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="Malaysia">&#x1F1F2;&#x1F1FE;</span>
+          <span style="font-size:calc(2em + 7vw);margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="basketball">&#x1F3C0;</span>
+          <span style="font-size:calc(2em + 7vw);margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="woman technologist">&#x1F469;&#x200D;&#x1F4BB;</span>
+          <span style="font-size:calc(2em + 7vw);margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="Singapore">&#x1F1F8;&#x1F1EC;</span>
+          <span style="font-size:calc(2em + 7vw);margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="memo">&#x1F4DD;</span>
+          <span style="font-size:calc(2em + 7vw);" class="emoji fragment" role="img" tabindex="0" aria-label="studio microphone">&#x1F399;</span>
+        </section>
+
+        <section data-background-image="img/internet.png">
+        </section>
+
+        <section>
+          <div class="l-multiple">
+            <img class="plain" data-src="img/launch.jpg" alt="Launch of the web">
+            <img class="plain" data-src="img/web.jpg" alt="Where the web was born">
+          </div>
+        </section>
+
+        <section>
+          <blockquote>“I imagined the web as an open platform that would allow everyone everywhere to share information, access opportunities and collaborate across geographic and cultural boundaries.”<br><small>—<a href="http://webfoundation.org/2017/03/web-turns-28-letter/">Sir Tim Berners-Lee</a></small></blockquote>
+        </section>
+
+        <section>
+          <blockquote>“A lack of awareness and locally relevant content was the most commonly cited barrier to internet adoption: 72% of non-internet users across the six survey markets felt this was a barrier.”<br><small>—<a href="https://www.gsmaintelligence.com/research/?file=c52d213ec6288da6b31248df71e370a3&download">Consumer barriers to mobile internet adoption in Asia</a></small></blockquote>
+        </section>
+
+        <section>
+          <blockquote>“A great deal of the content available to Asian users is simply translated into local languages and does not reflect the significant cultural diversity found across the region.”<br><small>—<a href="https://www.gsmaintelligence.com/research/?file=c52d213ec6288da6b31248df71e370a3&download">Consumer barriers to mobile internet adoption in Asia</a></small></blockquote>
+        </section>
+
+        <section>
+          <h2>Unicode</h2>
+          <p>Unicode provides a unique number for every character,
+          <br>no matter what the platform,
+          <br>no matter what the program,
+          <br>no matter what the language.</p>
+        </section>
+
+        <section>
+          <blockquote>“Typography is writing with prefabricated letters”<br><small>—Gerrit Noordzij</small></blockquote>
+        </section>
+
+        <section data-background-image="img/proto.jpg" data-transition="fade">
+          <div class="l-multiple">
+            <h2>Phoenician alphabet</h2>
+            <h2 class="j-vert" style="justify-self:center;">甲骨文</h2>
+          </div>
+        </section>
+
+        <section data-background-image="img/hippo.jpg">
+          <div class="l-multiple" style="font-size:200%;">
+            <p style="">Hippopotamus</p>
+            <p class="j-vert fragment" style="justify-self:center;">河马</p>
+          </div>
+        </section>
+
+        <section data-background-image="img/partners.jpg">
+          <div class="l-multiple" style="font-size:200%;">
+            <p style="">Lebensgefährte</p>
+            <p class="j-vert fragment" style="justify-self:center;">伴侣</p>
+          </div>
+        </section>
+
+        <section data-background-image="img/photography.jpg">
+          <div class="l-multiple" style="font-size:200%;">
+            <p style="">Grianghrafadóireachta</p>
+            <p class="j-vert fragment" style="justify-self:center;">摄影</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Resources</h2>
+          <ul>
+            <li><a href="https://www.gsmaintelligence.com/research/?file=c52d213ec6288da6b31248df71e370a3&download">Consumer barriers to mobile internet adoption in Asia</a></li>
+            <li><a href="http://www.oecd.org/internet/ieconomy/48761013.pdf">The Relationship between Local Content, Internet Development and Access Prices</a></li>
+            <li><a href="https://w3techs.com/technologies/overview/content_language/all">Usage of content languages for websites</a></li>
+          </ul>
+        </section>
+
+        <section style="text-align: left;">
+          <h1>THE END</h1>
+          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="http://www.chenhuijing.com">http://www.chenhuijing.com</a></p>
+          <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/">@huijing</a></p>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>
