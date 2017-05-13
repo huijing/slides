@@ -2,6 +2,7 @@
  * Custom theme for Reveal.js presentations.
  * Copyright (C) 2017 Chen Hui Jing, https://www.chenhuijing.com/
  */
+ 
 // Default mixins -----------------
 @import "../template/mixins";
 // --------------------------------
@@ -10,15 +11,15 @@ $backgroundColor: #fcfcfc;
 
 // Primary/body text
 $mainFont: Georgia, 'SongTi SC', 'SimSun', serif;
-$mainFontSize: 2em;
+$mainFontSize: 2.5em;
 $mainColor: #333;
 
 // Vertical spacing between blocks of text
-$blockMargin: 0.25em;
+$blockMargin: 0.5em;
 
 // Headings
 $headingMargin: 0 0 $blockMargin 0;
-$headingFont: Verdana, 'Hei', 'Microsoft YaHei', sans-serif;
+$headingFont: Verdana, 'HeiTi SC', 'Microsoft YaHei', sans-serif;
 $headingColor: #333;
 $headingLineHeight: 1.2;
 $headingLetterSpacing: normal;
@@ -27,10 +28,10 @@ $headingTextShadow: none;
 $headingFontWeight: 700;
 $heading1TextShadow: $headingTextShadow;
 
-$heading1Size: 2.827em;
-$heading2Size: 1.999em;
-$heading3Size: 1.414em;
-$heading4Size: 1.00em;
+$heading1Size: 1.999em;
+$heading2Size: 1.414em;
+$heading3Size: 1.000em;
+$heading4Size: 1.000em;
 
 // Links and actions
 $linkColor: #00cc00;
@@ -51,6 +52,31 @@ $selectionColor: #fff;
 
 // Overrides ------------------------------
 .reveal {
+  img {
+    max-height: 95vh;
+  }
+
+  pre {
+    font-size: 100%;
+  }
+
+  code {
+    color: dodgerblue;
+  }
+
+  table {
+    font-size: 75%;
+  }
+
+  td {
+    vertical-align: middle;
+  }
+
+  .l-logo {
+    height: 1.25em;
+    margin: 0 0.25em;
+  }
+
   .c-twotone {
     position: relative;
     display: inline-block;
@@ -74,10 +100,12 @@ $selectionColor: #fff;
   .l-multiple {
     display: grid;
     grid-template-columns: 50% 50%;
+    align-items: center;
   }
 
-  blockquote {
-    font-size: 150%;
+  figcaption {
+    font-style: italic;
+    font-size: 75%;
   }
 
   .j-vert {

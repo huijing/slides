@@ -1,0 +1,43 @@
+/**
+ * Custom theme for Reveal.js presentations.
+ *
+ * Copyright (C) 2017 Chen Hui Jing, https://www.chenhuijing.com/
+ */
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url(../../lib/font/magnetic-pro/magnetic-pro.css);
+@import url(../../lib/font/magnetic-pro-black/magnetic-pro-black.css);
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'Magnetic Pro', sans-serif;
+$mainColor: #373a3c;
+$headingFont: 'Magnetic Pro Black', sans-serif;
+$headingColor: #373a3c;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$backgroundColor: #eae7dc;
+$linkColor: #e85a4f;
+$linkColorHover: darken( $linkColor, 20% );
+$selectionBackgroundColor: rgba(0, 0, 0, 0.75);
+
+
+$heading1Size: 2.827em;
+$heading2Size: 1.999em;
+$heading3Size: 1.414em;
+$heading4Size: 1.000em;
+
+section.has-dark-background {
+  &, h1, h2, h3, h4, h5, h6 {
+    color: #eae7dc;
+  }
+}
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
