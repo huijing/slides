@@ -2,15 +2,19 @@
  * Custom theme for Reveal.js presentations.
  * Copyright (C) 2017 Chen Hui Jing, https://www.chenhuijing.com/
  */
- 
+
 // Default mixins -----------------
 @import "../template/mixins";
 // --------------------------------
+// Include theme-specific fonts
+@import url(../../lib/font/magnetic-pro/magnetic-pro.css);
+@import url(../../lib/font/magnetic-pro-black/magnetic-pro-black.css);
+
 // Background of the presentation
 $backgroundColor: #fcfcfc;
 
 // Primary/body text
-$mainFont: Georgia, 'SongTi SC', 'SimSun', serif;
+$mainFont: 'Magnetic Pro', 'HeiTi SC', 'Microsoft YaHei', sans-serif;
 $mainFontSize: 2.5em;
 $mainColor: #333;
 
@@ -19,7 +23,7 @@ $blockMargin: 0.5em;
 
 // Headings
 $headingMargin: 0 0 $blockMargin 0;
-$headingFont: Verdana, 'HeiTi SC', 'Microsoft YaHei', sans-serif;
+$headingFont: 'Magnetic Pro Black', 'Arial Black', 'Microsoft YaHei', sans-serif;
 $headingColor: #333;
 $headingLineHeight: 1.2;
 $headingLetterSpacing: normal;
@@ -35,7 +39,7 @@ $heading4Size: 1.000em;
 
 // Links and actions
 $linkColor: #00cc00;
-$linkColorHover: lighten($linkColor, 15%);
+$linkColorHover: darken($linkColor, 15%);
 
 // Text selection
 $selectionBackgroundColor: lighten($linkColor, 25%);
@@ -56,15 +60,20 @@ $selectionColor: #fff;
     max-height: 95vh;
   }
 
-  pre {
-    font-size: 100%;
-  }
-
   code {
     color: dodgerblue;
   }
 
-  table {
+  h2 code {
+    text-transform: lowercase;
+  }
+
+  blockquote {
+    width: 85%;
+  }
+
+  table,
+  pre {
     font-size: 75%;
   }
 
@@ -97,10 +106,20 @@ $selectionColor: #fff;
     }
   }
 
-  .l-multiple {
+  .l-double {
     display: grid;
     grid-template-columns: 50% 50%;
     align-items: center;
+    justify-items: center;
+  }
+
+  .l-multiple {
+    display: flex;
+    justify-content: space-around;
+
+    .j-vert {
+      width: 1em;
+    }
   }
 
   figcaption {

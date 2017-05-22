@@ -2,6 +2,8 @@
  * Custom theme for Reveal.js presentations.
  * Copyright (C) 2017 Chen Hui Jing, https://www.chenhuijing.com/
  */
+@import url(../../lib/font/magnetic-pro/magnetic-pro.css);
+@import url(../../lib/font/magnetic-pro-black/magnetic-pro-black.css);
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -10,7 +12,7 @@ body {
   background-color: #fcfcfc; }
 
 .reveal {
-  font-family: Georgia, "SongTi SC", "SimSun", serif;
+  font-family: "Magnetic Pro", "HeiTi SC", "Microsoft YaHei", sans-serif;
   font-size: 2.5em;
   font-weight: normal;
   color: #333; }
@@ -41,7 +43,7 @@ body {
 .reveal h6 {
   margin: 0 0 0.5em 0;
   color: #333;
-  font-family: Verdana, "Hei", "Microsoft YaHei", sans-serif;
+  font-family: "Magnetic Pro Black", "Arial Black", "Microsoft YaHei", sans-serif;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: normal;
@@ -212,7 +214,7 @@ body {
   transition: color .15s ease; }
 
 .reveal a:hover {
-  color: #1aff1a;
+  color: green;
   text-shadow: none;
   border: none; }
 
@@ -263,16 +265,16 @@ body {
   border-top-color: #00cc00; }
 
 .reveal .controls .navigate-left.enabled:hover {
-  border-right-color: #1aff1a; }
+  border-right-color: green; }
 
 .reveal .controls .navigate-right.enabled:hover {
-  border-left-color: #1aff1a; }
+  border-left-color: green; }
 
 .reveal .controls .navigate-up.enabled:hover {
-  border-bottom-color: #1aff1a; }
+  border-bottom-color: green; }
 
 .reveal .controls .navigate-down.enabled:hover {
-  border-top-color: #1aff1a; }
+  border-top-color: green; }
 
 /*********************************************
  * PROGRESS BAR
@@ -289,13 +291,17 @@ body {
 .reveal img {
   max-height: 95vh; }
 
-.reveal pre {
-  font-size: 100%; }
-
 .reveal code {
   color: dodgerblue; }
 
-.reveal table {
+.reveal h2 code {
+  text-transform: lowercase; }
+
+.reveal blockquote {
+  width: 85%; }
+
+.reveal table,
+.reveal pre {
   font-size: 75%; }
 
 .reveal td {
@@ -322,10 +328,17 @@ body {
     color: #000;
     text-shadow: 2px 2px 2px #fff; }
 
-.reveal .l-multiple {
+.reveal .l-double {
   display: grid;
   grid-template-columns: 50% 50%;
-  align-items: center; }
+  align-items: center;
+  justify-items: center; }
+
+.reveal .l-multiple {
+  display: flex;
+  justify-content: space-around; }
+  .reveal .l-multiple .j-vert {
+    width: 1em; }
 
 .reveal figcaption {
   font-style: italic;
@@ -360,7 +373,7 @@ span[role=img][aria-label] {
 span[role=img][aria-label]:focus::after,
 span[role=img][aria-label]:hover::after {
   font-size: 25%;
-  font-family: Georgia, "SongTi SC", "SimSun", serif;
+  font-family: "Magnetic Pro", "HeiTi SC", "Microsoft YaHei", sans-serif;
   font-weight: 400;
   position: absolute;
   display: block;
