@@ -10,7 +10,7 @@ My name is Hui Jing, and I'm Malaysian. I played basketball for more than half m
 
 ### Internet and the web
 
-So in case I wasn't clear earlier, the two favourite things I was talking about were the web and typography. WWW. The World Wide Web. Formally invented by Sir Tim Berners-Lee on March 12, 1989 as a means for researchers to share information. This is what he wrote in an open letter during the web's 28th birthday back in March.
+So in case I wasn't clear earlier, the two favourite things I was talking about were the web and typography. WWW. The World Wide Web. It was formally invented by Sir Tim Berners-Lee on March 12, 1989 as a means for researchers to share information. This is what he wrote in an open letter during the web's 28th birthday back in March.
 
 > “I imagined the web as an open platform that would allow everyone everywhere to share information, access opportunities and collaborate across geographic and cultural boundaries.”
 
@@ -24,7 +24,7 @@ Bruce Lawson is here today. And I'm very thankful for the chance to meet him. Wh
 
 I'm quite sure Bruce will cover this in a lot more detail in his talk later. But a key statistic I want to highlight is that roughly 17% of the world's population are native Chinese speakers, and yet only 2% of websites are in Chinese. In contrast, an estimated 51% of the world's websites are in English, when native English speakers make up only around 5% of the world's population. The fact that digital computing originated from places that were predominantly English-speaking plays a big role in this.
 
-I do think that internationalisation efforts have been substantial over the years, and will continue to be for years to come. All the work coming out of the Unicode Consortium has been significant in this regard, with the goal to be able to represent every character in any system, regardless of platform, program or language.
+I do think that internationalisation efforts have been substantial over the years, and will continue to be for years to come. All the work coming out of the Unicode Consortium has been significant in this regard. Their goal is to be able to represent every character in any system, regardless of platform, program or language.
 
 East Asian languages still present a huge challenge due to the volume of glyphs we have. Han unification is also a very controversial issue, and I don't claim to understand the full ins and outs of it. But we are at a point where content generation by locals for locals doesn't involve hours of troubleshooting and jumping through flaming hoops any more. At least, I feel that's the case for Chinese. And typography is integral to the presentation of content.
 
@@ -42,28 +42,29 @@ For example:
 - Hippopotamus, English word of 12 characters. 华语叫河马.
 - Lebensgefährte (Lee-bin-skir-fear-te), German word of 14 characters. 华语叫伴侣.
 - Grianghrafadóireachta (Green-hra-fer-doi-rek-te), Irish word of 21 characters. 这能翻译成摄影.
+What can I say, Chinese is a concise language.
 
-Ancient Greek stone inscriptions used to be sans-serif, but later stone cutters tended to spread out the ends of letters into serifs. In the Middle Ages, scribes and copyists based their writings off of these stone inscriptions. And the letter forms evolved because writing was done with pens instead of chisels. Various writing styles emerged, from Carolingian minuscules to the various Gothic hands, which in turn served as inspiration for type designers doing printing.
+While we're on the subject of letters, ancient Greek stone inscriptions used to be sans-serif, but later stone cutters tended to spread out the ends of letters into serifs. In the Middle Ages, scribes and copyists based their writings off of these stone inscriptions. And the letter forms evolved because writing was done with pens instead of chisels. Various writing styles emerged, from Carolingian minuscules to the various Gothic hands, which in turn served as inspiration for type designers doing printing.
 
 Although it seems like there are all manner of type classifications like Old styles, Transitionals, Humanists and Geometrics, Latin-based scripts can be broadly classified into two big categories, Serifs and Sans-serifs.
 
-Chinese characters went also changed a lot from its origins. It's just that Chinese writing went through the entire process of development and evolution way earlier than Europe. The key implement of Chinese writing is the brush, and calligraphy was and still is one of the most highly regarded Chinese arts. Woodblock printing was invented in China, and the Chinese were exceptional at it. To the point where it was a contributing factor to why moveable type, which too was invented in China, never really took off.
+Chinese characters also changed a lot since their origins. It's just that Chinese writing went through the entire process of development and evolution way earlier than Europe. The key implement of Chinese writing is the brush. Calligraphy was and still is one of the most highly regarded Chinese arts. Woodblock printing was invented in China, and the Chinese were exceptional at it. To the point where it was a contributing factor to why moveable type, which too was invented in China, never really took off.
 
 The contemporary typefaces used for Chinese print publications can be broadly classified into these families: 宋体 (also known as 明体), 楷体, 仿宋体, 黑体. Both 黑体 and 仿宋体 are twentieth century creations. It is not uncommon to see comparisons of 宋体 to serifs and 黑体 to sans-serifs, but I think it makes more sense for Chinese typefaces to maintain their own classifications. They are completely different from Latin alphabets anyway.
+
+宋体 is the standard font for body copy. 楷体 is used for runs of text that need to be differentiated from the rest of the content, like dialogues or references. 黑体 is most commonly seen in digital publishing but publishers have started to experiment with 黑体 in print as well. 仿宋体 is generally used in isolated paragraphs like quotations or highlighted sentences.
+
+There are actually a huge variety of other styles, like those based of ancient scripts like 篆书 or 隶书, as well as brush script styles mimicking 草书 or 行书. But they fall into a broad category called 花式体, mostly used for display text or short paragraphs. Not so much for long form reading.
+
+Chinese typefaces are extremely challenging to create, simply due to the volume of glyphs required. Work on Source Han Serif, which was officially announced in April, started in late 2014. And they had quite a large team working on it. The average number of glyphs for a Chinese system font clocks in around 35,000 glyphs, give or take a couple thousand.
+
+Typefaces that have enough glyph coverage to be used in body copy are usually made by foundries, like 方正, 汉仪 or 蒙纳, as very few independent type designers have the bandwidth for that.
 
 A lot of articles on how to pick typefaces tell us that all typefaces have a personality, and we ought to pick typefaces based on the messaging we want to convey. I don't disagree. It's just that very few people delve into the why. Why do these letters have human traits? Research has suggested that a lot of it boils down to prior experience with the typefaces in particular contexts.
 
 For Latin-based typefaces, old style and transitional serifs like Caslon, Garamond, Times Roman and Baskerville are most often used in books and formal documents. People tend to associate these as being serious and formal. 
 
 Modern serifs like Didot and Bodoni were used in a variety of publications but we associate them with elegance and high fashion because of they're used in Vogue and Harper's Bazaar. To a certain extent, globalisation has allowed some of these associations to transcend cultural and geographic boundaries and become recognised worldwide.
-
-Chinese typefaces are extremely challenging to create, simply due to the volume of glyphs required. Work on Source Han Serif, which was officially announced in April, started in late 2014. And they had quite a large team working on it. The average number of glyphs for a Chinese system font clocks in around 35,000 glyphs, give or take a couple thousand.
-
-Typefaces that have enough glyph coverage to be used in body copy are usually made by foundries, like 方正, 汉仪 or 蒙纳, as very few independent type designers have the bandwidth for that.
-
-宋体 is the standard font for body copy. 楷体 is used for runs of text that need to be differentiated from the rest of the content, like dialogues or references. 黑体 is most commonly seen in digital publishing but publishers have started to experiment with 黑体 in print as well. 仿宋体 is generally used in isolated paragraphs like quotations or highlighted sentences.
-
-There are actually a huge variety of other styles, like those based of ancient scripts like 篆书 or 隶书, as well as brush script styles mimicking 草书 or 行书. But they fall into a broad category called 花式体, mostly used for display text or short paragraphs. Not so much for long form reading. 
 
 To pair Chinese scripts with Latin scripts for body copy is reasonably straightforward, in that you want to pick styles that present an even typographic colour. In this regard, serifs go with 宋体 and sans-serifs go with 黑体. In general, you'd want their stroke thickness to match up, but keep in mind that Chinese glyphs appear denser than their Latin-based counterparts at the same size and adjustments will need to be made for that.
 
@@ -118,7 +119,7 @@ Regardless, from an aesthetic perspective, it is recommended you declare your La
 
 Even though Fonts Level 3 states that user agents must match font names case insensitively, it is still recommended to put them in quotes, just in case.
 
-Generic font families were introduced in CSS2.1, and left it up to user agents to provide reasonable default choices, which express the characteristics of each family as well as possible within the limits allowed by the underlying technology. 
+Generic font families were introduced in CSS2.1, and left it up to user agents to provide reasonable default choices, which express the characteristics of each family as well as possible within the limits allowed by the underlying technology.
 
 There are currently five generic font families, with four more being defined in the Fonts Level 4. The thing about these generic font families is they are notoriously inconsistent, but they were never meant to be consistent in the first place. You'd leave these generic font families to be fallbacks, triggered if somehow all the previously declared fonts failed to load.
 
@@ -152,7 +153,7 @@ So we can utilise a variety of typographic features like swashes, ligatures, old
 
 They are part and parcel of good typography, which is necessary to hold your reader's attention. The written word is a transference of speech, which is heard, into something visual, to be seen. Speakers whom we consider compelling will vary their cadence, use gestures, emphasise certain words. Typographic features like small caps, correct use of italics and punctuation do the same for text. Other features like old style numerals and ligatures help maintain typographic colour, to make reading more comfortable.
 
-So these are the features you can turn on via CSS, but note that the font you are using must have these features to begin with. These are the features most often mentioned at web typography talks, kerning, ligatures, small caps, old style numerals and stylistic alternates. 
+So these are the features you can turn on via CSS, but note that the font you are using must have these features to begin with. This lot up there are the features most often mentioned at web typography talks.
 
 Nobody talks about `font-variant-east-asian`, at least, I haven't met them yet. What this property does is, it allows for glyph substitution and positioning in East Asian text. For the benefit of the audience who can't read Han characters, it might seem like these languages share the same glyphs but actually, it depends. As I mentioned before, Han unification, which is assigning the same code point to different glyphs has been the subject of a lot of debate, so I'm just going to explain this here property.
 
@@ -160,15 +161,15 @@ Essentially, the same code point can have variant glyphs depending on the langua
 
 Now the `font-language-override` property controls the rendering of language-specific glyphs in the typeface used. A commonly raised use case is the use of common ligatures, for the fi combination. The Turkish alphabet has both a dotted and dotless i, so the fi ligature shouldn't be used. Maybe a typeface doesn't recognise a lesser-known language like the Azeri language, which, similar to Turkish, has a dotless i, the `font-language-override` property can be used to force the usage of Turkish glyphs instead.
 
-Browser support for each of these individual properties varies at the moment, with Firefox being the only browser with that has supported all of them since 34.0. `font-feature-settings`, on the other hand, has quite good support across most browsers. The specification recommends to utilise the respective `font-variant` properties over the `font-feature-settings` property, but until browser support becomes more robust, I guess we'll continue to see this property being used instead. 
+Browser support for each of these individual properties varies at the moment, with Firefox being the only browser that has supported all of them since 34.0. `font-feature-settings`, on the other hand, has quite good support across most browsers. The specification recommends to utilise the respective `font-variant` properties over the `font-feature-settings` property, but until browser support becomes more robust, I guess we'll continue to see this property being used instead. 
 
-`font-feature-settings` allows us toggle very specific OpenType properties. Last I checked, there were 141 OpenType feature tags to cover things like vertical kerning and vertical proportional alternate vertical metrics and so on.
+`font-feature-settings` allows us toggle very specific OpenType properties. Last I checked, there were 141 OpenType feature tags to cover things like vertical kerning, unicase, scientific inferiors and so on.
 
 ### Implementing web fonts
 
 If you're using building an English website, things are pretty straightforward. You can choose to serve your own font files, or use an online service. For online services, the most well-known free one is Google Fonts. Then we also have paid services like Adobe Typekit or Hoefler & Co's cloud.typography.
 
-Broadly speaking, how Typekit works is that you create font kits, which are registered to specific domains, then add the fonts you want to use to those kits. Typekit then generates some Javascript that you need to embed on your site and apply the relevant CSS classes to get the fonts to show up. Typekit does offer a selection of free fonts as well, notably, the Source Han Sans and Source Han Serif families.
+Broadly speaking, how Typekit works is that you create font kits, which are registered to specific domains, then add the fonts you want to use to those kits. Typekit then generates some Javascript that you need to embed on your site and apply the relevant CSS classes to get the fonts to show up. Typekit does offer a selection of free fonts as well, the notable Chinese fonts being Source Han Sans and Source Han Serif.
 
 But if you want the smorgasbord of Chinese fonts, there are several font hosting services available as well. Justfont is the pioneer webfont hosting service out of Taipei, but they do more than just host fonts. They hold typography workshops and events, and also have a really great type design blog.
 
@@ -210,9 +211,9 @@ Let's cover some basic terminology. First up, inline base direction, which is th
 
 This is when we apply `vertical-lr` and `vertical-rl` respectively. The block flow direction is now horizontal, while the inline base direction is vertical. And then there's the orientation of the individual glyphs.
 
-Every writing system has one or more native orientations. For example, Latin scripts and Arabic scripts are horizontal only, Mongolian is vertical only, and Han and Japanese Kana are bi-orientational. All glyphs are assigned a horizontal orientation by default, and the User Agent needs to transform text from this default when laying out text vertically.
+Every writing system has one or more native orientations. For example, Latin scripts and Arabic scripts are horizontal only, Mongolian is vertical only, and Han and Japanese Kana are bi-orientational. All glyphs are assigned a horizontal orientation by default, and the User Agent needs to transform text from this horizontal default when laying out text vertically.
 
-There are two ways to do this, by rotation or by translation. Scripts that have native vertical orientations will have an intrinsic bi-orientational transform, so regardless of whether the text is horizontal or vertical, the glyphs transform and will always be upright. Latin-based characters, on the other hand, rotate. But glyphs can always be set sideways or upright with the `text-orientation` property.
+There are two ways to do this, by rotation or by translation. Scripts that have native vertical orientations will have an intrinsic bi-orientational transform, so regardless of whether the text is laid out horizontally or vertically, the glyphs transform and will always be upright. Latin-based characters, on the other hand, rotate. But glyphs can always be set sideways or upright with the `text-orientation` property.
 
 This is what happens to your text when the different values of writing-mode are applied. These examples look correct because I'm using Firefox at the moment, but the last two examples, `sideways-rl` and `sideways-lr` have actually been deferred to Writing Modes Level 4.
 
@@ -227,13 +228,13 @@ There is a very comprehensive document called the Requirements for Japanese Text
 Through my own personal experimentation, I sort of settled onto certain typographic conventions when I'm setting Chinese text.
 
 1. Use the appropriate font family. For example, Source Han Serif has typefaces for simplified Chinese, traditional Chinese, Japanese and Korean. Pick the right one.
-2. Chinese characters are denser than typical alphabets, just by virtue of strokes, so you may want to bump up the font size a little bit. Reading small characters on a screen is not a pleasant experience.
+2. This one I mentioned earlier, that Chinese characters are denser than typical Latin-based alphabets, because of all the strokes, so you may want to bump up the font size a little bit. Reading small characters on a screen is not a pleasant experience.
 3. For line-height there is actually a magic number. Ideally, setting it between 1.5 to 2 works fine so 1.7 is a good choice. This gives the text enough breathing room and a more even typographic colour.
 4. Every Chinese character takes up the same height and width, they are squares, even punctuation are full width characters. Using text-align: justify lines everything up neatly.
-5. Keeping lines to between 25 and 35 characters is something I picked up from print books. A lot of text-heavy non-fiction books I find have lines with around 26 to 28 characters. So, just a suggestion there.
+5. Keeping lines to between 25 and 35 characters is something I picked up from print books. A lot of text-heavy books I find have lines with around 26 to 28 characters. So, just a suggestion there.
 6. For print books, the start of a new paragraph is indicated by a two character indent, but for the web, it looks better to have spacing between paragraphs, so just set a margin-bottom to distinguish different paragraphs of text.
 
-Anyway, I think it's safe to conclude that typesetting Chinese text for a vertical layout is very doable on the web today. This was the first vertical Chinese layout I built, just to learn about the properties and test out how box alignment would work and stuff like that. So let's talk common use cases. 
+Anyway, I think it's safe to conclude that typesetting Chinese text for a vertical layout is very doable on the web today. This was the first vertical Chinese layout I built, just to learn about the properties and test out how box alignment would work and stuff like that. So here are some insights I gleaned from doing that. 
 
 As I mentioned earlier, 25-35 characters per line is a reasonable length, and that's done by clamping the height of the content block. Because Chinese characters are squares, that also implies that in normal circumstances, a height of 25 ems gives you 25 characters per line. To vertically centre the content block, we can actually set the top and bottom margins to `auto`, something we wished we could do but couldn't for horizontal writing. Don't worry, trying to centre things horizontally is equally painful for vertical writing.
 
@@ -241,7 +242,7 @@ Now these directions of top, right, bottom, left start getting a bit confusing w
 
 That's why we have a CSS Logical Properties specification, which introduces new CSS properties that are flow-relative equivalents of physical box model properties. Properties like that use `block-start` and `block-end` or `inline-start` and `inline-end` instead of left and right. This specification is in the thick of working draft status but I'm eager to see it developed and implemented. For now, support is kind of limited.
 
-So for my experiment, I also put in a writing mode switcher to toggle between vertical and horizontal layouts, I guess because I felt like it. The tricky part for that was getting the images to display correctly. I would have loved to have a media query for writing modes so I could layout my images accordingly, but that doesn't exist so I had to hack around it with transforms instead.
+So for my experiment, I also put in a writing mode switcher to toggle between vertical and horizontal layouts, I guess because I felt like it. The tricky part for that was getting the images to display correctly. I would have loved to have a media query for writing modes so I could layout my images accordingly with the picture element, but that doesn't exist so I had to hack around it with transforms instead.
 
 ### Mixed writing modes
 
@@ -249,7 +250,7 @@ Another project I worked on was a bilingual, mixed layout site, and boy was that
 
 One of the ideas I had was to make a bookshelf style list of posts with just CSS. So that was done using writing-mode and a rotation transform for the header, just to get the text to face the other direction. I have grown quite fond of using a vertical header when a page has many sections, I find it helps break up the monotony.
 
-But I'm very cognizant of the fact that for Latin-based languages, which is meant to be read horizontally from top to bottom, vertical text should largely be decorative. We don't want to compromise the reading experience for long form passages. So at smaller screens, we can make use of media queries to revert everything back to horizontal text.
+But I'm very cognizant of the fact that for Latin-based languages, which is meant to be read horizontally from top to bottom, vertical text should largely be decorative. We don't want to compromise the reading experience for long form passages. So at smaller screens, we can make use of media queries to revert to a horizontal layout that makes better use of the limited space.
 
 Conversely, there are instances where vertical Latin text can work on narrow screen sizes as well. Perhaps you have realised that the hamburger menu is not the best mobile UI pattern we came with. You can layout your menu links vertically along the side edge of your site instead. And I'm sure many of you can come up with even more interesting designs that utilise vertical layouts.
 
