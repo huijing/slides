@@ -31,3 +31,5 @@
 14. [Deciphering the CSS property syntax](https://www.chenhuijing.com/slides/css-syntax)
 
 15. [What the web means to me](https://www.chenhuijing.com/slides/wwc-2017)
+
+16. [Web typography: East meets West](https://www.chenhuijing.com/slides/webconf-asia-2017)
