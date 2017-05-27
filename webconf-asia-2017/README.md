@@ -2,19 +2,19 @@
 
 *For Webconf.Asia 2017. This is sort of a transcript of the talk.*
 
-### Introduction
+## Introduction
 
 大家好！The last time I was in Hong Kong was 1998, so it's been a while. I'm really excited to be here to talk to all of you about two of my favourite things, both of which are in my talk title. But before we get to that, let me introduce myself...with emojis.
 
 My name is Hui Jing, and I'm Malaysian. I played basketball for more than half my life, and it was actually what got me into web development in the first place. I'm a front-end engineer based in Singapore now, and I love CSS so much that I will write blog posts about it. I also run Talk.CSS, which is Singapore's only CSS-centric meetup at the moment.
 
-### Internet and the web
+## Internet and the web
 
 So in case I wasn't clear earlier, the two favourite things I was talking about were the web and typography. WWW. The World Wide Web. It was formally invented by Sir Tim Berners-Lee on March 12, 1989 as a means for researchers to share information. This is what he wrote in an open letter during the web's 28th birthday back in March.
 
 > “I imagined the web as an open platform that would allow everyone everywhere to share information, access opportunities and collaborate across geographic and cultural boundaries.”
 
-The purpose of the web is to connect the world's population, to allow people who live half a planet away to become friends. To share your experiences with friends 20km or 20,000km away from you. The internet and the web were built to be open. Or at least, it was meant to be. 
+The purpose of the web is to connect the world's population, to allow people who live half a planet away to become friends. To share your experiences with friends 20km or 20,000km away from you. To provide a means of communication, and most importantly, to all people to gain access to information and even employment. The internet and the web were built to be open. Or at least, it was meant to be.
 
 No centralised control, you didn't have to ask anyone's permission to publish a website. You could just go ahead and do it. If your friend from Argentina has a website, you can just type in that URL to see it. You don't need a visa or a passport. There aren't supposed to be national boundaries online. To me, that is amazing.
 
@@ -28,7 +28,7 @@ I do think that internationalisation efforts have been substantial over the year
 
 East Asian languages still present a huge challenge due to the volume of glyphs we have. Han unification is also a very controversial issue, and I don't claim to understand the full ins and outs of it. But we are at a point where content generation by locals for locals doesn't involve hours of troubleshooting and jumping through flaming hoops any more. At least, I feel that's the case for Chinese. And typography is integral to the presentation of content.
 
-### Overview of Western and Eastern writing systems
+## Overview of Western and Eastern writing systems
 
 I've come across numerous definitions of typography over the years, and have personally settled on this one by Gerrit Noordzij, that “Typography is writing with prefabricated letters”. Letters are the building blocks of a writing system, regardless of language. And if you think about it, almost every writing system in the world today seems to be alphabetic.
 
@@ -68,7 +68,7 @@ Modern serifs like Didot and Bodoni were used in a variety of publications but w
 
 To pair Chinese scripts with Latin scripts for body copy is reasonably straightforward, in that you want to pick styles that present an even typographic colour. In this regard, serifs go with 宋体 and sans-serifs go with 黑体. In general, you'd want their stroke thickness to match up, but keep in mind that Chinese glyphs appear denser than their Latin-based counterparts at the same size and adjustments will need to be made for that.
 
-### The web as a medium
+## The web as a medium
 
 But this being a web conference and all, I should probably bring this back to the internet age. The ability to communicate abstract ideas through language and writing has always been the “killer feature” of human beings, it has been so for thousands of years, though the medium has changed over time. 
 
@@ -85,7 +85,7 @@ We first need to understand the web as a medium, and to be fair, it is a rather 
 
 Although many would like to think the web is simply print expressed on an electronic screen, it is not. It is unique medium on its own.
 
-### Font formats
+## Font formats
 
 Here's a list of common font formats used on the web. Why on earth are there so many formats? Well, here's my non-technical explanation. Fonts are simply containers for glyphs, and font formats describe these glyphs. The earliest fonts were pixel-based bitmaps, which were fine for low-resolution screens, but for printing on high-resolution printers, we needed a better solution. Either compress the bitmapped glyphs, or find an alternative rendering method. 
 
@@ -97,7 +97,7 @@ EOT, or embedded OpenType is Microsoft's proprietary standard which is a compact
 
 Those of us who have worked on projects with self-hosted fonts will probably used something called the @font-face rule, where we declare a list of different font formats, in the hopes our fonts will show up correctly in as many browsers as possible. The number of font formats we need to declare has decreased over the years and right now, you can pretty much get away with declaring just WOFF and WOFF2.
 
-### How browsers pick fonts
+## How browsers pick fonts
 
 The earliest implementation of CSS had a relatively small section on fonts, which covered font properties that could be set via CSS, as well as the font matching algorithm so browsers could determine what fonts to use.
 
@@ -121,9 +121,9 @@ Even though Fonts Level 3 states that user agents must match font names case ins
 
 Generic font families were introduced in CSS2.1, and left it up to user agents to provide reasonable default choices, which express the characteristics of each family as well as possible within the limits allowed by the underlying technology.
 
-There are currently five generic font families, with four more being defined in the Fonts Level 4. The thing about these generic font families is they are notoriously inconsistent, but they were never meant to be consistent in the first place. You'd leave these generic font families to be fallbacks, triggered if somehow all the previously declared fonts failed to load.
+There are currently five generic font families, with four more being defined in Fonts Level 4. The thing about these generic font families is they are notoriously inconsistent, but they were never meant to be consistent in the first place. You'd leave these generic font families to be fallbacks, triggered if somehow all the previously declared fonts failed to load.
 
-### CSS basic font properties
+## CSS basic font properties
 
 Not counting the font shorthand, there are six basic font properties. The last two were introduced in Fonts Level 3. I'll quickly run through the first four. `font-weight` is for indicating the stroke thickness of your font, and can take values from `100` to `900` or keywords, like `bolder` or `lighter`.
 
@@ -145,9 +145,9 @@ Remember when I said the goal of Unicode is to support every single character on
 
 This descriptor lets us choose which characters we want displayed using a particular font face. I'm going to show you the example used in the specification to illustrate this concept. Say we've subsetted the font Droid Sans into Basic Latin, which is 190kb, and Japanese, which runs 1.2mb, with the full set as a fallback. If a run of text contains just Latin characters, the browser will only load the Basic Latin font file. Only if it encounters a character that doesn't exist in the subsetted fonts, perhaps an obscure symbol, it will check the unicode ranges for each `@font-face` rule. Because the Japanese subset does not contain the codepoint for the obscure symbol, the browser will not download the Japanese font at all. It will end up downloading the fallback instead.
 
-### Font feature properties
+## Font feature properties
 
-Font feature properties were introduced with in Fonts Level 3, so its about 6 years old now, give or take. Earlier, when I talked about all the different font formats, I mentioned that Apple and Microsoft worked to improve the original implementation of TrueType. OpenType and Apple Advanced Typography are what we term modern font technologies, and they can contain a lot more glyphs that previous font formats. 
+Font feature properties were introduced in Fonts Level 3, so it's about 6 years old now, give or take. Earlier, when I talked about all the different font formats, I mentioned that Apple and Microsoft worked to improve the original implementation of TrueType. OpenType and Apple Advanced Typography are what we term modern font technologies, and they can contain a lot more glyphs that previous font formats.
 
 So we can utilise a variety of typographic features like swashes, ligatures, old-style numerals and so on. The original `font-variant` property that could only be used to trigger small-caps was also expanded, a great deal. Because there are so many properties available, each with lots of values, I'm just going to do a general overview. Some of you may be wondering what's the point of having all these typographic features? 
 
@@ -165,9 +165,9 @@ Browser support for each of these individual properties varies at the moment, wi
 
 `font-feature-settings` allows us toggle very specific OpenType properties. Last I checked, there were 141 OpenType feature tags to cover things like vertical kerning, unicase, scientific inferiors and so on.
 
-### Implementing web fonts
+## Implementing web fonts
 
-If you're using building an English website, things are pretty straightforward. You can choose to serve your own font files, or use an online service. For online services, the most well-known free one is Google Fonts. Then we also have paid services like Adobe Typekit or Hoefler & Co's cloud.typography.
+If you're building an English website, things are pretty straightforward. You can choose to serve your own font files, or use an online service. For online services, the most well-known free one is Google Fonts. Then we also have paid services like Adobe Typekit or Hoefler & Co's cloud.typography.
 
 Broadly speaking, how Typekit works is that you create font kits, which are registered to specific domains, then add the fonts you want to use to those kits. Typekit then generates some Javascript that you need to embed on your site and apply the relevant CSS classes to get the fonts to show up. Typekit does offer a selection of free fonts as well, the notable Chinese fonts being Source Han Sans and Source Han Serif.
 
@@ -181,13 +181,13 @@ But at the end of the day, we still need to keep in mind that CJK fonts weigh in
 
 If I'm building a site that uses English as its main language, I always turn to Font Squirrel to generate my webfonts, because subsetting. Font Squirrel's web font generator allows for a very granular level of customisation that I haven't found in other tools. There is a desktop application for Mac called FontPrep, which does subsetting quite well too.
 
-Font Spider is an open-source command line tool that does smart webfont compression and conversion. It offers the ability to subset the fonts being used on the site. Look, I don't know why animals are the branding of choice for these tools, they just are. All these links in the slides will be shared out later if you're interested in all this.
+Font Spider is an open-source command line tool that does smart webfont compression and conversion. It offers the ability to subset the fonts being used on the site. Look, I don't know why animals are the branding of choice for these tools, they just are.
 
 And if you're really concerned about speed and page weight, you can simply choose not to use any webfonts at all, because honestly, I think that system fonts are getting much better. This, coming from someone who is running the latest macOS Sierra and the Fast Ring Insider version of Windows 10. But point being, the newer OSes are shipping with much prettier fonts than before. 
 
 I personally use a hybrid technique, where the body text is set in a system font, but for the big titles and display text, where there is a limited number of characters I know will not change much over time, I generate webfonts containing only those glyphs, which makes the font file much much smaller than the full character set.
 
-### Responsive layouts with modern CSS
+## Responsive layouts with modern CSS
 
 Remember we established earlier that the web is a unique medium on its own? That's why we have this thing called responsive web design. A dynamic canvas. I don't know if any of you have ever watched interviews with Bruce Lee but that man is so charming and well-spoken. Anyhoo, this is one of my favourite quotes and it suits the web so well.
 
@@ -201,7 +201,7 @@ Responsive websites are often mentioned in the same breath as media queries, tha
 
 CSS layout has become so much more mature since it first began. There had never been a specification that was created specially for layout until Flexbox and Grid came along. And that is fantastic. We have a lot of CSS properties at our disposal now. Around 496 the last time I checked. And it is up to us to combine and implement them creatively.
 
-### Vertical layout on the web
+## Vertical layout on the web
 
 This next portion is going to cover relevant CSS properties for vertical typesetting. Late last year, I had a thought while riding home on my bicycle after work. I wondered how hard it would be to typeset Chinese text on the web like the novels and comic books I used to read when I was a kid. And that's how I discovered this marvellous CSS property called `writing-mode`.
 
@@ -244,7 +244,7 @@ That's why we have a CSS Logical Properties specification, which introduces new 
 
 So for my experiment, I also put in a writing mode switcher to toggle between vertical and horizontal layouts, I guess because I felt like it. The tricky part for that was getting the images to display correctly. I would have loved to have a media query for writing modes so I could layout my images accordingly with the picture element, but that doesn't exist so I had to hack around it with transforms instead.
 
-### Mixed writing modes
+## Mixed writing modes
 
 Another project I worked on was a bilingual, mixed layout site, and boy was that an experience. What I'd built previously was a proof-of-concept kind of thing, but this was going to be a proper website, with pages and stuff. It's a website about Penang Hokkien, which is the dialect of my home town. And what I realised it that the ease of implementing vertical layouts opens up an aspect of graphic design that isn't often seen on the web at the moment.
 
@@ -256,6 +256,18 @@ Conversely, there are instances where vertical Latin text can work on narrow scr
 
 I also kept the language switcher, which is actually a checkbox hack implementation. When I built this demo, Grid hadn't landed yet, so I used Flexbox for a lot of the layout. Flexbox support is great, I mean, it has wider coverage than `border-radius`, but Flexbox with `writing-mode`? Not so good. I'll be honest, there are quite a large number of cross browser issues. Like, on Firefox, if you don't specify a width on the element with a vertical writing mode, it gets kicked off the page.
 
-But that doesn't mean we should just shy away from using vertical text altogether. In fact, there's never been a better time than now to live on the cutting edge. Evergreen browsers are a thing now, with bug fixes and new features being shipped faster than ever. And here's a little secret I discovered, by raising bugs we find when trying out new features, we are actually showing browser vendors that these features are in demand.
+But that doesn't mean we should just shy away from using vertical text altogether. In fact, there's never been a better time than now to live on the cutting edge. Evergreen browsers are a thing now, with bug fixes and new features being shipped faster than ever. CSS Grid, I feel, is one of the best rollouts of a new major CSS feature ever, with almost all the major browsers shipping it in March this year. By now around 60% of the market is using a browser that supports Grid.
 
-This works both ways, if we don't use features simply because they are buggy, browser vendors will think that nobody really cares about that feature and choose to fix more pressing bugs instead. But if more of us use those features and raise the bugs we discover, it sends a signal to browser vendors that people are using these features and encourage them to address related bugs sooner than later.
+And here's a little secret I discovered, by raising bugs we find when trying out new features, we are actually showing browser vendors that these features are in demand. This works both ways, if we don't use features simply because they are buggy, browser vendors will think that nobody really cares about that feature and choose to fix more pressing bugs instead. But if more of us use those features and raise the bugs we discover, it sends a signal to browser vendors that people are using these features and encourage them to address related bugs sooner than later.
+
+## Wrapping up
+
+Here's the long list of resources I referred to when preparing this talk. I'll share these slides for anybody who is interested.
+
+If you need inspiration for vertical layouts, the Tateyoko Web Awards site has really nice list. My friend, Jen Simmons, also has an experimental layout lab where she showcases all the different things that are now possible with modern CSS.
+
+Sometimes it feels like being a web developer doesn't sound like much. We're just building websites, right? But our actions, however small, do make an impact. Raising a bug report? That makes a difference. Ensuring your site loads properly on slow connections? That counts. Making knowledge accessible to more people? That's definitely a thing. Even if just one person benefits, that's one more than if we didn't make the effort.
+
+So if you're not a native English speaker, if you're Chinese, Russian, Indian or wherever in the world you're from, consider creating more content that is in your own native language. You never know who it might help.
+
+And even if you don't end up using any of what I've covered immediately in your next project, I hope that you keep these techniques and properties in the back of your mind. And maybe one day, when you're tired of building the same old layouts again and again, you'll reach for them and create something amazing.
