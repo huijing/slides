@@ -25,13 +25,1027 @@
     <div class="reveal">
       <div class="slides">
         <section>
-        <h1>Chinese typography on the web</h1>
-          <p><small>By <a href="http://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
+          <section>
+            <h1>Chinese typography on the web</h1>
+            <p><small>By <a href="http://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
+            <aside class="notes">Добрый день (doh-bryh dzyehn). This is my first time in Russia and I'm very happy for the opportunity to speak to all of you about a topic that I'm especially passionate about, but before that, a little bit about myself.</aside>
+          </section>
+
+          <section>
+            <p style="font-size:125%;">Hui Jing (Хуэй Джйн)</p>
+            <p style="font-size:125%;">Chen (Чэнь)</p>
+            <span style="font-size:calc(2em + 6vw);margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="Malaysia">&#x1F1F2;&#x1F1FE;</span>
+            <span style="font-size:calc(2em + 6vw);margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="basketball">&#x1F3C0;</span>
+            <span style="font-size:calc(2em + 6vw);margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="woman technologist">&#x1F469;&#x200D;&#x1F4BB;</span>
+            <span style="font-size:calc(2em + 6vw);margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="Singapore">&#x1F1F8;&#x1F1EC;</span>
+            <span style="font-size:calc(2em + 6vw);margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="memo">&#x1F4DD;</span>
+            <span style="font-size:calc(2em + 6vw);" class="emoji fragment" role="img" tabindex="0" aria-label="studio microphone">&#x1F399;</span>
+            <aside class="notes">My first name is Hui Jing, and my family name is Chen. I am from Malaysia and I played basketball for more than half my life, and it was actually what got me into web development in the first place. I'm a front-end engineer based in Singapore now, and I sometimes write blog posts about CSS. I also run Talk.CSS, which is Singapore's only CSS-centric meetup at the moment.</aside>
+          </section>
         </section>
+
+        <section>
+          <section>
+            <blockquote>“Typography is writing with prefabricated letters”<br><small>—Gerrit Noordzij</small></blockquote>
+            <aside class="notes">I've come across many definitions of typography over the years, and have personally settled on this one by Gerrit Noordzij, that “Typography is writing with prefabricated letters”. Letters are the building blocks of a writing system, regardless of language. And if you think about it, almost every writing system in the world today seems to be alphabetic.</aside>
+          </section>
+
+          <section data-background-image="img/directions.jpg">
+            <aside class="notes">But Chinese is different. Chinese is currently the only logographic writing system left that is widely used by millions of people. Each Chinese character is composed within a uniform square, allowing Chinese to be read efficiently, regardless of whether it is set horizontally or vertically. And until proven otherwise, it seems that the Chinese language was an indigenous invention, developed separately from the Proto-Sinaitic scripts which were the origins of alphabetic languages.</aside>
+          </section>
+
+          <section data-background-image="img/proto.jpg" data-transition="fade">
+            <div class="l-double">
+              <h2>Phoenician alphabet</h2>
+              <h2 class="j-vert" style="justify-self:center;" lang="zh-hans">甲骨文</h2>
+            </div>
+            <aside class="notes">
+              <p>We can see how the nature of Western languages in Europe differ from the Eastern languages in Asia. The Phoenician alphabet is considered the origin of many alphabetic writing systems on which the Greek and later, Latin and Cyrillic alphabets were based on. With alphabets, combine different letters into words you would use to communicate with another person.</p>
+              <p>With Chinese characters, we have thousands upon thousands of unique glyphs that can express meaning on their own or be used in combination with other glyphs. This has a direct consequence on the structure of the language itself.</p>
+            </aside>
+          </section>
+
+          <section data-background-image="img/hippo.jpg">
+            <div class="l-double" style="font-size:150%;">
+              <p>Hippopotamus<br><small>(English) 12 letters</small></p>
+              <p class="fragment"><span class="j-vert" style="justify-self:center;" lang="zh-hans">河马</span><span style="display:block;">(Хе Ма)</span></p>
+            </div>
+            <aside class="notes">Hippopotamus, English word of 12 characters. Chinese only needs 2 characters, 河马.</aside>
+          </section>
+
+          <section data-background-image="img/food.jpg">
+            <div class="l-double" style="font-size:150%;">
+              <p>продовольственный<br><small>(Russian) 17 letters</small></p>
+              <p class="fragment"><span class="j-vert" style="justify-self:center;" lang="zh-hans">食品</span><span style="display:block;">(Щи Пин)</span></p>
+            </div>
+            <aside class="notes">продовольственный (Pro-doh-vol-stven-ney), Russian word of 17 characters. In Chinese, 食品.</aside>
+          </section>
+
+          <section data-background-image="img/photography.jpg">
+            <div class="l-double" style="font-size:150%;">
+              <p>Grianghrafadóireachta<br><small>(Irish) 21 letters</small></p>
+              <p class="fragment"><span class="j-vert" style="justify-self:center;" lang="zh-hans">摄影</span><span style="display:block;">(Ще Ин)</span></p>
+            </div>
+            <aside class="notes">Grianghrafadóireachta (Green-hra-fer-doi-rek-te), Irish word of 21 characters. Again, 2 characters will do, 摄影. What can I say, Chinese is a concise language.</aside>
+          </section>
+
+          <section>
+            <img class="plain" data-src="img/alphabets.jpg" alt="Evolution of the Latin alphabet">
+            <aside class="notes">While we're on the subject of letters, ancient Greek stone inscriptions used to be sans-serif, but later stone cutters tended to spread out the ends of letters into serifs. In the Middle Ages, scribes and copyists based their writings off of these stone inscriptions. And the letter forms evolved because writing was done with pens instead of chisels. Various writing styles emerged, from Carolingian minuscules to the various Gothic hands, which in turn served as inspiration for type designers doing printing.</aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <img class="plain" data-src="img/serifs.jpg" alt="Serif">
+              <img class="plain" data-src="img/sans.jpg" alt="Sans-serif">
+            </div>
+            <aside class="notes">Although it seems like there are many type classifications like Old styles, Transitionals, Humanists and Geometrics, Latin-based scripts can be broadly classified into two big categories, Serifs and Sans-serifs.</aside>
+          </section>
+
+          <section>
+            <img class="plain" data-src="img/hanzi.jpg" alt="Evolution of Hanzi">
+            <aside class="notes">Chinese characters also changed a lot since their origins. It's just that Chinese writing went through the entire process of development and evolution way earlier than Europe. The key implement of Chinese writing is the brush. Calligraphy was and still is one of the most highly regarded Chinese arts. Woodblock printing was invented in China, and the Chinese were exceptional at it. To the point where it was a contributing factor to why moveable type, which too was invented in China, never really took off.</aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <figure class="fragment" style="margin-bottom:1em;">
+                <img class="plain" style="height:30vh;" data-src="img/songti.svg" alt="SongTi">
+                <figcaption>Song Ti (Сон Ти)</figcaption>
+              </figure>
+              <figure class="fragment" style="margin-bottom:1em;">
+                <img class="plain" style="height:30vh;" data-src="img/kaiti.svg" alt="KaiTi">
+                <figcaption>Kai Ti (Каи Ти)</figcaption>
+              </figure>
+              <figure class="fragment" >
+                <img class="plain" style="height:30vh;" data-src="img/fangsongti.svg" alt="FangSongTi">
+                <figcaption>Fang Song Ti (Фан Сон Ти)</figcaption>
+              </figure>
+              <figure class="fragment" >
+                <img class="plain" style="height:30vh;" data-src="img/heiti.svg" alt="HeiTi">
+                <figcaption>Hei Ti (Хеи Ти)</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">
+              <p>The contemporary typefaces used for Chinese print publications can be broadly classified into these families: 宋体 (also known as 明体), 楷体, 仿宋体, 黑体. Both 黑体 and 仿宋体 are twentieth century creations.</p>
+              <p>It is not uncommon to see comparisons of 宋体 to serifs and 黑体 to sans-serifs, but I think it makes more sense for Chinese typefaces to maintain their own classifications. They are completely different from Latin alphabets anyway.</p>
+            </aside>
+          </section>
+
+          <section data-background-image="img/glyphs.jpg">
+            <aside class="notes">
+              <p>Chinese typefaces are extremely challenging to create, simply due to the volume of glyphs required. Work on Source Han Serif, which was officially announced in April, started in late 2014. And they had quite a large team working on it. The average number of glyphs for a Chinese system font is around 35,000 glyphs, plus or minus a couple thousand.</p>
+              <p>Typefaces that have enough glyph coverage to be used in body copy are usually made by foundries, like Founder Type or Monotype, as very few independent type designers have the bandwidth for that.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <img class="plain" data-src="img/fangsong-eg.jpg" alt="Example of FangSongTi">
+              <img class="plain" data-src="img/kaiti-eg.jpg" alt="Example of Kaiti">
+            </div>
+            <aside class="notes">
+              <p>宋体 is the standard font for body copy. 楷体 is used for runs of text that need to be differentiated from the rest of the content, like dialogues or references. 黑体 is most commonly seen in digital publishing but publishers have started to experiment with 黑体 in print as well. 仿宋体 is generally used in isolated paragraphs like quotations or highlighted sentences.</p>
+              <p>There are actually a huge variety of other styles, like those based of ancient scripts like Seal script or Clerical script, as well as brush script styles mimicking Running scripts. But they fall into the general category of decorative fonts, mostly used for display text or short paragraphs. Not so much for long form reading.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="l-multiple">
+              <img class="plain" data-src="img/serif-eg.jpg" alt="Example of Serif typeface">
+              <img class="plain" data-src="img/serif-eg2.jpg" alt="Example of Serif typeface">
+              <img class="plain" data-src="img/serif-eg3.jpg" alt="Example of Serif typeface">
+            </div>
+            <aside class="notes">
+              <p>A lot of articles on how to pick typefaces tell us that all typefaces have a personality, and we ought to pick typefaces based on the messaging we want to convey. I don't disagree. It's just that very few people delve into the why. Why do these letters have human traits? Research has suggested that a lot of it boils down to prior experience with the typefaces in particular contexts.</p>
+              <p>For Latin-based typefaces, old style and transitional serifs like Caslon, Garamond, Times Roman and Baskerville are most often used in books and formal documents. People tend to associate these as being serious and formal.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <img class="plain" data-src="img/vogue.jpg" alt="Cover of Vogue">
+              <img class="plain" data-src="img/harper.jpg" alt="Cover of Harper's Bazaar">
+            </div>
+            <aside class="notes">Modern serifs like Didot and Bodoni were used in a variety of publications but we associate them with elegance and high fashion because of they're used in Vogue and Harper's Bazaar. To a certain extent, globalisation has allowed some of these associations to transcend cultural and geographic boundaries and become recognised worldwide.</aside>
+          </section>
+
+          <section>
+            <img class="plain" data-src="img/mixed-eg.jpg" alt="SongTi + Serifs">
+            <img class="plain" data-src="img/mixed-eg3.jpg" alt="HeiTi + Sans-serifs">
+            <aside class="notes">To pair Chinese scripts with Latin scripts for body copy is reasonably straightforward, in that you want to pick styles that present an even typographic colour. In this regard, serifs go with 宋体 and sans-serifs go with 黑体. In general, you'd want their stroke thickness to match up, but keep in mind that Chinese glyphs appear denser than their Latin-based counterparts at the same size and adjustments will need to be made for that.</aside>
+          </section>
+        </section>
+
+        <section>
+          <section data-background-image="img/analogue.jpg">
+            <aside class="notes">
+              <p>Language and writing has allowed human beings to communicate ideas and record history for thousands of years. And we've written things on almost everything, from cave paintings to stone engravings, from parchment to paper. Right now, the medium of our time is the screen and the browser. Our types are now font files. And we've replaced typesetting with composing sticks or font plates and discs, with CSS.</p>
+              <p>So let's discuss typography on the web.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Web characteristics</h2>
+            <ul>
+              <li class="fragment">Later binding</li>
+              <li class="fragment">Multiple outputs</li>
+              <li class="fragment">Partial control</li>
+              <li class="fragment">Uncertain delivery</li>
+            </ul>
+            <blockquote class="fragment" style="font-size:125%;margin-top:1em">The web is a unique medium on its own.</blockquote>
+            <aside class="notes">
+              <p>We first need to understand the web as a medium, and to be fair, it is a rather young medium. In his doctoral thesis, inventor of CSS, Håkon Wium Lie (Hor-ken Wee-um Lee), described a number of key differences between the distribution of content on paper versus electronic distribution over the web.</p>
+              <ol>
+                <li>Late binding in computer programming terms refers to function calls that are not resolved until runtime, but in publishing, late binding refers to delaying the conversion of data into an optimised output format for presentation for as long as possible. This happens very late on the web and presents a performance challenge as binding now takes place while the user is waiting, and the author is not present to verify if the presentation is correct or not.</li>
+                <li>There is no longer a single final form of presentation either, multiple output devices could be used.</li>
+                <li>Authors can influence the presentation, but he or she no longer holds complete control, instead, a combination of influences from various sources, like the browser and the users themselves, form the final presentation.</li>
+                <li>Dependable delivery is also uncertain, as web resources are distributed across multiple connected servers and the possibility of any of them being unavailable is pretty significant.</li>
+              </ol>
+              <p>Although many would like to think the web is simply print expressed on an electronic screen, it is not. It is a unique medium on its own.</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Font formats for web use</h2>
+            <table>
+              <tr>
+                <td>WOFF2 (Web Open Font Format 2)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                  <img class="plain l-logo" data-src="img/mozilla.svg">
+                  <img class="plain l-logo" data-src="img/opera.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>WOFF (Web Open Font Format)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                  <img class="plain l-logo" data-src="img/mozilla.svg">
+                  <img class="plain l-logo" data-src="img/opera.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>OTF (OpenType)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                  <img class="plain l-logo" data-src="img/adobe.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>TTF (TrueType)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                  <img class="plain l-logo" data-src="img/apple.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>EOT (Embedded Open Type)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>SVG (Scalable Vector Graphics)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/svg.svg">
+                </td>
+              </tr>
+            </table>
+            <aside class="notes">
+              <p>Here's a list of common font formats used on the web. Why on earth are there so many formats? Well, here's my non-technical explanation. Fonts are simply containers for glyphs, and font formats describe these glyphs. The earliest fonts were pixel-based bitmaps, which were fine for low-resolution screens, but for printing on high-resolution printers, we needed a better solution. Either compress the bitmapped glyphs, or find an alternative rendering method.</p>
+              <p>Donald Knuth created Metafont in 1978 for the TeX system, which generated compressed bitmap fonts. John Warnock, founder of Adobe, came up with Postscript in 1985, which was the very first vector font.</p>
+              <p>TrueType was Apple and Microsoft's answer to Adobe's font monopoly. Both companies then worked separately to improve TrueType, especially with regards to fonts for East Asian writing systems. And Apple came up with TrueType GX, later renamed Apple Advanced Typography, while Microsoft turned to Adobe and together they came up with OpenType.</p>
+              <p>EOT, or embedded OpenType is Microsoft's proprietary standard which is a compact form of OpenType fonts meant for use on web pages. Although they tried to submit this as a W3C recommendation, it was rejected in favour of WOFF, or the Web Open Font Format. WOFF was quite the industry effort, involving Microsoft, Mozilla and Opera.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>@font-face rule</h2>
+            <pre style="font-size:50%;"><code>@font-face {
+    font-family: 'Magnetic Pro';
+    src: url('../fonts/magnetic-pro-light.woff2') format('woff2'),
+         url('../fonts/magnetic-pro-light.woff') format('woff');
+  }</code></pre>
+            <div class="l-double">
+              <p style="width:100%;" class="ciu_embed" data-feature="woff" data-periods="future_1,current,past_1,past_2">
+                <a href="http://caniuse.com/#feat=woff">Can I Use woff?</a> Data on support for the woff feature across the major browsers from caniuse.com.
+              </p>
+              <p style="width:100%;" class="ciu_embed" data-feature="woff2" data-periods="future_1,current,past_1,past_2">
+                <a href="http://caniuse.com/#feat=woff2">Can I Use woff2?</a> Data on support for the woff2 feature across the major browsers from caniuse.com.
+              </p>
+            </div>
+            <aside class="notes">Those of us who have worked on projects with self-hosted fonts will probably used something called the @font-face rule, where we declare a list of different font formats, in the hopes our fonts will show up correctly in as many browsers as possible. The number of font formats we need to declare has decreased over the years and right now, you can pretty much get away with declaring just WOFF and WOFF2.</aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <svg viewBox="0 0 1648 621">
+              <defs>
+                <linearGradient id="a" x1="0%" x2="102%" y1="0%" y2="101%">
+                  <stop stop-color="#3023AE" offset="0%"/>
+                  <stop stop-color="#C96DD8" offset="100%"/>
+                </linearGradient>
+              </defs>
+              <g fill="none" fill-rule="evenodd">
+                <g fill-rule="nonzero" transform="translate(0 121)">
+                  <rect width="225" height="500" fill="#E4FFD4" rx="15"/>
+                  <path fill="#FDC794" d="M177.674 118.582c-2.995-16.145-9.523-27.592-17.3-35.737l.5 1.616L56.82 98.85c-2.72 5.655-4.92 12.166-6.324 19.736-2.884 15.538.11 31.786 9.404 44.563 8.996 12.36 25.175 24.04 54.184 23.64 29.006.4 45.188-11.27 54.184-23.64 9.293-12.78 12.287-29.03 9.404-44.56l.002-.01z"/>
+                  <path fill="#556080" d="M168.518 113.872c-7.84-4.466-16.755-6.828-25.782-6.828-9.027 0-17.944 2.362-25.782 6.828l-.882.5h-3.418l-.882-.5c-7.838-4.466-16.754-6.828-25.782-6.828-9.027 0-17.943 2.362-25.78 6.828l-1.3.74v1.493c0 6.505 0 21.747 16.302 23.507 3.002.324 5.865.486 8.52.486 22.5 0 28.125-11.674 29.144-20.58h2.974c1.02 8.906 6.642 20.58 29.145 20.58h.003c2.65 0 5.514-.162 8.516-.486 16.304-1.76 16.304-17 16.304-23.507v-1.492l-1.3-.74z"/>
+                  <path fill="#8697CB" d="M81.368 115.127c-1.008-1.006-2.638-1.006-3.647 0l-7.73 7.717c-1.01 1.006-1.01 2.632 0 3.638.51.502 1.17.754 1.83.754.66 0 1.32-.252 1.83-.754l7.74-7.717c1.01-1.004 1.01-2.632 0-3.638h-.02zm11.83 0L80.3 127.99c-1.008 1.005-1.008 2.63 0 3.637.504.502 1.164.754 1.824.754.66 0 1.32-.25 1.824-.75l12.896-12.86c1.008-1 1.008-2.63 0-3.64-1.01-1-2.64-1-3.647 0zm44.912 0c-1.007-1.006-2.637-1.006-3.646 0l-7.737 7.717c-1.01 1.006-1.01 2.632 0 3.638.503.502 1.163.754 1.823.754.66 0 1.32-.252 1.824-.754l7.737-7.717c1.01-1.004 1.01-2.632 0-3.638zm15.477 0c-1.01-1.006-2.64-1.006-3.647 0l-12.897 12.862c-1.008 1-1.008 2.63 0 3.63.503.5 1.164.75 1.824.75.66 0 1.32-.25 1.823-.76l12.897-12.86c1.005-1.01 1.005-2.63 0-3.64v.01z"/>
+                  <path fill="#556080" d="M151.763 46.172c-.807-2.727-2.39-5.196-4.578-7.144-2.92-2.598-6.9-4.028-11.204-4.028-2.79 0-5.61.61-8.15 1.767l-22.37 10.156c-2.52 1.148-5.46 1.526-8.19 1.035l-21.02-3.733c-1.1-.196-2.24-.296-3.37-.296-9.06 0-16.66 5.96-17.68 13.86-.07.57-.11 1.15-.12 1.71l-.34 15 101.45-14.02-4.41-14.32-.01.01zm5.953 19.294L54.604 79.72l-.44 19.075c-.02.756.298 1.48.863 1.98.474.425 1.086.654 1.715.654.12 0 .237-.01.356-.03L161.23 87c.75-.102 1.415-.53 1.822-1.165.405-.635.51-1.417.29-2.138l-5.626-18.24v.01z"/>
+                  <path fill="#8697CB" d="M156.18 60.485L54.722 74.51l-.12 5.21 103.113-14.254"/>
+                  <path fill="#F9A671" d="M49.88 122.793c-1.17-1.104-2.542-1.767-4.022-1.767-4.186 0-7.58 5.096-7.58 11.38 0 6.285 3.394 11.38 7.58 11.38 1.772 0 3.38-.95 4.67-2.48-1.168-6.052-1.37-12.308-.65-18.513h.002zm137.536-9.845c-1.452-6.115-5.933-10.287-10.005-9.317-1.26.31-2.31 1.11-3.16 2.2 1.39 3.9 2.57 8.12 3.43 12.76.4 2.16.68 4.32.85 6.49 1.34.73 2.77 1.04 4.15.71 4.08-.97 6.2-6.71 4.75-12.82l-.01-.02zm-89.82 60.98c-.53 0-1.062-.162-1.523-.5-1.148-.837-1.396-2.448-.552-3.592 8.54-11.605 24.43-19.34 36.18-17.565 6.03.9 10.36 4.27 12.19 9.49.47 1.34-.24 2.81-1.58 3.28-1.34.47-2.81-.24-3.28-1.58-1.2-3.43-3.91-5.48-8.07-6.1-9.83-1.45-23.88 5.5-31.26 15.52-.5.69-1.29 1.05-2.08 1.05h-.02z"/>
+                  <g transform="translate(45 310)">
+                    <path fill="#424A60" d="M135.255 22.51C133.202 9.956 103.865 0 67.96 0S2.718 9.955.664 22.51H.538v104.112h.126c2.054 12.553 31.393 22.51 67.296 22.51 35.902 0 65.242-9.957 67.295-22.51h.127V22.51h-.127z"/>
+                    <path fill="#424A60" d="M67.96 115.367c-37.237 0-67.422-10.71-67.422-23.918v35.17h.126c2.054 12.55 31.393 22.51 67.296 22.51 35.902 0 65.242-9.96 67.295-22.51h.127V91.45c0 13.208-30.186 23.917-67.422 23.917zM.538 90.043v1.406c0-.48.05-.94.126-1.41H.538zm134.717 0c.076.467.127.934.127 1.406v-1.41h-.127z"/>
+                    <path fill="#556080" d="M67.96 81.6C30.723 81.6.538 70.893.538 57.684v35.173h.126c2.054 12.553 31.393 22.51 67.296 22.51 35.902 0 65.242-9.957 67.295-22.51h.127V57.683c0 13.21-30.186 23.918-67.422 23.918zM.538 56.277v1.406c0-.472.05-.94.126-1.406H.538zm134.717 0c.076.467.127.934.127 1.406v-1.406h-.127z"/>
+                    <ellipse cx="67.96" cy="23.918" fill="#7FABDA" rx="67.422" ry="23.918"/>
+                    <g fill="#7383BF">
+                      <path d="M67.96 47.835C30.723 47.835.538 37.125.538 23.918V59.09h.126C2.718 71.643 32.057 81.6 67.96 81.6c35.902 0 65.242-9.957 67.295-22.51h.127V23.918c0 13.208-30.186 23.917-67.422 23.917z"/>
+                      <path d="M.538 22.51v1.408c0-.473.05-.94.126-1.407H.538zm134.717 0c.076.468.127.935.127 1.408V22.51h-.127z"/>
+                    </g>
+                  </g>
+                  <g transform="translate(75 209)">
+                    <path fill="#ECE7EA" d="M27.326 49.296l-1.765-1.764 10.99-10.986 1.77 1.764"/>
+                    <circle cx="51.782" cy="23.072" r="23.072" fill="#F14742"/>
+                    <circle cx="51.782" cy="23.072" r="18.131" fill="#ECE7EA"/>
+                    <path fill="#FFF" d="M42.526 15.063c-.32 0-.64-.122-.882-.366-.488-.487-.488-1.277 0-1.764 2.708-2.708 6.31-4.2 10.14-4.2 3.83 0 7.43 1.492 10.137 4.2.49.487.49 1.277 0 1.764-.48.487-1.27.487-1.76 0-2.23-2.237-5.21-3.47-8.37-3.47-3.16 0-6.13 1.233-8.37 3.47-.24.244-.56.366-.88.366h-.01z"/>
+                    <path fill="#1B4145" d="M27.544 54.57L8.3 73.814c-2.005 2.004-4.085.832-6.09-1.172C.208 70.64-.964 68.56 1.04 66.555L20.284 47.31l5.982 1.277 1.277 5.982z"/>
+                    <path fill="#C2B8B9" d="M29.888 52.225l-2.344 2.344-7.26-7.26 2.345-2.35c2-2.01 5.25-2.01 7.25 0 2 2 2 5.25 0 7.26z"/>
+                  </g>
+                  <path fill="#3D324C" d="M40.72 103.644c-1.266 0-2.373-.932-2.55-2.218-.197-1.41.788-2.71 2.2-2.902l133.5-18.454c1.416-.227 2.713.787 2.91 2.194.195 1.41-.79 2.71-2.2 2.902L41.077 103.618c-.12.018-.24.026-.358.026z"/>
+                </g>
+                <g class="fragment" transform="translate(225.333 171)">
+                  <rect width="225" height="400" x="183" fill="#D4FFF6" fill-rule="nonzero" rx="15"/>
+                  <path fill="#E9E9E0" fill-rule="nonzero" d="M320.077 218h-78.11c-2.174 0-3.937 1.754-3.937 5.16v142.16c0 .926 1.763 2.68 3.937 2.68h107.855c2.175 0 3.938-1.754 3.938-2.68V252.763c0-1.864-.25-2.464-.692-2.906L321.75 218.69c-.442-.44-1.045-.69-1.672-.69z"/>
+                  <path fill="#D9D7CA" fill-rule="nonzero" d="M321.463 218.404v31.74h31.89"/>
+                  <path fill="#8697CB" fill-rule="nonzero" d="M270.327 252.82h-16.15c-1.484 0-2.69-1.2-2.69-2.677 0-1.48 1.206-2.68 2.69-2.68h16.15c1.485 0 2.69 1.2 2.69 2.68 0 1.478-1.205 2.678-2.69 2.678zm8.073 13.394h-24.22c-1.485 0-2.69-1.2-2.69-2.678 0-1.48 1.205-2.68 2.69-2.68h24.22c1.486 0 2.692 1.2 2.692 2.68 0 1.478-1.206 2.678-2.69 2.678h-.002zm10.766 0c-.7 0-1.4-.294-1.91-.776-.485-.51-.78-1.206-.78-1.902 0-.697.295-1.393.78-1.902.995-.99 2.825-.99 3.82 0 .486.51.782 1.205.782 1.902 0 .696-.296 1.393-.78 1.9-.512.484-1.212.778-1.912.778zm32.297 0h-21.53c-1.487 0-2.693-1.2-2.693-2.678 0-1.48 1.206-2.68 2.692-2.68h21.53c1.487 0 2.692 1.2 2.692 2.68 0 1.478-1.205 2.678-2.69 2.678zm-67.285 40.18c-.7 0-1.4-.296-1.91-.778-.485-.51-.78-1.205-.78-1.902 0-.696.295-1.393.78-1.9.995-.993 2.825-.993 3.82-.002.486.51.782 1.18.782 1.902 0 .697-.296 1.393-.78 1.902-.512.482-1.212.777-1.912.777zm32.297 0h-21.53c-1.487 0-2.693-1.2-2.693-2.68 0-1.478 1.206-2.678 2.692-2.678h21.53c1.487 0 2.692 1.2 2.692 2.678 0 1.48-1.205 2.68-2.69 2.68zm51.135-40.18h-5.382c-1.485 0-2.69-1.2-2.69-2.678 0-1.48 1.205-2.68 2.69-2.68h5.383c1.49 0 2.7 1.2 2.7 2.68 0 1.478-1.2 2.678-2.69 2.678h-.01zm-24.22 13.393h-59.212c-1.485 0-2.69-1.2-2.69-2.678 0-1.48 1.205-2.68 2.69-2.68h59.21c1.486 0 2.692 1.2 2.692 2.68 0 1.47-1.206 2.67-2.69 2.67zm24.22 0h-16.147c-1.486 0-2.69-1.2-2.69-2.678 0-1.48 1.204-2.68 2.69-2.68h16.148c1.49 0 2.7 1.2 2.7 2.68 0 1.47-1.2 2.67-2.69 2.67h-.01zM264.944 293h-10.766c-1.485 0-2.69-1.2-2.69-2.68 0-1.477 1.205-2.677 2.69-2.677h10.766c1.485 0 2.69 1.2 2.69 2.678 0 1.48-1.205 2.68-2.69 2.68zm37.68 0H275.71c-1.486 0-2.692-1.2-2.692-2.68 0-1.477 1.206-2.677 2.69-2.677h26.915c1.486 0 2.692 1.2 2.692 2.678 0 1.48-1.206 2.68-2.692 2.68zm34.986 0h-24.22c-1.487 0-2.693-1.2-2.693-2.68 0-1.477 1.206-2.677 2.692-2.677h24.22c1.48 0 2.69 1.2 2.69 2.678 0 1.48-1.21 2.68-2.69 2.68z"/>
+                  <path fill="#0096E6" fill-rule="nonzero" d="M349.822 368H241.967c-2.174 0-3.937-1.754-3.937-3.92v-41.616h115.73v41.617c0 2.17-1.763 3.92-3.938 3.92z"/>
+                  <path fill="#FFF" fill-rule="nonzero" d="M250.778 358v-26.016h14.59v2.76h-10.885v8.72h9.138v2.724h-9.13V358h-3.71zm29.884.65c-3.622 0-6.536-1.25-8.74-3.753-2.206-2.502-3.31-5.81-3.31-9.922 0-4.137 1.11-7.445 3.326-9.923 2.217-2.48 5.178-3.718 8.883-3.718 3.7 0 6.65 1.236 8.88 3.71 2.23 2.472 3.34 5.77 3.34 9.895 0 4.2-1.11 7.54-3.33 10.01-2.22 2.46-5.23 3.7-9.03 3.7h-.01zm.053-2.76c2.67 0 4.733-.957 6.192-2.873 1.458-1.916 2.187-4.62 2.187-8.113 0-3.386-.732-6.035-2.196-7.945-1.464-1.91-3.49-2.87-6.077-2.87-2.59 0-4.62.96-6.08 2.87-1.46 1.91-2.19 4.58-2.19 7.99 0 3.39.73 6.07 2.17 8.01 1.45 1.94 3.45 2.92 6 2.92v.01zm17.5 2.11v-26.016h3.634l13.14 20.092v-20.092h3.17V358h-3.62l-13.16-20.092V358h-3.18.01zm32.9 0v-23.256h-9.262v-2.76h22.228v2.76h-9.26V358h-3.7z"/>
+                  <g fill-rule="nonzero">
+                    <path fill="#FDC794" d="M360.674 116.582c-2.995-16.145-9.523-27.592-17.3-35.737l.5 1.616L239.82 96.85c-2.72 5.655-4.92 12.166-6.324 19.736-2.884 15.538.11 31.786 9.404 44.563 8.996 12.36 25.175 24.04 54.184 23.64 29.006.4 45.188-11.27 54.184-23.64 9.293-12.78 12.287-29.03 9.404-44.56l.002-.01z"/>
+                    <path fill="#556080" d="M351.518 111.872c-7.84-4.466-16.755-6.828-25.782-6.828-9.027 0-17.944 2.362-25.782 6.828l-.882.5h-3.418l-.882-.5c-7.838-4.466-16.754-6.828-25.782-6.828-9.027 0-17.943 2.362-25.78 6.828l-1.3.74v1.493c0 6.505 0 21.747 16.302 23.507 3.002.324 5.865.486 8.52.486 22.5 0 28.125-11.674 29.144-20.58h2.974c1.02 8.906 6.642 20.58 29.145 20.58h.003c2.65 0 5.514-.162 8.516-.486 16.304-1.76 16.304-17 16.304-23.507v-1.492l-1.3-.74z"/>
+                    <path fill="#8697CB" d="M264.368 113.127c-1.008-1.006-2.638-1.006-3.647 0l-7.73 7.717c-1.01 1.006-1.01 2.632 0 3.638.51.502 1.17.754 1.83.754.66 0 1.32-.252 1.83-.754l7.74-7.717c1.01-1.004 1.01-2.632 0-3.638h-.02zm11.83 0L263.3 125.99c-1.008 1.005-1.008 2.63 0 3.637.504.502 1.164.754 1.824.754.66 0 1.32-.25 1.824-.75l12.896-12.86c1.008-1 1.008-2.63 0-3.64-1.01-1-2.64-1-3.647 0zm44.912 0c-1.007-1.006-2.637-1.006-3.646 0l-7.737 7.717c-1.01 1.006-1.01 2.632 0 3.638.503.502 1.163.754 1.823.754.66 0 1.32-.252 1.824-.754l7.737-7.717c1.01-1.004 1.01-2.632 0-3.638zm15.477 0c-1.01-1.006-2.64-1.006-3.647 0l-12.897 12.862c-1.008 1-1.008 2.63 0 3.63.503.5 1.164.75 1.824.75.66 0 1.32-.25 1.823-.76l12.897-12.86c1.005-1.01 1.005-2.63 0-3.64v.01z"/>
+                    <path fill="#556080" d="M334.763 44.172c-.807-2.727-2.39-5.196-4.578-7.144-2.92-2.598-6.9-4.028-11.204-4.028-2.79 0-5.61.61-8.15 1.767l-22.37 10.156c-2.52 1.148-5.46 1.526-8.19 1.034l-21.01-3.732c-1.1-.196-2.24-.296-3.37-.296-9.06 0-16.66 5.96-17.68 13.86-.07.57-.11 1.15-.12 1.71l-.34 15 101.44-14.03-4.41-14.32-.01.02zm5.953 19.294L237.604 77.72l-.44 19.075c-.02.756.298 1.48.863 1.98.474.425 1.086.654 1.715.654.12 0 .237-.01.356-.03L344.23 85c.75-.102 1.415-.53 1.822-1.165.405-.635.51-1.417.29-2.138l-5.626-18.24v.01z"/>
+                    <path fill="#8697CB" d="M339.18 58.485L237.722 72.51l-.12 5.21 103.113-14.254"/>
+                    <path fill="#F9A671" d="M232.88 120.793c-1.17-1.104-2.542-1.767-4.022-1.767-4.186 0-7.58 5.096-7.58 11.38 0 6.285 3.394 11.38 7.58 11.38 1.772 0 3.38-.95 4.67-2.48-1.168-6.052-1.37-12.308-.65-18.513h.002zm137.536-9.845c-1.452-6.115-5.933-10.287-10.005-9.317-1.26.31-2.31 1.11-3.16 2.2 1.39 3.9 2.57 8.12 3.43 12.76.4 2.16.68 4.32.85 6.49 1.34.73 2.77 1.04 4.15.71 4.08-.97 6.2-6.71 4.75-12.82l-.01-.02zm-89.82 60.98c-.53 0-1.062-.162-1.523-.5-1.148-.837-1.396-2.448-.552-3.592 8.54-11.605 24.43-19.34 36.18-17.565 6.03.9 10.36 4.27 12.19 9.49.47 1.34-.24 2.81-1.58 3.28-1.34.47-2.81-.24-3.28-1.58-1.2-3.43-3.91-5.48-8.07-6.1-9.83-1.45-23.88 5.5-31.26 15.52-.5.69-1.29 1.05-2.08 1.05h-.02z"/>
+                    <path fill="#3D324C" d="M223.72 101.644c-1.266 0-2.373-.932-2.55-2.218-.197-1.41.788-2.71 2.2-2.902l133.5-18.454c1.416-.227 2.713.787 2.91 2.194.195 1.41-.79 2.71-2.2 2.902l-133.502 18.452c-.12.018-.24.026-.358.026z"/>
+                  </g>
+                  <path stroke="#000" stroke-width="10" d="M.164 200H174.17"/>
+                  <path stroke="#000" stroke-width="10" d="M140.86 177l33.135 23.055-33.135 23.054" stroke-linecap="round"/>
+                  <g fill="#000" font-size="24" font-family="Monaco">
+                    <text transform="translate(44.667 123)">
+                      <tspan x=".908" y="24">Picks</tspan>
+                    </text>
+                    <text transform="translate(44.667 123)">
+                      <tspan x="8.109" y="54">font</tspan>
+                    </text>
+                  </g>
+                </g>
+                <g class="fragment">
+                  <path fill="#FFF0D4" fill-rule="nonzero" d="M966 221.02L1115.98 371 966 520.98 816.02 371"/>
+                  <g fill-rule="nonzero">
+                    <path fill="#E37948" d="M933.48 368.015h66.005c1.52 0 2.75 1.23 2.75 2.748v79.69c0 1.518-1.23 2.747-2.75 2.747H933.48c-1.52 0-2.75-1.23-2.75-2.748v-79.69c0-1.516 1.23-2.747 2.75-2.747z"/>
+                    <path fill="#FFF" d="M938.98 376.26h55.005v68.696H938.98"/>
+                    <path fill="#E4E7E7" d="M944.396 370.764h13.723v-5.496h16.6l.06 5.496h13.69v8.244h-44.08"/>
+                    <path fill="#CDCFCF" d="M944.48 376.28h44.005v2.744H944.48"/>
+                    <path fill="#51BBA8" d="M944.48 409.234h8.25v-8.27h-8.25v8.27zm13.752-8.274v8.238h30.252v-8.238h-30.252z"/>
+                    <path fill="#CCD0D2" d="M944.48 395.522h8.25v-8.27h-8.25v8.27zm13.752-8.27v8.24h30.252v-8.24h-30.252zm-13.75 35.693h8.25v-8.186h-8.25v8.18zm13.75.06h30.252v-8.237h-30.252v8.238zm-13.75 13.683h8.25v-8.186h-8.25v8.186zm13.75.057h30.252v-8.238h-30.252v8.238z"/>
+                  </g>
+                  <g fill="#000" font-size="24" font-family="Monaco">
+                    <text transform="translate(901 293)">
+                      <tspan x="14.831" y="24.633">Matches</tspan>
+                    </text>
+                    <text transform="translate(901 293)">
+                      <tspan x=".428" y="54.633">criteria?</tspan>
+                    </text>
+                  </g>
+                  <g stroke="#000" stroke-width="10">
+                    <path d="M633.497 371h174.006"/>
+                    <path d="M774.193 348l33.135 23.055-33.135 23.054" stroke-linecap="round"/>
+                  </g>
+                </g>
+                <g class="fragment">
+                  <path stroke="#000" stroke-width="10" d="M965.27 220.614V44H517v119.604"/>
+                  <path stroke="#000" stroke-width="10" d="M540.11 129l-23.055 33.135L494 129" stroke-linecap="round"/>
+                  <text fill="#000" transform="translate(983 117)" font-size="24" font-family="Monaco">
+                    <tspan x=".098" y="24">No</tspan>
+                  </text>
+                  <text fill="#000" font-family="Monaco" font-size="24" transform="translate(494 -4)">
+                    <tspan x="31.465" y="24">Next alternative ‘font-family’</tspan>
+                  </text>
+                </g>
+                <g class="fragment">
+                  <path stroke="#000" stroke-width="10" d="M1115.497 371h174.006"/>
+                  <path stroke="#000" stroke-width="10" d="M1256.193 348l33.135 23.055-33.135 23.054" stroke-linecap="round"/>
+                  <text fill="#000" transform="translate(1169 324)" font-size="24" font-family="Monaco">
+                    <tspan x=".396" y="24">Yes</tspan>
+                  </text>
+                </g>
+                <g class="fragment" fill-rule="nonzero" transform="translate(1298 196)">
+                  <circle cx="175" cy="175" r="175" fill="url(#a)"/>
+                  <g transform="translate(60 30)">
+                    <path fill="#F09EA0" d="M122.485 183.36L3.57 249.33c-1.536.852-4.026-1.44-3.304-3.043L56.09 122.23"/>
+                    <path fill="#EF8990" d="M111.49 173.237L7.07 231.164.267 246.288c-.72 1.604 1.767 3.895 3.305 3.042l118.916-65.97-10.995-10.123h-.003z"/>
+                    <ellipse cx="91.084" cy="151.214" fill="#59D3C4" transform="rotate(-47.383 91.084 151.214)" rx="19.631" ry="45.477"/>
+                    <path fill="#88E2E2" d="M104.373 136.754c-18.47-17.006-39.394-24.32-46.735-16.335-2.27 2.46-2.972 6.11-2.318 10.47 9.747 1.04 23.17 8.06 35.502 19.42 12.758 11.74 21.003 25.04 22.466 34.77 4.85.52 8.794-.44 11.234-3.09 7.342-7.98-1.68-28.24-20.15-45.25v.01z"/>
+                    <g fill="#F9DE8F" transform="translate(15.068 175.584)">
+                      <ellipse cx="42.533" cy="9.522" rx="9.129" ry="9.135"/>
+                      <path d="M7.925 41.562c5.042 0 9.13-4.09 9.13-9.135s-4.088-9.135-9.13-9.135c-.494 0-.976.05-1.45.126L.223 37.315c1.62 2.55 4.46 4.247 7.703 4.247z"/>
+                    </g>
+                    <path fill="#F09EA0" d="M124.5 95.368c-1.445 0-2.86-.726-3.68-2.046-1.26-2.032-.637-4.702 1.393-5.964 6.554-4.073 15.487-11.53 20.83-23.92 2.78-6.452 4.198-13.356 4.21-20.52.004-2.39 1.94-4.324 4.328-4.324h.01c2.39.004 4.33 1.946 4.32 4.338-.01 8.346-1.67 16.4-4.91 23.938-6.23 14.45-16.6 23.118-24.21 27.845-.71.442-1.5.653-2.28.653h-.01z"/>
+                    <path fill="#F9DE8F" d="M128.15 132.823c-.386 0-.78-.053-1.17-.162-2.3-.64-3.643-3.03-2.997-5.34 4.813-17.16 12.8-28.81 23.743-34.62 6.9-3.66 13.08-4.08 19.058-4.49 5.55-.37 10.794-.73 17.117-3.55 8.91-3.97 16.43-11.34 22.33-21.91 1.17-2.08 3.81-2.83 5.89-1.66 2.09 1.17 2.83 3.81 1.67 5.9-6.84 12.23-15.71 20.84-26.36 25.59-7.72 3.45-14.27 3.89-20.05 4.29-5.53.38-10.31.7-15.58 3.5-8.77 4.66-15.32 14.53-19.47 29.32-.53 1.91-2.27 3.16-4.16 3.16l-.02-.02zm-45.463-25.346c.16.352.37.69.63 1 1.54 1.832 4.268 2.068 6.098.53 13.64-11.47 20.95-23.56 21.725-35.93.49-7.804-1.678-13.61-3.774-19.227-1.946-5.215-3.785-10.142-3.827-17.07-.06-9.76 3.55-19.65 10.73-29.393 1.41-1.924 1.01-4.634-.92-6.056-1.93-1.41-4.64-1-6.05.92-8.31 11.28-12.49 22.92-12.42 34.59.05 8.47 2.35 14.62 4.37 20.05 1.94 5.2 3.61 9.7 3.24 15.66-.62 9.92-6.9 19.96-18.66 29.85-1.52 1.28-1.94 3.38-1.16 5.1l.01-.02z"/>
+                    <path fill="#F09EA0" d="M193.386 154.03c-1.902 0-3.77-.202-5.603-.602-5.316-1.16-8.643-3.68-11.58-5.902-1.888-1.43-3.672-2.78-5.993-3.812-7.33-3.26-17.27-1.946-29.548 3.91-2.16 1.03-4.74.114-5.77-2.045-1.028-2.16-.113-4.75 2.045-5.78 14.666-7 27.044-8.35 36.79-4.01 3.23 1.43 5.604 3.23 7.698 4.81 2.652 2.01 4.746 3.59 8.205 4.35 5.52 1.2 11.816-.35 18.705-4.63 2.03-1.26 4.7-.64 5.958 1.39 1.26 2.03.635 4.7-1.396 5.96-6.783 4.21-13.323 6.33-19.51 6.33v.03z"/>
+                    <path fill="#88E2E2" d="M194.992 119.83c-.953 0-1.913-.314-2.713-.96-1.87-1.502-2.16-4.227-.66-6.09 4.03-5 9.16-9.123 14.84-11.924 4.1-2.024 8.49-3.388 13.05-4.054 2.37-.345 4.56 1.29 4.91 3.658.34 2.367-1.29 4.565-3.66 4.912-3.67.536-7.19 1.63-10.48 3.253-4.56 2.25-8.69 5.567-11.94 9.593-.86 1.06-2.11 1.612-3.38 1.612h.03zm-25.912 2.57c-2.523 0-4.57-2.047-4.57-4.57 0-2.522 2.047-4.57 4.57-4.57 2.52 0 4.566 2.048 4.566 4.57 0 2.523-2.046 4.57-4.567 4.57z"/>
+                    <path fill="#F09EA0" d="M179.276 59.825c-2.52 0-4.568-2.048-4.568-4.57 0-2.523 2.047-4.57 4.568-4.57 2.52 0 4.567 2.047 4.567 4.57 0 2.522-2.046 4.57-4.567 4.57z"/>
+                    <path fill="#88E2E2" d="M142.607 13.54c-2.52 0-4.568-2.047-4.568-4.57 0-2.522 2.04-4.57 4.56-4.57 2.52 0 4.56 2.048 4.56 4.57 0 2.523-2.05 4.57-4.57 4.57h.01zm80.337 30.756c-2.522 0-4.568-2.048-4.568-4.57 0-2.523 2.046-4.57 4.568-4.57 2.52 0 4.567 2.047 4.567 4.57.01 2.522-2.04 4.57-4.56 4.57z"/>
+                    <path fill="#F9DE8F" d="M193.122 22.68c-2.52 0-4.568-2.047-4.568-4.57 0-2.52 2.047-4.57 4.568-4.57 2.52 0 4.567 2.05 4.567 4.57 0 2.523-2.05 4.57-4.57 4.57z"/>
+                    <path fill="#F09EA0" d="M124.497 39.725c-2.52 0-4.567-2.048-4.567-4.57 0-2.523 2.046-4.57 4.567-4.57 2.522 0 4.568 2.047 4.568 4.57 0 2.522-2.046 4.57-4.568 4.57z"/>
+                    <path fill="#F9DE8F" d="M224.72 131.37c-2.522 0-4.568-2.048-4.568-4.57 0-2.523 2.046-4.57 4.567-4.57 2.52 0 4.56 2.047 4.56 4.57 0 2.522-2.05 4.57-4.57 4.57h.01zM82.303 77.472c-2.52 0-4.567-2.048-4.567-4.57 0-2.523 2.046-4.57 4.567-4.57 2.522 0 4.568 2.047 4.568 4.57s-2.04 4.57-4.56 4.57z"/>
+                  </g>
+                </g>
+              </g>
+            </svg>
+            <img style="position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);width:85vh;" class="fragment plain" data-src="img/biang.svg">
+            <aside class="notes">
+              <p>The earliest implementation of CSS had a relatively small section on fonts, which covered font properties that could be set via CSS, as well as the font matching algorithm so browsers could determine what fonts to use.</p>
+              <p>The algorithm itself has since been expanded over the last 2 decades but the general guideline to what font is used for a given character in a run of text is as follows:</p>
+              <ul>
+                <li>the User Agent (UA) takes the first family name defined in the <code>font-family</code> property</li>
+                <li>iif it's a generic family keyword, the UA will just pick the one it always uses and load that, otherwise it will try to find the family from fonts declared through <code>@font-face</code></li>
+                <li>once matched, the UA will assemble the set of font faces in the family, then pick the appropriate font face based on declared font properties:
+                <ul>
+                  <li>font-stretch</li>
+                  <li>font-style</li>
+                  <li>font-weight</li>
+                  <li>font-size</li>
+                </ul>
+                </li>
+                <li>But if no matching face exists, or if the matched face is missing the glyph that needs to be rendered, the next family name is considered, and the UA runs through the steps again</li>
+                <li>Once a font face is matched, the font will be loaded</li>
+                <li>If all the font family names have been run through, and still no font face matches, a system fallback font will be called into play</li>
+              </ul>
+              <p>If a character cannot be displayed using any font at all, like this Chinese character called biang, you'll end up with a white square or missing symbol glyph instead. This is less common now, compared to 10 years ago, thanks to the widespread use of Unicode.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Declare your Latin fonts first</h2>
+            <pre style="white-space:normal;"><code>font-family: 'Gentium Basic', 'PingFang TC', 'Microsoft JhengHei', '微軟正黑體', 'Heiti TC', '黑體-繁', sans-serif;</code></pre>
+            <p class="fragment">Font rendering for Mac and Windows is different, and sometimes the Latin characters in Chinese fonts don't look good on Windows.</p>
+            <p class="fragment">Put your font names in quotes. Just in case.</p>
+            <aside class="notes">
+              <p>Regardless, from an aesthetic perspective, it is recommended you declare your Latin-based font of choice first, because order does matter. It is almost a given that a CJK font, or an Arabic or Hebrew font, for that matter, will have support for Latin characters but not the other way around. Declaring those fonts first will result in the Latin characters displayed using glyphs from the Chinese font instead. And sometimes, this doesn't look too great on Windows.</p>
+              <p>Even though Fonts Level 3 states that user agents must match font names case insensitively, it is still recommended to put them in quotes, just in case.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Generic font families</h2>
+            <p>Dependent on OS, HTML language, character set and browser.</p>
+            <table>
+              <tr>
+                <td style="text-align:center;">serif</td>
+                <td>Times New Roman, SimSun, SongTi SC</td>
+              </tr>
+              <tr>
+                <td style="text-align:center;">sans-serif</td>
+                <td>Arial, Microsoft Yahei, PingFang SC</td>
+              </tr>
+              <tr>
+                <td style="text-align:center;">monospace</td>
+                <td>Consolas, SimSun, PingFang SC</td>
+              </tr>
+              <tr>
+                <td style="text-align:center;">cursive</td>
+                <td>Comic Sans MS, Apple Chancery, SimSun (oblique), SongTi SC (oblique)</td>
+              </tr>
+              <tr>
+                <td style="text-align:center;">fantasy</td>
+                <td>Gabriola, Impact, Papyrus, Microsoft Yahei, PingFang SC</td>
+              </tr>
+            </table>
+            <p>Level 4 is adding <code>system-ui</code>, <code>emoji</code>, <code>math</code> and <code>fangsong</code></p>
+            <aside class="notes">
+              <p>Generic font families were introduced in CSS2.1, and left it up to user agents to provide reasonable default choices, which express the characteristics of each family as well as possible.</p>
+              <p>There are currently five generic font families, with four more being defined in Fonts Level 4. The thing about these generic font families is they are very inconsistent, but they were never meant to be consistent in the first place. You'd leave these generic font families to be fallbacks, triggered if somehow all the previously declared fonts failed to load.</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <h2>Basic font properties</h2>
+          <table>
+            <tr>
+              <td><code>font-weight</code></td>
+              <td class="fragment">Specifies the weight of the glyphs in the font. Can use keywords or numerical values.</td>
+            </tr>
+            <tr>
+              <td><code>font-stretch</code></td>
+              <td class="fragment">Selects a normal, condensed or expanded face from a font family. Range spans over 9 keywords.</td>
+            </tr>
+            <tr>
+              <td><code>font-style</code></td>
+              <td class="fragment">Allows italic or oblique faces to be selected.</td>
+            </tr>
+            <tr>
+              <td><code>font-size</code></td>
+              <td class="fragment">Indicates the desired height of the glyphs. Takes absolute or relative values.</td>
+            </tr>
+            <tr>
+              <td><code>font-size-adjust</code></td>
+              <td class="fragment">Adjusts the font-size to preserve the x-height of the first choice font.</td>
+            </tr>
+            <tr>
+              <td><code>font-synthesis</code></td>
+              <td class="fragment">Controls whether user agents are allowed to synthesize bold or oblique font faces when missing.</td>
+            </tr>
+          </table>
+          <aside class="notes">
+            <p>Not counting the font shorthand, there are six basic font properties. The last two were introduced in Fonts Level 3. I'll quickly run through the first four. <code>font-weight</code> is for indicating the stroke thickness of your font, and can take values from <code>100</code> to <code>900</code> or keywords, like <code>bolder</code> or <code>lighter</code>.</p>
+            <p><code>font-stretch</code> is used to select fonts based on their widths, ranging from condensed to expanded. <code>font-style</code> allows for the selection of italic or oblique faces. Italics are cursive, but obliques are sloped versions of a regular face. <code>font-size</code> indicates the desired height of the glyphs, and we can use absolute values like pixels and ems or relative values like percentages or viewport units, as well as keywords like <code>larger</code> or <code>smaller</code>.</p>
+            <p><code>font-size-adjust</code> was put in to address legibility issues. Faces with low x-heights may sometimes be less legible, especially when they are triggered as fallback fonts. This property adjusts the font size of the fallback such that its x-height matches the first-choice font.</p>
+            <p><code>font-synthesis</code> is also new, and was put in to address the issue of faux bolds and faux italics. Sometimes the true italic or heavier version of a font does not exist and the browser will try to mimic those styles, and it doesn't look very good. So now you can set this property to a value of <code>none</code>, to prevent the browser from doing that.</p>
+          </aside>
+        </section>
+
+        <section>
+          <section>
+            <h2>Using non-system fonts</h2>
+            <p>The <code>@font-face</code> rule allows us to link to fonts, either locally or external, which are fetched and activated when needed.</p>
+            <p>We can use multiple <code>@font-face</code> rules to construct font families.</p>
+            <p>A rule consists of the <code>@font-face</code> keyword followed by a block of font descriptors.</p>
+            <aside class="notes">The @font-face rule allows us to use fonts beyond those available on a given platform by linking to those font files, which could be locally available or from an external source. Each rule specifies the characteristics of a single font within a family. These fonts will only be loaded when required. Multiple <code>@font-face</code> rules can be used to build an entire font family. And it consists of the <code>@font-face</code> keyword plus a bunch of font descriptors. Font descriptors and CSS properties are not the same thing.</aside>
+          </section>
+
+          <section>
+            <h2>Anatomy of an <code style="text-transform:lowercase;">@font-face</code> rule</h2>
+            <pre><code>@font-face {
+    font-family: &lt;family-name&gt;
+    src: [ &lt;url&gt; [format(&lt;string&gt; #)]? | &lt;font-face-name&gt; ] #
+    font-style: normal | italic | oblique 
+    font-weight: normal | bold | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 
+    font-stretch: normal | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded
+    unicode-range: &lt;urange&gt; # 
+    font-variant: normal | none | [ &lt;common-lig-values&gt; || &lt;discretionary-lig-values&gt; || &lt;historical-lig-values&gt; || &lt;contextual-alt-values&gt; || stylistic(&lt;feature-value-name&gt;) || historical-forms || styleset(&lt;feature-value-name&gt; #) || character-variant(&lt;feature-value-name&gt; #) || swash(&lt;feature-value-name&gt;) || ornaments(&lt;feature-value-name&gt;) || annotation(&lt;feature-value-name&gt;) || [ small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps ] || &lt;numeric-figure-values&gt; || &lt;numeric-spacing-values&gt; || &lt;numeric-fraction-values&gt; || ordinal || slashed-zero || &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ] 
+    font-feature-settings: normal | &lt;feature-tag-value&gt; # 
+  }</code></pre>
+          <aside class="notes">
+            <p>This is how an <code>@font-face</code> rule looks like. I don't think most people read through the CSS specification like they would a novel, so it's perfectly fine if this looks excessively complicated to you. Even though there's a whole lot of stuff in here, only the <code>font-family</code> descriptor and the <code>src</code> descriptor are mandatory.</p>
+            <p>If either of them are absent, the entire rule is ignored. Now the <code>font-family</code> descriptor is simply a label that we reference in other CSS declarations. So even if you're using say, Frutiger, you could actually label it “Pelmeni” and it would still work.</p>
+            <p>The <code>src</code> descriptor is comma-separated list of external references or locally-installed font face names. It is made up of the declaration of the font file's location, and an optional format hint. If the browser doesn't support a particular font format stated in that hint, the font file won't be loaded.</p>
+            <p>The next 3 descriptors, for style, weight and stretch, are used to match styles to a particular typeface in later declarations. Again, they are descriptors, so technically you could assign a black typeface to a font-weight of 100 and proceed to confuse your team members who cannot figure out why setting a weight of 100 gives them this massively bold typeface. Please don't do that.</p>
+            <p>Every Unicode character is represented by a unique code point and all these code points are organised into code blocks, 273 code blocks as of Unicode 9.0. The <code>unicode-range</code> descriptor allows us to specify individual code points or a range of code points for characters we want displayed using a particular font face. We can make use of this to create custom font families with glyphs from different typefaces.</p>
+          </aside>
+          </section>
+
+          <section>
+          <pre><code style="max-height:90vh;font-size:75%;">@font-face {
+  font-family: 'Magnetic Pro';
+  src: url('magnetic-pro-light.woff2') format('woff2'),
+     url('magnetic-pro-light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Magnetic Pro';
+  src: url('bender.woff2') format('woff2'),
+     url('bender.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  unicode-range: U+0020, U+0414, U+0425, U+0427, U+0436, U+0439, U+043d, U+0443, U+044c-U+044d;
+}</code></pre>
+            <aside class="notes">
+              <p>My slides use a font called Magnetic Pro, which does not support Cyrillic alphabets. But fortunately, I managed to find a reasonably similar font that does, called Bender. I only need the Cyrillic letters to display in Bender, while everything else can use Magnetic Pro.</p>
+              <p>So the code points in the <code>unicode-range</code> range descriptor are that of the Cyrillic letters that I've used. Now say I have a page that only uses English words, Bender will not load at all because it is not needed. It will only load when the browser encounters the Cyrillic letters in the <code>unicode-range</code>.</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Font feature properties (1/2)</h2>
+            <table>
+              <tr>
+                <td style="width:30%;vertical-align:top;">
+                  <code>font-kerning</code>
+                  <img class="plain" data-src="img/kerning.svg">
+                </td>
+                <td style="width:35%;vertical-align:top;">
+                  <code>font-variant-position</code>
+                  <img class="plain" data-src="img/fv-position.jpg">
+                </td>
+                <td style="width:35%;vertical-align:top;">
+                  <code>font-variant-position-ligatures</code>
+                  <img class="plain" data-src="img/fv-ligatures.jpg">
+                </td>
+              </tr>
+              <tr>
+                <td style="width:30%;vertical-align:top;">
+                  <code>font-variant-numeric</code>
+                  <img class="plain" data-src="img/fv-numeric.jpg">
+                </td>
+                <td style="width:35%;vertical-align:top;">
+                  <code>font-variant-caps</code>
+                  <img class="plain" data-src="img/fv-caps.jpg">
+                </td>
+                <td style="width:35%;vertical-align:top;">
+                  <code>font-variant-alternates</code>
+                  <img class="plain" data-src="img/fv-alternates.jpg">
+                </td>
+              </tr>
+            </table>
+            <aside class="notes">
+              <p>Font feature properties were introduced in Fonts Level 3. Earlier, when I talked about all the different font formats, I mentioned that Apple and Microsoft worked to improve the original implementation of TrueType. OpenType and Apple Advanced Typography are what we term modern font technologies, and they can contain a lot more glyphs that previous font formats.</p>
+              <p>So we can utilise a variety of typographic features like swashes, ligatures, old-style numerals and so on. The original <code>font-variant</code> property that could only be used to trigger small-caps was also expanded, a great deal. Because there are so many properties available, each with lots of values, I'm just going to do a general overview. Some of you may be wondering what's the point of having all these typographic features?</p>
+              <p>They are part and parcel of good typography, which is necessary to hold your reader's attention. The written word is a transference of speech, which is heard, into something visual, to be been. Good speakers will vary their cadence, use gestures, emphasise certain words.</p>
+              <p>Typographic features like small caps, correct use of italics and punctuation do the same for text. Other features like old style numerals and ligatures help maintain typographic colour, to make reading more comfortable.</p>
+              <p>So these are the features you can turn on via CSS, but note that the font you are using must have these features to begin with. This lot up there are the features most often mentioned at web typography talks.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Font feature properties (2/2)</h2>
+            <table>
+              <tr>
+                <td style="vertical-align:top;width:35%">
+                  <code>font-variant-east-asian</code>
+                  <img class="plain" data-src="img/fv-east-asian.jpg">
+                </td>
+                <td style="vertical-align:top;width:35%">
+                  <code>font-language-override</code>
+                  <img class="plain" data-src="img/font-lang-override.jpg">
+                </td>
+                <td style="vertical-align:top;width:30%">
+                  <code>font-feature-settings</code>
+                  <p>Provides low-level control of advanced OpenType features</p>
+                </td>
+              </tr>
+            </table>
+            <aside class="notes">
+              <p>Few people talk about <code>font-variant-east-asian</code>. What this property does is allow for glyph substitution and positioning in East Asian text. For the benefit of the audience who can't read Han characters, it might seem like these languages share the same glyphs but actually, it depends. As I mentioned before, Han unification, which is assigning the same code point to different glyphs has been the subject of a lot of debate.</p>
+              <p>Essentially, the same code point can have variant glyphs depending on the language being used. Like, simplified Chinese glyphs versus traditional Chinese glyphs. Japanese glyphs have their own specification known as JIS or Japanese Industrial Standard, and they too have alternate glyphs for the same character. This property allows us to toggle these variant glyphs.</p>
+              <p>Now the <code>font-language-override</code> property controls the rendering of language-specific glyphs in the typeface used. A commonly raised use case is the use of common ligatures, for the fi combination. The Turkish alphabet has both a dotted and dotless i, so the fi ligature shouldn't be used. Maybe a typeface doesn't recognise a lesser-known language like the Azeri language, which, similar to Turkish, has a dotless i, the <code>font-language-override</code> property can be used to force the usage of Turkish glyphs instead.</p>
+              <p><code>font-feature-settings</code> allows us toggle very specific OpenType properties. Last I checked, there were 141 OpenType feature tags to cover things like vertical kerning, unicase, scientific inferiors and so on.</p>
+              <p>Browser support for each of these individual properties varies at the moment, with Firefox being the only browser that has supported all of them since 34.0. <code>font-feature-settings</code>, on the other hand, has quite good support across most browsers. The specification recommends to utilise the respective <code>font-variant</code> properties over the <code>font-feature-settings</code> property, but until browser support becomes more robust, I guess we'll continue to see this property being used instead.</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <div class="l-multiple">
+              <figure>
+                <img class="plain" data-src="img/googlefonts.jpg" alt="Screenshot of Google Fonts website">
+                <figcaption><a href="https://fonts.google.com/">Google Fonts</a></figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/typekit.jpg" alt="Screenshot of Adobe Typekit website">
+                <figcaption><a href="https://typekit.com/">Adobe Typekit</a></figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/cloudtypography.jpg" alt="Screenshot of cloud.typography website">
+                <figcaption><a href="https://www.typography.com/cloud/welcome/">cloud.typography</a></figcaption>
+              </figure>
+            </div>
+            <aside class="notes">If you're building an English website, things are pretty straightforward. You can choose to serve your own font files, or use an online service. For online services, the most well-known free one is Google Fonts. Then we also have paid services like Adobe Typekit or Hoefler & Co's cloud.typography.</aside>
+          </section>
+
+          <section>
+            <figure>
+              <img class="plain" data-src="img/usetypekit.jpg" alt="Setting up Typekit">
+              <figcaption>Configuring Typekit settings</figcaption>
+            </figure>
+            <aside class="notes">Broadly speaking, how Typekit works is that you create font kits, which are registered to specific domains, then add the fonts you want to use to those kits. Typekit then generates some Javascript that you need to embed on your site and apply the relevant CSS classes to get the fonts to show up. Typekit does offer a selection of free fonts as well, the notable Chinese fonts being Source Han Sans and Source Han Serif.</aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <figure>
+                <img class="plain" data-src="img/justfont.jpg" alt="Screenshot of justfont website">
+                <figcaption><a href="https://www.justfont.com/">justfont</a></figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/youziku.jpg" alt="Screenshot of youziku website">
+                <figcaption><a href="https://www.youziku.com/">youziku</a></figcaption>
+              </figure>
+            </div>
+            <aside class="notes">
+              <p>But if you want the smorgasbord of Chinese fonts, there are several font hosting services available as well. Justfont is the pioneer webfont hosting service out of Taipei, but they do more than just host fonts. They hold typography workshops and events, and also have a really great type design blog.</p>
+              <p>There is also 有字库, out of Shanghai, that offers various methods of implementing their fonts on your website. You can do it via CSS like how its done on Google Fonts, or load the font files via Javascript. They also offer SDK support for Java, PHP and NodeJS. The documentation is pretty good, but unfortunately, it's all in Chinese.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <figure>
+                <img class="plain" data-src="img/ifontcloud.jpg" alt="Screenshot of iFontCloud website">
+                <figcaption><a href="http://www.ifontcloud.com/">iFontCloud</a></figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/dynacomware.jpg" alt="Screenshot of 华康威font website">
+                <figcaption><a href="https://dfo.dynacw.com.tw/">DynaFont Online</a></figcaption>
+              </figure>
+            </div>
+            <aside class="notes">Type foundries have gotten into the game as well. DynaComware are the guys who made PingFang, LiSong Pro and a number of other fonts that shipped with macOS. Their service is known as DynaFont Online. Arphic Technology who made the AR PL fonts found on Ubuntu, have their own service called iFontCloud.</aside>
+          </section>
+
+          <section>
+            <div class="l-multiple">
+              <figure>
+                <img class="plain" data-src="img/fontsquirrel.jpg" alt="Screenshot of Font Squirrel website">
+                <figcaption><a href="https://www.fontsquirrel.com/tools/webfont-generator">Font Squirrel</a></figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/fontprep.jpg" alt="Screenshot of FontPrep interface">
+                <figcaption><a href="https://github.com/briangonzalez/fontprep">FontPrep</a></figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/fontspider.jpg" alt="Screenshot of FontSpider website">
+                <figcaption><a href="http://font-spider.org/">Font Spider</a></figcaption>
+              </figure>
+            </div>
+            <aside class="notes">
+              <p>But at the end of the day, we still need to keep in mind that CJK fonts weigh in on a megabyte scale. The font hosting services do offer optimisations like lazy loading and dynamic subsetting, so hopefully that helps. If you want to serve your own fonts, there are also tools available to help reduce the size of your font files.</p>
+              <p>If I'm building a non-Chinese site, I always turn to Font Squirrel to generate my webfonts, because subsetting. Font Squirrel's web font generator allows for a very granular level of customisation that I haven't found in other tools. There is a desktop application for Mac called FontPrep, which does subsetting quite well too.</p>
+              <p>Font Spider is an open-source command line tool that does smart webfont compression and conversion. It offers the ability to subset the fonts being used on the site. It seems they all like to use animals for branding.</p>
+              <p>And if you're really concerned about speed and page weight, you can simply choose not to use any webfonts at all, because honestly, I think that system fonts shipped with the newer OSes are getting much better.</p>
+              <p>I personally use a hybrid technique, where the body text is set in a system font, but for the big titles and display text, where there is a limited number of characters I know will not change much over time, I generate webfonts containing only those glyphs, which makes the font file much much smaller than the full character set.</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <blockquote>“Be formless, shapeless, like water. Now you put water into a cup, it becomes the cup. You put water into a bottle, it becomes the bottle. You put it in a teapot, it becomes the teapot. Now water can flow, or it can crash. Be water, my friend.”<br><small>—Bruce Lee</small></blockquote>
+            <aside class="notes">
+              <p>This is a quote by Bruce Lee that I feel is really suitable for the web. Rather than trying to wrangle every pixel into place, we need embrace the fact that content is meant to flow. If you try to make it fixed, like freezing water into ice, it's not going to fit into all the different screens that people will use to view it.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Looks familiar?</h2>
+            <svg style="height:75vh;border:2px solid lightgrey;" viewBox="0 0 844 519"><defs><path id="a" d="M0 0h840v515H0z"/><mask id="e" width="844" height="519" x="-2" y="-2"><path fill="#fff" d="M-2-2h844v519H-2z"/><use xlink:href="#a"/></mask><radialGradient id="f" cx="5.374%" cy="0%" r="116.802%" fx="5.374%" fy="0%"><stop stop-color="#3023AE" offset="0%"/><stop stop-color="#53A0FE" offset="47.525%"/><stop stop-color="#B4ED50" offset="100%"/></radialGradient><path id="b" d="M303.188 263h236.25v120h-236.25z"/><mask id="g" width="236.25" height="120" x="0" y="0" fill="#fff"><use xlink:href="#b"/></mask><path id="c" d="M570.938 263h236.25v120h-236.25z"/><mask id="h" width="236.25" height="120" x="0" y="0" fill="#fff"><use xlink:href="#c"/></mask><path id="d" d="M34.125 263h236.25v120H34.125z"/><mask id="i" width="236.25" height="120" x="0" y="0" fill="#fff"><use xlink:href="#d"/></mask></defs><g fill="none" fill-rule="evenodd" transform="translate(2 2)"><use stroke="#979797" stroke-width="4" mask="url(#e)" xlink:href="#a"/><path fill="url(#f)" d="M0 0h840v200H0z"/><text fill="#FFF" font-family="AvenirNext-DemiBoldItalic, Avenir Next" font-size="24" font-style="italic" font-weight="500"><tspan x="102.18" y="91">Some (hopefully) </tspan> <tspan x="128.244" y="124">relevant text</tspan></text><text fill="#000" font-family="AvenirNext-DemiBoldItalic, Avenir Next" font-size="24" font-style="italic" font-weight="500"><tspan x="197.364" y="239">Be thankful they didn’t ask for a carousel</tspan></text><use fill="#D8D8D8" stroke="#979797" stroke-width="4" mask="url(#g)" xlink:href="#b"/><use fill="#D8D8D8" stroke="#979797" stroke-width="4" mask="url(#h)" xlink:href="#c"/><use fill="#D8D8D8" stroke="#979797" stroke-width="4" mask="url(#i)" xlink:href="#d"/><text fill="#000" font-family="AvenirNext-DemiBoldItalic, Avenir Next" font-size="18" font-style="italic" font-weight="500"><tspan x="43.313" y="417">Probably some more marketing copy for each of the 3 images above that will only get </tspan> <tspan x="43.313" y="442">passed to you after you’ve built most of site, which is never the length of the lorem ipsum </tspan> <tspan x="43.313" y="467">your designer used and hence he/she will ask you how come the columns cannot be the </tspan> <tspan x="43.313" y="492">same height. </tspan></text></g></svg>
+            <aside class="notes">
+              <p>Responsive websites are often mentioned in the same breath as media queries, the conditional rule that allows us to create different layouts at different screen widths. Often, people use frameworks to help them build responsive websites, and I can understand why. Especially if they are not familiar with CSS, or they are short of time, or they just don't like CSS in general. But frameworks quite prescriptive, and that's how we end up with a lot of websites that utilise very similar layouts.</p>
+              <p>CSS layout has become so much more mature since it first began. There had never been a specification that was created specially for layout until Flexbox and Grid came along. And that is fantastic. We have a lot of CSS properties at our disposal now. Around 496 the last time I checked. And it is up to us to combine and implement them creatively.</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>The magic of Writing Modes</h2>
+            <p>CSS Writing Modes Level 3 defines CSS features to support for various international writing modes, such as left-to-right (e.g. Latin or Indic), right-to-left (e.g. Hebrew or Arabic), bidirectional (e.g. mixed Latin and Arabic) and vertical (e.g. Asian scripts).</p>
+            <aside class="notes">
+              <p>Late last year, I had a thought while riding home on my bicycle after work. I wondered how hard it would be to typeset Chinese text on the web like the novels and comic books I used to read when I was a kid. And that's how I discovered a CSS property called <code>writing-mode</code>.</p>
+              <p>There is an entire specification dedicated to writing modes and it's defined as such, support for international writing systems. So coverage includes right-to-left languages as well, but the <code>writing-mode</code> property specifically addresses vertical writing.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="l-multiple" style="height:80vh;align-items:center;">
+              <p style="writing-mode:vertical-lr;width:4em;">You can make your browser literally turn on its side from left-to-right.</p>
+              <span class="fragment emoji"" role="img" tabindex="0" aria-label="upside-down face">&#x1F643;</span>
+              <p class="fragment" style="writing-mode:vertical-rl;width:4em;">Or make it read from right-to-left.</p>
+              <span class="fragment emoji"" role="img" tabindex="0" aria-label="upside-down face">&#x1F642;</span>
+              <p class="fragment" style="writing-mode:vertical-lr;text-orientation:upright;width:4em;">Vertical text is fun!</p>
+            </div>
+            <aside class="notes">You literally turn the browser on its side. Some people might be saying, no big deal, we can do that with transforms too. But it's different.</aside>
+          </section>
+
+          <section>
+            <figure>
+              <img class="plain" data-src="img/horizontal-tb.svg" alt="Behaviour of horizontal-tb">
+              <figcaption>horizontal-tb</figcaption>
+            </figure>
+            <aside class="notes">Let's cover some basic terminology. First up, inline base direction, which is that blue arrow there. It is the direction that content is ordered on a line, and defines where the line starts and ends. The green arrow indicates block flow direction, which is the direction block-level boxes stack and the direction of this stacking within their container. The <code>writing-mode</code> property dictates the block flow direction. What you see here is the standard default value of horizontal-tb.</aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <figure>
+                <img class="plain" data-src="img/vertical-lr.png" alt="Behaviour of vertical-lr">
+                <figcaption>vertical-lr</figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/vertical-rl.png" alt="Behaviour of vertical-rl">
+                <figcaption>vertical-rl</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">
+              <p>This is when we apply <code>vertical-lr</code> and <code>vertical-rl</code> respectively. The block flow direction is now horizontal, while the inline base direction is vertical. And then there's the orientation of the individual glyphs.</p>
+              <p>Every writing system has one or more native orientations. For example, Latin scripts and Arabic scripts are horizontal only, Mongolian is vertical only, and Han and Japanese Kana are bi-orientational. All glyphs are assigned a horizontal orientation by default, and the User Agent needs to transform text from this horizontal default when laying out text vertically.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <figure>
+                <svg viewBox="0 0 126 100"><g fill="none" fill-rule="evenodd"><text fill="#000" font-size="16" letter-spacing="6" transform="translate(-1 -5)"><tspan x="0" y="25">钱存训</tspan></text><text fill="#000" transform="rotate(90 117.5 87)" font-size="16" letter-spacing="6"><tspan x="70.5" y="98.5">钱存训</tspan></text><g stroke="#a2a2a2" stroke-width="4" stroke-linecap="round"><path d="M79.345 73.185C79.345 53.753 63.52 38 44 38M72.997 70.02l5.97 5.972 5.998-5.997"></path></g></g></svg>
+                <figcaption>Rotate</figcaption>
+              </figure>
+              <figure>
+                <svg viewBox="0 0 126 100"><g fill="none" fill-rule="evenodd"><text fill="#000" font-size="16" letter-spacing="6" transform="translate(-1 -5)"><tspan x="0" y="25">钱存训</tspan></text><text fill="#000" font-size="16" transform="translate(-1 -5)"><tspan x="103" y="67">钱</tspan> <tspan x="103" y="85">存</tspan> <tspan x="103" y="103">训</tspan></text><g stroke="#a2a2a2" stroke-width="4" stroke-linecap="round"><path d="M76.396 74.396l-34.41-34.41M70.762 77.226h8.445v-8.483"></path></g></g></svg>
+                <figcaption>Translate</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">There are two ways to do this, by rotation or by translation. Scripts that have native vertical orientations will have an intrinsic bi-orientational transform, so regardless of whether the text is laid out horizontally or vertically, the glyphs transform and will always be upright. Latin-based characters, on the other hand, rotate. But glyphs can always be set sideways or upright with the <code>text-orientation</code> property.</aside>
+          </section>
+
+          <section>
+            <h2><code>writing-mode</code> property</h2>
+            <table>
+              <tr>
+                <td>horizontal-tb</td>
+                <td><span>从1987到现在</span></td>
+              </tr>
+              <tr>
+                <td>vertical-rl</td>
+                <td><span style="writing-mode:vertical-rl;height:3.5em;">从1987到现在</span></td>
+              </tr>
+              <tr>
+                <td>vertical-lr</td>
+                <td><span style="writing-mode:vertical-lr;height:3.5em;">从1987到现在</span></td>
+              </tr>
+              <tr>
+                <td>sideways-rl*</td>
+                <td><span style="writing-mode:sideways-rl;height:3.5em;">从1987到现在</span></td>
+              </tr>
+              <tr>
+                <td>sideways-lr*</td>
+                <td><span style="writing-mode:sideways-lr;height:3.5em;">从1987到现在</span></td>
+              </tr>
+            </table>
+            <aside class="notes">This is what happens to your text when the different values of writing-mode are applied. These examples look correct because I'm using Firefox at the moment, but the last two examples, <code>sideways-rl</code> and <code>sideways-lr</code> have actually been deferred to Writing Modes Level 4.</aside>
+          </section>
+
+          <section>
+            <h2><code>text-orientation</code>  property</h2>
+            <div class="l-multiple">
+              <figure>
+                <div><span style="writing-mode:vertical-rl;">从1987到现在</span></div>
+                <figcaption>mixed</figcaption>
+              </figure>
+              <figure>
+                <div><span style="writing-mode:vertical-rl;text-orientation:upright;text-align:justify;">从<span style="letter-spacing:-4px">1987</span>到现在</span></div>
+                <figcaption>upright</figcaption>
+              </figure>
+              <figure>
+                <div><span style="writing-mode:vertical-rl;text-orientation:sideways;">从1987到现在</span></div>
+                <figcaption>sideways</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">For text-orientation, the initial value is mixed, but you can make all the characters upright or sideways.</aside>
+          </section>
+
+          <section>
+            <h2><code>text-combine-upright</code> property</h2>
+            <div class="l-multiple">
+              <figure>
+                <div><span style="writing-mode:vertical-rl;">民國106年7月3日</span></div>
+                <figcaption>none</figcaption>
+              </figure>
+              <figure>
+                <div><span style="writing-mode:vertical-rl;">民國<span style="text-combine-upright:all">106</span>年<span style="text-combine-upright:all">7</span>月<span style="text-combine-upright:all">3</span>日</span></div>
+                <figcaption>all</figcaption>
+              </figure>
+              <figure>
+                <div><span style="writing-mode:vertical-rl;">民國<span style="text-combine-upright:digits 3">106</span>年<span style="text-combine-upright:digits">7</span>月<span style="text-combine-upright:digits">3</span>日</span></div>
+                <figcaption>digits &lt;integer&gt;*</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">
+              <p>One more property is text-combine-upright. This addresses the issue of numerals and abbreviations in vertical text. A very common use case is dates, especially for Taiwan, where they use the 民國 calendar. This property lets us fit all the digits into the width of one character and display them upright.</p>
+              <p>No browser supports the digits value yet, which allows us to dictate how many digits are acceptable to be squeezed in. The range allowed is between 2 to 4 characters. For now, with the <code>all</code> value, there is no limit, so you could technically put hippopotamus in there and it will look horribly squished.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Typography suggestions</h2>
+            <ul>
+              <li class="fragment">Use and declare the correct font-family</li>
+              <li class="fragment">Make sure the font-size is large enough</li>
+              <li class="fragment">Set <code>line-height</code> for sufficient breathing room</li>
+              <li class="fragment">Use <code>text-align: justify</code></li>
+              <li class="fragment">Keep lines to around 25-35  characters</li>
+              <li class="fragment">Set a <code>margin-bottom</code> for the <code>p</code> element</li>
+            </ul>
+            <aside class="notes">
+              <p>There is a very comprehensive document called the Requirements for Japanese Text Layout, created by the W3C Japanese Layout Task Force. It addresses the aspects of Japanese composition that differ from Western composition and is meant to serve as a reference for browser implementers so Japanese web layouts can be rendered correctly. And now the Chinese Layout Task Force is working on a similar document for Chinese composition and layout. This is still a work in progress.</p>
+              <p>Through my own personal experimentation, I sort of settled onto certain typographic conventions when I'm setting Chinese text.</p>
+              <ol>
+                <li>Use the appropriate font family. For example, Source Han Serif has typefaces for simplified Chinese, traditional Chinese, Japanese and Korean. Pick the right one.</li>
+                <li>This one I mentioned earlier, that Chinese characters are denser than typical Latin-based alphabets, because of all the strokes, so you may want to bump up the font size a little bit. Reading small characters on a screen is not a pleasant experience.</li>
+                <li>For line-height there is actually a magic number. Ideally, setting it between 1.5 to 2 works fine so 1.7 is a good choice. This gives the text enough breathing room and a more even typographic colour.</li>
+                <li>Every Chinese character takes up the same height and width, they are squares, even punctuation are full width characters. Using text-align: justify lines everything up neatly.</li>
+                <li>Keeping lines to between 25 and 35 characters is something I picked up from print books. A lot of text-heavy books I find have lines with around 26 to 28 characters. So, just a suggestion there.</li>
+                <li>For print books, the start of a new paragraph is indicated by a two character indent, but for the web, it looks better to have spacing between paragraphs, so just set a margin-bottom to distinguish different paragraphs of text.</li>
+              </ol>
+            </aside>
+          </section>
+
+          <section>
+            <img class="plain" data-src="img/zh-type.jpg" alt="Vertical text experiment">
+            <aside class="notes">Anyway, I think it's safe to conclude that typesetting Chinese text for a vertical layout is very doable on the web today. This was the first vertical Chinese layout I built, just to learn about the properties and test out how box alignment would work and stuff like that. So here are some insights I gleaned from doing that.</aside>
+          </section>
+
+          <section>
+            <img class="plain" data-src="img/centring.jpg" alt="Vertical centring for vertical layout">
+            <aside class="notes">As I mentioned earlier, 25-35 characters per line is a reasonable length, and that's done by clamping the height of the content block. Because Chinese characters are squares, that also implies that in normal circumstances, a height of 25 ems gives you 25 characters per line. To vertically centre the content block, we can actually set the top and bottom margins to <code>auto</code>, something we wished we could do but couldn't for horizontal writing. But trying to centre things horizontally is equally painful for vertical writing.</aside>
+          </section>
+
+          <section>
+            <div style="writing-mode:vertical-rl;width:100%;height:85vh;">
+              <h2>Willem de Kooning</h2>
+              <p style="font-size:75%;text-align:left;">If Jackson Pollock was the public face of the New York avant-garde, Willem de Kooning could be described as an artist’s artist, who was perceived by many of his peers as its leader. He was born in Rotterdam, where he grew up in an impoverished household and attended the Rotterdam Academy, training in fine and commercial arts. In 1926, the adventurous young artist stowed away on a ship bound for Argentina. While the ship was docked in Virginia, de Kooning slipped off, skirted immigration, and made his way to New Jersey—and so began the rest of his life.</p>
+            </div>
+            <aside class="notes">Now these directions of top, right, bottom, left start getting a bit confusing when you have rotated Latin text. Say you have this header, and you want some extra spacing between the header and the paragraph, is the margin set on the bottom or the left? It's actually the left.</aside>
+          </section>
+
+          <section>
+            <h2>CSS Logical Properties</h2>
+            <p class="ciu_embed" data-feature="css-logical-props" data-periods="future_1,current,past_1,past_2">
+              <a href="http://caniuse.com/#feat=css-logical-props">Can I Use css-logical-props?</a> Data on support for the css-logical-props feature across the major browsers from caniuse.com.
+            </p>
+            <aside class="notes">That's why we have a CSS Logical Properties specification, which introduces new CSS properties that are flow-relative equivalents of physical box model properties. Properties like that use <code>block-start</code> and <code>block-end</code> or <code>inline-start</code> and <code>inline-end</code> instead of left and right. This specification is in the thick of working draft status but I'm eager to see it developed and implemented. For now, support is kind of limited.</aside>
+          </section>
+
+          <section>
+            <video controls>
+              <source data-src="videos/mode-switcher.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/mode-switcher.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <aside class="notes">So for my experiment, I also put in a writing mode switcher to toggle between vertical and horizontal layouts, I guess because I felt like it. The tricky part for that was getting the images to display correctly. I would have loved to have a media query for writing modes so I could layout my images accordingly with the picture element, but that doesn't exist so I had to hack around it with transforms instead.</aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <div class="l-double">
+              <img class="plain" data-src="img/pghk.jpg" alt="Screenshot of PGHK homepage">
+              <img class="plain" data-src="img/pghk-pages.jpg" alt="PGHK about and post pages">
+            </div>
+            <aside class="notes">Another project I worked on was a bilingual, mixed layout site, and that was quite an experience. What I'd built previously was a proof-of-concept kind of thing, but this was going to be a proper website, with pages and stuff. It's a website about Penang Hokkien, which is the dialect of my home town. And what I realised it that the ease of implementing vertical layouts opens up an aspect of graphic design that isn't often seen on the web at the moment.</aside>
+          </section>
+
+          <section>
+            <figure>
+              <img class="plain" data-src="img/pghk-shelf.jpg" alt="Vertical text with CSS">
+              <figcaption>Bookshelf-style design with vertical text</figcaption>
+            </figure>
+            <aside class="notes">An idea I had was to make a bookshelf style list of posts with just CSS. So that was done using writing-mode and a rotation transform for the header, just to get the text to face the other direction. I have grown quite fond of using a vertical header when a page has many sections, I find it helps break up the monotony.</aside>
+          </section>
+
+          <section>
+            <video controls>
+              <source data-src="videos/pghk-resize.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/pghk-resize.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <aside class="notes">But I'm also aware of the fact that for Latin-based languages, which is meant to be read horizontally from top to bottom, vertical text should largely be decorative. We don't want to compromise the reading experience for long form passages. So at smaller screens, we can make use of media queries to revert to a horizontal layout that makes better use of the limited space.</aside>
+          </section>
+
+          <section>
+            <video controls>
+              <source data-src="videos/menu.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/menu.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <aside class="notes">Conversely, there are instances where vertical Latin text can work on narrow screen sizes as well. Perhaps you have realised that the hamburger menu is not the best mobile UI pattern we came with. You can layout your menu links vertically along the side edge of your site instead. And I'm sure many of you can come up with even more interesting designs that utilise vertical layouts.</aside>
+          </section>
+
+          <section>
+            <video controls>
+              <source data-src="videos/pghk-switcher.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/pghk-switcher.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <aside class="notes">I also kept the switcher, which is actually a checkbox hack implementation. When I built this demo, Grid hadn't landed yet, so I used Flexbox for a lot of the layout. Flexbox support is great, I mean, it has wider coverage than <code>border-radius</code>, but Flexbox with <code>writing-mode</code>? Not so good. I'll be honest, there are quite a large number of cross browser issues. Like, on Firefox, if you don't specify a width on the element with a vertical writing mode, it gets kicked off the page.</aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <figure>
+                <img class="plain" data-src="img/bugzilla.jpg" alt="Raising bugs for Firefox">
+                <figcaption><a href="https://bugzilla.mozilla.org/">Bugzilla@Mozilla</a></figcaption>
+              </figure>
+              <figure>
+              <img class="plain" data-src="img/chromium.jpg" alt="Raising bugs for Chrome">
+              <figcaption><a href="https://bugs.chromium.org/p/chromium/issues/list">Chromium Bugs</a></figcaption>
+            </div>
+            <aside class="notes">
+              <p>But that doesn't mean we should just shy away from using vertical text altogether. In fact, there's never been a better time than now to live on the cutting edge. Evergreen browsers are a thing now, with bug fixes and new features being shipped faster than ever. CSS Grid, I feel, is one of the best rollouts of a new major CSS feature ever, with almost all the major browsers shipping it in March this year. By now around 60% of the market is using a browser that supports Grid.</p>
+              <p>And here's a little secret I discovered, by raising bugs we find when trying out new features, we are actually showing browser vendors that these features are in demand.</p>
+              <p>This works both ways, if we don't use features simply because they are buggy, browser vendors will think that nobody really cares about that feature and choose to fix more pressing bugs instead. But if more of us use those features and raise the bugs we discover, it sends a signal to browser vendors that people are using these features and encourage them to address related bugs sooner than later.</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <h2>A long list of references</h2>
+          <ul style="column-count:2;font-size:50%;">
+            <li><a href="https://www.gsmaintelligence.com/research/?file=c52d213ec6288da6b31248df71e370a3&download">Consumer barriers to mobile internet adoption in Asia</a></li>
+            <li><a href="http://www.oecd.org/internet/ieconomy/48761013.pdf">The Relationship between Local Content, Internet Development and Access Prices</a></li>
+            <li><a href="https://w3techs.com/technologies/overview/content_language/all">Usage of content languages for websites</a></li>
+            <li><a href="https://www.zachleat.com/web/retire-bulletproof-syntax/">No @font-face Syntax will ever be Bulletproof, Nor Should It Be.</a></li>
+            <li><a href="http://justineo.github.io/slideshows/font/">字体漫谈</a></li>
+            <li><a href="https://blogs.adobe.com/CCJKType/2017/04/source-han-serif-history-development.html">Source Han Serif / Noto Serif CJK History & Development</a></li>
+            <li><a href="https://collab.itc.virginia.edu/wiki/toolbox/Chinese%20Fonts%20%26%20Related%20Issues.html">Chinese Fonts & Related Issues</a></li>
+            <li>Zhang, X. & Han, Q. (2009). <em>The history of Chinese printing: (illustrated).</em> Paramus, N.J: Homa et Sekey Books.</li>
+            <li>Brokaw, C. & Reed, C. A. (2010). <em>From woodblocks to the Internet: Chinese publishing and print culture in transition, circa 1800 to 2008.</em> Leiden: Brill.</li>
+            <li>Tsien T. (2011). <em>Collected writings on Chinese culture.</em> Hong Kong: The Chinese University Press.</li>
+            <li>Tsien, T. & Shaughnessy, E. L. (2013). <em>Written on bamboo & silk: the beginnings of Chinese books & inscriptions.</em> Chicago: The University of Chicago Press.</li>
+            <li>Houston, K. (2016). <em>The book: a cover-to-cover exploration of the most powerful object of our time.</em> New York: W.W. Norton & Company.</li>
+            <li>厉致谦 (2013). 西文字体的故事. 上海市: 同济大学出版社.</li>
+            <li>Choi, K. E., & Kim, M. S. (2015). <em>A Comparative Study on the Sociocultural Drivers in the Development of Printing Technology in Korea and Europe</em>. Korea Journal, 55(4), 7-35.</li>
+            <li>Park, H. O. (2014). The History of Pre-Gutenberg Woodblock and Movable Type Printing in Korea. International Journal of Humanities and Social Science, 4(9), 1.</li>
+            <li>Haralambous, Y., & Horne, P. S. (2007). <em>Fonts & encodings</em>.</li>
+          </ul>
+          <aside class="notes">
+            <p>Here's the long list of resources I referred to when preparing this talk and I'll share these slides for anybody who is interested.</p>
+          </aside>
+        </section>
+
+        <section>
+          <div class="l-double">
+            <figure>
+              <img class="plain" data-src="img/tategaki.jpg" alt="Web awards for vertical writing">
+              <figcaption><a href="http://tategaki.github.io/awards/">http://tategaki.github.io/awards/</a></figcaption>
+            </figure>
+            <figure>
+            <img class="plain" data-src="img/layoutlab.jpg" alt="Jen Simmons' experimental layout lab">
+            <figcaption><a href="http://labs.jensimmons.com/">http://labs.jensimmons.com/</a></figcaption>
+          </div>
+          <aside class="notes">
+            <p>If you need inspiration for vertical layouts, the Tateyoko Web Awards site has really nice list. My friend, Jen Simmons, also has an experimental layout lab where she showcases all the different things that are now possible with modern CSS.</p>
+            <p>And even if you don't end up using any of what I've covered immediately in your next project, I hope that you keep these techniques and properties in the back of your mind. And maybe one day, when you're tired of building the same old layouts again and again, you'll reach for them and create something amazing.</p>
+          </aside>
+        </section>
+
+        <section style="text-align: left;">
+          <h1>Спасибо!</h1>
+          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="http://www.chenhuijing.com">http://www.chenhuijing.com</a></p>
+          <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/">@huijing</a></p>
+        </section>
+
       </div>
     </div>
 
     <script src="lib/js/head.min.js"></script>
+    <script src="lib/js/caniuse-embed.min.js"></script>
     <script src="js/reveal.js"></script>
 
     <script>

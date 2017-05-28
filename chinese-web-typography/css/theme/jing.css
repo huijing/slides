@@ -56,13 +56,13 @@ body {
   word-wrap: break-word; }
 
 .reveal h1 {
-  font-size: 2.827em; }
-
-.reveal h2 {
   font-size: 1.999em; }
 
-.reveal h3 {
+.reveal h2 {
   font-size: 1.414em; }
+
+.reveal h3 {
+  font-size: 1em; }
 
 .reveal h4 {
   font-size: 1em; }
@@ -291,3 +291,88 @@ body {
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
+
+.reveal img,
+.reveal video {
+  max-height: 80vh; }
+
+.reveal code {
+  color: dodgerblue; }
+
+.reveal h2 code {
+  text-transform: lowercase; }
+
+.reveal blockquote {
+  width: 85%; }
+
+.reveal table,
+.reveal pre {
+  font-size: 75%; }
+
+.reveal td {
+  vertical-align: middle; }
+
+.reveal .l-logo {
+  height: 1.25em;
+  margin: 0 0.25em; }
+
+.reveal .l-double {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+  justify-items: center; }
+
+.reveal .l-multiple {
+  display: flex;
+  justify-content: space-around; }
+  .reveal .l-multiple .j-vert {
+    width: 1em; }
+
+.reveal figcaption {
+  font-style: italic;
+  font-size: 75%; }
+
+.reveal .j-vert {
+  writing-mode: vertical-rl;
+  letter-spacing: 0.25em; }
+
+.reveal .j-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1rem; }
+
+.reveal .slides section .fragment.fade-out.visible:not(.current-fragment) {
+  display: none; }
+
+span.emoji {
+  font-style: normal;
+  font-size: 125%;
+  display: inline-block;
+  vertical-align: middle;
+  font-family: 'Segoe UI Emoji'; }
+
+span[role=img][aria-label],
+span[role=img][aria-label] {
+  position: relative; }
+
+span[role=img][aria-label]:focus::after,
+span[role=img][aria-label]:hover::after {
+  font-size: 25%;
+  font-family: "Magnetic Pro", sans-serif;
+  font-weight: 400;
+  position: absolute;
+  display: block;
+  line-height: 1.2;
+  content: attr(aria-label);
+  z-index: 1;
+  top: 85%;
+  left: -12.5%;
+  background: #373a3c;
+  color: #eae7dc;
+  padding: 0.25em;
+  border: 1px solid #eae7dc;
+  box-shadow: 2px 2px 4px #373a3c; }
+
+@media print {
+  span[role=img][aria-label]::after {
+    content: " (" attr(aria-label) ") "; } }
