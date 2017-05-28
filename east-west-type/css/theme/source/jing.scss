@@ -15,13 +15,13 @@
 
 // Override theme settings (see ../template/settings.scss)
 $mainFont: 'Magnetic Pro', sans-serif;
-$mainColor: #373a3c;
+$mainColor: #3e191a;
 $headingFont: 'Magnetic Pro Black', sans-serif;
-$headingColor: #373a3c;
+$headingColor: #3e191a;
 $headingTextShadow: none;
 $headingTextTransform: none;
-$backgroundColor: #eae7dc;
-$linkColor: #e85a4f;
+$backgroundColor: #fcfcfc;
+$linkColor: #038c17;
 $linkColorHover: darken( $linkColor, 20% );
 $selectionBackgroundColor: rgba(0, 0, 0, 0.75);
 
@@ -33,7 +33,7 @@ $heading4Size: 1.000em;
 
 section.has-dark-background {
   &, h1, h2, h3, h4, h5, h6 {
-    color: #eae7dc;
+    color: #d9dec3;
   }
 }
 
