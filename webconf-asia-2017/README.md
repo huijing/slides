@@ -14,7 +14,7 @@ So in case I wasn't clear earlier, the two favourite things I was talking about 
 
 > “I imagined the web as an open platform that would allow everyone everywhere to share information, access opportunities and collaborate across geographic and cultural boundaries.”
 
-The purpose of the web is to connect the world's population, to allow people who live half a planet away to become friends. To share your experiences with friends 20km or 20,000km away from you. To provide a means of communication, and most importantly, to all people to gain access to information and even employment. The internet and the web were built to be open. Or at least, it was meant to be.
+The purpose of the web is to connect the world's population, to allow people who live half a planet away to become friends. To share your experiences with friends 20km or 20,000km away from you. To provide a means of communication, and most importantly, for people to gain access to information and even employment. The internet and the web were built to be open. Or at least, it was meant to be.
 
 No centralised control, you didn't have to ask anyone's permission to publish a website. You could just go ahead and do it. If your friend from Argentina has a website, you can just type in that URL to see it. You don't need a visa or a passport. There aren't supposed to be national boundaries online. To me, that is amazing.
 
@@ -46,11 +46,11 @@ What can I say, Chinese is a concise language.
 
 ## Different type styles and typefaces
 
-While we're on the subject of letters, ancient Greek stone inscriptions used to be sans-serif, but later stone cutters tended to spread out the ends of letters into serifs. In the Middle Ages, scribes and copyists based their writings off of these stone inscriptions. And the letter forms evolved because writing was done with pens instead of chisels. Various writing styles emerged, from Carolingian minuscules to the various Gothic hands, which in turn served as inspiration for type designers doing printing.
+While we're on the subject of letters, those on ancient Greek stone inscriptions used to be sans-serif, but later stone cutters tended to spread out the ends of letters into serifs. In the Middle Ages, scribes and copyists based their writings off of these stone inscriptions. And the letter forms evolved because writing was done with pens instead of chisels. Various writing styles emerged, from Carolingian minuscules to the various Gothic hands, which in turn served as inspiration for type designers doing printing.
 
 Although it seems like there are all manner of type classifications like Old styles, Transitionals, Humanists and Geometrics, Latin-based scripts can be broadly classified into two big categories, Serifs and Sans-serifs.
 
-Chinese characters also changed a lot since their origins. It's just that Chinese writing went through the entire process of development and evolution way earlier than Europe. The key implement of Chinese writing is the brush. Calligraphy was and still is one of the most highly regarded Chinese arts. Woodblock printing was invented in China, and the Chinese were exceptional at it. To the point where it was a contributing factor to why moveable type, which too was invented in China, never really took off.
+Chinese characters also changed a lot since their origins. It's just that Chinese writing went through the entire process of development and evolution way earlier than Europe. The key implement of Chinese writing is the brush. Calligraphy was and still is one of the most highly regarded Chinese arts. Woodblock printing was invented in China, and the Chinese were exceptional at it. To the point where it was a contributing factor to why moveable type, which too was invented in China, never really took off there.
 
 The contemporary typefaces used for Chinese print publications can be broadly classified into these families: 宋体 (also known as 明体), 楷体, 仿宋体, 黑体. Both 黑体 and 仿宋体 are twentieth century creations. It is not uncommon to see comparisons of 宋体 to serifs and 黑体 to sans-serifs, but I think it makes more sense for Chinese typefaces to maintain their own classifications. They are completely different from Latin alphabets anyway.
 
@@ -58,15 +58,15 @@ The contemporary typefaces used for Chinese print publications can be broadly cl
 
 There are actually a huge variety of other styles, like those based of ancient scripts like 篆书 or 隶书, as well as brush script styles mimicking 草书 or 行书. But they fall into a broad category called 花式体, mostly used for display text or short paragraphs. Not so much for long form reading.
 
-Chinese typefaces are extremely challenging to create, simply due to the volume of glyphs required. Work on Source Han Serif, which was officially announced in April, started in late 2014. And they had quite a large team working on it. The average number of glyphs for a Chinese system font clocks in around 35,000 glyphs, give or take a couple thousand.
+Chinese typefaces are extremely challenging to create, simply due to the volume of glyphs required. Work on Source Han Serif, which was officially announced in April this year, had started in late 2014. And they had quite a large team working on it. The average number of glyphs for a Chinese system font clocks in around 35,000 glyphs, give or take a couple thousand.
 
 Typefaces that have enough glyph coverage to be used in body copy are usually made by foundries, like 方正, 汉仪 or 蒙纳, as very few independent type designers have the bandwidth for that.
 
 A lot of articles on how to pick typefaces tell us that all typefaces have a personality, and we ought to pick typefaces based on the messaging we want to convey. I don't disagree. It's just that very few people delve into the why. Why do these letters have human traits? Research has suggested that a lot of it boils down to prior experience with the typefaces in particular contexts.
 
-For Latin-based typefaces, old style and transitional serifs like Caslon, Garamond, Times Roman and Baskerville are most often used in books and formal documents. People tend to associate these as being serious and formal. 
+For Latin-based typefaces, old style and transitional serifs like Caslon, Garamond, and Baskerville are most often used in books and formal documents. People tend to associate these as being serious and formal.
 
-Modern serifs like Didot and Bodoni were used in a variety of publications but we associate them with elegance and high fashion because of they're used in Vogue and Harper's Bazaar. To a certain extent, globalisation has allowed some of these associations to transcend cultural and geographic boundaries and become recognised worldwide.
+Modern serifs like Didot and Bodoni were used in a variety of publications but we associate them with elegance and high fashion because they're used in Vogue and Harper's Bazaar. To a certain extent, globalisation has allowed some of these associations to transcend cultural and geographic boundaries and become recognised worldwide.
 
 To pair Chinese scripts with Latin scripts for body copy is reasonably straightforward, in that you want to pick styles that present an even typographic colour. In this regard, serifs go with 宋体 and sans-serifs go with 黑体. In general, you'd want their stroke thickness to match up, but keep in mind that Chinese glyphs appear denser than their Latin-based counterparts at the same size and adjustments will need to be made for that.
 
@@ -80,7 +80,7 @@ So let's discuss typography on the web.
 
 We first need to understand the web as a medium, and to be fair, it is a rather young medium. In his doctoral thesis, inventor of CSS, Håkon Wium Lie (Hor-ken Wee-um Lee), described a number of key differences between the distribution of content on paper versus electronic distribution over the web.
 
-1. Late binding in computer programming parlance refers to function calls that are not resolved until runtime, in publishing, late binding refers to delaying the conversion of data into a format that is optimised for one specific type of output for as long as possible. The late binding between content and presentation of electronic publishing becomes even later binding on the web. This presents a performance challenge as binding now takes place while the user is waiting, and the author is not present to verify if the presentation is correct or not. 
+1. Late binding in computer programming parlance refers to function calls that are not resolved until runtime, but in publishing, late binding refers to delaying the conversion of data into an optimised output format for presentation for as long as possible. This happens very late on the web and presents a performance challenge as binding now takes place while the user is waiting, and the author is not present to verify if the presentation is correct or not.
 2. There is no longer a single final form of presentation either, multiple output devices could be used. 
 3. Authors can influence the presentation, but he or she no longer holds complete control, instead, a combination of influences from various sources, like the browser and the users themselves, form the final presentation. 
 4. Dependable delivery is also uncertain, as web resources are distributed across multiple connected servers and the possibility of any of them being unavailable is pretty significant.
@@ -121,13 +121,13 @@ Regardless, from an aesthetic perspective, it is recommended you declare your La
 
 Even though Fonts Level 3 states that user agents must match font names case insensitively, it is still recommended to put them in quotes, just in case.
 
-Generic font families were introduced in CSS2.1, and left it up to user agents to provide reasonable default choices, which express the characteristics of each family as well as possible within the limits allowed by the underlying technology.
+Generic font families were introduced in CSS2.1, and left it up to user agents to provide reasonable default choices, which express the characteristics of each family as well as possible.
 
 There are currently five generic font families, with four more being defined in Fonts Level 4. The thing about these generic font families is they are notoriously inconsistent, but they were never meant to be consistent in the first place. You'd leave these generic font families to be fallbacks, triggered if somehow all the previously declared fonts failed to load.
 
 ## CSS basic font properties
 
-Not counting the font shorthand, there are six basic font properties. The last two were introduced in Fonts Level 3. I'll quickly run through the first four. `font-weight` is for indicating the stroke thickness of your font, and can take values from `100` to `900` or keywords, like `bolder` or `lighter`.
+Not counting the `font` shorthand, there are six basic font properties. The last two were introduced in Fonts Level 3. I'll quickly run through the first four. `font-weight` is for indicating the stroke thickness of your font, and can take values from `100` to `900` or keywords, like `bolder` or `lighter`.
 
 `font-stretch` is used to select fonts based on their widths, ranging from condensed to expanded. `font-style` allows for the selection of italic or oblique faces. Italics are cursive, but obliques are sloped versions of a regular face. `font-size` indicates the desired height of the glyphs, and we can use absolute values like pixels and ems or relative values like percentages or viewport units, as well as keywords like `larger` or `smaller`.
 
@@ -137,19 +137,17 @@ Not counting the font shorthand, there are six basic font properties. The last t
 
 The @font-face rule allows us to use fonts beyond those available on a given platform by linking to those font files, which could be locally available or from an external source. Each rule specifies the characteristics of a single font within a family. These fonts will only be loaded when required. Multiple `@font-face` rules can be used to build an entire font family. And it consists of the `@font-face` keyword plus a bunch of font descriptors. Font descriptors and CSS properties are not the same thing. 
 
-This is how an `@font-face` rule looks like. I don't think most people read through the CSS specification like they would a novel, so it's perfectly fine if this looks excessively complicated and undecipherable to you. I'll do my best to make this quick and simple (hopefully). Even though there's a whole lot of stuff in here, only the `font-family` descriptor and the `src` descriptor are mandatory. If either of them are absent, the entire rule is ignored. Now the `font-family` descriptor is simply a label that we reference in other CSS declarations. So even if you're using say, Frutiger, you could actually label it “dumplings” and it would still work.
+This is how an `@font-face` rule looks like. I don't think most people read through the CSS specification like they would a novel, so it's perfectly fine if this looks excessively complicated and undecipherable to you. I'll do my best to make this quick and simple. Even though there's a whole lot of stuff in here, only the `font-family` descriptor and the `src` descriptor are mandatory. If either of them are absent, the entire rule is ignored. Now the `font-family` descriptor is simply a label that we reference in other CSS declarations. So even if you're using say, Frutiger, you could actually label it “Dumplings” and it would still work.
 
 The `src` descriptor is comma-separated list of external references or locally-installed font face names. It is made up of the declaration of the font file's location, and an optional format hint. If the browser doesn't support a particular font format stated in that hint, the font file won't be loaded. The next 3 descriptors, for style, weight and stretch, are used to match styles to a particular typeface in later declarations. Again, they are descriptors, so technically you could assign a black typeface to a font-weight of 100 and proceed to confuse your team members who cannot figure out why setting a weight of 100 gives them this massively bold typeface. Please don't do that.
 
-`unicode-range` gives us the option to specify which code points or code blocks to be rendered with the typeface in a particular `@font-face` rule. We can make use of this to create composite fonts with glyphs from different typefaces. 
+Remember when I said the goal of Unicode is to support every single character on the planet? Every Unicode character is represented by a unique code point and all these code points are organised into code blocks, 273 code blocks as of Unicode 9.0. The <code>unicode-range</code> descriptor allows us to specify individual code points or a range of code points for characters we want displayed using a particular font face. We can make use of this to create custom font families with glyphs from different typefaces.
 
-Remember when I said the goal of Unicode is to support every single character on the planet?  Every Unicode character is represented by a code point and all these code points are very well organised, into code blocks, 273 code blocks as of Unicode 9.0. Each code block is unique, in that there are no overlapping code points, and they have descriptive names like Basic Latin or CJK Unified Ideographs.
-
-This descriptor lets us choose which characters we want displayed using a particular font face. I'm going to show you the example used in the specification to illustrate this concept. Say we've subsetted the font Droid Sans into Basic Latin, which is 190kb, and Japanese, which runs 1.2mb, with the full set as a fallback. If a run of text contains just Latin characters, the browser will only load the Basic Latin font file. Only if it encounters a character that doesn't exist in the subsetted fonts, perhaps an obscure symbol, it will check the unicode ranges for each `@font-face` rule. Because the Japanese subset does not contain the codepoint for the obscure symbol, the browser will not download the Japanese font at all. It will end up downloading the fallback instead.
+I'm going to show you the example used in the specification to illustrate this concept. Say we've subsetted the font Droid Sans into Basic Latin, which is 190kb, and Japanese, which runs 1.2mb, with the full set as a fallback. If a run of text contains just Latin characters, the browser will only load the Basic Latin font file. Only if it encounters a character that doesn't exist in the subsetted fonts, perhaps an obscure symbol, it will check the unicode ranges for each `@font-face` rule. Because the Japanese subset does not contain the codepoint for the obscure symbol, the browser will not download the Japanese font at all. It will end up downloading the fallback instead.
 
 ## Font feature properties
 
-Font feature properties were introduced in Fonts Level 3, so it's about 6 years old now, give or take. Earlier, when I talked about all the different font formats, I mentioned that Apple and Microsoft worked to improve the original implementation of TrueType. OpenType and Apple Advanced Typography are what we term modern font technologies, and they can contain a lot more glyphs that previous font formats.
+Font feature properties were introduced in Fonts Level 3, so it's been around for 6 years or so, give or take. Earlier, when I talked about all the different font formats, I mentioned that Apple and Microsoft worked to improve the original implementation of TrueType. OpenType and Apple Advanced Typography are what we term modern font technologies, and they can contain a lot more glyphs that previous font formats.
 
 So we can utilise a variety of typographic features like swashes, ligatures, old-style numerals and so on. The original `font-variant` property that could only be used to trigger small-caps was also expanded, a great deal. Because there are so many properties available, each with lots of values, I'm just going to do a general overview. Some of you may be wondering what's the point of having all these typographic features? 
 
@@ -157,7 +155,7 @@ They are part and parcel of good typography, which is necessary to hold your rea
 
 So these are the features you can turn on via CSS, but note that the font you are using must have these features to begin with. This lot up there are the features most often mentioned at web typography talks.
 
-Nobody talks about `font-variant-east-asian`, at least, I haven't met them yet. What this property does is, it allows for glyph substitution and positioning in East Asian text. For the benefit of the audience who can't read Han characters, it might seem like these languages share the same glyphs but actually, it depends. As I mentioned before, Han unification, which is assigning the same code point to different glyphs has been the subject of a lot of debate, so I'm just going to explain this here property.
+Nobody talks about `font-variant-east-asian`, at least, I haven't met them yet. What this property does is allow for glyph substitution and positioning in East Asian text. For the benefit of the audience who can't read Han characters, it might seem like the East Asian languages share the same glyphs but actually, it depends. As I mentioned before, Han unification, which is assigning the same code point to different glyphs has been the subject of a lot of debate, so I'm just going to explain this here property.
 
 Essentially, the same code point can have variant glyphs depending on the language being used. Like, simplified Chinese glyphs versus traditional Chinese glyphs. Japanese glyphs have their own specification known as JIS or Japanese Industrial Standard, and they too have alternate glyphs for the same character. This property allows us to toggle these variant glyphs.
 
@@ -165,11 +163,11 @@ Now the `font-language-override` property controls the rendering of language-spe
 
 `font-feature-settings` allows us toggle very specific OpenType properties. Last I checked, there were 141 OpenType feature tags to cover things like vertical kerning, unicase, scientific inferiors and so on.
 
-Browser support for each of these individual properties varies at the moment, with Firefox being the only browser that has supported all of them since 34.0. `font-feature-settings`, on the other hand, has quite good support across most browsers. The specification recommends to utilise the respective `font-variant` properties over the `font-feature-settings` property, but until browser support becomes more robust, I guess we'll continue to see this property being used instead.
+Browser support for each of these font feature properties varies at the moment, with Firefox being the only browser that has supported all of them since 34.0. `font-feature-settings`, on the other hand, has quite good support across most browsers. Although the specification recommends to utilise the respective `font-variant` properties over the `font-feature-settings` property, until browser support becomes more robust, I guess we'll continue to see this property being used instead.
 
 ## Implementing web fonts
 
-If you're building an English website, things are pretty straightforward. You can choose to serve your own font files, or use an online service. For online services, the most well-known free one is Google Fonts. Then we also have paid services like Adobe Typekit or Hoefler & Co's cloud.typography.
+If you're building a non-Chinese website, things are pretty straightforward. You can choose to serve your own font files, or use an online service. For online services, the most well-known free one is Google Fonts. Then we also have paid services like Adobe Typekit or Hoefler & Co's cloud.typography.
 
 Broadly speaking, how Typekit works is that you create font kits, which are registered to specific domains, then add the fonts you want to use to those kits. Typekit then generates some Javascript that you need to embed on your site and apply the relevant CSS classes to get the fonts to show up. Typekit does offer a selection of free fonts as well, the notable Chinese fonts being Source Han Sans and Source Han Serif.
 
@@ -181,11 +179,11 @@ Type foundries have gotten into the game as well. 华康字型 or DynaComware ar
 
 But at the end of the day, we still need to keep in mind that CJK fonts weigh in on a megabyte scale. The font hosting services do offer optimisations like lazy loading and dynamic subsetting, so hopefully that helps. If you want to serve your own fonts, there are also tools available to help reduce the size of your font files.
 
-If I'm building a site that uses English as its main language, I always turn to Font Squirrel to generate my webfonts, because subsetting. Font Squirrel's web font generator allows for a very granular level of customisation that I haven't found in other tools. There is a desktop application for Mac called FontPrep, which does subsetting quite well too.
+If I'm building a non-Chinese site, I always turn to Font Squirrel to generate my webfonts, because subsetting. Font Squirrel's web font generator allows for a very granular level of customisation that I haven't found in other tools. There is a desktop application for Mac called FontPrep, which does subsetting quite well too.
 
-Font Spider is an open-source command line tool that does smart webfont compression and conversion. It offers the ability to subset the fonts being used on the site. Look, I don't know why animals are the branding of choice for these tools, they just are.
+Font Spider is an open-source command line tool that does smart webfont compression and conversion. It offers the ability to subset the fonts based on the glyphs being used on your site. Look, I don't know why animals are the branding of choice for these tools, they just are.
 
-And if you're really concerned about speed and page weight, you can simply choose not to use any webfonts at all, because honestly, I think that system fonts are getting much better. This, coming from someone who is running the latest macOS Sierra and the Fast Ring Insider version of Windows 10. But point being, the newer OSes are shipping with much prettier fonts than before. 
+And if you're really concerned about speed and page weight, you can simply choose not to use any webfonts at all, because honestly, I think that system fonts are getting much better. This, coming from someone who is running the latest macOS Sierra and the Fast Ring Insider version of Windows 10. But point being, the newer OSes are shipping with much better fonts than before.
 
 I personally use a hybrid technique, where the body text is set in a system font, but for the big titles and display text, where there is a limited number of characters I know will not change much over time, I generate webfonts containing only those glyphs, which makes the font file much much smaller than the full character set.
 
@@ -199,13 +197,13 @@ Rather than trying to wrangle every pixel into place, just embrace the fact that
 
 Look, I'm on Twitter quite a bit. I have seen the flame wars over frameworks, over how CSS sucks, over how CSS should be done with Javascript. People get very worked up about these things, it seems. I personally enjoy the cascade.
 
-Responsive websites are often mentioned in the same breath as media queries, that wonderful conditional that allows us to create different layouts at different screen widths. I can understand why people reach for frameworks, especially if they are not familiar with CSS or just don't like it in general. But frameworks are kind of prescriptive, and that's how we end up with a lot of websites that utilise very similar layouts.
+Responsive websites are often mentioned in the same breath as media queries, that wonderful conditional that allows us to create different layouts at different screen widths. I can understand why people reach for frameworks, especially if they are not familiar with CSS or don't have time, or just don't like CSS in general. But frameworks are kind of prescriptive, and that's how we end up with a lot of websites that utilise very similar layouts.
 
 CSS layout has become so much more mature since it first began. There had never been a specification that was created specially for layout until Flexbox and Grid came along. And that is fantastic. We have a lot of CSS properties at our disposal now. Around 496 the last time I checked. And it is up to us to combine and implement them creatively.
 
 ## Vertical layout on the web
 
-This next portion is going to cover relevant CSS properties for vertical typesetting. Late last year, I had a thought while riding home on my bicycle after work. I wondered how hard it would be to typeset Chinese text on the web like the novels and comic books I used to read when I was a kid. And that's how I discovered this marvellous CSS property called `writing-mode`.
+Late last year, I had a thought while riding home on my bicycle after work. I wondered how hard it would be to typeset Chinese text on the web like the novels and comic books I used to read when I was a kid. And that's how I discovered this marvellous CSS property called `writing-mode`.
 
 There is an entire specification dedicated to writing modes and it's defined as such, support for international writing systems. So coverage includes right-to-left languages as well, but the `writing-mode` property specifically addresses vertical writing. You literally turn the browser on its side. Some people might be saying, big deal, we can do that with transforms too. Different!
 
@@ -223,7 +221,7 @@ For text-orientation, the initial value is mixed, but you can make all the chara
 
 One more property is text-combine-upright. This addresses the issue of numerals and abbreviations in vertical text. A very common use case is dates, especially for Taiwan, where they use the 民國 calendar. This property lets us fit all the digits into the width of one character and display them upright. 
 
-No browser supports the digits value yet, which allows us to dictate how many digits are acceptable to be squeezed in. The range allowed is between 2 to 4 characters. For now, with the `all` value, there is no limit, so you could technically put hippopotamus in there and it will look horribly squished.
+No browser supports the digits value yet, which allows us to dictate how many digits or letters are acceptable to be squeezed in. The range allowed is between 2 to 4 characters. For now, with the `all` value, there is no limit, so you could put hippopotamus in there and it will look horribly squished.
 
 There is a very comprehensive document called the Requirements for Japanese Text Layout, created by the W3C Japanese Layout Task Force. It addresses the aspects of Japanese composition that differ from Western composition and is meant to serve as a reference for browser implementers so Japanese web layouts can be rendered correctly. And now the Chinese Layout Task Force is working on a similar document for Chinese composition and layout. This is still a work in progress.
 
@@ -256,7 +254,7 @@ But I'm very cognizant of the fact that for Latin-based languages, which is mean
 
 Conversely, there are instances where vertical Latin text can work on narrow screen sizes as well. Perhaps you have realised that the hamburger menu is not the best mobile UI pattern we came with. You can layout your menu links vertically along the side edge of your site instead. And I'm sure many of you can come up with even more interesting designs that utilise vertical layouts.
 
-I also kept the language switcher, which is actually a checkbox hack implementation. When I built this demo, Grid hadn't landed yet, so I used Flexbox for a lot of the layout. Flexbox support is great, I mean, it has wider coverage than `border-radius`, but Flexbox with `writing-mode`? Not so good. I'll be honest, there are quite a large number of cross browser issues. Like, on Firefox, if you don't specify a width on the element with a vertical writing mode, it gets kicked off the page.
+I also kept the switcher, which is actually a checkbox hack implementation. When I built this website, Grid hadn't landed yet, so I used Flexbox for a lot of the layout. Flexbox support is great, I mean, it has wider coverage than `border-radius`, but Flexbox with `writing-mode`? Not so good. I'll be honest, there are quite a large number of cross browser issues. Like, on Firefox, if you don't specify a width on the element with a vertical writing mode, it gets kicked off the page.
 
 But that doesn't mean we should just shy away from using vertical text altogether. In fact, there's never been a better time than now to live on the cutting edge. Evergreen browsers are a thing now, with bug fixes and new features being shipped faster than ever. CSS Grid, I feel, is one of the best rollouts of a new major CSS feature ever, with almost all the major browsers shipping it in March this year. By now around 60% of the market is using a browser that supports Grid.
 
