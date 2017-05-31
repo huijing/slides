@@ -1,0 +1,95 @@
+/**
+ * Custom theme for Reveal.js presentations.
+ *
+ * Copyright (C) 2017 Chen Hui Jing, https://www.chenhuijing.com/
+ */
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url(../../lib/font/magnetic-pro/magnetic-pro.css);
+@import url(../../lib/font/magnetic-pro-black/magnetic-pro-black.css);
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'Magnetic Pro', sans-serif;
+$mainColor: rgba(42, 42, 42, 1);
+$headingFont: 'Magnetic Pro Black', sans-serif;
+$headingColor: rgba(55, 40, 34, 1);
+$headingTextShadow: none;
+$headingTextTransform: none;
+$backgroundColor: rgba(250, 255, 250, 1);
+$linkColor: rgba(74, 188, 65, 1);
+$linkColorHover: darken( $linkColor, 20% );
+$selectionBackgroundColor: rgba(0, 0, 0, 0.75);
+
+
+$heading1Size: 1.999em;
+$heading2Size: 1.414em;
+$heading3Size: 1.000em;
+$heading4Size: 1.000em;
+
+section.has-dark-background {
+  &, h1, h2, h3, h4, h5, h6 {
+    color: rgba(55, 40, 34, 1);
+  }
+}
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+// Overrides ------------------------------
+.reveal {
+  img {
+    max-height: 80vh;
+  }
+
+  code {
+    color: dodgerblue;
+  }
+
+  table,
+  pre {
+    font-size: 75%;
+  }
+
+  td {
+    vertical-align: middle;
+  }
+  
+  .l-logo {
+    height: 1.25em;
+    margin: 0 0.25em;
+  }
+
+  .l-double {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .l-multiple {
+    display: flex;
+    justify-content: space-around;
+
+    .j-vert {
+      width: 1em;
+    }
+  }
+
+  figcaption {
+    font-style: italic;
+    font-size: 75%;
+  }
+
+  .j-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1rem;
+  }
+}
