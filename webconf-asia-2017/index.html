@@ -823,7 +823,7 @@
             </div>
             <aside class="notes">
               <p>This is when we apply <code>vertical-lr</code> and <code>vertical-rl</code> respectively. The block flow direction is now horizontal, while the inline base direction is vertical. And then there's the orientation of the individual glyphs.</p>
-              <p>Every writing system has one or more native orientations. For example, Latin scripts and Arabic scripts are horizontal only, Mongolian is vertical only, and Han and Japanese Kana are bi-orientational. All glyphs are assigned a horizontal orientation by default, and the User Agent needs to transform text from this horizontal default when laying out text vertically.</p>
+              <p>Every writing system has one or more native orientations. For example, Latin scripts and Arabic scripts are horizontal only, Mongolian is vertical only, and Han and Japanese Kana are bi-orientational. All glyphs are assigned a horizontal orientation by default, and it is up to the User Agent to transform text from this horizontal default when laying out text vertically.</p>
             </aside>
           </section>
 
@@ -921,7 +921,7 @@
             </ul>
             <aside class="notes">
               <p>There is a very comprehensive document called the Requirements for Japanese Text Layout, created by the W3C Japanese Layout Task Force. It addresses the aspects of Japanese composition that differ from Western composition and is meant to serve as a reference for browser implementers so Japanese web layouts can be rendered correctly. And now the Chinese Layout Task Force is working on a similar document for Chinese composition and layout. This is still a work in progress.</p>
-              <p>Through my own personal experimentation, I sort of settled onto certain typographic conventions when I'm setting Chinese text.</p>
+              <p>Bobby Tung, who is a W3C i18n Invited Expert, wrote an article covering the best practices for Chinese layout a while back. So together with that article, as well as through my own personal experimentation, I sort of settled onto certain typographic conventions when I'm setting Chinese text.</p>
               <ol>
                 <li>Use the appropriate font family. For example, Source Han Serif has typefaces for simplified Chinese, traditional Chinese, Japanese and Korean. Pick the right one.</li>
                 <li>This one I mentioned earlier, that Chinese characters are denser than typical Latin-based alphabets, because of all the strokes, so you may want to bump up the font size a little bit. Reading small characters on a screen is not a pleasant experience.</li>
@@ -940,7 +940,7 @@
 
           <section>
             <img class="plain" data-src="img/centring.jpg" alt="Vertical centring for vertical layout">
-            <aside class="notes">As I mentioned earlier, 25-35 characters per line is a reasonable length, and that's done by clamping the height of the content block. Because Chinese characters are squares, that also implies that in normal circumstances, a height of 25 ems gives you 25 characters per line. To vertically centre the content block, we can actually set the top and bottom margins to <code>auto</code>, something we wished we could do but couldn't for horizontal writing. Don't worry, trying to centre things horizontally is equally painful for vertical writing.</aside>
+            <aside class="notes">As I mentioned earlier, 25-35 characters per line is a reasonable length, and I did that by clamping the height of the content block. Because Chinese characters are squares, that also implies that in normal circumstances, a height of 25 ems gives you 25 characters per line. To vertically centre the content block, we can actually set the top and bottom margins to <code>auto</code>, something we wished we could do but couldn't for horizontal writing. Don't worry, trying to centre things horizontally is equally painful, if not more so, for vertical writing.</aside>
           </section>
 
           <section>
@@ -994,7 +994,7 @@
               but don't worry, you can <a href="videos/pghk-resize.mp4">download it</a>
               and watch it with your favourite video player!
             </video>
-            <aside class="notes">But I'm very cognizant of the fact that for Latin-based languages, which is meant to be read horizontally from top to bottom, vertical text should largely be decorative. We don't want to compromise the reading experience for long form passages. So at smaller screens, we can make use of media queries to revert to a horizontal layout that makes better use of the limited space.</aside>
+            <aside class="notes">But I'm very cognizant of the fact that for Latin-based languages, which are meant to be read horizontally from top to bottom, vertical text should largely be decorative. We don't want to compromise the reading experience for long form passages. So at smaller screens, we can make use of media queries to revert to a horizontal layout that makes better use of the limited space.</aside>
           </section>
 
           <section>

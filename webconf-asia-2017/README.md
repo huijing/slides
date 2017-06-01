@@ -211,7 +211,7 @@ Let's cover some basic terminology. First up, inline base direction, which is th
 
 This is when we apply `vertical-lr` and `vertical-rl` respectively. The block flow direction is now horizontal, while the inline base direction is vertical. And then there's the orientation of the individual glyphs.
 
-Every writing system has one or more native orientations. For example, Latin scripts and Arabic scripts are horizontal only, Mongolian is vertical only, and Han and Japanese Kana are bi-orientational. All glyphs are assigned a horizontal orientation by default, and the User Agent needs to transform text from this horizontal default when laying out text vertically.
+Every writing system has one or more native orientations. For example, Latin scripts and Arabic scripts are horizontal only, Mongolian is vertical only, and Han and Japanese Kana are bi-orientational. All glyphs are assigned a horizontal orientation by default, and it is up to the User Agent to transform text from this horizontal default when laying out text vertically.
 
 There are two ways to do this, by rotation or by translation. Scripts that have native vertical orientations will have an intrinsic bi-orientational transform, so regardless of whether the text is laid out horizontally or vertically, the glyphs transform and will always be upright. Latin-based characters, on the other hand, rotate. But glyphs can always be set sideways or upright with the `text-orientation` property.
 
@@ -225,7 +225,7 @@ No browser supports the digits value yet, which allows us to dictate how many di
 
 There is a very comprehensive document called the Requirements for Japanese Text Layout, created by the W3C Japanese Layout Task Force. It addresses the aspects of Japanese composition that differ from Western composition and is meant to serve as a reference for browser implementers so Japanese web layouts can be rendered correctly. And now the Chinese Layout Task Force is working on a similar document for Chinese composition and layout. This is still a work in progress.
 
-Through my own personal experimentation, I sort of settled onto certain typographic conventions when I'm setting Chinese text.
+Bobby Tung, who is a W3C i18n Invited Expert, wrote an article covering the best practices for Chinese layout a while back. So together with that article, as well as through my own personal experimentation, I sort of settled onto certain typographic conventions when I'm setting Chinese text.
 
 1. Use the appropriate font family. For example, Source Han Serif has typefaces for simplified Chinese, traditional Chinese, Japanese and Korean. Pick the right one.
 2. This one I mentioned earlier, that Chinese characters are denser than typical Latin-based alphabets, because of all the strokes, so you may want to bump up the font size a little bit. Reading small characters on a screen is not a pleasant experience.
@@ -236,7 +236,7 @@ Through my own personal experimentation, I sort of settled onto certain typograp
 
 Anyway, I think it's safe to conclude that typesetting Chinese text for a vertical layout is very doable on the web today. This was the first vertical Chinese layout I built, just to learn about the properties and test out how box alignment would work and stuff like that. So here are some insights I gleaned from doing that.
 
-As I mentioned earlier, 25-35 characters per line is a reasonable length, and that's done by clamping the height of the content block. Because Chinese characters are squares, that also implies that in normal circumstances, a height of 25 ems gives you 25 characters per line. To vertically centre the content block, we can actually set the top and bottom margins to `auto`, something we wished we could do but couldn't for horizontal writing. Don't worry, trying to centre things horizontally is equally painful for vertical writing.
+As I mentioned earlier, 25-35 characters per line is a reasonable length, and I did that by clamping the height of the content block. Because Chinese characters are squares, that also implies that in normal circumstances, a height of 25 ems gives you 25 characters per line. To vertically centre the content block, we can actually set the top and bottom margins to `auto`, something we wished we could do but couldn't for horizontal writing. Don't worry, trying to centre things horizontally is equally painful, if not more so, for vertical writing.
 
 Now these directions of top, right, bottom, left start getting a bit confusing when you have rotated Latin text. Say you have this header, and you want some extra spacing between the header and the paragraph, is the margin set on the bottom or the left? It's actually the left.
 
@@ -250,7 +250,7 @@ Another project I worked on was a bilingual, mixed layout site, and boy was that
 
 One of the ideas I had was to make a bookshelf style list of posts with just CSS. So that was done using writing-mode and a rotation transform for the header, just to get the text to face the other direction. I have grown quite fond of using a vertical header when a page has many sections, I find it helps break up the monotony.
 
-But I'm very cognizant of the fact that for Latin-based languages, which is meant to be read horizontally from top to bottom, vertical text should largely be decorative. We don't want to compromise the reading experience for long form passages. So at smaller screens, we can make use of media queries to revert to a horizontal layout that makes better use of the limited space.
+But I'm very cognizant of the fact that for Latin-based languages, which are meant to be read horizontally from top to bottom, vertical text should largely be decorative. We don't want to compromise the reading experience for long form passages. So at smaller screens, we can make use of media queries to revert to a horizontal layout that makes better use of the limited space.
 
 Conversely, there are instances where vertical Latin text can work on narrow screen sizes as well. Perhaps you have realised that the hamburger menu is not the best mobile UI pattern we came with. You can layout your menu links vertically along the side edge of your site instead. And I'm sure many of you can come up with even more interesting designs that utilise vertical layouts.
 
