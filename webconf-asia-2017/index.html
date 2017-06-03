@@ -302,16 +302,16 @@
           <section>
             <h2>@font-face rule</h2>
             <pre style="font-size:50%;"><code>@font-face {
-    font-family: 'Magnetic Pro';
-    src: url('../fonts/magnetic-pro-light.woff2') format('woff2'),
-         url('../fonts/magnetic-pro-light.woff') format('woff');
-  }</code></pre>
+  font-family: 'Magnetic Pro';
+  src: url('../fonts/magnetic-pro-light.woff2') format('woff2'),
+       url('../fonts/magnetic-pro-light.woff') format('woff');
+}</code></pre>
             <div class="l-double">
               <p style="width:100%;" class="ciu_embed" data-feature="woff" data-periods="future_1,current,past_1,past_2">
-                <a href="http://caniuse.com/#feat=woff">Can I Use woff?</a> Data on support for the woff feature across the major browsers from caniuse.com.
+                <a href="http://caniuse.com/#feat=woff"><img class="plain" data-src="img/caniuse-woff.jpg"></a>
               </p>
               <p style="width:100%;" class="ciu_embed" data-feature="woff2" data-periods="future_1,current,past_1,past_2">
-                <a href="http://caniuse.com/#feat=woff2">Can I Use woff2?</a> Data on support for the woff2 feature across the major browsers from caniuse.com.
+                <a href="http://caniuse.com/#feat=woff2"><img class="plain" data-src="img/caniuse-woff2.jpg"></a>
               </p>
             </div>
             <aside class="notes">Those of us who have worked on projects with self-hosted fonts will probably used something called the @font-face rule, where we declare a list of different font formats, in the hopes our fonts will show up correctly in as many browsers as possible. The number of font formats we need to declare has decreased over the years and right now, you can pretty much get away with declaring just WOFF and WOFF2.</aside>
@@ -562,15 +562,15 @@
           <section>
             <h2>Anatomy of an <code style="text-transform:lowercase;">@font-face</code> rule</h2>
             <pre><code>@font-face {
-    font-family: &lt;family-name&gt;
-    src: [ &lt;url&gt; [format(&lt;string&gt; #)]? | &lt;font-face-name&gt; ] #
-    font-style: normal | italic | oblique 
-    font-weight: normal | bold | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 
-    font-stretch: normal | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded
-    unicode-range: &lt;urange&gt; # 
-    font-variant: normal | none | [ &lt;common-lig-values&gt; || &lt;discretionary-lig-values&gt; || &lt;historical-lig-values&gt; || &lt;contextual-alt-values&gt; || stylistic(&lt;feature-value-name&gt;) || historical-forms || styleset(&lt;feature-value-name&gt; #) || character-variant(&lt;feature-value-name&gt; #) || swash(&lt;feature-value-name&gt;) || ornaments(&lt;feature-value-name&gt;) || annotation(&lt;feature-value-name&gt;) || [ small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps ] || &lt;numeric-figure-values&gt; || &lt;numeric-spacing-values&gt; || &lt;numeric-fraction-values&gt; || ordinal || slashed-zero || &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ] 
-    font-feature-settings: normal | &lt;feature-tag-value&gt; # 
-  }</code></pre>
+  font-family: &lt;family-name&gt;
+  src: [ &lt;url&gt; [format(&lt;string&gt; #)]? | &lt;font-face-name&gt; ] #
+  font-style: normal | italic | oblique 
+  font-weight: normal | bold | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 
+  font-stretch: normal | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded
+  unicode-range: &lt;urange&gt; # 
+  font-variant: normal | none | [ &lt;common-lig-values&gt; || &lt;discretionary-lig-values&gt; || &lt;historical-lig-values&gt; || &lt;contextual-alt-values&gt; || stylistic(&lt;feature-value-name&gt;) || historical-forms || styleset(&lt;feature-value-name&gt; #) || character-variant(&lt;feature-value-name&gt; #) || swash(&lt;feature-value-name&gt;) || ornaments(&lt;feature-value-name&gt;) || annotation(&lt;feature-value-name&gt;) || [ small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps ] || &lt;numeric-figure-values&gt; || &lt;numeric-spacing-values&gt; || &lt;numeric-fraction-values&gt; || ordinal || slashed-zero || &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ] 
+  font-feature-settings: normal | &lt;feature-tag-value&gt; # 
+}</code></pre>
           <aside class="notes">
             <p>This is how an <code>@font-face</code> rule looks like. I don't think most people read through the CSS specification like they would a novel, so it's perfectly fine if this looks excessively complicated and undecipherable to you. I'll do my best to make this quick and simple. Even though there's a whole lot of stuff in here, only the <code>font-family</code> descriptor and the <code>src</code> descriptor are mandatory.</p>
             <p>If either of them are absent, the entire rule is ignored. Now the <code>font-family</code> descriptor is simply a label that we reference in other CSS declarations. So even if you're using say, Frutiger, you could actually label it “Dumplings” and it would still work.</p>
@@ -954,7 +954,7 @@
           <section>
             <h2>CSS Logical Properties</h2>
             <p class="ciu_embed" data-feature="css-logical-props" data-periods="future_1,current,past_1,past_2">
-              <a href="http://caniuse.com/#feat=css-logical-props">Can I Use css-logical-props?</a> Data on support for the css-logical-props feature across the major browsers from caniuse.com.
+              <a href="http://caniuse.com/#feat=css-logical-props"><img class="plain" data-src="img/caniuse-logical.jpg"></a>
             </p>
             <aside class="notes">That's why we have a CSS Logical Properties specification, which introduces new CSS properties that are flow-relative equivalents of physical box model properties. Properties like that use <code>block-start</code> and <code>block-end</code> or <code>inline-start</code> and <code>inline-end</code> instead of left and right. This specification is in the thick of working draft status but I'm eager to see it developed and implemented. For now, support is kind of limited.</aside>
           </section>
@@ -1045,6 +1045,7 @@
             <li><a href="http://justineo.github.io/slideshows/font/">字体漫谈</a></li>
             <li><a href="https://blogs.adobe.com/CCJKType/2017/04/source-han-serif-history-development.html">Source Han Serif / Noto Serif CJK History & Development</a></li>
             <li><a href="https://collab.itc.virginia.edu/wiki/toolbox/Chinese%20Fonts%20%26%20Related%20Issues.html">Chinese Fonts & Related Issues</a></li>
+            <li><a href="https://www.typotheque.com/articles/opentype_features_in_css">OpenType features in CSS</a></li>
             <li>Zhang, X. & Han, Q. (2009). <em>The history of Chinese printing: (illustrated).</em> Paramus, N.J: Homa et Sekey Books.</li>
             <li>Brokaw, C. & Reed, C. A. (2010). <em>From woodblocks to the Internet: Chinese publishing and print culture in transition, circa 1800 to 2008.</em> Leiden: Brill.</li>
             <li>Tsien T. (2011). <em>Collected writings on Chinese culture.</em> Hong Kong: The Chinese University Press.</li>
