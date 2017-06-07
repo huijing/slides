@@ -14,29 +14,29 @@ I've come across many definitions of typography over the years, and have persona
 
 But Chinese is different. Chinese is currently the only logographic writing system left that is widely used by millions of people. Each Chinese character is composed within a uniform square, allowing Chinese to be read efficiently, regardless of whether it is set horizontally or vertically. And until proven otherwise, it seems that the Chinese language was an indigenous invention, developed separately from the Proto-Sinaitic scripts which were the origins of alphabetic languages.
 
-We can see how the nature of Western languages in Europe differ from the Eastern languages in Asia. The Phoenician alphabet is considered the origin of many alphabetic writing systems on which the Greek and later, Latin and Cyrillic alphabets were based on. With alphabets, combine different letters into words you would use to communicate with another person.
+We can see how the nature of Western languages in Europe differ from the Eastern languages in Asia. The Phoenician alphabet is considered the origin of many alphabetic writing systems on which the Greek and later, Latin and Cyrillic alphabets were based on. For such languages, letters are combined to form all the different words you would use to communicate with another person.
 
-With Chinese characters, we have thousands upon thousands of unique glyphs that can express meaning on their own or be used in combination with other glyphs. This has a direct consequence on the structure of the language itself.
+With Chinese characters, we have thousands upon thousands of unique glyphs that can express meaning on their own or be used in combination with other glyphs. This has a direct consequence on the structure of the languages themselves.
 
 For example:
-- Hippopotamus, English word of 12 characters. Chinese only needs 2 characters, 河马.
-- продовольственный (Pro-doh-vol-stven-ney), Russian word of 17 characters. In Chinese, 食品.
-- Grianghrafadóireachta (Green-hra-fer-doi-rek-te), Irish word of 21 characters. Again, 2 characters will do, 摄影.
+- Hippopotamus, English word of 12 letters. Chinese only needs 2 characters, 河马.
+- продовольственный (Pro-dah-vol-stven-ney), Russian word of 17 letters. In Chinese, 食品.
+- Grianghrafadóireachta (Green-hra-fer-doi-rek-te), Irish word of 21 letters. Again, 2 characters will do, 摄影.
 What can I say, Chinese is a concise language.
 
 ## Different type styles and typefaces
 
-While we're on the subject of letters, ancient Greek stone inscriptions used to be sans-serif, but later stone cutters tended to spread out the ends of letters into serifs. In the Middle Ages, scribes and copyists based their writings off of these stone inscriptions. And the letter forms evolved because writing was done with pens instead of chisels. Various writing styles emerged, from Carolingian minuscules to the various Gothic hands, which in turn served as inspiration for type designers doing printing.
+While we're on the subject of letters, those on ancient Greek stone inscriptions used to be sans-serif, but later stone cutters tended to spread out the ends of letters into serifs. In the Middle Ages, scribes and copyists based their writings off of these stone inscriptions. And the letter forms evolved because writing was done with pens instead of chisels. Various writing styles emerged, from Carolingian minuscules to the various Gothic hands, which in turn served as inspiration for type designers and punch cutters doing printing.
 
 Although it seems like there are many type classifications like Old styles, Transitionals, Humanists and Geometrics, Latin-based scripts can be broadly classified into two big categories, Serifs and Sans-serifs.
 
-Chinese characters also changed a lot since their origins. It's just that Chinese writing went through the entire process of development and evolution way earlier than Europe. The key implement of Chinese writing is the brush. Calligraphy was and still is one of the most highly regarded Chinese arts. Woodblock printing was invented in China, and the Chinese were exceptional at it. To the point where it was a contributing factor to why moveable type, which too was invented in China, never really took off.
+Chinese characters also changed a lot since their origins. It's just that Chinese writing went through the entire process of development and evolution way earlier than Europe. The key implement of Chinese writing is the brush. Calligraphy was and still is one of the most highly regarded Chinese arts. Woodblock printing was invented in China, and the Chinese were exceptional at it. To the point where it was a contributing factor to why moveable type, which too was invented in China, never really took off there.
 
 The contemporary typefaces used for Chinese print publications can be broadly classified into these families: 宋体 (also known as 明体), 楷体, 仿宋体, 黑体. Both 黑体 and 仿宋体 are twentieth century creations.
 
 It is not uncommon to see comparisons of 宋体 to serifs and 黑体 to sans-serifs, but I think it makes more sense for Chinese typefaces to maintain their own classifications. They are completely different from Latin alphabets anyway.
 
-Chinese typefaces are extremely challenging to create, simply due to the volume of glyphs required. Work on Source Han Serif, which was officially announced in April, started in late 2014. And they had quite a large team working on it. The average number of glyphs for a Chinese system font is around 35,000 glyphs, plus or minus a couple thousand.
+Chinese typefaces are extremely challenging to create, simply due to the volume of glyphs required. Source Han Serif, which is the second Pan-CJK typeface family from Adobe Type, was officially announced in April this year. But work on this typeface started in late 2014. And they had quite a large team working on it. The average number of glyphs for a Chinese system font is around 35,000 glyphs, plus or minus a couple thousand.
 
 Typefaces that have enough glyph coverage to be used in body copy are usually made by foundries, like Founder Type or Monotype, as very few independent type designers have the bandwidth for that.
 
@@ -46,58 +46,43 @@ There are actually a huge variety of other styles, like those based of ancient s
 
 A lot of articles on how to pick typefaces tell us that all typefaces have a personality, and we ought to pick typefaces based on the messaging we want to convey. I don't disagree. It's just that very few people delve into the why. Why do these letters have human traits? Research has suggested that a lot of it boils down to prior experience with the typefaces in particular contexts.
 
-For Latin-based typefaces, old style and transitional serifs like Caslon, Garamond, Times Roman and Baskerville are most often used in books and formal documents. People tend to associate these as being serious and formal.
+For Latin-based typefaces, old style and transitional serifs like Caslon, Garamond and Baskerville are most often used in books and formal documents. People tend to associate these as being serious and formal.
 
-Modern serifs like Didot and Bodoni were used in a variety of publications but we associate them with elegance and high fashion because of they're used in Vogue and Harper's Bazaar. To a certain extent, globalisation has allowed some of these associations to transcend cultural and geographic boundaries and become recognised worldwide.
+Modern serifs like Didot and Bodoni were used in a variety of publications but we associate them with elegance and high fashion because they're used in Vogue and Harper's Bazaar. To a certain extent, globalisation has allowed some of these associations to transcend cultural and geographic boundaries and become recognised worldwide.
 
-To pair Chinese scripts with Latin scripts for body copy is reasonably straightforward, in that you want to pick styles that present an even typographic colour. In this regard, serifs go with 宋体 and sans-serifs go with 黑体. In general, you'd want their stroke thickness to match up, but keep in mind that Chinese glyphs appear denser than their Latin-based counterparts at the same size and adjustments will need to be made for that.
+To pair Chinese scripts with Latin scripts for body copy is reasonably straightforward, in that you want to pick styles that present an even typographic colour. In this regard, serifs go with 宋体 and sans-serifs go with 黑体. In general, you'd want their stroke thickness to match up, but keep in mind that Chinese glyphs appear denser than their Latin-based counterparts at the same size, so adjustments will need to be made for that.
 
 ## The web as a medium
 
-Language and writing has allowed human beings to communicate ideas and record history for thousands of years. And we've written things on almost everything, from cave paintings to stone engravings, from parchment to paper. Right now, the medium of our time is the screen and the browser. Our types are now font files. And we've replaced typesetting with composing sticks or font plates and discs, with CSS.
+Language and writing has allowed human beings to communicate ideas and record history for thousands of years. And we've written things on almost everything, from cave paintings to stone engravings, from parchment to paper. Right now, the medium of our time is the screen and the browser. Our types are now font files. And we've replaced typesetting with composing sticks or font plates, with CSS.
 
 So let's discuss typography on the web.
 
-We first need to understand the web as a medium, and to be fair, it is a rather young medium. In his doctoral thesis, inventor of CSS, Håkon Wium Lie (Hor-ken Wee-um Lee), described a number of key differences between the distribution of content on paper versus electronic distribution over the web.
+We first need to understand the web as a medium, and to be fair, it is a rather young medium. But the web is nothing like we've seen before. It is a dynamic and interactive medium, and many designers, especially those who are used to having absolute control over the final presentation, find this disturbing.
 
-1. Late binding in computer programming terms refers to function calls that are not resolved until runtime, but in publishing, late binding refers to delaying the conversion of data into an optimised output format for presentation for as long as possible. This happens very late on the web and presents a performance challenge as binding now takes place while the user is waiting, and the author is not present to verify if the presentation is correct or not.
-2. There is no longer a single final form of presentation either, multiple output devices could be used.
-3. Authors can influence the presentation, but he or she no longer holds complete control, instead, a combination of influences from various sources, like the browser and the users themselves, form the final presentation.
-4. Dependable delivery is also uncertain, as web resources are distributed across multiple connected servers and the possibility of any of them being unavailable is pretty significant.
+The thing is, with the web there is no longer a single final form of presentation, as multiple output devices could be used to view it.
+
+Authors can only influence the presentation, rather than control it. A combination of influences from various sources, like the browser and users themselves will determine how the final output looks like.
+
+Dependable delivery is also uncertain, as web resources are distributed across multiple connected servers and the possibility of any of them being unavailable is pretty significant.
 
 Although many would like to think the web is simply print expressed on an electronic screen, it is not. It is a unique medium on its own.
 
 ## Font formats
 
-Here's a list of common font formats used on the web. Why on earth are there so many formats? Well, here's my non-technical explanation. Fonts are simply containers for glyphs, and font formats describe these glyphs. The earliest fonts were pixel-based bitmaps, which were fine for low-resolution screens, but for printing on high-resolution printers, we needed a better solution. Either compress the bitmapped glyphs, or find an alternative rendering method.
+Here's a list of common font formats used on the web. But why on earth do we need so many formats? Well, here's my non-technical explanation. Fonts are simply containers for glyphs, and font formats describe these glyphs. The earliest fonts were pixel-based bitmaps, which were fine for low-resolution screens, but for printing on high-resolution printers, we needed a better solution. Either compress the bitmapped glyphs, or find an alternative rendering method.
 
 Donald Knuth created Metafont in 1978 for the TeX system, which generated compressed bitmap fonts. John Warnock, founder of Adobe, came up with Postscript in 1985, which was the very first vector font.
 
 TrueType was Apple and Microsoft's answer to Adobe's font monopoly. Both companies then worked separately to improve TrueType, especially with regards to fonts for East Asian writing systems. And Apple came up with TrueType GX, later renamed Apple Advanced Typography, while Microsoft turned to Adobe and together they came up with OpenType.
 
-EOT, or embedded OpenType is Microsoft's proprietary standard which is a compact form of OpenType fonts meant for use on web pages. Although they tried to submit this as a W3C recommendation, it was rejected in favour of WOFF, or the Web Open Font Format. WOFF was quite the industry effort, involving Microsoft, Mozilla and Opera.
+EOT, or embedded OpenType is Microsoft's proprietary standard, which is a compact form of OpenType fonts meant for use on web pages. Although they tried to submit this as a W3C recommendation, it was rejected in favour of WOFF, or the Web Open Font Format. WOFF was quite the industry effort, involving Microsoft, Mozilla and Opera.
 
-Those of us who have worked on projects with self-hosted fonts will probably used something called the @font-face rule, where we declare a list of different font formats, in the hopes our fonts will show up correctly in as many browsers as possible. The number of font formats we need to declare has decreased over the years and right now, you can pretty much get away with declaring just WOFF and WOFF2.
+Those of us who have worked on projects with self-hosted fonts will probably used something called the `@font-face` rule, where we declare a list of different font formats, in the hopes our fonts will show up correctly in as many browsers as possible. The number of font formats we need to declare has decreased over the years and right now, you can pretty much get away with declaring just WOFF and WOFF2.
 
 ## How browsers pick fonts
 
-The earliest implementation of CSS had a relatively small section on fonts, which covered font properties that could be set via CSS, as well as the font matching algorithm so browsers could determine what fonts to use.
-
-The algorithm itself has since been expanded over the last 2 decades but the general guideline to what font is used for a given character in a run of text is as follows:
-- the User Agent (UA) takes the first family name defined in the `font-family` property
-- if it's a generic family keyword, the UA will just pick the one it always uses and load that, otherwise it will try to find the family from fonts declared through `@font-face`
-- once matched, the UA will assemble the set of font faces in the family, then pick the appropriate font face based on declared font properties:
-    + `font-stretch`,
-    + `font-style`,
-    + `font-weight`,
-    + `font-size`
-- But if no matching face exists, or if the matched face is missing the glyph that needs to be rendered, the next family name is considered, and the UA runs through the steps again
-- Once a font face is matched, the font will be loaded
-- If all the font family names have been run through, and still no font face matches, a system fallback font will be called into play
-
-If a character cannot be displayed using any font at all, like this Chinese character called biang, you'll end up with a white square or missing symbol glyph instead. This is less common now, compared to 10 years ago, thanks to the widespread use of Unicode.
-
-Regardless, from an aesthetic perspective, it is recommended you declare your Latin-based font of choice first, because order does matter. It is almost a given that a CJK font, or an Arabic or Hebrew font, for that matter, will have support for Latin characters but not the other way around. Declaring those fonts first will result in the Latin characters displayed using glyphs from the Chinese font instead. And sometimes, this doesn't look too great on Windows.
+It is recommended you declare your Latin-based font of choice first, because order does matter. It is almost a given that a CJK font will have support for Latin characters but not the other way around. Declaring those fonts first will result in the Latin characters displayed using glyphs from the Chinese font instead. And sometimes, this doesn't look too great on Windows.
 
 Even though Fonts Level 3 states that user agents must match font names case insensitively, it is still recommended to put them in quotes, just in case.
 
@@ -115,7 +100,7 @@ Not counting the font shorthand, there are six basic font properties. The last t
 
 `font-synthesis` is also new, and was put in to address the issue of faux bolds and faux italics. Sometimes the true italic or heavier version of a font does not exist and the browser will try to mimic those styles, and it doesn't look very good. So now you can set this property to a value of `none`, to prevent the browser from doing that.
 
-The @font-face rule allows us to use fonts beyond those available on a given platform by linking to those font files, which could be locally available or from an external source. Each rule specifies the characteristics of a single font within a family. These fonts will only be loaded when required. Multiple `@font-face` rules can be used to build an entire font family. And it consists of the `@font-face` keyword plus a bunch of font descriptors. Font descriptors and CSS properties are not the same thing. 
+The `@font-face` rule allows us to use fonts beyond those available on a given platform by linking to those font files, which could be locally available or from an external source. Each rule specifies the characteristics of a single font within a family. These fonts will only be loaded when required. Multiple `@font-face` rules can be used to build an entire font family. And it consists of the `@font-face` keyword plus a bunch of font descriptors. Font descriptors and CSS properties are not the same thing. 
 
 This is how an `@font-face` rule looks like. I don't think most people read through the CSS specification like they would a novel, so it's perfectly fine if this looks excessively complicated to you. Even though there's a whole lot of stuff in here, only the `font-family` descriptor and the `src` descriptor are mandatory.
 
@@ -125,11 +110,12 @@ The `src` descriptor is comma-separated list of external references or locally-i
 
 The next 3 descriptors, for style, weight and stretch, are used to match styles to a particular typeface in later declarations. Again, they are descriptors, so technically you could assign a black typeface to a font-weight of 100 and proceed to confuse your team members who cannot figure out why setting a weight of 100 gives them this massively bold typeface. Please don't do that.
 
-Every Unicode character is represented by a unique code point and all these code points are organised into code blocks, 273 code blocks as of Unicode 9.0. The `unicode-range` descriptor allows us to specify individual code points or a range of code points for characters we want displayed using a particular font face. We can make use of this to create custom font families with glyphs from different typefaces.
+Every Unicode character is represented by a unique code point. The `unicode-range` descriptor allows us to specify individual code points or a range of code points for characters we want displayed using a particular font face. We can make use of this to create custom font families with glyphs from different typefaces.
 
-My slides use a font called Magnetic Pro, which does not support Cyrillic alphabets. But fortunately, I managed to find a reasonably similar font that does, called Bender. I only need the Cyrillic letters to display in Bender, while everything else can use Magnetic Pro.
+My slides use a font called Magnetic Pro, which does not support Cyrillic alphabets. But fortunately, I managed to find a reasonably similar font that does, called Bender. I only need the Cyrillic letters to display in Bender, while everything else should use Magnetic Pro.
 
-So the code points in the `unicode-range` range descriptor are that of the Cyrillic letters that I've used. Now say I have a page that only uses English words, Bender will not load at all because it is not needed. It will only load when the browser encounters the Cyrillic letters in the `unicode-range`.
+So the code points in the `unicode-range` range descriptor are that of the Cyrillic letters that I've used in this presentation. Now, say I have a page that only uses English words, Bender will not load at all because it is not needed. It will only load when the browser encounters the Cyrillic letters in the `unicode-range` specified.
+
 
 ## Font feature properties
 
@@ -143,19 +129,19 @@ Typographic features like small caps, correct use of italics and punctuation do 
 
 So these are the features you can turn on via CSS, but note that the font you are using must have these features to begin with. This lot up there are the features most often mentioned at web typography talks.
 
-Few people talk about `font-variant-east-asian`. What this property does is allow for glyph substitution and positioning in East Asian text. For the benefit of the audience who can't read Han characters, it might seem like these languages share the same glyphs but actually, it depends. As I mentioned before, Han unification, which is assigning the same code point to different glyphs has been the subject of a lot of debate.
+Few people talk about `font-variant-east-asian`. What this property does is allow for glyph substitution and positioning in East Asian text. For the benefit of the audience who can't read Han characters, it might seem like these languages share the same glyphs but actually, it depends. Han unification, involves assigning the same code point to different glyphs, and it has been quite a controversial issue.
 
-Essentially, the same code point can have variant glyphs depending on the language being used. Like, simplified Chinese glyphs versus traditional Chinese glyphs. Japanese glyphs have their own specification known as JIS or Japanese Industrial Standard, and they too have alternate glyphs for the same character. This property allows us to toggle these variant glyphs.
+But essentially, the same code point can have variant glyphs depending on the language being used. Like, simplified Chinese glyphs versus traditional Chinese glyphs. Japanese glyphs have their own specification known as JIS or Japanese Industrial Standard, and they too have alternate glyphs for the same character. This property allows us to toggle these variant glyphs.
 
 Now the `font-language-override` property controls the rendering of language-specific glyphs in the typeface used. A commonly raised use case is the use of common ligatures, for the fi combination. The Turkish alphabet has both a dotted and dotless i, so the fi ligature shouldn't be used. Maybe a typeface doesn't recognise a lesser-known language like the Azeri language, which, similar to Turkish, has a dotless i, the `font-language-override` property can be used to force the usage of Turkish glyphs instead.
 
 `font-feature-settings` allows us toggle very specific OpenType properties. Last I checked, there were 141 OpenType feature tags to cover things like vertical kerning, unicase, scientific inferiors and so on.
 
-Browser support for each of these individual properties varies at the moment, with Firefox being the only browser that has supported all of them since 34.0. `font-feature-settings`, on the other hand, has quite good support across most browsers. The specification recommends to utilise the respective `font-variant` properties over the `font-feature-settings` property, but until browser support becomes more robust, I guess we'll continue to see this property being used instead.
+Browser support for each of these individual properties varies at the moment, with Firefox being the only browser that has supported all of them since version 34.0.  `font-feature-settings`, on the other hand, has quite good support across most browsers. The specification recommends to utilise the respective `font-variant` properties over the `font-feature-settings` property, but until browser support becomes more robust, I guess we'll continue to see this property being used instead.
 
 ## Implementing web fonts
 
-If you're building an English website, things are pretty straightforward. You can choose to serve your own font files, or use an online service. For online services, the most well-known free one is Google Fonts. Then we also have paid services like Adobe Typekit or Hoefler & Co's cloud.typography.
+If you're building a non-Chinese website, things are pretty straightforward. You can choose to serve your own font files, or use an online service. For online services, the most well-known free one is Google Fonts. Then we also have paid services like Adobe Typekit or Hoefler & Co's cloud.typography.
 
 Broadly speaking, how Typekit works is that you create font kits, which are registered to specific domains, then add the fonts you want to use to those kits. Typekit then generates some Javascript that you need to embed on your site and apply the relevant CSS classes to get the fonts to show up. Typekit does offer a selection of free fonts as well, the notable Chinese fonts being Source Han Sans and Source Han Serif.
 
@@ -163,15 +149,15 @@ But if you want the smorgasbord of Chinese fonts, there are several font hosting
 
 There is also 有字库, out of Shanghai, that offers various methods of implementing their fonts on your website. You can do it via CSS like how its done on Google Fonts, or load the font files via Javascript. They also offer SDK support for Java, PHP and NodeJS. The documentation is pretty good, but unfortunately, it's all in Chinese.
 
-Type foundries have gotten into the game as well. DynaComware are the guys who made PingFang, LiSong Pro and a number of other fonts that shipped with macOS. Their service is known as DynaFont Online. Arphic Technology who made the AR PL fonts found on Ubuntu, have their own service called iFontCloud.
+Type foundries have gotten into the game as well. DynaComware are the guys who made PingFang, LiSong Pro and a number of other Chinese fonts that shipped with macOS. Their service is known as DynaFont Online. Arphic Technology who made the AR PL fonts found on Ubuntu, have their own service called iFontCloud.
 
 But at the end of the day, we still need to keep in mind that CJK fonts weigh in on a megabyte scale. The font hosting services do offer optimisations like lazy loading and dynamic subsetting, so hopefully that helps. If you want to serve your own fonts, there are also tools available to help reduce the size of your font files.
 
 If I'm building a non-Chinese site, I always turn to Font Squirrel to generate my webfonts, because subsetting. Font Squirrel's web font generator allows for a very granular level of customisation that I haven't found in other tools. There is a desktop application for Mac called FontPrep, which does subsetting quite well too.
 
-Font Spider is an open-source command line tool that does smart webfont compression and conversion. It offers the ability to subset the fonts being used on the site. It seems they all like to use animals for branding.
+Font Spider is an open-source command line tool that does smart webfont compression and conversion. It offers the ability to subset the fonts based on the glyphs being used on your site. Somehow, it seems they all like to use animals for branding.
 
-And if you're really concerned about speed and page weight, you can simply choose not to use any webfonts at all, because honestly, I think that system fonts shipped with the newer OSes are getting much better.
+But if you're really concerned about speed and page weight, you can simply choose not to use any webfonts at all, because honestly, I think that system fonts shipped with the newer OSes are getting much better.
 
 I personally use a hybrid technique, where the body text is set in a system font, but for the big titles and display text, where there is a limited number of characters I know will not change much over time, I generate webfonts containing only those glyphs, which makes the font file much much smaller than the full character set.
 
@@ -207,9 +193,9 @@ One more property is text-combine-upright. This addresses the issue of numerals 
 
 No browser supports the digits value yet, which allows us to dictate how many digits are acceptable to be squeezed in. The range allowed is between 2 to 4 characters. For now, with the <code>all</code> value, there is no limit, so you could technically put hippopotamus in there and it will look horribly squished.
 
-There is a very comprehensive document called the Requirements for Japanese Text Layout, created by the W3C Japanese Layout Task Force. It addresses the aspects of Japanese composition that differ from Western composition and is meant to serve as a reference for browser implementers so Japanese web layouts can be rendered correctly. And now the Chinese Layout Task Force is working on a similar document for Chinese composition and layout. This is still a work in progress.
+Because East Asian composition is quite different from Western composition, the W3C Japanese Layout Task Force has published a document known as the Requirements for Japanese Text Layout, which serves as a reference for browser implementers so Japanese web layouts can be rendered correctly. There is currently a Chinese equivalent being worked on right now.
 
-Through my own personal experimentation, I sort of settled onto certain typographic conventions when I'm setting Chinese text.
+Based on those documents, and through my own personal experimentation, I sort of settled onto certain typographic conventions when I'm setting Chinese text.
 
 1. Use the appropriate font family. For example, Source Han Serif has typefaces for simplified Chinese, traditional Chinese, Japanese and Korean. Pick the right one.
 2. This one I mentioned earlier, that Chinese characters are denser than typical Latin-based alphabets, because of all the strokes, so you may want to bump up the font size a little bit. Reading small characters on a screen is not a pleasant experience.
