@@ -42,7 +42,7 @@ Typefaces that have enough glyph coverage to be used in body copy are usually ma
 
 宋体 is the standard font for body copy. 楷体 is used for runs of text that need to be differentiated from the rest of the content, like dialogues or references. 黑体 is most commonly seen in digital publishing but publishers have started to experiment with 黑体 in print as well. 仿宋体 is generally used in isolated paragraphs like quotations or highlighted sentences.
 
-There are actually a huge variety of other styles, like those based of ancient scripts like Seal script or Clerical script, as well as brush script styles mimicking Running scripts. But they fall into the general category of decorative fonts, mostly used for display text or short paragraphs. Not so much for long form reading.
+There are actually a huge variety of other styles, like those based of ancient scripts and brush script styles, but they fall into the general category of decorative fonts, mostly used for display text or short paragraphs. Not so much for long form reading.
 
 A lot of articles on how to pick typefaces tell us that all typefaces have a personality, and we ought to pick typefaces based on the messaging we want to convey. I don't disagree. It's just that very few people delve into the why. Why do these letters have human traits? Research has suggested that a lot of it boils down to prior experience with the typefaces in particular contexts.
 
@@ -80,15 +80,9 @@ EOT, or embedded OpenType is Microsoft's proprietary standard, which is a compac
 
 Those of us who have worked on projects with self-hosted fonts will probably used something called the `@font-face` rule, where we declare a list of different font formats, in the hopes our fonts will show up correctly in as many browsers as possible. The number of font formats we need to declare has decreased over the years and right now, you can pretty much get away with declaring just WOFF and WOFF2.
 
-## How browsers pick fonts
-
 It is recommended you declare your Latin-based font of choice first, because order does matter. It is almost a given that a CJK font will have support for Latin characters but not the other way around. Declaring those fonts first will result in the Latin characters displayed using glyphs from the Chinese font instead. And sometimes, this doesn't look too great on Windows.
 
 Even though Fonts Level 3 states that user agents must match font names case insensitively, it is still recommended to put them in quotes, just in case.
-
-Generic font families were introduced in CSS2.1, and left it up to user agents to provide reasonable default choices, which express the characteristics of each family as well as possible.
-
-There are currently five generic font families, with four more being defined in Fonts Level 4. The thing about these generic font families is they are very inconsistent, but they were never meant to be consistent in the first place. You'd leave these generic font families to be fallbacks, triggered if somehow all the previously declared fonts failed to load.
 
 ## CSS basic font properties
 
@@ -114,7 +108,7 @@ Every Unicode character is represented by a unique code point. The `unicode-rang
 
 My slides use a font called Magnetic Pro, which does not support Cyrillic alphabets. But fortunately, I managed to find a reasonably similar font that does, called Bender. I only need the Cyrillic letters to display in Bender, while everything else should use Magnetic Pro.
 
-So the code points in the `unicode-range` range descriptor are that of the Cyrillic letters that I've used in this presentation. Now, say I have a page that only uses English words, Bender will not load at all because it is not needed. It will only load when the browser encounters the Cyrillic letters in the `unicode-range` specified.
+So the code points in the `unicode-range` descriptor are that of the Cyrillic letters that I've used in this presentation. Now, say I have a page that only uses English words, Bender will not load at all because it is not needed. It will only load when the browser encounters the Cyrillic letters in the `unicode-range` specified.
 
 
 ## Font feature properties
@@ -189,7 +183,7 @@ This is what happens to your text when the different values of writing-mode are 
 
 For text-orientation, the initial value is mixed, but you can make all the characters upright or sideways.
 
-One more property is text-combine-upright. This addresses the issue of numerals and abbreviations in vertical text. A very common use case is dates, especially for Taiwan, where they use the 民國 calendar. This property lets us fit all the digits into the width of one character and display them upright.
+One more property is `text-combine-upright`. This addresses the issue of numerals and abbreviations in vertical text. A very common use case is dates, especially for Taiwan, where they use the 民國 calendar. This property lets us fit all the digits into the width of one character and display them upright.
 
 No browser supports the digits value yet, which allows us to dictate how many digits are acceptable to be squeezed in. The range allowed is between 2 to 4 characters. For now, with the <code>all</code> value, there is no limit, so you could technically put hippopotamus in there and it will look horribly squished.
 
@@ -201,7 +195,7 @@ Based on those documents, and through my own personal experimentation, I sort of
 2. This one I mentioned earlier, that Chinese characters are denser than typical Latin-based alphabets, because of all the strokes, so you may want to bump up the font size a little bit. Reading small characters on a screen is not a pleasant experience.
 3. For line-height there is actually a magic number. Ideally, setting it between 1.5 to 2 works fine so 1.7 is a good choice. This gives the text enough breathing room and a more even typographic colour.
 4. Every Chinese character takes up the same height and width, they are squares, even punctuation are full width characters. Using text-align: justify lines everything up neatly.
-5. Keeping lines to between 25 and 35 characters is something I picked up from print books. A lot of text-heavy books I find have lines with around 26 to 28 characters. So, just a suggestion there.
+5. Keeping lines to between 25 and 35 characters is something I picked up from print books. A lot of text-heavy books I find have lines with around 26 to 28 characters.
 6. For print books, the start of a new paragraph is indicated by a two character indent, but for the web, it looks better to have spacing between paragraphs, so just set a margin-bottom to distinguish different paragraphs of text.
 
 Anyway, I think it's safe to conclude that typesetting Chinese text for a vertical layout is very doable on the web today. This was the first vertical Chinese layout I built, just to learn about the properties and test out how box alignment would work and stuff like that. So here are some insights I gleaned from doing that.
@@ -216,7 +210,7 @@ So for my experiment, I also put in a writing mode switcher to toggle between ve
 
 ## Mixed writing modes
 
-Another project I worked on was a bilingual, mixed layout site, and that was quite an experience. What I'd built previously was a proof-of-concept kind of thing, but this was going to be a proper website, with pages and stuff. It's a website about Penang Hokkien, which is the dialect of my home town. And what I realised it that the ease of implementing vertical layouts opens up an aspect of graphic design that isn't often seen on the web at the moment.
+Another project I worked on was a bilingual, mixed layout site, and that was quite an experience. It's a website about Penang Hokkien, which is the dialect of my home town. And what I realised it that the ease of implementing vertical layouts opens up an aspect of graphic design that isn't often seen on the web at the moment.
 
 One of the ideas I had was to make a bookshelf style list of posts with just CSS. So that was done using writing-mode and a rotation transform for the header, just to get the text to face the other direction. I have grown quite fond of using a vertical header when a page has many sections, I find it helps break up the monotony.
 

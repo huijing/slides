@@ -146,7 +146,7 @@
             </div>
             <aside class="notes">
               <p>宋体 is the standard font for body copy. 楷体 is used for runs of text that need to be differentiated from the rest of the content, like dialogues or references. 黑体 is most commonly seen in digital publishing but publishers have started to experiment with 黑体 in print as well. 仿宋体 is generally used in isolated paragraphs like quotations or highlighted sentences.</p>
-              <p>There are actually a huge variety of other styles, like those based of ancient scripts like Seal script or Clerical script, as well as brush script styles mimicking Running scripts. But they fall into the general category of decorative fonts, mostly used for display text or short paragraphs. Not so much for long form reading.</p>
+              <p>There are actually a huge variety of other styles, like those based of ancient scripts and brush script styles, but they fall into the general category of decorative fonts, mostly used for display text or short paragraphs. Not so much for long form reading.</p>
             </aside>
           </section>
 
@@ -267,10 +267,10 @@
   }</code></pre>
             <div class="l-double">
               <p style="width:100%;" class="ciu_embed" data-feature="woff" data-periods="future_1,current,past_1,past_2">
-                <a href="http://caniuse.com/#feat=woff">Can I Use woff?</a> Data on support for the woff feature across the major browsers from caniuse.com.
+                <a href="http://caniuse.com/#feat=woff"><img class="plain" data-src="img/caniuse-woff.jpg"></a>
               </p>
               <p style="width:100%;" class="ciu_embed" data-feature="woff2" data-periods="future_1,current,past_1,past_2">
-                <a href="http://caniuse.com/#feat=woff2">Can I Use woff2?</a> Data on support for the woff2 feature across the major browsers from caniuse.com.
+                <a href="http://caniuse.com/#feat=woff2"><img class="plain" data-src="img/caniuse-woff2.jpg"></a>
               </p>
             </div>
             <aside class="notes">Those of us who have worked on projects with self-hosted fonts would probably have used something called the <code>@font-face</code> rule, where we declare a list of different font formats, in the hopes our fonts will show up correctly in as many browsers as possible. The number of font formats we need to declare has decreased over the years and right now, you can pretty much get away with declaring just WOFF and WOFF2.</aside>
@@ -286,38 +286,6 @@
             <aside class="notes">
               <p>It is recommended you declare your Latin-based font of choice first, because order does matter. It is almost a given that a CJK font will have support for Latin characters but not the other way around. Declaring those fonts first will result in the Latin characters displayed using glyphs from the Chinese font instead. And sometimes, this doesn't look too great on Windows.</p>
               <p>Even though Fonts Level 3 states that user agents must match font names case insensitively, it is still recommended to put them in quotes, just in case.</p>
-            </aside>
-          </section>
-
-          <section>
-            <h2>Generic font families</h2>
-            <p>Dependent on OS, HTML language, character set and browser.</p>
-            <table>
-              <tr>
-                <td style="text-align:center;">serif</td>
-                <td>Times New Roman, SimSun, SongTi SC</td>
-              </tr>
-              <tr>
-                <td style="text-align:center;">sans-serif</td>
-                <td>Arial, Microsoft Yahei, PingFang SC</td>
-              </tr>
-              <tr>
-                <td style="text-align:center;">monospace</td>
-                <td>Consolas, SimSun, PingFang SC</td>
-              </tr>
-              <tr>
-                <td style="text-align:center;">cursive</td>
-                <td>Comic Sans MS, Apple Chancery, SimSun (oblique), SongTi SC (oblique)</td>
-              </tr>
-              <tr>
-                <td style="text-align:center;">fantasy</td>
-                <td>Gabriola, Impact, Papyrus, Microsoft Yahei, PingFang SC</td>
-              </tr>
-            </table>
-            <p>Level 4 is adding <code>system-ui</code>, <code>emoji</code>, <code>math</code> and <code>fangsong</code></p>
-            <aside class="notes">
-              <p>Generic font families were introduced in CSS2.1, and left it up to user agents to provide reasonable default choices, which express the characteristics of each family as well as possible.</p>
-              <p>There are currently five generic font families, with four more being defined in Fonts Level 4. The thing about these generic font families is they are very inconsistent, but they were never meant to be consistent in the first place. You'd leave these generic font families to be fallbacks, triggered if somehow all the previously declared fonts failed to load.</p>
             </aside>
           </section>
         </section>
@@ -408,7 +376,7 @@
 }</code></pre>
             <aside class="notes">
               <p>My slides use a font called Magnetic Pro, which does not support Cyrillic alphabets. But fortunately, I managed to find a reasonably similar font that does, called Bender. I only need the Cyrillic letters to display in Bender, while everything else should use Magnetic Pro.</p>
-              <p>So the code points in the <code>unicode-range</code> range descriptor are that of the Cyrillic letters that I've used in this presentation. Now, say I have a page that only uses English words, Bender will not load at all because it is not needed. It will only load when the browser encounters the Cyrillic letters in the <code>unicode-range</code> specified.</p>
+              <p>So the code points in the <code>unicode-range</code> descriptor are that of the Cyrillic letters that I've used in this presentation. Now, say I have a page that only uses English words, Bender will not load at all because it is not needed. It will only load when the browser encounters the Cyrillic letters in the <code>unicode-range</code> specified.</p>
             </aside>
           </section>
         </section>
@@ -730,7 +698,7 @@
                 <li>This one I mentioned earlier, that Chinese characters are denser than typical Latin-based alphabets, because of all the strokes, so you may want to bump up the font size a little bit. Reading small characters on a screen is not a pleasant experience.</li>
                 <li>For line-height there is actually a magic number. Ideally, setting it between 1.5 to 2 works fine so 1.7 is a good choice. This gives the text enough breathing room and a more even typographic colour.</li>
                 <li>Every Chinese character takes up the same height and width, they are squares, even punctuation are full width characters. Using text-align: justify lines everything up neatly.</li>
-                <li>Keeping lines to between 25 and 35 characters is something I picked up from print books. A lot of text-heavy books I find have lines with around 26 to 28 characters. So, just a suggestion there.</li>
+                <li>Keeping lines to between 25 and 35 characters is something I picked up from print books. A lot of text-heavy books I find have lines with around 26 to 28 characters.</li>
                 <li>For print books, the start of a new paragraph is indicated by a two character indent, but for the web, it looks better to have spacing between paragraphs, so just set a margin-bottom to distinguish different paragraphs of text.</li>
               </ol>
             </aside>
@@ -757,7 +725,7 @@
           <section>
             <h2>CSS Logical Properties</h2>
             <p class="ciu_embed" data-feature="css-logical-props" data-periods="future_1,current,past_1,past_2">
-              <a href="http://caniuse.com/#feat=css-logical-props">Can I Use css-logical-props?</a> Data on support for the css-logical-props feature across the major browsers from caniuse.com.
+              <a href="http://caniuse.com/#feat=css-logical-props"><img class="plain" data-src="img/caniuse-logical.jpg"></a>
             </p>
             <aside class="notes">That's why we have a CSS Logical Properties specification, which introduces new CSS properties that are flow-relative equivalents of physical box model properties. Properties like that use <code>block-start</code> and <code>block-end</code> or <code>inline-start</code> and <code>inline-end</code> instead of left and right. This specification is in the thick of working draft status but I'm eager to see it developed and implemented. For now, support is kind of limited.</aside>
           </section>
@@ -779,7 +747,7 @@
               <img class="plain" data-src="img/pghk.jpg" alt="Screenshot of PGHK homepage">
               <img class="plain" data-src="img/pghk-pages.jpg" alt="PGHK about and post pages">
             </div>
-            <aside class="notes">Another project I worked on was a bilingual, mixed layout site, and that was quite an experience. What I'd built previously was a proof-of-concept kind of thing, but this was going to be a proper website, with pages and stuff. It's a website about Penang Hokkien, which is the dialect of my home town. And what I realised it that the ease of implementing vertical layouts opens up an aspect of graphic design that isn't often seen on the web at the moment.</aside>
+            <aside class="notes">Another project I worked on was a bilingual, mixed layout site, and that was quite an experience. It's a website about Penang Hokkien, which is the dialect of my home town. And what I realised it that the ease of implementing vertical layouts opens up an aspect of graphic design that isn't often seen on the web at the moment.</aside>
           </section>
 
           <section>
