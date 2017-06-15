@@ -84,6 +84,10 @@ It is recommended you declare your Latin-based font of choice first, because ord
 
 Even though Fonts Level 3 states that user agents must match font names case insensitively, it is still recommended to put them in quotes, just in case.
 
+Generic font families were introduced in CSS2.1, and left it up to user agents to provide reasonable default choices, which express the characteristics of each family as well as possible.
+
+There are currently five generic font families, with four more being defined in Fonts Level 4. The thing about these generic font families is they are very inconsistent, but they were never meant to be consistent in the first place. You'd leave these generic font families to be fallbacks, triggered if somehow all the previously declared fonts failed to load.
+
 ## CSS basic font properties
 
 Not counting the font shorthand, there are six basic font properties. The last two were introduced in Fonts Level 3. I'll quickly run through the first four. `font-weight` is for indicating the stroke thickness of your font, and can take values from `100` to `900` or keywords, like `bolder` or `lighter`.

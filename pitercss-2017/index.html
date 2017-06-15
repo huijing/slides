@@ -294,6 +294,38 @@
               <p>Even though Fonts Level 3 states that user agents must match font names case insensitively, it is still recommended to put them in quotes, just in case.</p>
             </aside>
           </section>
+
+                    <section>
+            <h2>Generic font families</h2>
+            <p>Dependent on OS, HTML language, character set and browser.</p>
+            <table>
+              <tr>
+                <td style="text-align:center;">serif</td>
+                <td>Times New Roman, SimSun, SongTi SC</td>
+              </tr>
+              <tr>
+                <td style="text-align:center;">sans-serif</td>
+                <td>Arial, Microsoft Yahei, PingFang SC</td>
+              </tr>
+              <tr>
+                <td style="text-align:center;">monospace</td>
+                <td>Consolas, SimSun, PingFang SC</td>
+              </tr>
+              <tr>
+                <td style="text-align:center;">cursive</td>
+                <td>Comic Sans MS, Apple Chancery, SimSun (oblique), SongTi SC (oblique)</td>
+              </tr>
+              <tr>
+                <td style="text-align:center;">fantasy</td>
+                <td>Gabriola, Impact, Papyrus, Microsoft Yahei, PingFang SC</td>
+              </tr>
+            </table>
+            <p>Level 4 is adding <code>system-ui</code>, <code>emoji</code>, <code>math</code> and <code>fangsong</code></p>
+            <aside class="notes">
+              <p>Generic font families were introduced in CSS2.1, and left it up to user agents to provide reasonable default choices, which express the characteristics of each family as well as possible.</p>
+              <p>There are currently five generic font families, with four more being defined in Fonts Level 4. The thing about these generic font families is they are very inconsistent, but they were never meant to be consistent in the first place. You'd leave these generic font families to be fallbacks, triggered if somehow all the previously declared fonts failed to load.</p>
+            </aside>
+          </section>
         </section>
 
         <section>
