@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Say no to cookie cutter web layouts</title>
+    <meta name="description" content="CSS grid, together with other layout specific properties like Flexbox, writing-mode and CSS shapes, has the potential to shake up the world of web design. This talk aims to show you how when used in combination, these modern CSS layout techniques open up a myriad of possibilities for responsive designs that were not possible before.">
+    <meta name="author" content="Chen Hui Jing">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/jing.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>Say no to cookie cutter web layouts</h1>
+          <p><small>By <a href="http://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>A long list of references</h2>
+          <ul style="column-count:2;font-size:50%;">
+            <li><a href="https://www.gsmaintelligence.com/research/?file=c52d213ec6288da6b31248df71e370a3&download">Consumer barriers to mobile internet adoption in Asia</a></li>
+          </ul>
+          <aside class="notes">
+            <p>Here's the long list of resources I referred to when preparing this talk and I'll share these slides for anybody who is interested.</p>
+          </aside>
+        </section>
+
+        <section>
+          <div class="l-double">
+            <figure>
+              <img class="plain" data-src="img/tategaki.jpg" alt="Web awards for vertical writing">
+              <figcaption><a href="http://tategaki.github.io/awards/">http://tategaki.github.io/awards/</a></figcaption>
+            </figure>
+            <figure>
+            <img class="plain" data-src="img/layoutlab.jpg" alt="Jen Simmons' experimental layout lab">
+            <figcaption><a href="http://labs.jensimmons.com/">http://labs.jensimmons.com/</a></figcaption>
+          </div>
+          <aside class="notes">
+            <p>If you need inspiration for vertical layouts, the Tateyoko Web Awards site has really nice list. My friend, Jen Simmons, also has an experimental layout lab where she showcases all the different things that are now possible with modern CSS.</p>
+            <p>And even if you don't end up using any of what I've covered immediately in your next project, I hope that you keep these techniques and properties in the back of your mind. And maybe one day, when you're tired of building the same old layouts again and again, you'll reach for them and create something amazing.</p>
+          </aside>
+        </section>
+
+        <section style="text-align: left;">
+          <h1>Salamat!</h1>
+          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="http://www.chenhuijing.com">http://www.chenhuijing.com</a></p>
+          <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/">@huijing</a></p>
+        </section>
+
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="lib/js/caniuse-embed.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>
