@@ -295,7 +295,7 @@
             </aside>
           </section>
 
-                    <section>
+          <section>
             <h2>Generic font families</h2>
             <p>Dependent on OS, HTML language, character set and browser.</p>
             <table>
@@ -639,11 +639,11 @@
           <section>
             <div class="l-double">
               <figure>
-                <svg viewBox="0 0 126 100"><g fill="none" fill-rule="evenodd"><text fill="#000" font-size="16" letter-spacing="6" transform="translate(-1 -5)"><tspan x="0" y="25">钱存训</tspan></text><text fill="#000" transform="rotate(90 117.5 87)" font-size="16" letter-spacing="6"><tspan x="70.5" y="98.5">钱存训</tspan></text><g stroke="#a2a2a2" stroke-width="4" stroke-linecap="round"><path d="M79.345 73.185C79.345 53.753 63.52 38 44 38M72.997 70.02l5.97 5.972 5.998-5.997"></path></g></g></svg>
+                <svg width="100%" viewBox="0 0 126 100"><g fill="none" fill-rule="evenodd"><text fill="#000" font-size="16" letter-spacing="6" transform="translate(-1 -5)"><tspan x="0" y="25">钱存训</tspan></text><text fill="#000" transform="rotate(90 117.5 87)" font-size="16" letter-spacing="6"><tspan x="70.5" y="98.5">钱存训</tspan></text><g stroke="#a2a2a2" stroke-width="4" stroke-linecap="round"><path d="M79.345 73.185C79.345 53.753 63.52 38 44 38M72.997 70.02l5.97 5.972 5.998-5.997"></path></g></g></svg>
                 <figcaption>Rotate</figcaption>
               </figure>
               <figure>
-                <svg viewBox="0 0 126 100"><g fill="none" fill-rule="evenodd"><text fill="#000" font-size="16" letter-spacing="6" transform="translate(-1 -5)"><tspan x="0" y="25">钱存训</tspan></text><text fill="#000" font-size="16" transform="translate(-1 -5)"><tspan x="103" y="67">钱</tspan> <tspan x="103" y="85">存</tspan> <tspan x="103" y="103">训</tspan></text><g stroke="#a2a2a2" stroke-width="4" stroke-linecap="round"><path d="M76.396 74.396l-34.41-34.41M70.762 77.226h8.445v-8.483"></path></g></g></svg>
+                <svg width="100%" viewBox="0 0 126 100"><g fill="none" fill-rule="evenodd"><text fill="#000" font-size="16" letter-spacing="6" transform="translate(-1 -5)"><tspan x="0" y="25">钱存训</tspan></text><text fill="#000" font-size="16" transform="translate(-1 -5)"><tspan x="103" y="67">钱</tspan> <tspan x="103" y="85">存</tspan> <tspan x="103" y="103">训</tspan></text><g stroke="#a2a2a2" stroke-width="4" stroke-linecap="round"><path d="M76.396 74.396l-34.41-34.41M70.762 77.226h8.445v-8.483"></path></g></g></svg>
                 <figcaption>Translate</figcaption>
               </figure>
             </div>
@@ -698,7 +698,7 @@
 
           <section>
             <h2><code>text-combine-upright</code> property</h2>
-            <div class="l-multiple">
+            <div class="l-multiple" style="margin-bottom:1em;">
               <figure>
                 <div><span style="writing-mode:vertical-rl;">民國106年7月3日</span></div>
                 <figcaption>none</figcaption>
@@ -712,6 +712,7 @@
                 <figcaption>digits &lt;integer&gt;*</figcaption>
               </figure>
             </div>
+            <a href="https://codepen.io/huijing/pen/bWzMEJ"><small>Codepen example for text-combine-upright</small></a>
             <aside class="notes">
               <p>One more property is text-combine-upright. This addresses the issue of numerals and abbreviations in vertical text. A very common use case is dates, especially for Taiwan, where they use the 民國 calendar. This property lets us fit all the digits into the width of one character and display them upright.</p>
               <p>No browser supports the digits value yet, which allows us to dictate how many digits are acceptable to be squeezed in. The range allowed is between 2 to 4 characters. For now, with the <code>all</code> value, there is no limit, so you could technically put hippopotamus in there and it will just look horribly squished.</p>
@@ -743,7 +744,10 @@
           </section>
 
           <section>
-            <img class="plain" data-src="img/zh-type.jpg" alt="Vertical text experiment">
+            <figure>
+              <img class="plain" data-src="img/zh-type.jpg" alt="Vertical text experiment">
+              <figcaption><a href="https://www.chenhuijing.com/zh-type/">Vertical text experiment</a></figcaption>
+            </figure>
             <aside class="notes">Anyway, I think it's safe to conclude that typesetting Chinese text for a vertical layout is very doable on the web today. This was the first vertical Chinese layout I built, just to learn about the properties and test out how box alignment would work and stuff like that. So here are some insights I gleaned from doing that.</aside>
           </section>
 
@@ -769,7 +773,7 @@
           </section>
 
           <section>
-            <video controls autoplay loop>
+            <video controls>
               <source data-src="videos/mode-switcher.mp4" type="video/mp4" />
               Sorry, your browser doesn't support embedded videos, 
               but don't worry, you can <a href="videos/mode-switcher.mp4">download it</a>
@@ -782,8 +786,14 @@
         <section>
           <section>
             <div class="l-double">
-              <img class="plain" data-src="img/pghk.jpg" alt="Screenshot of PGHK homepage">
-              <img class="plain" data-src="img/pghk-pages.jpg" alt="PGHK about and post pages">
+              <figure>
+                <img class="plain" data-src="img/pghk.jpg" alt="Screenshot of PGHK homepage">
+                <figcaption><a href="http://penang-hokkien.gitlab.io/">Penang Hokkien website</a></figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/pghk-pages.jpg" alt="PGHK about and post pages">   
+                <figcaption><a href="http://penang-hokkien.gitlab.io/about/">About page</a></figcaption>
+              </figure>
             </div>
             <aside class="notes">Another project I worked on was a bilingual, mixed layout site, and that was quite an experience. It's a website about Penang Hokkien, which is the dialect of my home town. And what I realised it that the ease of implementing vertical layouts opens up an aspect of graphic design that isn't often seen on the web at the moment.</aside>
           </section>
@@ -797,7 +807,7 @@
           </section>
 
           <section>
-            <video controls autoplay loop>
+            <video controls>
               <source data-src="videos/pghk-resize.mp4" type="video/mp4" />
               Sorry, your browser doesn't support embedded videos, 
               but don't worry, you can <a href="videos/pghk-resize.mp4">download it</a>
@@ -807,7 +817,7 @@
           </section>
 
           <section>
-            <video controls autoplay loop>
+            <video controls>
               <source data-src="videos/menu.mp4" type="video/mp4" />
               Sorry, your browser doesn't support embedded videos, 
               but don't worry, you can <a href="videos/menu.mp4">download it</a>
@@ -817,7 +827,7 @@
           </section>
 
           <section>
-            <video controls autoplay loop>
+            <video controls>
               <source data-src="videos/pghk-switcher.mp4" type="video/mp4" />
               Sorry, your browser doesn't support embedded videos, 
               but don't worry, you can <a href="videos/pghk-switcher.mp4">download it</a>
