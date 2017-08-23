@@ -10,26 +10,33 @@
 // ---------------------------------------------
 
 // Include theme-specific fonts
-@import url(../../lib/font/magnetic-pro/magnetic-pro.css);
-@import url(../../lib/font/magnetic-pro-black/magnetic-pro-black.css);
+@import url(../../lib/font/junction/junction.css);
 
 // Override theme settings (see ../template/settings.scss)
-$mainFont: 'Magnetic Pro', sans-serif;
+$mainFont: 'Junction', sans-serif;
 $mainColor: #373a3c;
-$headingFont: 'Magnetic Pro Black', sans-serif;
+$mainFontSize: 3.2em;
+$headingFont: 'Junction', sans-serif;
 $headingColor: #373a3c;
 $headingTextShadow: none;
 $headingTextTransform: none;
-$backgroundColor: #eae7dc;
-$linkColor: #e85a4f;
-$linkColorHover: darken( $linkColor, 20% );
+$headingFontWeight: bold;
+$backgroundColor: #bbf8c1;
+$linkColor: #4632ff;
+$linkColorHover: lighten( $linkColor, 20% );
 $selectionBackgroundColor: rgba(0, 0, 0, 0.75);
-
 
 $heading1Size: 1.999em;
 $heading2Size: 1.414em;
 $heading3Size: 1.000em;
 $heading4Size: 1.000em;
+
+$bg-colours: (
+  #bbf8c1,
+  #ff97af,
+  #ffd795,
+  #8ae8d6
+);
 
 section.has-dark-background {
   &, h1, h2, h3, h4, h5, h6 {
@@ -37,10 +44,19 @@ section.has-dark-background {
   }
 }
 
-
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 
 .reveal {
   img,
@@ -58,6 +74,10 @@ section.has-dark-background {
 
   blockquote {
     width: 85%;
+
+    small {
+      line-height: 2;
+    }
   }
 
   table,
@@ -100,6 +120,12 @@ section.has-dark-background {
     letter-spacing: 0.25em;
   }
 
+  .video {
+    height: 50vh;
+    display: block;
+    margin: 0 auto;
+  }
+
   .j-icon {
     display: inline-block;
     vertical-align: middle;
@@ -109,6 +135,13 @@ section.has-dark-background {
 
 .reveal .slides section .fragment.fade-out.visible:not(.current-fragment) {
   display: none;
+}
+
+@for $i from 1 through length($bg-colours) {
+  $colour: nth($bg-colours, $i);
+  .reveal .slide-background:nth-of-type(#{length($bg-colours)}n + #{$i}) {
+    background-color: $colour;
+  }
 }
 
 // Accessible emojis ------------------------------
@@ -147,5 +180,74 @@ span[role=img][aria-label]:hover::after {
 @media print {
   span[role=img][aria-label]::after {
     content: " (" attr(aria-label) ") ";
+  }
+}
+
+// Demo-related ------------------------------
+.livecode {
+  display: grid;
+  grid-template-columns: 70% calc(30% - 0.5em);
+  grid-gap: 0.5em;
+  height: 75vh;
+  margin: 0;
+  padding: 0;
+
+  .result {
+    max-height: 100%;
+    overflow-y: scroll;
+    width: 100%;
+    border: 1px dashed $headingColor;
+    background-color: #ababab;
+
+    li {
+      line-height: 0;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .code {
+    text-align: left;
+    width: 100%;
+    background: $mainColor;
+    font-family: monospace;
+    color: $backgroundColor;
+    font-size: 50%;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    overflow-y: scroll;
+  }
+}
+
+.code-editor {
+  display: block;
+  height: 100%;
+  white-space: pre-wrap;
+}
+
+.vidcode {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-gap: 0.5em;
+  height: 75vh;
+
+  video {
+    align-self: center;
+  }
+
+  .code {
+    text-align: left;
+    width: 100%;
+    background: $mainColor;
+    font-family: monospace;
+    color: $backgroundColor;
+    font-size: 40%;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    overflow-y: scroll;
+    white-space: pre-wrap;
   }
 }

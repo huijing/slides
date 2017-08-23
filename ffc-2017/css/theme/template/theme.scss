@@ -144,11 +144,11 @@ body {
 	position: relative;
 	width: 70%;
 	margin: $blockMargin auto;
-	padding: 5px;
+	padding: 0.5em;
+	border-radius: 0.25em;
 
-	font-style: italic;
-	background: rgba(255, 255, 255, 0.05);
-	box-shadow: 0px 0px 2px rgba(0,0,0,0.2);
+	background: rgba(255, 255, 255, 0.15);
+	box-shadow: 0.25em 0.25em 1em rgba(0,0,0,0.2);
 }
 	.reveal blockquote p:first-child,
 	.reveal blockquote p:last-child {
@@ -267,8 +267,6 @@ body {
  *********************************************/
 
 .reveal section img {
-	margin: 15px 0px;
-	background: rgba(255,255,255,0.12);
 	border: 4px solid $mainColor;
 
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
