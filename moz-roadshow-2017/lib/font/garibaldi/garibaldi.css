@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Garibaldi';
+  src: url('garibaldi-medium.eot');
+  src: url('garibaldi-medium.eot?#iefix') format('embedded-opentype'),
+     url('garibaldi-medium.woff2') format('woff2'),
+     url('garibaldi-medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

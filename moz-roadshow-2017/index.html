@@ -1,0 +1,410 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Be like water: applying Bruce Lee's philosophy to web design</title>
+    <meta name="description" content="Instead of seeing cross-browser compatibility as a chore and trying to make your design look exactly the same in every browser, why don't we embrace it as a feature? Depending on feature support, it is possible to create designs that work well on each browser while using the same codebase by utilising feature queries and developer tools like Browsersync.">
+    <meta name="author" content="Chen Hui Jing">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/jing.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1 style="text-transform:uppercase;"">Be like water</h1>
+          <h3>Applying Bruce Lee's philosophy to web design</h3>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <span style="font-size:calc(2em + 7vw);margin-right:2vw;" class="emoji" role="img" tabindex="0" aria-label="Malaysia">&#x1F1F2;&#x1F1FE;</span>
+          <span style="font-size:calc(2em + 7vw);margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="basketball">&#x1F3C0;</span>
+          <span style="font-size:calc(2em + 7vw);margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="woman technologist">&#x1F469;&#x200D;&#x1F4BB;</span>
+          <span style="font-size:calc(2em + 7vw);margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="Singapore">&#x1F1F8;&#x1F1EC;</span>
+          <span style="font-size:calc(2em + 7vw);margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="memo">&#x1F4DD;</span>
+          <span style="font-size:calc(2em + 7vw);" class="emoji fragment" role="img" tabindex="0" aria-label="studio microphone">&#x1F399;</span>
+          <aside class="notes">My name is Hui Jing, and I'm Malaysian. I played basketball for more than half my life, and it was actually what got me into web development in the first place. I'm a front-end engineer based in Singapore now, and I love CSS so much that I will write blog posts about it. I also run Talk.CSS, which is Singapore's only CSS-centric meetup at the moment.</aside>
+        </section>
+
+        <section>
+          <h2>Bruce Lee</h2>
+          <div style="display:flex;justify-content:center;">
+            <img class="plain" data-src="img/bruce.png">
+            <h2 class="j-vert" style="width:1.414em;font-family:Xingkai TC;font-weight:bold">李小龍</h2>
+          </div>
+          <aside class="notes">But we're not here to talk about me, we're here to talk about Bruce Lee. You may be thinking, what on earth does Bruce Lee have to do with any of this? Did you fall just victim to click-bait? No, you have not. Although Bruce Lee is known for his fighting prowess, he was also a deeply self-reflective man and philosophy was an inseparable aspect of his martial arts practice.</aside>
+        </section>
+
+        <section>
+          <blockquote>“Be formless, shapeless, like water. Now you put water into a cup, it becomes the cup. You put water into a bottle, it becomes the bottle. You put it in a teapot, it becomes the teapot. Now water can flow, or it can crash. Be water, my friend.”<br><small>—Bruce Lee</small></blockquote>
+          <aside class="notes">Now, content on the web behaves just like water. Rather than trying to wrangle every pixel into place, we need embrace the fact that content is meant to flow. If you try to make it fixed, like freezing water into ice, it's not going to fit into all the different screens that people will use to view it.</aside>
+        </section>
+
+        <section>
+          <h2>Content is meant to flow</h2>
+          <img class="plain" data-src="img/water.svg">
+          <aside class="notes">Perhaps some of you have seen this illustration that started circulating a couple years ago by French designer, Stephanie Walter, which visualises my point perfectly, and was pretty much inspired by that Bruce Lee quote.</aside>
+        </section>
+
+        <section data-background-image="img/writing.jpg">
+          <aside class="notes">
+            <p>Look around you right now. This room is full of people. Human beings. And we are, for the most part, social creatures. We've taken over the planet largely because of our unique ability to communicate abstract thoughts and ideas.</p>
+            <p>And we've been amazing with visual communication, right? We started off with cave paintings. We invented language and writing, and we wrote on everything, stone, jade, bamboo, all kinds of metals, silk. We also expressed ourselves through art, through dance, through fashion. And what all these mediums have in common, are that they have been around for thousands of years, people have had a long time to get used to them, and they are physical in nature.</p>
+          </aside>
+        </section>
+
+        <section data-background-image="img/crt.jpg">
+          <aside class="notes">The digital age, on the other hand, is new. Very new. The first electronic computers came about in the 1940s. Screens were introduced as an output device in the 1950s while the first graphical user interface came out of Xerox in 1973. Electronic displays are essentially proxy mediums. Whatever we see displayed on a screen comes from data encoded as electronic signals. The heart of electronic displays is light. It is transient. You cannot touch light.</aside>
+        </section>
+
+        <section data-background-image="img/web.jpg">
+          <aside class="notes">When it comes to the web, HTML was invented in 1989 by Sir Tim Berners-Lee. And the first graphical web browsers were released around 1992. CSS was proposed by Håkon Wium Lie in 1994 and was developed into a W3C recommendation by 1996. The reason I'm throwing all these dates at you is to remind you that digital is less than a hundred years old. The web isn't even 30 yet, so it's really a very young medium. The likes of which we've never seen before.</aside>
+        </section>
+
+        <section>
+          <div class="l-double">
+            <div style="height:100vh">
+              <img class="plain" data-src="img/layout3.svg" alt="Blog layout">
+              <img class="plain" style="height:45vh" data-src="img/layout2.svg" alt="Holy Grail layout">
+            </div>
+            <img class="plain" data-src="img/layout1.svg" alt="Every startup's template">
+          </div>
+          <aside class="notes">But do you know what we have seen before? These layouts. I was lucky enough to have a computer in the house since I was a toddler and thus remember clearly the soothing sounds of a dial-up modem and the world of hit counters, guest books and webrings.</aside>
+        </section>
+
+        <section>
+          <h2>The “Blog” layout</h2>
+          <div class="l-multiple">
+            <img class="plain" data-src="img/blog1.jpg" alt="Example of Blog layout">
+            <img class="plain" data-src="img/blog2.jpg" alt="Example of Blog layout">
+            <img class="plain" data-src="img/blog3.jpg" alt="Example of Blog layout">
+          </div>
+          <aside class="notes">
+            <p>Back in my day, every angsty teenager had their own blog where they would express their innermost thoughts and feelings in a lot more than 140 characters. The web had started to take off and not everybody wanted to spend a lot of time building their own websites from scratch. So a lot of these blogs were hosted on blogging platforms, like Blogspot. LiveJournal was a thing back then too. You could theme your blogs, and some people did, then everyone else more or less just picked from those.</p>
+            <p>This was around the time when screen sizes started to get bigger than 640 pixels, and now we had some extra space on our hands. So what did we do? We made sidebars! Sidebars with links to other blogs or sites, or contact information, if you were entrepreneurial you could chuck an ad or 2 in there.
+            </p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>The “Holy Grail” layout</h2>
+          <div class="l-multiple">
+            <img class="plain" data-src="img/holygrail1.jpg" alt="Example of the Holy Grail layout">
+            <img class="plain" data-src="img/holygrail3.jpg" alt="Example of the Holy Grail layout">
+            <img class="plain" data-src="img/holygrail2.jpg" alt="Example of the Holy Grail layout">
+          </div>
+          <aside class="notes">
+            <p>Now in the mid-2000s this was real hot. Because screen sizes had continued to grow, and so instead of 1 sidebar, why not have 2? But this layout wasn't easy to achieve, I mean, you could still use HTML tables, but come on, it was the 2000s. Cutting edge CSS with floats was the way to go.</p>
+            <p>Except that it wasn't really. You see, floats weren't meant to used for layouts either. Like using HTML tables for layout, floats were also a hack, but they were all we had at the time to achieve the layouts we wanted. To fully grasp float-based layouts, you also needed to know about clearfix, about negative margins, have good arithmetic skills to calculate gaps. No, not easy at all.</p>
+            </p>
+          </aside>
+        </section>
+
+        <section data-background-image="img/devices.jpg">
+          <aside class="notes">But the web was exploding in popularity. Everyone and their cat wanted, no, needed a website. Then Apple made the iPhone and everything just went to pieces. Nah, I'm just messing with you. But it did mark the start of the mobile web. Ethan Marcotte then coined the term Responsive Web Design in 2010, and we learned to use media queries to create different layouts at different screen widths. What? More complexity?</aside>
+        </section>
+
+        <section>
+          <h2>The “Panel” layout</h2>
+          <div class="l-multiple">
+            <img class="plain" data-src="img/panel1.jpg" alt="Example of the Panel layout">
+            <img class="plain" data-src="img/panel3.jpg" alt="Example of the Panel layout">
+            <img class="plain" data-src="img/panel2.jpg" alt="Example of the Panel layout">
+          </div>
+          <aside class="notes">
+            <p>By this time, a lot of people just threw their hands up in surrender and outsourced the pain to CSS frameworks instead. And it's so understandable. Especially if they are not familiar with CSS, or they are short of time, or they just don't like CSS in general.</p>
+            <p>But frameworks are quite prescriptive, and that's how we end up with a lot of websites that utilise very similar layouts. The flavour of the day at the moment is this panel style, you know, with content sectioned up in panes.</p>
+          </aside>
+        </section>
+
+        <section data-background-video="videos/twelve.mp4" data-background-video-muted>
+          <h2 style="display:inline-block;background-color:rgba(30,40,49,0.5);padding:0 0.5em;color:#fff;">12 columns</h2>
+          <aside class="notes">And 12 columns, always 12 columns. 12 is a magical number, it can be divided by 2, 3, 4 and 6. Great for responsive web design. So many ways we can rearrange the boxes on our page. Sometimes I wonder if the Sesame Street producers were the original web designers, because we also have this.</aside>
+        </section>
+
+        <section data-background-video="videos/rectangle.mp4" data-background-video-muted>
+          <h2 style="text-shadow:1px 1px 2px #fff;">Rectangles</h2>
+          <aside class="notes">Most of the web is rectangles. Rectangles stacked in different configurations, big rectangles, little rectangles, all the rectangles. Nah, I'm kidding. There's nothing wrong with rectangles at all. The web is mostly rectangles because for the longest time that's all we could have without resorting to extreme measures of hackish-ness. And hey, some of those 90s websites were awesome!</aside>
+        </section>
+
+        <section data-background-image="img/pony.jpg">
+          <aside class="notes">When we encounter something completely new, like the web, we always try to reconcile it with something we're already familiar with. In this case, the closest thing we had to the web was print. We even used similar terminology, calling them web pages. And yes, there are many similarities, but it's not like the difference between a brown pony and a white pony...</aside>
+        </section>
+
+        <section data-background-image="img/unicorn.jpg">
+          <aside class="notes">It's more like between a pony and a unicorn. With wings.</aside>
+        </section>
+
+        <section>
+          <h2>Let's establish a new normal</h2>
+          <aside class="notes">I want to establish a new normal for the web. A normal where people don't expect websites to look the same on different browsers and devices. A normal where we embrace the fluidity of content and work with it instead of against it. A normal where we cede control of our designs to the browsers that render them rather than constantly engage in this battle to wrest control back.</aside>
+        </section>
+
+        <section>
+          <blockquote>“The hardest part is changing our thinking, not our CSS”<br><small>—Jen Simmons</small></blockquote>
+          <aside class="notes">As Jen Simmons said, the hardest part is changing our thinking. The dynamism of the web and the lack of control we have as designers and developers over the final output is something that needs to become this new normal.</aside>
+        </section>
+
+        <section>
+          <h2>State of Browsers (2017)</h2>
+          <div class="l-multiple">
+            <img class="plain" data-src="img/chrome.png" alt="Chrome">
+            <img class="plain" data-src="img/firefox.png" alt="Firefox">
+            <img class="plain" data-src="img/opera.png" alt="Opera">
+            <img class="plain" data-src="img/webkit.png" alt="Webkit">
+            <img class="plain" data-src="img/edge.png" alt="Edge">
+            <img class="plain" data-src="img/ie11.png" alt="IE11">
+            <img class="plain" data-src="img/uc.png" alt="UC Browser">
+            <img class="plain" data-src="img/android.png" alt="Android">
+            <img class="plain" data-src="img/samsung.png" alt="Samsung Internet">
+          </div>
+          <p>and many more...</p>
+          <aside class="notes">
+            <p>People access information on the web predominantly through browsers. And we do have a lot of browsers. But they are powered largely by four main layout engines, Blink by Google, Gecko by Mozilla, EdgeHTML by Microsoft and Webkit by Apple.</p>
+            <p>With the maturation of web standards, browser behaviour is less unpredictable than before, though each browser still has their quirks. Features aren't all supported at the same time. But you know what? That's perfectly fine. If we accept this as a feature of the web, instead of a bug, we've just opened up more web design possibilities.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>CSS Layout Toolbox (2017)</h2>
+          <ul style="column-count:2;list-style:'🎈 ' inside;">
+            <li>Feature queries</li>
+            <li>Flexbox and Grid</li>
+            <li>Writing mode</li>
+            <li>Transforms</li>
+            <li>Multicolumn</li>
+            <li>Clip-path</li>
+            <li>CSS shapes</li>
+            <li>Viewport units</li>
+            <li>Object-fit</li>
+            <li>Media queries</li>
+            <li>calc()</li>
+          </ul>
+          <aside class="notes">
+            <p>CSS has been around for about 20 years now, and the last I checked, there are currently 499 distinct properties. And you don't have to know every single one of them, I'm just pointing out that we can achieve a lot more with CSS than ever before.</p>
+            <p>So these are some of the CSS properties I find relevant for web layouts, too many for me to cover in half an hour. CSS is an integral part of web layout, and its really about combining different properties to create designs that are truly web.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Flexbox and Grid</h2>
+          <p>Based on the container-child relationship</p>
+          <svg width="50%" viewBox="0 0 564 324"><g fill="none" fill-rule="evenodd" transform="translate(5.07 -3)"><rect width="558.051" height="273.508" x="-2.5" y="50.5" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="bevel" rx="3"/><rect width="252.547" height="145.828" x="56.727" y="139.039" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="bevel" rx="3"/><text fill="#000" font-size="50%"><tspan x=".132" y="37">Flex/Grid container</tspan></text><text fill="#000" font-size="50%"><tspan x="59.627" y="125.539">Flex/Grid item</tspan></text></g></svg>
+          <aside class="notes">
+            <p>Now, let's talk about the stars of CSS layout, Flexbox and Grid. To me, Flexbox and Grid are like Jay-Z and Beyoncé, great on their own, but together, they're on a another level of awesome.</p>
+            <p>They both operate on what I call a container-child relationship, in that the <code>display</code> property is applied to a parent container that affects the layout of all the children in that container.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Flexbox</h2>
+          <p>Provides “simple and powerful tools for distributing space and aligning content in ways that web apps and complex web pages often need.”</p>
+          <p class="ciu_embed" data-feature="flexbox" data-periods="future_1,current,past_1,past_2">
+            <a href="http://caniuse.com/#feat=flexbox"><img class="plain" data-src="img/caniuse-feature-queries.jpg"></a>
+          </p>
+          <aside class="notes">
+            <p>Even though Flexbox has been around for a while now, with overwhelmingly good support, I don't think we've really pushed it to its full potential.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Flexbox basics</h2>
+          <div class="livecode">
+          <div class="result flex-cont1">
+            <div>
+              <img class="plain" data-src="img/pumpkin.png">
+            </div>
+            <p>Pumpkin by Yayoi Kusama</p>
+          </div>
+          <div class="code"><style class="code-editor" contenteditable="true">.flex-cont1 {
+  display: flex;
+}
+
+.flex-cont1 div {
+  border: 1px solid;
+}
+
+.flex-cont1 p {
+  display: none;
+  border: 1px solid;
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>This is a very basic use-case for Flexbox. Centring stuff. When I first learnt Flexbox, I hadn't fully grasped box alignment yet, so I just took whatever information I could glean from others' blog posts and articles. I used to centre items by applying <code>align-items: center</code> and <code>justify-content: center</code> to the parent container.</p>
+            <p>This technique works just fine, but I only found out much later that if there's only 1 flex child, <code>margin: auto;</code> works just fine.</p>
+            <p>When you have more than 1 item, an understanding of box alignment makes things much easier. Say we want to centre both these children. Setting <code>justify-content: center</code> aligns them along the inline-axis, while setting <code>align-content: center</code> aligns them along the block-axis. Flexbox by default lays out all its children in one line without wrapping, so change that to <code>wrap</code>. Wrap only kicks in when the content is longer than the container, so make the width of one of the children <code>100%</code>.</p>
+            <p>There's a difference between <code>align-content</code> and <code>align-items</code>, where content controls alignment of the box's content within its content box, and items specifies the behaviour for each individual child.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Flex shorthand</h2>
+          <table>
+            <tr>
+              <td style="width:14em;"><code>flex: initial</code></td>
+              <td><code>flex: 0 1 auto</code>, cannot grow but can shrink when there isn't enough space</td>
+            </tr>
+            <tr>
+              <td><code>flex: auto</code></td>
+              <td><code>flex: 1 1 auto</code>, can grow and shrink to fit available space</td>
+            </tr>
+            <tr>
+              <td><code>flex: none</code></td>
+              <td><code>flex: 0 0 auto</code>, cannot grow or shrink, AKA inflexible</td>
+            </tr>
+            <tr>
+              <td><code>flex: &lt;positive-number&gt;</code></td>
+              <td><code>flex: &lt;positive-number&gt; 1 0</code>, can grow and shrink, extent of growth depends on flex factor</td>
+            </tr>
+          </table>
+          <aside class="notes">
+            <p>For flex children, the key property is <code>flex</code> and it comes with some keyword values for commonly-desired effects. It is strongly recommended that we use the <code>flex</code> shorthand rather than each of the individual long-hand properties. Personally, I've never written the long-hand before.</p>
+          </aside>
+        </section>
+
+        <section>
+        <h2>Flexbox layouts</h2>
+        <div class="livecode">
+          <div class="result flex-cont2">
+            <ul style="list-style:none;margin:0;">
+              <li><img class="plain" data-src="img/demo-1/image1.jpg"></li>
+              <li><img class="plain" data-src="img/demo-1/image2.jpg"></li>
+              <li><img class="plain" data-src="img/demo-1/image3.jpg"></li>
+              <li><img class="plain" data-src="img/demo-1/image4.jpg"></li>
+              <li><img class="plain" data-src="img/demo-1/image5.jpg"></li>
+              <li><img class="plain" data-src="img/demo-1/image6.jpg"></li>
+              <li><img class="plain" data-src="img/demo-1/image7.jpg"></li>
+              <li><img class="plain" data-src="img/demo-1/image8.jpg"></li>
+              <li><img class="plain" data-src="img/demo-1/image9.jpg"></li>
+              <li><img class="plain" data-src="img/demo-1/image10.jpg"></li>
+              <li><img class="plain" data-src="img/demo-1/image11.jpg"></li>
+              <li><img class="plain" data-src="img/demo-1/image12.jpg"></li>
+              <li><img class="plain" data-src="img/demo-1/image13.jpg"></li>
+              <li><img class="plain" data-src="img/demo-1/image14.jpg"></li>
+              <li><img class="plain" data-src="img/demo-1/image15.jpg"></li>
+              <li><img class="plain" data-src="img/demo-1/image16.jpg"></li>
+              <li><img class="plain" data-src="img/demo-1/image17.jpg"></li>
+              <li><img class="plain" data-src="img/demo-1/image18.jpg"></li>
+              <li><img class="plain" data-src="img/demo-1/image19.jpg"></li>
+              <li><img class="plain" data-src="img/demo-1/image20.jpg"></li>
+            </ul>
+          </div>
+          <div class="code"><style class="code-editor" contenteditable="true">.flex-cont2 ul {
+  // display: flex;
+  // flex-wrap: wrap;
+}
+
+.flex-cont2 li {
+  flex: 1 0 auto;
+}
+
+.flex-cont2 img {
+  // width: 100%;
+  // height: 3em;
+  object-fit: cover;
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>A common issue I hear is that it's difficult to create a grid system with Flexbox. The thing about Flexbox is, even though you can make a grid system with it, it isn't the best idea to do so.</p>
+            <p>Flexbox is suited for laying out items in a single dimension. Where there isn't a relationship between the rows and columns. Think it as laying out a daisy chain of flex children.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Feature Queries</h2>
+          <p class="ciu_embed" data-feature="css-featurequeries" data-periods="future_1,current,past_1,past_2">
+            <a href="http://caniuse.com/#feat=css-featurequeries"><img class="plain" data-src="img/caniuse-feature-queries.jpg"></a>
+          </p>
+          <aside class="notes">Feature queries are integral to making this approach feasible. And support for it is quite good, more than 90% of browsers support this, even Opera Mini. The only browsers that don't support it are Internet Explorer and Blackberry Mobile.</aside>
+        </section>
+
+        <section>
+          <pre><code class="css">.selector {
+  /* Styles that are supported in old browsers */
+}
+
+@supports (property:value) {
+  .selector {
+    /* Styles for browsers that support the specified property */
+  }
+}</code></pre>
+          <aside class="notes">So this is how a feature query looks like. It's a conditional that checks if the browser supports a particular property or not. If it doesn't, the entire block within the <code>@supports</code> rule is ignored. By organising our code in this manner, the browsers that do not support feature queries or the specified property still get styled, while those that do get a different look. We're making use of the ‘C’ in CSS.</aside>
+        </section>
+
+        <section>
+          <blockquote>“I imagined the web as an open platform that would allow everyone everywhere to share information, access opportunities and collaborate across geographic and cultural boundaries.”<br><small>—<a href="http://webfoundation.org/2017/03/web-turns-28-letter/">Sir Tim Berners-Lee</a></small></blockquote>
+          <aside class="notes">The internet and the web are such impactful technologies because their nature is to facilitate communication. We now have a means of sharing knowledge regardless of where we are on this planet. A technology that was built on the ideals of openness and universal access.</aside>
+        </section>
+
+        <section>
+          <blockquote>“It's the World Wide Web, not the Wealthy Western Web”<br><small>—Bruce Lawson</small></blockquote>
+          <aside class="notes">And this is the mindset that we, who work on the web, must have. </aside>
+        </section>
+
+        <section>
+          <blockquote>“We need to translate ideas that we find in other places, not transfer them.”<br><small>—Jen Simmons</small></blockquote>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>A long list of references</h2>
+          <ul>
+            <li><a href="https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/">How Browsers Work: Behind the scenes of modern web browsers</a></li>
+            <li><a href="https://medium.freecodecamp.org/its-not-dark-magic-pulling-back-the-curtains-from-your-stylesheets-c8d677fa21b2">CSS Isn’t Black Magic</a></li>
+            <li><a href="https://medium.com/mozilla-tech/a-quantum-leap-for-the-web-a3b7174b3c12">A Quantum Leap for the Web</a></li>
+            <li><a href="https://blogs.windows.com/msedgedev/2017/04/19/modernizing-dom-tree-microsoft-edge/#9cO2efAEQbCUML1s.97">Modernizing the DOM tree in Microsoft Edge</a></li>
+            <li><a href="http://jensimmons.com/post/sep-27-2016/six-layout-myths-busted">Six Layout Myths Busted</a></li>
+            <li><a href="https://www.w3.org/Style/CSS/all-properties.en.html">List of CSS properties, both proposed and standard</a></li>
+            <li><a href="https://www.smashingmagazine.com/2016/11/css-inheritance-cascade-global-scope-new-old-worst-best-friends/">CSS Inheritance, The Cascade And Global Scope: Your New Old Worst Best Friends</a></li>
+            <li><a href="https://hackernoon.com/11-things-i-learned-reading-the-flexbox-spec-5f0c799c776b/">11 things I learned reading the flexbox spec</a></li>
+          </ul>
+          <aside class="notes">
+            <p>Here's the long list of resources I referred to when preparing this talk and I'll share these slides for anybody who is interested.</p>
+          </aside>
+        </section>
+
+        <section style="text-align: left;">
+          <h1>Thank you!</h1>
+          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="http://www.chenhuijing.com">http://www.chenhuijing.com</a></p>
+          <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/">@huijing</a></p>
+        </section>
+
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="lib/js/caniuse-embed.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>

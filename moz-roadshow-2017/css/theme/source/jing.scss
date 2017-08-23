@@ -1,0 +1,192 @@
+/**
+ * Custom theme for Reveal.js presentations.
+ *
+ * Copyright (C) 2017 Chen Hui Jing, https://www.chenhuijing.com/
+ */
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url(../../lib/font/garibaldi/garibaldi.css);
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'Garibaldi', Georgia, sans-serif;
+$mainColor: #fff;
+$headingFont: 'Garibaldi', Georgia, sans-serif;
+$headingColor: #b73e40;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$backgroundColor: #1e2831;
+$linkColor: #fcd674;
+$linkColorHover: darken( $linkColor, 20% );
+$selectionBackgroundColor: rgba(0, 0, 0, 0.75);
+$codeColor: dodgerblue;
+
+$heading1Size: 2.827em;
+$heading2Size: 1.999em;
+$heading3Size: 1.414em;
+$heading4Size: 1.000em;
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.reveal {
+  img,
+  video {
+    max-height: 70vh;
+  }
+
+  code {
+    color: $codeColor;
+  }
+
+  h2 code {
+    text-transform: lowercase;
+  }
+
+  blockquote {
+    width: 85%;
+    font-style: normal;
+
+    small {
+      margin-top: 0.5em;
+    }
+  }
+
+  table,
+  pre {
+    font-size: 75%;
+  }
+
+  td {
+    vertical-align: middle;
+  }
+
+  .l-logo {
+    height: 1.25em;
+    margin: 0 0.25em;
+  }
+
+  .l-double {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .l-multiple {
+    display: flex;
+    justify-content: space-around;
+
+    .j-vert {
+      width: 1em;
+    }
+  }
+
+  figcaption {
+    font-style: italic;
+    font-size: 75%;
+  }
+
+  .j-vert {
+    writing-mode:vertical-rl;
+    letter-spacing: 0.25em;
+  }
+
+  .j-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1rem;
+  }
+}
+
+.reveal .slides section .fragment.fade-out.visible:not(.current-fragment) {
+  display: none;
+}
+
+// Accessible emojis ------------------------------
+span.emoji {
+  font-style: normal;
+  font-size: 125%;
+  display: inline-block;
+  vertical-align: middle;
+  font-family: 'Segoe UI Emoji';
+}
+
+span[role=img][aria-label],
+span[role=img][aria-label] {
+  position: relative;
+}
+
+span[role=img][aria-label]:focus::after,
+span[role=img][aria-label]:hover::after {
+  font-size: 25%;
+  font-family: $mainFont;
+  font-weight: 400;
+  position: absolute;
+  display: block;
+  line-height: 1.2;
+  content: attr(aria-label);
+  z-index: 1;
+  top: 85%;
+  left: -12.5%;
+  background: $mainColor;
+  color: $backgroundColor;
+  padding: 0.25em;
+  border: 1px solid $backgroundColor;
+  box-shadow: 2px 2px 4px $mainColor;
+}
+
+@media print {
+  span[role=img][aria-label]::after {
+    content: " (" attr(aria-label) ") ";
+  }
+}
+
+.livecode {
+  display: grid;
+  grid-template-columns: 70% calc(30% - 0.5em);
+  grid-gap: 0.5em;
+  height: 75vh;
+  margin: 0;
+  padding: 0;
+
+  .result {
+    max-height: 100%;
+    overflow-y: scroll;
+    width: 100%;
+    border: 1px dashed $headingColor;
+  }
+
+  .code {
+    text-align: left;
+    width: 100%;
+    background: $mainColor;
+    font-family: monospace;
+    color: $backgroundColor;
+    font-size: 50%;
+    padding: 0.5em;
+    border-radius: 0.25em;
+  }
+}
+
+.code-editor {
+  display: block;
+  height: 100%;
+  white-space: pre-wrap;
+}
