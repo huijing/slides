@@ -122,7 +122,7 @@
         </section>
 
         <section data-background-image="img/pony.jpg">
-          <aside class="notes">When we encounter something completely new, like the web, we always try to reconcile it with something we're already familiar with. In this case, the closest thing we had to the web was print. We even used similar terminology, calling them web pages. And yes, there are many similarities, but it's not like the difference between a brown pony and a white pony...</aside>
+          <aside class="notes">When we encounter something completely new, like the web, we always try to reconcile it with something we're already familiar with. In this case, the closest thing we had to the web was print. We even used similar terminology, calling them web <em>pages</em>. And yes, there are many similarities, but it's not like the difference between a brown pony and a white pony...</aside>
         </section>
 
         <section data-background-image="img/unicorn.jpg">
@@ -136,7 +136,7 @@
 
         <section>
           <h2>Let's establish a new normal</h2>
-          <aside class="notes">I want to establish a new normal for the web. A normal where people don't expect websites to look the same on different browsers and devices. A normal where we embrace the fluidity of content and work with it instead of against it. A normal where we cede control of our designs to the browsers that render them rather than constantly engage in this battle to wrest control back.</aside>
+          <aside class="notes">I want to establish a new normal for the web. A normal where people don't expect websites to look the same on different browsers and devices. A normal where we embrace the fluidity of content and work with it instead of against it. A normal where we cede control of our designs to the browsers that render them.</aside>
         </section>
 
         <section>
@@ -238,7 +238,10 @@
               <td><code>flex: &lt;positive-number&gt; 1 0</code>, can grow and shrink, extent of growth depends on flex factor</td>
             </tr>
           </table>
-          <aside class="notes">For flex children, the key property is <code>flex</code>. It is strongly recommended that we use the <code>flex</code> shorthand rather than each of the individual long-hand properties. First value for amount of growth, second value for amount of shrinkage and last value being the starting width before free space is distributed. Anyhoo, <code>flex</code> comes with some handy keyword values for commonly-desired effects, as shown in this table.</aside>
+          <aside class="notes">
+            <p>For flex children, the key property is <code>flex</code>. It is strongly recommended that we use the <code>flex</code> shorthand rather than each of the individual long-hand properties. First value for amount of growth, second value for amount of shrinkage and last value being the starting width before free space is distributed.</p>
+            <p>Anyhoo, <code>flex</code> comes with some handy keyword values for commonly-desired effects, as shown in this table. If we don't set the flex value on a flex child, it's default behaviour is cannot grow, will shrink.</p>
+          </aside>
         </section>
 
         <section>
@@ -446,20 +449,30 @@
           <aside class="notes">Now this is something new we've never been able to do before. The <code>minmax()</code> function lets me tell the browser that I want to cap the shrink at 10ems but if there's extra space, grow all my columns equally. Because of the cap, once there isn't enough space to fit 5 columns, the number of columns will decrease until everything fits. Didn't need a single media query for that.</aside>
         </section>
 
+        <section>
+          <h2>Placing grid items</h2>
+          <code>grid-row</code> and <code>grid-column</code>
+          <img class="plain" style="height:60vh;display:block;" data-src="img/grid-lines.svg">
+          <aside class="notes">
+            <p>We can also define exactly where we want our grid items to go. <code>grid-row</code> and <code>grid-column</code> are the respective short-hands to refer an item's grid position.</p>
+            <p>By default, a grid item will occupy one grid cell, but we can use the <code>span</code> keyword to define how many grid tracks an item should take up. We refer to the grid lines using their numerical index, starting from 1.</p>
+          </aside>
+        </section>
+
         <section data-background-image="img/print/print-whitespace.jpg">
-          <aside class="notes">(1/4) But with manual placement of grid items, there are lots more interesting things we can do. One of which is vertical white-space. The use of white-space is important when it comes to layout design, as it serves to balance the layout and bring focus to important content.</aside>
+          <aside class="notes">(1/4) With the manual placement of grid items, there are lots more interesting things we can do. One of which is vertical white-space. The use of white-space is important when it comes to layout design, as it serves to balance the layout and bring focus to important content.</aside>
         </section>
 
         <section data-background-image="img/print/print-whitespace2.jpg">
-          <aside class="notes">(2/4) But with manual placement of grid items, there are lots more interesting things we can do. One of which is vertical white-space. The use of white-space is important when it comes to layout design, as it serves to balance the layout and bring focus to important content.</aside>
+          <aside class="notes">(2/4) With the manual placement of grid items, there are lots more interesting things we can do. One of which is vertical white-space. The use of white-space is important when it comes to layout design, as it serves to balance the layout and bring focus to important content.</aside>
         </section>
 
         <section data-background-image="img/print/print-whitespace3.jpg">
-          <aside class="notes">(3/4) But with manual placement of grid items, there are lots more interesting things we can do. One of which is vertical white-space. The use of white-space is important when it comes to layout design, as it serves to balance the layout and bring focus to important content.</aside>
+          <aside class="notes">(3/4) With the manual placement of grid items, there are lots more interesting things we can do. One of which is vertical white-space. The use of white-space is important when it comes to layout design, as it serves to balance the layout and bring focus to important content.</aside>
         </section>
 
         <section data-background-image="img/print/print-whitespace4.jpg">
-          <aside class="notes">(4/4) But with manual placement of grid items, there are lots more interesting things we can do. One of which is vertical white-space. The use of white-space is important when it comes to layout design, as it serves to balance the layout and bring focus to important content.</aside>
+          <aside class="notes">(4/4) With the manual placement of grid items, there are lots more interesting things we can do. One of which is vertical white-space. The use of white-space is important when it comes to layout design, as it serves to balance the layout and bring focus to important content.</aside>
         </section>
 
         <section>
@@ -511,11 +524,11 @@
         </section>
 
         <section data-background-image="img/print/print-overlap.jpg">
-          <aside class="notes">(1/2) Use of overlap also makes a layout interesting, because it breaks our expectation of regularity in a grid.</aside>
+          <aside class="notes">(1/2) Another technique that makes a layout interesting is the use of overlap, because it breaks our expectation of regularity in a grid.</aside>
         </section>
 
         <section data-background-image="img/print/print-overlap2.jpg">
-          <aside class="notes">(2/2) Use of overlap also makes a layout interesting, because it breaks our expectation of regularity in a grid.</aside>
+          <aside class="notes">(2/2) Another technique that makes a layout interesting is the use of overlap, because it breaks our expectation of regularity in a grid.</aside>
         </section>
 
         <section data-background-image="img/print/print-overlap3.jpg">
@@ -554,6 +567,7 @@ h2 {
           </div>
           <aside class="notes">
             <p>Here's a simple example of overlap, just two circles behind a header. The code here is simplified to show only the placement properties. But to centre the text, I applied a <code>align-self: center</code> and <code>text-align: center</code> to the header.</p>
+            <p>Pseudo-elements are treated as children. So the two circles here are pseudo-elements of the grid container, which have been explicitly placed to overlap. Then the header overlaps them both.</p>
             <p>The placement code is more intuitive than using absolute positioning and you don't need to do a lot of complicated math to get the alignment just right no matter how you resize the browser.</p>
           </aside>
         </section>
@@ -604,7 +618,7 @@ h2 {
         <section>
           <h2>Firefox Grid Inspector (2/2)</h2>
           <img class="plain" data-src="img/grid-inspector-2.gif">
-          <aside class="notes">And if you're using Nightly, you'll have the Layout panel in your DevTools, which gives you the customisation options like displaying grid line numbers and grid areas, as well as setting different colours for different grids on the page. I stole this gif from the Mozilla Hacks website.</aside>
+          <aside class="notes">And if you're using Nightly, you'll have the Layout panel in your DevTools, which gives you the customisation options like displaying grid line numbers and grid areas, as well as setting different colours for different grids on the page. I stole this gif from the Mozilla Hacks website. So that's Grid.</aside>
         </section>
 
         <section>
@@ -720,7 +734,7 @@ h2 {
 }</style></div>
           </div>
           <aside class="notes">
-            <p>With 3D transforms, we are operating with one more axis, which is the Z-axis, for depth. So there are some additional properties like <code>backface-visibility</code> and <code>perspective</code>, for example. The <code>perspective</code> property controls how far an element appears to recede into the horizon. The smaller the value, the more dramatic the 3D effect is.</p>
+            <p>With 3D transforms, we are operating with one more axis, which is the z-axis, for depth. So there are some additional properties like <code>backface-visibility</code> and <code>perspective</code>, for example. The <code>perspective</code> property controls how far an element appears to recede into the horizon. The smaller the value, the more dramatic the 3D effect is.</p>
             <p>So if I change the value of perspective here to something smaller, you can see that the horizon recedes much further away.</p>
           </aside>
         </section>
@@ -763,23 +777,62 @@ h2 {
         <section>
           <h2>Basic shapes</h2>
           <div class="livecode">
-            <div class="result shapes-cont1">
-              <div class="circle"></div>
-              <p>Lollipop marshmallow lemon drops jujubes muffin fruitcake bonbon. Muffin carrot cake bear claw sweet roll tiramisu chocolate jelly beans.</p>
+            <div class="result shapes-cont1" style="font-size:35%;">
+              <article style="clear:both;min-height:12em;">
+                <div class="circle shape"></div>
+                <p style="margin-bottom:1em;">Lollipop marshmallow lemon drops jujubes muffin fruitcake bonbon. Muffin carrot cake bear claw sweet roll tiramisu chocolate jelly beans toffee sweet roll. Biscuit candy sweet sweet powder tart bear claw. Tiramisu jelly beans apple pie donut topping dessert lemon drops gummies halvah.</p>
+                <p style="margin-bottom:1em;">Dessert pie dragée fruitcake chocolate oat cake donut muffin. Chocolate lemon drops cake muffin. Bonbon lemon drops chocolate fruitcake jujubes chupa chups sesame snaps sesame snaps pudding. Pastry chocolate jelly beans cake wafer.</p>
+              </article>
+              <article style="clear:both;min-height:12em;">
+                <div class="ellipse shape"></div>
+                <p style="margin-bottom:1em;">Donut jelly toffee macaroon macaroon. Cookie sesame snaps chupa chups. Lollipop jelly lollipop brownie pastry gummi bears.</p>
+                <p style="margin-bottom:1em;">Gummi bears apple pie chupa chups jelly pie halvah pastry sweet. Cookie dessert sweet roll icing cheesecake macaroon wafer cheesecake. Toffee lemon drops apple pie fruitcake sweet roll chocolate cake jelly bear claw jelly. Donut tiramisu chocolate cake sesame snaps marshmallow tootsie roll candy canes cheesecake cotton candy.</p>
+              </article>
+              <article style="clear:both;min-height:12em;">
+                <div class="inset shape"></div>
+                <p style="margin-bottom:1em;">Cake powder croissant lollipop cotton candy tiramisu lollipop tiramisu. Cookie candy canes gummies jujubes bonbon fruitcake ice cream gingerbread. Marzipan toffee carrot cake marshmallow danish cupcake jelly-o.</p>
+                <p style="margin-bottom:1em;">Halvah brownie lollipop. Chocolate cake marshmallow croissant muffin macaroon pastry. Gummies danish soufflé muffin gingerbread. Lollipop jelly cake croissant sesame snaps macaroon.</p>
+              </article>
+              <article>
+                <div class="polygon shape"></div>
+                <p style="margin-bottom:1em;">Biscuit gummies tart gingerbread wafer jujubes sweet roll. Wafer oat cake carrot cake liquorice chocolate bar chocolate cake jelly-o. Pastry donut oat cake. Fruitcake candy apple pie cake tootsie roll cotton candy candy canes. Halvah halvah chocolate jelly-o macaroon.</p>
+                <p style="margin-bottom:1em;">Macaroon dessert sweet roll dragée candy. Sweet cheesecake lemon drops. Sweet tart chocolate cake candy canes powder cotton candy. Apple pie danish chocolate cake danish bonbon. Muffin soufflé topping carrot cake chocolate. Macaroon toffee chupa chups sesame snaps gummi bears.</p>
+              </article>
             </div>
-            <div class="code"><style class="code-editor" contenteditable="true">.shapes-cont1 div {
-  width: 25vw;
-  height: 25vw;
-  background-color: green;
-  border-radius: 50%;
-  
+            <div class="code"><style class="code-editor" contenteditable="true">.shapes-cont1 .circle {
   shape-outside: circle();
   float: left;
+  border-radius: 50%;
+}
+
+.shapes-cont1 .shape.ellipse {
+  shape-outside: ellipse();
+  width: 7.5em;
+  float: left;
+  border-radius: 50%;
+}
+
+.shapes-cont1 .inset {
+  shape-outside: inset(0px round 2em);
+  float: left;
+  border-radius: 2em;
+}
+
+.shapes-cont1 .polygon {
+  clip-path: polygon(0 0, 0 10em, 10em 5em);
+  shape-outside: polygon(0 0, 0 10em, 10em 5em);
+  float: left;
+}
+
+.shapes-cont1 .shape {
+  width: 10em;
+  height: 10em;
+  background-color: green;
 }</style></div>
           </div>
           <aside class="notes">
-            <p>There are 4 basic shape functions we can use to define the outline around which we want the text to flow, <code>circle()</code>, which is shown here. As well as, <code>ellipse()</code>, <code>inset()</code> and <code>polygon()</code>.</p>
-            <p>CSS shapes also fails really well, in that, if a browser doesn't support it, it will just behave as if <code>shape-outside</code> wasn't present at all.</p>
+            <p>There are 4 basic shape functions we can use to define the outline around which we want the text to flow, namely, <code>circle()</code> <code>ellipse()</code>, <code>inset()</code> and <code>polygon()</code>.</p>
+            <p>These same functions are also used in the <code>clip-path</code> property, so as you can see in the <code>polygon()</code> example, both properties share the same value.</p>
           </aside>
         </section>
 
@@ -797,11 +850,17 @@ h2 {
   float: left;
 }</style></div>
           </div>
-          <aside class="notes">CSS shapes also fails really well, in that, if a browser doesn't support it, it will just behave as if <code>shape-outside</code> wasn't present at all. Like what I'm showing you right now. Because CSS shapes isn't supported on Firefox yet, but if you check Bug 1040714 on the issue logs, you'll see that the team at Mozilla are working on it.</aside>
+          <aside class="notes">
+            <p>Shape from images is what really makes me happy. The image has to have transparency, because the alpha channel is used to compute the shape. Pixels which fall below the <code>shape-image-threshold</code> value are “ignored“ so text just flows into that area instead.</p>
+            <p>CSS shapes also fails really well, in that, if a browser doesn't support it, it will just behave as if <code>shape-outside</code> wasn't present at all. Like what I'm showing you right now. Because CSS shapes isn't fully supported on Firefox yet, but if you check Bug 1040714 on the issue logs, you'll see that the team at Mozilla are working on it.</p>
+          </aside>
         </section>
 
         <section data-background-image="img/chrome-shapes.jpg">
-          <aside class="notes">If you're using Chrome, you should see something like this. Chrome has been supporting CSS shapes for a while now, so their DevTools shows you how the <code>shape-threshold</code> and <code>shape-margin</code> properties are being applied.</aside>
+          <aside class="notes">
+            <p>If you're using Chrome, you should see something like this, where the text is flowing around Beyoncé. Ask me about Beyoncé later, if you want to.</p>
+            <p>Anyway, Chrome has been supporting CSS shapes for a while now, so their DevTools shows you how the <code>shape-threshold</code> and <code>shape-margin</code> properties are being applied.</p>
+          </aside>
         </section>
 
         <section data-background-image="img/print/print-shapes6.jpg">
@@ -813,20 +872,20 @@ h2 {
           <p>Defines CSS features to support for various international writing modes</p>
           <aside class="notes">
             <p>A large swathe of the world use writing systems that flow left-to-right, from top-to-bottom, languages like English and Tagalog. But writing systems go in all directions. East Asian languages like Chinese and Japanese can be written vertically or horizontally. Arabic and Hebrew scripts are written from right-to-left.</p>
-            <p>That's why we have the writing-mode property, which supports the various international writing modes. Because it's the WORLD wide web. But we're all creative people, right? So, yes, the primary use of writing-modes is to correctly present the various writing systems on the web. However, writing mode can also be used for art direction.</p>
+            <p>That's why we have the writing-mode property. Because it's the WORLD wide web. But we're all creative people, right? So, yes, the primary use of writing-modes is to correctly present the various writing systems on the web. However, writing mode can also be used for art direction.</p>
           </aside>
         </section>
 
         <section data-background-image="img/print/print-writingmode.jpg">
-          <aside class="notes">(1/3) Vertical writing is traditionally East Asian. Han characters, which are used in Chinese, Japanese and Korean. The inline direction is from top-to-bottom and the text is read from right-to-left.</aside>
+          <aside class="notes">(1/3) Vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. The inline direction is from top-to-bottom and the text is read from right-to-left.</aside>
         </section>
 
         <section data-background-image="img/print/print-writingmode2.jpg">
-          <aside class="notes">(2/3) Vertical writing is traditionally East Asian. Han characters, which are used in Chinese, Japanese and Korean. The inline direction is from top-to-bottom and the text is read from right-to-left.</aside>
+          <aside class="notes">(2/3) Vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. The inline direction is from top-to-bottom and the text is read from right-to-left.</aside>
         </section>
 
         <section data-background-image="img/print/print-writingmode3.jpg">
-          <aside class="notes">(3/3) Vertical writing is traditionally East Asian. Han characters, which are used in Chinese, Japanese and Korean. The inline direction is from top-to-bottom and the text is read from right-to-left.</aside>
+          <aside class="notes">(3/3) Vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. The inline direction is from top-to-bottom and the text is read from right-to-left.</aside>
         </section>
 
         <section data-background-image="img/print/print-writingmode4.jpg">
@@ -871,13 +930,13 @@ h2 {
   justify-items: center;
 }</style></div>
           </div>
-          <aside class="notes">This is a basic example of the <code>writing-mode</code> property's different values. There's <code>vertical-rl</code> and <code>vertical-lr</code>, which determines the direction of the text lines in a vertical orientation. So how can we use this in the context of a Latin-based writing system?</aside>
+          <aside class="notes">This is a basic example of the <code>writing-mode</code> property's different values. There's <code>vertical-rl</code> in red, and <code>vertical-lr</code> in blue. We can apply a rotate to make the text face the opposite direction as well, like the green example. So how can we use this in the context of a Latin-based writing system?</aside>
         </section>
 
         <section>
           <h2>Vertical headers</h2>
           <img class="plain" data-src="img/wm-eg.jpg">
-          <aside class="notes">It might not be the best idea to layout long chunks of text vertically because that just makes it hard to read. But using vertical text for short titles or headers can break up the monotony of a long page.</aside>
+          <aside class="notes">One idea is for headers. It might not be the best idea to layout long chunks of text vertically because that just makes it hard to read. But using vertical text for short titles or headers can break up the monotony of a long page.</aside>
         </section>
 
         <section>
@@ -898,15 +957,15 @@ h2 {
         </section>
 
         <section data-background-image="img/print/print-grid+transforms.jpg">
-          <aside class="notes">Look at some of these magazine layouts. We can create something similar using grid and transforms.</aside>
+          <aside class="notes">Look at some of these magazine layouts. We can create something similar to this one using grid and transforms.</aside>
         </section>
 
         <section data-background-image="img/print/print-grid+transforms2.jpg">
-          <aside class="notes">I actually used this one as inspiration for one of the earlier demos, if you remember, the one with the overlapping grid layout.</aside>
+          <aside class="notes">I actually used this one as inspiration for one of the earlier demos, if you remember, the one with the overlapping grid layout, except in red.</aside>
         </section>
 
         <section data-background-image="img/print/print-grid+writingmode.jpg">
-          <aside class="notes">For this, we'll probably use grid with writing-mode.</aside>
+          <aside class="notes">For this, I'll probably use grid with writing-mode.</aside>
         </section>
 
         <section data-background-image="img/print/print-transforms+writingmode2.jpg">
@@ -918,7 +977,7 @@ h2 {
         </section>
 
         <section data-background-image="img/print/print-transforms+writingmode.jpg">
-          <aside class="notes">This one probably needs grid, in addition to writing-mode and transforms.</aside>
+          <aside class="notes">This one probably needs grid, in addition to writing-mode and transforms. I really like the fact that I can now finally say yes to the many print-inspired layouts that my designers dream up.</aside>
         </section>
 
         <section>
@@ -939,7 +998,10 @@ h2 {
     /* Styles for browsers that support the specified property */
   }
 }</code></pre>
-          <aside class="notes">And this is how a feature query looks like. It's a conditional that checks if the browser supports a particular property or not. If it doesn't, the entire block within the <code>@supports</code> rule is ignored. By organising our code in this manner, the browsers that do not support feature queries or the specified property still get styled, while those that do get a different look. We're making use of the ‘C’ in CSS.</aside>
+          <aside class="notes">
+            <p>And this is how a feature query looks like. It's a conditional that checks if the browser supports a particular property or not. If it doesn't, the entire block within the <code>@supports</code> rule is ignored.</p>
+            <p>This means we start off with the basic layout that works everywhere. It could be a single column, largely browser default UI elements, that sort of thing. Then we layer on styles based on the features we want to use.</p>
+          </aside>
         </section>
 
         <section>
@@ -948,6 +1010,16 @@ h2 {
             <img class="plain" data-src="img/firefox.jpg" alt="Wismut Labs site layout on Firefox">
             <img class="plain" data-src="img/chrome.jpg" alt="Wismut Labs site layout on Chrome">
           </div>
+          <aside class="notes">
+            <p>By organising our code in this manner, the browsers that do not support feature queries or the specified property still get styled, while those that do get a different look. We're making use of the ‘C’ in CSS.</p>
+            <p>The layout on the left is what IE11 users will see, the one in the middle is what Firefox users will see, because Firefox doesn't support CSS shapes yet, but once it does, it will then look like the layout on the right, which is what Chrome users see now.</p>
+            <p>And yes, this approach does require a level of familiarity with CSS, but it's not rocket science. It boils down to experience, and the willingness to embrace CSS for what it is.</p>
+          </aside>
+        </section>
+
+        <section>
+          <blockquote>“CSS isn't a programming language. It's a stylesheet language. We shouldn't expect it to behave like a programming language. It has its own unique landscape and structures, ones that people with programming language mental maps might not expect.”<br><small>—Danielle Huntrods</small></blockquote>
+          <aside class="notes">Danielle Huntrods from Clearleft said it best. CSS has its own unique landscape and structures, and our mental maps around it need to reflect that.</aside>
         </section>
 
         <section>
@@ -962,6 +1034,7 @@ h2 {
             <li><a href="https://blogs.igalia.com/mrego/2016/02/01/deep-dive-into-grid-layout-placement/">Deep Dive into Grid Layout Placement</a></li>
             <li><a href="https://blogs.igalia.com/mrego/2016/05/27/css-grid-layout-and-positioned-items/">CSS Grid Layout and positioned items</a></li>
             <li><a href="https://hacks.mozilla.org/2017/06/new-css-grid-layout-panel-in-firefox-nightly/">Powerful New Additions to the CSS Grid Inspector in Firefox Nightly</a></li>
+            <li><a href="https://clearleft.com/posts/454">There are maps for these territories</a></li>
           </ul>
           <aside class="notes">
             <p>Here's the long list of resources related to the things I covered in today's talk and I'll share these slides for anybody who is interested.</p>
@@ -980,16 +1053,21 @@ h2 {
             </figure>
           </div>
           <aside class="notes">
-          
+            <p>Jen Simmons and Rachel Andrew have done a lot for both developing layout on the web, as well as educating the web development community about it. Rachel has a CSS layout course which is completely online, and Jen Simmons has a wonderful collection of demos which you can check out.</p>
+            <p>Speaking of demos, I think everyone should build up a collection of demos, because that's the best way to learn and familiarise ourselves with CSS in general. I put all of mine on my website, if you're interested.</p>
           </aside>
         </section>
 
-        <section style="text-align: left;">
+        <section data-background-image="img/cookies.jpg">
+          <aside class="notes">In conclusion, say yes to cookies, but no to cookie cutter web layouts.</aside>
+        </section>
+
+        <section>
           <h1>Salamat!</h1>
-          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="http://www.chenhuijing.com">http://www.chenhuijing.com</a></p>
-          <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen">@hj_chen</a></p>
-          <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen">@hj_chen</a></p>
-          <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/">@huijing</a></p>
+          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="http://www.chenhuijing.com" style="display:inline-block;vertical-align:middle;">http://www.chenhuijing.com</a></p>
+          <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle;">@huijing</a></p>
         </section>
 
       </div>
