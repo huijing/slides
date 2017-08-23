@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Junction';
+  src: url('junction-light.eot');
+  src: url('junction-light.eot?#iefix') format('embedded-opentype'),
+     url('junction-light.woff2') format('woff2'),
+     url('junction-light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Junction';
+  src: url('junction-bold.eot');
+  src: url('junction-bold.eot?#iefix') format('embedded-opentype'),
+     url('junction-bold.woff2') format('woff2'),
+     url('junction-bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
