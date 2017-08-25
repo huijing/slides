@@ -13,7 +13,7 @@ body {
 
 .reveal {
   font-family: "Garibaldi", Georgia, sans-serif;
-  font-size: 40px;
+  font-size: 3em;
   font-weight: normal;
   color: #fff; }
 
@@ -52,13 +52,13 @@ body {
   word-wrap: break-word; }
 
 .reveal h1 {
-  font-size: 2.827em; }
-
-.reveal h2 {
   font-size: 1.999em; }
 
-.reveal h3 {
+.reveal h2 {
   font-size: 1.414em; }
+
+.reveal h3 {
+  font-size: 1em; }
 
 .reveal h4 {
   font-size: 1em; }
@@ -129,7 +129,6 @@ body {
   width: 70%;
   margin: 20px auto;
   padding: 5px;
-  font-style: italic;
   background: rgba(255, 255, 255, 0.05);
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2); }
 
@@ -309,7 +308,8 @@ html {
 
 .reveal blockquote {
   width: 85%;
-  font-style: normal; }
+  font-style: normal;
+  text-align: left; }
   .reveal blockquote small {
     margin-top: 0.5em; }
 
@@ -405,9 +405,29 @@ span[role=img][aria-label]:hover::after {
     color: #1e2831;
     font-size: 50%;
     padding: 0.5em;
-    border-radius: 0.25em; }
+    border-radius: 0.25em;
+    overflow-y: scroll; }
 
 .code-editor {
   display: block;
   height: 100%;
   white-space: pre-wrap; }
+
+.vidcode {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-gap: 0.5em;
+  height: 75vh; }
+  .vidcode video {
+    align-self: center; }
+  .vidcode .code {
+    text-align: left;
+    width: 100%;
+    background: #fff;
+    font-family: monospace;
+    color: #1e2831;
+    font-size: 40%;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    overflow-y: scroll;
+    white-space: pre-wrap; }

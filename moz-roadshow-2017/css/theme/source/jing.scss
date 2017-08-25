@@ -15,6 +15,7 @@
 // Override theme settings (see ../template/settings.scss)
 $mainFont: 'Garibaldi', Georgia, sans-serif;
 $mainColor: #fff;
+$mainFontSize: 3em;
 $headingFont: 'Garibaldi', Georgia, sans-serif;
 $headingColor: #b73e40;
 $headingTextShadow: none;
@@ -25,11 +26,10 @@ $linkColorHover: darken( $linkColor, 20% );
 $selectionBackgroundColor: rgba(0, 0, 0, 0.75);
 $codeColor: dodgerblue;
 
-$heading1Size: 2.827em;
-$heading2Size: 1.999em;
-$heading3Size: 1.414em;
+$heading1Size: 1.999em;
+$heading2Size: 1.414em;
+$heading3Size: 1.000em;
 $heading4Size: 1.000em;
-
 
 // Theme template ------------------------------
 @import "../template/theme";
@@ -62,6 +62,7 @@ html {
   blockquote {
     width: 85%;
     font-style: normal;
+    text-align: left;
 
     small {
       margin-top: 0.5em;
@@ -182,6 +183,7 @@ span[role=img][aria-label]:hover::after {
     font-size: 50%;
     padding: 0.5em;
     border-radius: 0.25em;
+    overflow-y: scroll;
   }
 }
 
@@ -189,4 +191,28 @@ span[role=img][aria-label]:hover::after {
   display: block;
   height: 100%;
   white-space: pre-wrap;
+}
+
+.vidcode {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-gap: 0.5em;
+  height: 75vh;
+
+  video {
+    align-self: center;
+  }
+
+  .code {
+    text-align: left;
+    width: 100%;
+    background: $mainColor;
+    font-family: monospace;
+    color: $backgroundColor;
+    font-size: 40%;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    overflow-y: scroll;
+    white-space: pre-wrap;
+  }
 }
