@@ -58,7 +58,7 @@ They both operate on what I call a container-child relationship, in that the `di
 
 ### Flexbox basics
 
-The idea of Flexbox was discussed before 2008, with the first working draft of the specification published in 2009. The implementation of Flexbox was rather messy. The trouble was that a number of developers used this yet-to-be-finalised feature in production, and everyone was in was in a bind when it came to updating the implementation.
+The idea of Flexbox was discussed before 2008, with the first working draft of the specification published in 2009. The implementation of Flexbox was rather messy. The trouble was that a number of developers used this yet-to-be-finalised feature in production, so everyone was in a bind when it came to updating the implementation.
 
 But it's 2017 now, and things have been stable for a couple of years already. Support is really quite good now, but even so, I think we haven't pushed it to its maximum potential yet. I don't deny that Flexbox is not as straight-forward as `color` or `text-decoration`, but that's because it can do a lot more than those properties.
 
@@ -120,7 +120,7 @@ Now this is something new we've never been able to do before. The `minmax()` fun
 
 ### Grid manual placement
 
-We can also define exactly where we want our grid items to go. grid-row and grid-column are the respective short-hands to refer an item's grid position.
+We can also define exactly where we want our grid items to go. grid-row and grid-column are the short-hands used to set an item's grid position.
 
 By default, a grid item will occupy one grid cell, but we can use the span keyword to define how many grid tracks an item should take up. We refer to the grid lines using their numerical index, starting from 1.
 
@@ -130,7 +130,7 @@ With the manual placement of grid items, there are lots more interesting things 
 
 In the pre-Grid era, every HTML element had to be rendered one after another. To achieve some semblance of vertical white-space, we used things like spacer gifs, remember those? Or other creative hacks.
 
-But now, we can place items wherever we want on the Grid we defined. Think of it like placing pieces on a chessboard, based on the grid-row and grid-column properties on the grid item.
+But now, we can place items wherever we want on the Grid we defined. Think of it like placing pieces on a chessboard, using the grid-row and grid-column properties on the grid item.
 
 We can also name areas of the grid with the grid-template-area property, which I find great for white-space because you can create empty cells, using the dot notation.
 

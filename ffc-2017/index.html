@@ -70,9 +70,9 @@
             <img class="plain" data-src="img/blog3.jpg" alt="Example of Blog layout">
           </div>
           <aside class="notes">
-            <p>Back in my day, every angsty teenager had their own blog where they would express their innermost thoughts and feelings in a lot more than 140 characters. The web had started to take off and not everybody wanted to spend a lot of time building their own websites from scratch. So a lot of these blogs were hosted on blogging platforms, like Blogspot. LiveJournal was a thing back then too. You could theme your blogs, and some people did. Then everyone else more or less just picked from the pool of available options.</p>
-            <p>This was around the time when screen sizes started to get bigger than 640 pixels, and now we had some extra space on our hands. So what did we do? We made sidebars! Sidebars with links to other blogs or sites, or contact information, if you were entrepreneurial you could chuck an ad or 2 in there.
-            </p>
+            <p>Back in my day, every angsty teenager had their own blog where they would express their innermost thoughts and feelings in a lot more than 140 characters.</p>
+            <p>The web had started to take off and not everybody wanted to spend a lot of time building their own websites from scratch. So a lot of these blogs were hosted on blogging platforms, like Blogspot. LiveJournal was a thing back then too. You could theme your blogs, and some people did, but most people picked from a pool of available options.</p>
+            <p>This was around the time when screen sizes started to get bigger than 640 pixels, and now we had some extra space on our hands. So what did we do? We made sidebars! Sidebars with links to other blogs or sites, or contact information, if you were entrepreneurial you could chuck an ad or 2 in there.</p>
           </aside>
         </section>
 
@@ -91,7 +91,7 @@
         </section>
 
         <section data-background-image="img/devices.jpg">
-          <aside class="notes">But the web was exploding in popularity. Everyone and their cat wanted, no, needed a website. Then Apple made the iPhone and everything just went to pieces. Nah, I'm kidding. But it did mark the start of the mobile web. Ethan Marcotte then coined the term Responsive Web Design in 2010, and we learned to use media queries to create different layouts at different screen widths. What? More complexity?</aside>
+          <aside class="notes">But the web was exploding in popularity. Everyone and their cat needed a website. Then Apple made the iPhone and everything just went to pieces. Nah, I'm kidding. But it did mark the start of the mobile web. Ethan Marcotte then coined the term Responsive Web Design in 2010, and we learned to use media queries to create different layouts at different screen widths. What? More complexity?</aside>
         </section>
 
         <section>
@@ -171,7 +171,7 @@
         <section>
           <h2>Flexbox</h2>
           <p>Provides “simple and powerful tools for distributing space and aligning content in ways that web apps and complex web pages often need”</p>
-          <aside class="notes">The idea of Flexbox was discussed before 2008, with the first working draft of the specification published in 2009. The implementation of Flexbox was rather messy. The trouble was that a number of developers used this yet-to-be-finalised feature in production, and everyone was in was in a bind when it came to updating the implementation.</aside>
+          <aside class="notes">The idea of Flexbox was discussed before 2008, with the first working draft of the specification published in 2009. The implementation of Flexbox was rather messy. The trouble was that a number of developers used this yet-to-be-finalised feature in production, so everyone was in a bind when it came to updating the implementation.</aside>
         </section>
 
         <section>
@@ -343,7 +343,7 @@
             <p>I can also change the direction of the layout by setting <code>flex-direction</code> to <code>column</code> and giving the container a defined height. Now I've got this horizontal scroll going on.</p>
             <p>Again, we can go with the funky, jagged look by adjusting the flex children's alignment. Now that the flex direction has changed, the block and inline axes has also changed. <code>justify-content</code> shifts along the vertical axis, while <code>align-items</code> shifts along the horizontal axis.</p>
             <p>Or we could go neat, and do the cropping thing again. Remove the alignment code, make the flex children totally flexible and images fill up their containers' heights. <code>calc()</code> is an indispensable function I use when creating layouts. Here, <code>calc()</code> let's me account for the margins of each image with respect to their container heights. I can fix the widths of the images to get something like this.</p>
-            <p>And these layouts I just showed are making use of the behaviour of Flexbox, they were not hacks. These are actual options that we have when it comes to designing our layouts.</p>
+            <p>And these layouts are a demonstration of what Flexbox can do out-of-the-box. They are not hacks. These are native options that we have when it comes to designing our layouts.</p>
           </aside>
         </section>
 
@@ -372,7 +372,7 @@
             <a href="http://caniuse.com/#feat=css-grid"><img class="plain" data-src="img/caniuse-grid.jpg"></a>
           </p>
           <aside class="notes">
-            <p>All the major browsers included CSS grid in their March update this year. And if you look at the stats today, in just 6 months, more than 70% of web users are using a browser that supports grid.</p>
+            <p>All the major browsers included CSS grid in their March update this year. And if you look at the stats today, in just 6 months, more than 70% of web users are using a browser that supports Grid.</p>
             <p>By developing Grid behind a flag, browser vendors could ask developers to test the new feature and provide feedback, but deter them from writing production CSS that wasn't fully baked yet. Now, let's look at some examples of grid in a non-web context.</p>
           </aside>
         </section>
@@ -450,8 +450,8 @@
           <code>grid-row</code> and <code>grid-column</code>
           <img class="plain" style="height:60vh;display:block;" data-src="img/grid-lines.svg">
           <aside class="notes">
-            <p>We can also define exactly where we want our grid items to go. <code>grid-row</code> and <code>grid-column</code> are the respective short-hands to refer an item's grid position.</p>
-            <p>By default, a grid item will occupy one grid cell, but we can use the <code>span</code> keyword to define how many grid tracks an item should take up. We refer to the grid lines using their numerical index, starting from 1.</p>
+            <p>We can also define exactly where we want our grid items to go. <code>grid-row</code> and <code>grid-column</code> are the short-hands used to set an item's grid position.</p>
+            <p>By default, a grid item will occupy one grid cell, but we can use the <code>span</code> keyword to define how many grid tracks an item should take up. Grid lines are referred to using their numerical index, starting from 1.</p>
           </aside>
         </section>
 
@@ -513,7 +513,7 @@
 }</style></div>
           <aside class="notes">
             <p>In the pre-Grid era, every HTML element had to be rendered one after another. To achieve some semblance of vertical white-space, we used things like spacer gifs, remember those? Or other creative hacks.</p>
-            <p>But now, we can place items wherever we want on the Grid we defined. Think of it like placing pieces on a chessboard, based on the <code>grid-row</code> and <code>grid-column</code> properties on the grid item.</p>
+            <p>But now, we can place items wherever we want on the Grid we defined. Think of it like placing pieces on a chessboard, using the <code>grid-row</code> and <code>grid-column</code> properties on the grid item.</p>
             <p>We can also name areas of the grid with the <code>grid-template-area</code> property, which I find great for white-space because you can create empty cells, using the dot notation.</p>
             <p>Placement then involves telling the grid item which area it needs to go into, like how I'm going to shift the sixth shoe into grid area “f”.</p>
           </aside>
@@ -981,7 +981,7 @@ h2 {
           <p class="ciu_embed" data-feature="css-featurequeries" data-periods="future_1,current,past_1,past_2">
             <a href="http://caniuse.com/#feat=css-featurequeries"><img class="plain" data-src="img/caniuse-feature-queries.jpg"></a>
           </p>
-          <aside class="notes">The last thing, and possibly the most important thing I want to cover is feature queries. Feature queries are like Modernizr, except native to CSS. And support for it is quite good, more than 90% of browsers support this, even Opera Mini. The only browsers that don't support it are Internet Explorer and Blackberry Mobile.</aside>
+          <aside class="notes">The last thing, and possibly the most important thing I want to cover is feature queries. Feature queries are like Modernizr, except native to CSS. And support for it is really good, with coverage in over 90% of browsers, including Opera Mini. The only browsers that don't support it are Internet Explorer and Blackberry Mobile.</aside>
         </section>
 
         <section>

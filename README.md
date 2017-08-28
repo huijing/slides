@@ -35,3 +35,7 @@
 16. [Web typography: East meets West](https://www.chenhuijing.com/slides/webconf-asia-2017)
 
 17. [Chinese typography on the web](https://www.chenhuijing.com/slides/pitercss-2017)
+
+18. [So no to cookie cutter web layouts](https://www.chenhuijing.com/slides/ffc-2017)
+
+19. [Mozilla Developer Asia Roadshow 2017](https://www.chenhuijing.com/slides/moz-roadshow-2017)
