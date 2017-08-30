@@ -366,10 +366,16 @@
           </section>
 
           <section>
+            <h2>Краткая история создания Тетриса</h2>
+            <p>Алексей Пажитнов написал первый Тетрис на компьютере Электроника-60. Он работал в ВЦ Академии наук, где изучал вопросы распознавания речи и искусственного интеллекта. Для обкатки своих идей Пажитном использовал головоломки, включая и пентамино. Он попытался сделать автоматической укладку в заданные фигуры пентамино, но не хватило мощности того оборудования для его вращения. Пришлось отлаживать на тетрамино, так и родилось название игры. Те опыты Алексея и родили главную идею Тетриса – падение фигурок и исчезновение заполненных рядов.</p>
+            <aside class="notes">I don't know if there's anyone who can read Russian here today, but this is a run of Russian text. There's a point to this, trust me.</aside>
+          </section>
+
+          <section>
           <pre><code style="max-height:90vh;font-size:75%;">@font-face {
   font-family: 'Magnetic Pro';
   src: url('magnetic-pro-light.woff2') format('woff2'),
-     url('magnetic-pro-light.woff') format('woff');
+       url('magnetic-pro-light.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -377,14 +383,15 @@
 @font-face {
   font-family: 'Magnetic Pro';
   src: url('bender.woff2') format('woff2'),
-     url('bender.woff') format('woff');
+       url('bender.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-  unicode-range: U+0020, U+0414, U+0425, U+0427, U+0436, U+0439, U+043d, U+0443, U+044c-U+044d;
+  unicode-range: U+0400-U+04FF;
 }</code></pre>
             <aside class="notes">
               <p>My slides use a font called Magnetic Pro, which does not support Cyrillic alphabets. But fortunately, I managed to find a reasonably similar font that does, called Bender. I only need the Cyrillic letters to display in Bender, while everything else can use Magnetic Pro.</p>
               <p>So the code points in the <code>unicode-range</code> range descriptor are that of the Cyrillic letters that I've used. Now say I have a page that only uses English words, Bender will not load at all because it is not needed. It will only load when the browser encounters the Cyrillic letters in the <code>unicode-range</code>.</p>
+              <p>And that was the point of the Russian slide.</p>
             </aside>
           </section>
         </section>

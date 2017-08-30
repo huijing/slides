@@ -1,5 +1,16 @@
 @font-face {
   font-family: 'Magnetic Pro';
+  src: url('bender.eot');
+  src: url('bender.eot?#iefix') format('embedded-opentype'),
+     url('bender.woff2') format('woff2'),
+     url('bender.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  unicode-range: U+0400-U+04FF;
+}
+
+@font-face {
+  font-family: 'Magnetic Pro';
   src: url('magnetic-pro-light.eot');
   src: url('magnetic-pro-light.eot?#iefix') format('embedded-opentype'),
      url('magnetic-pro-light.woff2') format('woff2'),
