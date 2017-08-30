@@ -36,6 +36,10 @@
 
 17. [Chinese typography on the web](https://www.chenhuijing.com/slides/pitercss-2017)
 
-18. [So no to cookie cutter web layouts](https://www.chenhuijing.com/slides/ffc-2017)
+18. [CSS fonts trivia](https://www.chenhuijing.com/slides/css-fonts)
 
-19. [Mozilla Developer Asia Roadshow 2017](https://www.chenhuijing.com/slides/moz-roadshow-2017)
+19. [So no to cookie cutter web layouts](https://www.chenhuijing.com/slides/ffc-2017)
+
+20. [Mozilla Developer Asia Roadshow 2017](https://www.chenhuijing.com/slides/moz-roadshow-2017)
+
+
