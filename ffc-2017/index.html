@@ -154,7 +154,7 @@
           </ul>
           <aside class="notes">
             <p>CSS has been around for about 20 years now, and the last I checked, there were 499 distinct properties. And you don't have to know every single one of them, I'm just pointing out that we can achieve a lot more with CSS than ever before.</p>
-            <p>So these are some of the CSS properties I find relevant for web layouts, too many for me to cover in half an hour. CSS is an integral part of web layout, and its really about combining different properties to create designs that are truly web.</p>
+            <p>So these are some of the CSS properties I find relevant for web layouts, too many for me to cover in half an hour. CSS is an integral part of web layout, and it's really about combining different properties to create designs that are truly web.</p>
           </aside>
         </section>
 
@@ -185,7 +185,7 @@
         <section>
           <h2>Flexbox basics</h2>
           <div class="livecode">
-            <div class="result flex-cont1">
+            <div class="result flex-cont1" style="font-size:75%;">
               <div>
                 <img class="plain" data-src="img/pumpkin.png">
               </div>
@@ -193,6 +193,7 @@
             </div>
             <div class="code"><style class="code-editor" contenteditable="true">.flex-cont1 {
   display: flex;
+  
 }
 
 .flex-cont1 div {
@@ -203,7 +204,8 @@
 .flex-cont1 p {
   display: none;
   border: 1px solid;
-  
+  text-align: center;
+
 }</style></div>
           </div>
           <aside class="notes">
@@ -562,7 +564,7 @@ h2 {
 }</div>
           </div>
           <aside class="notes">
-            <p>Here's a simple example of overlap, just two circles behind a header. The code here is simplified to show only the placement properties. But to centre the text, I applied a <code>align-self: center</code> and <code>text-align: center</code> to the header.</p>
+            <p>Here's a simple example of overlap, just two circles behind a header. The code here is simplified to show only the placement properties. But to centre the text, I applied a <code>margin:auto</code> to the header.</p>
             <p>Pseudo-elements are treated as children. So the two circles here are pseudo-elements of the grid container, which have been explicitly placed to overlap. Then the header overlaps them both.</p>
             <p>The placement code is more intuitive than using absolute positioning and you don't need to do a lot of complicated math to get the alignment just right no matter how you resize the browser.</p>
           </aside>
@@ -837,7 +839,7 @@ h2 {
           <div class="livecode">
             <div class="result shapes-cont2">
               <img class="plain" data-src="img/beyonce.png">
-              <p style="font-size:75%">Beyoncé Giselle Knowles-Carter is an American singer, songwriter, dancer and actress. Born and raised in Houston, Texas, Beyoncé performed in various singing and dancing competitions as a child. She rose to fame in the late 1990s as lead singer of the R&B girl-group Destiny's Child.</p>
+              <p style="font-size:75%;">Beyoncé Giselle Knowles-Carter is an American singer, songwriter, dancer and actress. Born and raised in Houston, Texas, Beyoncé performed in various singing and dancing competitions as a child. She rose to fame in the late 1990s as lead singer of the R&B girl-group Destiny's Child.</p>
             </div>
             <div class="code"><style class="code-editor" contenteditable="true">.shapes-cont2 img {
   shape-image-threshold: .5;
@@ -997,6 +999,7 @@ h2 {
           <aside class="notes">
             <p>And this is how a feature query looks like. It's a conditional that checks if the browser supports a particular property or not. If it doesn't, the entire block within the <code>@supports</code> rule is ignored.</p>
             <p>This means we start off with the basic layout that works everywhere. It could be a single column, largely browser default UI elements, that sort of thing. Then we layer on styles based on the features we want to use.</p>
+            <p>By organising our code in this manner, the browsers that do not support feature queries or the specified property still get styled, while those that do get a different look. We're making use of the ‘C’ in CSS.</p>
           </aside>
         </section>
 
@@ -1007,7 +1010,6 @@ h2 {
             <img class="plain" data-src="img/chrome.jpg" alt="Wismut Labs site layout on Chrome">
           </div>
           <aside class="notes">
-            <p>By organising our code in this manner, the browsers that do not support feature queries or the specified property still get styled, while those that do get a different look. We're making use of the ‘C’ in CSS.</p>
             <p>The layout on the left is what IE11 users will see, the one in the middle is what Firefox users will see, because Firefox doesn't support CSS shapes yet, but once it does, it will then look like the layout on the right, which is what Chrome users see now.</p>
             <p>And yes, this approach does require a level of familiarity with CSS, but it's not rocket science. It boils down to experience, and the willingness to embrace CSS for what it is.</p>
           </aside>
@@ -1027,6 +1029,7 @@ h2 {
             <li><a href="https://www.smashingmagazine.com/2016/11/css-inheritance-cascade-global-scope-new-old-worst-best-friends/">CSS Inheritance, The Cascade And Global Scope: Your New Old Worst Best Friends</a></li>
             <li><a href="http://annairish.github.io/historicizing/history">History of Flexbox</a></li>
             <li><a href="https://hackernoon.com/11-things-i-learned-reading-the-flexbox-spec-5f0c799c776b/">11 things I learned reading the flexbox spec</a></li>
+            <li><a href="https://rachelandrew.co.uk/css/cheatsheets/box-alignment">Box Alignment Cheatsheet</a></li>
             <li><a href="https://blogs.igalia.com/mrego/2016/02/01/deep-dive-into-grid-layout-placement/">Deep Dive into Grid Layout Placement</a></li>
             <li><a href="https://blogs.igalia.com/mrego/2016/05/27/css-grid-layout-and-positioned-items/">CSS Grid Layout and positioned items</a></li>
             <li><a href="https://hacks.mozilla.org/2017/06/new-css-grid-layout-panel-in-firefox-nightly/">Powerful New Additions to the CSS Grid Inspector in Firefox Nightly</a></li>

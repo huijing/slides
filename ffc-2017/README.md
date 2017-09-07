@@ -48,7 +48,7 @@ I want to establish a new normal for the web. A normal where people don't expect
 
 CSS has been around for about 20 years now, and the last I checked, there were 499 distinct properties. And you don't have to know every single one of them, I'm just pointing out that we can achieve a lot more with CSS than ever before.
 
-So these are some of the CSS properties I find relevant for web layouts, too many for me to cover in half an hour. CSS is an integral part of web layout, and its really about combining different properties to create designs that are truly web.
+So these are some of the CSS properties I find relevant for web layouts, too many for me to cover in half an hour. CSS is an integral part of web layout, and it's really about combining different properties to create designs that are truly web.
 
 ## Flexbox and Grid
 
