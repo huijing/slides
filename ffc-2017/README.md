@@ -132,7 +132,7 @@ In the pre-Grid era, every HTML element had to be rendered one after another. To
 
 But now, we can place items wherever we want on the Grid we defined. Think of it like placing pieces on a chessboard, using the grid-row and grid-column properties on the grid item.
 
-We can also name areas of the grid with the grid-template-area property, which I find great for white-space because you can create empty cells, using the dot notation.
+We can also name areas of the grid with the `grid-template-areas` property, which I find great for white-space because you can create empty cells, using the dot notation.
 
 Placement then involves telling the grid item which area it needs to go into, like how I'm going to shift the sixth shoe into grid area “f”.
 
