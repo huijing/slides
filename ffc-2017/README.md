@@ -36,7 +36,7 @@ But frameworks are quite prescriptive, and that's how we end up with a lot of we
 
 And 12 columns, always 12 columns. 12 is a magical number, it can be divided by 2, 3, 4 and 6. Great for responsive web design. So many ways we can rearrange the boxes on our page. Sometimes I wonder if the Sesame Street producers were the original web designers, because we also have this.
 
-Most of the web is rectangles. Rectangles stacked in different configurations, big rectangles, little rectangles, all the rectangles. Nah, I'm just messing with you. There's nothing wrong with rectangles at all. The web is mostly rectangles because for the longest time that's all we could have without resorting to extreme measures of hackish-ness. And hey, some of those 90s websites were awesome!
+Most of the web is rectangles. Rectangles stacked in different configurations, big rectangles, little rectangles, all the rectangles. Nah, I'm just messing with you. There's nothing wrong with rectangles at all. The web is mostly rectangles because for the longest time that's all we could have without resorting to extreme measures of hackish-ness.
 
 ## Establishing a new normal
 

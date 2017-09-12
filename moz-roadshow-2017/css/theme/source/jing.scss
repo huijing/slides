@@ -15,7 +15,7 @@
 // Override theme settings (see ../template/settings.scss)
 $mainFont: 'Garibaldi', Georgia, sans-serif;
 $mainColor: #fff;
-$mainFontSize: 3em;
+$mainFontSize: 3.2em;
 $headingFont: 'Garibaldi', Georgia, sans-serif;
 $headingColor: #b73e40;
 $headingTextShadow: none;
@@ -48,7 +48,7 @@ html {
 .reveal {
   img,
   video {
-    max-height: 70vh;
+    max-height: 80vh;
   }
 
   code {
@@ -172,6 +172,15 @@ span[role=img][aria-label]:hover::after {
     overflow-y: scroll;
     width: 100%;
     border: 1px dashed $headingColor;
+
+    li {
+      line-height: 0;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
   }
 
   .code {
