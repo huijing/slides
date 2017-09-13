@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Carmelit';
+    src: url('carmelitbold.eot');
+    src: url('carmelitbold.eot?#iefix') format('embedded-opentype'),
+         url('carmelitbold.woff') format('woff'),
+         url('carmelitbold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}

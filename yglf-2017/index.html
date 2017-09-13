@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>2017: The Year of CSS Grid</title>
+    <meta name="description" content="2017 is the year of CSS grid, a powerful tool that has been developed specially to do layout on the web and allows us to do many things that we couldn't before without extreme measures of hackish-ness. It is definitely not hyperbole to say that CSS grid will revolutionise web design moving forward.">
+    <meta name="author" content="Chen Hui Jing">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/jing.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1 style="text-transform:uppercase;"">2017: The Year of CSS Grid</h1>
+          <h3>Revolutionising visual design on the web</h3>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <blockquote>“Our ‘Age of Anxiety’ is, in great part, the result of trying to do today's job with yesterday's tools—with yesterday's concepts.”<br><small>—Marshall McLuhan</small></blockquote>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Grid release dates</h2>
+          <img class="plain" data-src="img/grid-release.png">
+        </section>
+
+        <section>
+          <h2>Grid browser support</h2>
+          <p class="ciu_embed" data-feature="css-grid" data-periods="future_1,current,past_1,past_2">
+            <a href="http://caniuse.com/#feat=css-grid"><img class="plain" data-src="img/caniuse-grid.jpg"></a>
+          </p>
+        </section>
+
+        <section dir="rtl" style="text-align:right;">
+          <h1 lang="he" style="font-family:'Carmelit';">תודה!</h1>
+          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a dir="ltr" href="http://www.chenhuijing.com" style="display:inline-block;vertical-align:middle;">http://www.chenhuijing.com</a></p>
+          <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a dir="ltr" href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a dir="ltr" href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/codepen_w.png" alt="Codepen"><a dir="ltr" href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle;">@huijing</a></p>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="lib/js/caniuse-embed.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      Reveal.initialize({
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>
