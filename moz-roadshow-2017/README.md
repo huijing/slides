@@ -4,8 +4,6 @@
 
 ## Introduction
 
-Hello everyone! I can't tell you how happy I am that the Mozilla Developer Roadshow is back in Asia, and for it to kick off here in my home court. Those of you who already know me, and may or may not have been strong-armed into being here today, unfortunately still have to sit through the introduction slide.
-
 My name is Hui Jing, and I'm Malaysian. I played basketball for more than half my life, and it was actually what got me into web development in the first place. I'm a front-end engineer based in Singapore now, and I love CSS so much that I will write blog posts about it. I also run Talk.CSS, which is Singapore's only CSS-centric meetup at the moment.
 
 But we're not here to talk about me, we're here to talk about Bruce Lee. You may be thinking, what on earth does Bruce Lee have to do with any of this? Did you just fall victim to click-bait? No, you have not.
