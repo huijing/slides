@@ -4,11 +4,13 @@
 
 ## Introduction
 
+Hello everyone! I can't tell you how happy I am that the Mozilla Developer Roadshow is back in Asia, and for it to kick off here in my home court. Those of you who already know me, and may or may not have been strong-armed into being here today, unfortunately still have to sit through the introduction slide.
+
 My name is Hui Jing, and I'm Malaysian. I played basketball for more than half my life, and it was actually what got me into web development in the first place. I'm a front-end engineer based in Singapore now, and I love CSS so much that I will write blog posts about it. I also run Talk.CSS, which is Singapore's only CSS-centric meetup at the moment.
 
 But we're not here to talk about me, we're here to talk about Bruce Lee. You may be thinking, what on earth does Bruce Lee have to do with any of this? Did you just fall victim to click-bait? No, you have not.
 
-I'm going to be putting forth some ideas today that I don't expect everyone to agree with, but I do hope you will hear me out. Anyway, although Bruce Lee is known for his fighting prowess, he was also a deeply self-reflective man and philosophy was an inseparable aspect of his martial arts practice.
+I'm going to be putting forth some ideas today that I don't expect everyone to agree with, but I do hope you will hear me out. Although Bruce Lee is known for his fighting prowess, he was also a deeply self-reflective man and philosophy was an inseparable aspect of his martial arts practice.
 
 > Be formless, shapeless, like water. Now you put water into a cup, it becomes the cup. You put water into a bottle, it becomes the bottle. You put it in a teapot, it becomes the teapot. Now water can flow, or it can crash. Be water, my friend.
 
@@ -46,7 +48,7 @@ But frameworks can be quite prescriptive, and that's how we end up with a lot of
 
 And 12 columns, almost always 12 columns. 12 is a magical number, it can be divided by 2, 3, 4 and 6. Great for responsive web design. So many ways we can rearrange the boxes on our page. Sometimes I wonder if the Sesame Street producers were the original web designers, because we also have this.
 
-Rectangles stacked in different configurations, big rectangles, little rectangles, all the rectangles. Nah, I'm just messing with you. There's absolutely nothing wrong with rectangles. The web is mostly rectangles because for the longest time that's all we could have without resorting to extreme measures of hackish-ness.
+Rectangles stacked in different configurations, big rectangles, little rectangles, all the rectangles. Nah, I'm just messing with you. Rectangles are great. The web is mostly rectangles because for the longest time that's all we could have without resorting to extreme measures of hackish-ness.
 
 When we encounter something completely new, like the web, we always try to reconcile it with something we're already familiar with. In this case, the closest thing we had to the web was print. We even used similar terminology, calling them web pages. And yes, there are many similarities, but it's not like the difference between a brown pony and a white pony...It's more like between a pony and a unicorn. With wings.
 
@@ -60,13 +62,13 @@ As Jen Simmons said, the hardest part is changing our thinking. The dynamism of 
 
 People access information on the web predominantly through browsers. And we do have a lot of them. But they are powered largely by four main layout engines, Blink by Google, Gecko by Mozilla, EdgeHTML by Microsoft and Webkit by Apple.
 
-With the maturation of web standards, browser behaviour is less unpredictable than before, though each browser still has their quirks. Features aren't all supported at the same time. But you know what? That's perfectly fine. If we accept this as a feature of the web, instead of a bug, we've just opened up more web design possibilities.
+With the maturation of web standards, browser behaviour is less unpredictable than before, though each browser still has their quirks. Features aren't all supported at the same time. But you know what? That's perfectly fine. If we accept this as a feature of the web, instead of a bug, we've just opened up a lot more web design possibilities.
 
 Feature queries are key to making this approach feasible. And support for it is really good, with coverage in over 90% of browsers, including Opera Mini. The only browsers that don't support it are Internet Explorer and Blackberry Mobile.
 
 And this is how a feature query looks like. It's a conditional that checks if the browser supports a particular property or not. If it doesn't, the entire block within the @supports rule is ignored.
 
-This means we start off with the basic layout that works everywhere. It could be a single column, largely browser default UI elements, that sort of thing. Then we layer on styles based on the features we want to use.
+This means we start off with the basic layout that works everywhere. It could be a float-based, inline-block based, or single column, largely browser default UI elements, that sort of thing. Then we layer on styles based on the features we want to use.
 
 By organising our code in this manner, the browsers that do not support feature queries or the specified property still get styled, while those that do get a different look. We're making use of the ‘C’ in CSS. Call it ‘Cascading Web Design’, TM, yours truly.
 
@@ -114,7 +116,7 @@ Or I could go neat, and do the cropping thing again. Remove the alignment code, 
 
 And these layouts are a demonstration of what Flexbox can do out-of-the-box. They are not hacks. These are native options that we have when it comes to designing our layouts.
 
-So I used some supplementary CSS features in the earlier examples, namely `calc()` and `object-fit`. Support for these properties is pretty decent. And they will only continue to get better in the near future. Honestly, the evergreen browser is one of the best things to happen to the web.
+So I used some supplementary CSS features in the earlier examples, namely `calc()` and `object-fit`. Support for these properties is pretty decent. And they will only continue to get better in the near future. Honestly, the evergreen browser model is one of the best things to happen to the web.
 
 ### CSS Grid
 
