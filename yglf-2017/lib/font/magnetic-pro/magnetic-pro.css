@@ -1,0 +1,40 @@
+@font-face {
+  font-family: 'Magnetic Pro';
+  src: url('magnetic-pro-light.eot');
+  src: url('magnetic-pro-light.eot?#iefix') format('embedded-opentype'),
+     url('magnetic-pro-light.woff2') format('woff2'),
+     url('magnetic-pro-light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Magnetic Pro';
+  src: url('magnetic-pro-medium.eot');
+  src: url('magnetic-pro-medium.eot?#iefix') format('embedded-opentype'),
+     url('magnetic-pro-medium.woff2') format('woff2'),
+     url('magnetic-pro-medium.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Magnetic Pro';
+  src: url('magnetic-pro-light-italic.eot');
+  src: url('magnetic-pro-light-italic.eot?#iefix') format('embedded-opentype'),
+     url('magnetic-pro-light-italic.woff2') format('woff2'),
+     url('magnetic-pro-light-italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Magnetic Pro';
+  src: url('carmelitregular.eot');
+  src: url('carmelitregular.eot?#iefix') format('embedded-opentype'),
+     url('carmelitregular.woff2') format('woff2'),
+     url('carmelitregular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  unicode-range: U+05D5, U+05DB, U+05E9, U+05D1, U+05D6, U+05E8, U+05D5, U+05E2, U+05D5, U+05EA, U+05D9, U+05D4, U+05DD;
+}

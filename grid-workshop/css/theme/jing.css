@@ -3,8 +3,8 @@
  *
  * Copyright (C) 2017 Chen Hui Jing, https://www.chenhuijing.com/
  */
-@import url(../../lib/font/magnetic-pro/magnetic-pro.css);
-@import url(../../lib/font/magnetic-pro-black/magnetic-pro-black.css);
+@import url(../../lib/font/orbitron/orbitron.css);
+@import url(../../lib/font/carmelit/carmelit.css);
 section.has-dark-background, section.has-dark-background h1, section.has-dark-background h2, section.has-dark-background h3, section.has-dark-background h4, section.has-dark-background h5, section.has-dark-background h6 {
   color: #eae7dc; }
 
@@ -12,14 +12,14 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #f5ffff;
-  background-color: #f5ffff; }
+  background: #000;
+  background-color: #000; }
 
 .reveal {
-  font-family: "Magnetic Pro", "HeiTi SC", "Microsoft YaHei", sans-serif;
-  font-size: 2.8em;
+  font-family: "Orbitron", sans-serif;
+  font-size: 3.2em;
   font-weight: normal;
-  color: #25283d; }
+  color: #f9ac39; }
 
 ::selection {
   color: #fff;
@@ -46,8 +46,8 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #403d58;
-  font-family: "Magnetic Pro Black", "Arial Black", "Microsoft YaHei", sans-serif;
+  color: #df581d;
+  font-family: "Orbitron", sans-serif;
   font-weight: bold;
   line-height: 1.2;
   letter-spacing: normal;
@@ -210,20 +210,20 @@ body {
  * LINKS
  *********************************************/
 .reveal a {
-  color: #fc7753;
+  color: #5797cc;
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
   transition: color .15s ease; }
 
 .reveal a:hover {
-  color: #fec6b7;
+  color: #a5c7e4;
   text-shadow: none;
   border: none; }
 
 .reveal .roll span:after {
   color: #fff;
-  background: #fb3c08; }
+  background: #3271a5; }
 
 /*********************************************
  * IMAGES
@@ -231,7 +231,7 @@ body {
 .reveal section img {
   margin: 15px 0px;
   background: rgba(255, 255, 255, 0.12);
-  border: 4px solid #25283d;
+  border: 4px solid #f9ac39;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
 
 .reveal section img.plain {
@@ -246,7 +246,7 @@ body {
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #fc7753;
+  border-color: #5797cc;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
 /*********************************************
@@ -254,31 +254,31 @@ body {
  *********************************************/
 .reveal .controls .navigate-left,
 .reveal .controls .navigate-left.enabled {
-  border-right-color: #fc7753; }
+  border-right-color: #5797cc; }
 
 .reveal .controls .navigate-right,
 .reveal .controls .navigate-right.enabled {
-  border-left-color: #fc7753; }
+  border-left-color: #5797cc; }
 
 .reveal .controls .navigate-up,
 .reveal .controls .navigate-up.enabled {
-  border-bottom-color: #fc7753; }
+  border-bottom-color: #5797cc; }
 
 .reveal .controls .navigate-down,
 .reveal .controls .navigate-down.enabled {
-  border-top-color: #fc7753; }
+  border-top-color: #5797cc; }
 
 .reveal .controls .navigate-left.enabled:hover {
-  border-right-color: #fec6b7; }
+  border-right-color: #a5c7e4; }
 
 .reveal .controls .navigate-right.enabled:hover {
-  border-left-color: #fec6b7; }
+  border-left-color: #a5c7e4; }
 
 .reveal .controls .navigate-up.enabled:hover {
-  border-bottom-color: #fec6b7; }
+  border-bottom-color: #a5c7e4; }
 
 .reveal .controls .navigate-down.enabled:hover {
-  border-top-color: #fec6b7; }
+  border-top-color: #a5c7e4; }
 
 /*********************************************
  * PROGRESS BAR
@@ -287,7 +287,7 @@ body {
   background: rgba(0, 0, 0, 0.2); }
 
 .reveal .progress span {
-  background: #fc7753;
+  background: #5797cc;
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
@@ -312,7 +312,8 @@ html {
   text-transform: lowercase; }
 
 .reveal blockquote {
-  width: 100%; }
+  text-align: left;
+  width: 85%; }
   .reveal blockquote small {
     margin-top: 0.5em;
     line-height: 2; }
@@ -375,7 +376,7 @@ span[role=img][aria-label] {
 span[role=img][aria-label]:focus::after,
 span[role=img][aria-label]:hover::after {
   font-size: 25%;
-  font-family: "Magnetic Pro", "HeiTi SC", "Microsoft YaHei", sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-weight: 400;
   position: absolute;
   display: block;
@@ -384,11 +385,11 @@ span[role=img][aria-label]:hover::after {
   z-index: 1;
   top: 85%;
   left: -12.5%;
-  background: #25283d;
-  color: #f5ffff;
+  background: #f9ac39;
+  color: #000;
   padding: 0.25em;
-  border: 1px solid #f5ffff;
-  box-shadow: 2px 2px 4px #25283d; }
+  border: 1px solid #000;
+  box-shadow: 2px 2px 4px #f9ac39; }
 
 @media print {
   span[role=img][aria-label]::after {
@@ -405,7 +406,7 @@ span[role=img][aria-label]:hover::after {
     max-height: 100%;
     overflow-y: scroll;
     width: 100%;
-    border: 1px dashed #403d58;
+    border: 1px dashed #df581d;
     background-color: #ababab; }
     .livecode .result li {
       line-height: 0; }
@@ -415,9 +416,9 @@ span[role=img][aria-label]:hover::after {
   .livecode .code {
     text-align: left;
     width: 100%;
-    background: #25283d;
+    background: #f9ac39;
     font-family: monospace;
-    color: #f5ffff;
+    color: #000;
     font-size: 50%;
     padding: 0.5em;
     border-radius: 0.25em;
@@ -438,9 +439,9 @@ span[role=img][aria-label]:hover::after {
   .vidcode .code {
     text-align: left;
     width: 100%;
-    background: #25283d;
+    background: #f9ac39;
     font-family: monospace;
-    color: #f5ffff;
+    color: #000;
     font-size: 40%;
     padding: 0.5em;
     border-radius: 0.25em;

@@ -10,20 +10,19 @@
 // ---------------------------------------------
 
 // Include theme-specific fonts
-@import url(../../lib/font/magnetic-pro/magnetic-pro.css);
-@import url(../../lib/font/magnetic-pro-black/magnetic-pro-black.css);
+@import url(../../lib/font/orbitron/orbitron.css);
 
 // Override theme settings (see ../template/settings.scss)
-$mainFont: 'Magnetic Pro', 'HeiTi SC', 'Microsoft YaHei', sans-serif;
-$mainColor: #25283d;
-$mainFontSize: 2.8em;
-$headingFont: 'Magnetic Pro Black', 'Arial Black', 'Microsoft YaHei', sans-serif;
-$headingColor: #403d58;
+$mainFont: 'Orbitron', sans-serif;
+$mainColor: #f9ac39;
+$mainFontSize: 3.2em;
+$headingFont: 'Orbitron', sans-serif;
+$headingColor: #df581d;
 $headingTextShadow: none;
 $headingTextTransform: none;
 $headingFontWeight: bold;
-$backgroundColor: #f5ffff;
-$linkColor: #fc7753;
+$backgroundColor: #000;
+$linkColor: #5797cc;
 $linkColorHover: lighten( $linkColor, 20% );
 $selectionBackgroundColor: rgba(0, 0, 0, 0.75);
 
@@ -67,7 +66,8 @@ html {
   }
 
   blockquote {
-    width: 100%;
+    text-align: left;
+    width: 85%;
 
     small {
       margin-top: 0.5em;

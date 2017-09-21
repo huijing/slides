@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'Magnetic Pro Black';
+  src: url('magnetic-pro-black.eot');
+  src: url('magnetic-pro-black.eot?#iefix') format('embedded-opentype'),
+     url('magnetic-pro-black.woff2') format('woff2'),
+     url('magnetic-pro-black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Magnetic Pro Black';
+  src: url('carmelitbold.eot');
+  src: url('carmelitbold.eot?#iefix') format('embedded-opentype'),
+     url('carmelitbold.woff2') format('woff2'),
+     url('carmelitbold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  unicode-range: U+05EA, U+05D5, U+05D3, U+05D4, U+0021;
+}
