@@ -28,7 +28,8 @@
         <section>
           <h1 style="text-transform:uppercase;"">Be like water</h1>
           <h3>Applying Bruce Lee's philosophy to web design</h3>
-          <aside class="notes">Hello everyone! I can't tell you how happy I am that the Mozilla Developer Roadshow is back in Asia, and for it to kick off here in my home court. Those of you who already know me, and may or may not have been strong-armed into being here today, unfortunately still have to sit through the introduction slide.</aside>
+          <img style="max-width:5em;margin-top:0.5em;" class="plain" data-src="img/qr-code.png">
+          <aside class="notes">Hello everyone! I'm super excited to be speaking here at home for the first time ever. And today, I'll be talking a bit about designing web layouts.</aside>
         </section>
 
         <section style="font-size:calc(1.75em + 3vw);">
@@ -38,7 +39,7 @@
           <span style="margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="Singapore">&#x1F1F8;&#x1F1EC;</span>
           <span style="margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="memo">&#x1F4DD;</span>
           <span style="margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="studio microphone">&#x1F399;</span>
-          <aside class="notes">My name is Hui Jing, and I'm Malaysian. I played basketball for more than half my life, and it was actually what got me into web development in the first place. I'm a front-end engineer based in Singapore now, and I love CSS so much that I will write blog posts about it. I also run Talk.CSS, which is Singapore's only CSS-centric meetup at the moment.</aside>
+          <aside class="notes">My name is Hui Jing. Saya bangga jadi anak Malaysia. I was based in KL for almost 8 years, playing basketball full-time for 6 of them. Basketball actually kick-started my web career. I now do front-end stuff in Singapore, and I love CSS so much that I will write blog posts about it. I also run a little CSS meet-up called Talk.CSS.</aside>
         </section>
 
         <section>
@@ -67,7 +68,7 @@
         </section>
 
         <section data-background-image="img/web.jpg">
-          <aside class="notes">When it comes to the web, HTML was invented in 1989 by Sir Tim Berners-Lee. And the first graphical web browsers were released around 1992. CSS was proposed by Håkon Wium Lie in 1994 and was developed into a W3C recommendation by 1996. The reason I'm throwing all these dates at you is to remind you that digital is less than a hundred years old. The web isn't even 30 yet, practically a millennial, so it's really a very young medium. The likes of which we've never seen before.</aside>
+          <aside class="notes">When it comes to the web, HTML was invented in 1989 by Sir Tim Berners-Lee. And the first graphical web browsers were released around 1992. CSS was proposed by Håkon Wium Lie in 1994 and was developed into a W3C recommendation by 1996. The reason I'm throwing all these dates at you is to remind you that digital is less than a hundred years old. The web isn't even 30 yet. Listen, the web is a millennial, think about that the next time it pisses you off. It's really a very young medium. The likes of which we've never seen before.</aside>
         </section>
 
         <section>
@@ -78,7 +79,7 @@
             </div>
             <img class="plain" data-src="img/layout1.svg" alt="Every startup's template">
           </div>
-          <aside class="notes">But do you know what we have seen before? These layouts. I was lucky enough to have a computer in the house since I was a toddler and thus remember clearly the soothing sounds of a dial-up modem and the world of hit counters, guest books and webrings.</aside>
+          <aside class="notes">But what we have seen before are these layouts. I've had a computer at home since I was a toddler and can clearly remember the soothing sounds of a dial-up modem and the world of hit counters, webrings and ICQ.</aside>
         </section>
 
         <section>
@@ -91,7 +92,7 @@
           <aside class="notes">
             <p>Back in my day, every angsty teenager had their own blog where they would express their innermost thoughts and feelings in a lot more than 140 characters.</p>
             <p>The web had started to take off and not everybody wanted to spend a lot of time building their own websites from scratch. Most blogs were hosted on blogging platforms, where you picked a cool theme from the pool of available options.</p>
-            <p>This was around the time when screen sizes started to get bigger than 640 pixels, and now we had some extra space on our hands. So what did we do? We made sidebars! Sidebars with links to other blogs or sites, or contact information, if you were entrepreneurial you could chuck an ad or 2 in there.</p>
+            <p>This was around the time when screen sizes started to get bigger than 640 pixels. Because we can't have extra space lying around doing nothing, we decided sidebars were a good idea. Sidebars with links to other blogs or sites, or contact information, if you were entrepreneurial you could chuck an ad or 2 in there.</p>
           </aside>
         </section>
 
@@ -103,14 +104,14 @@
             <img class="plain" data-src="img/holygrail2.jpg" alt="Example of the Holy Grail layout">
           </div>
           <aside class="notes">
-            <p>By the mid-2000s this was real hot. Because screen sizes had continued to grow, and so instead of 1 sidebar, why not have 2? But this layout wasn't easy to achieve, I mean, you could still use HTML tables, but come on, it was the 2000s. Cutting edge CSS with floats was the way to go.</p>
-            <p>Except that it wasn't really. You see, floats weren't meant to used for layouts either. Like using HTML tables for layout, floats were also a hack, but they were all we had at the time to achieve the layouts we wanted. To fully grasp float-based layouts, you also needed to know about clearfix, about negative margins, have good arithmetic skills to calculate gaps. No, not easy at all.</p>
+            <p>By the mid-2000s, screen sizes had continued to grow, so instead of 1 sidebar, why not have 2? But this particular layout wasn't easy to achieve, I mean, you could still use HTML tables, but come on, it was the 2000s. Cutting edge CSS with floats was the way to go.</p>
+            <p>Not. You see, floats weren't meant to used for layouts either. Like using HTML tables for layout, floats were also a hack, but they were all we had at the time to achieve the layouts we wanted. To fully grasp float-based layouts, you also needed to know about clearfix, about negative margins, have good arithmetic skills to calculate gaps. No, not easy at all.</p>
             </p>
           </aside>
         </section>
 
         <section data-background-image="img/devices.jpg">
-          <aside class="notes">But the web was exploding in popularity. Everyone and their cat needed a website. Then Apple made the iPhone and everything just went to pieces. Nah, I'm just kidding. But it did mark the start of the mobile web. Ethan Marcotte then coined the term Responsive Web Design in 2010, and we learned to use media queries to create different layouts at different screen widths. What? More complexity?</aside>
+          <aside class="notes">But the web was exploding in popularity. Everyone and their cat needed a website. Then Apple made the iPhone and the world went nuts. Nah, I'm just kidding. But it did mark the start of the mobile web. Ethan Marcotte then coined the term Responsive Web Design in 2010, and we had to learn to use media queries to create different layouts at different screen widths. What? More complexity?</aside>
         </section>
 
         <section>
@@ -133,7 +134,7 @@
 
         <section data-background-video="videos/rectangle.mp4" data-background-video-muted>
           <h2 style="text-shadow:1px 1px 2px #fff;">Rectangles</h2>
-          <aside class="notes">Rectangles stacked in different configurations, big rectangles, little rectangles, all the rectangles. Nah, I'm just messing with you. Rectangles are great. The web is mostly rectangles because for the longest time that's all we could have without resorting to extreme measures of hackish-ness.</aside>
+          <aside class="notes">Rectangles stacked in different configurations, big rectangles, little rectangles, all the rectangles. Nah, rectangles are great. But the web is mostly rectangles because for the longest time that's all we could have without resorting to extreme measures of hackish-ness.</aside>
         </section>
 
         <section data-background-image="img/pony.jpg">
@@ -194,8 +195,8 @@
 }</code></pre>
           <aside class="notes">
             <p>And this is how a feature query looks like. It's a conditional that checks if the browser supports a particular property or not. If it doesn't, the entire block within the <code>@supports</code> rule is ignored.</p>
-            <p>This means we start off with the basic layout that works everywhere. It could be a single column, largely browser default UI elements, that sort of thing. Then we layer on styles based on the features we want to use.</p>
-            <p>By organising our code in this manner, the browsers that do not support feature queries or the specified property still get styled, while those that do get a different look. We're making use of the ‘C’ in CSS. Call it ‘Cascading Web Design’, TM, yours truly.</p>
+            <p>This means we start off with the basic layout that works everywhere. It could be a float-based layout, or even single column, maybe largely browser default UI elements, that sort of thing. Then we layer on styles based on the features we want to use.</p>
+            <p>By organising our code in this manner, the browsers that do not support feature queries or the specified property still get styled, while those that do get a different look. We're making use of the ‘C’ in CSS. Call it ‘Cascading Web Design’. If this concept ever takes off, remember you heard it here first.</p>
           </aside>
         </section>
 
@@ -267,7 +268,7 @@
             <p>The most basic use-case for Flexbox is centring stuff. When I first learnt Flexbox, I hadn't fully grasped box alignment yet. I used to centre items by applying <code>align-items: center</code> and <code>justify-content: center</code> to the parent container because all the blog posts said so.</p>
             <p>This technique works just fine, but I only found out much later that if there's only 1 flex child, <code>margin: auto;</code> does the same thing.</p>
             <p>When you have more than 1 item, an understanding of box alignment makes things much easier. Say we want to centre both these children. Setting <code>justify-content: center</code> aligns them along the inline-axis, while setting <code>align-items: center</code> aligns them along the block-axis. Flexbox by default lays out all its children in one line without wrapping, so change that to <code>wrap</code>. Wrap only kicks in when the content is longer than the container, so make the width of one of the children <code>100%</code>.</p>
-            <p>There's a difference between <code>align-content</code> and <code>align-items</code>, where content controls alignment of the box's content within its content box, while items specifies the behaviour for each individual child.</p>
+            <p>There's a difference between <code>align-content</code> and <code>align-items</code>, where content controls alignment of all the `content` as a unified block within the parent container, while `items` aligns items along the flex line.</p>
           </aside>
         </section>
 
@@ -346,9 +347,9 @@
           <aside class="notes">
             <p>A common issue I hear is that it's difficult to create a grid system with Flexbox. The thing about Flexbox is, even though you can make a grid system with it, it probably isn't the best idea to do so.</p>
             <p>Flexbox is suited for laying out items in a single dimension. Where there isn't a relationship between the rows and columns. Think of it more like a daisy chain of flex children.</p>
-            <p>Here, I have a list of images. Once I apply <code>display: flex</code>, all the items are shrunk and laid out in a single row. If I turn on wrap, they all revert to their original size because now there is no limit to how much space they need to take up, if there is no space, the image will just drop down to the next row.</p>
+            <p>Here, I have a list of images. Once I apply <code>display: flex</code>, all the items are shrunk and laid out in a single row. If I turn on wrap, they all revert to their original size because now there is no limit to how much space they need to take up, if there is no space, the image will just drop down to the next row, the next flex line.</p>
             <p>I'll turn on the border so you can see how each flex child behaves. Now instead of the initial behaviour of can shrink don't grow, I'll change it to can grow don't shrink and make the images take up the width of the child container. Now, there are a lot of options we can play with in terms of designing the whole layout.</p>
-            <p>I can do an <code>align-items: center</code> and create this jagged look, which is kinda interesting. Sometimes I find neat grids a bit monotonous. But if I want neat, I can also standardise the height of the flex children. This makes the aspect ratio screwed up, so a compromise could be cropping off the taller images with the <code>object-fit</code> property.</p>
+            <p>I can do an <code>align-items: center</code> and create this jagged look, which we don't see all that often on the web. Sometimes I find neat grids a bit monotonous. But if I have to, we can do that by standardising the height of the flex children. This makes the aspect ratio screwed up, so a compromise could be cropping off the taller images with the <code>object-fit</code> property.</p>
           </aside>
         </section>
 
@@ -384,6 +385,8 @@
   flex-wrap: wrap;
   // flex-direction: column;
   // height: 100%;
+  // justify-content: center;
+  // align-items: center;
 }
 
 .flex-cont3 li {
@@ -400,8 +403,8 @@
           </div>
           <aside class="notes">
             <p>I can also change the direction of the layout by setting <code>flex-direction</code> to <code>column</code> and giving the container a defined height. Now I've got this horizontal scroll going on.</p>
-            <p>Again, I can go with the funky, jagged look by adjusting the flex children's alignment. Now that the flex direction has changed, the block and inline axes has also changed. <code>justify-content</code> shifts along the vertical axis, while <code>align-items</code> shifts along the horizontal axis.</p>
-            <p>Or I could go neat, and do the cropping thing again. Remove the alignment code, make the flex children totally flexible and images fill up their containers' heights. <code>calc()</code> is an indispensable function I use when creating layouts. Here, <code>calc()</code> let's me account for the margins of each image with respect to their container heights. I can fix the widths of the images to get something like this.</p>
+            <p>And we can play around with the alignment of the items. Now that the flex direction has changed, the block and inline axes has also changed. <code>justify-content</code> shifts along the vertical axis, while <code>align-items</code> shifts along the horizontal axis.</p>
+            <p>Maybe this new-age hippy layout isn't everyone's thing, that's fine. Remove the alignment code, make the flex children totally flexible and images fill up their containers' heights. <code>calc()</code> is an indispensable function I use when creating layouts. Here, <code>calc()</code> let's me account for the margins of each image with respect to their container heights. I can fix the widths of the images to get something like this.</p>
             <p>And these layouts are a demonstration of what Flexbox can do out-of-the-box. They are not hacks. These are native options that we have when it comes to designing our layouts.</p>
           </aside>
         </section>
@@ -416,13 +419,13 @@
               <a href="http://caniuse.com/#feat=calc"><img class="plain" data-src="img/caniuse-calc.jpg"></a>
             </p>
           </div>
-          <aside class="notes">So I used some supplementary CSS features in the earlier examples, namely <code>calc()</code> and <code>object-fit</code>. Support for these properties is pretty decent. And they will only continue to get better in the near future. Honestly, the evergreen browser model is one of the best things to happen to the web.</aside>
+          <aside class="notes">Support for <code>calc()</code> and <code>object-fit</code> looks like this, which is pretty decent. And they will only continue to get better in the near future. Honestly, the evergreen browser model is one of the best things to happen to the web.</aside>
         </section>
 
         <section>
           <h2>CSS Grid</h2>
           <p style="text-align:left;">Defines a two-dimensional grid-based layout system, optimized for user interface design</p>
-          <aside class="notes">There is no better proof-point than CSS grid. This is a feature that was specifically designed for doing layout on the web. I don't think I'm exaggerating when I say CSS grid is revolutionary for web design. But what's even more impressive is the manner in which it was rolled out.</aside>
+          <aside class="notes">And there is no better proof-point than CSS grid. This is a feature that was specifically designed for doing layout on the web. I don't think I'm exaggerating when I say CSS grid is revolutionary for web design. But what's even more impressive is the manner in which it was rolled out.</aside>
         </section>
 
         <section>
@@ -731,19 +734,19 @@ h2 {
         </section>
 
         <section data-background-image="img/print/print-transforms4.jpg">
-          <aside class="notes">(1/4) Diagonals are a very dynamic visual direction, and when used in layout design, creates an active composition with implied movement. Such art direction is totally possible on the web.</aside>
+          <aside class="notes">(1/4) Diagonals are a very dynamic visual direction, and when used in layout design, create an active composition that implies movement or depth. Such art direction is totally possible on the web.</aside>
         </section>
 
         <section data-background-image="img/print/print-transforms2.jpg">
-          <aside class="notes">(2/4) Diagonals are a very dynamic visual direction, and when used in layout design, creates an active composition with implied movement. Such art direction is totally possible on the web.</aside>
+          <aside class="notes">(2/4) Diagonals are a very dynamic visual direction, and when used in layout design, create an active composition that implies movement or depth. Such art direction is totally possible on the web.</aside>
         </section>
 
         <section data-background-image="img/print/print-transforms3.jpg">
-          <aside class="notes">(3/4) Diagonals are a very dynamic visual direction, and when used in layout design, creates an active composition with implied movement. Such art direction is totally possible on the web.</aside>
+          <aside class="notes">(3/4) Diagonals are a very dynamic visual direction, and when used in layout design, create an active composition that implies movement or depth. Such art direction is totally possible on the web.</aside>
         </section>
 
         <section data-background-image="img/print/print-transforms6.jpg">
-          <aside class="notes">(4/4) Diagonals are a very dynamic visual direction, and when used in layout design, creates an active composition with implied movement. Such art direction is totally possible on the web.</aside>
+          <aside class="notes">(4/4) Diagonals are a very dynamic visual direction, and when used in layout design, create an active composition that implies movement or depth. Such art direction is totally possible on the web.</aside>
         </section>
 
         <section data-background-image="img/print/print-transforms5.jpg">
@@ -770,7 +773,7 @@ h2 {
               <td>Performs a 2D scale operation by the scaling vector specified</td>
             </tr>
           </table>
-          <aside class="notes">If you're familiar with image editing software like Photoshop or Affinity Photo, you'll find that a lot of image manipulation techniques can now be done in CSS as well. These are the four basic transformations in the two-dimensional space. But they're also available when it comes to three-dimensional transforms.</aside>
+          <aside class="notes">If you're familiar with image editing software like Photoshop, you'll find that a lot of image manipulation techniques can now be done in CSS as well. These are the four basic transformations in the two-dimensional space. But they're also available when it comes to three-dimensional transforms.</aside>
         </section>
 
         <section>
@@ -803,17 +806,17 @@ h2 {
 }</div>
           </div>
           <aside class="notes">
-            <p>How many people read the article ‘The Critical Request‘ by Ben Schwarz on CSS Tricks? It's a really good article on page performance, but it also had this really pretty header. It's an image on the actual article, but it definitely can be “web-ified”.</p>
-            <p>Again, for browsers that don't support Transforms or Grid, we can still present a layout that doesn't use those properties for browsers that don't support them with the help of feature queries. Sure, it'll look different, but it won't be broken.</p>
+            <p>There was an article titled ‘The Critical Request‘ that was published on CSS Tricks last month. It's a really good article on page performance, and it also had this really pretty header. It's an image on the actual article, but I felt it was something that definitely could be “web-ified”.</p>
+            <p>So no diagonals on a narrow screen, but if we have enough space, why not? Again, for browsers that don't support Transforms or Grid, we can still present a layout that doesn't use those properties with the help of feature queries. Remember, things on the web don't need to look the same all the time.</p>
           </aside>
         </section>
 
         <section data-background-image="img/print/print-transforms3d.jpg">
-          <aside class="notes">(1/2) 3D transforms also make for great visual impact. The benefit of doing it with text plus CSS is that it's searchable, indexable, googl-able. Much better accessibility than presenting the text in an image.</aside>
+          <aside class="notes">(1/2) 3D transforms also make for great visual impact. The benefit of doing it with text plus CSS is that it's searchable, indexable, googl-able. And provides much better accessibility than sticking the text in an image.</aside>
         </section>
 
         <section data-background-image="img/print/print-transforms3d2.jpg">
-          <aside class="notes">(2/2) 3D transforms also make for great visual impact. The benefit of doing it with text plus CSS is that it's searchable, indexable, googl-able. Much better accessibility than presenting the text in an image.</aside>
+          <aside class="notes">(2/2) 3D transforms also make for great visual impact. The benefit of doing it with text plus CSS is that it's searchable, indexable, googl-able. And provides much better accessibility than sticking the text in an image.</aside>
         </section>
 
         <section>
@@ -864,7 +867,7 @@ h2 {
         </section>
 
         <section data-background-image="img/print/print-shapes4.jpg">
-          <aside class="notes">Newspapers do it too.</aside>
+          <aside class="notes">Newspapers do it too, sometimes.</aside>
         </section>
 
         <section data-background-image="img/print/print-shapes5.jpg">
@@ -965,10 +968,10 @@ h2 {
             <p>Anyway, Chrome has been supporting CSS shapes for a while now, so their DevTools shows you how the <code>shape-threshold</code> and <code>shape-margin</code> properties are being applied.</p>
           </aside>
         </section>
-
+<!-- 
         <section data-background-image="img/print/print-shapes6.jpg">
           <aside class="notes">CSS shapes also has a level 2 specification, which will define how text should flow inside a shape. But this is a lot more tricky than outside because of how overflow needs to be treated. So it'll be a while longer before we can do layouts like these.</aside>
-        </section>
+        </section> -->
 
         <section>
           <h2>Writing-mode</h2>
@@ -1056,7 +1059,10 @@ h2 {
             but don't worry, you can <a href="videos/menu.mp4">download it</a>
             and watch it with your favourite video player!
           </video>
-          <aside class="notes">Also, depending on the number of links in your navigation menu, perhaps a vertical layout on a narrow screen could be a design option worth considering. Today's CSS really gives us a lot more creative choices as compared to when responsive design first was a thing back in 2010.</aside>
+          <aside class="notes">
+            <p>Also, depending on the number of links in your navigation menu, perhaps a vertical layout on a narrow screen could be a design option worth considering.</p>
+            <p>Today's CSS really gives us a lot more creative choices as compared to when responsive design first was a thing back in 2010.</p>
+          </aside>
         </section>
 
         <section>
@@ -1091,7 +1097,7 @@ h2 {
             <li><a href="https://clearleft.com/posts/454">There are maps for these territories</a></li>
           </ul>
           <aside class="notes">
-            <p>Here's the long list of resources related to the things I covered in today's talk and I'll share these slides for anybody who is interested.</p>
+            <p>Here's a list of resources related to the things I covered in today's talk and I'll share these slides for anybody who is interested.</p>
           </aside>
         </section>
 
@@ -1100,11 +1106,18 @@ h2 {
         </section>
 
         <section style="text-align: left;">
-          <h1>Thank you!</h1>
-          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="http://www.chenhuijing.com">http://www.chenhuijing.com</a></p>
-          <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen">@hj_chen</a></p>
-          <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen">@hj_chen</a></p>
-          <p><img class="j-icon plain" data-src="img/codepen_w.png" alt="Codepen"><a href="http://codepen.io/huijing/">@huijing</a></p>
+          <div class="l-multiple" style="align-items:center;">
+            <div>
+              <h1>Thank you!</h1>
+              <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="http://www.chenhuijing.com">http://www.chenhuijing.com</a></p>
+              <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen">@hj_chen</a></p>
+              <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen">@hj_chen</a></p>
+              <p><img class="j-icon plain" data-src="img/codepen_w.png" alt="Codepen"><a href="http://codepen.io/huijing/">@huijing</a></p>
+            </div>
+            <div>
+              <img style="max-width:5em;margin-top:0.5em;" class="plain" data-src="img/qr-code.png">
+            </div>
+          </div>
         </section>
 
       </div>

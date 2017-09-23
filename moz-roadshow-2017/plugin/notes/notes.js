@@ -19,7 +19,7 @@ var RevealNotes = (function() {
 			notesFilePath = jsFileLocation + 'notes.html';
 		}
 
-		var notesPopup = window.open( notesFilePath, 'reveal.js - Notes', 'width=1100,height=700' );
+		var notesPopup = window.open( notesFilePath, 'reveal.js - Notes', 'width=1024,height=768' );
 
 		// Allow popup window access to Reveal API
 		notesPopup.Reveal = this.Reveal;
