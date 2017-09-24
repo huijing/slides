@@ -309,7 +309,8 @@ html {
 .reveal blockquote {
   width: 85%;
   font-style: normal;
-  text-align: left; }
+  text-align: left;
+  background-color: transparent; }
   .reveal blockquote small {
     margin-top: 0.5em; }
 
