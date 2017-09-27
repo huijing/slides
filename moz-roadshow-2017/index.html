@@ -29,7 +29,7 @@
           <h1 style="text-transform:uppercase;"">Be like water</h1>
           <h3>Applying Bruce Lee's philosophy to web design</h3>
           <img style="max-width:5em;margin-top:0.5em;" class="plain" data-src="img/qr-code.png">
-          <aside class="notes">Hello everyone! I'm super excited to be speaking here at home for the first time ever. And today, I'll be talking a bit about designing web layouts.</aside>
+          <aside class="notes"></aside>
         </section>
 
         <section style="font-size:calc(1.75em + 3vw);">
@@ -39,7 +39,7 @@
           <span style="margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="Singapore">&#x1F1F8;&#x1F1EC;</span>
           <span style="margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="memo">&#x1F4DD;</span>
           <span style="margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="studio microphone">&#x1F399;</span>
-          <aside class="notes">My name is Hui Jing. Saya bangga jadi anak Malaysia. I was based in KL for almost 8 years, playing basketball full-time for 6 of them. Basketball actually kick-started my web career. I now do front-end stuff in Singapore, and I love CSS so much that I will write blog posts about it. I also run a little CSS meet-up called Talk.CSS.</aside>
+          <aside class="notes">My name is Hui Jing, and I'm from Malaysia. I played basketball for more than half my life and it actually kick-started my web career. I now do front-end stuff in Singapore, and I love CSS so much that I will write blog posts about it. I also run a little CSS meet-up called Talk.CSS.</aside>
         </section>
 
         <section>
@@ -111,7 +111,7 @@
         </section>
 
         <section data-background-image="img/devices.jpg">
-          <aside class="notes">But the web was exploding in popularity. Everyone and their cat needed a website. Then Apple made the iPhone and the world went nuts. Nah, I'm just kidding. But it did mark the start of the mobile web. Ethan Marcotte then coined the term Responsive Web Design in 2010, and we had to learn to use media queries to create different layouts at different screen widths. What? More complexity?</aside>
+          <aside class="notes">But the web was exploding in popularity. Everyone and their cat needed a website. Then Apple made the iPhone and the world went nuts. It marked the start of the mobile web, as well as the exciting era of device testing. Ethan Marcotte coined the term Responsive Web Design in 2010, and we learned the fine art of using media queries to create different layouts at different screen widths.</aside>
         </section>
 
         <section>
@@ -122,27 +122,14 @@
             <img class="plain" data-src="img/panel2.jpg" alt="Example of the Panel layout">
           </div>
           <aside class="notes">
-            <p>By this time, a lot of people just threw their hands up in surrender and outsourced the pain to CSS frameworks instead. And it's so understandable. Especially if they are not familiar with CSS, or they are short of time, or they just don't like CSS in general.</p>
-            <p>But frameworks can be quite prescriptive, and that's how we end up with a lot of websites that utilise very similar layouts. The flavour of the day at the moment is this panel style, you know, with content sectioned up in panes.</p>
+            <p>By this time, a lot of people just threw their hands up in surrender and outsourced the pain to CSS frameworks instead. Frameworks that provide consistent options for things like layouts, UI elements, interactions and so on.</p>
+            <p>Consistent, but limited.</p>
           </aside>
         </section>
 
-        <section data-background-video="videos/twelve.mp4" data-background-video-muted>
-          <h2 style="display:inline-block;background-color:rgba(30,40,49,0.5);padding:0 0.5em;color:#fff;">12 columns</h2>
-          <aside class="notes">And 12 columns, almost always 12 columns. 12 is a magical number, it can be divided by 2, 3, 4 and 6. Great for responsive web design. So many ways we can rearrange the boxes on our page. Sometimes I wonder if the Sesame Street producers were the original web designers, because we also have this.</aside>
-        </section>
-
-        <section data-background-video="videos/rectangle.mp4" data-background-video-muted>
-          <h2 style="text-shadow:1px 1px 2px #fff;">Rectangles</h2>
-          <aside class="notes">Rectangles stacked in different configurations, big rectangles, little rectangles, all the rectangles. Nah, rectangles are great. But the web is mostly rectangles because for the longest time that's all we could have without resorting to extreme measures of hackish-ness.</aside>
-        </section>
-
-        <section data-background-image="img/pony.jpg">
-          <aside class="notes">When we encounter something completely new, like the web, we always try to reconcile it with something we're already familiar with. In this case, the closest thing we had to the web was print. We even used similar terminology, calling them web <em>pages</em>. And yes, there are many similarities, but it's not like the difference between a brown pony and a white pony...</aside>
-        </section>
-
-        <section data-background-image="img/unicorn.jpg">
-          <aside class="notes">It's more like between a pony and a unicorn. With wings.</aside>
+        <section>
+          <blockquote>“Preformations simply lack the flexibility to adapt to the ever changing”<br><small>—Bruce Lee</small></blockquote>
+          <aside class="notes">If we choose to learn a framework, and learn it well, all we get is the ability to manoeuvre within the bounds of the framework. In this day and age, browsers are constantly being updated with new features and bug fixes. The web is ever changing, at odds with the fixed patterns of frameworks.</aside>
         </section>
 
         <section>
@@ -294,7 +281,7 @@
           </table>
           <aside class="notes">
             <p>When it comes to flex children, the key property is <code>flex</code>. It is strongly recommended that we use the <code>flex</code> shorthand rather than each of the individual long-hand properties. First value for amount of growth, second value for amount of shrinkage and last value being the starting width before free space is distributed.</p>
-            <p>Anyhoo, <code>flex</code> comes with some handy keyword values for commonly desired effects, as shown in this table. If we don't set the flex value on a flex child, its default behaviour is cannot grow, will shrink.</p>
+            <p><code>flex</code> comes with some handy keyword values for commonly desired effects, as shown in this table. If we don't set the flex value on a flex child, its default behaviour is cannot grow, will shrink.</p>
           </aside>
         </section>
 
@@ -441,7 +428,7 @@
 
         <section>
           <blockquote>“We need to translate ideas that we find in other places, not transfer them.”<br><small>—Jen Simmons</small></blockquote>
-          <aside class="notes">Jen Simmons said this in her talk at An Event Apart a couple years ago, that we need to translate ideas instead of transfer them. Meaning that we can look for ideas, concepts and inspiration from everywhere but we have to utilise them in a manner that best suits the medium we're working in. We're gonna look at some examples of grid in a non-web context.</aside>
+          <aside class="notes">Jen Simmons said this in her talk at An Event Apart a couple years ago, that we need to translate ideas instead of transfer them. Meaning that we can look for ideas, concepts and inspiration from everywhere but we have to utilise them in a manner that best suits the medium we're working in.</aside>
         </section>
 
         <section data-background-image="img/print/print-grid.jpg">
@@ -636,6 +623,18 @@ h2 {
         </section>
 
         <section>
+          <h2>Firefox Grid Inspector (1/2)</h2>
+          <img class="plain" data-src="img/grid-inspector.jpg">
+          <aside class="notes">Firefox has the best Grid Inspector tool in any browser, and the team is constantly working on adding more features to it to make our lives easier when using CSS grid. To toggle it, click on the waffle-like icon next to <code>display:grid</code> on your grid container element. It will then show all the grid lines and you can see where your grid items have been placed on the grid.</aside>
+        </section>
+
+        <section>
+          <h2>Firefox Grid Inspector (2/2)</h2>
+          <img class="plain" data-src="img/grid-inspector-2.gif">
+          <aside class="notes">And if you're using Nightly, you'll have the Layout panel in your DevTools, which gives you the customisation options like displaying grid line numbers and grid areas, as well as setting different colours if you're using multiple grids on the same page.</aside>
+        </section>
+
+        <section>
           <h2>Flowing from fallbacks...</h2>
           <div class="vidcode">
             <video controls loop>
@@ -662,7 +661,7 @@ h2 {
           </div>
           <aside class="notes">
             <p>One other dimension we need to keep in mind when designing for the web is feature support for each browser, and this will vary depending on how far back your support policy goes.</p>
-            <p>A browser that doesn't support Grid or feature queries will get a layout that looks like this. A basic layout that utilises Flexbox.</p>
+            <p>For example, we can give browsers that don't support Grid or feature queries a basic layout that looks like this.</p>
           </aside>
         </section>
 
@@ -709,28 +708,24 @@ h2 {
 }</div>
           </div>
           <aside class="notes">
-            <p>But for browsers that do support Grid, I can layer on the fancier <em>overlap with vertical white-space</em> layout.</p>
+            <p>But for browsers that do support Grid and feature queries, I can layer on this fancier <em>overlap with vertical white-space</em> layout.</p>
             <p>Designing layouts on the web requires interpolative thinking, on multiple levels. Web layouts can and most probably should morph as the viewport size changes. Our job is to make sure the layout is most effective in the space it has to perform in.</p>
             <p>Also, there are more media queries available to us than just <code>min-width</code> and <code>max-width</code>. Like in this example, I'm using the <code>min-aspect-ratio</code> media query which triggers my fancier overlap layout only when the aspect-ratio is more than 1.</p>
           </aside>
         </section>
 
         <section>
-          <h2>Firefox Grid Inspector (1/2)</h2>
-          <img class="plain" data-src="img/grid-inspector.jpg">
-          <aside class="notes">Firefox has the best Grid Inspector tool in any browser, and the team is constantly working on adding more features to it to make our lives easier when using CSS grid. To toggle it, click on the waffle-like icon next to <code>display:grid</code> on your grid container element. It will then show all the grid lines and you can see where your grid items have been placed on the grid.</aside>
-        </section>
-
-        <section>
-          <h2>Firefox Grid Inspector (2/2)</h2>
-          <img class="plain" data-src="img/grid-inspector-2.gif">
-          <aside class="notes">And if you're using Nightly, you'll have the Layout panel in your DevTools, which gives you the customisation options like displaying grid line numbers and grid areas, as well as setting different colours for different grids on the page. I stole this gif from the Mozilla Hacks website. So that's Grid.</aside>
+          <blockquote>“They no longer ‘listen’ to circumstances; they ‘recite their circumstances‘.”<br><small>—Bruce Lee</small></blockquote>
+          <aside class="notes">
+            <p>Bruce Lee had put forth a criticism of martial arts masters who build up an illusion of fixed forms, who attempt to solidify the ever flowing. He called such practitioners insensitised patternised robots who merely perform methodical routines as responses rather than responding to “what is”.</p>
+            <p>Perhaps we too, should allow our web designs to respond to “what is”. Perhaps we should be coming up with designs that “listen” to the circumstances of the different browsers that render them.</p>
+          </aside>
         </section>
 
         <section>
           <h2>Transforms</h2>
           <p style="text-align:left;">Allows us to change the shape and position of the affected content without disrupting the normal document flow</p>
-          <aside class="notes">Next up is CSS transforms. Although we tend to associate transforms with animations, there is also a case to be made for static transforms, especially when it comes to layout design.</aside>
+          <aside class="notes">Another useful tool we have at our disposal is CSS transforms. Although we tend to associate transforms with animations, there is also a case to be made for static transforms, especially when it comes to layout design.</aside>
         </section>
 
         <section data-background-image="img/print/print-transforms4.jpg">
@@ -806,17 +801,17 @@ h2 {
 }</div>
           </div>
           <aside class="notes">
-            <p>There was an article titled ‘The Critical Request‘ that was published on CSS Tricks last month. It's a really good article on page performance, and it also had this really pretty header. It's an image on the actual article, but I felt it was something that definitely could be “web-ified”.</p>
-            <p>So no diagonals on a narrow screen, but if we have enough space, why not? Again, for browsers that don't support Transforms or Grid, we can still present a layout that doesn't use those properties with the help of feature queries. Remember, things on the web don't need to look the same all the time.</p>
+            <p>There was an article titled ‘The Critical Request‘ that was published on CSS Tricks last month. It's a really good article on page performance, but what caught my eye was this beautifully designed header. It was an image on the actual article, but I felt it was something that definitely could be “web-ified”.</p>
+            <p>So on a narrow screen, diagonals may not be a good idea, but once we have enough space, why not? Again, for browsers that don't support Transforms or Grid, we can still present a layout that doesn't use those properties with the help of feature queries. Remember, things on the web don't need to look the same all the time.</p>
           </aside>
         </section>
 
         <section data-background-image="img/print/print-transforms3d.jpg">
-          <aside class="notes">(1/2) 3D transforms also make for great visual impact. The benefit of doing it with text plus CSS is that it's searchable, indexable, googl-able. And provides much better accessibility than sticking the text in an image.</aside>
+          <aside class="notes">(1/2) 3D transforms also make for great visual impact. The benefit of doing it with text plus CSS is that it provides much better accessibility than sticking the text in an image.</aside>
         </section>
 
         <section data-background-image="img/print/print-transforms3d2.jpg">
-          <aside class="notes">(2/2) 3D transforms also make for great visual impact. The benefit of doing it with text plus CSS is that it's searchable, indexable, googl-able. And provides much better accessibility than sticking the text in an image.</aside>
+          <aside class="notes">(2/2) 3D transforms also make for great visual impact. The benefit of doing it with text plus CSS is that it provides much better accessibility than sticking the text in an image.</aside>
         </section>
 
         <section>
@@ -968,10 +963,6 @@ h2 {
             <p>Anyway, Chrome has been supporting CSS shapes for a while now, so their DevTools shows you how the <code>shape-threshold</code> and <code>shape-margin</code> properties are being applied.</p>
           </aside>
         </section>
-<!-- 
-        <section data-background-image="img/print/print-shapes6.jpg">
-          <aside class="notes">CSS shapes also has a level 2 specification, which will define how text should flow inside a shape. But this is a lot more tricky than outside because of how overflow needs to be treated. So it'll be a while longer before we can do layouts like these.</aside>
-        </section> -->
 
         <section>
           <h2>Writing-mode</h2>
@@ -1102,7 +1093,15 @@ h2 {
         </section>
 
         <section data-background-video="videos/css-props.mp4" data-background-video-muted>
-          <aside class="notes">CSS has been around for about 20 years now, and the last I checked, there were 501 distinct properties. And you don't have to know every single one of them, I'm just pointing out that we can achieve a lot more with CSS than ever before. CSS is an integral part of web layout, and it‘s really about combining different properties to create designs that are truly web.</aside>
+          <aside class="notes">CSS has been around for about 20 years now, and the last I checked, there were 501 distinct properties. And you don't have to know every single one of them, I'm just pointing out that we can achieve a lot more with CSS than ever before.</aside>
+        </section>
+
+        <section>
+          <blockquote>“True observation begins when one is devoid of set patterns, and freedom of expression occurs when one is beyond systems.”<br><small>—Bruce Lee</small></blockquote>
+          <aside class="notes">
+            <p>I want to leave you all with one final Bruce Lee quote. That true observation begins when one is devoid of set patterns and freedom of expression occurs when one is beyond systems.</p>
+            <p>And I hope that this will inspire you to create designs that truly embrace the nature of the web.</p>
+          </aside>
         </section>
 
         <section style="text-align: left;">
