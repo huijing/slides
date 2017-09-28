@@ -1,0 +1,268 @@
+/**
+ * Custom theme for Reveal.js presentations.
+ *
+ * Copyright (C) 2017 Chen Hui Jing, https://www.chenhuijing.com/
+ */
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url(../../lib/font/junction/junction.css);
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'Junction', sans-serif;
+$mainColor: #373a3c;
+$mainFontSize: 3.2em;
+$headingFont: 'Junction', sans-serif;
+$headingColor: #373a3c;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$headingFontWeight: bold;
+$backgroundColor: #bbf8c1;
+$linkColor: #4632ff;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: rgba(0, 0, 0, 0.75);
+
+$heading1Size: 1.999em;
+$heading2Size: 1.414em;
+$heading3Size: 1.000em;
+$heading4Size: 1.000em;
+
+$bg-colours: (
+  #bbf8c1,
+  #ffd795,
+  #ff97af,
+  #8ae8d6
+);
+
+section.has-dark-background {
+  &, h1, h2, h3, h4, h5, h6 {
+    color: #eae7dc;
+  }
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.reveal {
+  img,
+  video {
+    max-height: 80vh;
+  }
+
+  code {
+    color: dodgerblue;
+  }
+
+  h2 code {
+    text-transform: lowercase;
+  }
+
+  blockquote {
+    width: 85%;
+
+    small {
+      line-height: 2;
+    }
+  }
+
+  table,
+  pre {
+    font-size: 75%;
+  }
+
+  td {
+    vertical-align: middle;
+  }
+
+  .l-logo {
+    height: 1.25em;
+    margin: 0 0.25em;
+  }
+
+  .l-double {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .l-multiple {
+    display: flex;
+    justify-content: space-around;
+
+    .j-vert {
+      width: 1em;
+    }
+  }
+
+  figcaption {
+    font-style: italic;
+    font-size: 75%;
+  }
+
+  .j-vert {
+    writing-mode:vertical-rl;
+    letter-spacing: 0.25em;
+  }
+
+  .video {
+    height: 50vh;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .j-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1rem;
+  }
+
+  .j-extended {
+    position:absolute;
+    top: 65%;
+    left: 25%;
+    transform:rotate(-30deg);
+    padding: 0.25em;
+    border: 0.2em solid #a70000;
+    color: #a70000;
+    text-shadow: 1px 1px 2px black;
+    box-shadow: 1px 1px 2px black;
+    border-radius: 0.5em;
+    text-transform: uppercase;
+    font-size: 125%;
+  }
+}
+
+.reveal .slides section .fragment.fade-out.visible:not(.current-fragment) {
+  display: none;
+}
+
+@for $i from 1 through length($bg-colours) {
+  $colour: nth($bg-colours, $i);
+  .reveal .slide-background:nth-of-type(#{length($bg-colours)}n + #{$i}) {
+    background-color: $colour;
+  }
+}
+
+// Accessible emojis ------------------------------
+span.emoji {
+  font-style: normal;
+  font-size: 125%;
+  display: inline-block;
+  vertical-align: middle;
+  font-family: 'Segoe UI Emoji';
+}
+
+span[role=img][aria-label],
+span[role=img][aria-label] {
+  position: relative;
+}
+
+span[role=img][aria-label]:focus::after,
+span[role=img][aria-label]:hover::after {
+  font-size: 25%;
+  font-family: $mainFont;
+  font-weight: 400;
+  position: absolute;
+  display: block;
+  line-height: 1.2;
+  content: attr(aria-label);
+  z-index: 1;
+  top: 85%;
+  left: -12.5%;
+  background: $mainColor;
+  color: $backgroundColor;
+  padding: 0.25em;
+  border: 1px solid $backgroundColor;
+  box-shadow: 2px 2px 4px $mainColor;
+}
+
+@media print {
+  span[role=img][aria-label]::after {
+    content: " (" attr(aria-label) ") ";
+  }
+}
+
+// Demo-related ------------------------------
+.livecode {
+  display: grid;
+  grid-template-columns: 70% calc(30% - 0.5em);
+  grid-gap: 0.5em;
+  height: 75vh;
+  margin: 0;
+  padding: 0;
+
+  .result {
+    max-height: 100%;
+    overflow-y: scroll;
+    width: 100%;
+    border: 1px dashed $headingColor;
+    background-color: #ababab;
+
+    li {
+      line-height: 0;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .code {
+    text-align: left;
+    width: 100%;
+    background: $mainColor;
+    font-family: monospace;
+    color: $backgroundColor;
+    font-size: 50%;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    overflow-y: scroll;
+  }
+}
+
+.code-editor {
+  display: block;
+  height: 100%;
+  white-space: pre-wrap;
+}
+
+.vidcode {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-gap: 0.5em;
+  height: 75vh;
+
+  video {
+    align-self: center;
+  }
+
+  .code {
+    text-align: left;
+    width: 100%;
+    background: $mainColor;
+    font-family: monospace;
+    color: $backgroundColor;
+    font-size: 40%;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    overflow-y: scroll;
+    white-space: pre-wrap;
+  }
+}
