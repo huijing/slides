@@ -1,10 +1,10 @@
 # Be like water: applying Bruce Lee's philosophy to web design
 
-*For the Mozilla Developer Asia Roadshow 2017. This is sort of a transcript of the talk.*
+*For the Mozilla Developer Asia Roadshow 2017. This is sort of a transcript of the talk at the Hong Kong stop.*
 
 ## Introduction
 
-My name is Hui Jing, and I'm Malaysian. I played basketball for more than half my life, and it was actually what got me into web development in the first place. I'm a front-end engineer based in Singapore now, and I love CSS so much that I will write blog posts about it. I also run Talk.CSS, which is Singapore's only CSS-centric meetup at the moment.
+My name is Hui Jing, and I'm from Malaysia. I played basketball for more than half my life and it actually kick-started my web career. I now do front-end stuff in Singapore, and I love CSS so much that I will write blog posts about it. I also run a little CSS meet-up called Talk.CSS.
 
 But we're not here to talk about me, we're here to talk about Bruce Lee. You may be thinking, what on earth does Bruce Lee have to do with any of this? Did you just fall victim to click-bait? No, you have not.
 
@@ -24,31 +24,27 @@ The reason I'm throwing all these dates at you is to remind you that digital is 
 
 ## Brief history of web layouts
 
-But do you know what we have seen before? These layouts. I was lucky enough to have a computer in the house since I was a toddler and thus remember clearly the soothing sounds of a dial-up modem and the world of hit counters, guest books and webrings.
+But what we have seen before are these layouts. I've had a computer at home since I was a toddler and can clearly remember the soothing sounds of a dial-up modem and the world of hit counters, webrings and ICQ.
 
 Back in my day, every angsty teenager had their own blog where they would express their innermost thoughts and feelings in a lot more than 140 characters.
 
 The web had started to take off and not everybody wanted to spend a lot of time building their own websites from scratch. Most blogs were hosted on blogging platforms, where you picked a cool theme from the pool of available options.
 
-This was around the time when screen sizes started to get bigger than 640 pixels, and now we had some extra space on our hands. So what did we do? We made sidebars! Sidebars with links to other blogs or sites, or contact information, if you were entrepreneurial you could chuck an ad or 2 in there.
+This was around the time when screen sizes started to get bigger than 640 pixels. Because we can't have extra space lying around doing nothing, we decided sidebars were a good idea. Sidebars with links to other blogs or sites, or contact information, if you were entrepreneurial you could chuck an ad or 2 in there.
 
-By the mid-2000s this was real hot. Because screen sizes had continued to grow, and so instead of 1 sidebar, why not have 2? But this layout wasn't easy to achieve, I mean, you could still use HTML tables, but come on, it was the 2000s. Cutting edge CSS with floats was the way to go.
+By the mid-2000s, screen sizes had continued to grow, so instead of 1 sidebar, why not have 2? But this particular layout wasn't easy to achieve, I mean, you could still use HTML tables, but come on, it was the 2000s. Cutting edge CSS with floats was the way to go.
 
-Except that it wasn't really. You see, floats weren't meant to used for layouts either. Like using HTML tables for layout, floats were also a hack, but they were all we had at the time to achieve the layouts we wanted. To fully grasp float-based layouts, you also needed to know about clearfix, about negative margins, have good arithmetic skills to calculate gaps. No, not easy at all.
+Not. You see, floats weren't meant to used for layouts either. Like using HTML tables for layout, floats were also a hack, but they were all we had at the time to achieve the layouts we wanted. To fully grasp float-based layouts, you also needed to know about clearfix, about negative margins, have good arithmetic skills to calculate gaps. No, not easy at all.
 
-But the web was exploding in popularity. Everyone and their cat needed a website. Then Apple made the iPhone and everything just went to pieces. Nah, I'm just kidding. But it did mark the start of the mobile web. Ethan Marcotte then coined the term Responsive Web Design in 2010, and we learned to use media queries to create different layouts at different screen widths. What? More complexity?
-
-By this time, a lot of people just threw their hands up in surrender and outsourced the pain to CSS frameworks instead. And it's so understandable. Especially if they are not familiar with CSS, or they are short of time, or they just don't like CSS in general.
+But the web was exploding in popularity. Everyone and their cat needed a website. Then Apple made the iPhone and the world went nuts. It marked the start of the mobile web, as well as the exciting era of device testing. Ethan Marcotte coined the term Responsive Web Design in 2010, and we learned the fine art of using media queries to create different layouts at different screen widths.
 
 ## Web design is boring?
 
-But frameworks can be quite prescriptive, and that's how we end up with a lot of websites that utilise very similar layouts. The flavour of the day at the moment is this panel style, you know, with content sectioned up in panes.
+By this time, a lot of people just threw their hands up in surrender and outsourced the pain to CSS frameworks instead. Frameworks that provide consistent options for things like layouts, UI elements, interactions and so on.
 
-And 12 columns, almost always 12 columns. 12 is a magical number, it can be divided by 2, 3, 4 and 6. Great for responsive web design. So many ways we can rearrange the boxes on our page. Sometimes I wonder if the Sesame Street producers were the original web designers, because we also have this.
+Consistent, but limited.
 
-Rectangles stacked in different configurations, big rectangles, little rectangles, all the rectangles. Nah, I'm just messing with you. Rectangles are great. The web is mostly rectangles because for the longest time that's all we could have without resorting to extreme measures of hackish-ness.
-
-When we encounter something completely new, like the web, we always try to reconcile it with something we're already familiar with. In this case, the closest thing we had to the web was print. We even used similar terminology, calling them web pages. And yes, there are many similarities, but it's not like the difference between a brown pony and a white pony...It's more like between a pony and a unicorn. With wings.
+If we choose to learn a framework, and learn it well, all we get is the ability to manoeuvre within the bounds of the framework. In this day and age, browsers are constantly being updated with new features and bug fixes. The web is ever changing, at odds with the fixed patterns of frameworks.
 
 I want to establish a new normal for the web. A normal where people don't expect websites to look the same on different browsers and devices. A normal where we embrace the fluidity of content and work with it instead of against it. A normal where we cede control of our designs to the browsers that render them.
 
@@ -66,9 +62,9 @@ Feature queries are key to making this approach feasible. And support for it is 
 
 And this is how a feature query looks like. It's a conditional that checks if the browser supports a particular property or not. If it doesn't, the entire block within the @supports rule is ignored.
 
-This means we start off with the basic layout that works everywhere. It could be a float-based, inline-block based, or single column, largely browser default UI elements, that sort of thing. Then we layer on styles based on the features we want to use.
+This means we start off with the basic layout that works everywhere. It could be a float-based layout, or even single column, maybe largely browser default UI elements, that sort of thing. Then we layer on styles based on the features we want to use.
 
-By organising our code in this manner, the browsers that do not support feature queries or the specified property still get styled, while those that do get a different look. We're making use of the ‘C’ in CSS. Call it ‘Cascading Web Design’, TM, yours truly.
+By organising our code in this manner, the browsers that do not support feature queries or the specified property still get styled, while those that do get a different look. We're making use of the ‘C’ in CSS. Call it ‘Cascading Web Design’. If this concept ever takes off, remember you heard it here first.
 
 In this example, the layout on the left is what IE11 users will see, the one in the middle is what Firefox users will see, because Firefox doesn't support CSS shapes yet, but once it does, it will then look like the layout on the right, which is what Chrome users see now.
 
@@ -90,11 +86,11 @@ The most basic use-case for Flexbox is centring stuff. When I first learnt Flexb
 
 When you have more than 1 item, an understanding of box alignment makes things much easier. Say we want to centre both these children. Setting `justify-content:center` aligns them along the inline-axis, while setting `align-items:center` aligns them along the block-axis. Flexbox by default lays out all its children in one line without wrapping, so change that to `wrap`. Wrap only kicks in when the content is longer than the container, so make the width of one of the children `100%`.
 
-There's a difference between `align-content` and `align-items`, where content controls alignment of the box's content within its content box, while items specifies the behaviour for each individual child.
+There's a difference between `align-content` and `align-items`, where content controls alignment of all the `content` as a unified block within the parent container, while `items` aligns items along the flex line.
 
 When it comes to flex children, the key property is `flex`. It is strongly recommended that we use the `flex` shorthand rather than each of the individual long-hand properties. First value for amount of growth, second value for amount of shrinkage and last value being the starting width before free space is distributed.
 
-Anyhoo, `flex` comes with some handy keyword values for commonly desired effects, as shown in this table. If we don't set the flex value on a flex child, its default behaviour is cannot grow, will shrink.
+`flex` comes with some handy keyword values for commonly desired effects, as shown in this table. If we don't set the flex value on a flex child, its default behaviour is cannot grow, will shrink.
 
 A common issue I hear is that it's difficult to create a grid system with Flexbox. The thing about Flexbox is, even though you can make a grid system with it, it probably isn't the best idea to do so.
 
@@ -110,7 +106,7 @@ I can also change the direction of the layout by setting `flex-direction` to `co
 
 Again, I can go with the funky, jagged look by adjusting the flex children's alignment. Now that the flex direction has changed, the block and inline axes has also changed. `justify-content` shifts along the vertical axis, while `align-items` shifts along the horizontal axis.
 
-Or I could go neat, and do the cropping thing again. Remove the alignment code, make the flex children totally flexible and images fill up their containers' heights. `calc()` is an indispensable function I use when creating layouts. Here, `calc()` let's me account for the margins of each image with respect to their container heights. I can fix the widths of the images to get something like this.
+Maybe this new-age hippy layout isn't everyone's thing, that's fine. Remove the alignment code, make the flex children totally flexible and images fill up their containers' heights. `calc()` is an indispensable function I use when creating layouts. Here, `calc()` let's me account for the margins of each image with respect to their container heights. I can fix the widths of the images to get something like this.
 
 And these layouts are a demonstration of what Flexbox can do out-of-the-box. They are not hacks. These are native options that we have when it comes to designing our layouts.
 
@@ -126,7 +122,7 @@ By developing Grid behind a flag, browser vendors could ask developers to test t
 
 > We need to translate ideas that we find in other places, not transfer them.
 
-Jen Simmons said this in her talk at An Event Apart a couple years ago, that we need to translate ideas instead of transfer them. Meaning that we can look for ideas, concepts and inspiration from everywhere but we have to utilise them in a manner that best suits the medium we're working in. We're gonna look at some examples of grid in a non-web context.
+Jen Simmons said this in her talk at An Event Apart a couple years ago, that we need to translate ideas instead of transfer them. Meaning that we can look for ideas, concepts and inspiration from everywhere but we have to utilise them in a manner that best suits the medium we're working in.
 
 The grids we usually see on the web are usually regular, x number of columns all the way down, which was pretty much all the web could do without some serious hacks or Javascript manipulation. Irregular grids are way more interesting though.
 
@@ -166,33 +162,39 @@ Pseudo-elements are treated as children. So the two circles here are pseudo-elem
 
 The placement code is more intuitive than using absolute positioning and you don't need to do a lot of complicated math to get the alignment just right no matter how you resize the browser.
 
-One other dimension we need to keep in mind when designing for the web is feature support for each browser, and this will vary depending on how far back your support policy goes. A browser that doesn't support Grid or feature queries will get a layout that looks like this. A basic layout that utilises Flexbox. But for browsers that do support Grid, I can layer on a fancier *overlap with vertical white-space* layout.
+#### Firefox Grid inspector
+
+Firefox has the best Grid Inspector tool in any browser, and the team is constantly working on adding more features to it to make our lives easier when using CSS grid. To toggle it, click on the waffle-like icon next to `display:grid` on your grid container element. It will then show all the grid lines and you can see where your grid items have been placed on the grid.
+
+And if you're using Nightly, you'll have the Layout panel in your DevTools, which gives you the customisation options like displaying grid line numbers and grid areas, as well as setting different colours if you're using multiple grids on the same page.
+
+#### Embracing the nature of the web
+
+One other dimension we need to keep in mind when designing for the web is feature support for each browser, and this will vary depending on how far back your support policy goes. For example, we can give browsers that don't support Grid or feature queries a basic layout that looks like this. But for browsers that do support Grid, I can layer on a fancier *overlap with vertical white-space* layout.
 
 Designing layouts on the web requires interpolative thinking, on multiple levels. Web layouts can and most probably should morph as the viewport size changes. Our job is to make sure the layout is most effective in the space it has to perform in.
 
 Also, there are more media queries available to us than just `min-width` and `max-width`. Like in this example, I'm using the `min-aspect-ratio` media query which triggers my fancier overlap layout only when the aspect-ratio is more than 1.
 
-#### Firefox Grid inspector
+Bruce Lee had put forth a criticism of martial arts masters who build up an illusion of fixed forms, who attempt to solidify the ever flowing. He called such practitioners insensitised patternised robots who merely perform methodical routines as responses rather than responding to “what is”.
 
-Firefox has the best Grid Inspector tool in any browser, and the team is constantly working on adding more features to it to make our lives easier when using CSS grid. To toggle it, click on the waffle-like icon next to `display:grid` on your grid container element. It will then show all the grid lines and you can see where your grid items have been placed on the grid.
-
-And if you're using Nightly, you'll have the Layout panel in your DevTools, which gives you the customisation options like displaying grid line numbers and grid areas, as well as setting different colours for different grids on the page. I stole this gif from the Mozilla Hacks website. So that's Grid.
+Perhaps we too, should allow our web designs to respond to “what is”. Perhaps we should be coming up with designs that “listen” to the circumstances of the different browsers that render them.
 
 ## Transforms
 
-Next up is CSS transforms. Although we tend to associate transforms with animations, there is also a case to be made for static transforms, especially when it comes to layout design.
+Another useful tool we have at our disposal is CSS transforms. Although we tend to associate transforms with animations, there is also a case to be made for static transforms, especially when it comes to layout design.
 
-Diagonals are a very dynamic visual direction, and when used in layout design, creates an active composition with implied movement. Such art direction is totally possible on the web.
+Diagonals are a very dynamic visual direction, and when used in layout design, create an active composition that implies movement or depth. Such art direction is totally possible on the web.
 
 Like for this example, we can use Grid to place the items, then use transforms to make them have this floating-out-of-the-grid look. But it's still fine to present a regular layout that works on older browsers that don't support Grid or Transforms.
 
-If you're familiar with image editing software like Photoshop or Affinity Photo, you'll find that a lot of image manipulation techniques can now be done in CSS as well. These are the four basic transformations in the two-dimensional space. But they're also available when it comes to three-dimensional transforms.
+If you're familiar with image editing software like Photoshop, you'll find that a lot of image manipulation techniques can now be done in CSS as well. These are the four basic transformations in the two-dimensional space. But they're also available when it comes to three-dimensional transforms.
 
-How many people read the article ‘The Critical Request‘ by Ben Schwarz on CSS Tricks? It's a really good article on page performance, but it also had this really pretty header. It's an image on the actual article, but it definitely can be “web-ified”.
+There was an article titled ‘The Critical Request‘ that was published on CSS Tricks last month. It's a really good article on page performance, but what caught my eye was this beautifully designed header. It was an image on the actual article, but I felt it was something that definitely could be “web-ified”.
 
-Again, for browsers that don't support Transforms or Grid, we can still present a layout that doesn't use those properties for browsers that don't support them with the help of feature queries. Sure, it'll look different, but it won't be broken.
+So on a narrow screen, diagonals may not be a good idea, but once we have enough space, why not? Again, for browsers that don't support Transforms or Grid, we can still present a layout that doesn't use those properties with the help of feature queries. Remember, things on the web don't need to look the same all the time.
 
-3D transforms also make for great visual impact. The benefit of doing it with text plus CSS is that it's searchable, indexable, googl-able. Much better accessibility than presenting the text in an image.
+3D transforms also make for great visual impact. The benefit of doing it with text plus CSS is that it provides much better accessibility than sticking the text in an image.
 
 With 3D transforms, we are operating with one more axis, which is the z-axis, for depth. So there are some additional properties like `backface-visibility` and `perspective`, for example. The `perspective` property controls how far an element appears to recede into the horizon.
 
@@ -218,9 +220,7 @@ Shape from images is what really makes me happy. The image has to have transpare
 
 CSS shapes also fails really well, in that, if a browser doesn't support it, it will just behave as if `shape-outside` wasn't present at all. Like what I'm showing you right now. Because CSS shapes isn't fully supported on Firefox yet, but if you check Bug 1040714 on the issue logs, you'll see that the team at Mozilla are working on it.
 
-If you're using Chrome, you should see something like this, where the text is flowing around Beyoncé. Ask me about Beyoncé later, if you want to. Anyway, Chrome has been supporting CSS shapes for a while now, so their DevTools shows you how the `shape-threshold` and `shape-margin` properties are being applied.
-
-CSS shapes also has a level 2 specification, which will define how text should flow inside a shape. But this is a lot more tricky than outside because of how overflow needs to be treated. So it'll be a while longer before we can do layouts like these.
+If you're using Chrome, you should see something like this, where the text is flowing around Bruce Lee and his fists of fury. Chrome has been supporting CSS shapes for a while now, so their DevTools shows you how the `shape-threshold` and `shape-margin` properties are being applied.
 
 ## Writing-mode
 
@@ -246,6 +246,8 @@ Speaking of demos, I think everyone should build up a collection of demos, becau
 
 Here's the long list of resources related to the things I covered in today's talk and I'll share these slides for anybody who is interested.
 
-CSS has been around for about 20 years now, and the last I checked, there were 501 distinct properties. And you don't have to know every single one of them, I'm just pointing out that we can achieve a lot more with CSS than ever before. CSS is an integral part of web layout, and it‘s really about combining different properties to create designs that are truly web.
+CSS has been around for about 20 years now, and the last I checked, there were 501 distinct properties. And you don't have to know every single one of them, I'm just pointing out that we can achieve a lot more with CSS than ever before.
+
+I want to leave you all with one final Bruce Lee quote. That true observation begins when one is devoid of set patterns and freedom of expression occurs when one is beyond systems. And I hope that this will inspire you to create designs that truly embrace the nature of the web.
 
 Thank you.
