@@ -16,7 +16,7 @@
 // Override theme settings (see ../template/settings.scss)
 $mainFont: 'Magnetic Pro', 'HeiTi SC', 'Microsoft YaHei', sans-serif;
 $mainColor: #25283d;
-$mainFontSize: 2.8em;
+$mainFontSize: 2.5em;
 $headingFont: 'Magnetic Pro Black', 'Arial Black', 'Microsoft YaHei', sans-serif;
 $headingColor: #403d58;
 $headingTextShadow: none;
@@ -171,6 +171,24 @@ span[role=img][aria-label]:hover::after {
   }
 }
 
+// Rainbow colour change ---------------------
+.rainbow {
+  animation: rainbow 10s infinite;
+}
+
+@keyframes rainbow {
+  0%   { fill: tomato; }
+  10%  { fill: orange; }
+  20%  { fill: yellow; }
+  30%  { fill: chartreuse; }
+  40%  { fill: mediumspringgreen; }
+  50%  { fill: lightseagreen; }
+  60%  { fill: turquoise; }
+  70%  { fill: deepbluesky; }
+  80%  { fill: mediumslateblue; }
+  90%  { fill: violet; }
+  100% { fill: tomato; }
+}
 // Demo-related ------------------------------
 .livecode {
   display: grid;

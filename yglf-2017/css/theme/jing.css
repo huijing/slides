@@ -17,7 +17,7 @@ body {
 
 .reveal {
   font-family: "Magnetic Pro", "HeiTi SC", "Microsoft YaHei", sans-serif;
-  font-size: 2.8em;
+  font-size: 2.5em;
   font-weight: normal;
   color: #25283d; }
 
@@ -393,6 +393,33 @@ span[role=img][aria-label]:hover::after {
 @media print {
   span[role=img][aria-label]::after {
     content: " (" attr(aria-label) ") "; } }
+
+.rainbow {
+  animation: rainbow 10s infinite; }
+
+@keyframes rainbow {
+  0% {
+    fill: tomato; }
+  10% {
+    fill: orange; }
+  20% {
+    fill: yellow; }
+  30% {
+    fill: chartreuse; }
+  40% {
+    fill: mediumspringgreen; }
+  50% {
+    fill: lightseagreen; }
+  60% {
+    fill: turquoise; }
+  70% {
+    fill: deepbluesky; }
+  80% {
+    fill: mediumslateblue; }
+  90% {
+    fill: violet; }
+  100% {
+    fill: tomato; } }
 
 .livecode {
   display: grid;
