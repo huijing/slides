@@ -83,7 +83,7 @@
               </figure>
             </div>
             <p class="fragment">Sources: <a href="http://www.worldometers.info/world-population/">Worldometers</a>, <a href="https://www.ethnologue.com/language/eng">Ethnologue</a>, <a href="https://w3techs.com/technologies/overview/content_language/all">W3Techs</a></p>
-            <aside class="notes">Similar to Israel, the country where I'm from does not use English as its first language, though it too is used as a second language among many. Of the world's 7.6 billion people, only 4.9% are native English speakers, but 51.2% of websites are in English. There's something wrong with this picture.</aside>
+            <aside class="notes">Similar to Israel, the country where I'm from does not use English as its first language, though it too is used as a second language among many. Of the world's 7.6 billion people, only 4.9% are native English speakers, but 51.2% of websites are in English. Something isn't quite right about this ratio.</aside>
           </section>
 
           <section>
@@ -236,9 +236,8 @@
 
           <section data-background-image="img/glyphs.jpg">
             <aside class="notes">
-              <p>Chinese typefaces are extremely challenging to create, simply due to the volume of glyphs required. Earlier this year, Adobe Type announced Source Hans Serif, their second Pan-CJK typeface family. Work on this typeface had started 3 years prior.</p>
-              <p>The average number of glyphs for a Chinese system font is around 35,000, give or take a couple thousand.</p>
-              <p>Typefaces that have enough glyph coverage to be used in body copy are usually made by foundries, like Founder Type or Monotype, as very few independent type designers have the bandwidth for that.</p>
+              <p>Chinese typefaces are extremely challenging to create, simply due to the volume of glyphs required. The average number of glyphs for a Chinese system font clocks in at around 35,000 glyphs, give or take a couple thousand.</p>
+              <p>Typefaces that have enough glyph coverage to be used in body copy are usually made by foundries as very few independent type designers have the bandwidth for that.</p>
             </aside>
           </section>
         </section>
@@ -247,7 +246,7 @@
           <section data-background-image="img/analogue.jpg">
             <aside class="notes">
               <p>Language and writing has allowed human beings to communicate ideas and record history for thousands of years. And we've written on almost anything we could get our hands on.</p>
-              <p>Right now, the medium of our time is the screen and the browser. Our types are now font files. And we've replaced typesetting with composing sticks or font plates, with CSS.</p>
+              <p>Right now, the medium of our time is the screen and the browser. Our types are now font files. And we've replaced typesetting using composing sticks with CSS.</p>
             </aside>
           </section>
 
@@ -272,10 +271,7 @@
               <a href="https://www.chenhuijing.com/blog/tracing-the-history-of-css-fonts/">http://bit.ly/css-font-history/</a>
               <img class="plain" style="max-height:30vh;margin-left:1em;" data-src="img/webfonts.svg">
             </div>
-            <aside class="notes">
-              <p>When we talk about typography on the web, one of the first things that comes to mind is web fonts. I am, admittedly, a specifications nerd, so whilst researching for this topic, I delved into some history and wrote about it, link for anybody interested.</p>
-              <p>So let's start off with some basics.</p>
-            </aside>
+            <aside class="notes">When we talk about typography on the web, one of the first things that comes to mind is web fonts. So let's start off with some basics.</aside>
           </section>
 
           <section>
@@ -307,8 +303,8 @@
               </figure>
             </div>
             <aside class="notes">
-              <p>A glyph is the specific shape of a letter or character in a particular font. In the digital world, everything is data. So glyphs can be described with an array of pixels, or collections of vector images or paths of Bézier curves and straight lines, depending on the type of font.</p>
-              <p>Different font formats also store information about the font, like their glyphs, encodings, metadata about the font etc., differently based on how their specifications were written.</p>
+              <p>A glyph is the specific shape of a letter or character in a particular font. In the digital world, everything is data. So glyphs can be described with an array of pixels, or collections of vector images or even paths of Bézier curves and straight lines.</p>
+              <p>Different font formats store information about the font, like their glyphs, encodings, metadata about the font etc., differently based on how their specifications were written.</p>
             </aside>
           </section>
 
@@ -434,11 +430,32 @@
             <aside class="notes">
               <p>These here are CSS font properties, and the way I've structured this table is, those I feel are most commonly used are at the top. So how many people use <code>font-size</code>, <code>font-weight</code> and <code>font-style</code> regularly? Because I do.</p>
               <p>But how about <code>font-stretch</code>? Okay, and has anybody even heard of <code>font-size-adjust</code>? And lastly, <code>font-synthesis</code>? Okay, so let's talk about the last 2 in the table, which were newly added to the Fonts Level 3 specification.</p>
-              <ul>
-                <li><code>font-size-adjust</code> was put in to address legibility issues. Faces with low x-heights may sometimes be less legible, especially when they are triggered as fallback fonts. We can set the value of this property to the aspect ratio of the first choice font. Any fallback fonts triggered will have their font-size adjusted to match this ratio.</li>
-                <li><code>font-synthesis</code> was put in to address the issue of faux bolds and faux italics. Sometimes the true italic or heavier version of a font does not exist so the browser will try to compensate. Unfortunately, the end result isn't pretty. With this property, you can set a value of <code>none</code>, to tell the browser, it's fine buddy, appreciate the effort, but no thanks.</li>
-              </ul>
             </aside>
+          </section>
+
+          <section>
+            <h2><code>font-size-adjust</code></h2>
+            <div class="l-double">
+              <img class="plain" data-src="img/font-size-adjust.png" alt="Launch of the web">
+              <p data-height="297" data-theme-id="9162" data-slug-hash="xLvYNw" data-default-tab="result" data-user="huijing" data-embed-version="2" data-pen-title="Demo of font-size-adjust" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/xLvYNw/">Demo of font-size-adjust</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+            </div>
+            <aside class="notes"><code>font-size-adjust</code> was put in to address legibility issues. Faces with low x-heights may sometimes be less legible, especially when they are triggered as fallback fonts. We can set the value of this property to the aspect ratio of the first choice font. Any fallback fonts triggered will have their font-size adjusted to match this ratio.</aside>
+          </section>
+
+          <section>
+            <h2><code>font-synthesis</code></h2>
+            <div class="l-double" style="grid-template-columns: 58% 42%;">
+              <figure>
+                <img class="plain" data-src="img/faux-bold.png" alt="Launch of the web">
+                <figcaption></figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/faux-italic.png" alt="Where the web was born">
+                <figcaption></figcaption>
+              </figure>
+            </div>
+            <small>Image credit: Piotr Grochowski</small>
+            <aside class="notes"><code>font-synthesis</code> was put in to address the issue of faux bolds and faux italics. Sometimes the true italic or heavier version of a font does not exist so the browser will try to compensate. Unfortunately, the end result isn't pretty. With this property, you can set a value of <code>none</code>, to tell the browser, it's fine buddy, appreciate the effort, but no thanks.</aside>
           </section>
 
           <section>
@@ -457,8 +474,7 @@
               <p>These, as mentioned earlier, are font descriptors, and only the <code>font-family</code> descriptor and the <code>src</code> descriptor are mandatory.</p>
               <p>If either of them are absent, the entire <code>@font-face</code> rule is ignored. The <code>font-family</code> descriptor is simply a label that we reference in other CSS declarations. So even if you're using say, Frutiger, you could actually call it “Kreplach” and it would still work.</p>
               <p>The <code>src</code> descriptor is comma-separated list of external references or locally-installed font face names. It is made up of the declaration of the font file's location, and an optional format hint. If the browser doesn't support a particular font format stated in that hint, the font file won't be loaded.</p>
-              <p>The next 3 descriptors, for style, weight and stretch, are used to match styles to a particular typeface in later declarations. Technically, you could assign a black typeface to a font-weight of 100 and proceed to confuse your team members who cannot figure out why setting a weight of 100 gives them this massively bold typeface. Please don't do that.</p>
-              <p>Every Unicode character is represented by a unique code point. The <code>unicode-range</code> descriptor allows us to specify individual code points or a range of code points for characters we want displayed using a particular font face. We can make use of this to create custom font families with glyphs from different typefaces.</p>
+              <p>The next 3 descriptors, for style, weight and stretch, are used to match styles to a particular typeface in later declarations. Technically, you could assign a black typeface to a font-weight of 100 and proceed to confuse your team members who cannot figure out why setting a weight of 100 gives them this massively bold typeface. Perhaps an idea for next year's April Fool's day.</p>
             </aside>
           </section>
 
@@ -498,7 +514,7 @@
           </section>
 
           <section>
-            <h2>Font feature properties (1/4)</h2>
+            <h2>Font feature properties</h2>
             <table>
               <tr>
                 <td style="width:30%;vertical-align:top;">
@@ -531,7 +547,7 @@
             </table>
             <aside class="notes">
               <p>Font feature properties were introduced in Fonts Level 3. Modern font technologies allow fonts to contain a lot more glyphs that before. So we can utilise a variety of typographic features like swashes, ligatures, old-style numerals and so on.</p>
-              <p>The original <code>font-variant</code> property that could only be used to trigger small-caps was also expanded, a great deal. Because there are so many properties available, each with lots of values, I'm just going to do a general overview. Some of you may be wondering, what's the point of having all these typographic features?</p>
+              <p>Perhaps some of you may be wondering, what's the point of having all these typographic features?</p>
               <p>They are part and parcel of good typography, which is necessary to hold your reader's attention. The written word is a transference of speech, which is heard, into something visual, to be seen. Good speakers will vary their cadence, use gestures, emphasise certain words.</p>
               <p>Typographic features like small caps, correct use of italics and punctuation do the same for text. Other features like old style numerals and ligatures help maintain typographic colour, to make reading more comfortable.</p>
               <p>So these are the features you can turn on via CSS, but note that the font you are using must have these features to begin with. This lot up there, are the features most often mentioned at web typography talks.</p>
@@ -539,8 +555,7 @@
           </section>
 
           <section>
-            <h2>Font feature properties (2/4)</h2>
-            <code>font-variant-east-asian</code>
+            <h2><code>font-variant-east-asian</code></h2>
             <img class="plain" style="display:block;margin:1em auto" data-src="img/fv-east-asian.png">
             <aside class="notes">
               <p>Few people talk about <code>font-variant-east-asian</code>. What this property does is allow for glyph substitution and positioning in East Asian text. If you're unfamiliar with Han characters, it might seem like these languages share the same glyphs, but it depends. Han unification involves assigning the same code point to different glyphs, and it has been quite a controversial issue.</p>
@@ -549,17 +564,7 @@
           </section>
 
           <section>
-            <h2>Font feature properties (3/4)</h2>
-            <code>font-language-override</code>
-            <img class="plain" style="display:block;margin:1em auto" data-src="img/font-lang-override.png">
-            <aside class="notes">
-              <p>Now the <code>font-language-override</code> property controls the rendering of language-specific glyphs in the typeface used. A commonly raised use-case is the use of common ligatures, for the fi combination. The Turkish alphabet has both a dotted and dotless i, so the fi ligature shouldn't be used. Maybe a typeface doesn't recognise a lesser-known language like the Azeri language, which similar to Turkish, too has the dotless i, the <code>font-language-override</code> property can be used to force the usage of Turkish glyphs instead.</p>
-            </aside>
-          </section>
-
-          <section>
-            <h2>Font feature properties (4/4)</h2>
-            <code>font-feature-settings</code>
+            <h2><code>font-feature-settings</code></h2>
             <p>Provides low-level control of advanced OpenType features</p>
             <aside class="notes">
               <p><code>font-feature-settings</code> allows us to toggle very specific OpenType properties. Last I checked, there were 141 OpenType feature tags to cover things like vertical kerning, unicase, scientific inferiors and so on.</p>
@@ -582,17 +587,17 @@
               <p>Within the short span of the web's life, we've seen web layouts evolve as browser technologies and web standards matured. In the web's infancy, there was no layout whatsoever. We were still amazed that the web even existed.</p>
               <p>Then, during the pre-school age of the web, we started to use tables to do layout. And that was fun, because like most kindergarteners, everything seemed like a good idea. There were all sorts of crazy, creative layouts on the web.</p>
               <p>But when we got to the pre-teen era, things started to conform a little more. We got a bit more self-concious, a little less radical, it wasn't that cool to be different. Float-based layouts to build sites with headers, sidebars and footers were the most socially acceptable.</p>
-              <p>By high school, life had gotten complicated, and angsty. CSS was hard. Responsive design, what? People suck. Browsers are broken. Oh, someone will do all that for me? Frameworks? Sure! I don't give a crap.</p>
+              <p>By high school, life had gotten complicated, and angsty. CSS was hard. Responsive design, what? People suck. Browsers are broken. Oh, someone will do all that for me? Frameworks? Sure! I don't give a crap. So we ended up with sites that utilised very similar layouts.</p>
             </aside>
           </section>
 
           <section>
-            <h2 style="margin-bottom:1em;">The year of CSS Grid</h2>
+            <h2 style="margin-bottom:1em;">2017: the year of CSS Grid</h2>
             <img class="plain" style="margin:0 0.5em;" data-src="img/grid-release.png" alt="Grid release">
             <aside class="notes">
               <p>But something big happened this year. CSS Grid was released. CSS Grid is a revolutionary feature that was designed specifically for doing layout on the web.</p>
               <p>All the other techniques we've used in the past, HTML tables, floats, even flexbox, were never meant for doing full page layouts. They were creative hacks we came up with to build the layouts that we wanted.</p>
-              <p>So this is the year web layouts come of age. CSS grid gives us a level of control over how elements are rendered on the browser that we've never had before.</p>
+              <p>So this is the year web layouts come of age. We now have a level of control over how elements are rendered on the browser that we've never had before, with CSS grid. And when used in combination with other properties, like CSS shapes, transforms, viewport units and so on, the design possibilities become endless.</p>
             </aside>
           </section>
 
@@ -621,7 +626,7 @@
 
           <section>
             <h2>The magic of Writing Modes</h2>
-            <p>CSS Writing Modes Level 3 defines CSS features to support for various international writing modes, such as left-to-right (e.g. Latin or Indic), right-to-left (e.g. Hebrew or Arabic), bidirectional (e.g. mixed Latin and Arabic) and vertical (e.g. Asian scripts).</p>
+            <p>CSS Writing Modes Level 3 defines CSS features to support for various international writing modes, such as <strong>left-to-right</strong> (e.g. Latin or Indic), <strong>right-to-left</strong> (e.g. Hebrew or Arabic), <strong>bidirectional</strong> (e.g. mixed Latin and Arabic) and <strong>vertical</strong> (e.g. Asian scripts).</p>
             <aside class="notes">So I want to introduce the <code>writing-mode</code> property, which deals specifically with vertical text.</aside>
           </section>
 
@@ -895,6 +900,7 @@
     <script src="lib/js/head.min.js"></script>
     <script src="lib/js/caniuse-embed.min.js"></script>
     <script src="js/reveal.js"></script>
+    <script async src="lib/js/ei.js"></script>
 
     <script>
       Reveal.initialize({
