@@ -4,7 +4,6 @@
  * Copyright (C) 2017 Chen Hui Jing, https://www.chenhuijing.com/
  */
 @import url(../../lib/font/orbitron/orbitron.css);
-@import url(../../lib/font/carmelit/carmelit.css);
 section.has-dark-background, section.has-dark-background h1, section.has-dark-background h2, section.has-dark-background h3, section.has-dark-background h4, section.has-dark-background h5, section.has-dark-background h6 {
   color: #eae7dc; }
 
@@ -357,7 +356,7 @@ html {
 .reveal .j-icon {
   display: inline-block;
   vertical-align: middle;
-  margin-left: 1rem; }
+  margin-right: 1rem; }
 
 .reveal .slides section .fragment.fade-out.visible:not(.current-fragment) {
   display: none; }

@@ -31,26 +31,126 @@
           <aside class="notes"></aside>
         </section>
 
+        <section style="font-size:calc(1.75em + 2vw);">
+          <span style="margin-right:2vw;" class="emoji" role="img" tabindex="0" aria-label="Malaysia">&#x1F1F2;&#x1F1FE;</span>
+          <span style="margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="basketball">&#x1F3C0;</span>
+          <span style="margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="woman technologist">&#x1F469;&#x200D;&#x1F4BB;</span>
+          <span style="margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="Singapore">&#x1F1F8;&#x1F1EC;</span>
+          <span style="margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="memo">&#x1F4DD;</span>
+          <span style="margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="studio microphone">&#x1F399;</span>
+          <aside class="notes">My name is Hui Jing, and I'm from Malaysia. I played basketball for more than half my life and it actually kick-started my web career. I now do front-end stuff in Singapore, and I love CSS so much that I will write blog posts about it. I also run a little CSS meet-up called Talk.CSS.</aside>
+        </section>
+
         <section>
-          <blockquote>“Our ‘Age of Anxiety’ is, in great part, the result of trying to do today's job with yesterday's tools—with yesterday's concepts.”<br><small>—Marshall McLuhan</small></blockquote>
+          <section>
+            <div class="l-multiple">
+              <div style="margin:0 0.5em;">
+                <img class="plain" data-src="img/meme1.jpg" alt="Writing CSS meme">
+              </div>
+              <div style="margin:0 0.5em;">
+                <img class="plain" data-src="img/meme2.jpg" alt="CSS floats meme">
+              </div>
+              <div style="margin:0 0.5em;">
+                <img class="plain" data-src="img/meme3.png" alt="CSS inheritence meme">
+              </div>
+            </div>
+            <aside class="notes">
+              <p>How many people think that building layouts with CSS is hard? And how many people use CSS frameworks like Bootstrap or Foundation in your projects?</p>
+              <p>I will be putting forth some ideas that you may not entirely agree with, but I do hope you will hear me out anyway. But first, I want to tell a short story about the web.</p>
+            </aside>
+          </section>
+
+          <section>
+              <div class="l-double">
+                <img class="plain" data-src="img/launch.jpg" alt="Launch of the web">
+                <img class="plain" data-src="img/web.jpg" alt="Where the web was born">
+              </div>
+              <aside class="notes">The World Wide Web was invented by Sir Tim Berners-Lee in 1989 as a means for researchers to share information. That means the web is 28 this year, and was born in the year of the Snake.</aside>
+            </section>
+
+          <section>
+            <h2 style="margin-bottom:1em;">Web layouts over the years</h2>
+            <div class="l-multiple">
+              <img class="plain fragment" style="margin:0 0.5em;" data-src="img/layouts1.png" alt="No layout">
+              <img class="plain fragment" style="margin:0 0.5em;" data-src="img/layouts2.png" alt="Table-based layout">
+              <img class="plain fragment" style="margin:0 0.5em;" data-src="img/layouts3.png" alt="Float-based layout">
+              <img class="plain fragment" style="margin:0 0.5em;" data-src="img/layouts4.png" alt="Panel-style from frameworks">
+            </div>
+            <aside class="notes">
+              <p>Within the short span of the web's life, we've seen web layouts evolve as browser technologies and web standards matured. In the web's infancy, there was no layout whatsoever. We were still amazed that the web even existed.</p>
+              <p>Then, during the pre-school age of the web, we started to use tables to do layout. And that was fun, because like most kindergarteners, everything seemed like a good idea. There were all sorts of crazy, creative layouts on the web.</p>
+              <p>But when we got to the pre-teen era, things started to conform a little more. We got a bit more self-concious, a little less radical, it wasn't that cool to be different. Float-based layouts to build sites with headers, sidebars and footers were the most socially acceptable.</p>
+              <p>By high school, life had gotten complicated, and angsty. CSS was hard. Responsive design, what? People suck. Browsers are broken. Oh, someone will do all that for me? Frameworks? Sure! I don't give a crap. So we ended up with sites that utilised very similar layouts.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>CSS Grid arrives</h2>
+            <img class="plain" data-src="img/grid-release.png">
+            <aside class="notes">
+                <p>But something big happened this year. CSS Grid was released. CSS Grid is a revolutionary feature that was designed specifically for doing layout on the web.</p>
+                <p>All the other techniques we've used in the past, HTML tables, floats, even flexbox, were never meant for doing full page layouts. They were creative hacks we came up with to build the layouts that we wanted.</p>
+                <p>So this is the year web layouts come of age. We now have a level of control over how elements are rendered on the browser that we've never had before, with CSS grid. And when used in combination with other properties, like CSS shapes, transforms, viewport units and so on, the design possibilities become endless.</p>
+              </aside>
+          </section>
+
+          <section>
+            <blockquote>“Our ‘Age of Anxiety’ is, in great part, the result of trying to do today's job with yesterday's tools—with yesterday's concepts.”<br><small>—Marshall McLuhan</small></blockquote>
+            <aside class="notes">
+              <p>I was reading a book called “The Medium is the Massage” by Marshall McLuhan the other day and came across this quote. And I couldn't help but think about the way we build layouts on the web.</p>
+              <p>The thing about working on the web is that things move fast. In less than 3 decades, browser technologies have advanced a great deal. I first encountered the web when I was 11 years old, and I would never have imagined the web of today.</p>
+              <p>A lot of frustration we have when designing for the web comes about from trying to build using yesterday's tools. Because yesterday, browsers weren't this smart. Yesterday, I had to tell my designer no, that can't be built. Yesterday, love was such an easy game to play.</p>
+              <p>Sorry, that was lame. But my point is, the web is a medium like nothing we've seen before, and we need to adapt our mindsets to handle it.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Grid browser support</h2>
+            <p class="ciu_embed" data-feature="css-grid" data-periods="future_1,current,past_1,past_2">
+              <a href="http://caniuse.com/#feat=css-grid"><img class="plain" data-src="img/caniuse-grid.jpg"></a>
+            </p>
+            <aside class="notes"></aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>What is CSS grid?</h2>
+            <p>Defines a two-dimensional grid-based layout system, optimized for user interface design.</p>
+            <aside class="notes"></aside>
+          </section>
+
+          <section>
+            <blockquote>“Grid works from the <strong style="border-bottom:0.125em solid;">container</strong> in, other layout methods start with the <strong style="border-bottom:0.125em solid;">item</strong>”<br><small>—<a href="https://rachelandrew.co.uk/">Rachel Andrew</a></small></blockquote>
+            <aside class="notes"></aside>
+          </section>
+
+          <section>
+            <h2>Grid layouts before CSS grid</h2>
+            <aside class="notes"></aside>
+          </section>
+        </section>
+
+        <section>
+          <h2>A long list of resources</h2>
+          <ul style="column-count:2;font-size:50%;">
+            <li><a href="https://www.w3.org/TR/css-grid-1/">CSS Grid Layout Module Level 1</a></li>
+            <li><a href="https://tympanus.net/codrops/css_reference/grid/">Codrops CSS Grid reference</a></li>
+            <li><a href="https://gridbyexample.com/">Grid by Example</a></li>
+            <li><a href="http://jensimmons.com/post/feb-27-2017/learn-css-grid">Learn CSS Grid</a></li>
+            <li><a href="https://blogs.igalia.com/mrego/2015/02/25/grid-auto-placement-is-ready/">Grid Auto-Placement Is Ready</a></li>
+            <li><a href="https://blogs.igalia.com/svillar/2016/05/10/automatizing-the-grid/">Automatizing the Grid</a></li>
+            <li><a href="https://blogs.igalia.com/mrego/2016/02/01/deep-dive-into-grid-layout-placement/">Deep Dive into Grid Layout Placement</a></li>
+            <li><a href="https://blogs.igalia.com/mrego/2016/05/27/css-grid-layout-and-positioned-items/">CSS Grid Layout and positioned items</a></li>
+            <li><a href="https://alistapart.com/article/the-story-of-css-grid-from-its-creators">The Story of CSS Grid, from Its Creators</a></li>
+            <li><a href="https://blogs.igalia.com/mrego/2017/03/16/css-grid-layout-is-here-to-stay/">CSS Grid Layout is Here to Stay</a></li>
+          </ul>
           <aside class="notes"></aside>
-        </section>
-
-        <section>
-          <h2>Grid release dates</h2>
-          <img class="plain" data-src="img/grid-release.png">
-        </section>
-
-        <section>
-          <h2>Grid browser support</h2>
-          <p class="ciu_embed" data-feature="css-grid" data-periods="future_1,current,past_1,past_2">
-            <a href="http://caniuse.com/#feat=css-grid"><img class="plain" data-src="img/caniuse-grid.jpg"></a>
-          </p>
         </section>
 
         <section style="text-align:left;">
           <h1>Thank you!</h1>
-          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a dir="ltr" href="http://www.chenhuijing.com" style="display:inline-block;vertical-align:middle;">http://www.chenhuijing.com</a></p>
+          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a dir="ltr" href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle;">https://www.chenhuijing.com</a></p>
           <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a dir="ltr" href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
           <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a dir="ltr" href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
           <p><img class="j-icon plain" data-src="img/codepen_w.png" alt="Codepen"><a dir="ltr" href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle;">@huijing</a></p>

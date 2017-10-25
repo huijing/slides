@@ -1,6 +1,3 @@
-# Grid is the new black
+# 2017: the year of CSS Grid
 
-*Slides for JSConf.Asia 2018 Grid workshop*
-
-
-
+*For DevFest GDay George Town 2017. This is sort of a transcript of the talk.*
