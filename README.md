@@ -2,11 +2,11 @@
 
 ### Slides for talks and stuff
 
-1. [Using responsive images (now)](http://www.chenhuijing.com/slides/responsive-images)
+1. [Using responsive images (now)](https://www.chenhuijing.com/slides/responsive-images)
 
-2. [Why you should be excited about CSS shapes](http://www.chenhuijing.com/slides/css-shapes)
+2. [Why you should be excited about CSS shapes](https://www.chenhuijing.com/slides/css-shapes)
 
-3. [Let's ⚡ talk about CSS triggers](http://www.chenhuijing.com/slides/css-triggers)
+3. [Let's ⚡ talk about CSS triggers](https://www.chenhuijing.com/slides/css-triggers)
 
 4. [Web development: breaking it down](https://www.chenhuijing.com/slides/intro-html-css)
 
