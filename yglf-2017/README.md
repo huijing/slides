@@ -124,17 +124,13 @@ On the practical side of things, the <code>@font-face</code> rule is used to dec
 
 ### CSS properties and font descriptors
 
-Chris Lilley, who chaired the group that developed @font-face, explained it really well in his dotCSS talk. That properties are requests for styling and descriptors are descriptions of capabilities. A <code>font-weight: bold;</code> within a <code>@font-face</code> rule means this font can do bold. While a <code>font-weight: bold;</code> applied as a property means style this element with a font that can do bold.
+Chris Lilley, who chaired the group that developed @font-face, explained it really well in his dotCSS talk. That properties are requests for styling and descriptors are descriptions of capabilities. Fun fact, Chris Lilley spoke at last year's You Gotta Love Frontend and you can watch that video on Youtube. 
 
-These here are CSS font properties, and the way I've structured this table is, those I feel are most commonly used are at the top. So how many people use <code>font-size</code>, <code>font-weight</code> and <code>font-style</code> regularly? Because I do.
+A <code>font-weight: bold;</code> within a <code>@font-face</code> rule means this font can do bold. While a <code>font-weight: bold;</code> applied as a property means style this element with a font that can do bold.
 
-But how about <code>font-stretch</code>? Okay, and has anybody even heard of <code>font-size-adjust</code>? And lastly, <code>font-synthesis</code>? Okay, so let's talk about the last 2 in the table, which were newly added to the Fonts Level 3 specification.
+These here are CSS font properties, and the way I've structured this table is, those I feel are most commonly used are at the top. For a given range of text, these CSS font properties are used by the browser to select a font family and a specific font face within that family to be used when rendering that text.
 
-<code>font-size-adjust</code> was put in to address legibility issues. Faces with low x-heights may sometimes be less legible, especially when they are triggered as fallback fonts. We can set the value of this property to the aspect ratio of the first choice font. Any fallback fonts triggered will have their font-size adjusted to match this ratio.
-
-<code>font-synthesis</code> was put in to address the issue of faux bolds and faux italics. Sometimes the true italic or heavier version of a font does not exist so the browser will try to compensate. Unfortunately, the end result isn't pretty. With this property, you can set a value of <code>none</code>, to tell the browser, it's fine buddy, appreciate the effort, but no thanks.
-
-These, as mentioned earlier, are font descriptors, and only the <code>font-family</code> descriptor and the <code>src</code> descriptor are mandatory.
+And these, as mentioned earlier, are font descriptors, and only the <code>font-family</code> descriptor and the <code>src</code> descriptor are mandatory.
 
 If either of them are absent, the entire <code>@font-face</code> rule is ignored. The <code>font-family</code> descriptor is simply a label that we reference in other CSS declarations. So even if you're using say, Frutiger, you could actually call it “Kreplach” and it would still work.
 
