@@ -123,7 +123,7 @@
             <aside class="notes">
               <p>Oliver Reichenstein said in his article this back in 2006. He reiterated that the web as a medium, is all about information.</p>
               <p>Textual content is the most straightforward method of delivering information on the web. And whether we like it or not, Typography is increasingly becoming what differentiates a good website from bad.</p>
-              <p>Let's be honest, people are superficial and have short attention spans these days. The typography, layout and design of a site or application are like the clothes you wear. And people make judgements  off their first impressions of you or your site based on what they see.</p>
+              <p>Let's be honest, people are superficial and have short attention spans these days. The typography, layout and design of a site or application are like the clothes you wear. And people make judgements off their first impressions of you or your site based on what they see.</p>
             </aside>
           </section>
 
@@ -237,7 +237,7 @@
           <section data-background-image="img/glyphs.jpg">
             <aside class="notes">
               <p>Chinese typefaces are extremely challenging to create, simply due to the volume of glyphs required. The average number of glyphs for a Chinese system font clocks in at around 35,000 glyphs, give or take a couple thousand.</p>
-              <p>Typefaces that have enough glyph coverage to be used in body copy are usually made by foundries as very few independent type designers have the bandwidth for that.</p>
+              <p>Typefaces that have enough glyph coverage to be used in body copy are usually made by foundries as very few independent type designers have the bandwidth to do that.</p>
             </aside>
           </section>
         </section>
@@ -536,7 +536,7 @@
             <img class="plain" style="display:block;margin:1em auto" data-src="img/fv-east-asian.png">
             <aside class="notes">
               <p>Few people talk about <code>font-variant-east-asian</code>. What this property does is allow for glyph substitution and positioning in East Asian text. If you're unfamiliar with Han characters, it might seem like these languages share the same glyphs, but it depends. Han unification involves assigning the same code point to different glyphs, and it has been quite a controversial issue.</p>
-              <p>We won't get into that, but the point is, the same code point can have variant glyphs depending on the language being used. Like, simplified Chinese glyphs versus traditional Chinese glyphs. Japanese glyphs have their own specification known as JIS or Japanese Industrial Standard, and they too have alternate glyphs for the same character. This property allows us to toggle these variant glyphs.</p>
+              <p>We won't get into that, but the point is, the same code point can have variant glyphs depending on the language being used. Like, simplified Chinese glyphs versus traditional Chinese glyphs. Japanese has its own specification, and they too have alternate glyphs for the same character. This property allows us to toggle these variant glyphs.</p>
             </aside>
           </section>
 
@@ -689,7 +689,7 @@
             <aside class="notes">
               <p><code>font-feature-settings</code> allows us to toggle very specific OpenType properties. Last I checked, there were 141 OpenType feature tags to cover things like vertical kerning, unicase, scientific inferiors and so on.</p>
               <p>Browser support for each of <code>font-variant</code> properties varies at the moment, with Firefox being the only browser that has supported all of them since version 34.0.</p>
-              <p><code>font-feature-settings</code>, on the other hand, has quite good support across most browsers. Although, the specification recommends to utilise the respective <code>font-variant</code> properties over the <code>font-feature-settings</code> property, until browser support becomes more robust, I suppose we'll continue to see <code>font-feature-settings</code> being used instead.</p>
+              <p><code>font-feature-settings</code>, on the other hand, has quite good support across most browsers. Although, the specification recommends to utilise the respective <code>font-variant</code> properties, until browser support becomes more robust, I suppose we'll continue to see <code>font-feature-settings</code> being used instead.</p>
             </aside>
           </section>
         </section>
@@ -831,7 +831,7 @@
             <a href="https://codepen.io/huijing/pen/bWzMEJ"><small>Codepen example for text-combine-upright</small></a>
             <aside class="notes">
               <p>One more relevant property is <code>text-combine-upright</code>. This addresses the issue of numerals and abbreviations in vertical text. A very common use case is dates, especially for Taiwan, where they use the 民國 calendar. This property lets us fit all the digits into the width of one character and display them upright.</p>
-              <p>No browser supports the digits value yet, which allows us to dictate how many digits are acceptable to be squeezed in. The range allowed is between 2 to 4 characters. For now, with the <code>all</code> value, there is no limit, so you could technically put hippopotamus in there and it will just look horribly squished.</p>
+              <p>No browser supports the digits value yet, which allows us to dictate how many digits are acceptable to be squeezed in this one-character width. The range allowed is between 2 to 4 characters. For now, with the <code>all</code> value, there is no limit, so you could put in a world like hippopotamus and it will just look horribly squished.</p>
             </aside>
           </section>
         </section>
@@ -957,7 +957,7 @@
             </div>
             <aside class="notes">
               <p>But that doesn't mean we should just shy away from using vertical text altogether. In fact, there's never been a better time than now to live on the cutting edge. Evergreen browsers are a thing now, with bug fixes and new features being shipped faster than ever.</p>
-              <p>CSS Grid, I feel, is one of the best rollouts of a new major CSS feature ever, with almost all the major browsers shipping it in March this year. By now, more than 70% of the market is using a browser that supports Grid.</p>
+              <p>CSS Grid, I feel, is one of the best rollouts of a new major CSS feature ever, with almost all the major browsers shipping it in March this year. By now, more than 75% of the market is using a browser that supports Grid.</p>
               <p>And here's a little secret I discovered, by raising bugs we find when trying out new features, we are actually showing browser vendors that these features are in demand.</p>
               <p>This works both ways, if we don't use features simply because they are buggy, browser vendors will think that nobody really cares about that feature and choose to fix more pressing bugs instead. But if more of us use those features and raise the bugs we discover, it sends a signal to browser vendors that people are using these features and encourage them to address related bugs sooner than later.</p>
             </aside>

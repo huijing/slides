@@ -38,7 +38,7 @@ You might disagree with me, but as a front-end developer, the code we write impa
 
 Oliver Reichenstein said in his article this back in 2006. He reiterated that the web as a medium, is all about information. Textual content is the most straightforward method of delivering information on the web. And whether we like it or not, Typography is increasingly becoming what differentiates a good website from bad.
 
-Let's be honest, people are superficial and have short attention spans these days. The typography, layout and design of a site or application are like the clothes you wear. And people make judgements  off their first impressions of you or your site based on what they see.
+Let's be honest, people are superficial and have short attention spans these days. The typography, layout and design of a site or application are like the clothes you wear. And people make judgements off their first impressions of you or your site based on what they see.
 
 > Typography is writing with prefabricated letters
 
@@ -82,7 +82,7 @@ These days, typefaces used for printing Chinese publications can be broadly clas
 
 Chinese typefaces are extremely challenging to create, simply due to the volume of glyphs required. The average number of glyphs for a Chinese system font clocks in at around 35,000 glyphs, give or take a couple thousand.
 
-Typefaces that have enough glyph coverage to be used in body copy are usually made by foundries as very few independent type designers have the bandwidth for that.
+Typefaces that have enough glyph coverage to be used in body copy are usually made by foundries as very few independent type designers have the bandwidth to do that.
 
 Language and writing has allowed human beings to communicate ideas and record history for thousands of years. And we've written on almost anything we could get our hands on.
 
@@ -162,13 +162,13 @@ So these are the features you can turn on via CSS, but note that the font you ar
 
 Few people talk about <code>font-variant-east-asian</code>. What this property does is allow for glyph substitution and positioning in East Asian text. If you're unfamiliar with Han characters, it might seem like these languages share the same glyphs, but it depends. Han unification involves assigning the same code point to different glyphs, and it has been quite a controversial issue.
 
-We won't get into that, but the point is, the same code point can have variant glyphs depending on the language being used. Like, simplified Chinese glyphs versus traditional Chinese glyphs. Japanese glyphs have their own specification known as JIS or Japanese Industrial Standard, and they too have alternate glyphs for the same character. This property allows us to toggle these variant glyphs.
+We won't get into that, but the point is, the same code point can have variant glyphs depending on the language being used. Like, simplified Chinese glyphs versus traditional Chinese glyphs. Japanese has its own specification, and they too have alternate glyphs for the same character. This property allows us to toggle these variant glyphs.
 
 <code>font-feature-settings</code> allows us to toggle very specific OpenType properties. Last I checked, there were 141 OpenType feature tags to cover things like vertical kerning, unicase, scientific inferiors and so on.
 
 Browser support for each of <code>font-variant</code> properties varies at the moment, with Firefox being the only browser that has supported all of them since version 34.0.
 
-<code>font-feature-settings</code>, on the other hand, has quite good support across most browsers. Although, the specification recommends to utilise the respective <code>font-variant</code> properties over the <code>font-feature-settings</code> property, until browser support becomes more robust, I suppose we'll continue to see <code>font-feature-settings</code> being used instead.
+<code>font-feature-settings</code>, on the other hand, has quite good support across most browsers. Although, the specification recommends to utilise the respective <code>font-variant</code> properties, until browser support becomes more robust, I suppose we'll continue to see <code>font-feature-settings</code> being used instead.
 
 ## About web layouts
 
@@ -242,7 +242,7 @@ Statistically, there aren't that many sites which use the <code>writing-mode</co
 
 But that doesn't mean we should just shy away from using vertical text altogether. In fact, there's never been a better time than now to live on the cutting edge. Evergreen browsers are a thing now, with bug fixes and new features being shipped faster than ever.
 
-CSS Grid, I feel, is one of the best rollouts of a new major CSS feature ever, with almost all the major browsers shipping it in March this year. By now, more than 70% of the market is using a browser that supports Grid.
+CSS Grid, I feel, is one of the best rollouts of a new major CSS feature ever, with almost all the major browsers shipping it in March this year. By now, more than 75% of the market is using a browser that supports Grid.
 
 And here's a little secret I discovered, by raising bugs we find when trying out new features, we are actually showing browser vendors that these features are in demand.
 
