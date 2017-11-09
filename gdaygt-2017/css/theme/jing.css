@@ -312,7 +312,8 @@ html {
 
 .reveal blockquote {
   text-align: left;
-  width: 85%; }
+  width: 85%;
+  line-height: 1.5; }
   .reveal blockquote small {
     margin-top: 0.5em;
     line-height: 2; }
@@ -396,7 +397,7 @@ span[role=img][aria-label]:hover::after {
 
 .livecode {
   display: grid;
-  grid-template-columns: 70% calc(30% - 0.5em);
+  grid-template-columns: 65% calc(35% - 0.5em);
   grid-gap: 0.5em;
   height: 75vh;
   margin: 0;
@@ -405,8 +406,7 @@ span[role=img][aria-label]:hover::after {
     max-height: 100%;
     overflow-y: scroll;
     width: 100%;
-    border: 1px dashed #df581d;
-    background-color: #ababab; }
+    border: 1px dashed #df581d; }
     .livecode .result li {
       line-height: 0; }
     .livecode .result p {
@@ -415,9 +415,9 @@ span[role=img][aria-label]:hover::after {
   .livecode .code {
     text-align: left;
     width: 100%;
-    background: #f9ac39;
     font-family: monospace;
-    color: #000;
+    color: #efdcbc;
+    background-color: #3f3f3f;
     font-size: 50%;
     padding: 0.5em;
     border-radius: 0.25em;

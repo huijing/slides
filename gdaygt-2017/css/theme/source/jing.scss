@@ -68,6 +68,7 @@ html {
   blockquote {
     text-align: left;
     width: 85%;
+    line-height: 1.5;
 
     small {
       margin-top: 0.5em;
@@ -174,7 +175,7 @@ span[role=img][aria-label]:hover::after {
 // Demo-related ------------------------------
 .livecode {
   display: grid;
-  grid-template-columns: 70% calc(30% - 0.5em);
+  grid-template-columns: 65% calc(35% - 0.5em);
   grid-gap: 0.5em;
   height: 75vh;
   margin: 0;
@@ -185,7 +186,6 @@ span[role=img][aria-label]:hover::after {
     overflow-y: scroll;
     width: 100%;
     border: 1px dashed $headingColor;
-    background-color: #ababab;
 
     li {
       line-height: 0;
@@ -200,9 +200,9 @@ span[role=img][aria-label]:hover::after {
   .code {
     text-align: left;
     width: 100%;
-    background: $mainColor;
     font-family: monospace;
-    color: $backgroundColor;
+    color: #efdcbc;
+    background-color: #3f3f3f;
     font-size: 50%;
     padding: 0.5em;
     border-radius: 0.25em;
