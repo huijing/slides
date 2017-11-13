@@ -166,7 +166,7 @@
   width: calc(100% / 3);
 }</style></div>
             </div>
-            <aside class="notes">For example, the <code>inline-block</code> technique. For a three column grid, we set the display of the items to <code>inline-block</code> and give them all a width of a third of the container.</aside>
+            <aside class="notes">One approach for creating a grid layout is the <code>inline-block</code> technique. For a three column grid, we set the display of the items to <code>inline-block</code> and give them all a width of a third of the container.</aside>
           </section>
 
           <section>
@@ -197,7 +197,7 @@
   width: calc(100% / 3);
 }</style></div>
             </div>
-            <aside class="notes">It's almost the same if you use <code>float</code>, because you also set a width on each item.</aside>
+            <aside class="notes">It's almost the same if you use <code>float</code>, because you also need to set a width on each item.</aside>
           </section>
 
           <section>
@@ -215,12 +215,15 @@
   flex: 0 0 calc(100% / 3);
 }</style></div>
             </div>
-            <aside class="notes">For Flexbox, to ensure our items line up in three columns, we prevent them from growing or shrinking, then set the flex-basis to a third of the container. Again, we are dealing with the item.</aside>
+            <aside class="notes">
+              <p>For Flexbox, to ensure our items line up in three columns, we prevent them from growing or shrinking, then set the flex-basis to a third of the container. Again, we are dealing with the item.</p>
+              <p>For all 3 techniques I just described, there isn't actually a grid. It just looks that way because we've forced the items to line up with each other.</p>
+            </aside>
           </section>
 
           <section>
             <blockquote>“Grid is the only layout technique that establishes a <strong style="border-bottom:0.125em solid;">relationship</strong> between rows and columns of grid items.”</blockquote>
-            <aside class="notes">But for Grid, the dimensions for rows and columns are defined on the parent container instead.</aside>
+            <aside class="notes">But for Grid, the dimensions for rows and columns are defined on the parent container instead. The grid is real, and we can place items inside this grid.</aside>
           </section>
         </section>
 
@@ -392,7 +395,7 @@
         </section>
 
         <section>
-          <section data-background-image="img/chessboard.jpg">
+          <section data-background-image="img/chessboard.jpg" data-transition="fade-in">
             <aside class="notes">But Grid doesn't only make what we're used to doing easier, it allows us to do things we couldn't before as well. Auto-placement is pretty cool, and very useful, but being able to control where your items go on the Grid is, revolutionary. It's like placing pieces on a chessboard.</aside>
           </section>
 
@@ -432,6 +435,7 @@
               <p>Other than using numerical indexes to define grid tracks and grid areas, we can also name them. The syntax of the <code>grid-template-areas</code> property provides a visualization of the structure of the grid, making the overall layout of the grid container easier to understand.</p>
               <p>We then place items in their respective areas using the <code>grid-area</code> property on the item.</p>
               <p>With all that sorted, let's look at more interesting layouts we can now achieve with this manual placement capability.</p>
+              17min
             </aside>
           </section>
 
@@ -480,13 +484,150 @@
             <aside class="notes">
               <p>Box alignment can sometimes trip people up. I know it can be hard to remember which property does what. For me, I associate <code>justify</code> with the direction that text flows, because I've been justifying text in Microsoft Word since version 97. And if justify is for inline direction, then align must be for the other direction.</p>
               <p>Directions are not the most tricky part. That title goes to the second word in these properties, content, item and self.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>justify/align-content</code></h2>
+            <div class="livecode" style="grid-template-columns:60% calc(40% - 0.5em)">
+              <div class="result content" style="font-size:75%;">
+                <div style="border:1px solid;" class="content_itemA">A</div>
+                <div style="border:1px solid;" class="content_itemB">B</div>
+                <div style="border:1px solid;" class="content_itemC">C</div>
+                <div style="border:1px solid;" class="content_itemD">D</div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.content {
+  justify-content: start;
+  align-content: start;
+
+  display: grid;
+  grid-template-columns: repeat(3, 25%);
+  grid-template-rows: repeat(3, 20%);
+  grid-gap: 1em;
+  grid-template-areas: 
+    "a b b"
+    "a b b"
+    "c c d";
+}
+
+.content_itemA {
+  grid-area: a;
+}
+
+.content_itemB {
+  grid-area: b;
+}
+
+.content_itemC {
+  grid-area: c;
+}
+
+.content_itemD {
+  grid-area: d;
+}</style></div>
+            </div>
+            <aside class="notes">
+              <p>The <code>justify-content</code> and <code>align-content</code> properties are known as <strong>content-distribution properties</strong>. These properties are relevant when the container is larger than the total width or height of the grid rows and columns.</p>
+              <p>As we can see from this example, there is some space to the right and bottom of the grid items. It is possible to set the alignment of the rows and columns with respective to the entire grid container.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>justify/align-self</code></h2>
+            <div class="livecode">
+              <div class="result self" style="font-size:75%;">
+                <div style="border:1px solid;" class="self_itemA">A</div>
+                <div style="border:1px solid;" class="self_itemB">B</div>
+                <div style="border:1px solid;" class="self_itemC">C</div>
+                <div style="border:1px solid;" class="self_itemD">D</div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.self {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1em;
+  grid-auto-rows: calc(25% - 1em);
+  grid-template-areas: 
+    "a a b b"
+    "a a b b"
+    "c c d d"
+    "c c d d";
+}
+
+.self_itemA {
+  grid-area: a;
+}
+
+.self_itemB {
+  grid-area: b;
+  align-self: start;
+//justify-self: start;
+}
+
+.self_itemC {
+  grid-area: c;
+  align-self: end;
+//justify-self: end;
+}
+
+.self_itemD {
+  grid-area: d;
+  align-self: center;
+//justify-self: center;
+}</style></div>
+            </div>
+            <aside class="notes">
+              <p>With all that sorted, let's look at more interesting layouts we can now achieve with this manual placement capability.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>justify/align-items</code></h2>
+            <div class="livecode" style="grid-template-columns:60% calc(40% - 0.5em)">
+              <div class="result items" style="font-size:75%;">
+                <div style="border:1px solid;" class="items_itemA">A</div>
+                <div style="border:1px solid;" class="items_itemB">B</div>
+                <div style="border:1px solid;" class="items_itemC">C</div>
+                <div style="border:1px solid;" class="items_itemD">D</div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.items {
+  justify-items: stretch;
+  align-items: stretch;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1em;
+  grid-auto-rows: calc(25% - 1em);
+  grid-template-areas: 
+    "a a b b"
+    "a a b b"
+    "c c d d"
+    "c c d d";
+}
+
+.items_itemA {
+  grid-area: a;
+}
+
+.items_itemB {
+  grid-area: b;
+}
+
+.items_itemC {
+  grid-area: c;
+}
+
+.items_itemD {
+  grid-area: d;
+}</style></div>
+            </div>
+            <aside class="notes">
               <p>With all that sorted, let's look at more interesting layouts we can now achieve with this manual placement capability.</p>
             </aside>
           </section>
         </section>
 
-        <section>
-          <section data-background-image="img/whitespace.jpg">
+        <section data-transition="fade-in">
+          <section data-background-image="img/whitespace.jpg" data-transition="fade-in">
             <h2 style="padding:0.25em;background-color:rgba(0,0,0,0.75);display:inline-block;">Vertical whitespace</h2>
             <aside class="notes">Vertical whitespace is an important concept in layout design, as it serves to balance the layout and bring focus to important content. Before CSS grid, trying to do this on the web involved hacks like spacer gifs, empty divs, Javascript, you name it.</aside>
           </section>
@@ -522,13 +663,75 @@
             </aside>
           </section>
 
-          <section data-background-image="img/overlap2.jpg">
+          <section>
+            <img class="plain" data-src="img/braun-wide.jpg" alt="Braun wide layout">
+            <aside class="notes">
+              <p>With <code>grid-template-areas</code>, creating responsive layouts becomes a little more convenient as well. The most common media query for doing responsive layouts is the min-width media query, but there are other conditionals available to us as well.</p>
+              <p>The aspect-ratio media query comes in handy when have layouts that utilise flexible units. Here I have a recreation of a Braun HiFi poster which was originally laid out in landscape. Using CSS <code>grid-template-areas</code> makes building this layout easier than “traditional” techniques.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <img class="plain" data-src="img/braun-mid.jpg" alt="Braun mid-width layout">
+              <img class="plain" data-src="img/braun-narrow.jpg" alt="Braun narrow layout">
+            </div>
+            <aside class="notes">
+              <p>By assigning each “section” its own named grid area, to morph the layout, I modify only the <code>grid-template-areas</code> property at each media query without having to touch each individual element.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="vidcode">
+              <video controls loop>
+                <source data-src="videos/braun.mp4" type="video/mp4" />
+                Sorry, your browser doesn't support embedded videos, 
+                but don't worry, you can <a href="videos/braun.mp4">download it</a>
+                and watch it with your favourite video player!
+              </video>
+              <pre style="width:100%;font-size:40%;"><code class="css" style="max-height:75vh;">.steuergerät {
+  grid-gap: 0.5em;
+  grid-template-columns: 50% 50%;
+  grid-template-areas: "title title"
+                       "text text"
+                       "key key"
+                       "detail1 detail2"
+                       "detail3 detail4";
+}
+
+@media screen and (min-aspect-ratio: 1/1) and (min-height: 22em) {
+  .steuergerät {
+    grid-template-columns: 18.75em 1fr 1fr 1fr;
+    grid-template-rows: calc((100vh - 3em) / 3) calc((100vh - 3em) / 3) calc((100vh - 3em) / 3);
+    grid-template-areas: "title detail1 key key"
+                         "text detail2 key key"
+                         "text detail3 detail4 braun";
+  }
+}
+
+@media screen and (min-aspect-ratio: 8/5) and (min-height: 36em) {
+  .steuergerät {
+    grid-template-columns: 17.5em 1fr 3fr 1fr 1fr;
+    grid-template-rows: calc((100vh - 3em) / 3) calc((100vh - 3em) / 3) calc((100vh - 3em) / 3);
+    grid-template-areas: "title . key . ."
+                         "text detail1 key detail2 detail3"
+                         "text . . detail4 .";
+  }
+}</code></pre>
+            </div>
+            <aside class="notes">
+              <p></p>
+            </aside>
+          </section>
+        </section>
+
+          <section data-background-image="img/overlap2.jpg" data-transition="fade-in">
             <h2 style="padding:0.25em;background-color:rgba(0,0,0,0.75);display:inline-block;">Overlap</h2>
             <aside class="notes">Another technique that makes a layout interesting is the use of overlap, because it breaks our expectation of regularity in a grid.</aside>
           </section>
           
 
-          <section data-background-image="img/overlap.jpg">
+          <section data-background-image="img/overlap.jpg" data-transition="fade-in">
             <aside class="notes">We don't usually see overlap on the web because it used to involve a lot of tricky positioning rules and negative margins, or just cheating by processing everything into a single image. Some people even used Javascript to calculate positioning. Not any more.</aside>
           </section>
 
