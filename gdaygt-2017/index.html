@@ -25,13 +25,14 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <section>
+        <section data-background-image="img/tronbg.png" >
           <h1 style="text-transform:uppercase;"">2017: the year of CSS Grid</h1>
           <h3>Revolutionising visual design on the web</h3>
+          <img class="plain" style="height:7em;" data-src="img/qrcode.png" alt="Slides link QR code">
           <aside class="notes"></aside>
         </section>
 
-        <section style="font-size:calc(1.75em + 2vw);">
+        <section style="font-size:calc(1.5em + 2vw);">
           <span style="margin-right:2vw;" class="emoji" role="img" tabindex="0" aria-label="Malaysia">&#x1F1F2;&#x1F1FE;</span>
           <span style="margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="basketball">&#x1F3C0;</span>
           <span style="margin-right:2vw;" class="emoji fragment" role="img" tabindex="0" aria-label="woman technologist">&#x1F469;&#x200D;&#x1F4BB;</span>
@@ -65,7 +66,10 @@
               <img class="plain" data-src="img/launch.jpg" alt="Launch of the web">
               <img class="plain" data-src="img/web.jpg" alt="Where the web was born">
             </div>
-            <aside class="notes">The World Wide Web was invented by Sir Tim Berners-Lee in 1989 as a means for researchers to share information. That means the web is 28 this year, and was born in the year of the Snake.</aside>
+            <aside class="notes">
+              <p>The World Wide Web was invented by Sir Tim Berners-Lee in 1989 as a means for researchers to share information. That means the web is 28 this year, and was born in the year of the Snake.</p>
+              <p>So if some of you just don't seem to get along well with web, maybe your Four Pillars of Destiny AKA 生辰八字 are clashing. Nah, I'm just kidding. Sort of.</p>
+            </aside>
           </section>
 
           <section>
@@ -280,7 +284,7 @@
               </div>
             </div>
             <aside class="notes">
-              <p>The explicit grid is the one we define using <code>grid-template-columns</code> and <code>grid-template-rows</code>. But what if you place an item outside this grid?</p>
+              <p>The explicit grid is the one we define using <code>grid-template-columns</code> and <code>grid-template-rows</code>. But what if you place an item outside the dimensions of the grid you defined?</p>
               <p>In this simple 3×2 grid, the grid column lines only go up to 4. But if we place an item starting on grid line number 5, the browser will add 2 implicit columns (shown by the blue dashed lines on the grid) to accommodate this item.</p>
               <p>Browsers with grid support utilise an auto-placement algorithm to layout items in the grid so you don't have to write code for each grid item if it's a regular layout.</p>
             </aside>
@@ -289,7 +293,7 @@
 
         <section>
           <section>
-            <blockquote>“Cede <strong style="border-bottom:0.125em solid;">control</strong> of your designs to the <strong style="border-bottom:0.125em solid;">browser</strong> that renders them.”</blockquote>
+            <blockquote>“Cede <strong style="border-bottom:0.125em solid;">control</strong> of your designs to the <strong style="border-bottom:0.125em solid;">browsers</strong> that render them.”</blockquote>
             <aside class="notes">
               <p>The web is not a static medium. It is dynamic and interactive and we manipulate this medium by writing code to tell the browser what we want it to do. Here's an idea, instead of micromanaging the pixels on our designs, why not just let the browser do its own thing?</p>
               <p>This means being okay with your designs looking different across browsers and devices. Is that really such a bad thing?</p>
@@ -321,9 +325,39 @@
             </div>
             <p class="fragment"><code>auto-fit</code> collapses empty tracks.</p>
             <aside class="notes">
-              <p>Both these keywords do the same thing with one minor difference. They tell the browser to generate the number of tracks required based on the track list specified as the second argument. Using Firefox's DevTools you can see that for <code>auto-fit</code>, any empty tracks are collapsed.</p>
-              <p></p>
+              <p>Both these keywords tell the browser to generate the number of tracks required based on the track list specified as the second argument. The minor difference is that for <code>auto-fit</code>, any empty tracks are collapsed.</p>
+              <p>This becomes more evident if you're using a flexible range for track sizing.</p>
             </aside>
+          </section>
+
+          <section>
+            <div class="livecode">
+              <div class="result keyword" style="font-size:75%;">
+                <div class="keyword__item" style="border:1px solid;">
+                  <p>A</p>
+                </div>
+                <div class="keyword__item" style="border:1px solid;">
+                  <p>B</p>
+                </div>
+                <div class="keyword__item" style="border:1px solid;">
+                  <p>C</p>
+                </div>
+                <div class="keyword__item" style="border:1px solid;">
+                  <p>D</p>
+                </div>
+                <div class="keyword__item" style="border:1px solid;">
+                  <p>E</p>
+                </div>
+                <div class="keyword__item" style="border:1px solid;">
+                  <p>F</p>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.keyword {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(2.5em, 1fr));
+}</style></div>
+            </div>
+            <aside class="notes">For <code>auto-fill</code>, space taken up by empty tracks are “reserved” for any additional items that may be added, but if I change the value to <code>auto-fit</code>, the empty tracks are collapsed and the items expand to fill up the space instead.</aside>
           </section>
 
           <section>
@@ -368,7 +402,7 @@
             <h2>The <code>minmax()</code> function</h2>
             <p>Defines a size range greater than or equal to min and less than or equal to max.</p>
             <aside class="notes">
-              <p>Now this is something new we've never been able to do before, define a range of widths for our grid items. This function takes two arguments, the minimum and maximum widths of each grid item.</p>
+              <p>The <code>minmax()</code> function allows us to do something we've never been able to before, and that is define a range of widths for our grid items. This function takes two arguments, the minimum and maximum widths of each grid item.</p>
               <p>Before CSS grid, in order to build grid layouts where the items would fill up the width of the container, I'd use percentages. But then the grid items couldn't be too big or too small, so I'd also have to write a whole chunk of media queries to adjust the number of columns as the viewport size changed.</p>
               <p>With Grid, we can cut out all that media query code.</p>
             </aside>
@@ -414,7 +448,7 @@
           <section>
             <h2>Named areas</h2>
             <div class="l-multiple">
-              <img class="plain" data-src="img/named-areas.svg" alt="Named grid areas">
+              <img style="max-height:75vh;" class="plain" data-src="img/named-areas.svg" alt="Named grid areas">
               <div style="flex:0 0 55%;align-self:center;">
                 <pre style="font-size:50%;"><code class="css" style="max-height:none;">.grid-container {
   display: grid;
@@ -433,9 +467,7 @@
             </div>
             <aside class="notes">
               <p>Other than using numerical indexes to define grid tracks and grid areas, we can also name them. The syntax of the <code>grid-template-areas</code> property provides a visualization of the structure of the grid, making the overall layout of the grid container easier to understand.</p>
-              <p>We then place items in their respective areas using the <code>grid-area</code> property on the item.</p>
-              <p>With all that sorted, let's look at more interesting layouts we can now achieve with this manual placement capability.</p>
-              17min
+              <p>We then place items in their respective areas using the <code>grid-area</code> property on the item. I'll cover this a little bit more when we go through some code examples later on.</p>
             </aside>
           </section>
 
@@ -443,10 +475,10 @@
             <h2>Aligning your grid items</h2>
             <table style="font-size:45%;">
               <tr style="border-bottom:2px solid;">
-                <th width="18%;">Property</th>
+                <th width="19%;">Property</th>
                 <th width="10%;">Axis</th>
                 <th>Aligns</th>
-                <th width="30%;">Applies to<br></th>
+                <th width="25%;">Applies to<br></th>
               </tr>
               <tr>
                 <td><code>justify-content<code><br></td>
@@ -481,14 +513,17 @@
                 <td>flex-containers and grid-containers<br></td>
               </tr>
             </table>
+            <p><small>Source: <a href="https://www.w3.org/TR/css-align-3/#overview">CSS Box Alignment Module Level 3</a></small></p>
             <aside class="notes">
-              <p>Box alignment can sometimes trip people up. I know it can be hard to remember which property does what. For me, I associate <code>justify</code> with the direction that text flows, because I've been justifying text in Microsoft Word since version 97. And if justify is for inline direction, then align must be for the other direction.</p>
-              <p>Directions are not the most tricky part. That title goes to the second word in these properties, content, item and self.</p>
+              <p>An important part of building web layouts is aligning elements on the page. And box alignment can sometimes trip people up. I know it can be hard to remember which property does what.</p>
+              <p>For me, I associate <code>justify</code> with the direction that text flows, because I've been justifying text in Microsoft Word since version 97. And if justify is for inline direction, then align must be for the other direction.</p>
+              <p>Directions are not the most tricky part. It's the second word in these properties, content, item and self, that seem to confuse people. This table summarises the 6 box alignment properties that are regularly used when building with Flexbox and Grid.</p>
             </aside>
           </section>
 
           <section>
             <h2><code>justify/align-content</code></h2>
+            <p>content-distribution properties</p>
             <div class="livecode" style="grid-template-columns:60% calc(40% - 0.5em)">
               <div class="result content" style="font-size:75%;">
                 <div style="border:1px solid;" class="content_itemA">A</div>
@@ -497,8 +532,8 @@
                 <div style="border:1px solid;" class="content_itemD">D</div>
               </div>
               <div class="code"><style class="code-editor" contenteditable="true">.content {
-  justify-content: start;
-  align-content: start;
+  justify-content: normal;
+  align-content: normal;
 
   display: grid;
   grid-template-columns: repeat(3, 25%);
@@ -528,12 +563,60 @@
             </div>
             <aside class="notes">
               <p>The <code>justify-content</code> and <code>align-content</code> properties are known as <strong>content-distribution properties</strong>. These properties are relevant when the container is larger than the total width or height of the grid rows and columns.</p>
-              <p>As we can see from this example, there is some space to the right and bottom of the grid items. It is possible to set the alignment of the rows and columns with respective to the entire grid container.</p>
+              <p>As we can see from this example, there is some space to the right and bottom of the grid items. It is possible to set the alignment of the rows and columns with respect to the entire grid container.</p>
+              <p>We can position the grid rows and columns within its container using 3 values, <code>start</code>, <code>center</code> and <code>end</code>. We can also adjust the space between rows and columns with <code>space-around</code>, <code>space-between</code> and <code>space-evenly</code>.</p>
+            </aside>
+          </section>
+
+          <section>
+            <table>
+              <tr>
+                <th>Values</th>
+                <th><code>justify-content</code></th>
+                <th><code>align-content</code></th>
+              </tr>
+              <tr>
+                <td><code>center</code></td>
+                <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/jc-center.png" alt="justify-content:center"></td>
+                <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/ac-center.png" alt="align-content:center"></td>
+              </tr>
+              <tr>
+                <td><code>start</code></td>
+                <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/jc-start.png" alt="justify-content:start"></td>
+                <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/ac-start.png" alt="align-content:start"></td>
+              </tr>
+              <tr>
+                <td><code>end</code></td>
+                <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/jc-end.png" alt="justify-content:end"></td>
+                <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/ac-end.png" alt="align-content:end"></td>
+              </tr>
+              <tr>
+                <td><code>space-around</code></td>
+                <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/jc-sa.png" alt="justify-content:space-around"></td>
+                <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/ac-sa.png" alt="align-content:space-around"></td>
+              </tr>
+              <tr>
+                <td><code>space-between</code></td>
+                <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/jc-sb.png" alt="justify-content:space-between"></td>
+                <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/ac-sb.png" alt="align-content:space-between"></td>
+              </tr>
+              <tr>
+                <td><code>space-evenly</code></td>
+                <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/jc-se.png" alt="justify-content:space-evenly"></td>
+                <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/ac-se.png" alt="align-content:space-evenly"></td>
+              </tr>
+            </table>
+            <aside class="notes">
+              <p>It's probably easier to refer to this table. <code>space-around</code> puts an equal amount of space on both sides of the row or column, so the spaces at the edge of the container will be half of the spaces between inner rows or columns.</p>
+              <p><code>space-between</code> distributes all the tracks evenly in the grid container with the first and last rows or columns flush with the edges of the container.</p>
+              <p><code>space-evenly</code> is currently only supported in Chrome 60 onwards and Firefox 52 onwards. It distributes the grid tracks evenly within the grid container such that the space between any 2 adjacent grid tracks are the same.</p>
+              <p>Is everyone totally lost now? Trust me, it gets easier with experience.</p>
             </aside>
           </section>
 
           <section>
             <h2><code>justify/align-self</code></h2>
+            <p>self-alignment properties</p>
             <div class="livecode">
               <div class="result self" style="font-size:75%;">
                 <div style="border:1px solid;" class="self_itemA">A</div>
@@ -576,12 +659,14 @@
 }</style></div>
             </div>
             <aside class="notes">
-              <p>With all that sorted, let's look at more interesting layouts we can now achieve with this manual placement capability.</p>
+              <p>The <code>justify-self</code> and <code>align-self</code> properties are known as <strong>self-alignment properties</strong>. <strong>Justify</strong> is for the main or inline axis, which is the direction of text flow, while <strong>align</strong> is for the cross or block axis, which is the direction block boxes are stacked.</p>
+              <p>These properties allow us to control how the content of each grid item is aligned within the grid area it's been allocated to. The default state is <code>stretch</code>, where the content stretches to fill the entire grid area. We can adjust the alignment of content within the grid item with <code>start</code>, <code>center</code> and <code>end</code>.</p>
             </aside>
           </section>
 
           <section>
             <h2><code>justify/align-items</code></h2>
+            <p>defaults for justify/align-self</p>
             <div class="livecode" style="grid-template-columns:60% calc(40% - 0.5em)">
               <div class="result items" style="font-size:75%;">
                 <div style="border:1px solid;" class="items_itemA">A</div>
@@ -590,8 +675,8 @@
                 <div style="border:1px solid;" class="items_itemD">D</div>
               </div>
               <div class="code"><style class="code-editor" contenteditable="true">.items {
-  justify-items: stretch;
-  align-items: stretch;
+  justify-items: normal;
+  align-items: normal;
 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -621,7 +706,8 @@
 }</style></div>
             </div>
             <aside class="notes">
-              <p>With all that sorted, let's look at more interesting layouts we can now achieve with this manual placement capability.</p>
+              <p>Finally, we have the <code>align-items</code> and <code>justify-items</code> properties, which set the default <code>align-self</code> and <code>justify-self</code> behaviour of all the items within the grid.</p>
+              <p>With all that sorted, let's look at some of the more interesting layouts we can now achieve with manual placement in CSS grid.</p>
             </aside>
           </section>
         </section>
@@ -629,7 +715,23 @@
         <section data-transition="fade-in">
           <section data-background-image="img/whitespace.jpg" data-transition="fade-in">
             <h2 style="padding:0.25em;background-color:rgba(0,0,0,0.75);display:inline-block;">Vertical whitespace</h2>
-            <aside class="notes">Vertical whitespace is an important concept in layout design, as it serves to balance the layout and bring focus to important content. Before CSS grid, trying to do this on the web involved hacks like spacer gifs, empty divs, Javascript, you name it.</aside>
+            <aside class="notes">
+              <p>Vertical whitespace is an important concept in layout design, as it serves to balance the layout and bring focus to important content. Before CSS grid, trying to do this on the web involved hacks like spacer gifs, empty divs, Javascript, you name it.</p>
+              <p>That's because there never was a proper way to layout things on the web other than one after another. I mean, you could use absolute positioning but that opens up another can of worms because now you're messing with the document flow. But life's different now. It's better with CSS grid.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>grid-row</code> and <code>grid-column</code></h2>
+            <pre style="font-size:50%;"><code class="css">grid-template-columns: [first sidebar-start] 250px [content-start] 1fr [last];
+grid-template-rows: [first header-start] 100px [content-start] 1fr [footer-start] 100px [last];</code></pre>
+            <img class="plain" style="margin:0;" data-src="img/named-lines.svg" alt="Named lines">
+            <aside class="notes">
+              <p>So, placing things in your grid.</p>
+              <p>Every grid line can referred to by its numerical index. But if you’re creating a more complicated grid, for example, to layout an entire website, it might be helpful to name the grid lines to make the grid code easier to understand. Line names can be any string except ‘span’, which is a keyword. Grid lines can have more than one name.</p>
+              <p>A handy feature with grid lines is that they have a negative index as well. That means if you need to refer to the last grid line, and you don't know how many grid lines there are, you can use -1 to always get the last grid line.</p>
+              <p>So say I want something to go into the big main area, I would set the <code>grid-row</code> to <code>2 / 3</code> or <code>content-start / footer-start</code>, and the <code>grid-column</code> to <code>2 / 3</code> or <code>content-start / last</code>.</p>
+            </aside>
           </section>
 
           <section>
@@ -659,15 +761,17 @@
             </div>
             <aside class="notes">
               <p>The <code>grid-template-areas</code> property, is great for layouts with white-space because you can create empty cells, using the dot notation.</p>
-              <p>In this example, there are 3 items to be placed in a 3x4 grid. Rather than try to figure out the various grid line numbers, using the <code>grid-template-areas</code> property lets me “plot” where I want my items to go.</p>
+              <p>In this example, I have 3 items to place in this 3x4 grid. Rather than try to figure out the various grid line numbers, I can “plot” where I want my items to go using the <code>grid-template-areas</code> property.</p>
+              <p>I then “assign” each grid item its own area. Which means, I can change the layout from just the <code>grid-template-areas</code> property without having to go to each item individually.</p>
             </aside>
           </section>
 
           <section>
             <img class="plain" data-src="img/braun-wide.jpg" alt="Braun wide layout">
             <aside class="notes">
-              <p>With <code>grid-template-areas</code>, creating responsive layouts becomes a little more convenient as well. The most common media query for doing responsive layouts is the min-width media query, but there are other conditionals available to us as well.</p>
-              <p>The aspect-ratio media query comes in handy when have layouts that utilise flexible units. Here I have a recreation of a Braun HiFi poster which was originally laid out in landscape. Using CSS <code>grid-template-areas</code> makes building this layout easier than “traditional” techniques.</p>
+              <p>With <code>grid-template-areas</code>, creating responsive layouts becomes a little more convenient as well.</p>
+              <p>Here I have a recreation of a Braun HiFi print poster which was originally laid out in landscape. But on the web, that same layout will break when the viewport starts to narrow. So we'll need to adjust the layout when that happens.</p>
+              <p>Using <code>grid-template-areas</code> makes handling responsiveness easier than “traditional” techniques.</p>
             </aside>
           </section>
 
@@ -677,7 +781,8 @@
               <img class="plain" data-src="img/braun-narrow.jpg" alt="Braun narrow layout">
             </div>
             <aside class="notes">
-              <p>By assigning each “section” its own named grid area, to morph the layout, I modify only the <code>grid-template-areas</code> property at each media query without having to touch each individual element.</p>
+              <p>This is a real-world example of modifying the layout by just changing the grid itself. I've assigned each “section” its own named grid area. When the layout is too narrow for the original wide design, I don't change the sizing of the items, instead, I change the grid itself.</p>
+              <p>When it hits yet another breakpoint, the grid is morphed yet again. I find this to be a rather convenient solution for a relatively common use-case.</p>
             </aside>
           </section>
 
@@ -720,16 +825,19 @@
 }</code></pre>
             </div>
             <aside class="notes">
-              <p></p>
+              <p>This is the final end result, and you can see how the layout changes with the viewport.</p>
+              <p>I'm going to make the assumption that everyone has used media queries in some capacity before. Correct me if I'm mistaken. Usually we write width-based media queries, right? Has anyone written height-based media queries? What about aspect-ratio media queries?</p>
+              <p>In the current specification, there are 13 media features that can be used as conditionals, including things like orientation, colour, resolution and so on. The design I'm showing in this demo is a good use case for the aspect-ratio media query.</p>
+              <p>Aspect-ratio media queries come in handy when relative proportions are important for your layout. And we can always combine multiple media queries to cater for different environments.</p>
             </aside>
           </section>
         </section>
 
+        <section>
           <section data-background-image="img/overlap2.jpg" data-transition="fade-in">
             <h2 style="padding:0.25em;background-color:rgba(0,0,0,0.75);display:inline-block;">Overlap</h2>
             <aside class="notes">Another technique that makes a layout interesting is the use of overlap, because it breaks our expectation of regularity in a grid.</aside>
           </section>
-          
 
           <section data-background-image="img/overlap.jpg" data-transition="fade-in">
             <aside class="notes">We don't usually see overlap on the web because it used to involve a lot of tricky positioning rules and negative margins, or just cheating by processing everything into a single image. Some people even used Javascript to calculate positioning. Not any more.</aside>
@@ -743,7 +851,7 @@
                 but don't worry, you can <a href="videos/overlap.mp4">download it</a>
                 and watch it with your favourite video player!
               </video>
-              <div class="code">.container {
+              <pre style="font-size:50%;"><code class="css" style="max-height:none;">.container {
   display: grid;
   grid-template-columns: repeat(9, 1.25em);
   grid-template-rows: repeat(6, 1.25em);
@@ -762,13 +870,220 @@ h2 {
 .container::after {
   grid-row: 1 / 7;
   grid-column: 4 / 10;
-}</div>
+}</code></pre>
             </div>
             <aside class="notes">
-              <p>Here's a simple example of overlap, just two circles behind a header. The code here is simplified to show only the placement properties. But to centre the text, I applied a <code>margin: auto</code> to the header.</p>
+              <p>Here's a simple example of overlap, just two circles behind a header. The code here is simplified to show only the placement properties.</p>
               <p>Pseudo-elements are treated as children. So the two circles here are pseudo-elements of the grid container, which have been explicitly placed to overlap. Then the header overlaps them both.</p>
               <p>The placement code is more intuitive than using absolute positioning and you don't need to do a lot of complicated math to get the alignment just right no matter how you resize the browser.</p>
             </aside>
+          </section>
+
+          <section>
+            <h2>Building a grid layout</h2>
+            <img class="plain" data-src="img/tycho.jpg" alt="Tycho artist blog/profile concept">
+            <p><small>Design credit: <a href="https://dribbble.com/shots/3002189-Tycho/">Drew Sullivan</a></small></p>
+            <aside class="notes">I'm going to give you a high-level walk-through of how I would build a grid layout with overlaps from scratch. I saw this artist concept on Dribbble and the way it's been designed makes it a perfect candidate for CSS grid.</aside>
+          </section>
+
+          <section>
+            <figure>
+              <img class="plain" style="margin:0;" data-src="img/tycho-sketch.jpg" alt="Planning the grid">
+              <figcaption>Good ol' pencil and paper</figcaption>
+            </figure>
+            <aside class="notes">
+              <p>One thing I noticed after I started building with CSS grid is that I started to sketch my designs on pencil and paper a lot more. Because for grid, you plan the entirety of the layout beforehand, so it helps to have the big picture view upfront.</p>
+              <p>This also helps me think about how the track sizing should be done. Which tracks should be flexible, which should have a defined width, or even range of widths. Yes, it is a bit more thinking and planning than before, but the end result is also much nicer.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <figure>
+                <img class="plain" style="margin:0;" data-src="img/tycho-nostyle.jpg" alt="Markup only">
+                <figcaption>Markup without any CSS</figcaption>
+              </figure>
+              <figure class="fragment">
+                <img class="plain" style="margin:0;" data-src="img/tycho-basic.jpg" alt="General styles">
+                <figcaption>Basic styles</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">
+              <p>To me, markup always comes first. So I'd start off with every element that needs to be displayed, the title, the various bits of text, the image and so on.</p>
+              <p>Then, based on the design, I'd add in some base styles. Nothing amazing, just the fonts, colours, text formatting. Browsers do apply their own styles, and usually I reset margins and paddings, as well as set the <code>box-sizing</code> for all elements to <code>border-box</code>. Make life easier, I find.</p>
+            </aside>
+          </section>
+
+          <section>
+            <blockquote>“Websites do <strong style="border-bottom:0.125em solid;">NOT</strong> have to look the same in every browser.”</blockquote>
+            <aside class="notes">
+              <p>So, I've been talking for around half an hour now, and even if you think whatever I've been saying is boring, and doesn't benefit your life in any way at all, I want you to remember this point.</p>
+              <p>Websites do not have to look the same in every browser. Because the web is not a static medium, and it is up to the people like us who create things on the web to change people's mindsets. Okay, the uninterested can go back to being bored now.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="l-multiple">
+              <figure style="align-self:center;">
+                <img class="plain" style="margin:0;" data-src="img/tycho-fallback.jpg" alt="Fallback for browsers without grid">
+                <figcaption>Fallback layout</figcaption>
+              </figure>
+              <div style="flex:0 0 55%;align-self:center;">
+                <pre style="font-size:50%;"><code class="css" style="max-height:85vh;">main {
+  max-width: 45em;
+  margin: 0 auto;
+  position: relative;
+  padding: 1em;
+}
+
+_:-ms-input-placeholder, :root main {
+  display: block;
+}
+
+h1 {
+  margin-bottom: 0.25em;
+}
+
+h2 {
+  margin-bottom: 1em;
+}
+
+.about {
+  margin-bottom: 1em;
+}
+
+a {
+  margin-bottom: 2em;
+}
+
+button {
+  padding: 1em 2em;
+  position: absolute;
+  right: 1em;
+  bottom: 1em;
+}</code></pre>
+              </div>
+            </div>
+            <aside class="notes">
+              <p>I did not just put that slide in as a time marker, folks. The point I was trying to make is that rather than spending extra effort wrangling every pixel into place, why not embrace the dynamism of the web? The best part about the web medium is its ability to layer on additional functionality depending on the browser on which your page is being rendered.</p>
+              <p>I genuinely believe that web pages don't need to look exactly the same across every browser or device but I do believe no layout should be broken. So the base layout should utilise properties that have almost full support. In this case, I'm really just letting everything stack on top of each other, with some minor positioning at the bottom.</p>
+              <p>Browsers that do not support grid will get this layout instead.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="l-multiple">
+              <figure style="align-self:center;">
+                <img class="plain" style="margin:0;" data-src="img/tycho-grid.jpg" alt="Grid layout styles">
+                <figcaption>CSS grid in action</figcaption>
+              </figure>
+              <div style="flex:0 0 55%;align-self:center;">
+                <pre style="font-size:50%;"><code class="css" style="max-height:85vh;max-width:50vw;">@supports (display:grid) {
+  @media (min-width: 42em) and (min-height: 27em) {
+    main {
+      max-width: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 2fr minmax(10em, max-content) minmax(14em, max-content) minmax(1em, 1fr) fit-content(28em) calc(2em + 0.5vw);
+      grid-template-rows: 35vh 40vh 15vh 10vh;
+    }
+
+    h1 {
+      grid-column: 3 / 6;
+      grid-row: 1 / 2;
+      z-index: 2;
+      padding-left: 0.25em;
+      margin-bottom: initial;
+    }
+
+    h2 {
+      grid-row: 1 / -1;
+      grid-column: 6 / 7;
+      writing-mode: vertical-rl;
+      margin-bottom: initial;
+      color: $text;
+    }
+
+    hr {
+      grid-column: 5 / 6;
+      grid-row: 2;
+      height: 6px;
+      background-color: $text;
+      width: 20ch;
+    }
+
+    .about {
+      grid-column: 5 / 6;
+      grid-row: 2;
+      align-self: end;
+      padding-bottom: 4vh;
+      margin-bottom: initial;
+    }
+
+    a {
+      grid-column: 5 / 6;
+      justify-self: end;
+      align-self: center;
+      margin-bottom: initial;
+
+      &::before {
+        content: '';
+        display: block;
+        height: 4px;
+        background-color: $accent;
+        width: 4ch;
+        margin-bottom: 1em;
+      }
+    }
+
+    img {
+      grid-column: 1 / 4;
+      grid-row: 1 / 4;
+    }
+
+    .location {
+      grid-column: 3 / 4;
+      grid-row: 3 / 4;
+      z-index: 2;
+      background: $main;
+      text-align: center;
+      display: flex;
+
+      p {
+        margin: auto;
+      }
+    }
+
+    button {
+      grid-column: 2 / 3;
+      grid-row: 4 / 5;
+      position: initial;
+      padding: 0;
+    }
+  }
+
+  @media (min-width: 48em) {
+    hr {
+      opacity: 1;
+    }
+  }
+}</code></pre>
+              </div>
+            </div>
+            <aside class="notes">
+              <p>Now comes the actual grid code. I chose to go with flexible units like fr and viewport units because I wanted the layout to fully occupy the window without overflowing, when space allowed. So if you look at my <code>grid-template-columns</code> property, it looks a little nuts if you've never used grid before.</p>
+              <p>However, once you start experimenting with the different functions and values, I promise they will make sense to you. I have a friend who does webVR, and he once said that until you put on the headset, you don't really know VR. This is somewhat similar. You need to feel the grid.</p>
+            </aside>
+          </section>
+
+          <section>
+            <video controls loop>
+              <source data-src="videos/grid-tycho.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/grid-tycho.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <aside class="notes">Anyway, this is how the whole thing looks when we do that developer thing of resizing the browser window all over the place. I have been informed by non-web developer friends that this is not normal behaviour.</aside>
           </section>
         </section>
 
@@ -776,6 +1091,85 @@ h2 {
           <section>
             <h2>Fallback with feature queries</h2>
             <p>A conditional group rule whose condition tests whether the user agent supports CSS property:value pairs.</p>
+            <aside class="notes">Some of you might have noticed that my grid code was wrapped within an additional query with the syntax <code>@supports</code>, otherwise known as feature queries. And they are defined as such, conditionals that test if the browser supports a particular CSS feature.</aside>
+          </section>
+
+          <section>
+            <div class="vidcode" style="align-items: center;">
+              <video controls loop>
+                <source data-src="videos/ie11.mp4" type="video/mp4" />
+                Sorry, your browser doesn't support embedded videos, 
+                but don't worry, you can <a href="videos/ie11.mp4">download it</a>
+                and watch it with your favourite video player!
+              </video>
+              <pre style="font-size:50%;"><code class="css" style="max-height:none;">main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .title {
+    width: 100%;
+  }
+
+  .card {
+    flex: auto;
+    min-width: 12em;
+    height: 12em;
+  }</code></pre>
+            </div>
+            <aside class="notes">
+              <p>In my opinion, taking care of browser support is part and parcel of the job of being a web developer. I actually find it kind of fun, because it's a design puzzle to be solved.</p>
+              <p>Here's yet another example of a fallback layout, that works on browsers without Grid or support for feature queries. The browser used in this video is IE, just a basic responsive flexbox-based layout.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="vidcode">
+              <video controls loop>
+                <source data-src="videos/overlap2.mp4" type="video/mp4" />
+                Sorry, your browser doesn't support embedded videos, 
+                but don't worry, you can <a href="videos/overlap2.mp4">download it</a>
+                and watch it with your favourite video player!
+              </video>
+              <pre style="font-size:50%;"><code class="css" style="max-height:85vh;max-width:55vw;">@supports (display:grid) {
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
+      grid-auto-rows: 8em;
+    }
+
+    .title {
+      width: initial;
+    }
+
+    .card {
+      min-width: initial;
+      height: initial;
+    }
+
+    @media screen and (max-width: 383px) {
+      main {
+        grid-template-rows: 3em repeat(auto-fill, 8em);
+      }
+    }
+
+    @media screen and (min-aspect-ratio: 1/1) {
+      main {
+        grid-template-columns: repeat(4, minmax(25vw, 5em));
+        grid-template-rows: repeat(3, calc(100vh / 3));
+        grid-template-areas: "a b c ."
+                             "d e . f"
+                             "g . h i";
+      }
+    }
+  }</code></pre>
+            </div>
+            <aside class="notes">
+              <p>But for browsers that do support Grid and feature queries, I can layer on this fancier <em>overlap with vertical white-space</em> layout.</p>
+              <p>Designing layouts on the web requires interpolative thinking, on multiple levels. We don't just think in one fixed dimension, we get to think about how our design will morph on a narrow screen, or on an older browser, in addition to how it will appear on a browser with the latest features.</p>
+              <p>Call me whimsical, but I find this extremely appealing. As web designers and developers, it is our job to ensure our layouts are most effective in the environment they have to perform in.</p>
+            </aside>
           </section>
 
           <section>
@@ -783,7 +1177,7 @@ h2 {
             <p class="ciu_embed" data-feature="css-featurequeries" data-periods="future_1,current,past_1,past_2">
               <a href="http://caniuse.com/#feat=css-featurequeries"><img class="plain" data-src="img/caniuse-feature-queries.jpg"></a>
             </p>
-            <aside class="notes">Feature queries are key to making this approach feasible. And support for it is really good, with coverage in over 90% of browsers, including Opera Mini. The only browsers that don't support it are Internet Explorer and Blackberry Mobile.</aside>
+            <aside class="notes">Support for feature queries is really good, with coverage in over 90% of browsers, including Opera Mini, we almost never get anything on Opera Mini. The only browsers that don't support it are Internet Explorer and Blackberry Mobile.</aside>
           </section>
 
           <section>
@@ -797,28 +1191,96 @@ h2 {
   }
 }</code></pre>
             <aside class="notes">
-              <p>And this is how a feature query looks like. It's a conditional that checks if the browser supports a particular property or not. If it doesn't, the entire block within the <code>@supports</code> rule is ignored.</p>
-              <p>This means we start off with the basic layout that works everywhere. It could be a float-based layout, or even single column, maybe largely browser default UI elements, that sort of thing. Then we layer on styles based on the features we want to use.</p>
+              <p>And this is how a feature query looks like. The conditional checks if the browser supports a particular property or not. If it doesn't, the entire block within the <code>@supports</code> rule is ignored.</p>
+              <p>This means we start off with the basic layout that works everywhere. It could be a flexbox-based layout, or even single column, maybe largely browser default UI elements, that sort of thing. Then we layer on styles based on the features we want to use. Like what we saw in the previous 2 examples.</p>
               <p>By organising our code in this manner, the browsers that do not support feature queries or the specified property still get styled, while those that do get a different look. We're making use of the ‘C’ in CSS. Call it ‘Cascading Web Design’. If this concept ever takes off, remember you heard it here first.</p>
             </aside>
+          </section>
+
+          <section>
+            <div class="l-multiple">
+              <img class="plain" data-src="img/ie11.jpg" alt="Wismut Labs site layout on IE11">
+              <img class="plain" data-src="img/firefox.jpg" alt="Wismut Labs site layout on Firefox">
+              <img class="plain" data-src="img/chrome.jpg" alt="Wismut Labs site layout on Chrome">
+            </div>
+            <small><a href="https://www.wismutlabs.com">https://www.wismutlabs.com</a></small>
+            <aside class="notes">
+              <p>In this example, the layout on the left is what IE11 users will see, the one in the middle is what Firefox users will see, because Firefox doesn't support CSS shapes yet, but once it does, it will then look like the layout on the right, which is what Chrome users see now.</p>
+              <p>And yes, such an approach does require a level of familiarity with CSS, but it's not rocket science. It boils down to experience, and the willingness to embrace CSS for what it is.</p>
+            </aside>
+          </section>
+
+          <section>
+            <blockquote>“CSS isn't a programming language. It's a stylesheet language. We shouldn't expect it to behave like a programming language. It has its own unique landscape and structures, ones that people with programming language mental maps might not expect.”<br><small>—Danielle Huntrods</small></blockquote>
+            <aside class="notes">Danielle Huntrods from Clearleft said it best. CSS has its own unique landscape and structures, and our mental maps around it need to reflect that.</aside>
           </section>
         </section>
 
         <section>
-          <h2>A long list of resources</h2>
-          <ul style="column-count:2;font-size:50%;">
-            <li><a href="https://www.w3.org/TR/css-grid-1/">CSS Grid Layout Module Level 1</a></li>
-            <li><a href="https://tympanus.net/codrops/css_reference/grid/">Codrops CSS Grid reference</a></li>
-            <li><a href="https://gridbyexample.com/">Grid by Example</a></li>
-            <li><a href="http://jensimmons.com/post/feb-27-2017/learn-css-grid">Learn CSS Grid</a></li>
-            <li><a href="https://blogs.igalia.com/mrego/2015/02/25/grid-auto-placement-is-ready/">Grid Auto-Placement Is Ready</a></li>
-            <li><a href="https://blogs.igalia.com/svillar/2016/05/10/automatizing-the-grid/">Automatizing the Grid</a></li>
-            <li><a href="https://blogs.igalia.com/mrego/2016/02/01/deep-dive-into-grid-layout-placement/">Deep Dive into Grid Layout Placement</a></li>
-            <li><a href="https://blogs.igalia.com/mrego/2016/05/27/css-grid-layout-and-positioned-items/">CSS Grid Layout and positioned items</a></li>
-            <li><a href="https://alistapart.com/article/the-story-of-css-grid-from-its-creators">The Story of CSS Grid, from Its Creators</a></li>
-            <li><a href="https://blogs.igalia.com/mrego/2017/03/16/css-grid-layout-is-here-to-stay/">CSS Grid Layout is Here to Stay</a></li>
-          </ul>
-          <aside class="notes"></aside>
+          <section>
+            <h2>Shape the web we use and build for</h2>
+            <ul>
+              <li>CSS specifications are <a href="https://github.com/w3c/csswg-drafts">all on GitHub</a></li>
+              <li><a href="https://singaporecss.github.io/dev-voice/">Raising browser bugs</a> can and does make a difference</li>
+              <li>Write and talk about CSS features</li>
+              <li>Browser developers are people too, provide feedback and <a href="https://www.chenhuijing.com/blog/a-little-more-kindness/">be nice about it</a>.</li>
+            </ul>
+            <aside class="notes">
+              <p>Lastly, I want to encourage all of you to participate in shaping the web platform. You may think your voice is just a drop in the ocean, but it's not, it's significant. All the CSS working drafts are hosted on GitHub and we are free to raise issues for clarification or even submit pull requests if we spot any errors.</p>
+              <p>Raising browser bugs sends a signal to browser vendors that certain features are in use, prompting them to fix those bugs sooner rather than later. Conversely, if we don't use a feature simply because it is buggy, browser vendors would think that feature is not in demand and prioritise something else instead.</p>
+              <p>Writing and talking about certain CSS features provides visibility and feedback to browser vendors and specification writers as well. But regardless of platform, remember that we are all someone's son or daughter, friend or lover, and we all have feelings. So be kind, the world needs more kindness.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <figure>
+                <img class="plain" data-src="img/cssworkshop.jpg" alt="CSS layout workshop by Rachel Andrew">
+                <figcaption><small><a href="http://labs.jensimmons.com/">https://thecssworkshop.com/</a></small></figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/layoutlab.jpg" alt="Jen Simmons' experimental layout lab">
+                <figcaption><small><a href="http://labs.jensimmons.com/">http://labs.jensimmons.com/</a></small></figcaption>
+              </figure>
+            </div>
+            <aside class="notes">
+              <p>Jen Simmons and Rachel Andrew have done a lot for both developing layout on the web, as well as educating the web development community about it. Rachel Andrews has a CSS layout course which is completely online, and Jen Simmons has a wonderful collection of demos which you can check out.</p>
+              <p>I think everyone should build up their own collection of demos, because that's the best way to learn and familiarise ourselves with CSS in general.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Demos and examples</h2>
+            <ul>
+              <li><a href="https://www.warnerbros.com/archive/spacejam/movie/jam.htm">Space Jam website</a></li>
+              <li><a href="https://www.chenhuijing.com/demos/grids-regular/">Regular grids</a></li>
+              <li><a href="https://www.chenhuijing.com/demos/grids-braun/">Braun HiFi print posters</a></li>
+              <li><a href="https://www.chenhuijing.com/demos/grids-overlap/">Simple overlap</a></li>
+              <li><a href="https://www.chenhuijing.com/demos/grids-tycho/">Tycho artist profile</a></li>
+              <li><a href="https://www.chenhuijing.com/demos/grids-overlap-2/">Fallback with feature queries</a></li>
+              <li><a href="https://www.wismutlabs.com/">Wismut Labs website</a></li>
+              <li><a href="https://github.com/huijing/demos">Demos source code on GitHub</a></li>
+            </ul>
+            <aside class="notes">This is the list of stand-alone demos and sites I've referenced all throughout this talk. If you're interested in the source code, my demos are all hosted on GitHub, which is the last link on the list.</aside>
+          </section>
+
+          <section>
+            <h2>Useful resources</h2>
+            <ul style="column-count:2;font-size:70%;">
+              <li><a href="https://www.w3.org/TR/css-grid-1/">CSS Grid Layout Module Level 1</a></li>
+              <li><a href="https://tympanus.net/codrops/css_reference/grid/">Codrops CSS Grid reference</a></li>
+              <li><a href="https://gridbyexample.com/">Grid by Example</a></li>
+              <li><a href="http://jensimmons.com/post/feb-27-2017/learn-css-grid">Learn CSS Grid</a></li>
+              <li><a href="https://blogs.igalia.com/mrego/2015/02/25/grid-auto-placement-is-ready/">Grid Auto-Placement Is Ready</a></li>
+              <li><a href="https://blogs.igalia.com/svillar/2016/05/10/automatizing-the-grid/">Automatizing the Grid</a></li>
+              <li><a href="https://blogs.igalia.com/mrego/2016/02/01/deep-dive-into-grid-layout-placement/">Deep Dive into Grid Layout Placement</a></li>
+              <li><a href="https://blogs.igalia.com/mrego/2016/05/27/css-grid-layout-and-positioned-items/">CSS Grid Layout and positioned items</a></li>
+              <li><a href="https://alistapart.com/article/the-story-of-css-grid-from-its-creators">The Story of CSS Grid, from Its Creators</a></li>
+              <li><a href="https://blogs.igalia.com/mrego/2017/03/16/css-grid-layout-is-here-to-stay/">CSS Grid Layout is Here to Stay</a></li>
+              <li><a href="https://www.smashingmagazine.com/2016/11/css-grids-flexbox-box-alignment-new-layout-standard/">The New Layout Standard For The Web: CSS Grid, Flexbox And Box Alignment</a></li>
+            </ul>
+            <aside class="notes">These are some useful references for grid and web layouts if you're curious to find out more. They go pretty in-depth into the technical bits and history of grid. Might not be your kind of thing, but it definitely is my kind of thing.</aside>
+          </section>
         </section>
 
         <section style="text-align:left;">
@@ -828,6 +1290,7 @@ h2 {
           <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a dir="ltr" href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
           <p><img class="j-icon plain" data-src="img/codepen_w.png" alt="Codepen"><a dir="ltr" href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle;">@huijing</a></p>
         </section>
+        <aside class="notes">Thank you all for your attention.</aside>
       </div>
 
       <footer style="position:absolute;width:100%;bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em;background-color:rgba(0,0,0,0.75);"><span>https://www.chenhuijing.com/slides/gdaygt-2017</span><span style="text-align:right;">@hj_chen</span></footer>

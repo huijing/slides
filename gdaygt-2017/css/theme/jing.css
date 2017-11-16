@@ -16,7 +16,7 @@ body {
 
 .reveal {
   font-family: "Orbitron", sans-serif;
-  font-size: 3.2em;
+  font-size: 2.6em;
   font-weight: normal;
   color: #f9ac39; }
 
@@ -399,7 +399,7 @@ span[role=img][aria-label]:hover::after {
   display: grid;
   grid-template-columns: 65% calc(35% - 0.5em);
   grid-gap: 0.5em;
-  height: 75vh;
+  height: 60vh;
   margin: 0;
   padding: 0; }
   .livecode .result {
@@ -430,19 +430,7 @@ span[role=img][aria-label]:hover::after {
 
 .vidcode {
   display: grid;
-  grid-template-columns: 60% 40%;
-  grid-gap: 0.5em;
+  grid-template-columns: 50% 50%;
   height: 75vh; }
   .vidcode video {
     align-self: center; }
-  .vidcode .code {
-    text-align: left;
-    width: 100%;
-    background: #f9ac39;
-    font-family: monospace;
-    color: #000;
-    font-size: 40%;
-    padding: 0.5em;
-    border-radius: 0.25em;
-    overflow-y: scroll;
-    white-space: pre-wrap; }

@@ -15,7 +15,7 @@
 // Override theme settings (see ../template/settings.scss)
 $mainFont: 'Orbitron', sans-serif;
 $mainColor: #f9ac39;
-$mainFontSize: 3.2em;
+$mainFontSize: 2.6em;
 $headingFont: 'Orbitron', sans-serif;
 $headingColor: #df581d;
 $headingTextShadow: none;
@@ -177,7 +177,7 @@ span[role=img][aria-label]:hover::after {
   display: grid;
   grid-template-columns: 65% calc(35% - 0.5em);
   grid-gap: 0.5em;
-  height: 75vh;
+  height: 60vh;
   margin: 0;
   padding: 0;
 
@@ -218,24 +218,10 @@ span[role=img][aria-label]:hover::after {
 
 .vidcode {
   display: grid;
-  grid-template-columns: 60% 40%;
-  grid-gap: 0.5em;
+  grid-template-columns: 50% 50%;
   height: 75vh;
 
   video {
     align-self: center;
-  }
-
-  .code {
-    text-align: left;
-    width: 100%;
-    background: $mainColor;
-    font-family: monospace;
-    color: $backgroundColor;
-    font-size: 40%;
-    padding: 0.5em;
-    border-radius: 0.25em;
-    overflow-y: scroll;
-    white-space: pre-wrap;
   }
 }
