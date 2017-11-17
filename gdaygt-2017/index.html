@@ -149,9 +149,42 @@
 
         <section>
           <section>
+            <h2>Grid versus Flexbox?</h2>
+            <h2 class="fragment j-stamp">Wrong question</h2>
+            <aside class="notes">Some people have asked why we need Grid when we already have Flexbox? Or, is Grid supposed to replace Flexbox? My response is, these 2 layout techniques are not competing against each other. They are meant to be complementary.</aside>
+          </section>
+
+          <section>
+            <h2>Grid AND Flexbox</h2>
+            <div class="l-multiple">
+              <img class="plain fragment" style="margin:0 0.25em;" data-src="img/kaya-butter.jpg">
+              <img class="plain fragment" style="margin:0 0.25em;" data-src="img/nuts-bolts.jpg">
+              <img class="plain fragment" style="margin:0 0.25em;" data-src="img/jayz-beyonce.jpg">
+            </div>
+            <aside class="notes">Grid and Flexbox are best friends. Like kaya and butter. Like nuts and bolts. Like Jay-Z and Beyoncé. Either are good on their own, but together, they can reach another level of awesome.</aside>
+          </section>
+
+          <section>
+            <h2>Flexbox ➡ single dimension</h2>
+            <div class="l-double">
+              <figure style="width:85%;">
+                <img class="plain" data-src="img/daisy-h.svg">
+                <figcaption>flex-direction: row</figcaption>
+              </figure>
+              <figure style="width:75%;">
+                <img class="plain" data-src="img/daisy-v.svg">
+                <figcaption>flex-direction: column</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">Flexbox is suited for laying out items in a single dimension. Where there isn't a relationship between the rows and columns. Think of it more like a long daisy chain of flex children.</aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
             <h2>What is CSS grid?</h2>
             <p>Defines a <strong style="border-bottom:0.125em solid;">two-dimensional</strong> grid-based layout system, optimized for user interface design.</p>
-            <aside class="notes">So what is CSS grid? This is how it's described in the specification. The key word here is two-dimensional.</aside>
+            <aside class="notes">Now, let's examine CSS grid. What is it? This is how it's described in the specification. The key word here is two-dimensional.</aside>
           </section>
 
           <section>
@@ -707,8 +740,51 @@
             </div>
             <aside class="notes">
               <p>Finally, we have the <code>align-items</code> and <code>justify-items</code> properties, which set the default <code>align-self</code> and <code>justify-self</code> behaviour of all the items within the grid.</p>
-              <p>With all that sorted, let's look at some of the more interesting layouts we can now achieve with manual placement in CSS grid.</p>
             </aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <figure>
+                <img class="plain" style="margin:0;" data-src="img/bauhaus-original.jpg" alt="Malerei, Fotografie, Film (pg. 126)">
+                <figcaption>Original print version</figcaption>
+              </figure>
+              <figure>
+                <img class="plain" style="margin:0;" data-src="img/bauhaus-grid.jpg" alt="Recreated with CSS grid">
+                <figcaption>CSS grid web version</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">
+              <p>Earlier on, I mentioned that Flexbox and Grid work really together, and I want to share an example of that.</p>
+              <p>The image on the left is a page from the publication Malerei, Fotografie, Film by László Moholy-Nagy, who was a professor at the Bauhaus school. The layout is made up of several striking, thick, black borders around each grid cell.</p>
+              <p>Each cell contains a different type of content and their alignment varies from cell to cell. So how would we align things according to the original design?</p>
+            </aside>
+          </section>
+
+          <section>
+            <p>Self-alignment properties, maybe?</p>
+            <figure class="fragment">
+              <img class="plain" style="margin:0;max-height:50vh;" data-src="img/fit.svg" alt="Self-alignment properties">
+              <figcaption>These are not the borders you are looking for</figcaption>
+            </figure>
+            <aside class="notes">
+              <p>When I started building this out, my first instinct was to use the <code>justify-self</code> and <code>align-self</code> properties to adjust the content positions. Nice try, but it was a no go.</p>
+              <p>The border property applies onto the grid item. Any grid alignment property other than stretch will make the size of the grid item fit to its contents.</p>
+              <p>Any borders applied to grid items naturally fit the grid item’s contents, so I couldn’t do that, it messed up the design.</p>
+            </aside>
+          </section>
+
+          <section>
+            <p>Flexbox to the rescue</p>
+            <figure class="fragment">
+              <img class="plain" style="margin:0;max-height:50vh;" data-src="img/flex.svg" alt="Display flex on grid items">
+              <figcaption>That's more like it</figcaption>
+            </figure>
+            <aside class="notes">But if instead we apply <code>display: flex</code> on the grid item, we can now use flex alignment properties applied on the flex container to position the grid item's content accordingly.</aside>
+          </section>
+
+          <section data-background-image="img/jayz-beyonce-l.jpg">
+            <aside class="notes">Remember, awesome together. With all that sorted, let's look at some of the more interesting layouts we can now achieve with manual placement in CSS grid.</aside>
           </section>
         </section>
 
@@ -1254,6 +1330,7 @@ button {
             <ul>
               <li><a href="https://www.warnerbros.com/archive/spacejam/movie/jam.htm">Space Jam website</a></li>
               <li><a href="https://www.chenhuijing.com/demos/grids-regular/">Regular grids</a></li>
+              <li><a href="https://www.chenhuijing.com/demos/bauhaus/">Malerei, Fotografie, Film (pg. 126)</a></li>
               <li><a href="https://www.chenhuijing.com/demos/grids-braun/">Braun HiFi print posters</a></li>
               <li><a href="https://www.chenhuijing.com/demos/grids-overlap/">Simple overlap</a></li>
               <li><a href="https://www.chenhuijing.com/demos/grids-tycho/">Tycho artist profile</a></li>
@@ -1281,6 +1358,33 @@ button {
             </ul>
             <aside class="notes">These are some useful references for grid and web layouts if you're curious to find out more. They go pretty in-depth into the technical bits and history of grid. Might not be your kind of thing, but it definitely is my kind of thing.</aside>
           </section>
+        </section>
+
+        <section>
+          <div class="jsconf-asia" style="margin:0 auto 1em;">
+            <div class="js">
+              <svg viewBox="0 0 178 292">
+              <path fill-rule="nonzero" d="M.65 237.474l48.212-29.178c9.302 16.492 17.763 30.444 38.058 30.444 19.454 0 31.72-7.61 31.72-37.21V.23h59.203v202.138c0 61.32-35.944 89.23-88.385 89.23-47.362 0-74.853-24.528-88.808-54.13"/>
+            </svg>
+              <svg class="flicker" viewBox="0 0 206 296">
+              <path class="light" fill-rule="nonzero" d="M48.206 207.22c12.69 20.722 29.183 35.946 58.36 35.946 24.533 0 40.175-12.264 40.175-29.18 0-20.3-16.067-27.49-43.134-39.327l-14.797-6.35c-42.716-18.18-71.05-41.016-71.05-89.226C17.76 34.68 51.59.846 104.453.846c37.637 0 64.702 13.111 84.154 47.367l-46.097 29.6c-10.15-18.182-21.14-25.37-38.056-25.37-17.34 0-28.335 10.995-28.335 25.37 0 17.763 10.995 24.953 36.366 35.95l14.8 6.342c50.325 21.57 78.66 43.557 78.66 93.034 0 53.286-41.866 82.464-98.11 82.464-54.976 0-90.5-26.218-107.836-60.474l48.206-27.91z"/>
+            </svg>
+            </div>
+            <div class="background">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <a href="https://2018.jsconf.asia/">https://2018.jsconf.asia/</a>
+          <p>Discount code: <strong style="border-bottom:0.125em solid;">PENANGJS</strong></p>
+          <aside class="notes">
+            <p>Before I go, I want to mention that JSConf.Asia is happening next January in Singapore. There will be more than 40 speakers/hosts plus 20 workshops covering a wide range of topics, from CSS grid to machine learning, node performance, AR and VR, visualisation, even an accessibility workshop run by two amazing blind computer scientists and more.</p>
+            <p>Tickets are on sale and if you use the discount code PENANGJS, you'll get 20% off the price.</p>
+          </aside>
         </section>
 
         <section style="text-align:left;">

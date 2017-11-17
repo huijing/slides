@@ -52,6 +52,12 @@ Doing layout on the web usually starts off with using the <code>display</code> p
 
 Today, we're going to focus Grid layout. And maybe a few of her friends.
 
+Some people have asked why we need Grid when we already have Flexbox? Or, is Grid supposed to replace Flexbox? My response is, these 2 layout techniques are not competing against each other. They are meant to be complementary.
+
+Grid and Flexbox are best friends. Like kaya and butter. Like nuts and bolts. Like Jay-Z and Beyoncé. Either are good on their own, but together, they can reach another level of awesome.
+
+Flexbox is suited for laying out items in a single dimension. Where there isn't a relationship between the rows and columns. Think of it more like a long daisy chain of flex children.
+
 ## Introducing CSS grid
 
 > Grid works from the container in, other layout methods start with the item
@@ -154,7 +160,19 @@ These properties allow us to control how the content of each grid item is aligne
 
 Finally, we have the <code>align-items</code> and <code>justify-items</code> properties, which set the default <code>align-self</code> and <code>justify-self</code> behaviour of all the items within the grid.
 
-With all that sorted, let's look at some of the more interesting layouts we can now achieve with manual placement in CSS grid.
+Earlier on, I mentioned that Flexbox and Grid work really together, and I want to share an example of that.
+
+The image on the left is a page from the publication Malerei, Fotografie, Film by László Moholy-Nagy, who was a professor at the Bauhaus school. The layout is made up of several striking, thick, black borders around each grid cell.
+
+Each cell contains a different type of content and their alignment varies from cell to cell. So how would we align things according to the original design?
+
+When I started building this out, my first instinct was to use the <code>justify-self</code> and <code>align-self</code> properties to adjust the content positions. NNice try, but it was a no go.
+
+The border property applies onto the grid item. Any grid alignment property other than stretch will make the size of the grid item fit to its contents. Any borders applied to grid items naturally fit the grid item’s contents, so I couldn’t do that, it messed up the design.
+
+But if instead we apply <code>display: flex</code> on the grid item, we can now use flex alignment properties applied on the flex container to position the grid item's content accordingly.
+
+Remember, awesome together. With all that sorted, let's look at some of the more interesting layouts we can now achieve with manual placement in CSS grid.
 
 ## On vertical whitespace
 

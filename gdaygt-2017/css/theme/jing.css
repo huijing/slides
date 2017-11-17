@@ -359,6 +359,21 @@ html {
   vertical-align: middle;
   margin-right: 1rem; }
 
+.reveal .j-stamp {
+  position: absolute;
+  top: 0;
+  left: 20%;
+  transform: rotate(-30deg);
+  background-color: #000;
+  padding: 0.25em;
+  border: 0.2em solid #a70000;
+  color: #a70000;
+  text-shadow: 1px 1px 2px black;
+  box-shadow: 1px 1px 2px black;
+  border-radius: 0.5em;
+  text-transform: uppercase;
+  font-size: 125%; }
+
 .reveal .slides section .fragment.fade-out.visible:not(.current-fragment) {
   display: none; }
 
@@ -434,3 +449,137 @@ span[role=img][aria-label]:hover::after {
   height: 75vh; }
   .vidcode video {
     align-self: center; }
+
+.jsconf-asia {
+  background-color: black;
+  height: 30rem;
+  width: 30rem;
+  border-radius: 0.5rem;
+  position: relative;
+  box-shadow: 1rem 1rem 0.5rem #444; }
+  .jsconf-asia svg {
+    height: 46.0317%; }
+    .jsconf-asia svg path {
+      fill: white; }
+  .jsconf-asia svg:first-child,
+  .jsconf-asia svg:nth-child(2) {
+    position: absolute;
+    bottom: 7.9365%; }
+  .jsconf-asia svg:first-child {
+    left: 26.1905%;
+    width: 28.5714%; }
+  .jsconf-asia svg:nth-child(2) {
+    right: 7.9365%;
+    width: 32.5397%; }
+  .jsconf-asia .background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; }
+    .jsconf-asia .background div:nth-child(1) {
+      border: 0.5rem solid #56aaeb;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 0.5rem #56aaeb, inset 0 0 0.5rem #56aaeb, 0 0 1rem #56aaeb, inset 0 0 1rem #56aaeb, 0 0 2rem #56aaeb, inset 0 0 2rem #56aaeb; }
+    .jsconf-asia .background div:nth-child(2) {
+      border: 0.5rem solid #256bc4;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 0.5rem #256bc4, inset 0 0 0.5rem #256bc4, 0 0 1rem #256bc4, inset 0 0 1rem #256bc4, 0 0 2rem #256bc4, inset 0 0 2rem #256bc4; }
+    .jsconf-asia .background div:nth-child(3) {
+      border: 0.5rem solid #9ae0ff;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 0.5rem #9ae0ff, inset 0 0 0.5rem #9ae0ff, 0 0 1rem #9ae0ff, inset 0 0 1rem #9ae0ff, 0 0 2rem #9ae0ff, inset 0 0 2rem #9ae0ff; }
+    .jsconf-asia .background div:nth-child(4) {
+      border: 0.5rem solid #021c7f;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 0.5rem #021c7f, inset 0 0 0.5rem #021c7f, 0 0 1rem #021c7f, inset 0 0 1rem #021c7f, 0 0 2rem #021c7f, inset 0 0 2rem #021c7f; }
+    .jsconf-asia .background div:nth-child(5) {
+      border: 0.5rem solid #256bc3;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 0.5rem #256bc3, inset 0 0 0.5rem #256bc3, 0 0 1rem #256bc3, inset 0 0 1rem #256bc3, 0 0 2rem #256bc3, inset 0 0 2rem #256bc3; }
+    .jsconf-asia .background div:nth-child(6) {
+      border: 0.5rem solid #ffed2a;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 0.5rem #ffed2a, inset 0 0 0.5rem #ffed2a, 0 0 1rem #ffed2a, inset 0 0 1rem #ffed2a, 0 0 2rem #ffed2a, inset 0 0 2rem #ffed2a; }
+    .jsconf-asia .background div {
+      height: 100%;
+      float: left;
+      margin-right: 2%; }
+    .jsconf-asia .background div:first-child {
+      width: 10%; }
+    .jsconf-asia .background div:nth-child(2) {
+      width: 19%; }
+    .jsconf-asia .background div:nth-child(3) {
+      width: 4%; }
+    .jsconf-asia .background div:nth-child(4) {
+      width: 28%; }
+    .jsconf-asia .background div:nth-child(5) {
+      width: 10%; }
+    .jsconf-asia .background div:nth-child(6) {
+      width: 19%;
+      margin-right: 0; }
+  .jsconf-asia .js {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; }
+  @supports (filter: drop-shadow(0 0 1vmin gray)) {
+    .jsconf-asia svg {
+      filter: drop-shadow(0 0 0.5rem gray) drop-shadow(0 0 0.75rem white) drop-shadow(0 0 1rem white); }
+    .jsconf-asia .flicker {
+      animation: flicker 10s infinite; }
+    .jsconf-asia .light {
+      animation: light 10s infinite; } }
+  @supports (display: grid) and (not (display: -ms-grid)) {
+    .jsconf-asia .background {
+      display: grid;
+      grid-template-rows: 30rem;
+      grid-template-columns: 3rem 5.7rem 1.2rem 8.4rem 3rem 5.7rem;
+      grid-gap: 0.6rem; }
+      .jsconf-asia .background div {
+        float: initial;
+        height: initial;
+        margin: initial; }
+      .jsconf-asia .background div:nth-child(1) {
+        width: initial; }
+      .jsconf-asia .background div:nth-child(2) {
+        width: initial; }
+      .jsconf-asia .background div:nth-child(3) {
+        width: initial; }
+      .jsconf-asia .background div:nth-child(4) {
+        width: initial; }
+      .jsconf-asia .background div:nth-child(5) {
+        width: initial; }
+      .jsconf-asia .background div:nth-child(6) {
+        width: initial; }
+    .jsconf-asia .js {
+      display: grid;
+      grid-template-rows: 13.80952rem 13.80952rem 2.38096rem;
+      grid-template-columns: 7.85714rem 8.57142rem 1.42857rem 9.76190rem 2.38097rem; }
+    .jsconf-asia svg {
+      max-width: 100%; }
+    .jsconf-asia svg:first-child,
+    .jsconf-asia svg:nth-child(2) {
+      position: initial;
+      height: initial;
+      width: initial; }
+    .jsconf-asia svg:first-child {
+      grid-row: 2;
+      grid-column: 2 / 3; }
+    .jsconf-asia svg:nth-child(2) {
+      grid-row: 2;
+      grid-column: 4 / 5; } }
+
+@keyframes flicker {
+  21%, 39%, 45%, 47% {
+    filter: none; }
+  18%, 26%, 38%, 40%, 44%, 46%, 48% {
+    filter: drop-shadow(0 0 0.5rem gray) drop-shadow(0 0 0.75rem white) drop-shadow(0 0 1rem white); } }
+
+@keyframes light {
+  21%, 39%, 45%, 47% {
+    fill: gray; }
+  18%, 26%, 38%, 40%, 44%, 46%, 48% {
+    fill: white; } }
