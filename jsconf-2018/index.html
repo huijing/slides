@@ -1,0 +1,1095 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Between East and West: web typography and how it can inspire modern layouts</title>
+    <meta name="description" content="This talk traces the parallel history of western and eastern typography from handwriting to the internet age, setting the context for how the web is a brand new medium for typesetting. CSS allows us to implement advanced typographic features and multi-directional layouts, that not only benefits internationalisation, but opens up a myriad of options for creative and interesting layouts in general as well.">
+    <meta name="author" content="Chen Hui Jing">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/jing.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <div>
+            <h1>Between East and West</h1>
+            <h3>Web typography and how it can inspire modern layouts</h3>
+            <div class="jsconf-asia" style="margin:1em auto 0;">
+              <div class="js">
+                <svg viewBox="0 0 178 292">
+                <path fill-rule="nonzero" d="M.65 237.474l48.212-29.178c9.302 16.492 17.763 30.444 38.058 30.444 19.454 0 31.72-7.61 31.72-37.21V.23h59.203v202.138c0 61.32-35.944 89.23-88.385 89.23-47.362 0-74.853-24.528-88.808-54.13"/>
+              </svg>
+                <svg class="flicker" viewBox="0 0 206 296">
+                <path class="light" fill-rule="nonzero" d="M48.206 207.22c12.69 20.722 29.183 35.946 58.36 35.946 24.533 0 40.175-12.264 40.175-29.18 0-20.3-16.067-27.49-43.134-39.327l-14.797-6.35c-42.716-18.18-71.05-41.016-71.05-89.226C17.76 34.68 51.59.846 104.453.846c37.637 0 64.702 13.111 84.154 47.367l-46.097 29.6c-10.15-18.182-21.14-25.37-38.056-25.37-17.34 0-28.335 10.995-28.335 25.37 0 17.763 10.995 24.953 36.366 35.95l14.8 6.342c50.325 21.57 78.66 43.557 78.66 93.034 0 53.286-41.866 82.464-98.11 82.464-54.976 0-90.5-26.218-107.836-60.474l48.206-27.91z"/>
+              </svg>
+              </div>
+              <div class="background">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">Hello. How's everyone doing so far? Good? Spoiler alert: what you're going to get from me over the next 30 minutes is exactly as the title says. You'll be hearing about typography, about layout, and about design, all in the context of the web. Not a lot of Javascript here, I'm afraid, but I do hope you'll stick around and hear me out.</aside>
+        </section>
+
+        <section>
+          <section>
+            <h2>What does the web mean to you?</h2>
+            <aside class="notes">How many people identify as developers? And designers? Okay, I've seen this question asked before and realise that people in Asia generally don't like raising their hands, which is cool, you do you. But I do want everybody to hold this question in your minds for a bit. What does that web mean to you?</aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <img class="plain" data-src="img/launch.jpg" alt="Launch of the web">
+              <img class="plain" data-src="img/web.jpg" alt="Where the web was born">
+            </div>
+            <audio controls="controls" src="audio/dial-up.mp3">
+              Your browser does not support the <code>audio</code> element.
+            </audio>
+            <aside class="notes">
+              <p>For me, I love the web. The World Wide Web. I was a lucky kid, in that even though our family was far from rich, we've always had a computer in the house. I think my parents needed one for work or something. But I was more concerned with the games on there.</p>
+              <p>My first experience with the web sounded like this. If you've never heard this before, well, you're obviously not from my generation. When I think about the web, I think about how amazing it is that it can connect the world's population.</p>
+              <p>In fact, without the web, odds are we would never have crossed paths. And I wouldn't be standing on this stage talking to you about the web.</p>
+            </aside>
+          </section>
+
+          <section>
+            <figure>
+              <img class="plain" data-src="img/michelleyeoh.jpg" alt="Michelle Yeoh">
+              <figcaption><a href="https://youtu.be/0b6HxVA_q2U?t=190">https://youtu.be/0b6HxVA_q2U?t=190</a></figcaption>
+            </figure>
+            <aside class="notes">
+              <p>So this beautiful woman is Michelle Yeoh, one of the greatest female action stars of all time and the pride of Malaysians everywhere.</p>
+              <p>When she first got to Hollywood, people were amazed that she could speak English so well. And she was amazed people in Hollywood had such a limited grasp of world geography, seeing as they didn't know where Malaysia was.</p>
+            </aside>
+          </section>
+
+          <section data-background-image="img/worldmap.png">
+            <aside class="notes">
+              <p>I'm sure many people from America and Europe know where Southeast Asia is, I mean, look at all the expats around. No offense, if you are one. But I have also met people whose idea of Asia was limited to, China, India or Japan.</p>
+              <p>Southeast Asia is made up of 11 countries, and every single one of them has their own distinct culture. English is taught in schools across the region, but we have so many other languages as well.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <figure>
+                <svg style="max-height:65vh;" viewBox="0 0 336 337"><g fill="none" fill-rule="evenodd" transform="translate(0 .29)"><circle class="rainbow" cx="168" cy="168.5" r="167.93" fill="salmon"/><path fill="#48004C" d="M168 168.5L218.574 8.32C202.614 3.285 185.624.57 168 .57V168.5z"/><text fill="#fff" transform="rotate(-81 183.245 64.587)" font-size="16" font-weight="400"><tspan x="122.245" y="70.087">English (~4.9%)</tspan></text><text fill="#000" font-size="16" font-weight="400"><tspan x="32.068" y="207.102">Every other language in the world</tspan> <tspan x="135.38" y="224.102">(~95.1%)</tspan></text></g></svg>
+                <figcaption>Distribution of languages used around the world</figcaption>
+              </figure>
+              <figure class="fragment">
+                <svg style="max-height:65vh;" viewBox="0 0 337 337"><g fill="none" fill-rule="evenodd"><circle style="animation-delay: -2.5s;" class="rainbow" cx="168.383" cy="168.602" r="167.93" fill="salmon"/><path fill="#48004C" d="M168.383 336.53c92.745 0 167.93-75.183 167.93-167.928 0-92.745-75.185-167.93-167.93-167.93v167.93l-12.22 167.492c4.036.29 8.11.437 12.22.437z"/><text fill="#000" font-size="16" font-weight="400"><tspan x="43.479" y="152.5">Every other </tspan> <tspan x="43.479" y="172.5">language in </tspan> <tspan x="43.479" y="192.5">the world</tspan> <tspan x="43.479" y="212.5">(~48.8%)</tspan></text><text fill="#fff" font-size="16" font-weight="400"><tspan x="191.521" y="174">English (~51.2%)</tspan></text></g></svg>
+                <figcaption>Distribution of content languages on the web</figcaption>
+              </figure>
+            </div>
+            <p class="fragment"><small>Sources: <a href="http://www.worldometers.info/world-population/">Worldometers</a>, <a href="https://www.ethnologue.com/language/eng">Ethnologue</a>, <a href="https://w3techs.com/technologies/overview/content_language/all">W3Techs</a></small></p>
+            <aside class="notes">Of the world's 7.6 billion people, only 4.9% are native English speakers, but 51.2% of websites are in English. Something isn't quite right about this ratio.</aside>
+          </section>
+
+          <section data-background-image="img/diversity.jpg">
+            <aside class="notes">
+              <p>The world is beautiful because of its cultural diversity. Language is part of a society's cultural heritage and is especially important for the maintenance of it.</p>
+              <p>The web is an informational medium, people go online to find out about things. Even if you're going online to buy something, don't you need information about the product you're going to purchase? So the priority is always content. The web is only useful to people who can understand the content on it.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Internationalisation (i18n)</h2>
+            <blockquote>“To ensure that the technology supports text in any writing system of the world.”<br><small>—<a href="https://www.w3.org/standards/webdesign/i18n">W3C Internationalisation</a></small></blockquote>
+            <aside class="notes">Which is why I'm slightly comforted to know that Internationalisation is a priority at the W3C. It is crucial that a technology meant to be ubiquitous supports the creation of local content across the world. That every writing system in the world can be correctly rendered on the web.</aside>
+          </section>
+
+          <section style="font-size:50%;">
+            <div style="display:grid;grid-template-columns:28vw 28vw 28vw 12vw;grid-template-rows:repeat(6,14vh);grid-template-areas:'a b c d''a b c d''e g c d''e g i d''f h i d''f h i d';grid-gap:1vw;align-items:center;">
+              <p lang="ar" dir="rtl" style="grid-area:a;text-align:right;">هانق تواه هو محارب وبحار ملايوي من ملاكا عاش في عهد حكم السلطان منصور شاه في القرن الخامس عشر الميلادي، وكان واحداً من أقدر أميرالات السلطان الذين يسمون لكسامانا إلى جانب هانق كاستوري ، وهانق ليكيو، وهانق ليكير، وهانق جيبات.</p>
+              <p lang="zh-Hans" style="grid-area:b;text-align:justify;">从前，在马来西亚的西海岸边上，住着一个叫左汉的渔夫，他每天早出晚归出海捕鱼，卖鱼的钱除了吃饭、穿衣等必需的日常开销外，剩下的就不多了。左汉对辛辛苦苦的捕鱼生活很不满意，一心只想着发财。可是，左汉心里明白：靠捕鱼，自己是永远不会成为富翁的。</p>
+              <p lang="my" style="grid-area:c;text-align:left;">မိုးလင်းကတည်းကပင် ကောင်းကင်သည် အုံ့မှိုင်း ညို့မှုန်လျက်ရှိသည်။ တိမ်တိုက်ဟူ၍ ဘာမှကြည်လင်စွာမမြင်ရ။ မိုးကိုကြည့်ရသည်မှာ မြူသန်းနေသော ပင်လယ်ပြင်ကြီးလို ဝိုးဝိုးဝါးဝါးနေသည်။ မိုးသည် ကင်းကင်းလွတ်လွတ်စဲသည် ဟူ၍မရှိ၊ တဖွဲဖွဲ ဖွဲနေလိုက်၊ တဖြိုင်ဖြိုင်ရွာချလိုက်နှင့်၊ နောက် စွေ၍ နေလေသည်။</p>
+              <p lang="th" style="grid-area:h;text-align:left;">ลิลิตพระลอเป็นเรื่องความรักที่มีอนุภาพรุนแรงยิ่ง จนแม้ชีวิตก็ยอมพลีให้แก่กัน เนื้อเรื่องกล่าวถึงเมืองสองเมือง คือ เมืองสรอง กับเมืองสรวงเป็นศัตรูกัน เจ้าเมืองสรวงได้ฆ่าเจ้าเมืองสรองตายในสนามรบ พระชายาเจ้าเมืองสรองมีความแค้นเจ้าเมืองสรวงอย่างยิ่ง</p>
+              <p lang="lo" style="grid-area:e;text-align:left;">ຄັນເມື່ອຄວາຍຕົວນັນຕາຍໄປແລ້ວຂຸນທັງສອງຈຶ່ງຝັງມັນໄວ້ທີ່ຫົວນາ ຕໍ່ມາຈຶ່ງມີເຄືອຫມາກນໍ້າເຕົ້າສອງເຄືອ ເກີດມາຈາກຮູດັງຄວາຍແລ້ວກໍ່ມີຫມາກນໍ້າເຕົ້າໃຫຍ່ສອງ ຫນ່ວຍ ເມື່ອຫມາກນໍ້າເຕົ້າໃຫຍ່ສອງຫນ່ວຍນັ້ນແກ່ແຫ້ງແລ້ວ ກໍ່ເລີຍໄດ້ຍິນສຽງຄົນ ຮ້ອງຊວ່າ ແຊວຢູ່ໃນຫມາກນໍ້າເຕົ້າຫນ່ວຍກົກ.</p>
+              <p lang="km" style="grid-area:f;text-align:left;">អាចោរនោះថា «បងស្រលាញ់ស្មោះហើយនាងពុំដឹងចិត្តបងចង់អោយបងស្បថ រឺអោយបងធ្វើម្ដេច ? » ។ មេនោះថា «បើស្រលាញ់ចិត្តមួយនឹងគ្នា មានតែលិទ្ធអណ្ដាតគ្នា » ទើបមេនោះលៀនអណ្ដាតហើយអោនទៅរកអាចោរនោះ។</p>
+              <p lang="vi" style="grid-area:g;text-align:left;">Chẳng là xƣa nay bọn mình chƣa viết chung thƣ bao giờ. Cho nên cuối cùng phải thỏa thuận với nhau là cứ viết riêng thôi. Nhƣng lại xảy ra chuyện tranh cãi là để ai viết trƣớc bây giờ. Đành rút thăm vậy. Kết quả là mình trúng đầu tiên.</p>
+              <p lang="tl" style="grid-area:i;text-align:left;">Isa pang round at nagka-ayawan na pagka 11:00 na halos ng gabi.  Namahagi si Manuel ng kaunting balato at ang natirang malinis niyang pinanalunan ay P700 na kanyang ibinukod habang matuling tumatakbo ang taksi na patungo sa kanyang inuuwian.</p>
+              <p lang="zh-Hant" style="grid-area:d;writing-mode:vertical-rl;text-align:justify;">生命對幾米來說，剛開始像「接龍」，有了這一張牌，才能找到下一張牌，他在罹患血癌之後，靠一本本創作，才能維繫生命絲線。他作品呈現的「童真的憂鬱」，帶給讀者深深的共鳴。功成名就的幾米也越來越自信從容，但他說：「外面的虛浮都是假的，空洞的，只有當我的手握著筆，埋頭工作的時候，我才是最堅強。」</p>
+            </div>
+            <aside class="notes">
+              <p>Just to prove a point, these are the various scripts in use in Southeast Asia, and they can all be displayed and laid out correctly on the web now. With better unicode support and font technologies for individual characters, as well as various CSS properties for overall layout, we now have the means to carve out a space on the web that truly belongs to each of us. That truly feels like home.</p>
+            </aside>
+          </section>
+        </section>
+
+        <section data-background-image="img/emoji-bg.png" data-background-repeat="repeat" data-background-size="200px">
+          <div class="l-double" style="font-size:150%;">
+            <img data-src="img/avatar.jpg" alt="Jing" style="border-radius:50%;">
+            <div style="display:grid;grid-template-columns:repeat(3,3em);grid-template-rows:repeat(3,3em);width:100%;grid-template-areas:'a . b''. c .''d . e';">
+              <span style="font-size:calc(1.5em + 3vw);grid-area:a;" class="emoji" role="img" tabindex="0" aria-label="Malaysia">&#x1F1F2;&#x1F1FE;</span>
+              <span style="font-size:calc(1.5em + 3vw);grid-area:b;" class="emoji fragment" role="img" tabindex="0" aria-label="basketball">&#x1F3C0;</span>
+              <span style="font-size:calc(1.5em + 3vw);grid-area:c;" class="emoji fragment" role="img" tabindex="0" aria-label="woman technologist">&#x1F469;&#x200D;&#x1F4BB;</span>
+              <span style="font-size:calc(1.5em + 3vw);grid-area:d;" class="emoji fragment" role="img" tabindex="0" aria-label="memo">&#x1F4DD;</span>
+              <span style="font-size:calc(1.5em + 3vw);grid-area:e;" class="emoji fragment" role="img" tabindex="0" aria-label="studio microphone">&#x1F399;</span>
+            </div>
+          </div>
+          <aside class="notes">My name is Hui Jing and I'm Malaysian. I used to play basketball full time and it was what kick-started my web career. And I love CSS so much that it compels me to write and speak about it.</aside>
+        </section>
+
+        <section>
+          <section>
+            <h2>Do developers even care about typography?</h2>
+            <aside class="notes">
+              <p>Someone once asked me this question, do developers even care about typography? I think they do. But maybe I'm wrong. How many of you think typography is important?</p>
+              <p>Typography has always been an integral part of Human-Computer Interaction and software design. There is a very good reason why Apple has an entire section dedicated to Typography in the Apple Developers' Human Interface Guidelines.</p>
+              <p>You might disagree with me, but as a front-end developer, the code we write impacts how our sites or applications look, so we too have a share of the responsibility in the design of our products.</p>
+            </aside>
+          </section>
+
+          <section>
+            <blockquote>“Web design is 95% typography”<br><small>—<a href="https://twitter.com/reichenstein">Oliver Reichenstein</a></small></blockquote>
+            <aside class="notes">
+              <p>Oliver Reichenstein said in his article this back in 2006. He reiterated that the web as a medium, is all about information.</p>
+              <p>Textual content is the most straightforward method of delivering information on the web. And whether we like it or not, Typography is increasingly becoming what differentiates a good website from bad.</p>
+              <p>Let's be honest, people are superficial and have short attention spans these days. The typography, layout and design of a site or application are like the clothes you wear. And people make judgements off their first impressions of you or your site based on what they see.</p>
+            </aside>
+          </section>
+
+          <section>
+            <blockquote>“Typography is writing with prefabricated letters”<br><small>—Gerrit Noordzij</small></blockquote>
+            <aside class="notes">
+              <p>There are many definitions of Typography out there, and I personally like this one, by Gerrit Noordzij. Letters are the building blocks of a writing system, regardless of language. I believe there's a pretty diverse mix of languages spoken by the audience today, and a large number of these languages are alphabetic.</p>
+            </aside>
+          </section>
+
+          <section data-background-image="img/directions.jpg">
+            <aside class="notes">
+              <p>Chinese is not alphabetic. It is a logographic writing system. Each Chinese character is composed within a uniform square, allowing Chinese to be read efficiently, regardless of whether it is set horizontally or vertically.</p>
+              <p>And until proven otherwise, it seems that the Chinese script developed separately from the Proto-Sinaitic scripts which were the origins of alphabetic languages.</p>
+            </aside>
+          </section>
+
+          <section data-background-image="img/proto.jpg" data-transition="fade">
+            <div class="l-double">
+              <h2 style="color:#000;">Phoenician alphabet</h2>
+              <h2 class="j-vert" style="justify-self:center;color:#000;" lang="zh-hans">甲骨文</h2>
+            </div>
+            <aside class="notes">
+              <p>Which is why the Western languages in Europe are inherently different from the Eastern languages in Asia. Alphabetic languages, which originated from the Phoenician alphabet, combine a small set of letters to form all the words that the language needs for the purpose of communication.</p>
+              <p>Chinese characters, on the other hand, number in the tens of thousands. Each a unique glyph that can express meaning on their own or be used in combination with other glyphs.</p>
+            </aside>
+          </section>
+
+          <section data-background-image="img/hippo.jpg">
+            <div class="l-double" style="font-size:150%;">
+              <p style="color:#000;">Hippopotamus<br><small>(English) 12 letters</small></p>
+              <p style="color:#000;" class="fragment"><span class="j-vert" style="justify-self:center;" lang="zh-hans">河马</span></p>
+            </div>
+            <aside class="notes">For example, Hippopotamus, an English word of 12 letters. Chinese only needs 2 characters, 河马.</aside>
+          </section>
+
+          <section data-background-image="img/partners.jpg">
+            <div class="l-double" style="font-size:150%;">
+              <p style="color:#000;">Lebensgefährte<br><small>(German) 14 letters</small></p>
+              <p class="j-vert fragment" style="justify-self:center;color:#000;" lang="zh-hans">伴侣</p>
+            </div>
+            <aside class="notes">Lebensgefährte (Lee-bin-skir-fear-te), German word of 14 characters. In Chinese, we can say 伴侣.</aside>
+          </section>
+
+          <section data-background-image="img/photography.jpg">
+            <div class="l-double" style="font-size:150%;">
+              <p style="color:#000;">Grianghrafadóireachta<br><small>(Irish) 21 letters</small></p>
+              <p style="color:#000;" class="fragment"><span class="j-vert" style="justify-self:center;" lang="zh-hans">摄影</span></p>
+            </div>
+            <aside class="notes">Grianghrafadóireachta (Green-hra-fer-doi-rek-te), Irish word of 21 letters. Again, 2 characters will do, 摄影. What can I say, Chinese is a concise language.</aside>
+          </section>
+
+          <section>
+            <img class="plain" data-src="img/alphabets.jpg" alt="Evolution of the Latin alphabet">
+            <aside class="notes">
+              <p>The appearance of the earliest letterforms was directly influenced by the tools that were used to create them, and continually evolved in tandem with the limitations of the technologies of their time.</p>
+              <p>Take the Latin alphabet for example, which is derived from Greek. The earliest letters were sans-serif when writing was done with a hard reed pen. Serifs may have came about due to a transition to a square-cut writing implement, like a flat stiff brush.</p>
+              <p>Later scribes and copyists used quill pens and as demand for written matter grew, they developed more efficient styles of writing, evolving the letterforms yet again.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <img class="plain" data-src="img/serifs.png" alt="Serif">
+              <img class="plain" data-src="img/sans.png" alt="Sans-serif">
+            </div>
+            <aside class="notes">When it comes to classifying script styles, Latin-based scripts can broadly be put into two big categories, Serifs and Sans-serifs.</aside>
+          </section>
+
+          <section>
+            <img class="plain" data-src="img/hanzi.jpg" alt="Evolution of Hanzi">
+            <aside class="notes">Chinese characters also changed a lot since their origins. It's just that Chinese writing went through the entire process of development and evolution way earlier than Europe.</aside>
+          </section>
+
+          <section data-background-image="img/brush.jpg">
+            <aside class="notes">
+              <p>The key implement of Chinese writing is the brush. Calligraphy was and still is one of the most highly regarded Chinese arts. The works of famous calligraphers were used as the basis for carving woodblocks used for printing.</p>
+              <p>Woodblock printing was invented in China, and the Chinese were exceptional at it. To the point where it was a contributing factor to why moveable type, which too was invented in China, never really took off there.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <figure style="margin-bottom:1em;">
+                <img class="plain" style="height:30vh;" data-src="img/songti.svg" alt="SongTi">
+                <figcaption>Song Ti</figcaption>
+              </figure>
+              <figure class="fragment" style="margin-bottom:1em;">
+                <img class="plain" style="height:30vh;" data-src="img/kaiti.svg" alt="KaiTi">
+                <figcaption>Kai Ti</figcaption>
+              </figure>
+              <figure class="fragment" >
+                <img class="plain" style="height:30vh;" data-src="img/fangsongti.svg" alt="FangSongTi">
+                <figcaption>Fang Song Ti</figcaption>
+              </figure>
+              <figure class="fragment" >
+                <img class="plain" style="height:30vh;" data-src="img/heiti.svg" alt="HeiTi">
+                <figcaption>Hei Ti</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">These days, typefaces used for printing Chinese publications can be broadly classified into the following families: 宋体 (also known as 明体), 楷体, 仿宋体 and 黑体. Both 黑体 and 仿宋体 are twentieth century creations.</aside>
+          </section>
+
+          <section data-background-image="img/glyphs.jpg">
+            <aside class="notes">
+              <p>Chinese typefaces are extremely challenging to create, simply due to the volume of glyphs required. The average number of glyphs for a Chinese system font clocks in at around 35,000 glyphs, give or take a couple thousand.</p>
+              <p>Typefaces that have enough glyph coverage to be used in body copy are usually made by foundries as very few independent type designers have the bandwidth for that.</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section data-background-image="img/analogue.jpg">
+            <aside class="notes">
+              <p>Language and writing has allowed human beings to communicate ideas and record history for thousands of years. And we've written on almost anything we could get our hands on.</p>
+              <p>Right now, the medium of our time is the screen and the browser. Our types are now font files. And we've replaced typesetting using composing sticks with CSS.</p>
+            </aside>
+          </section>
+
+          <section data-background-image="img/screen-wall.jpg">
+            <aside class="notes">But remember this, an electronic display is a proxy medium. Whatever we see displayed on a screen comes from data encoded as electronic signals. The heart of electronic displays is light. It is transient. We cannot touch light.</aside>
+          </section>
+
+          <section data-background-image="img/unicorn.jpg">
+            <h2 class="fragment" style="padding:0.25em;background-color:rgba(255,255,255,0.35);color:#000;">The web is a unique medium of its own</h2>
+            <aside class="notes">
+              <p>The web isn't even 30 yet, and this young medium is like nothing we've seen before. It is dynamic and interactive. Some designers, especially those who are used to having absolute control over their final presentations, find this behaviour disturbing.</p>
+              <p>Although it may be tempting to view the web as simply print expressed on an electronic screen, it is not. It is a unique medium of its own.</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Web fonts</h2>
+            <p>The CSS3 Fonts specification describes the basic controls CSS provides for selecting and using fonts within documents.</p>
+            <div style="display:flex;justify-content:center;align-items:center;">
+              <a href="https://www.chenhuijing.com/blog/tracing-the-history-of-css-fonts/">http://bit.ly/css-font-history/</a>
+              <img class="plain" style="max-height:30vh;margin-left:1em;" data-src="img/webfonts.svg">
+            </div>
+            <aside class="notes">When we talk about typography on the web, one of the first things that comes to mind is web fonts. So let's start off with some basics.</aside>
+          </section>
+
+          <section>
+            <h2>What is a font?</h2>
+            <div class="l-double">
+              <img class="plain fragment" data-src="img/analogue-fonts.jpg" alt="Analogue fonts">
+              <img class="plain fragment" data-src="img/digital-fonts.png" alt="Digital fonts">
+            </div>
+            <aside class="notes">
+              <p>In world of metal typesetting, this is a font, which refers to a complete set of metal types that were used to typeset entire pages of text. If you can see the tiny text label on the drawer, this set being shown is for Caslon, 12pt.</p>
+              <p>In the digital world, these are fonts, specifically font files. For both analogue and digital fonts, you can think of them as collections of glyphs.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>And what are glyphs?</h2>
+            <div class="l-multiple">
+              <figure class="fragment">
+                <img class="plain" style="margin:0 0.5em;" data-src="img/glyph1.jpg" alt="A metal sort AKA type">
+                <figcaption style="font-style:normal;">F</figcaption>
+              </figure>
+              <figure class="fragment">
+                <img class="plain" style="margin:0 0.5em;" data-src="img/glyph2.jpg" alt="A bitmap glyph">
+                <figcaption style="font-style:normal;">晽</figcaption>
+              </figure>
+              <figure class="fragment">
+                <img class="plain" style="margin:0 0.5em;" data-src="img/glyph3.jpg" alt="A vector glyph">
+                <figcaption style="font-style:normal;">א</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">
+              <p>A glyph is the specific shape of a letter or character in a particular font. In the digital world, everything is data. So glyphs can be described with an array of pixels, or collections of vector images or even paths of Bézier curves and straight lines.</p>
+              <p>Different font formats store information about the font, like their glyphs, encodings, metadata about the font etc., differently based on how their specifications were written.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Font formats for web use</h2>
+            <table>
+              <tr>
+                <td>WOFF2 (Web Open Font Format 2)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                  <img class="plain l-logo" data-src="img/mozilla.svg">
+                  <img class="plain l-logo" data-src="img/opera.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>WOFF (Web Open Font Format)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                  <img class="plain l-logo" data-src="img/mozilla.svg">
+                  <img class="plain l-logo" data-src="img/opera.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>OTF (OpenType)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                  <img class="plain l-logo" data-src="img/adobe.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>TTF (TrueType)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                  <img class="plain l-logo" data-src="img/apple.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>EOT (Embedded Open Type)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>SVG (Scalable Vector Graphics)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/svg.svg">
+                </td>
+              </tr>
+            </table>
+            <aside class="notes">
+              <p>If you've ever used web fonts before, you would have seen these font formats. Have you wondered why there are so many? We'll need to go a bit back in time for this. The earliest fonts were pixel-based bitmaps, which were fine for low-resolution screens, but for printing on high-resolution printers, a better solution was needed.</p>
+              <p>It was such a worthy problem that smart people came up with two different solutions. Donald Knuth created Metafont in 1978 for the TeX system, which generated compressed bitmap fonts. John Warnock, founder of Adobe, came up with Postscript in 1985, the very first vector font, and it really took off.</p>
+              <p>TrueType was Apple and Microsoft's answer to Adobe's font monopoly. Both companies then worked separately to improve TrueType, especially with regards to fonts for East Asian writing systems. Eventually, Microsoft turned to Adobe and together they came up with OpenType.</p>
+              <p>EOT, or embedded OpenType is Microsoft's proprietary standard, which is a compact form of OpenType fonts meant for use on web pages. Although they tried to submit this as a W3C recommendation, it was rejected in favour of WOFF, or the Web Open Font Format. WOFF2 is an improvement over WOFF with significantly better compression rates.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>@font-face rule</h2>
+            <pre style="font-size:50%;"><code>@font-face {
+    font-family: 'Magnetic Pro';
+    src: url('../fonts/magnetic-pro-light.woff2') format('woff2'),
+         url('../fonts/magnetic-pro-light.woff') format('woff');
+  }</code></pre>
+            <div class="l-double">
+              <p style="width:100%;" class="ciu_embed" data-feature="woff" data-periods="future_1,current,past_1,past_2">
+                <a href="http://caniuse.com/#feat=woff"><img class="plain" data-src="img/caniuse-woff.jpg"></a>
+              </p>
+              <p style="width:100%;" class="ciu_embed" data-feature="woff2" data-periods="future_1,current,past_1,past_2">
+                <a href="http://caniuse.com/#feat=woff2"><img class="plain" data-src="img/caniuse-woff2.jpg"></a>
+              </p>
+            </div>
+            <aside class="notes">On the practical side of things, the <code>@font-face</code> rule is used to declare a list of different font formats. We do this in the hopes that our fonts will show up correctly in as many browsers as possible. The number of font formats we need to declare has decreased over the years and right now, you can pretty much get away with declaring just WOFF and WOFF2.</aside>
+          </section>
+
+          <section>
+            <h2>Anatomy of an <code style="text-transform:lowercase;">@font-face</code> rule</h2>
+            <pre><code>@font-face {
+    font-family: &lt;family-name&gt;
+    src: [ &lt;url&gt; [format(&lt;string&gt; #)]? | &lt;font-face-name&gt; ] #
+    font-style: normal | italic | oblique 
+    font-weight: normal | bold | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 
+    font-stretch: normal | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded
+    unicode-range: &lt;urange&gt; # 
+    font-variant: normal | none | [ &lt;common-lig-values&gt; || &lt;discretionary-lig-values&gt; || &lt;historical-lig-values&gt; || &lt;contextual-alt-values&gt; || stylistic(&lt;feature-value-name&gt;) || historical-forms || styleset(&lt;feature-value-name&gt; #) || character-variant(&lt;feature-value-name&gt; #) || swash(&lt;feature-value-name&gt;) || ornaments(&lt;feature-value-name&gt;) || annotation(&lt;feature-value-name&gt;) || [ small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps ] || &lt;numeric-figure-values&gt; || &lt;numeric-spacing-values&gt; || &lt;numeric-fraction-values&gt; || ordinal || slashed-zero || &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ] 
+    font-feature-settings: normal | &lt;feature-tag-value&gt; # 
+  }</code></pre>
+            <aside class="notes">This is how an <code>@font-face</code> rule looks like, with all the available descriptors you can declare. Font descriptors and CSS properties are 2 different things.</aside>
+          </section>
+
+          <section data-background-image="img/descriptor-property.jpg">
+            <aside class="notes">Chris Lilley, who chaired the group that developed @font-face, explained it really well in his dotCSS talk. That properties are requests for styling and descriptors are descriptions of capabilities. A <code>font-weight: bold;</code> within a <code>@font-face</code> rule means this font can do bold. While a <code>font-weight: bold;</code> applied as a property means style this element with a font that can do bold.</aside>
+          </section>
+
+          <section>
+            <h2>Basic CSS font properties</h2>
+            <table>
+              <tr>
+                <td><code>font-size</code></td>
+                <td class="fragment">Indicates the desired height of the glyphs. Takes absolute or relative values.</td>
+              </tr>
+              <tr>
+                <td><code>font-weight</code></td>
+                <td class="fragment">Specifies the weight of the glyphs in the font. Can use keywords or numerical values.</td>
+              </tr>
+              <tr>
+                <td><code>font-style</code></td>
+                <td class="fragment">Allows italic or oblique faces to be selected.</td>
+              </tr>
+              <tr>
+                <td><code>font-stretch</code></td>
+                <td class="fragment">Selects a normal, condensed or expanded face from a font family. Range spans over 9 keywords.</td>
+              </tr>
+              <tr>
+                <td><code>font-size-adjust</code></td>
+                <td class="fragment">Adjusts the font-size to preserve the x-height of the first choice font.</td>
+              </tr>
+              <tr>
+                <td><code>font-synthesis</code></td>
+                <td class="fragment">Controls whether user agents are allowed to synthesize bold or oblique font faces when missing.</td>
+              </tr>
+            </table>
+            <aside class="notes">
+              <p>These here are CSS font properties, and the way I've structured this table is, those I feel are most commonly used are at the top. So how many people use <code>font-size</code>, <code>font-weight</code> and <code>font-style</code> regularly? Because I do.</p>
+              <p>But how about <code>font-stretch</code>? Okay, and has anybody even heard of <code>font-size-adjust</code>? And lastly, <code>font-synthesis</code>? Okay, so let's talk about the last 2 in the table, which were newly added to the Fonts Level 3 specification.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>font-size-adjust</code></h2>
+            <div class="l-double">
+              <img class="plain" data-src="img/font-size-adjust.png" alt="Launch of the web">
+              <p data-height="297" data-theme-id="9162" data-slug-hash="xLvYNw" data-default-tab="result" data-user="huijing" data-embed-version="2" data-pen-title="Demo of font-size-adjust" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/xLvYNw/">Demo of font-size-adjust</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+            </div>
+            <aside class="notes"><code>font-size-adjust</code> was put in to address legibility issues. Faces with low x-heights may sometimes be less legible, especially when they are triggered as fallback fonts. We can set the value of this property to the aspect ratio of the first choice font. Any fallback fonts triggered will have their font-size adjusted to match this ratio.</aside>
+          </section>
+
+          <section>
+            <h2><code>font-synthesis</code></h2>
+            <div class="l-double" style="grid-template-columns: 58% 42%;">
+              <figure>
+                <img class="plain" data-src="img/faux-bold.png" alt="Launch of the web">
+                <figcaption></figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/faux-italic.png" alt="Where the web was born">
+                <figcaption></figcaption>
+              </figure>
+            </div>
+            <small>Image credit: Piotr Grochowski</small>
+            <aside class="notes"><code>font-synthesis</code> was put in to address the issue of faux bolds and faux italics. Sometimes the true italic or heavier version of a font does not exist so the browser will try to compensate. Unfortunately, the end result isn't pretty. With this property, you can set a value of <code>none</code>, to tell the browser, it's fine buddy, appreciate the effort, but no thanks.</aside>
+          </section>
+
+          <section>
+            <h2>Anatomy of an <code style="text-transform:lowercase;">@font-face</code> rule</h2>
+            <pre><code>@font-face {
+    font-family: &lt;family-name&gt;
+    src: [ &lt;url&gt; [format(&lt;string&gt; #)]? | &lt;font-face-name&gt; ] #
+    font-style: normal | italic | oblique 
+    font-weight: normal | bold | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 
+    font-stretch: normal | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded
+    unicode-range: &lt;urange&gt; # 
+    font-variant: normal | none | [ &lt;common-lig-values&gt; || &lt;discretionary-lig-values&gt; || &lt;historical-lig-values&gt; || &lt;contextual-alt-values&gt; || stylistic(&lt;feature-value-name&gt;) || historical-forms || styleset(&lt;feature-value-name&gt; #) || character-variant(&lt;feature-value-name&gt; #) || swash(&lt;feature-value-name&gt;) || ornaments(&lt;feature-value-name&gt;) || annotation(&lt;feature-value-name&gt;) || [ small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps ] || &lt;numeric-figure-values&gt; || &lt;numeric-spacing-values&gt; || &lt;numeric-fraction-values&gt; || ordinal || slashed-zero || &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ] 
+    font-feature-settings: normal | &lt;feature-tag-value&gt; # 
+  }</code></pre>
+            <aside class="notes">
+              <p>These, as mentioned earlier, are font descriptors, and only the <code>font-family</code> descriptor and the <code>src</code> descriptor are mandatory.</p>
+              <p>If either of them are absent, the entire <code>@font-face</code> rule is ignored. The <code>font-family</code> descriptor is simply a label that we reference in other CSS declarations. So even if you're using say, Frutiger, you could actually call it “Kreplach” and it would still work.</p>
+              <p>The <code>src</code> descriptor is comma-separated list of external references or locally-installed font face names. It is made up of the declaration of the font file's location, and an optional format hint. If the browser doesn't support a particular font format stated in that hint, the font file won't be loaded.</p>
+              <p>The next 3 descriptors, for style, weight and stretch, are used to match styles to a particular typeface in later declarations. Technically, you could assign a black typeface to a font-weight of 100 and proceed to confuse your team members who cannot figure out why setting a weight of 100 gives them this massively bold typeface. Perhaps an idea for next year's April Fool's day.</p>
+            </aside>
+          </section>
+
+          <section>
+            <pre><code style="max-height:90vh;font-size:75%;">@font-face {
+  font-family: 'Magnetic Pro';
+  src: url('magnetic-pro-light.woff2') format('woff2'),
+     url('magnetic-pro-light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  }
+
+  @font-face {
+  font-family: 'Magnetic Pro';
+  src: url('carmelitregular.woff2') format('woff2'),
+     url('carmelitregular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  unicode-range: U+05D5, U+05DB, U+05E9, U+05D1, U+05D6, U+05E8, U+05D5, U+05E2, U+05D5, U+05EA, U+05D9, U+05D4, U+05DD, U+05D0;
+  }</code></pre>
+            <aside class="notes">
+              <p>My slides use a font called Magnetic Pro, which does not support Hebrew characters, so I used a font from the Open Siddur project called Carmelit for the Hebrew characters I needed displayed.</p>
+              <p>So the code points in the <code>unicode-range</code> descriptor are that of the Hebrew letters that I used earlier. Now, say I have a page that only uses English words, Carmelit's font files will not load at all because it is not needed. It will only load when the browser encounters the Hebrew letters in the <code>unicode-range</code> specified.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Declare your Latin fonts first</h2>
+            <pre style="white-space:normal;"><code>font-family: 'Gentium Basic', 'PingFang TC', 'Microsoft JhengHei', '微軟正黑體', 'Heiti TC', '黑體-繁', sans-serif;</code></pre>
+            <p class="fragment">Font rendering for Mac and Windows is different, and sometimes the Latin characters in Chinese fonts don't look good on Windows.</p>
+            <p class="fragment">Put your font names in quotes. Just in case.</p>
+            <aside class="notes">
+              <p>If you work on multi-lingual sites, it is recommended you declare your Latin-based font of choice first, because order does matter. Especially if you're working with East Asian fonts.</p>
+              <p>Declaring those fonts first will result in the Latin characters displayed using glyphs from the East Asian font instead. Sometimes the Latin characters for those fonts aren't polished and may not look great, especially on Windows.</p>
+              <p>Also, even though browsers are supposed to match font names case insensitively, it is still recommended to put them in quotes, just in case.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Font feature properties</h2>
+            <table>
+              <tr>
+                <td style="width:30%;vertical-align:top;">
+                  <code>font-kerning</code>
+                  <img class="plain" data-src="img/kerning.svg">
+                </td>
+                <td style="width:35%;vertical-align:top;">
+                  <code>font-variant-position</code>
+                  <img class="plain" data-src="img/fv-position.png">
+                </td>
+                <td style="width:35%;vertical-align:top;">
+                  <code>font-variant-position-ligatures</code>
+                  <img class="plain" data-src="img/fv-ligatures.png">
+                </td>
+              </tr>
+              <tr>
+                <td style="width:30%;vertical-align:top;">
+                  <code>font-variant-numeric</code>
+                  <img class="plain" data-src="img/fv-numeric.png">
+                </td>
+                <td style="width:35%;vertical-align:top;">
+                  <code>font-variant-caps</code>
+                  <img class="plain" data-src="img/fv-caps.png">
+                </td>
+                <td style="width:35%;vertical-align:top;">
+                  <code>font-variant-alternates</code>
+                  <img class="plain" data-src="img/fv-alternates.png">
+                </td>
+              </tr>
+            </table>
+            <aside class="notes">
+              <p>Font feature properties were introduced in Fonts Level 3. Modern font technologies allow fonts to contain a lot more glyphs that before. So we can utilise a variety of typographic features like swashes, ligatures, old-style numerals and so on.</p>
+              <p>Perhaps some of you may be wondering, what's the point of having all these typographic features?</p>
+              <p>They are part and parcel of good typography, which is necessary to hold your reader's attention. The written word is a transference of speech, which is heard, into something visual, to be seen. Good speakers will vary their cadence, use gestures, emphasise certain words.</p>
+              <p>Typographic features like small caps, correct use of italics and punctuation do the same for text. Other features like old style numerals and ligatures help maintain typographic colour, to make reading more comfortable.</p>
+              <p>So these are the features you can turn on via CSS, but note that the font you are using must have these features to begin with. This lot up there, are the features most often mentioned at web typography talks.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>font-variant-east-asian</code></h2>
+            <img class="plain" style="display:block;margin:1em auto" data-src="img/fv-east-asian.png">
+            <aside class="notes">
+              <p>Few people talk about <code>font-variant-east-asian</code>. What this property does is allow for glyph substitution and positioning in East Asian text. If you're unfamiliar with Han characters, it might seem like these languages share the same glyphs, but it depends. Han unification involves assigning the same code point to different glyphs, and it has been quite a controversial issue.</p>
+              <p>We won't get into that, but the point is, the same code point can have variant glyphs depending on the language being used. Like, simplified Chinese glyphs versus traditional Chinese glyphs. Japanese glyphs have their own specification known as JIS or Japanese Industrial Standard, and they too have alternate glyphs for the same character. This property allows us to toggle these variant glyphs.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>font-feature-settings</code></h2>
+            <p>Provides low-level control of advanced OpenType features</p>
+            <ul style="list-style:none;font-size:40%;columns:9;text-align:center;margin-top:1em;border:1px dashed lightgrey;padding:1em 0;">
+              <li>aalt</li>
+              <li>abvf</li>
+              <li>abvm</li>
+              <li>abvs</li>
+              <li>afrc</li>
+              <li>akhn</li>
+              <li>blwf</li>
+              <li>blwm</li>
+              <li>blws</li>
+              <li>calt</li>
+              <li>case</li>
+              <li>ccmp</li>
+              <li>cfar</li>
+              <li>cjct</li>
+              <li>clig</li>
+              <li>cpct</li>
+              <li>cpsp</li>
+              <li>cswh</li>
+              <li>curs</li>
+              <li>cv01-cv99</li>
+              <li>c2pc</li>
+              <li>c2sc</li>
+              <li>dist</li>
+              <li>dlig</li>
+              <li>dnom</li>
+              <li>dtls</li>
+              <li>expt</li>
+              <li>falt</li>
+              <li>fin2</li>
+              <li>fin3</li>
+              <li>fina</li>
+              <li>flac</li>
+              <li>frac</li>
+              <li>fwid</li>
+              <li>half</li>
+              <li>haln</li>
+              <li>halt</li>
+              <li>hist</li>
+              <li>hkna</li>
+              <li>hlig</li>
+              <li>hngl</li>
+              <li>hojo</li>
+              <li>hwid</li>
+              <li>init</li>
+              <li>isol</li>
+              <li>ital</li>
+              <li>jalt</li>
+              <li>jp78</li>
+              <li>jp83</li>
+              <li>jp90</li>
+              <li>jp04</li>
+              <li>kern</li>
+              <li>lfbd</li>
+              <li>liga</li>
+              <li>ljmo</li>
+              <li>lnum</li>
+              <li>locl</li>
+              <li>ltra</li>
+              <li>ltrm</li>
+              <li>mark</li>
+              <li>med2</li>
+              <li>medi</li>
+              <li>mgrk</li>
+              <li>mkmk</li>
+              <li>mset</li>
+              <li>nalt</li>
+              <li>nlck</li>
+              <li>nukt</li>
+              <li>numr</li>
+              <li>onum</li>
+              <li>opbd</li>
+              <li>ordn</li>
+              <li>ornm</li>
+              <li>palt</li>
+              <li>pcap</li>
+              <li>pkna</li>
+              <li>pnum</li>
+              <li>pref</li>
+              <li>pres</li>
+              <li>pstf</li>
+              <li>psts</li>
+              <li>pwid</li>
+              <li>qwid</li>
+              <li>rand</li>
+              <li>rclt</li>
+              <li>rkrf</li>
+              <li>rlig</li>
+              <li>rphf</li>
+              <li>rtbd</li>
+              <li>rtla</li>
+              <li>rtlm</li>
+              <li>ruby</li>
+              <li>rvrn</li>
+              <li>salt</li>
+              <li>sinf</li>
+              <li>size</li>
+              <li>smcp</li>
+              <li>smpl</li>
+              <li>ss01</li>
+              <li>ss02</li>
+              <li>ss03</li>
+              <li>ss04</li>
+              <li>ss05</li>
+              <li>ss06</li>
+              <li>ss07</li>
+              <li>ss08</li>
+              <li>ss09</li>
+              <li>ss10</li>
+              <li>ss11</li>
+              <li>ss12</li>
+              <li>ss13</li>
+              <li>ss14</li>
+              <li>ss15</li>
+              <li>ss16</li>
+              <li>ss17</li>
+              <li>ss18</li>
+              <li>ss19</li>
+              <li>ss20</li>
+              <li>ssty</li>
+              <li>stch</li>
+              <li>subs</li>
+              <li>sups</li>
+              <li>swsh</li>
+              <li>titl</li>
+              <li>tjmo</li>
+              <li>tnam</li>
+              <li>tnum</li>
+              <li>trad</li>
+              <li>twid</li>
+              <li>unic</li>
+              <li>valt</li>
+              <li>vatu</li>
+              <li>vert</li>
+              <li>vhal</li>
+              <li>vjmo</li>
+              <li>vkna</li>
+              <li>vkrn</li>
+              <li>vpal</li>
+              <li>vrt2</li>
+              <li>vrtr</li>
+              <li>zero</li>
+            </ul>
+            <aside class="notes">
+              <p><code>font-feature-settings</code> allows us to toggle very specific OpenType properties. Last I checked, there were 141 OpenType feature tags to cover things like vertical kerning, unicase, scientific inferiors and so on.</p>
+              <p>Browser support for each of <code>font-variant</code> properties varies at the moment, with Firefox being the only browser that has supported all of them since version 34.0.</p>
+              <p><code>font-feature-settings</code>, on the other hand, has quite good support across most browsers. Although, the specification recommends to utilise the respective <code>font-variant</code> properties over the <code>font-feature-settings</code> property, until browser support becomes more robust, I suppose we'll continue to see <code>font-feature-settings</code> being used instead.</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2 style="margin-bottom:1em;">Web layouts over the years</h2>
+            <div class="l-multiple">
+              <img class="plain fragment" style="margin:0 0.5em;" data-src="img/layouts1.png" alt="No layout">
+              <img class="plain fragment" style="margin:0 0.5em;" data-src="img/layouts2.png" alt="Table-based layout">
+              <img class="plain fragment" style="margin:0 0.5em;" data-src="img/layouts3.png" alt="Float-based layout">
+              <img class="plain fragment" style="margin:0 0.5em;" data-src="img/layouts4.png" alt="Panel-style from frameworks">
+            </div>
+            <aside class="notes">
+              <p>Within the short span of the web's life, we've seen web layouts evolve as browser technologies and web standards matured. In the web's infancy, there was no layout whatsoever. We were still amazed that the web even existed.</p>
+              <p>Then, during the pre-school age of the web, we started to use tables to do layout. And that was fun, because like most kindergarteners, everything seemed like a good idea. There were all sorts of crazy, creative layouts on the web.</p>
+              <p>But when we got to the pre-teen era, things started to conform a little more. We got a bit more self-concious, a little less radical, it wasn't that cool to be different. Float-based layouts to build sites with headers, sidebars and footers were the most socially acceptable.</p>
+              <p>By high school, life had gotten complicated, and angsty. CSS was hard. Responsive design, what? People suck. Browsers are broken. Oh, someone will do all that for me? Frameworks? Sure! I don't give a crap. So we ended up with sites that utilised very similar layouts.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2 style="margin-bottom:1em;">2017: the year of CSS Grid</h2>
+            <img class="plain" style="margin:0 0.5em;" data-src="img/grid-release.png" alt="Grid release">
+            <aside class="notes">
+              <p>But something big happened this year. CSS Grid was released. CSS Grid is a revolutionary feature that was designed specifically for doing layout on the web.</p>
+              <p>All the other techniques we've used in the past, HTML tables, floats, even flexbox, were never meant for doing full page layouts. They were creative hacks we came up with to build the layouts that we wanted.</p>
+              <p>So this is the year web layouts come of age. We now have a level of control over how elements are rendered on the browser that we've never had before, with CSS grid. And when used in combination with other properties, like CSS shapes, transforms, viewport units and so on, the design possibilities become endless.</p>
+            </aside>
+          </section>
+
+          <section>
+            <blockquote>“We need to translate ideas that we find in other places, not transfer them.”<br><small>—Jen Simmons</small></blockquote>
+            <aside class="notes">Jen Simmons said this in her talk at An Event Apart a couple years ago, that we need to translate ideas instead of transfer them. And right now, CSS is developed enough for us to take ideas, concepts and inspiration for layouts from everywhere and translate them to the web.</aside>
+          </section>
+        </section>
+
+        <section>
+          <section data-background-image="img/writingmode1.jpg">
+            <aside class="notes">(1/4) Vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. But when it comes to design, we can layout text in all directions if we so choose.</aside>
+          </section>
+
+          <section data-background-image="img/writingmode2.jpg">
+            <aside class="notes">(2/4) Vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. But when it comes to design, we can layout text in all directions if we so choose.</aside>
+          </section>
+
+          <section data-background-image="img/writingmode3.jpg">
+            <aside class="notes">(3/4) Vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. But when it comes to design, we can layout text in all directions if we so choose.</aside>
+          </section>
+
+          <section data-background-image="img/writingmode4.jpg">
+            <aside class="notes">(4/4) Vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. But when it comes to design, we can layout text in all directions if we so choose.</aside>
+          </section>
+
+          <section>
+            <h2>The magic of Writing Modes</h2>
+            <p>CSS Writing Modes Level 3 defines CSS features to support for various international writing modes, such as <strong>left-to-right</strong> (e.g. Latin or Indic), <strong>right-to-left</strong> (e.g. Hebrew or Arabic), <strong>bidirectional</strong> (e.g. mixed Latin and Arabic) and <strong>vertical</strong> (e.g. Asian scripts).</p>
+            <aside class="notes">So I want to introduce the <code>writing-mode</code> property, which deals specifically with vertical text.</aside>
+          </section>
+
+          <section>
+            <div class="l-multiple" style="height:80vh;align-items:center;">
+              <p style="writing-mode:vertical-lr;width:4em;">You can make your browser literally turn on its side from left-to-right.</p>
+              <span class="fragment emoji"" role="img" tabindex="0" aria-label="upside-down face">&#x1F643;</span>
+              <p class="fragment" style="writing-mode:vertical-rl;width:4em;">Or make it read from right-to-left.</p>
+              <span class="fragment emoji"" role="img" tabindex="0" aria-label="upside-down face">&#x1F642;</span>
+              <p class="fragment" style="writing-mode:vertical-lr;text-orientation:upright;width:4em;">Vertical text is fun!</p>
+            </div>
+            <aside class="notes">You literally turn the browser on its side. Some people might be saying, no big deal, we can do that with transforms too. But it's kind of different.</aside>
+          </section>
+
+          <section>
+            <h2><code>writing-mode</code> property</h2>
+            <table>
+              <tr>
+                <td>horizontal-tb</td>
+                <td><span>从1987到现在</span></td>
+              </tr>
+              <tr>
+                <td>vertical-rl</td>
+                <td><span style="writing-mode:vertical-rl;height:3.5em;">从1987到现在</span></td>
+              </tr>
+              <tr>
+                <td>vertical-lr</td>
+                <td><span style="writing-mode:vertical-lr;height:3.5em;">从1987到现在</span></td>
+              </tr>
+              <tr>
+                <td>sideways-rl*</td>
+                <td><span style="writing-mode:sideways-rl;height:3.5em;">从1987到现在</span></td>
+              </tr>
+              <tr>
+                <td>sideways-lr*</td>
+                <td><span style="writing-mode:sideways-lr;height:3.5em;">从1987到现在</span></td>
+              </tr>
+            </table>
+            <small>Properties marked with * have been deferred to Writing Modes Level 4.</small>
+            <aside class="notes">This is what happens to your text when the different values of writing-mode are applied. The default is horizontal, top-to-bottom. To change the direction to vertical, we use <code>vertical-rl</code> or <code>vertical-lr</code>.</aside>
+          </section>
+
+          <section>
+            <h2><code>text-orientation</code>  property</h2>
+            <div class="l-multiple">
+              <figure>
+                <div><span style="writing-mode:vertical-rl;">从1987到现在</span></div>
+                <figcaption>mixed</figcaption>
+              </figure>
+              <figure>
+                <div><span style="writing-mode:vertical-rl;text-orientation:upright;text-align:justify;">从<span style="letter-spacing:-4px">1987</span>到现在</span></div>
+                <figcaption>upright</figcaption>
+              </figure>
+              <figure>
+                <div><span style="writing-mode:vertical-rl;text-orientation:sideways;">从1987到现在</span></div>
+                <figcaption>sideways</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">
+              <p>Now when we rotate text, it's not only the lines that change direction, because each line contains individual letters or characters. They have an orientation as well.</p>
+              <p>For text-orientation, the initial value is mixed. Browsers are smart enough to tell which languages can be typeset both vertically and horizontally, or in one direction only. So Chinese characters, for example, will always be displayed upright. While horizontal-only languages, will have their characters rotated when vertical.</p> 
+              <p>The <code>text-orientation</code> property let's you control this, and make all the characters upright or sideways, if you want to.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>text-combine-upright</code> property</h2>
+            <div class="l-multiple" style="margin-bottom:1em;">
+              <figure>
+                <div><span style="writing-mode:vertical-rl;">民國106年7月3日</span></div>
+                <figcaption>none</figcaption>
+              </figure>
+              <figure>
+                <div><span style="writing-mode:vertical-rl;">民國<span style="text-combine-upright:all">106</span>年<span style="text-combine-upright:all">7</span>月<span style="text-combine-upright:all">3</span>日</span></div>
+                <figcaption>all</figcaption>
+              </figure>
+              <figure>
+                <div><span style="writing-mode:vertical-rl;">民國<span style="text-combine-upright:digits 3">106</span>年<span style="text-combine-upright:digits">7</span>月<span style="text-combine-upright:digits">3</span>日</span></div>
+                <figcaption>digits &lt;integer&gt;*</figcaption>
+              </figure>
+            </div>
+            <a href="https://codepen.io/huijing/pen/bWzMEJ"><small>Codepen example for text-combine-upright</small></a>
+            <aside class="notes">
+              <p>One more relevant property is <code>text-combine-upright</code>. This addresses the issue of numerals and abbreviations in vertical text. A very common use case is dates, especially for Taiwan, where they use the 民國 calendar. This property lets us fit all the digits into the width of one character and display them upright.</p>
+              <p>No browser supports the digits value yet, which allows us to dictate how many digits are acceptable to be squeezed in. The range allowed is between 2 to 4 characters. For now, with the <code>all</code> value, there is no limit, so you could technically put hippopotamus in there and it will just look horribly squished.</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <img class="plain" data-src="img/centring.jpg" alt="Vertical centring for vertical layout">
+            <aside class="notes">
+              <p>Laying out content in a different direction does require a change in perspective. And I gleaned quite a few insights from working with vertical layout. For example, the techniques I was so used to for centring items worked a bit differently with a vertical layout.</p>
+              <p>To vertically centre a block, setting the top and bottom margins to <code>auto</code> actually does work, unlike in horizontal writing, which is great. But trying to centre something horizontally is an exercise in pain.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div style="writing-mode:vertical-rl;width:100%;height:85vh;">
+              <h2>Willem de Kooning</h2>
+              <p style="font-size:75%;text-align:left;">If Jackson Pollock was the public face of the New York avant-garde, Willem de Kooning could be described as an artist’s artist, who was perceived by many of his peers as its leader. He was born in Rotterdam, where he grew up in an impoverished household and attended the Rotterdam Academy, training in fine and commercial arts. In 1926, the adventurous young artist stowed away on a ship bound for Argentina. While the ship was docked in Virginia, de Kooning slipped off, skirted immigration, and made his way to New Jersey—and so began the rest of his life.</p>
+            </div>
+            <aside class="notes">These directions of top, right, bottom, left start getting a bit confusing when you have rotated Latin text. Say you have this header, and you want some extra spacing between the header and the paragraph, is the margin set on the bottom or the left? It's actually the left.</aside>
+          </section>
+
+          <section>
+            <h2>CSS Logical Properties</h2>
+            <p class="ciu_embed" data-feature="css-logical-props" data-periods="future_1,current,past_1,past_2">
+              <a href="http://caniuse.com/#feat=css-logical-props"><img class="plain" data-src="img/caniuse-logical.jpg"></a>
+            </p>
+            <aside class="notes">That's why we have a CSS Logical Properties specification, which introduces new CSS properties that are flow-relative equivalents of physical box model properties. Properties like that use <code>block-start</code> and <code>block-end</code> or <code>inline-start</code> and <code>inline-end</code> instead of left and right. This specification is in the thick of working draft status but I'm eager to see it developed and implemented. For now, support is kind of limited.</aside>
+          </section>
+
+          <section>
+            <video loop autoplay>
+              <source data-src="videos/mode-switcher.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/mode-switcher.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <aside class="notes">
+              <p>I had built a layout for displaying Chinese text with a toggle that allowed readers to switch between vertical and horizontal layouts. And it wasn't as straightforward as I thought it would be.</p>
+              <p>A tricky thing was getting the images to orientate correctly. I would have loved to have a media query for writing modes so I could layout my images accordingly with the picture element, but that doesn't exist so I ended up working around the image issue with CSS transforms instead.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <figure>
+                <img class="plain" data-src="img/pghk.jpg" alt="Screenshot of PGHK homepage">
+                <figcaption><a href="http://penang-hokkien.gitlab.io/">Penang Hokkien website</a></figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/pghk-pages.jpg" alt="PGHK about and post pages">   
+                <figcaption><a href="http://penang-hokkien.gitlab.io/about/">About page</a></figcaption>
+              </figure>
+            </div>
+            <aside class="notes">Implementing vertical layouts has become much easier, as browser vendors continue to improve the functionality of their products, and this opens up an aspect of graphic design that isn't often seen on the web at the moment.</aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <figure>
+              <img class="plain" data-src="img/pghk-shelf.jpg" alt="Vertical text with CSS">
+              <figcaption>Bookshelf-style design with vertical text</figcaption>
+            </figure>
+            <aside class="notes">
+              <p>For example, you can make a bookshelf style list of posts with just CSS. Something like this can be done by applying a <code>vertical-rl</code> to each list item, plus some padding and inset box-shadows for the visual effect.</p>
+              <p>Another idea is for headers. For horizontal languages, you wouldn't layout long chunks of text vertically because that just makes it hard to read. But using vertical text for short titles or headers can break up the monotony of a long page.</p>
+            </aside>
+          </section>
+
+          <section>
+            <figure>
+              <img class="plain" data-src="img/wm-eg2.jpg" alt="Vertical blog tags">
+              <figcaption>Vertical blog tags</figcaption>
+            </figure>
+            <aside class="notes">Other subtle uses of vertical text could be for tags on blog posts, where the information is not critical to the main content, so laying it out vertically doesn't adversely affect the reading experience.</aside>
+          </section>
+
+          <section>
+            <figure>
+              <video loop autoplay>
+                <source data-src="videos/pghk-resize.mp4" type="video/mp4" />
+                Sorry, your browser doesn't support embedded videos, 
+                but don't worry, you can <a href="videos/pghk-resize.mp4">download it</a>
+                and watch it with your favourite video player!
+              </video>
+              <figcaption>Responsive vertical to horizontal layout</figcaption>
+            </figure>
+            <aside class="notes">For languages meant to be read horizontally from top to bottom, vertical text should largely be decorative. We don't want to compromise the reading experience for long form passages. So at smaller screens, we can make use of media queries to revert to a horizontal layout that makes better use of the limited space.</aside>
+          </section>
+
+          <section>
+            <figure>
+              <video loop autoplay>
+                <source data-src="videos/menu.mp4" type="video/mp4" />
+                Sorry, your browser doesn't support embedded videos, 
+                but don't worry, you can <a href="videos/menu.mp4">download it</a>
+                and watch it with your favourite video player!
+              </video>
+              <figcaption>Vertical mobile navigation</figcaption>
+            </figure>
+            <aside class="notes">Conversely, there are instances where text rotated vertically can work on narrow screen sizes as well. Perhaps you have realised that the hamburger menu is not the best mobile UI pattern we came with. Depending on the number of links in your navigation, laying them out vertically along the side edge could be a design worth considering. And I'm sure many of you can come up with even more interesting designs that utilise vertical layouts.</aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <figure>
+              <img class="plain" data-src="img/vertical-bugs.jpg" alt="Bugs in Firefox">
+              <figcaption>Bugs, bugs, bugs</figcaption>
+            </figure>
+            <aside class="notes">Statistically, there aren't that many sites which use the <code>writing-mode</code> property. When I started building vertical layouts, Grid hadn't landed yet, so I used Flexbox for a lot of the layout. Flexbox support is great, I mean, it has wider coverage than <code>border-radius</code>, but Flexbox with <code>writing-mode</code>? Not so good. I'll be honest, there are quite a large number of cross browser issues. Like, on Firefox, if you don't specify a width on the element with a vertical writing mode, it gets kicked off the page.</aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <figure>
+                <img class="plain" data-src="img/bugzilla.jpg" alt="Raising bugs for Firefox">
+                <figcaption><a href="https://bugzilla.mozilla.org/">Bugzilla@Mozilla</a></figcaption>
+              </figure>
+              <figure>
+              <img class="plain" data-src="img/chromium.jpg" alt="Raising bugs for Chrome">
+              <figcaption><a href="https://bugs.chromium.org/p/chromium/issues/list">Chromium Bugs</a></figcaption>
+            </div>
+            <aside class="notes">
+              <p>But that doesn't mean we should just shy away from using vertical text altogether. In fact, there's never been a better time than now to live on the cutting edge. Evergreen browsers are a thing now, with bug fixes and new features being shipped faster than ever.</p>
+              <p>CSS Grid, I feel, is one of the best rollouts of a new major CSS feature ever, with almost all the major browsers shipping it in March this year. By now, more than 70% of the market is using a browser that supports Grid.</p>
+              <p>And here's a little secret I discovered, by raising bugs we find when trying out new features, we are actually showing browser vendors that these features are in demand.</p>
+              <p>This works both ways, if we don't use features simply because they are buggy, browser vendors will think that nobody really cares about that feature and choose to fix more pressing bugs instead. But if more of us use those features and raise the bugs we discover, it sends a signal to browser vendors that people are using these features and encourage them to address related bugs sooner than later.</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <h2>A long list of references</h2>
+          <ul style="column-count:2;font-size:50%;">
+            <li><a href="https://www.gsmaintelligence.com/research/?file=c52d213ec6288da6b31248df71e370a3&download">Consumer barriers to mobile internet adoption in Asia</a></li>
+            <li><a href="http://www.oecd.org/internet/ieconomy/48761013.pdf">The Relationship between Local Content, Internet Development and Access Prices</a></li>
+            <li><a href="https://w3techs.com/technologies/overview/content_language/all">Usage of content languages for websites</a></li>
+            <li><a href="https://www.typemag.org/home/2017/10/6/the-faces-of-microsoft">The faces of Microsoft</a></li>
+            <li><a href="https://www.zachleat.com/web/retire-bulletproof-syntax/">No @font-face Syntax will ever be Bulletproof, Nor Should It Be.</a></li>
+            <li><a href="http://justineo.github.io/slideshows/font/">字体漫谈</a></li>
+            <li><a href="https://blogs.adobe.com/CCJKType/2017/04/source-han-serif-history-development.html">Source Han Serif / Noto Serif CJK History & Development</a></li>
+            <li><a href="https://collab.itc.virginia.edu/wiki/toolbox/Chinese%20Fonts%20%26%20Related%20Issues.html">Chinese Fonts & Related Issues</a></li>
+            <li>Zhang, X. & Han, Q. (2009). <em>The history of Chinese printing: (illustrated).</em> Paramus, N.J: Homa et Sekey Books.</li>
+            <li>Brokaw, C. & Reed, C. A. (2010). <em>From woodblocks to the Internet: Chinese publishing and print culture in transition, circa 1800 to 2008.</em> Leiden: Brill.</li>
+            <li>Tsien T. (2011). <em>Collected writings on Chinese culture.</em> Hong Kong: The Chinese University Press.</li>
+            <li>Tsien, T. & Shaughnessy, E. L. (2013). <em>Written on bamboo & silk: the beginnings of Chinese books & inscriptions.</em> Chicago: The University of Chicago Press.</li>
+            <li>Houston, K. (2016). <em>The book: a cover-to-cover exploration of the most powerful object of our time.</em> New York: W.W. Norton & Company.</li>
+            <li>厉致谦 (2013). 西文字体的故事. 上海市: 同济大学出版社.</li>
+            <li>Choi, K. E., & Kim, M. S. (2015). <em>A Comparative Study on the Sociocultural Drivers in the Development of Printing Technology in Korea and Europe</em>. Korea Journal, 55(4), 7-35.</li>
+            <li>Park, H. O. (2014). The History of Pre-Gutenberg Woodblock and Movable Type Printing in Korea. International Journal of Humanities and Social Science, 4(9), 1.</li>
+            <li>Haralambous, Y., & Horne, P. S. (2007). <em>Fonts & encodings</em>.</li>
+          </ul>
+          <aside class="notes">
+            <p>Here's the long list of resources I referred to when preparing this talk and I'll share these slides for anybody who is interested.</p>
+          </aside>
+        </section>
+
+        <section>
+          <div class="l-double">
+            <figure>
+              <img class="plain" data-src="img/tategaki.jpg" alt="Web awards for vertical writing">
+              <figcaption><a href="http://tategaki.github.io/awards/">http://tategaki.github.io/awards/</a></figcaption>
+            </figure>
+            <figure>
+            <img class="plain" data-src="img/layoutlab.jpg" alt="Jen Simmons' experimental layout lab">
+            <figcaption><a href="http://labs.jensimmons.com/">http://labs.jensimmons.com/</a></figcaption>
+          </div>
+          <aside class="notes">
+            <p>If you need inspiration for vertical layouts, the Tateyoko Web Awards site has really nice list. My friend, Jen Simmons, also has an experimental layout lab where she showcases all the different things that are now possible with modern CSS.</p>
+            <p>And even if you don't end up using any of what I've covered immediately in your next project, I hope that you keep these techniques and properties in the back of your mind. And maybe one day, when you're tired of building the same old layouts again and again, you'll reach for them and create something amazing.</p>
+          </aside>
+        </section>
+
+        <section style="text-align:left;">
+          <h1>Thank you!</h1>
+          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle;">https://www.chenhuijing.com</a></p>
+          <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/codepen_w.png" alt="Codepen"><a href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle;">@huijing</a></p>
+        </section>
+      </div>
+
+      <footer style="position:absolute;width:100%;bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em;background-color:rgba(0,0,0,0.75);"><span>https://www.chenhuijing.com/slides/cssconf-2018</span><span style="text-align:right;">@hj_chen</span></footer>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="lib/js/caniuse-embed.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script async src="lib/js/ei.js"></script>
+
+    <script>
+      Reveal.initialize({
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>

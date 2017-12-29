@@ -1,0 +1,439 @@
+/**
+ * Custom theme for Reveal.js presentations.
+ *
+ * Copyright (C) 2017 Chen Hui Jing, https://www.chenhuijing.com/
+ */
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url(../../lib/font/magnetic-pro/magnetic-pro.css);
+@import url(../../lib/font/magnetic-pro-black/magnetic-pro-black.css);
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'Magnetic Pro', 'HeiTi SC', 'Microsoft YaHei', sans-serif;
+$mainColor: #9ae0ff;
+$mainFontSize: 2.5em;
+$headingFont: 'Magnetic Pro Black', 'Arial Black', 'Microsoft YaHei', sans-serif;
+$headingColor: #256bc4;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$headingFontWeight: bold;
+$backgroundColor: #000;
+$linkColor: #ffed2a;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: rgba(0, 0, 0, 0.75);
+
+$heading1Size: 1.999em;
+$heading2Size: 1.414em;
+$heading3Size: 1.000em;
+$heading4Size: 1.000em;
+
+section.has-dark-background {
+  &, h1, h2, h3, h4, h5, h6 {
+    color: #eae7dc;
+  }
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.reveal {
+  img,
+  video {
+    max-height: 80vh;
+  }
+
+  code {
+    color: dodgerblue;
+  }
+
+  h2 code {
+    text-transform: lowercase;
+  }
+
+  blockquote {
+    width: 100%;
+
+    small {
+      margin-top: 0.5em;
+      line-height: 2;
+    }
+  }
+
+  table,
+  pre {
+    font-size: 75%;
+  }
+
+  td {
+    vertical-align: middle;
+  }
+
+  .l-logo {
+    height: 1.25em;
+    margin: 0 0.25em;
+  }
+
+  .l-double {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .l-multiple {
+    display: flex;
+    justify-content: space-around;
+
+    .j-vert {
+      width: 1em;
+    }
+  }
+
+  figcaption {
+    font-style: italic;
+    font-size: 75%;
+  }
+
+  .j-vert {
+    writing-mode:vertical-rl;
+    letter-spacing: 0.25em;
+  }
+
+  .video {
+    height: 50vh;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .j-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1rem;
+  }
+
+  .cp_embed_wrapper {
+    width: 100%;
+  }
+}
+
+.reveal .slides section .fragment.fade-out.visible:not(.current-fragment) {
+  display: none;
+}
+
+// Accessible emojis ------------------------------
+span.emoji {
+  font-style: normal;
+  font-size: 125%;
+  display: inline-block;
+  vertical-align: middle;
+  font-family: 'Segoe UI Emoji';
+}
+
+span[role=img][aria-label],
+span[role=img][aria-label] {
+  position: relative;
+}
+
+span[role=img][aria-label]:focus::after,
+span[role=img][aria-label]:hover::after {
+  font-size: 25%;
+  font-family: $mainFont;
+  font-weight: 400;
+  position: absolute;
+  display: block;
+  line-height: 1.2;
+  content: attr(aria-label);
+  z-index: 1;
+  top: 85%;
+  left: -12.5%;
+  background: $mainColor;
+  color: $backgroundColor;
+  padding: 0.25em;
+  border: 1px solid $backgroundColor;
+  box-shadow: 2px 2px 4px $mainColor;
+}
+
+@media print {
+  span[role=img][aria-label]::after {
+    content: " (" attr(aria-label) ") ";
+  }
+}
+
+// Rainbow colour change ---------------------
+.rainbow {
+  animation: rainbow 10s infinite;
+}
+
+@keyframes rainbow {
+  0%   { fill: tomato; }
+  10%  { fill: orange; }
+  20%  { fill: yellow; }
+  30%  { fill: chartreuse; }
+  40%  { fill: mediumspringgreen; }
+  50%  { fill: lightseagreen; }
+  60%  { fill: turquoise; }
+  70%  { fill: deepbluesky; }
+  80%  { fill: mediumslateblue; }
+  90%  { fill: violet; }
+  100% { fill: tomato; }
+}
+// Demo-related ------------------------------
+.livecode {
+  display: grid;
+  grid-template-columns: 70% calc(30% - 0.5em);
+  grid-gap: 0.5em;
+  height: 75vh;
+  margin: 0;
+  padding: 0;
+
+  .result {
+    max-height: 100%;
+    overflow-y: scroll;
+    width: 100%;
+    border: 1px dashed $headingColor;
+    background-color: #ababab;
+
+    li {
+      line-height: 0;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .code {
+    text-align: left;
+    width: 100%;
+    background: $mainColor;
+    font-family: monospace;
+    color: $backgroundColor;
+    font-size: 50%;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    overflow-y: scroll;
+  }
+}
+
+.code-editor {
+  display: block;
+  height: 100%;
+  white-space: pre-wrap;
+}
+
+.vidcode {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-gap: 0.5em;
+  height: 75vh;
+
+  video {
+    align-self: center;
+  }
+
+  .code {
+    text-align: left;
+    width: 100%;
+    background: $mainColor;
+    font-family: monospace;
+    color: $backgroundColor;
+    font-size: 40%;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    overflow-y: scroll;
+    white-space: pre-wrap;
+  }
+}
+
+$logo: (#56aaeb, #256bc4, #9ae0ff, #021c7f, #256bc3, #ffed2a);
+
+.jsconf-asia {
+  background-color: black;
+  height: 20rem;
+  width: 20rem;
+  border-radius: 0.3rem;
+  position: relative;
+  box-shadow: 0.6rem 0.6rem 0.3rem #444;
+
+  svg {
+    height: 46.0317%;
+    
+    path {
+      fill: white;
+    }
+  }
+
+  svg:first-child,
+  svg:nth-child(2) {
+    position: absolute;
+    bottom: 7.9365%;
+  }
+
+  svg:first-child {
+    left: 26.1905%;
+    width: 28.5714%;
+  }
+
+  svg:nth-child(2) {
+    right: 7.9365%;
+    width: 32.5397%;
+  }
+
+  .background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    @each $colour in $logo {
+      $i: index($logo, $colour);
+      div:nth-child(#{$i}) {
+        border: 0.3rem solid $colour;
+        border-radius: 0.3rem;
+        box-shadow: 0 0 0.3rem $colour, inset 0 0 0.3rem $colour, 0 0 0.6rem $colour, inset 0 0 0.6rem $colour, 0 0 1.2rem $colour, inset 0 0 1.2rem $colour;
+      }
+    }
+    
+    div {
+      height: 100%;
+      float: left;
+      margin-right: 2%;
+    }
+    
+    div:first-child {
+      width: 10%;
+    }
+    
+    div:nth-child(2) {
+      width: 19%;
+    }
+    
+    div:nth-child(3) {
+      width: 4%;
+    }
+    
+    div:nth-child(4) {
+      width: 28%;
+    }
+    
+    div:nth-child(5) {
+      width: 10%;
+    }
+    
+    div:nth-child(6) {
+      width: 19%;
+      margin-right: 0;
+    }
+  }
+
+  .js {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  @supports (filter: drop-shadow(0 0 1vmin gray)) {
+    svg {
+      filter: drop-shadow(0 0 0.3rem gray)
+              drop-shadow(0 0 0.45rem white)
+              drop-shadow(0 0 0.6rem white);
+    }
+    
+    .flicker {
+      animation: flicker 10s infinite;
+    }
+
+    .light {
+      animation: light 10s infinite;
+    }
+  }
+
+  @supports (display: grid) and (not(display: -ms-grid)) {
+    .background {
+      display: grid;
+      grid-template-rows: 20rem;
+      grid-template-columns: 2rem 3.8rem 0.8rem 5.6rem 2rem 3.8rem;
+      grid-gap: 0.4rem;
+      
+      div {
+        float: initial;
+        height: initial;
+        margin: initial;
+      }
+      
+      @for $i from 1 through 6 {
+        div:nth-child(#{$i}) {
+          width: initial;
+        }
+      }
+    }
+
+    .js {
+      display: grid;
+      grid-template-rows: 9.20635rem 9.20635rem 1.58731rem;
+      grid-template-columns: 5.23809rem 5.71428rem 0.95238rem 6.50793rem 1.58731rem;
+    }
+
+    svg {
+      max-width: 100%;
+    }
+    
+    svg:first-child,
+    svg:nth-child(2) {
+      position: initial;
+      height: initial;
+      width: initial;
+    }
+
+    svg:first-child {
+      grid-row: 2;
+      grid-column: 2 / 3;
+    }
+
+    svg:nth-child(2) {
+      grid-row: 2;
+      grid-column: 4 / 5;
+    }
+  }
+}
+
+@keyframes flicker {
+  21%, 39%, 45%, 47% {
+    filter: none;
+  }
+  18%, 26%, 38%, 40%, 44%, 46%, 48% {
+    filter: drop-shadow(0 0 0.3rem gray)
+            drop-shadow(0 0 0.45rem white)
+            drop-shadow(0 0 0.6rem white);
+  }
+}
+
+@keyframes light {
+  21%, 39%, 45%, 47% {
+    fill: gray;
+  }
+  18%, 26%, 38%, 40%, 44%, 46%, 48% {
+    fill: white;
+  }
+}

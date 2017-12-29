@@ -1,0 +1,612 @@
+/**
+ * Custom theme for Reveal.js presentations.
+ *
+ * Copyright (C) 2017 Chen Hui Jing, https://www.chenhuijing.com/
+ */
+@import url(../../lib/font/magnetic-pro/magnetic-pro.css);
+@import url(../../lib/font/magnetic-pro-black/magnetic-pro-black.css);
+section.has-dark-background, section.has-dark-background h1, section.has-dark-background h2, section.has-dark-background h3, section.has-dark-background h4, section.has-dark-background h5, section.has-dark-background h6 {
+  color: #eae7dc; }
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+body {
+  background: #000;
+  background-color: #000; }
+
+.reveal {
+  font-family: "Magnetic Pro", "HeiTi SC", "Microsoft YaHei", sans-serif;
+  font-size: 2.5em;
+  font-weight: normal;
+  color: #9ae0ff; }
+
+::selection {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.75);
+  text-shadow: none; }
+
+::-moz-selection {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.75);
+  text-shadow: none; }
+
+.reveal .slides > section,
+.reveal .slides > section > section {
+  line-height: 1.3;
+  font-weight: inherit; }
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: 0 0 20px 0;
+  color: #256bc4;
+  font-family: "Magnetic Pro Black", "Arial Black", "Microsoft YaHei", sans-serif;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-transform: none;
+  text-shadow: none;
+  word-wrap: break-word; }
+
+.reveal h1 {
+  font-size: 1.999em; }
+
+.reveal h2 {
+  font-size: 1.414em; }
+
+.reveal h3 {
+  font-size: 1em; }
+
+.reveal h4 {
+  font-size: 1em; }
+
+.reveal h1 {
+  text-shadow: none; }
+
+/*********************************************
+ * OTHER
+ *********************************************/
+.reveal p {
+  margin: 20px 0;
+  line-height: 1.3; }
+
+/* Ensure certain elements are never larger than the slide itself */
+.reveal img,
+.reveal video,
+.reveal iframe {
+  max-width: 95%;
+  max-height: 95%; }
+
+.reveal strong,
+.reveal b {
+  font-weight: bold; }
+
+.reveal em {
+  font-style: italic; }
+
+.reveal ol,
+.reveal dl,
+.reveal ul {
+  display: inline-block;
+  text-align: left;
+  margin: 0 0 0 1em; }
+
+.reveal ol {
+  list-style-type: decimal; }
+
+.reveal ul {
+  list-style-type: disc; }
+
+.reveal ul ul {
+  list-style-type: square; }
+
+.reveal ul ul ul {
+  list-style-type: circle; }
+
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ol,
+.reveal ol ul {
+  display: block;
+  margin-left: 40px; }
+
+.reveal dt {
+  font-weight: bold; }
+
+.reveal dd {
+  margin-left: 40px; }
+
+.reveal q,
+.reveal blockquote {
+  quotes: none; }
+
+.reveal blockquote {
+  display: block;
+  position: relative;
+  width: 70%;
+  margin: 20px auto;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2); }
+
+.reveal blockquote p:first-child,
+.reveal blockquote p:last-child {
+  display: inline-block; }
+
+.reveal q {
+  font-style: italic; }
+
+.reveal pre {
+  display: block;
+  position: relative;
+  width: 90%;
+  margin: 20px auto;
+  text-align: left;
+  font-size: 0.55em;
+  font-family: monospace;
+  line-height: 1.2em;
+  word-wrap: break-word;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3); }
+
+.reveal code {
+  font-family: monospace; }
+
+.reveal pre code {
+  display: block;
+  padding: 5px;
+  overflow: auto;
+  max-height: 400px;
+  word-wrap: normal; }
+
+.reveal table {
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.reveal table th {
+  font-weight: bold; }
+
+.reveal table th,
+.reveal table td {
+  text-align: left;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-bottom: 1px solid; }
+
+.reveal table th[align="center"],
+.reveal table td[align="center"] {
+  text-align: center; }
+
+.reveal table th[align="right"],
+.reveal table td[align="right"] {
+  text-align: right; }
+
+.reveal table tbody tr:last-child th,
+.reveal table tbody tr:last-child td {
+  border-bottom: none; }
+
+.reveal sup {
+  vertical-align: super; }
+
+.reveal sub {
+  vertical-align: sub; }
+
+.reveal small {
+  display: inline-block;
+  font-size: 0.6em;
+  line-height: 1.2em;
+  vertical-align: top; }
+
+.reveal small * {
+  vertical-align: top; }
+
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal a {
+  color: #ffed2a;
+  text-decoration: none;
+  -webkit-transition: color .15s ease;
+  -moz-transition: color .15s ease;
+  transition: color .15s ease; }
+
+.reveal a:hover {
+  color: #fff690;
+  text-shadow: none;
+  border: none; }
+
+.reveal .roll span:after {
+  color: #fff;
+  background: #ddca00; }
+
+/*********************************************
+ * IMAGES
+ *********************************************/
+.reveal section img {
+  margin: 15px 0px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 4px solid #9ae0ff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
+
+.reveal section img.plain {
+  border: 0;
+  box-shadow: none;
+  background: transparent; }
+
+.reveal a img {
+  -webkit-transition: all .15s linear;
+  -moz-transition: all .15s linear;
+  transition: all .15s linear; }
+
+.reveal a:hover img {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #ffed2a;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #ffed2a; }
+
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #ffed2a; }
+
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #ffed2a; }
+
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #ffed2a; }
+
+.reveal .controls .navigate-left.enabled:hover {
+  border-right-color: #fff690; }
+
+.reveal .controls .navigate-right.enabled:hover {
+  border-left-color: #fff690; }
+
+.reveal .controls .navigate-up.enabled:hover {
+  border-bottom-color: #fff690; }
+
+.reveal .controls .navigate-down.enabled:hover {
+  border-top-color: #fff690; }
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2); }
+
+.reveal .progress span {
+  background: #ffed2a;
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
+
+html {
+  box-sizing: border-box;
+  height: 100%; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
+
+.reveal img,
+.reveal video {
+  max-height: 80vh; }
+
+.reveal code {
+  color: dodgerblue; }
+
+.reveal h2 code {
+  text-transform: lowercase; }
+
+.reveal blockquote {
+  width: 100%; }
+  .reveal blockquote small {
+    margin-top: 0.5em;
+    line-height: 2; }
+
+.reveal table,
+.reveal pre {
+  font-size: 75%; }
+
+.reveal td {
+  vertical-align: middle; }
+
+.reveal .l-logo {
+  height: 1.25em;
+  margin: 0 0.25em; }
+
+.reveal .l-double {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+  justify-items: center; }
+
+.reveal .l-multiple {
+  display: flex;
+  justify-content: space-around; }
+  .reveal .l-multiple .j-vert {
+    width: 1em; }
+
+.reveal figcaption {
+  font-style: italic;
+  font-size: 75%; }
+
+.reveal .j-vert {
+  writing-mode: vertical-rl;
+  letter-spacing: 0.25em; }
+
+.reveal .video {
+  height: 50vh;
+  display: block;
+  margin: 0 auto; }
+
+.reveal .j-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1rem; }
+
+.reveal .cp_embed_wrapper {
+  width: 100%; }
+
+.reveal .slides section .fragment.fade-out.visible:not(.current-fragment) {
+  display: none; }
+
+span.emoji {
+  font-style: normal;
+  font-size: 125%;
+  display: inline-block;
+  vertical-align: middle;
+  font-family: 'Segoe UI Emoji'; }
+
+span[role=img][aria-label],
+span[role=img][aria-label] {
+  position: relative; }
+
+span[role=img][aria-label]:focus::after,
+span[role=img][aria-label]:hover::after {
+  font-size: 25%;
+  font-family: "Magnetic Pro", "HeiTi SC", "Microsoft YaHei", sans-serif;
+  font-weight: 400;
+  position: absolute;
+  display: block;
+  line-height: 1.2;
+  content: attr(aria-label);
+  z-index: 1;
+  top: 85%;
+  left: -12.5%;
+  background: #9ae0ff;
+  color: #000;
+  padding: 0.25em;
+  border: 1px solid #000;
+  box-shadow: 2px 2px 4px #9ae0ff; }
+
+@media print {
+  span[role=img][aria-label]::after {
+    content: " (" attr(aria-label) ") "; } }
+
+.rainbow {
+  animation: rainbow 10s infinite; }
+
+@keyframes rainbow {
+  0% {
+    fill: tomato; }
+  10% {
+    fill: orange; }
+  20% {
+    fill: yellow; }
+  30% {
+    fill: chartreuse; }
+  40% {
+    fill: mediumspringgreen; }
+  50% {
+    fill: lightseagreen; }
+  60% {
+    fill: turquoise; }
+  70% {
+    fill: deepbluesky; }
+  80% {
+    fill: mediumslateblue; }
+  90% {
+    fill: violet; }
+  100% {
+    fill: tomato; } }
+
+.livecode {
+  display: grid;
+  grid-template-columns: 70% calc(30% - 0.5em);
+  grid-gap: 0.5em;
+  height: 75vh;
+  margin: 0;
+  padding: 0; }
+  .livecode .result {
+    max-height: 100%;
+    overflow-y: scroll;
+    width: 100%;
+    border: 1px dashed #256bc4;
+    background-color: #ababab; }
+    .livecode .result li {
+      line-height: 0; }
+    .livecode .result p {
+      margin: 0;
+      padding: 0; }
+  .livecode .code {
+    text-align: left;
+    width: 100%;
+    background: #9ae0ff;
+    font-family: monospace;
+    color: #000;
+    font-size: 50%;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    overflow-y: scroll; }
+
+.code-editor {
+  display: block;
+  height: 100%;
+  white-space: pre-wrap; }
+
+.vidcode {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-gap: 0.5em;
+  height: 75vh; }
+  .vidcode video {
+    align-self: center; }
+  .vidcode .code {
+    text-align: left;
+    width: 100%;
+    background: #9ae0ff;
+    font-family: monospace;
+    color: #000;
+    font-size: 40%;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    overflow-y: scroll;
+    white-space: pre-wrap; }
+
+.jsconf-asia {
+  background-color: black;
+  height: 20rem;
+  width: 20rem;
+  border-radius: 0.3rem;
+  position: relative;
+  box-shadow: 0.6rem 0.6rem 0.3rem #444; }
+  .jsconf-asia svg {
+    height: 46.0317%; }
+    .jsconf-asia svg path {
+      fill: white; }
+  .jsconf-asia svg:first-child,
+  .jsconf-asia svg:nth-child(2) {
+    position: absolute;
+    bottom: 7.9365%; }
+  .jsconf-asia svg:first-child {
+    left: 26.1905%;
+    width: 28.5714%; }
+  .jsconf-asia svg:nth-child(2) {
+    right: 7.9365%;
+    width: 32.5397%; }
+  .jsconf-asia .background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; }
+    .jsconf-asia .background div:nth-child(1) {
+      border: 0.3rem solid #56aaeb;
+      border-radius: 0.3rem;
+      box-shadow: 0 0 0.3rem #56aaeb, inset 0 0 0.3rem #56aaeb, 0 0 0.6rem #56aaeb, inset 0 0 0.6rem #56aaeb, 0 0 1.2rem #56aaeb, inset 0 0 1.2rem #56aaeb; }
+    .jsconf-asia .background div:nth-child(2) {
+      border: 0.3rem solid #256bc4;
+      border-radius: 0.3rem;
+      box-shadow: 0 0 0.3rem #256bc4, inset 0 0 0.3rem #256bc4, 0 0 0.6rem #256bc4, inset 0 0 0.6rem #256bc4, 0 0 1.2rem #256bc4, inset 0 0 1.2rem #256bc4; }
+    .jsconf-asia .background div:nth-child(3) {
+      border: 0.3rem solid #9ae0ff;
+      border-radius: 0.3rem;
+      box-shadow: 0 0 0.3rem #9ae0ff, inset 0 0 0.3rem #9ae0ff, 0 0 0.6rem #9ae0ff, inset 0 0 0.6rem #9ae0ff, 0 0 1.2rem #9ae0ff, inset 0 0 1.2rem #9ae0ff; }
+    .jsconf-asia .background div:nth-child(4) {
+      border: 0.3rem solid #021c7f;
+      border-radius: 0.3rem;
+      box-shadow: 0 0 0.3rem #021c7f, inset 0 0 0.3rem #021c7f, 0 0 0.6rem #021c7f, inset 0 0 0.6rem #021c7f, 0 0 1.2rem #021c7f, inset 0 0 1.2rem #021c7f; }
+    .jsconf-asia .background div:nth-child(5) {
+      border: 0.3rem solid #256bc3;
+      border-radius: 0.3rem;
+      box-shadow: 0 0 0.3rem #256bc3, inset 0 0 0.3rem #256bc3, 0 0 0.6rem #256bc3, inset 0 0 0.6rem #256bc3, 0 0 1.2rem #256bc3, inset 0 0 1.2rem #256bc3; }
+    .jsconf-asia .background div:nth-child(6) {
+      border: 0.3rem solid #ffed2a;
+      border-radius: 0.3rem;
+      box-shadow: 0 0 0.3rem #ffed2a, inset 0 0 0.3rem #ffed2a, 0 0 0.6rem #ffed2a, inset 0 0 0.6rem #ffed2a, 0 0 1.2rem #ffed2a, inset 0 0 1.2rem #ffed2a; }
+    .jsconf-asia .background div {
+      height: 100%;
+      float: left;
+      margin-right: 2%; }
+    .jsconf-asia .background div:first-child {
+      width: 10%; }
+    .jsconf-asia .background div:nth-child(2) {
+      width: 19%; }
+    .jsconf-asia .background div:nth-child(3) {
+      width: 4%; }
+    .jsconf-asia .background div:nth-child(4) {
+      width: 28%; }
+    .jsconf-asia .background div:nth-child(5) {
+      width: 10%; }
+    .jsconf-asia .background div:nth-child(6) {
+      width: 19%;
+      margin-right: 0; }
+  .jsconf-asia .js {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; }
+  @supports (filter: drop-shadow(0 0 1vmin gray)) {
+    .jsconf-asia svg {
+      filter: drop-shadow(0 0 0.3rem gray) drop-shadow(0 0 0.45rem white) drop-shadow(0 0 0.6rem white); }
+    .jsconf-asia .flicker {
+      animation: flicker 10s infinite; }
+    .jsconf-asia .light {
+      animation: light 10s infinite; } }
+  @supports (display: grid) and (not (display: -ms-grid)) {
+    .jsconf-asia .background {
+      display: grid;
+      grid-template-rows: 20rem;
+      grid-template-columns: 2rem 3.8rem 0.8rem 5.6rem 2rem 3.8rem;
+      grid-gap: 0.4rem; }
+      .jsconf-asia .background div {
+        float: initial;
+        height: initial;
+        margin: initial; }
+      .jsconf-asia .background div:nth-child(1) {
+        width: initial; }
+      .jsconf-asia .background div:nth-child(2) {
+        width: initial; }
+      .jsconf-asia .background div:nth-child(3) {
+        width: initial; }
+      .jsconf-asia .background div:nth-child(4) {
+        width: initial; }
+      .jsconf-asia .background div:nth-child(5) {
+        width: initial; }
+      .jsconf-asia .background div:nth-child(6) {
+        width: initial; }
+    .jsconf-asia .js {
+      display: grid;
+      grid-template-rows: 9.20635rem 9.20635rem 1.58731rem;
+      grid-template-columns: 5.23809rem 5.71428rem 0.95238rem 6.50793rem 1.58731rem; }
+    .jsconf-asia svg {
+      max-width: 100%; }
+    .jsconf-asia svg:first-child,
+    .jsconf-asia svg:nth-child(2) {
+      position: initial;
+      height: initial;
+      width: initial; }
+    .jsconf-asia svg:first-child {
+      grid-row: 2;
+      grid-column: 2 / 3; }
+    .jsconf-asia svg:nth-child(2) {
+      grid-row: 2;
+      grid-column: 4 / 5; } }
+
+@keyframes flicker {
+  21%, 39%, 45%, 47% {
+    filter: none; }
+  18%, 26%, 38%, 40%, 44%, 46%, 48% {
+    filter: drop-shadow(0 0 0.3rem gray) drop-shadow(0 0 0.45rem white) drop-shadow(0 0 0.6rem white); } }
+
+@keyframes light {
+  21%, 39%, 45%, 47% {
+    fill: gray; }
+  18%, 26%, 38%, 40%, 44%, 46%, 48% {
+    fill: white; } }
