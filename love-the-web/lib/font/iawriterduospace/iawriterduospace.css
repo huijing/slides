@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'iA Writer Duospace';
+  src: url('iawriterduospace-bold.eot');
+  src: url('iawriterduospace-bold.eot?#iefix') format('embedded-opentype'),
+       url('iawriterduospace-bold.woff2') format('woff2'),
+       url('iawriterduospace-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'iA Writer Duospace';
+  src: url('iawriterduospace-regular.eot');
+  src: url('iawriterduospace-regular.eot?#iefix') format('embedded-opentype'),
+       url('iawriterduospace-regular.woff2') format('woff2'),
+       url('iawriterduospace-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'iA Writer Duospace';
+  src: url('iawriterduospace-regularitalic.eot');
+  src: url('iawriterduospace-regularitalic.eot?#iefix') format('embedded-opentype'),
+       url('iawriterduospace-regularitalic.woff2') format('woff2'),
+       url('iawriterduospace-regularitalic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}

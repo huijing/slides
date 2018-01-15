@@ -1,0 +1,276 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Love the web for what it is</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/jing.css">
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1 class="title"><span class="emoji">&#x2764;&#xFE0F;</span> <span>the</span> <span>web</span> <span>for what it is</span></h1>
+          <aside class="notes">
+            <p>Hello, beautiful people! How are we doing so far? Good? I want say thank you to our awesome speakers for blowing our minds with their wonderful talks. I don't know about you, but I sure learned a tonne from them.</p>
+            <p>And also, to each and every one of you, for choosing to spend your Wednesday afternoon with us. So I'll be wrapping things up with a talk titled “Love the web for what it is.”</p>
+          </aside>
+        </section>
+
+        <section>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,1fr);">
+            <img style="grid-column:1/4;grid-row:1/3;" class="plain" data-src="img/askjeeves.jpg" alt="Ask Jeeves">
+            <img style="grid-column:3/5;grid-row:1/3;" class="plain fragment" data-src="img/icq.png" alt="ICQ chat">
+            <img style="grid-column:2/4;grid-row:2/4;" class="plain fragment" data-src="img/magic.png" alt="Magic the Gathering fan site">
+            <img style="grid-column:1/3;grid-row:1/4;" class="plain fragment" data-src="img/yahoo.png" alt="Yahoo search">
+            <img style="grid-column:3/5;grid-row:1/4;align-self:end;" class="plain fragment" data-src="img/ymail.png" alt="Yahoo mail">
+          </div>
+          <aside class="notes">
+            <p>Can most of you remember your first encounter with the web? I can. We used a dial-up modem, you know, the kind where if you connected to the internet, nobody could call the house line?</p>
+            <p>Back then, butlers were in style. Online chat programs had meaningful acronyms, and people made websites about things they liked. Google didn't exist and I still have the same email account I got when I was 11.</p>
+          </aside>
+        </section>
+
+        <section data-background-image="img/browser-wars.jpg">
+          <aside class="notes">
+            <p>There was something called the Browser Wars, when browsers competed by adding non-standard features and extensions to the fledgeling HTML, CSS and Javascript syntax. I did not fight in said war, I was merely part of what was being fought over.</p> 
+            <p>In fact, when I got my first “real” job as a web developer, fixed layouts were already falling out of favour, and responsive design was the norm. That was great, because when it came to web design, I developed a mental model of the web that was dynamic from the get-go. I didn't really have to overhaul my way of thinking when designing for the web.</p>
+          </aside>
+        </section>
+
+        <section>
+          <video loop autoplay>
+            <source data-src="videos/disco.mp4" type="video/mp4" />
+            Sorry, your browser doesn't support embedded videos, 
+            but don't worry, you can <a href="videos/disco.mp4">download it</a>
+            and watch it with your favourite video player!
+          </video>
+          <aside class="notes">
+            <p>Now, according to my friends who do not build websites for a living, this behaviour is not normal. And I'll just look at them like, what do you mean you don't resize your browser 1000 times a day?</p>
+            <p>But jokes aside, in my mind, the web is a dynamic and interactive medium. And it was upon learning more about browsers’ layout engines, how rendering works and their relationship with HTML and CSS that has shaped my current opinion of web design.</p>
+          </aside>
+        </section>
+
+        <section>
+          <blockquote>“If you don’t know where you’ve come from, how will you appreciate where you’re going?”<br><small>–Shashi Tharoor</small></blockquote>
+          <aside class="notes">
+            <p>Perhaps you may not agree with me, but I do believe that an understanding of the history of the web, amongst many other things, is essential to becoming a better web designer. Let’s be honest, the digital age we live in now moves at a break-neck speed. The first electronic computers came about in the 1940s, that’s less than a century ago.
+            <p>Which is why I think it is important for us to understand the how the web came to be in its current state today. To give us a greater sense of appreciation of what we have right now, and inform a direction of where we ought to be going, moving forward.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Basic building blocks of the web</h2>
+          <img style="max-height:80vh;" class="plain" data-src="img/pillars.svg" alt="HTML, CSS & JS">
+          <aside class="notes">
+            <p>We often talk about this holy trinity of HTML, CSS and Javscript when it comes to the web. HTML for structure, CSS for style and Javascript for interactivity.</p>
+            <p>All 3 are key aspects of the web, and all 3 have evolved greatly since their inception.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>HTML (Hypertext Markup Language)</h2>
+          <p><a href="https://www.w3.org/History/1989/proposal.html">Information Management: A Proposal</a> by Sir Tim Berners-Lee</p> 
+          <img class="plain" data-src="img/berners-lee.jpg" alt="Sir Tim Berners-Lee">
+          <aside class="notes">
+            <p>In 1989, Sir Tim Berners-Lee proposed a solution to the problem that CERN had, with regards to information access, and his paper introduced the idea of linked information.</p>
+            <p>This concept of cross-referencing information within documents could allow for a “web” of information to be held electronically on machines across the world, via some form of hypertext.</p>
+            <p>Sir Tim Berners-Lee is credited with inventing the World Wide Web because he developed the language for encoding documents (<abbr title="Hypertext Markup Language">HTML</abbr>), linking them (<abbr title="" itle="Hypertext Transfer Protocol">HTTP</abbr>) and addressing them (<abbr title="Universal Resource Locator">URL</abbr>). The web was built for the publication and retrieval of information.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>CSS (Cascading Style Sheets)ss</h2>
+          <p><a href="https://www.w3.org/People/howcome/p/cascade.html">Cascading HTML style sheets -- a proposal</a> by Håkon Wium Lie</p>
+          <img class="plain" data-src="img/wium-lie.jpg" alt="Håkon Wium Lie">
+          <aside class="notes"> 
+            <p>The story of CSS started in 1994. You see, the web started to become more popular as a publication medium, but there was no good way to style documents at the time. Håkon Wium Lie saw a need to have a stylesheet language for the web, and presented his proposal for CSS at the 2nd International World Wide Web conference in Chicago.</p>
+            <p>Stylesheets in browsers were not a new idea, as separation of document structure from presentation had been a goal of HTML since the beginning. Sir Tim Berners-Lee wrote his NeXT browser/editor to support use of a simple style sheet to determine document styles.</p>
+            <p>But he decided to let browsers decide for themselves how to best display pages to their users. So users of the web did what users do best. Complain. Largely about how they couldn't control how their pages looked.</p>
+          </aside>
+        </section>
+
+        <section>
+          <div style="display:flex;">
+            <img style="margin-right:1em;" class="plain" data-src="img/ie3.jpg" alt="Microsoft Internet Explorer 3">
+            <img style="margin-right:1em;" class="plain fragment" data-src="img/netscape4.jpg" alt="Netscape Navigator 4.0">
+            <img class="plain fragment" data-src="img/opera3.jpg" alt="Opera 3.5">
+          </div>
+          <aside class="notes"> 
+            <p>Proposals are destined to remain mere academic endeavours, if they are not implemented into real-world applications.</p>
+            <p>The first commercial browser to support CSS was Microsoft's Internet Explorer 3, followed by Netscape Navigator 4.0, and then Opera 3.5.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Javascript</h2>
+          <p><a href="https://devchat.tv/js-jabber/124-jsj-the-origin-of-javascript-with-brendan-eich">The Origin of Javascript with Brendan Eich</a> on the Javascript Jabber podcast</p>
+          <img class="plain" data-src="img/eich.jpg" alt="Brendan Eich">
+          <aside class="notes"> 
+            <p>Javascript's origin story started in 1995, when Netscape wanted a way to make the web experience more dynamic. They hired Brendan Eich as a contractor to implement Scheme, which was a Lisp dialect, in the browser.</p>
+            <p>In his words, the idea was to make something that Web designers, people who may or may not have much programming training, could use to add a little bit of animation or a little bit of smarts to their Web forms and their Web pages.</p>
+            <p>So in 1996, JavaScript was implemented in Netscape first, then Internet Explorer, but the IE version was called JScript, because trademarks.</p>
+          </aside>
+        </section>
+
+        <section data-background-image="img/openweb.jpg">
+          <aside class="notes">When Sir Tim Berners-Lee created the web, he imagined the web as an open platform that would allow everyone, everywhere to share information, access opportunities and collaborate across geographic and cultural boundaries. That's why the web was released to the public domain back in 1993.</aside>
+        </section>
+
+        <section>
+          <p><a href="https://blog.mozilla.org/blog/2017/10/18/mozilla-brings-microsoft-google-w3c-samsung-together-create-cross-browser-documentation-mdn/"><strong>Mozilla</strong> brings <strong>Microsoft</strong>, <strong>Google</strong>, the <strong>W3C</strong>, <strong>Samsung</strong> together to create cross-browser documentation on MDN</a></p>
+          <img style="max-height:55vh;" class="plain" data-src="img/web-team.svg" alt="Browser vendors and W3C working together">
+          <aside class="notes"> 
+            <p>In the aftermath of the Browser Wars, something good emerged: web standards. Which is an effort to keep the web open, interoperable and accessible.</p>
+            <p>We have come a long way in the relatively short span of two decades. From browsers trying to one-up each other with non-standard implementations, to working together to create technical documentation for web developers, built on an open-source web development documentation platform based on wiki technology.</p>
+          </aside>
+        </section>
+
+        <section data-background-image="img/bluebeanie.jpg">
+          <h2>Blue Beanie Day</h2>
+          <p>November 30</p>
+          <blockquote>“Web standards play an important role when it comes to web accessibility. It is important that websites can be displayed with any browser.”</blockquote>
+          <aside class="notes"> 
+            <p>Some of you might be thinking, but browsers are still broken, right? I'm going to make the assumption that a number of people in this room have had the experience of building a comp in one browser that works great, only to find that it's rendering weird in another one (one that you obviously didn't test at all during the build process).</p>
+            <p>What we need to understand is that browsers are software, software that is built by human engineers, working for different companies. Each of these companies have their own internal dynamics and decision-making matrices that outsiders like us are simply not privy to. So no, features will not be universally supported all at the same time.</p>
+            <p>But because of web standards, they will get there.</p>
+          </aside>
+        </section>
+
+        <section>
+          <figure>
+            <video loop autoplay>
+              <source data-src="videos/stop.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/stop.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <figcaption>...said <a href="https://www.webstandards.org/">WaSP</a> to Microsoft and Netscape</figcaption>
+          </figure>
+          <aside class="notes">The Web Standards Project was formed in 1998, essentially to tell browser vendors to quit it and stop messing up the web. And they were successful. Browser makers are no longer the problem.</aside>
+        </section>
+
+         <section>
+          <blockquote>“The problem lies with designers and developers chained to the browser–quirk–oriented markup of the 1990s—often because they don’t realise it is <span style="border-bottom:4px solid currentColor;">possible to support current standards while accommodating old browsers</span>.”<br><small>—<a href="https://www.webstandards.org/about/history/index.html">WaSP (Web Standards Project)</a></small></blockquote>>
+          <aside class="notes">The onus now falls onto us, designers and developers of the web, to make sure that the sites we build today will work for all, today and tomorrow. That means keeping browser-specific markup out of the code we write, and building with web standards in mind.</aside>
+        </section>
+
+        <section data-background-image="img/screens.jpg">
+          <aside class="notes">
+            <p>Most of the information on the web is consumed via an electronic screen. Electronic screens were introduced as an output device in the 1950s and screen technology has improved rapidly over these past few decades.</p>
+            <p>But electronic screens are a proxy medium, in that whatever we see displayed on a screen comes from data encoded as electronic signals. The heart of electronic displays is light. It's not tangible. We can't touch light.</aside>
+        </section>
+
+        <section>
+          pages vs screen?
+          <aside class="notes">
+            <p>Because the web is a completely new medium, it's only natural that people try to reconcile it with something familiar, like print. Even the terminology was borrowed from print, we use terms like web <em>pages</em>.</p>
+            <p>However, there is an additional degree of separation between the creator and the final output. As such, we cannot have the same set of expectations when it comes to handling the web as a medium.</p>
+          </aside>
+        </section>
+
+        <section>
+          <div><span>👐</span> <span>➡</span> <span>✨</span></div>
+          <div><span>👐</span> <span>➡</span> <span>💻</span> <span>➡</span> <span>✨</span></div>
+          <aside class="notes">
+             <p>I think this emoji explanation sums it up reasonably well.</p>
+          </aside>
+        </section>
+
+        <section>
+          
+          <aside class="notes">
+            <p>Designing for the web requires an intimate knowledge of the browser that will be rendering the final output. You can’t stick your hands in there and change things directly. You have to change the instructions given to the browser, explaining how you would like things to be rendered instead.</p>
+            <p>When browsers first started out, they couldn’t do much except display text and maybe images if you were lucky. Like a baby, that hasn’t developed the motor skills to even sit up yet. But over the years, browsers have become more mature and vastly more capable. And when it comes to layout on the web, I feel that the release of CSS grid is like the web finally getting it’s driver’s license.</p>
+          </aside>
+        </section>
+
+        <section>
+          
+          <aside class="notes">
+            <p>There are still a lot of legacy expectations brought over from print that cause designers a lot of frustration when designing for the web. I know, because I’d given my fair share of grief to them when I said, no, we can’t build that because it requires resorting to measures of extreme-hackishness.</p>
+            <p>To me, the magic of the web is the process by which the web evolves. The web was meant to be an open platform. One where new features can be proposed and discussed by the community before being implemented into browsers.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Let's establish a new normal for the web</h2>
+          <aside class="notes">
+            <p>I want to establish a new normal for the web. A normal where people don't expect websites to look the same on different browsers and devices. A normal where we embrace the fluidity of content and work with it instead of against it. A normal where we cede control of our designs to the browsers that render them.</p>
+            <p>New layout techniques like Flexbox and CSS grid give us a whole suite of commands to tell the browser how we’d like things to look depending on the context of the screen being used. And it’s much easier to trust the browser if we understand how it works.</p>
+          </aside>
+        </section>
+
+        <section>
+          <div class="l-multiple">
+            <img class="plain" data-src="img/chrome.png" alt="Chrome">
+            <img class="plain" data-src="img/firefox.png" alt="Firefox">
+            <img class="plain" data-src="img/opera.png" alt="Opera">
+            <img class="plain" data-src="img/webkit.png" alt="Webkit">
+            <img class="plain" data-src="img/edge.png" alt="Edge">
+            <img class="plain" data-src="img/ie11.png" alt="IE11">
+            <img class="plain" data-src="img/uc.png" alt="UC Browser">
+            <img class="plain" data-src="img/android.png" alt="Android">
+            <img class="plain" data-src="img/samsung.png" alt="Samsung Internet">
+          </div>
+          <p>and many more...</p>
+          <aside class="notes">
+            <p>I know there are a boat-load of browsers using different layout engines and hence each have their own quirks, or release features at different times, and you know what? That’s perfectly fine. Your parents didn’t expect you to behave exactly like your siblings, did they? (Sorry, if they did)</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Further reading</h2>
+          <ul style="columns:2;font-size:65%;">
+            <li>Raggett, D., Lam, J., Alexander, I., & Kmiec, M. (1998). <em>Raggett on HTML 4.</em> Harlow: Addison-Wesley.</li>
+            <li>Lie, H. W., & Bos, B. (2007). <em>Cascading style sheets designing for the Web.</em> Harlow: Addison-Wesley.</li>
+            <li>Zeldman, J., & Marcotte, E. (2010). <em>Designing with Web standards</em>. Berkeley, CA: New Riders.</li>
+            <li><a href="https://auth0.com/blog/a-brief-history-of-javascript/">A Brief History of JavaScript</a></li>
+            <li><a href="https://webfoundation.org/2017/03/web-turns-28-letter/">Three challenges for the web, according to its inventor</a></li>
+            <li><a href="http://bluebeanieday.tumblr.com/">Blue Beanie Day</a></li>
+            <li><a href="https://blog.mozilla.org/blog/2017/10/18/mozilla-brings-microsoft-google-w3c-samsung-together-create-cross-browser-documentation-mdn/">Mozilla brings Microsoft, Google, the W3C, Samsung together to create cross-browser documentation on MDN</a></li>
+          </ul>
+          <aside class="notes">
+            <p>Here's the long list of resources I referred to when preparing this talk and I'll share these slides for anybody who is interested.</p>
+          </aside>
+        </section>
+
+        <section style="text-align:left;">
+          <h1>Thank you!</h1>
+          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle;">https://www.chenhuijing.com</a></p>
+          <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle;">@huijing</a></p>
+        </section>
+      </div>
+
+      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em;"><span>https://www.chenhuijing.com/slides/love-the-web</span><span style="text-align:right;">@hj_chen</span></footer>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      Reveal.initialize({
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>

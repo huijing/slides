@@ -1,0 +1,85 @@
+/**
+ * Custom theme for Reveal.js presentations.
+ *
+ * Copyright (C) 2018 Chen Hui Jing, https://www.chenhuijing.com/
+ */
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url(../../lib/font/iawriterduospace/iawriterduospace.css);
+@import url(../../lib/font/gilbert/gilbert.css);
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+// Customised styles for this presentation
+.reveal {
+  .title span:first-of-type {
+    font-size: 2.25em;
+  }
+
+  @supports (display:grid) {
+    .title {
+      display: grid;
+      grid-template-columns: max-content min-content max-content;
+      grid-template-rows: max-content auto;
+      align-items: center;
+      justify-content: center;
+      font-size: 250%;
+
+      span:nth-of-type(2) {
+         writing-mode: vertical-rl;
+         text-transform: lowercase;
+         font-size: 85%;
+      }
+
+      span:nth-of-type(3) {
+         font-size: 2.5em;
+         font-family:'Gilbert Color';
+      }
+
+      span:nth-of-type(4) {
+         grid-column: span 3;
+         text-transform: lowercase;
+         line-height: 0.5;
+      }
+    }
+
+    @supports (text-orientation: upright) {
+      .title span:nth-of-type(2) {
+        text-orientation: upright;
+        letter-spacing: -0.125em;
+      }
+    }
+  }
+
+  .emoji {
+    font-family: 'Apple Color Emoji', 'Segoe UI Emoji';
+  }
+
+  .j-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1rem;
+  }
+
+  blockquote {
+    width: 90%;
+    text-align: left;
+    box-shadow: none;
+    line-height: 1.5;
+
+    small {
+      margin-top: 0.5em;
+    }
+  }
+
+  figcaption {
+    font-style: italic;
+  }
+}
