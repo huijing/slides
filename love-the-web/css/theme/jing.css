@@ -14,7 +14,7 @@ body {
 
 .reveal {
   font-family: "iA Writer Duospace", monospace;
-  font-size: 2.7em;
+  font-size: 2.6em;
   font-weight: normal;
   color: #000; }
 
@@ -288,9 +288,6 @@ body {
       text-orientation: upright;
       letter-spacing: -0.125em; } } }
 
-.reveal .emoji {
-  font-family: 'Apple Color Emoji', 'Segoe UI Emoji'; }
-
 .reveal .j-icon {
   display: inline-block;
   vertical-align: middle;
@@ -306,3 +303,30 @@ body {
 
 .reveal figcaption {
   font-style: italic; }
+
+span.emoji {
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji';
+  font-style: normal;
+  font-size: 125%;
+  display: inline-block;
+  vertical-align: middle; }
+
+span[role=img][aria-label],
+span[role=img][aria-label] {
+  position: relative; }
+
+span[role=img][aria-label]:focus::after,
+span[role=img][aria-label]:hover::after {
+  font-size: 25%;
+  font-family: "iA Writer Duospace", monospace;
+  font-weight: 400;
+  position: absolute;
+  display: block;
+  line-height: 1.2;
+  content: attr(aria-label);
+  z-index: 1;
+  background: #000;
+  color: #fafaff;
+  padding: 0.25em;
+  border: 1px solid #fafaff;
+  box-shadow: 2px 2px 4px #000; }

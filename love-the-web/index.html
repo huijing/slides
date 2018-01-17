@@ -173,8 +173,7 @@
             <p>But electronic screens are a proxy medium, in that whatever we see displayed on a screen comes from data encoded as electronic signals. The heart of electronic displays is light. It's not tangible. We can't touch light.</aside>
         </section>
 
-        <section>
-          pages vs screen?
+        <section data-background-image="img/familiarity.jpg">
           <aside class="notes">
             <p>Because the web is a completely new medium, it's only natural that people try to reconcile it with something familiar, like print. Even the terminology was borrowed from print, we use terms like web <em>pages</em>.</p>
             <p>However, there is an additional degree of separation between the creator and the final output. As such, we cannot have the same set of expectations when it comes to handling the web as a medium.</p>
@@ -182,31 +181,42 @@
         </section>
 
         <section>
-          <div><span>👐</span> <span>➡</span> <span>✨</span></div>
-          <div><span>👐</span> <span>➡</span> <span>💻</span> <span>➡</span> <span>✨</span></div>
+          <div style="display:grid;grid-template-columns:50% 50%;">
+            <figure>
+              <div style="font-size:1.5em;"><span class="emoji" role="img" tabindex="0" aria-label="open hands">&#x1F450;</span> ➡ <span class="emoji" role="img" tabindex="0" aria-label="sparkles">&#x2728;</span></div>
+              <figcaption>Physical media</figcaption>
+            </figure>
+            <figure>
+              <div style="font-size:1.5em;"><span class="emoji" role="img" tabindex="0" aria-label="open hands">&#x1F450;</span> ➡ <span class="emoji" role="img" tabindex="0" aria-label="laptop computer">&#x1F4BB;</span> ➡ <span class="emoji" role="img" tabindex="0" aria-label="sparkles">&#x2728;</span></div>
+              <figcaption>Digital media</figcaption>
+            </figure>
+          </div>
           <aside class="notes">
-             <p>I think this emoji explanation sums it up reasonably well.</p>
-          </aside>
-        </section>
-
-        <section>
-          
-          <aside class="notes">
+            <p>I think this emoji explanation sums it up reasonably well.</p>
             <p>Designing for the web requires an intimate knowledge of the browser that will be rendering the final output. You can’t stick your hands in there and change things directly. You have to change the instructions given to the browser, explaining how you would like things to be rendered instead.</p>
-            <p>When browsers first started out, they couldn’t do much except display text and maybe images if you were lucky. Like a baby, that hasn’t developed the motor skills to even sit up yet. But over the years, browsers have become more mature and vastly more capable. And when it comes to layout on the web, I feel that the release of CSS grid is like the web finally getting it’s driver’s license.</p>
+            <p>When browsers first started out, they couldn’t do much except display text and maybe images if you were lucky. Like a baby, that hasn’t developed the motor skills to even sit up yet.</p>
           </aside>
         </section>
 
         <section>
-          
+          <img class="plain" style="width:40vw;" data-src="img/license.gif" alt="Driver's license">
           <aside class="notes">
-            <p>There are still a lot of legacy expectations brought over from print that cause designers a lot of frustration when designing for the web. I know, because I’d given my fair share of grief to them when I said, no, we can’t build that because it requires resorting to measures of extreme-hackishness.</p>
-            <p>To me, the magic of the web is the process by which the web evolves. The web was meant to be an open platform. One where new features can be proposed and discussed by the community before being implemented into browsers.</p>
+            <p>But over the years, browsers have become more mature and vastly more capable. And when it comes to layout on the web, I feel that the release of CSS grid is like the web finally getting it’s driver’s license.</p>
           </aside>
         </section>
 
         <section>
-          <h2>Let's establish a new normal for the web</h2>
+          <video loop autoplay>
+            <source data-src="videos/no.mp4" type="video/mp4" />
+            Sorry, your browser doesn't support embedded videos, 
+            but don't worry, you can <a href="videos/no.mp4">download it</a>
+            and watch it with your favourite video player!
+          </video>
+          <aside class="notes">There are still a lot of legacy expectations brought over from print that cause designers a lot of frustration when designing for the web. I know, because I’d given my fair share of grief to them when I said, no, we can’t build that because it requires resorting to measures of extreme-hackishness.</aside>
+        </section>
+
+        <section>
+          <h2>A new normal for the web</h2>
           <aside class="notes">
             <p>I want to establish a new normal for the web. A normal where people don't expect websites to look the same on different browsers and devices. A normal where we embrace the fluidity of content and work with it instead of against it. A normal where we cede control of our designs to the browsers that render them.</p>
             <p>New layout techniques like Flexbox and CSS grid give us a whole suite of commands to tell the browser how we’d like things to look depending on the context of the screen being used. And it’s much easier to trust the browser if we understand how it works.</p>
@@ -215,24 +225,64 @@
 
         <section>
           <div class="l-multiple">
-            <img class="plain" data-src="img/chrome.png" alt="Chrome">
-            <img class="plain" data-src="img/firefox.png" alt="Firefox">
-            <img class="plain" data-src="img/opera.png" alt="Opera">
-            <img class="plain" data-src="img/webkit.png" alt="Webkit">
-            <img class="plain" data-src="img/edge.png" alt="Edge">
-            <img class="plain" data-src="img/ie11.png" alt="IE11">
-            <img class="plain" data-src="img/uc.png" alt="UC Browser">
-            <img class="plain" data-src="img/android.png" alt="Android">
-            <img class="plain" data-src="img/samsung.png" alt="Samsung Internet">
+            <img style="height:3em;" class="plain" data-src="img/chrome.svg" alt="Chrome">
+            <img style="height:3em;" class="plain" data-src="img/firefox.svg" alt="Firefox">
+            <img style="height:3em;" class="plain" data-src="img/opera.svg" alt="Opera">
+            <img style="height:3em;" class="plain" data-src="img/webkit.svg" alt="Webkit">
+            <img style="height:3em;" class="plain" data-src="img/edge.svg" alt="Edge">
+            <img style="height:3em;" class="plain" data-src="img/ie11.svg" alt="IE11">
+            <img style="height:3em;" class="plain" data-src="img/uc.svg" alt="UC Browser">
+            <img style="height:3em;" class="plain" data-src="img/samsung.svg" alt="Samsung Internet">
           </div>
           <p>and many more...</p>
+          <aside class="notes">I know there are a boat-load of browsers using different layout engines and hence each have their own quirks, or release features at different times, and you know what? That’s perfectly fine. Your parents didn’t expect you to behave exactly like your siblings, did they? If they did, I'm sorry, no judgement.</aside>
+        </section>
+
+        <section>
+          <h2>Embrace feature queries</h2>
+          <div style="display:grid;grid-template-columns:repeat(3,5.5em);grid-gap:2em;justify-content:center;">
+            <img style="" class="plain" data-src="img/ie11.jpg" alt="IE11 layout">
+            <img style="" class="plain" data-src="img/firefox.jpg" alt="Firefox layout">
+            <img class="plain" data-src="img/chrome.jpg" alt="Chrome layout">
+          </div>
           <aside class="notes">
-            <p>I know there are a boat-load of browsers using different layout engines and hence each have their own quirks, or release features at different times, and you know what? That’s perfectly fine. Your parents didn’t expect you to behave exactly like your siblings, did they? (Sorry, if they did)</p>
+            <p>I reuse this example quite a lot, so maybe you've already seen this before, but the point I'm trying to make here is that, we need to move away from the idea that a site or page needs to look the same on every browser.</p>
+            <p>As builders for the web, we need to adapt to the evergreen browser model where features and bug fixes get shipped rapidly, so we layer on different styles and looks that are not browser-specific, but rather, feature-specific.</p>
+            <p>Feature queries are a fantastic addition to our toolbox, because it allows us to perform this layering natively, without resorting to extraneous code libraries. If you had to write extra code to make the website look exactly the same on every browser, you could write less code and have designs that work well on browsers with different levels of feature support.</p>
           </aside>
         </section>
 
         <section>
-          <h2>Further reading</h2>
+          <blockquote>“The hardest part is changing our thinking, not our CSS.”<br><small>—Jen Simmons</small></blockquote>
+          <aside class="notes">
+            <p>We can always create the same old boring layouts we always have with these new powerful tools at our disposal. Or we can draw inspiration from graphic design and print magazines, from film, from architecture. Those sources of designs that, only a year before, I was saying could not be built. They couldn’t be built before, but they can be now.</p>
+            <p>Some people might ask, why are we reinventing the wheel? We need to build things faster, with less effort, ship ship ship! I don’t support that view. Actually, is the wheel still relevant when you’re no longer on land? The web is a unique medium altogether. Maybe we ought to be thinking about wings instead.</p>
+            <p>It’s not that I want things to take forever to build, but I still maintain a moderately romantic view of craftsmanship. A potter works his clay with deft fingers, a sculptor chisels his marble with the precision of a surgeon, and I would like to direct my browser like a conductor does his orchestra.
+            </p>
+          </aside>
+        </section>
+
+        <section>
+          <blockquote>“CSS isn't a programming language. It's a stylesheet language. We shouldn't expect it to behave like a programming language. It has its own unique landscape and structures, ones that people with programming language mental maps might not expect.”<br><small>—Danielle Huntrods</small></blockquote>
+          <aside class="notes">Danielle Huntrods from Clearleft said it best. CSS has its own unique landscape and structures, and our mental maps around it need to reflect that.</aside>
+        </section>
+
+        <section>
+          <h2>Shape the web we use and build for</h2>
+          <ul>
+            <li>CSS specifications are <a href="https://github.com/w3c/csswg-drafts">all on GitHub</a></li>
+            <li><a href="https://singaporecss.github.io/dev-voice/">Raising browser bugs</a> can and does make a difference</li>
+            <li>Write and talk about CSS features</li>
+            <li>Browser developers are people too, provide feedback and <a href="https://www.chenhuijing.com/blog/a-little-more-kindness/">be nice about it</a>.</li>
+          </ul>
+          <aside class="notes">
+            <p>To me, the magic of the web is the process by which the web evolves. The web was meant to be an open platform. One where new features can be proposed and discussed by the community before being implemented into browsers.</p>
+            <p>And so, I want to encourage all of you to participate in shaping the web platform. You may think your voice is just a drop in the ocean, but it's not, it's significant. There are many ways you can contribute, just remember to be nice about it.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Relevant resources</h2>
           <ul style="columns:2;font-size:65%;">
             <li>Raggett, D., Lam, J., Alexander, I., & Kmiec, M. (1998). <em>Raggett on HTML 4.</em> Harlow: Addison-Wesley.</li>
             <li>Lie, H. W., & Bos, B. (2007). <em>Cascading style sheets designing for the Web.</em> Harlow: Addison-Wesley.</li>
@@ -240,10 +290,15 @@
             <li><a href="https://auth0.com/blog/a-brief-history-of-javascript/">A Brief History of JavaScript</a></li>
             <li><a href="https://webfoundation.org/2017/03/web-turns-28-letter/">Three challenges for the web, according to its inventor</a></li>
             <li><a href="http://bluebeanieday.tumblr.com/">Blue Beanie Day</a></li>
-            <li><a href="https://blog.mozilla.org/blog/2017/10/18/mozilla-brings-microsoft-google-w3c-samsung-together-create-cross-browser-documentation-mdn/">Mozilla brings Microsoft, Google, the W3C, Samsung together to create cross-browser documentation on MDN</a></li>
+            <li><a href="https://blog.mozilla.org/blog/2017/10/18/mozilla-brings-microsoft-google-w3c-samsung-together-create-cross-browser-documentation-mdn/">Mozilla brings Microsoft, Google, the W3C, Samsung together to create cross-browser documentation on MDN</a>
+            </li>
+            <li><a href="https://24ways.org/2017/cascading-web-design/">Cascading Web Design with Feature Queries</a>
+            </li>
+            <li><a href="https://vimeo.com/147950924">Modern Layouts: Getting Out of Our Ruts by Jen Simmons—An Event Apart video</a></li>
+            <li><a href="https://clearleft.com/posts/there-are-maps-for-these-territories">There are maps for these territories</a></li>
           </ul>
           <aside class="notes">
-            <p>Here's the long list of resources I referred to when preparing this talk and I'll share these slides for anybody who is interested.</p>
+            <p>Here are all the resources I referred to throughout this talk. The slides are publicly available, you can get them at the link in the footer, or come ask me for them.</p>
           </aside>
         </section>
 
