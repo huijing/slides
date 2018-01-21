@@ -126,7 +126,7 @@
               <p lang="th" style="grid-area:h;text-align:left;">ลิลิตพระลอเป็นเรื่องความรักที่มีอนุภาพรุนแรงยิ่ง จนแม้ชีวิตก็ยอมพลีให้แก่กัน เนื้อเรื่องกล่าวถึงเมืองสองเมือง คือ เมืองสรอง กับเมืองสรวงเป็นศัตรูกัน เจ้าเมืองสรวงได้ฆ่าเจ้าเมืองสรองตายในสนามรบ พระชายาเจ้าเมืองสรองมีความแค้นเจ้าเมืองสรวงอย่างยิ่ง</p>
               <p lang="lo" style="grid-area:e;text-align:left;">ຄັນເມື່ອຄວາຍຕົວນັນຕາຍໄປແລ້ວຂຸນທັງສອງຈຶ່ງຝັງມັນໄວ້ທີ່ຫົວນາ ຕໍ່ມາຈຶ່ງມີເຄືອຫມາກນໍ້າເຕົ້າສອງເຄືອ ເກີດມາຈາກຮູດັງຄວາຍແລ້ວກໍ່ມີຫມາກນໍ້າເຕົ້າໃຫຍ່ສອງ ຫນ່ວຍ ເມື່ອຫມາກນໍ້າເຕົ້າໃຫຍ່ສອງຫນ່ວຍນັ້ນແກ່ແຫ້ງແລ້ວ ກໍ່ເລີຍໄດ້ຍິນສຽງຄົນ ຮ້ອງຊວ່າ ແຊວຢູ່ໃນຫມາກນໍ້າເຕົ້າຫນ່ວຍກົກ.</p>
               <p lang="km" style="grid-area:f;text-align:left;">អាចោរនោះថា «បងស្រលាញ់ស្មោះហើយនាងពុំដឹងចិត្តបងចង់អោយបងស្បថ រឺអោយបងធ្វើម្ដេច ? » ។ មេនោះថា «បើស្រលាញ់ចិត្តមួយនឹងគ្នា មានតែលិទ្ធអណ្ដាតគ្នា » ទើបមេនោះលៀនអណ្ដាតហើយអោនទៅរកអាចោរនោះ។</p>
-              <p lang="vi" style="grid-area:g;text-align:left;">Chẳng là xƣa nay bọn mình chƣa viết chung thƣ bao giờ. Cho nên cuối cùng phải thỏa thuận với nhau là cứ viết riêng thôi. Nhƣng lại xảy ra chuyện tranh cãi là để ai viết trƣớc bây giờ. Đành rút thăm vậy. Kết quả là mình trúng đầu tiên.</p>
+              <p lang="vi" style="grid-area:g;text-align:left;font-family:Avenir;">Chẳng là xƣa nay bọn mình chƣa viết chung thƣ bao giờ. Cho nên cuối cùng phải thỏa thuận với nhau là cứ viết riêng thôi. Nhƣng lại xảy ra chuyện tranh cãi là để ai viết trƣớc bây giờ. Đành rút thăm vậy. Kết quả là mình trúng đầu tiên.</p>
               <p lang="tl" style="grid-area:i;text-align:left;">Isa pang round at nagka-ayawan na pagka 11:00 na halos ng gabi.  Namahagi si Manuel ng kaunting balato at ang natirang malinis niyang pinanalunan ay P700 na kanyang ibinukod habang matuling tumatakbo ang taksi na patungo sa kanyang inuuwian.</p>
               <p lang="zh-Hant" style="grid-area:d;writing-mode:vertical-rl;text-align:justify;">生命對幾米來說，剛開始像「接龍」，有了這一張牌，才能找到下一張牌，他在罹患血癌之後，靠一本本創作，才能維繫生命絲線。他作品呈現的「童真的憂鬱」，帶給讀者深深的共鳴。功成名就的幾米也越來越自信從容，但他說：「外面的虛浮都是假的，空洞的，只有當我的手握著筆，埋頭工作的時候，我才是最堅強。」</p>
             </div>
@@ -529,8 +529,9 @@
   unicode-range: U+05D5, U+05DB, U+05E9, U+05D1, U+05D6, U+05E8, U+05D5, U+05E2, U+05D5, U+05EA, U+05D9, U+05D4, U+05DD, U+05D0;
   }</code></pre>
             <aside class="notes">
-              <p>My slides use a font called Magnetic Pro, which does not support Hebrew characters, so I used a font from the Open Siddur project called Carmelit for the Hebrew characters I needed displayed.</p>
-              <p>So the code points in the <code>unicode-range</code> descriptor are that of the Hebrew letters that I used earlier. Now, say I have a page that only uses English words, Carmelit's font files will not load at all because it is not needed. It will only load when the browser encounters the Hebrew letters in the <code>unicode-range</code> specified.</p>
+              <p>Say you have a multilingual project that involves English and Hebrew, but the font you're using, in this case Magnetic Pro, has no Hebrew support. What you can do is find a font of a similar style that does, then apply it to the Hebrew characters you need displayed.</p>
+              <p>The code points in the <code>unicode-range</code> descriptor on the second <code>@font-face</code> rule are for the Hebrew letters that need to be displayed.</p>
+              <p>If you have a page that only uses English words, Carmelit's font files will not load at all because they are not needed. They will only load when the browser encounters Hebrew letters in the <code>unicode-range</code> specified.</p>
             </aside>
           </section>
 
@@ -556,25 +557,25 @@
                 </td>
                 <td style="width:35%;vertical-align:top;">
                   <code>font-variant-position</code>
-                  <img class="plain" data-src="img/fv-position.png">
+                  <img class="plain" data-src="img/fv-position.jpg">
                 </td>
                 <td style="width:35%;vertical-align:top;">
                   <code>font-variant-position-ligatures</code>
-                  <img class="plain" data-src="img/fv-ligatures.png">
+                  <img class="plain" data-src="img/fv-ligatures.jpg">
                 </td>
               </tr>
               <tr>
                 <td style="width:30%;vertical-align:top;">
                   <code>font-variant-numeric</code>
-                  <img class="plain" data-src="img/fv-numeric.png">
+                  <img class="plain" data-src="img/fv-numeric.jpg">
                 </td>
                 <td style="width:35%;vertical-align:top;">
                   <code>font-variant-caps</code>
-                  <img class="plain" data-src="img/fv-caps.png">
+                  <img class="plain" data-src="img/fv-caps.jpg">
                 </td>
                 <td style="width:35%;vertical-align:top;">
                   <code>font-variant-alternates</code>
-                  <img class="plain" data-src="img/fv-alternates.png">
+                  <img class="plain" data-src="img/fv-alternates.jpg">
                 </td>
               </tr>
             </table>
@@ -589,7 +590,7 @@
 
           <section>
             <h2><code>font-variant-east-asian</code></h2>
-            <img class="plain" style="display:block;margin:1em auto" data-src="img/fv-east-asian.png">
+            <img class="plain" style="display:block;margin:1em auto" data-src="img/fv-eastasian.jpg">
             <aside class="notes">
               <p>Few people talk about <code>font-variant-east-asian</code>. What this property does is allow for glyph substitution and positioning in East Asian text. If you're unfamiliar with Han characters, it might seem like these languages share the same glyphs, but it depends. Han unification involves assigning the same code point to different glyphs, and it has been quite a controversial issue.</p>
               <p>We won't get into that, but the point is, the same code point can have variant glyphs depending on the language being used. Like, simplified Chinese glyphs versus traditional Chinese glyphs. Japanese glyphs have their own specification known as JIS or Japanese Industrial Standard, and they too have alternate glyphs for the same character. This property allows us to toggle these variant glyphs.</p>
@@ -751,6 +752,14 @@
 
           <section>
             <h2>Variable fonts</h2>
+            <figure>
+              <img class="plain" style="max-height:65vh;" data-src="img/font-axes.png" alt="OpenType Variable font axes">
+              <figcaption><a href="https://medium.com/@tiro/https-medium-com-tiro-introducing-opentype-variable-fonts-12ba6cd2369"></a>Image credit: John Hudson</figcaption>
+            </figure>
+            <aside class="notes">
+              <p>Remember I mentioned OpenType earlier on? Well, in September 2016, version 1.8 of the specification introduced OpenType Font Variations. A joint development by Microsoft, Google, Apple and Adobe.</p>
+              <p>An OpenType variable font is one in which the equivalent of multiple individual fonts can be compactly packaged within a single font file</p>
+            </aside>
           </section>
         </section>
 
@@ -1027,14 +1036,14 @@
         <section>
           <h2>A long list of references</h2>
           <ul style="column-count:2;font-size:50%;">
-            <li><a href="https://www.gsmaintelligence.com/research/?file=c52d213ec6288da6b31248df71e370a3&download">Consumer barriers to mobile internet adoption in Asia</a></li>
-            <li><a href="http://www.oecd.org/internet/ieconomy/48761013.pdf">The Relationship between Local Content, Internet Development and Access Prices</a></li>
             <li><a href="https://w3techs.com/technologies/overview/content_language/all">Usage of content languages for websites</a></li>
             <li><a href="https://www.typemag.org/home/2017/10/6/the-faces-of-microsoft">The faces of Microsoft</a></li>
             <li><a href="https://www.zachleat.com/web/retire-bulletproof-syntax/">No @font-face Syntax will ever be Bulletproof, Nor Should It Be.</a></li>
             <li><a href="http://justineo.github.io/slideshows/font/">字体漫谈</a></li>
             <li><a href="https://blogs.adobe.com/CCJKType/2017/04/source-han-serif-history-development.html">Source Han Serif / Noto Serif CJK History & Development</a></li>
             <li><a href="https://collab.itc.virginia.edu/wiki/toolbox/Chinese%20Fonts%20%26%20Related%20Issues.html">Chinese Fonts & Related Issues</a></li>
+            <li><a href="https://blog.typekit.com/2016/09/14/variable-fonts-a-new-kind-of-font-for-flexible-design/">Variable fonts, a new kind of font for flexible design</a></li>
+            <li><a href="https://medium.com/@tiro/https-medium-com-tiro-introducing-opentype-variable-fonts-12ba6cd2369">Introducing OpenType Variable Fonts</a></li>
             <li>Zhang, X. & Han, Q. (2009). <em>The history of Chinese printing: (illustrated).</em> Paramus, N.J: Homa et Sekey Books.</li>
             <li>Brokaw, C. & Reed, C. A. (2010). <em>From woodblocks to the Internet: Chinese publishing and print culture in transition, circa 1800 to 2008.</em> Leiden: Brill.</li>
             <li>Tsien T. (2011). <em>Collected writings on Chinese culture.</em> Hong Kong: The Chinese University Press.</li>
