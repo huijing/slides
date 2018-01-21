@@ -2,39 +2,39 @@
 // overridden by the super-theme
 
 // Background of the presentation
-$backgroundColor: #2b2b2b;
+$backgroundColor: #fffdf8;
 
 // Primary/body text
-$mainFont: 'Lato', sans-serif;
-$mainFontSize: 40px;
-$mainColor: #eee;
+$mainFont: 'Charis', serif;
+$mainFontSize: 2.5em;
+$mainColor: #000;
 
 // Vertical spacing between blocks of text
 $blockMargin: 20px;
 
 // Headings
 $headingMargin: 0 0 $blockMargin 0;
-$headingFont: 'League Gothic', Impact, sans-serif;
-$headingColor: #eee;
+$headingFont: 'Charis', serif;
+$headingColor: #ff2321;
 $headingLineHeight: 1.2;
 $headingLetterSpacing: normal;
 $headingTextTransform: uppercase;
 $headingTextShadow: none;
-$headingFontWeight: normal;
+$headingFontWeight: 700;
 $heading1TextShadow: $headingTextShadow;
 
-$heading1Size: 3.77em;
-$heading2Size: 2.11em;
-$heading3Size: 1.55em;
-$heading4Size: 1.00em;
+$heading1Size: 1.999em;
+$heading2Size: 1.414em;
+$heading3Size: 1.000em;
+$heading4Size: 1.000em;
 
 // Links and actions
-$linkColor: #13DAEC;
+$linkColor: #ff5108;
 $linkColorHover: lighten( $linkColor, 20% );
 
 // Text selection
-$selectionBackgroundColor: #FF5E99;
-$selectionColor: #fff;
+$selectionBackgroundColor: #f7ff3f;
+$selectionColor: #000;
 
 // Generates the presentation background, can be overridden
 // to return a background image or gradient

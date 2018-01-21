@@ -3,17 +3,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>Grid is the new black</title>
-    <meta name="description" content="2017 was the year of CSS grid, a powerful tool that was developed specially to do layout on the web. It allows us to do many things that we couldn't before, without extreme measures of hackish-ness. It is definitely not hyperbole to say that CSS grid will revolutionise web design moving forward.">
-    <meta name="author" content="Chen Hui Jing">
+    <meta name="description" content="2017 was the year of CSS grid, a powerful tool that was developed specially to do layout on the web. It allows us to do many things that we couldn't before, without extreme measures of hackish-ness. It is definitely not hyperbole to say that CSS grid will revolutionise web design moving forward. This workshop will run through what CSS grid is, how it works and what you can do with it.">
+
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/jing.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <link rel="stylesheet" href="lib/css/zenburn.css">
 
-    <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
@@ -22,30 +20,105 @@
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
   </head>
+
   <body>
     <div class="reveal">
       <div class="slides">
         <section>
           <h1 style="text-transform:uppercase;"">Grid is the new black</h1>
           <h3>Revolutionising visual design on the web</h3>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            <p>This workshop assumes you have a reasonably good grasp of CSS, and how to handle specificity and the cascade. That you could write an entire site’s layout in vanilla CSS without any frameworks.</p>
+            <p>If you are a bit more novice on the CSS front, no worries, just that the pace might be a little fast. But you can ask our facilitator, Shirlaine, for help if you get really lost.</p>
+            <p>Just to get a grasp of the audience today, how many people have used CSS grid before? In production? How many of you use Flexbox day-to-day? And what’s the most common technique you use to build your layouts? Floats? Tables?</p>
+            <p>If you ask me, I will always say context matters. That there is never a single way to achieve something, so don’t treat whatever you learn today as dogma, or the ONE WAY. Think of this as adding tools to your CSS toolbox, and it’s up to you to choose the right tool for the right situation.</p>
+          </aside>
         </section>
 
         <section>
-          <blockquote>“Our ‘Age of Anxiety’ is, in great part, the result of trying to do today's job with yesterday's tools—with yesterday's concepts.”<br><small>—Marshall McLuhan</small></blockquote>
-          <aside class="notes"></aside>
+          <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:50vh 10vh 25vh;justify-items:center;">
+            <img class="plain" style="grid-row:1 / 3;grid-column:1 / 3;" data-src="img/nightly.svg" alt="Firefox Nightly">
+            <img class="plain fragment" style="grid-row:2 / 4;grid-column:1 / 2;" data-src="img/editor.svg" alt="Text editor">
+            <img class="plain fragment" style="grid-row:2 / 4;grid-column:2 / 3;" data-src="img/paper.svg" alt="Pencil and paper">
+          </div>
+          <aside class="notes">
+            <p>Does everybody have Firefox Nightly installed? And I think you all should have received some instructions via email outlining the different ways you can set this up. At the end of the day, everything we are doing is vanilla HTML and CSS. There is nothing extra to install to get your code to work.</p>
+            <p>Nightly is recommended so you can make use of the Grid Inspector tool, and the starter kit is merely a workflow that I personally use because I’m too lazy to press Command-Shift-R hundreds of times a day. Like I said, the assumption is that this audience comprises of experienced web developers, so do whatever suits you best.</p>
+            <p>At the very least, just have an HTML file and write your styles between &lt;style&gt; tags in the &lt;head&gt;, or ideally in a separate style sheet. CodePen is definitely an option, I just wasn’t sure how stable the internet connection was going to be. Pencil and paper is a plus, you'll see.</p>
+            <p>Everybody set up? Good. Let’s begin.</p>
+          </aside>
         </section>
 
         <section>
-          <h2>Grid release dates</h2>
-          <img class="plain" data-src="img/grid-release.png">
+          <section>
+            <h2>Rendering engines 101</h2>
+            <figure>
+              <img class="plain" src="img/01-intro.png" alt="CSS engines">
+              <figcaption>Reads HTML and CSS files and turns them into pixels on the screen</figcaption>
+            </figure>
+            <p style="margin-top:2em;"><small>Images and explanations by <a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">Lin Clark</a></small></p>
+            <aside class="notes">
+              <p>Anybody who worked/works in an agency? How often do you get designs that are very “print”? I believe not all agencies are the same, but very often, as the developer, I ended up with one comp, for desktop, and a bunch of people expecting the website to look exactly like the psd, down to the pixel.</p>
+              <p>Sometimes you’d get a comp for the mobile version too, and that usually made my life worse, because the mobile version’s layout isn’t even remotely related to the desktop version with regards to layout.</p>
+              <p>I truly believe this is because of a lack of understanding of how the web as a medium works. And I admit, earlier on in my career and life, I wasn’t the best communicator. I was kinda sullen, and would give my designers all varieties of dirty looks. So immature, really.</p>
+              <p>Does everyone know how a browser renders elements on the page? If so, just bear with me for a moment, I’ll try to give the abridged version. These graphics are from Lin Clark, author of Code Cartoons, and someone I really look up to in the web industry, and have personally learned a lot from.</p>
+            </aside>
+          </section>
+
+          <section>
+            <figure>
+              <img class="plain" style="max-height:65vh;" src="img/02-parse.png" alt="Parsing files into objects">
+              <figcaption>Parse the files into objects the browser can understand, including the DOM</figcaption>
+            </figure>
+            <p style="margin-top:2em;"><small>Images and explanations by <a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">Lin Clark</a></small></p>
+            <aside class="notes">HTML and CSS are human-readable (largely), but the rendering engine needs to parse the information into objects the browser can understand. At this point in the rendering process, the DOM knows about how the page is structured and all the parent/child relationships between elements. It just doesn't know HOW those elements should look like yet.</aside>
+          </section>
+
+          <section>
+            <figure>
+              <img class="plain" style="max-height:65vh;" src="img/03-style.png" alt="Apply styles and values to elements">
+              <figcaption>Figure out what the elements should look like</figcaption>
+            </figure>
+            <p style="margin-top:2em;"><small>Images and explanations by <a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">Lin Clark</a></small></p>
+            <aside class="notes">Only after everything has been parsed, will the browser start to figure out how the elements ought to look like based on CSS.</aside>
+          </section>
+
+          <section>
+            <figure>
+              <img class="plain" style="max-height:65vh;" src="img/04-layout.png" alt="Create and layout boxes on screen">
+              <figcaption>Figure out dimensions for each node and where it goes on the screen</figcaption>
+            </figure>
+            <p style="margin-top:2em;"><small>Images and explanations by <a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">Lin Clark</a></small></p>
+            <aside class="notes">CSS rules </aside>
+          </section>
+
+          <section>
+            <figure>
+              <img class="plain" style="max-height:65vh;" src="img/05-paint.png" alt="Paint the boxes on the screen">
+              <figcaption>Paint the different boxes</figcaption>
+            </figure>
+            <p style="margin-top:2em;"><small>Images and explanations by <a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">Lin Clark</a></small></p>
+            <aside class="notes"></aside>
+          </section>
+
+          <section>
+            <figure>
+              <img class="plain" style="max-height:65vh;" src="img/06-composite.png" alt="Composite and render layers as one image">
+              <figcaption>Composite the different layers into one image and render on screen</figcaption>
+            </figure>
+            <p style="margin-top:2em;"><small>Images and explanations by <a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">Lin Clark</a></small></p>
+            <aside class="notes"></aside>
+          </section>
         </section>
 
         <section>
-          <h2>Grid browser support</h2>
-          <p class="ciu_embed" data-feature="css-grid" data-periods="future_1,current,past_1,past_2">
-            <a href="http://caniuse.com/#feat=css-grid"><img class="plain" data-src="img/caniuse-grid.jpg"></a>
-          </p>
+          <h2 style="margin-bottom:1em;">Web layouts over the years</h2>
+          <div class="l-multiple">
+            <img class="plain" style="margin:0 0.5em;" data-src="img/layouts1.png" alt="No layout">
+            <img class="plain" style="margin:0 0.5em;" data-src="img/layouts2.png" alt="Table-based layout">
+            <img class="plain" style="margin:0 0.5em;" data-src="img/layouts3.png" alt="Float-based layout">
+            <img class="plain" style="margin:0 0.5em;" data-src="img/layouts4.png" alt="Panel-style from frameworks">
+          </div>
         </section>
 
         <section style="text-align:left;">
@@ -53,13 +126,12 @@
           <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a dir="ltr" href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle;">https://www.chenhuijing.com</a></p>
           <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a dir="ltr" href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
           <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a dir="ltr" href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
-          <p><img class="j-icon plain" data-src="img/codepen_w.png" alt="Codepen"><a dir="ltr" href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle;">@huijing</a></p>
+          <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a dir="ltr" href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle;">@huijing</a></p>
         </section>
       </div>
     </div>
 
     <script src="lib/js/head.min.js"></script>
-    <script src="lib/js/caniuse-embed.min.js"></script>
     <script src="js/reveal.js"></script>
 
     <script>

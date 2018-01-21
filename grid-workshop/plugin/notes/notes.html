@@ -7,8 +7,8 @@
 
 		<style>
 			body {
-				font-family: Helvetica;
-				font-size: 18px;
+				font-family: Lucida Grande;
+				font-size: 13px;
 			}
 
 			#current-slide,
@@ -226,7 +226,7 @@
 			/* Speaker layout: Tall */
 			body[data-speaker-layout="tall"] #current-slide,
 			body[data-speaker-layout="tall"] #upcoming-slide {
-				width: 45%;
+				width: 25%;
 				height: 50%;
 				padding: 6px;
 			}
@@ -244,8 +244,8 @@
 			body[data-speaker-layout="tall"] #speaker-controls {
 				padding-top: 40px;
 				top: 0;
-				left: 45%;
-				width: 55%;
+				left: 25%;
+				width: 75%;
 				height: 100%;
 				font-size: 1.25em;
 			}
@@ -675,7 +675,7 @@
 					document.body.setAttribute( 'data-speaker-layout', value );
 
 					// Persist locally
-					if( window.localStorage ) {
+					if( supportsLocalStorage() ) {
 						window.localStorage.setItem( 'reveal-speaker-layout', value );
 					}
 
@@ -687,7 +687,7 @@
 				 */
 				function getLayout() {
 
-					if( window.localStorage ) {
+					if( supportsLocalStorage() ) {
 						var layout = window.localStorage.getItem( 'reveal-speaker-layout' );
 						if( layout ) {
 							return layout;
@@ -697,6 +697,19 @@
 					// Default to the first record in the layouts hash
 					for( var id in SPEAKER_LAYOUTS ) {
 						return id;
+					}
+
+				}
+
+				function supportsLocalStorage() {
+
+					try {
+						localStorage.setItem('test', 'test');
+						localStorage.removeItem('test');
+						return true;
+					}
+					catch( e ) {
+						return false;
 					}
 
 				}
