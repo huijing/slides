@@ -239,10 +239,7 @@
           </section>
 
           <section data-background-image="img/brush.jpg">
-            <aside class="notes">
-              <p>The key implement of Chinese writing is the brush. Calligraphy was and still is one of the most highly regarded Chinese arts. The works of famous calligraphers were used as the basis for carving woodblocks used for printing.</p>
-              <p>Woodblock printing was invented in China, and the Chinese were exceptional at it. To the point where it was a contributing factor to why moveable type, which too was invented in China, never really took off there.</p>
-            </aside>
+            <aside class="notes">The key implement of Chinese writing is the brush. Calligraphy was and still is one of the most highly regarded Chinese arts. The works of famous calligraphers were used as the basis for carving woodblocks used for printing.</aside>
           </section>
 
           <section>
@@ -388,15 +385,15 @@
               </tr>
             </table>
             <aside class="notes">
-              <p>If you've ever used web fonts before, you would have seen these font formats. Have you wondered why there are so many? We'll need to go a bit back in time for this. The earliest fonts were pixel-based bitmaps, which were fine for low-resolution screens, but for printing on high-resolution printers, a better solution was needed.</p>
-              <p>It was such a worthy problem that smart people came up with two different solutions. Donald Knuth created Metafont in 1978 for the TeX system, which generated compressed bitmap fonts. John Warnock, founder of Adobe, came up with Postscript in 1985, the very first vector font, and it really took off.</p>
-              <p>TrueType was Apple and Microsoft's answer to Adobe's font monopoly. Both companies then worked separately to improve TrueType, especially with regards to fonts for East Asian writing systems. Eventually, Microsoft turned to Adobe and together they came up with OpenType.</p>
-              <p>EOT, or embedded OpenType is Microsoft's proprietary standard, which is a compact form of OpenType fonts meant for use on web pages. Although they tried to submit this as a W3C recommendation, it was rejected in favour of WOFF, or the Web Open Font Format. WOFF2 is an improvement over WOFF with significantly better compression rates.</p>
+              <p>If you've ever used web fonts before, you would have seen these font formats. Have you wondered why there are so many? There's a bit of history here. The earliest fonts were pixel-based bitmaps, which didn't work out so well when it came to high-resolution printing.</p>
+              <p>A lot of smart people worked on this problem. And one of the solutions came from Adobe founder, John Warnock. He created Postscript in 1985, the very first vector font, and it really took off.</p>
+              <p>TrueType was Apple and Microsoft's answer to Adobe's font monopoly. Eventually, Microsoft turned to Adobe and together they came up with OpenType.</p>
+              <p>Microsoft also came up with EOT or embedded OpenType, a proprietary format for use on web pages. Although they tried to submit this as a W3C recommendation, it was rejected in favour of WOFF, or the Web Open Font Format. WOFF2 is an improvement over WOFF with significantly better compression rates.</p>
             </aside>
           </section>
 
           <section>
-            <h2>@font-face rule</h2>
+            <h2>@font-face</h2>
             <pre style="font-size:50%;"><code>@font-face {
     font-family: 'Magnetic Pro';
     src: url('../fonts/magnetic-pro-light.woff2') format('woff2'),
@@ -410,7 +407,12 @@
                 <a href="http://caniuse.com/#feat=woff2"><img class="plain" data-src="img/caniuse-woff2.jpg"></a>
               </p>
             </div>
-            <aside class="notes">On the practical side of things, the <code>@font-face</code> rule is used to declare a list of different font formats. We do this in the hopes that our fonts will show up correctly in as many browsers as possible. The number of font formats we need to declare has decreased over the years and right now, you can pretty much get away with declaring just WOFF and WOFF2.</aside>
+            <aside class="notes">
+              <p>On the practical side of things, we use the <code>@font-face</code> rule to declare a list of different font formats in the hopes that our fonts will show up correctly in as many browsers as possible. The number of font formats we need to declare has decreased over the years and right now, you can pretty much get away with declaring just WOFF and WOFF2.</p>
+              <p>The <code>@font-face</code> rule has more descriptors but only these 2, <code>font-family</code> and <code>src</code>, are mandatory.</p>
+              <p>If either of them are absent, the entire <code>@font-face</code> rule is ignored. The <code>font-family</code> descriptor is simply a label that we reference in other CSS declarations. So even if you're using say, Frutiger, you could actually call it “Dumplings” and it would still work.</p>
+              <p>The <code>src</code> descriptor is comma-separated list of external references or locally-installed font face names. It is made up of the declaration of the font file's location, and an optional format hint. If the browser doesn't support a particular font format stated in that hint, it won't bother loading the font at all.</p>
+            </aside>
           </section>
 
           <section>
@@ -425,7 +427,36 @@
     font-variant: normal | none | [ &lt;common-lig-values&gt; || &lt;discretionary-lig-values&gt; || &lt;historical-lig-values&gt; || &lt;contextual-alt-values&gt; || stylistic(&lt;feature-value-name&gt;) || historical-forms || styleset(&lt;feature-value-name&gt; #) || character-variant(&lt;feature-value-name&gt; #) || swash(&lt;feature-value-name&gt;) || ornaments(&lt;feature-value-name&gt;) || annotation(&lt;feature-value-name&gt;) || [ small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps ] || &lt;numeric-figure-values&gt; || &lt;numeric-spacing-values&gt; || &lt;numeric-fraction-values&gt; || ordinal || slashed-zero || &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ] 
     font-feature-settings: normal | &lt;feature-tag-value&gt; # 
   }</code></pre>
-            <aside class="notes">This is how an <code>@font-face</code> rule looks like, with all the available descriptors you can declare. Font descriptors and CSS properties are 2 different things.</aside>
+            <aside class="notes">The next 3 descriptors, for style, weight and stretch, are used to match styles to a particular typeface in later declarations. Technically, you could assign a black typeface to a font-weight of 100 and proceed to confuse your team members who cannot figure out why setting a weight of 100 gives them this massively bold typeface. Perhaps an idea for April Fool's day. #dontgetfired</aside>
+          </section>
+
+          <section>
+            <pre><code style="max-height:90vh;font-size:75%;">@font-face {
+  font-family: 'Heiti Plus';
+  src: local('Heiti SC');
+  /* no range specified, defaults to entire range */
+}
+
+@font-face {
+    font-family: 'Heiti Plus';
+    src: url('fonts/meccanica-regular-webfont.woff2') format('woff2'),
+         url('fonts/meccanica-regular-webfont.woff') format('woff');
+    unicode-range: U+0-2FF; /* Unicode range for Latin characters */
+}</code></pre>
+            <aside class="notes">
+              <p>Then we have the <code>unicode-range</code> descriptor. which allows us to create composite fonts that mix glyphs from different fonts for different scripts.</p>
+              <p>Sometimes the Latin characters for Chinese fonts don't look particularly nice, this is more apparent on older Windows systems, to be honest. So the <code>unicode-range</code> descriptor allows us to specify a specific font file to be loaded for individual code points or range of code points.</p>
+              <p>In this example, I've created a font-family called Heiti Plus, which will use the Heiti SC font for everything, but the second rule tells the browser to use the Meccanica font for all Latin characters instead.</p>
+            </aside>
+          </section>
+
+          <section>
+            <img class="plain" data-src="img/unicode-range.jpg" alt="Unicode-range descriptor in action">
+            <aside class="notes">
+              <p>The Firefox DevTools has a font panel that shows which fonts are loaded on your page. You can see that both Heiti SC and Meccanica are loaded for my custom font-family, Heiti Plus.</p>
+              <p>If a page does not contain any Latin characters, Meccanica will not be loaded at all because it is not needed.</p>
+              <p>Font descriptors and CSS properties look very similar, but are 2 completely different things.</p>
+            </aside>
           </section>
 
           <section data-background-image="img/descriptor-property.jpg">
@@ -492,54 +523,6 @@
           </section>
 
           <section>
-            <h2>Anatomy of an <code style="text-transform:lowercase;">@font-face</code> rule</h2>
-            <pre><code>@font-face {
-    font-family: &lt;family-name&gt;
-    src: [ &lt;url&gt; [format(&lt;string&gt; #)]? | &lt;font-face-name&gt; ] #
-    font-style: normal | italic | oblique 
-    font-weight: normal | bold | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 
-    font-stretch: normal | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded
-    unicode-range: &lt;urange&gt; # 
-    font-variant: normal | none | [ &lt;common-lig-values&gt; || &lt;discretionary-lig-values&gt; || &lt;historical-lig-values&gt; || &lt;contextual-alt-values&gt; || stylistic(&lt;feature-value-name&gt;) || historical-forms || styleset(&lt;feature-value-name&gt; #) || character-variant(&lt;feature-value-name&gt; #) || swash(&lt;feature-value-name&gt;) || ornaments(&lt;feature-value-name&gt;) || annotation(&lt;feature-value-name&gt;) || [ small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps ] || &lt;numeric-figure-values&gt; || &lt;numeric-spacing-values&gt; || &lt;numeric-fraction-values&gt; || ordinal || slashed-zero || &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ] 
-    font-feature-settings: normal | &lt;feature-tag-value&gt; # 
-  }</code></pre>
-            <aside class="notes">
-              <p>These, as mentioned earlier, are font descriptors, and only the <code>font-family</code> descriptor and the <code>src</code> descriptor are mandatory.</p>
-              <p>If either of them are absent, the entire <code>@font-face</code> rule is ignored. The <code>font-family</code> descriptor is simply a label that we reference in other CSS declarations. So even if you're using say, Frutiger, you could actually call it “Dumplings” and it would still work.</p>
-              <p>The <code>src</code> descriptor is comma-separated list of external references or locally-installed font face names. It is made up of the declaration of the font file's location, and an optional format hint. If the browser doesn't support a particular font format stated in that hint, the font file won't be loaded.</p>
-              <p>The next 3 descriptors, for style, weight and stretch, are used to match styles to a particular typeface in later declarations. Technically, you could assign a black typeface to a font-weight of 100 and proceed to confuse your team members who cannot figure out why setting a weight of 100 gives them this massively bold typeface. Perhaps an idea for April Fool's day. #dontgetfired</p>
-            </aside>
-          </section>
-
-          <section>
-            <pre><code style="max-height:90vh;font-size:75%;">@font-face {
-  font-family: 'Heiti Plus';
-  src: local('Heiti SC');
-  /* no range specified, defaults to entire range */
-}
-
-@font-face {
-    font-family: 'Heiti Plus';
-    src: url('fonts/meccanica-regular-webfont.woff2') format('woff2'),
-         url('fonts/meccanica-regular-webfont.woff') format('woff');
-    unicode-range: U+0-2FF; /* Unicode range for Latin characters */
-}</code></pre>
-            <aside class="notes">
-              <p>One of the cool things about the <code>unicode-range</code> descriptor is that it allows us to create composite fonts that mix glyphs from different fonts for different scripts.</p>
-              <p>Sometimes the Latin characters for Chinese fonts don't look particularly nice, this is more apparent on older Windows systems, to be honest. So the <code>unicode-code</code> range descriptor allows us to specify a specific font file to be loaded for individual code points or range of code points.</p>
-              <p>In this example, I've created a font-family called Heiti Plus, which will use the Heiti SC font for everything, but the second rule tells the browser to use the Meccanica font for all Latin characters instead.</p>
-            </aside>
-          </section>
-
-          <section>
-            <img class="plain" data-src="img/unicode-range.jpg" alt="Unicode-range descriptor in action">
-            <aside class="notes">
-              <p>And if you're using Firefox, their DevTools has a font panel that shows which fonts are loaded on your page. You can see that both Heiti SC and Meccanica are loaded for my custom font-family, Heiti Plus.</p>
-              <p>In the event the page does not contain any Latin characters, Meccanica will not be loaded at all because it is not needed.</p>
-            </aside>
-          </section>
-
-          <section>
             <h2>Font feature properties</h2>
             <table>
               <tr>
@@ -589,7 +572,7 @@
             </aside>
           </section>
 
-          <section>
+<!--           <section>
             <h2><code>font-feature-settings</code></h2>
             <p>Provides low-level control of advanced OpenType features</p>
             <ul style="list-style:none;font-size:40%;columns:9;text-align:center;margin-top:1em;border:1px dashed lightgrey;padding:1em 0;">
@@ -740,7 +723,7 @@
               <p>Browser support for each of <code>font-variant</code> properties varies at the moment, with Firefox being the only browser that has supported all of them since version 34.0.</p>
               <p><code>font-feature-settings</code>, on the other hand, has quite good support across most browsers. Although, the specification recommends to utilise the respective <code>font-variant</code> properties over the <code>font-feature-settings</code> property, until browser support becomes more robust, I suppose we'll continue to see <code>font-feature-settings</code> being used instead.</p>
             </aside>
-          </section>
+          </section> -->
 
           <section>
             <h2>Variable fonts</h2>
@@ -755,7 +738,7 @@
             </aside>
           </section>
 
-          <section>
+<!--           <section>
             <table>
               <tr>
                 <th style="width:30%;">CSS property<br></th>
@@ -807,7 +790,7 @@
               <p><code>font-variation-settings</code>, like <code>font-feature-settings</code> are very low-level CSS properties that allow granular control of axes values.</p>
               <p>Again, the specification recommends using the higher-level CSS properties whenever possible because this property was meant to be used as an escape hatch, not the main method of implementation.</p>
             </aside>
-          </section>
+          </section> -->
 
           <section>
             <figure>
@@ -976,15 +959,15 @@
             </video>
             <aside class="notes">
               <p>This is a layout I built for displaying Chinese text with a toggle that allowed readers to switch between vertical and horizontal layouts. It wasn't as straightforward as I thought it would be.</p>
-              <p>A tricky thing was getting the images to orientate correctly. I would have loved to have a media query for writing modes so I could layout my images accordingly with the picture element, but that doesn't exist yet so I ended up working around the image issue with CSS transforms instead.</p>
+              <p>A tricky thing was getting the images to orientate correctly. It would have been nice to have a media query for writing modes so I could layout my images accordingly with the picture element, but that doesn't exist yet so I ended up working around the image issue with CSS transforms instead.</p>
             </aside>
           </section>
 
           <section>
             <img class="plain" data-src="img/i18n.png" alt="W3C Internationalization (I18n) Activity website">
             <aside class="notes">
-              <p>So yes, there is still work to be done to further develop Chinese typesetting on the web, and for all other non-English languages actually. The Chinese Layout Task Force, which I am a part of, aims to document requirements for the layout and presentation of text in the major languages of China when those languages are used by Web standards such as HTML, CSS, Mobile Web and Unicode.</p>
-              <p>The document will provide requirements for the development of W3C standards affected by languages used in China, covering Hanzi, Mongolian, Tibetan and Uighur scripts.</p>
+              <p>So yes, there is still work to be done to further develop Chinese typesetting on the web, and for all non-Latin-based languages actually. The Chinese Layout Task Force, which I am a part of, aims to document requirements for the layout and presentation of text for the major languages of China when those languages are used by Web standards.</p>
+              <p>The document will provide requirements for the development of W3C standards affected by languages used in China, including Hanzi, Mongolian, Tibetan and Uighur scripts.</p>
             </aside>
           </section>
 
