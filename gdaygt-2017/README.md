@@ -112,7 +112,7 @@ The `minmax()` function allows us to do something we've never been able to befor
 
 Before CSS grid, in order to build grid layouts where the items would fill up the width of the container, I'd use percentages. But then the grid items couldn't be too big or too small, so I'd also have to write a whole chunk of media queries to adjust the number of columns as the viewport size changed. With Grid, we can cut out all that media query code.
 
-Here, I'm telling the browser that when the viewport size shrinks, I want to cap the shrink of each column at 10ems but if there's extra space, grow all my columns equally. Because of the cap, once there isn't enough space to fit 5 columns, the number of columns will decrease until everything fits.
+Here, I'm telling the browser that when the viewport size shrinks, I want to cap the shrink of each column at 10ems but if there's extra space, grow all my columns equally. By using auto-fill (or auto-fit), the browser will calculate how many columns fulfil my requirement. When the viewport size changes, the number of columns will decrease or increase so everything fits.
 
 And because the maximum value is a flexible unit, if there is an excess of space, like 6ems worth, all the columns will grow equally to fill up that extra space. And not a single media query needed to be written. You might have noticed that, although I explained each feature individually, they are so much more useful when used in combination. Team sport, remember?
 
