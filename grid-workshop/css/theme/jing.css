@@ -156,8 +156,8 @@ body {
   display: block;
   padding: 5px;
   overflow: auto;
-  max-height: 400px;
-  word-wrap: normal; }
+  word-wrap: normal;
+  height: 100%; }
 
 .reveal table {
   margin: auto;
@@ -260,16 +260,35 @@ body {
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
 
+html {
+  box-sizing: border-box;
+  height: 100%; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
+
 .reveal .l-multiple {
   display: flex;
   justify-content: space-around; }
   .reveal .l-multiple .j-vert {
     width: 1em; }
 
+.reveal .l-double {
+  display: grid;
+  grid-template-columns: 1fr 1fr; }
+
 .reveal .j-icon {
   display: inline-block;
   vertical-align: middle;
   margin-right: 1rem; }
+
+.reveal h2 {
+  text-transform: none; }
+
+.reveal strong {
+  color: #ff2321; }
 
 .reveal blockquote {
   width: 90%;
@@ -281,6 +300,9 @@ body {
 
 .reveal figcaption {
   font-style: italic; }
+
+.reveal td {
+  vertical-align: middle; }
 
 span.emoji {
   font-family: 'Apple Color Emoji', 'Segoe UI Emoji';
@@ -308,3 +330,190 @@ span[role=img][aria-label]:hover::after {
   padding: 0.25em;
   border: 1px solid #fffdf8;
   box-shadow: 2px 2px 4px #000; }
+
+.livecode {
+  display: grid;
+  grid-gap: 0.5em;
+  margin: 0;
+  padding: 0; }
+  .livecode .result {
+    max-height: 100%;
+    overflow-y: scroll;
+    width: 100%;
+    border: 1px dashed #ff2321; }
+    .livecode .result li {
+      line-height: 0; }
+    .livecode .result p {
+      margin: 0;
+      padding: 0; }
+  .livecode .code {
+    text-align: left;
+    width: 100%;
+    font-family: monospace;
+    color: #efdcbc;
+    background-color: #3f3f3f;
+    font-size: 50%;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    overflow-y: scroll; }
+
+.livecode-2p {
+  grid-template-columns: 65% calc(35% - 0.5em);
+  height: 60vh; }
+
+.livecode-3p {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr 1fr;
+  grid-template-areas: 'a b' 'a c'; }
+  .livecode-3p .markup {
+    grid-area: a; }
+  .livecode-3p .result {
+    grid-area: b; }
+  .livecode-3p .code {
+    grid-area: c; }
+
+.code-editor {
+  display: block;
+  height: 100%;
+  white-space: pre-wrap; }
+
+.vidcode {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  height: 75vh; }
+  .vidcode video {
+    align-self: center; }
+
+.jsconf-asia {
+  background-color: black;
+  height: 20rem;
+  width: 20rem;
+  border-radius: 0.3rem;
+  position: relative;
+  box-shadow: 0.6rem 0.6rem 0.3rem #444; }
+  .jsconf-asia svg {
+    height: 46.0317%; }
+    .jsconf-asia svg path {
+      fill: white; }
+  .jsconf-asia svg:first-child,
+  .jsconf-asia svg:nth-child(2) {
+    position: absolute;
+    bottom: 7.9365%; }
+  .jsconf-asia svg:first-child {
+    left: 26.1905%;
+    width: 28.5714%; }
+  .jsconf-asia svg:nth-child(2) {
+    right: 7.9365%;
+    width: 32.5397%; }
+  .jsconf-asia .background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; }
+    .jsconf-asia .background div:nth-child(1) {
+      border: 0.3rem solid #56aaeb;
+      border-radius: 0.3rem;
+      box-shadow: 0 0 0.3rem #56aaeb, inset 0 0 0.3rem #56aaeb, 0 0 0.6rem #56aaeb, inset 0 0 0.6rem #56aaeb, 0 0 1.2rem #56aaeb, inset 0 0 1.2rem #56aaeb; }
+    .jsconf-asia .background div:nth-child(2) {
+      border: 0.3rem solid #256bc4;
+      border-radius: 0.3rem;
+      box-shadow: 0 0 0.3rem #256bc4, inset 0 0 0.3rem #256bc4, 0 0 0.6rem #256bc4, inset 0 0 0.6rem #256bc4, 0 0 1.2rem #256bc4, inset 0 0 1.2rem #256bc4; }
+    .jsconf-asia .background div:nth-child(3) {
+      border: 0.3rem solid #9ae0ff;
+      border-radius: 0.3rem;
+      box-shadow: 0 0 0.3rem #9ae0ff, inset 0 0 0.3rem #9ae0ff, 0 0 0.6rem #9ae0ff, inset 0 0 0.6rem #9ae0ff, 0 0 1.2rem #9ae0ff, inset 0 0 1.2rem #9ae0ff; }
+    .jsconf-asia .background div:nth-child(4) {
+      border: 0.3rem solid #021c7f;
+      border-radius: 0.3rem;
+      box-shadow: 0 0 0.3rem #021c7f, inset 0 0 0.3rem #021c7f, 0 0 0.6rem #021c7f, inset 0 0 0.6rem #021c7f, 0 0 1.2rem #021c7f, inset 0 0 1.2rem #021c7f; }
+    .jsconf-asia .background div:nth-child(5) {
+      border: 0.3rem solid #256bc3;
+      border-radius: 0.3rem;
+      box-shadow: 0 0 0.3rem #256bc3, inset 0 0 0.3rem #256bc3, 0 0 0.6rem #256bc3, inset 0 0 0.6rem #256bc3, 0 0 1.2rem #256bc3, inset 0 0 1.2rem #256bc3; }
+    .jsconf-asia .background div:nth-child(6) {
+      border: 0.3rem solid #ffed2a;
+      border-radius: 0.3rem;
+      box-shadow: 0 0 0.3rem #ffed2a, inset 0 0 0.3rem #ffed2a, 0 0 0.6rem #ffed2a, inset 0 0 0.6rem #ffed2a, 0 0 1.2rem #ffed2a, inset 0 0 1.2rem #ffed2a; }
+    .jsconf-asia .background div {
+      height: 100%;
+      float: left;
+      margin-right: 2%; }
+    .jsconf-asia .background div:first-child {
+      width: 10%; }
+    .jsconf-asia .background div:nth-child(2) {
+      width: 19%; }
+    .jsconf-asia .background div:nth-child(3) {
+      width: 4%; }
+    .jsconf-asia .background div:nth-child(4) {
+      width: 28%; }
+    .jsconf-asia .background div:nth-child(5) {
+      width: 10%; }
+    .jsconf-asia .background div:nth-child(6) {
+      width: 19%;
+      margin-right: 0; }
+  .jsconf-asia .js {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; }
+  @supports (filter: drop-shadow(0 0 1vmin gray)) {
+    .jsconf-asia svg {
+      filter: drop-shadow(0 0 0.3rem gray) drop-shadow(0 0 0.45rem white) drop-shadow(0 0 0.6rem white); }
+    .jsconf-asia .flicker {
+      animation: flicker 10s infinite; }
+    .jsconf-asia .light {
+      animation: light 10s infinite; } }
+  @supports (display: grid) and (not (display: -ms-grid)) {
+    .jsconf-asia .background {
+      display: grid;
+      grid-template-rows: 20rem;
+      grid-template-columns: 2rem 3.8rem 0.8rem 5.6rem 2rem 3.8rem;
+      grid-gap: 0.4rem; }
+      .jsconf-asia .background div {
+        float: initial;
+        height: initial;
+        margin: initial; }
+      .jsconf-asia .background div:nth-child(1) {
+        width: initial; }
+      .jsconf-asia .background div:nth-child(2) {
+        width: initial; }
+      .jsconf-asia .background div:nth-child(3) {
+        width: initial; }
+      .jsconf-asia .background div:nth-child(4) {
+        width: initial; }
+      .jsconf-asia .background div:nth-child(5) {
+        width: initial; }
+      .jsconf-asia .background div:nth-child(6) {
+        width: initial; }
+    .jsconf-asia .js {
+      display: grid;
+      grid-template-rows: 9.20635rem 9.20635rem 1.58731rem;
+      grid-template-columns: 5.23809rem 5.71428rem 0.95238rem 6.50793rem 1.58731rem; }
+    .jsconf-asia svg {
+      max-width: 100%; }
+    .jsconf-asia svg:first-child,
+    .jsconf-asia svg:nth-child(2) {
+      position: initial;
+      height: initial;
+      width: initial; }
+    .jsconf-asia svg:first-child {
+      grid-row: 2;
+      grid-column: 2 / 3; }
+    .jsconf-asia svg:nth-child(2) {
+      grid-row: 2;
+      grid-column: 4 / 5; } }
+
+@keyframes flicker {
+  21%, 39%, 45%, 47% {
+    filter: none; }
+  18%, 26%, 38%, 40%, 44%, 46%, 48% {
+    filter: drop-shadow(0 0 0.3rem gray) drop-shadow(0 0 0.45rem white) drop-shadow(0 0 0.6rem white); } }
+
+@keyframes light {
+  21%, 39%, 45%, 47% {
+    fill: gray; }
+  18%, 26%, 38%, 40%, 44%, 46%, 48% {
+    fill: white; } }

@@ -17,6 +17,17 @@
 // ---------------------------------------------
 
 // Customised styles for this presentation
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 .reveal {
   .l-multiple {
     display: flex;
@@ -27,10 +38,23 @@
     }
   }
 
+  .l-double {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
   .j-icon {
     display: inline-block;
     vertical-align: middle;
     margin-right: 1rem;
+  }
+
+  h2 {
+    text-transform: none;
+  }
+
+  strong {
+    color: $headingColor;
   }
 
   blockquote {
@@ -46,6 +70,10 @@
 
   figcaption {
     font-style: italic;
+  }
+
+  td {
+    vertical-align: middle;
   }
 }
 
@@ -78,4 +106,256 @@ span[role=img][aria-label]:hover::after {
   padding: 0.25em;
   border: 1px solid $backgroundColor;
   box-shadow: 2px 2px 4px $mainColor;
+}
+
+// Demo-related ------------------------------
+.livecode {
+  display: grid;
+  grid-gap: 0.5em;
+  margin: 0;
+  padding: 0;
+
+  .result {
+    max-height: 100%;
+    overflow-y: scroll;
+    width: 100%;
+    border: 1px dashed $headingColor;
+
+    li {
+      line-height: 0;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .code {
+    text-align: left;
+    width: 100%;
+    font-family: monospace;
+    color: #efdcbc;
+    background-color: #3f3f3f;
+    font-size: 50%;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    overflow-y: scroll;
+  }
+}
+
+.livecode-2p {
+  grid-template-columns: 65% calc(35% - 0.5em);
+  height: 60vh;
+}
+
+.livecode-3p {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr 1fr;
+  grid-template-areas: 'a b'
+                       'a c';
+
+  .markup {
+    grid-area: a;
+  }
+
+  .result {
+    grid-area: b;
+  }
+
+  .code {
+    grid-area: c;
+  }
+}
+
+.code-editor {
+  display: block;
+  height: 100%;
+  white-space: pre-wrap;
+}
+
+.vidcode {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  height: 75vh;
+
+  video {
+    align-self: center;
+  }
+}
+
+$logo: (#56aaeb, #256bc4, #9ae0ff, #021c7f, #256bc3, #ffed2a);
+
+.jsconf-asia {
+  background-color: black;
+  height: 20rem;
+  width: 20rem;
+  border-radius: 0.3rem;
+  position: relative;
+  box-shadow: 0.6rem 0.6rem 0.3rem #444;
+
+  svg {
+    height: 46.0317%;
+    
+    path {
+      fill: white;
+    }
+  }
+
+  svg:first-child,
+  svg:nth-child(2) {
+    position: absolute;
+    bottom: 7.9365%;
+  }
+
+  svg:first-child {
+    left: 26.1905%;
+    width: 28.5714%;
+  }
+
+  svg:nth-child(2) {
+    right: 7.9365%;
+    width: 32.5397%;
+  }
+
+  .background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    @each $colour in $logo {
+      $i: index($logo, $colour);
+      div:nth-child(#{$i}) {
+        border: 0.3rem solid $colour;
+        border-radius: 0.3rem;
+        box-shadow: 0 0 0.3rem $colour, inset 0 0 0.3rem $colour, 0 0 0.6rem $colour, inset 0 0 0.6rem $colour, 0 0 1.2rem $colour, inset 0 0 1.2rem $colour;
+      }
+    }
+    
+    div {
+      height: 100%;
+      float: left;
+      margin-right: 2%;
+    }
+    
+    div:first-child {
+      width: 10%;
+    }
+    
+    div:nth-child(2) {
+      width: 19%;
+    }
+    
+    div:nth-child(3) {
+      width: 4%;
+    }
+    
+    div:nth-child(4) {
+      width: 28%;
+    }
+    
+    div:nth-child(5) {
+      width: 10%;
+    }
+    
+    div:nth-child(6) {
+      width: 19%;
+      margin-right: 0;
+    }
+  }
+
+  .js {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  @supports (filter: drop-shadow(0 0 1vmin gray)) {
+    svg {
+      filter: drop-shadow(0 0 0.3rem gray)
+              drop-shadow(0 0 0.45rem white)
+              drop-shadow(0 0 0.6rem white);
+    }
+    
+    .flicker {
+      animation: flicker 10s infinite;
+    }
+
+    .light {
+      animation: light 10s infinite;
+    }
+  }
+
+  @supports (display: grid) and (not(display: -ms-grid)) {
+    .background {
+      display: grid;
+      grid-template-rows: 20rem;
+      grid-template-columns: 2rem 3.8rem 0.8rem 5.6rem 2rem 3.8rem;
+      grid-gap: 0.4rem;
+      
+      div {
+        float: initial;
+        height: initial;
+        margin: initial;
+      }
+      
+      @for $i from 1 through 6 {
+        div:nth-child(#{$i}) {
+          width: initial;
+        }
+      }
+    }
+
+    .js {
+      display: grid;
+      grid-template-rows: 9.20635rem 9.20635rem 1.58731rem;
+      grid-template-columns: 5.23809rem 5.71428rem 0.95238rem 6.50793rem 1.58731rem;
+    }
+
+    svg {
+      max-width: 100%;
+    }
+    
+    svg:first-child,
+    svg:nth-child(2) {
+      position: initial;
+      height: initial;
+      width: initial;
+    }
+
+    svg:first-child {
+      grid-row: 2;
+      grid-column: 2 / 3;
+    }
+
+    svg:nth-child(2) {
+      grid-row: 2;
+      grid-column: 4 / 5;
+    }
+  }
+}
+
+@keyframes flicker {
+  21%, 39%, 45%, 47% {
+    filter: none;
+  }
+  18%, 26%, 38%, 40%, 44%, 46%, 48% {
+    filter: drop-shadow(0 0 0.3rem gray)
+            drop-shadow(0 0 0.45rem white)
+            drop-shadow(0 0 0.6rem white);
+  }
+}
+
+@keyframes light {
+  21%, 39%, 45%, 47% {
+    fill: gray;
+  }
+  18%, 26%, 38%, 40%, 44%, 46%, 48% {
+    fill: white;
+  }
 }
