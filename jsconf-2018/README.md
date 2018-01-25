@@ -6,7 +6,7 @@ Hello! How's everyone doing so far? Good? Spoiler alert: what you're going to ge
 
 ## About the web
 
-Given this is JSConf and all, I assume everyone here has some experience with the web in some capacity. So I'd like everyone to hold this question in your minds for a little bit. What does the web mean to you?
+Given this is JSConf and all, I think it's safe to assume everyone here has had some experience with the web in some capacity. So I'd like everyone to hold this question in your minds for a little bit. What does the web mean to you?
 
 For me, I love the web. The World Wide Web. I was a lucky kid, in that even though our family was far from rich, we've always had a computer in the house. I think my parents needed one for work or something. But I was more concerned with the games on there.
 
