@@ -281,6 +281,7 @@
 
   }</style></div>
             </div>
+            <aside class="notes">There are numerous values we can use to define the size of our grids. There are those which are familiar, fixed units like pixels and ems, relative units like percentages and viewport units, and also a new flexible unit known as fr or fractional unit, which I will go into more detail later. It represents the distribution of free space left over after all inflexible units have been accounted for.</aside>
           </section>
 
           <section>
@@ -333,6 +334,11 @@
   grid-template-columns: 150px 1fr 2fr;
 }</style></div>
             </div>
+            <aside class="notes">
+              <p>A common use case that fr units can solve is for responsive uniform grids that needs to adjust to the width of the viewport. For layout methods that revolve around the width of the grid item, multiple media queries are necessary because the width of each item has to be explicitly stated depending on the width of the viewport.</p>
+              <p>With the fr unit, we are essentially ceding control of the sizing of each grid item to the browser, allowing the browser to figure out how large each grid item should be based on the parameters we provide through the functions made available to us with CSS grid.
+              </p>
+            </aside>
           </section>
 
           <section>

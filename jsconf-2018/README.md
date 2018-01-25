@@ -16,7 +16,7 @@ In fact, without the web, odds are we would never have crossed paths. And I woul
 
 Star Trek Discovery? Anyone? So this beautiful woman is Michelle Yeoh, one of the greatest female action stars of all time and the pride of Malaysians everywhere.
 
-When she first got to Hollywood, people were amazed that she could speak English so well. And she, in turn, was equally amazed people that in Hollywood had such a limited grasp of world geography, seeing as they did not know where Malaysia was.
+When she first got to Hollywood, people were amazed that she could speak English so well. And she, in turn, was equally amazed that people in Hollywood had such a limited grasp of world geography, seeing as they did not know where Malaysia was.
 
 I'm sure many people from America and Europe know where Southeast Asia is, I mean, look at all the expats around. No offense, if you are one. But I have also met people whose idea of Asia was limited to, China, India or Japan.
 
