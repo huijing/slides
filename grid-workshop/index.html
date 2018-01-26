@@ -45,12 +45,18 @@
               <div></div>
             </div>
           </div>
+          <p>SSID: Shangri-La (no password needed)</p>
           <aside class="notes">
             <p>This workshop assumes you have a reasonably good grasp of CSS, and how to handle specificity and the cascade. That you could write an entire site’s layout in vanilla CSS without any frameworks.</p>
             <p>If you are a bit more novice on the CSS front, no worries, just that the pace might be a little fast. But you can ask our facilitator, Shirlaine, for help if you get really lost.</p>
             <p>Just to get a grasp of the audience today, how many people have used CSS grid before? In production? How many of you use Flexbox day-to-day? And what’s the most common technique you use to build your layouts? Floats? Tables?</p>
             <p>If you ask me, I will always say context matters. That there is never a single way to achieve something, so don’t treat whatever you learn today as dogma, or the ONE WAY. Think of this as adding tools to your CSS toolbox, and it’s up to you to choose the right tool for the right situation.</p>
           </aside>
+        </section>
+
+        <section>
+          <h2>Starter files</h2>
+          <p><a href="https://file.io/knDW6o">https://file.io/knDW6o</a></p>
         </section>
 
         <section>
@@ -281,7 +287,7 @@
 
   }</style></div>
             </div>
-            <aside class="notes">There are numerous values we can use to define the size of our grids. There are those which are familiar, fixed units like pixels and ems, relative units like percentages and viewport units, and also a new flexible unit known as fr or fractional unit, which I will go into more detail later. It represents the distribution of free space left over after all inflexible units have been accounted for.</aside>
+            <aside class="notes">There are numerous values we can use to define the size of our grids. There are those which are familiar, fixed units like pixels and ems, relative units like percentages and viewport units, and also a new flexible unit known as fr or fractional unit, which I will go into more detail later.</aside>
           </section>
 
           <section>
@@ -335,9 +341,8 @@
 }</style></div>
             </div>
             <aside class="notes">
-              <p>A common use case that fr units can solve is for responsive uniform grids that needs to adjust to the width of the viewport. For layout methods that revolve around the width of the grid item, multiple media queries are necessary because the width of each item has to be explicitly stated depending on the width of the viewport.</p>
-              <p>With the fr unit, we are essentially ceding control of the sizing of each grid item to the browser, allowing the browser to figure out how large each grid item should be based on the parameters we provide through the functions made available to us with CSS grid.
-              </p>
+              <p>The <code>fr</code> unit represents the distribution of free space left over after all inflexible units have been accounted for. A common use case that fr units can solve is for responsive uniform grids that needs to adjust to the width of the viewport. For layout methods that revolve around the width of the grid item, multiple media queries are necessary because the width of each item has to be explicitly stated depending on the width of the viewport.</p>
+              <p>With the fr unit, we are essentially ceding control of the sizing of each grid item to the browser, allowing the browser to figure out how large each grid item should be based on the parameters we provide through the functions made available to us with CSS grid.</p>
             </aside>
           </section>
 
@@ -759,9 +764,59 @@
         </section>
 
         <section>
-          <h2>Examples / Demos</h2>
-          <p><a href="https://codepen.io/huijing/pen/zdNjEg">Responsive header</a></p>
-          <p><a href="https://codepen.io/huijing/pen/LLMORr">JSConf.Asia logo</a></p>
+          <section>
+            <h2>Examples / Demos</h2>
+            <p>Simple responsive dashboard</p>
+            <p>Artist profile page</p>
+            <p><a href="https://codepen.io/huijing/pen/zdNjEg">Responsive header (if time permits)</a></p>
+            <p><a href="https://codepen.io/huijing/pen/LLMORr">JSConf.Asia logo (if time permits)</a></p>
+          </section>
+
+          <section>
+            <h2>Simple responsive dashboard</h2>
+            <video controls loop class="video" style="width:70%;">
+              <source data-src="videos/grid-dashboard.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/grid-dashboard.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+          </section>
+
+          <section>
+            <h2>Artist profile page</h2>
+            <video controls loop class="video" style="width:70%;">
+              <source data-src="videos/grid-tycho.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/grid-tycho.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+          </section>
+
+          <section>
+            <h2>Diagonal header</h2>
+            <p data-height="500" data-theme-id="9162" data-slug-hash="zdNjEg" data-default-tab="result" data-user="huijing" data-embed-version="2" data-pen-title="The Critical Request header" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/zdNjEg/">The Critical Request header</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+          </section>
+
+          <section>
+            <h2>JSConf.Asia 2017</h2>
+            <div class="jsconf-asia" style="margin:1em auto 0;">
+            <div class="js">
+              <svg viewBox="0 0 178 292">
+              <path fill-rule="nonzero" d="M.65 237.474l48.212-29.178c9.302 16.492 17.763 30.444 38.058 30.444 19.454 0 31.72-7.61 31.72-37.21V.23h59.203v202.138c0 61.32-35.944 89.23-88.385 89.23-47.362 0-74.853-24.528-88.808-54.13"/>
+            </svg>
+              <svg class="flicker" viewBox="0 0 206 296">
+              <path class="light" fill-rule="nonzero" d="M48.206 207.22c12.69 20.722 29.183 35.946 58.36 35.946 24.533 0 40.175-12.264 40.175-29.18 0-20.3-16.067-27.49-43.134-39.327l-14.797-6.35c-42.716-18.18-71.05-41.016-71.05-89.226C17.76 34.68 51.59.846 104.453.846c37.637 0 64.702 13.111 84.154 47.367l-46.097 29.6c-10.15-18.182-21.14-25.37-38.056-25.37-17.34 0-28.335 10.995-28.335 25.37 0 17.763 10.995 24.953 36.366 35.95l14.8 6.342c50.325 21.57 78.66 43.557 78.66 93.034 0 53.286-41.866 82.464-98.11 82.464-54.976 0-90.5-26.218-107.836-60.474l48.206-27.91z"/>
+            </svg>
+            </div>
+            <div class="background">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
         </section>
 
         <section>
@@ -795,6 +850,7 @@
 
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.js"></script>
+    <script async src="lib/js/eijs.js"></script>
 
     <script>
       Reveal.initialize({
@@ -805,6 +861,6 @@
           { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
         ]
       });
-    </script>
+    </script> 
   </body>
 </html>
