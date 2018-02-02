@@ -42,4 +42,16 @@
 
 20. [Be like water](https://www.chenhuijing.com/slides/moz-roadshow-2017)
 
+21. [When East meets West: web typography and how it can inspire modern layouts](https://www.chenhuijing.com/slides/yglf-2017)
 
+22. [2017: The year of CSS Grid](https://www.chenhuijing.com/slides/gdaygt-2017)
+
+23. [Love the web for what it is](https://www.chenhuijing.com/slides/love-the-web)
+
+24. [Between East and West: web typography and how it can inspire modern layouts](https://www.chenhuijing.com/slides/jsconf-2018)
+
+25. [Grid is the new black](https://www.chenhuijing.com/slides/grid-workshop)
+
+26. [Modern layouts with CSS grid](https://www.chenhuijing.com/slides/modern-layouts)
+
+27. [Why CSS Grid is a game-changer for web design]()
