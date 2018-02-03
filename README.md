@@ -54,4 +54,4 @@
 
 26. [Modern layouts with CSS grid](https://www.chenhuijing.com/slides/modern-layouts)
 
-27. [Why CSS Grid is a game-changer for web design]()
+27. [Why CSS Grid is a game-changer for web design](https://www.chenhuijing.com/slides/constellation-2018)
