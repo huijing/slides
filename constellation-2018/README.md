@@ -1,3 +1,3 @@
-# Modern Layouts with CSS Grid
+# Why CSS grid is a game-changer for web design
 
-At Mozilla Tech Briefing, 15 Feb 2018.
+*For GitHub Constellation Singapore 2018. This is sort of a transcript of the talk.*

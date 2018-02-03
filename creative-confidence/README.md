@@ -1,3 +1,3 @@
-### Life lessons from Basketball
+# Life lessons from Basketball
 
 At Creative Confidence meetup.

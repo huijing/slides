@@ -1,6 +1,3 @@
-# Grid is the new black
+# Box Alignment
 
-*Slides for JSConf.Asia 2018 Grid workshop*
-
-
-
+*For CSS Day 2018. This is sort of a transcript of the talk.*
