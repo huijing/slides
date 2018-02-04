@@ -2,23 +2,23 @@
 // overridden by the super-theme
 
 // Background of the presentation
-$backgroundColor: #fff;
+$backgroundColor: #f4f4f2;
 
 // Primary/body text
-$mainFont: 'Space Text', serif;
+$mainFont: 'Inria Sans', sans-serif;
 $mainFontSize: 2.5em;
-$mainColor: #000;
+$mainColor: #30302f;
 
 // Vertical spacing between blocks of text
 $blockMargin: 20px;
 
 // Headings
 $headingMargin: 0 0 $blockMargin 0;
-$headingFont: 'Space Text', serif;
-$headingColor: #5f0a87;
+$headingFont: 'Inria Serif', serif;
+$headingColor: #1253a4;
 $headingLineHeight: 1.2;
 $headingLetterSpacing: normal;
-$headingTextTransform: uppercase;
+$headingTextTransform: none;
 $headingTextShadow: none;
 $headingFontWeight: 700;
 $heading1TextShadow: $headingTextShadow;
@@ -29,12 +29,12 @@ $heading3Size: 1.000em;
 $heading4Size: 1.000em;
 
 // Links and actions
-$linkColor: #2f004f;
+$linkColor: #f26964;
 $linkColorHover: lighten( $linkColor, 20% );
 
 // Text selection
-$selectionBackgroundColor: #5f0a87;
-$selectionColor: #fff;
+$selectionBackgroundColor: #ffd464;
+$selectionColor: #30302f;
 
 // Generates the presentation background, can be overridden
 // to return a background image or gradient
