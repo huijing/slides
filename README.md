@@ -1,6 +1,4 @@
-# Slide decks
-
-### Slides for talks and stuff
+# Slide decks (for talks and stuff)
 
 1. [Using responsive images (now)](https://www.chenhuijing.com/slides/responsive-images)
 
@@ -18,40 +16,54 @@
 
 8. [So your designer wants a masthead...](https://www.chenhuijing.com/slides/build-masthead)
 
-9. [TechLadies Pre-Bootcamp Workshop #2](https://www.chenhuijing.com/slides/tl-workshop-2)
+9. [Life lessons from Basketball](https://www.chenhuijing.com/slides/creative-confidence/)
 
-10. [A Chinese typography experiment](https://www.chenhuijing.com/slides/zh-type)
+10. [TechLadies Pre-Bootcamp Workshop #2](https://www.chenhuijing.com/slides/tl-workshop-2)
 
-11. [How I learn to CSS](https://www.chenhuijing.com/slides/css-conf-2016)
+11. [A Chinese typography experiment](https://www.chenhuijing.com/slides/zh-type)
 
-12. [CSS writing-mode + grid = 🎉](https://www.chenhuijing.com/slides/css-grid)
+12. [How I learn to CSS](https://www.chenhuijing.com/slides/css-conf-2016)
 
-13. [TechLadies in KL 🇲🇾](https://www.chenhuijing.com/slides/tl-in-kl)
+13. [CSS writing-mode + grid = 🎉](https://www.chenhuijing.com/slides/css-grid)
 
-14. [Deciphering the CSS property syntax](https://www.chenhuijing.com/slides/css-syntax)
+14. [TechLadies in KL 🇲🇾](https://www.chenhuijing.com/slides/tl-in-kl)
 
-15. [What the web means to me](https://www.chenhuijing.com/slides/wwc-2017)
+15. [Deciphering the CSS property syntax](https://www.chenhuijing.com/slides/css-syntax)
 
-16. [Web typography: East meets West](https://www.chenhuijing.com/slides/webconf-asia-2017)
+16. [What the web means to me](https://www.chenhuijing.com/slides/wwc-2017)
 
-17. [Chinese typography on the web](https://www.chenhuijing.com/slides/pitercss-2017)
+17. [Web typography: East meets West](https://www.chenhuijing.com/slides/webconf-asia-2017)
 
-18. [CSS fonts trivia](https://www.chenhuijing.com/slides/css-fonts)
+18. [Chinese typography on the web](https://www.chenhuijing.com/slides/pitercss-2017)
 
-19. [So no to cookie cutter web layouts](https://www.chenhuijing.com/slides/ffc-2017)
+19. [CSS fonts trivia](https://www.chenhuijing.com/slides/css-fonts)
 
-20. [Be like water](https://www.chenhuijing.com/slides/moz-roadshow-2017)
+20. [So no to cookie cutter web layouts](https://www.chenhuijing.com/slides/ffc-2017)
 
-21. [When East meets West: web typography and how it can inspire modern layouts](https://www.chenhuijing.com/slides/yglf-2017)
+21. [Be like water: applying Bruce Lee's philosophy to web design](https://www.chenhuijing.com/slides/moz-roadshow-2017)
 
-22. [2017: The year of CSS Grid](https://www.chenhuijing.com/slides/gdaygt-2017)
+22. [So no to cookie cutter web layouts expanded](https://www.chenhuijing.com/slides/web-layouts-hk)
 
-23. [Love the web for what it is](https://www.chenhuijing.com/slides/love-the-web)
+23. [When East meets West: web typography and how it can inspire modern layouts](https://www.chenhuijing.com/slides/yglf-2017)
 
-24. [Between East and West: web typography and how it can inspire modern layouts](https://www.chenhuijing.com/slides/jsconf-2018)
+24. [2017: The year of CSS Grid](https://www.chenhuijing.com/slides/gdaygt-2017)
 
-25. [Grid is the new black](https://www.chenhuijing.com/slides/grid-workshop)
+25. [Love the web for what it is](https://www.chenhuijing.com/slides/love-the-web)
 
-26. [Modern layouts with CSS grid](https://www.chenhuijing.com/slides/modern-layouts)
+26. [Between East and West: web typography and how it can inspire modern layouts](https://www.chenhuijing.com/slides/jsconf-2018)
 
-27. [Why CSS Grid is a game-changer for web design](https://www.chenhuijing.com/slides/constellation-2018)
+27. [Grid is the new black](https://www.chenhuijing.com/slides/grid-workshop)
+
+28. [Modern layouts with CSS grid](https://www.chenhuijing.com/slides/modern-layouts)
+
+29. [Why CSS Grid is a game-changer for web design](https://www.chenhuijing.com/slides/constellation-2018)
+
+30. *\*WIP* [Vertical writing on the web: inadvertent layout inspiration from a search for cultural identity](javascript:void(0)) 
+
+31. *\*WIP* [East Asian web typography: crossing cultural boundaries for web layout inspiration](javascript:void(0))
+
+32. *\*WIP* [Box Alignment](javascript:void(0))
+
+33. *\*WIP* [The web is all directions](javascript:void(0))
+
+34. *\*WIP* [Layout the web with CSS grid](javascript:void(0))
