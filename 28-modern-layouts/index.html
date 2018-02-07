@@ -29,7 +29,7 @@
           <h3>Revolutionising visual design on the web</h3>
           <img class="plain" style="height: 3em;" data-src="img/mozilla.svg" alt="Mozilla">
           <aside class="notes">
-           
+            <p>Hello everyone! This is my first time doing a talk via video conference, so this will be interesting. My name is Hui Jing and I'm a front-end developer based in Singapore at the moment. Today, I'll be talking about CSS grid, and why it's a milestone for web design.</p>
           </aside>
         </section>
 
@@ -47,7 +47,7 @@
               </div>
             </div>
             <aside class="notes">
-              <p>These CSS-related memes have been going around for some time. Usually accompanied by some joke about the deficiencies of CSS, or the cascade, or how impossible it is to manage. Well, I disagree with that notion. You see, I love CSS, I love CSS for what it is and what it can do.</p>
+              <p>So these CSS-related memes have been going around for some time. Usually accompanied by some joke about the deficiencies of CSS, or the cascade, or how impossible it is to manage. Well, I disagree with that notion. You see, I love CSS, I love CSS for what it is and what it can do.</p>
               <p>Today, I will be putting forth some ideas that you may not entirely agree with, but I do hope you will hear me out. Let me start off with a short story about the web.</p>
             </aside>
           </section>
@@ -378,7 +378,7 @@
   grid-template-columns: minmax(200px, 1fr) 300px 300px;
 }</style></div>
             </div>
-            <aside class="notes">The <code>minmax()</code> function allows us to do something we never could before, which is the define a range of values. Now I can tell the browser that I want my grid columns or rows to be between a value of x and y, and the browser can figure out exactly what that value should be.</aside>
+            <aside class="notes">CSS grid also introduces some new functions. The <code>minmax()</code> function allows us to do something we never could before, which is the define a range of values. Now I can tell the browser that I want my grid columns or rows to be between a value of x and y, and the browser can figure out exactly what that value should be.</aside>
           </section>
 
           <section>
@@ -1242,94 +1242,8 @@ button {
         <section>
           <section>
             <h2>Fallback with feature queries</h2>
-            <p>A conditional group rule whose condition tests whether the user agent supports CSS property:value pairs.</p>
+            <p>A conditional group rule whose condition tests whether the user agent supports CSS property: value pairs.</p>
             <aside class="notes">Some of you might have noticed that my grid code was wrapped within an additional query with the syntax <code>@supports</code>, otherwise known as feature queries. And they are defined as such, conditionals that test if the browser supports a particular CSS feature.</aside>
-          </section>
-
-          <section>
-            <div class="vidcode" style="align-items: center;">
-              <video controls loop>
-                <source data-src="videos/ie11.mp4" type="video/mp4" />
-                Sorry, your browser doesn't support embedded videos, 
-                but don't worry, you can <a href="videos/ie11.mp4">download it</a>
-                and watch it with your favourite video player!
-              </video>
-              <pre style="font-size:50%;"><code class="css" style="max-height:none;">main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .title {
-    width: 100%;
-  }
-
-  .card {
-    flex: auto;
-    min-width: 12em;
-    height: 12em;
-  }</code></pre>
-            </div>
-            <aside class="notes">
-              <p>In my opinion, taking care of browser support is part and parcel of the job of being a web developer. I actually find it kind of fun, because it's a design puzzle to be solved.</p>
-              <p>Here's yet another example of a fallback layout, that works on browsers without Grid or support for feature queries. The browser used in this video is IE, just a basic responsive flexbox-based layout.</p>
-            </aside>
-          </section>
-
-          <section>
-            <div class="vidcode">
-              <video controls loop>
-                <source data-src="videos/overlap2.mp4" type="video/mp4" />
-                Sorry, your browser doesn't support embedded videos, 
-                but don't worry, you can <a href="videos/overlap2.mp4">download it</a>
-                and watch it with your favourite video player!
-              </video>
-              <pre style="font-size:50%;"><code class="css" style="max-height:85vh;max-width:55vw;">@supports (display:grid) {
-    main {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
-      grid-auto-rows: 8em;
-    }
-
-    .title {
-      width: initial;
-    }
-
-    .card {
-      min-width: initial;
-      height: initial;
-    }
-
-    @media screen and (max-width: 383px) {
-      main {
-        grid-template-rows: 3em repeat(auto-fill, 8em);
-      }
-    }
-
-    @media screen and (min-aspect-ratio: 1/1) {
-      main {
-        grid-template-columns: repeat(4, minmax(25vw, 5em));
-        grid-template-rows: repeat(3, calc(100vh / 3));
-        grid-template-areas: "a b c ."
-                             "d e . f"
-                             "g . h i";
-      }
-    }
-  }</code></pre>
-            </div>
-            <aside class="notes">
-              <p>But for browsers that do support Grid and feature queries, I can layer on this fancier <em>overlap with vertical white-space</em> layout.</p>
-              <p>Designing layouts on the web requires interpolative thinking, on multiple levels. We don't just think in one fixed dimension, we get to think about how our design will morph on a narrow screen, or on an older browser, in addition to how it will appear on a browser with the latest features.</p>
-              <p>Call me whimsical, but I find this extremely appealing. As web designers and developers, it is our job to ensure our layouts are most effective in the environment they have to perform in.</p>
-            </aside>
-          </section>
-
-          <section>
-            <h2>Browser support for <code>@supports</code></h2>
-            <p class="ciu_embed" data-feature="css-featurequeries" data-periods="future_1,current,past_1,past_2">
-              <a href="http://caniuse.com/#feat=css-featurequeries"><img class="plain" data-src="img/caniuse-feature-queries.jpg"></a>
-            </p>
-            <aside class="notes">Support for feature queries is really good, with coverage in over 90% of browsers, including Opera Mini, we almost never get anything on Opera Mini. The only browsers that don't support it are Internet Explorer and Blackberry Mobile.</aside>
           </section>
 
           <section>
@@ -1345,9 +1259,299 @@ button {
 }</code></pre>
             <aside class="notes">
               <p>And this is how a feature query looks like. The conditional checks if the browser supports a particular property or not. If it doesn't, the entire block within the <code>@supports</code> rule is ignored.</p>
-              <p>This means we start off with the basic layout that works everywhere. It could be a flexbox-based layout, or even single column, maybe largely browser default UI elements, that sort of thing. Then we layer on styles based on the features we want to use. Like what we saw in the previous 2 examples.</p>
+              <p>This means we start off with the basic layout that works everywhere. It could be a flexbox-based layout, or even single column, maybe largely browser default UI elements, that sort of thing. Then we layer on styles based on the features we want to use. Like what we saw in the previous example.</p>
               <p>By organising our code in this manner, the browsers that do not support feature queries or the specified property still get styled, while those that do get a different look. We're making use of the ‘C’ in CSS. Call it ‘Cascading Web Design’. If this concept ever takes off, remember you heard it here first.</p>
             </aside>
+          </section>
+
+          <section>
+            <h2>Browser support for <code>@supports</code></h2>
+            <p class="ciu_embed" data-feature="css-featurequeries" data-periods="future_1,current,past_1,past_2">
+              <a href="http://caniuse.com/#feat=css-featurequeries"><img class="plain" data-src="img/caniuse-feature-queries.jpg"></a>
+            </p>
+            <aside class="notes">
+              <p>Support for feature queries is really good, with coverage in over 90% of browsers, including Opera Mini. But you might notice that Internet Explorer does not, and will not ever get it.</p>
+              <p>So here is where a decision has to be made, and it will differ from project to project and functionality to functionality, on whether it is acceptable to forgo some of the features that IE11 does offer and serve up a more basic fallback instead.</p>
+              <p>Again, there is no definitive answer to this until a proper discussion with relevant stakeholders arrives at an acceptable conclusion.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="vidcode" style="align-items: center;">
+              <video controls loop>
+                <source data-src="videos/ie11.mp4" type="video/mp4" />
+                Sorry, your browser doesn't support embedded videos, 
+                but don't worry, you can <a href="videos/ie11.mp4">download it</a>
+                and watch it with your favourite video player!
+              </video>
+              <pre style="font-size:50%;"><code class="css" style="max-height:none;">header::before {
+  content: 'This example requires a browser that supports CSS Flexbox or Grid. If your browser did support CSS Grid, you would have seen something that resembles the image below, except recreated in HTML and CSS instead.';
+  display: inline-block;
+  background-color: rgba(253, 182, 182, 0.75);
+  font-size: initial;
+  max-width: 36em;
+  color: #000;
+  padding: 0.5em;
+}
+
+header > * {
+  display: none;
+}
+
+header {
+  background-color: $background;
+  background-image: url('./fallback.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  overflow: hidden;
+  max-height: 60vh;
+  position: relative;
+}</code></pre>
+            </div>
+            <aside class="notes">
+              <p>This next example is a header design. I got it from a CSS tricks article and since it was originally an image anyway, you can think of this as an enhancement.</p>
+              <p>The fallback code here serves up an image, the original image used on the site, actually. This is the “universal” code, i.e. what all browsers will load regardless.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="vidcode" style="align-items: center;">
+              <video controls loop>
+                <source data-src="videos/flexbox.mp4" type="video/mp4" />
+                Sorry, your browser doesn't support embedded videos, 
+                but don't worry, you can <a href="videos/flexbox.mp4">download it</a>
+                and watch it with your favourite video player!
+              </video>
+              <pre style="font-size:50%;"><code class="css" style="max-height:85vh;max-width:55vw;">@supports (display: flex) {
+  header::before {
+    content: none;
+  }
+
+  header {
+    background-image: none;
+  }
+
+  .grid {
+    display: block;
+  }
+
+  .title {
+    color: $txt-light;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 2.5em;
+    z-index: 1;
+    padding-right: 0.25em;
+  }
+
+  .time {
+    color: $txt-dark;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.5em;
+  }
+
+  .grid__item:nth-of-type(1) {
+    background-color: $blue;
+    width: 30vw;
+  }
+
+  .grid__item:nth-of-type(2) {
+    background-color: $purple;
+    width: 45vw;
+  }
+
+  .grid__item:nth-of-type(3) {
+    background-color: $yellow;
+    width: 60vw;
+    position: relative;
+    z-index: 2;
+  }
+
+  .time {
+    width: calc(100% / 9);
+    float: left;
+    padding: 1em;
+  }
+
+  .time:nth-child(8) {
+    position: relative;
+
+    &::before {
+      display: block;
+      content: '';
+      height: 3.5em;
+      width: 3.5em;
+      border-radius: 50%;
+      position: absolute;
+      border: 0.2em solid $blue;
+      z-index: 1;
+    }
+  }
+
+  .border {
+    width: 0.2em;
+    background-color: $red;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: calc((100% / 9) * 7);
+  }
+}</code></pre>
+            </div>
+            <aside class="notes">This first feature query is for browsers that support both Flexbox and feature queries, but not Grid yet. They will end up with styles that look like this, with all the benefits of having searchable, indexable text. There will be some resetting needed, so fully understanding the cascade is a prerequisite for embracing this sort of design approach.</aside>
+          </section>
+
+          <section>
+            <div class="vidcode">
+              <video controls loop>
+                <source data-src="videos/grid.mp4" type="video/mp4" />
+                Sorry, your browser doesn't support embedded videos, 
+                but don't worry, you can <a href="videos/grid.mp4">download it</a>
+                and watch it with your favourite video player!
+              </video>
+              <pre style="font-size:50%;"><code class="css" style="max-height:85vh;max-width:55vw;">@supports (display:grid) {
+  .time {
+    grid-row: 7;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows:  repeat(3, 2em) repeat(3, minmax(10vmin, 3em)) 2em 2em 10vh;
+    grid-gap: 0.125em;
+    position: relative;
+  }
+
+  @media screen and (min-width: 480px) {
+    .grid {
+      transform: rotate(-30deg) translateX(5vh);
+      grid-template-rows:  repeat(3, 2em) repeat(3, minmax(10vmin, 3em)) 2em 2em 50vh;
+    }
+  }
+
+  @media screen and (min-width: 640px) {
+    .grid {
+      transform: rotate(-30deg) translateY(-15vh);
+    }
+  }
+
+  .grid__item:nth-of-type(1) {
+    grid-row: 4;
+    grid-column: span 3;
+    width: auto;
+  }
+
+  .grid__item:nth-of-type(2) {
+    grid-row: 5;
+    grid-column: span 5;
+    width: auto;
+  }
+
+  .grid__item:nth-of-type(3) {
+    grid-row: 6;
+    grid-column: span 7;
+    width: auto;
+  }
+
+  .border {
+    grid-row: 1 / -1;
+    grid-column: 8;
+    margin-left: -0.125em;
+    width: 1px;
+    border-left: 0.2em solid $red;
+    left: initial;
+  }
+
+  .square1 {
+    grid-column: 2;
+    position: relative;
+    
+    &::before {
+      display: block;
+      content: '';
+      height: 1.25em;
+      width: 1.25em;
+      border: 0.2em solid $purple;
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  .square2 {
+    grid-column: 3;
+    grid-row: 2;
+    position: relative;
+
+    &::before {
+      display: block;
+      content: '';
+      height: 0.5em;
+      width: 0.5em;
+      background-color: $green;
+      position: absolute;
+      right: 1em;
+      top: 1em;
+    }
+  }
+
+  .circle {
+    grid-column: 2;
+    grid-row: 3;
+    position: relative;
+    
+    &::before {
+      display: block;
+      content: '';
+      border: 0.2em solid $yellow;
+      border-radius: 50%;
+      position: absolute;
+      height: 4em;
+      width: 4em;
+      top: calc(50% -  0.5em);
+      left: calc(50% - 2em);
+    }
+  }
+
+  .square3 {
+    grid-column: 8;
+    grid-row: 6;
+    position: relative;
+
+    &::before {
+      display: block;
+      content: '';
+      height: 0.75em;
+      width: 0.75em;
+      background-color: $yellow;
+      position: absolute;
+      right: 0;
+      top: 1em;
+    }
+  }
+
+  .square4 {
+    grid-column: 6;
+    grid-row: 8;
+    position: relative;
+
+    &::before {
+      display: block;
+      content: '';
+      height: 1.5em;
+      width: 1.5em;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      border: 0.2em solid $green;
+    }
+  }
+}</code></pre>
+            </div>
+            <aside class="notes">This second feature query is for the latest browsers, which support all the things. This layout's use of vertical whitespace, and the need to maintain alignment of its individual elements as the viewport changes, makes it a perfect candidate for CSS grid.</aside>
           </section>
 
           <section>
@@ -1358,8 +1562,8 @@ button {
             </div>
             <small><a href="https://www.wismutlabs.com">https://www.wismutlabs.com</a></small>
             <aside class="notes">
-              <p>In this example, the layout on the left is what IE11 users will see, the one in the middle is what Firefox users will see, because Firefox doesn't support CSS shapes yet, but once it does, it will then look like the layout on the right, which is what Chrome users see now.</p>
-              <p>And yes, such an approach does require a level of familiarity with CSS, but it's not rocket science. It boils down to experience, and the willingness to embrace CSS for what it is.</p>
+              <p>Okay, one more example. This is the company website for Wismut Labs. The layout on the left is what IE11 users will see, the one in the middle is what Firefox users will see, because Firefox doesn't support CSS shapes yet, but once it does, it will then look like the layout on the right, which is what Chrome users see now.</p>
+              <p>Because the code is feature-specific and not browser-specific, there is no need to keep revisiting the code every time the browser updates itself.</p>
             </aside>
           </section>
 
@@ -1378,9 +1582,9 @@ button {
             <li>Browser developers are people too, provide feedback and <a href="https://www.chenhuijing.com/blog/a-little-more-kindness/">be nice about it</a>.</li>
           </ul>
           <aside class="notes">
-            <p>Lastly, I want to encourage all of you to participate in shaping the web platform. You may think your voice is just a drop in the ocean, but it's not, it's significant. All the CSS working drafts are hosted on GitHub and we are free to raise issues for clarification or even submit pull requests if we spot any errors.</p>
-            <p>Raising browser bugs sends a signal to browser vendors that certain features are in use, prompting them to fix those bugs sooner rather than later. Conversely, if we don't use a feature simply because it is buggy, browser vendors would think that feature is not in demand and prioritise something else instead.</p>
-            <p>Writing and talking about certain CSS features provides visibility and feedback to browser vendors and specification writers as well. But regardless of platform, remember that we are all human, and we all have feelings. So be kind, the world needs more kindness.</p>
+            <p>The last thing I'd like to mention is how we can encourage people to participate in shaping the web. I don't think enough people know that all the CSS working drafts are hosted on GitHub and they are free to raise issues for clarification or even submit pull requests if they spot any errors.</p>
+            <p>Another avenue is raising browser bugs, which provides signals to browser vendors on which features are in demand and can help with prioritisation. Unfortunately, it seems that there is still a reluctance to use new features precisely because they are buggy. I'm hoping this mindset will change moving forward.</p>
+            <p>I would also love for more people to be writing and talking about CSS features. This not only benefits the community, but provides visibility and feedback to browser vendors and specification writers as well.</p>
           </aside>
         </section>
 
@@ -1410,7 +1614,7 @@ button {
             <li><a href="https://www.chenhuijing.com/demos/grids-braun/">Braun HiFi print posters</a></li>
             <li><a href="https://www.chenhuijing.com/demos/grids-overlap/">Simple overlap</a></li>
             <li><a href="https://www.chenhuijing.com/demos/grids-tycho/">Tycho artist profile</a></li>
-            <li><a href="https://www.chenhuijing.com/demos/grids-overlap-2/">Fallback with feature queries</a></li>
+            <li><a href="https://www.chenhuijing.com/demos/critical-request-header/">Fallback with feature queries</a></li>
             <li><a href="https://www.wismutlabs.com/">Wismut Labs website</a></li>
             <li><a href="https://github.com/huijing/demos">Demos source code on GitHub</a></li>
           </ul>
@@ -1432,6 +1636,7 @@ button {
             <li><a href="https://blogs.igalia.com/mrego/2017/03/16/css-grid-layout-is-here-to-stay/">CSS Grid Layout is Here to Stay</a></li>
             <li><a href="https://www.smashingmagazine.com/2016/11/css-grids-flexbox-box-alignment-new-layout-standard/">The New Layout Standard For The Web: CSS Grid, Flexbox And Box Alignment</a></li>
           </ul>
+          <aside class="notes">And this is a list of articles and resources I found really useful for better understanding CSS grid.</aside>
         </section>
 
         <section style="text-align:left;">
@@ -1441,6 +1646,7 @@ button {
           <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a dir="ltr" href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
           <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a dir="ltr" href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle;">@huijing</a></p>
         </section>
+        <aside class="notes">Thank you all for your time and attention.</aside>
       </div>
 
       <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em;"><span>https://www.chenhuijing.com/slides/modern-layouts</span><span style="text-align:right;">@hj_chen</span></footer>
