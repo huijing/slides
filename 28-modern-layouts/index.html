@@ -305,26 +305,6 @@
           </section>
 
           <section>
-            <h2>Naming grid lines</h2>
-            <div class="livecode livecode-2p">
-              <div class="result grid2" style="font-size:75%;">
-                <div class="grid2__item a" style="border:1px solid;padding:1em 0;"><p>Item A</p></div><div class="grid2__item b" style="border:1px solid;padding:1em 0;"><p>Item B</p></div><div class="grid2__item c" style="border:1px solid;padding:1em 0;"><p>Item C</p></div><div class="grid2__item d" style="border:1px solid;padding:1em 0;"><p>Item D</p></div><div class="grid2__item e" style="border:1px solid;padding:1em 0;"><p>Item E</p></div><div class="grid2__item f" style="border:1px solid;padding:1em 0;"><p>Item F</p></div>
-              </div>
-              <div class="code"><style class="code-editor" contenteditable="true">.grid2 {
-  display: grid;
-  grid-template-columns: [alpha-start] 150px [alpha-end beta-start] 150px [beta-end gamma-start] 150px [gamma-end];
-}
-
-.grid2 .c {
-  grid-column: alpha-start / beta-end;
-}</style></div>
-            </div>
-            <aside class="notes">
-              <p>I mentioned earlier that we can use a numerical index to reference grid lines, but if you have a complicated grid with, say 25 columns or more, for example, it may help to label specific lines with names. You can even give your grid lines multiple names for the sake of readability in your code.</p>
-            </aside>
-          </section>
-
-          <section>
             <blockquote>“Cede <strong>control</strong> of your designs to the <strong>browsers</strong> that render them.”</blockquote>
             <aside class="notes">
               <p>The web is not a static medium. It is dynamic and interactive and we manipulate this medium by writing code to tell the browser what we want it to do. Here's an idea, instead of micromanaging the pixels on our designs, why not just let the browser do its own thing?</p>
@@ -347,7 +327,7 @@
             <aside class="notes">
               <p>An <code>fr</code> unit represents a fraction of free space available. A common use case that <code>fr</code> units can solve is for responsive uniform grids that need to adjust to the width of the viewport.</p>
               <p>For layout methods that revolve around the width of the grid item, multiple media queries are necessary because the width of each item has to be explicitly stated depending on the width of the viewport.</p>
-              <p>With the fr unit, we are essentially ceding control of the sizing of each grid item to the browser, allowing the browser to figure out how large each grid item should be based on the parameters we provide through the functions made available to us with CSS grid.</p>
+              <p>With the fr unit, we are essentially ceding control of the sizing of each grid item to the browser, allowing the browser to figure out how large each grid item should be based on the parameters we provide through some new functions that CSS grid introduces.</p>
             </aside>
           </section>
 
@@ -378,7 +358,7 @@
   grid-template-columns: minmax(200px, 1fr) 300px 300px;
 }</style></div>
             </div>
-            <aside class="notes">CSS grid also introduces some new functions. The <code>minmax()</code> function allows us to do something we never could before, which is the define a range of values. Now I can tell the browser that I want my grid columns or rows to be between a value of x and y, and the browser can figure out exactly what that value should be.</aside>
+            <aside class="notes">One of the new functions CSS grid gives us is the <code>minmax()</code> function. And it allows us to do something we never could before, which is the define a range of values. Now I can tell the browser that I want my grid columns or rows to be between a value of x and y, and the browser can figure out exactly what that value should be.</aside>
           </section>
 
           <section>
@@ -446,7 +426,7 @@
 }</style></div>
             </div>
             <aside class="notes">
-              <p>Here, I have asked the browser to make me columns that are at least 2.5ems wide, but can grow if free space permits. With the keyword set to <code>auto-fill</code>, because the space can contain 8 2.5em columns, even though I didn't have enough grid items to fill up the last 2 columns, the columns are still there.</p>
+              <p>In this example, I have asked the browser to make me columns that are at least 2.5ems wide, but can grow if free space permits. With the keyword set to <code>auto-fill</code>, because the space can contain 8 2.5em columns, even though I didn't have enough grid items to fill up the last 2 columns, the columns are still there.</p>
               <p>When I change it to <code>auto-fit</code>, the last 2 columns are collapsed and the columns that do contain grid items grow to fill up the empty space.</p>
             </aside>
           </section>
@@ -464,7 +444,7 @@
               and watch it with your favourite video player!
             </video>
             <aside class="notes">
-              <p>Here, I'm telling the browser that when the viewport size shrinks, I want to cap the shrink of each column at 10ems but if there's extra space, grow all my columns equally. By using auto-fill (or auto-fit), the browser will calculate how many columns fulfil my requirement. When the viewport size changes, the number of columns will decrease or increase until everything fits.</p>
+              <p>For this example, I'm telling the browser that when the viewport size shrinks, I want to cap the shrink of each column at 10ems but if there's extra space, grow all my columns equally. By using auto-fill (or auto-fit), the browser will calculate how many columns fulfil my requirement. When the viewport size changes, the number of columns will decrease or increase until everything fits.</p>
               <p>And because the maximum value is a flexible unit, if there is an excess of space, like 6ems worth, all the columns will grow equally to fill up that extra space. And not a single media query needed to be written.</p>
               <p>You might have noticed that, although I explained each feature individually, they are so much more useful when used in combination. Team sport, remember?</p>
             </aside>
@@ -490,8 +470,7 @@
             </div>
             <aside class="notes">
               <p>One more thing I want to mention is the concept of an implicit grid. The explicit grid is the one we define using <code>grid-template-columns</code> and <code>grid-template-rows</code>. But there's nothing stopping us from placing an item outside the bounds of this grid. What happens then?</p>
-              <p>In this simple 3×2 grid, the grid column lines only go up to 4. But if we place an item starting on grid line number 5, the browser will add 2 implicit columns (shown by the purple dashed lines on the grid) to accommodate this item.</p>
-              <p>Browsers with grid support utilise an auto-placement algorithm to layout items in the grid so you don't have to write code for each grid item if it's a regular layout.</p>
+              <p>In this simple 3×2 grid, the grid column lines only go up to 4. But if we place an item starting on grid line number 5, the browser will add 2 implicit columns (shown by the purple dashed lines on the grid) to accommodate this item. It's really quite smart.</p>
             </aside>
           </section>
         </section>
@@ -499,7 +478,7 @@
         <section>
           <section>
             <h2>Aligning your grid items</h2>
-            <aside class="notes">An important part of building web layouts is aligning elements on the page. And box alignment can sometimes trip people up. I know it can be hard to remember which property does what.</aside>
+            <aside class="notes">Next up, alignment. Aligning stuff on a page is practically the most important part of building web layouts. And box alignment can sometimes trip people up. I know it can be hard to remember which property does what.</aside>
           </section>
 
           <section>
@@ -688,7 +667,7 @@
 }</style></div>
             </div>
             <aside class="notes">
-              <p>The <code>justify-self</code> and <code>align-self</code> properties are known as <strong>self-alignment properties</strong>. <strong>Justify</strong> is for the main or inline axis, which is the direction of text flow, while <strong>align</strong> is for the cross or block axis, which is the direction block boxes are stacked.</p>
+              <p>The <code>justify-self</code> and <code>align-self</code> properties are known as <strong>self-alignment properties</strong>. <code>justify-*</code> is for the main or inline axis, which is the direction of text flow, while <code>align-*</code> is for the cross or block axis, which is the direction block boxes are stacked.</p>
               <p>These properties allow us to control how the content of each grid item is aligned within the grid area it's been allocated to. The default state is <code>stretch</code>, where the content stretches to fill the entire grid area. We can adjust the alignment of content within the grid item with <code>start</code>, <code>center</code> and <code>end</code>.</p>
             </aside>
           </section>
@@ -794,13 +773,13 @@
 
           <section>
             <h2>Grid placement with grid lines / named lines</h2>
-            <pre style="font-size:50%;"><code class="css">grid-template-columns: [first sidebar-start] 250px [content-start] 1fr [last];
-grid-template-rows: [first header-start] 100px [content-start] 1fr [footer-start] 100px [last];</code></pre>
+            <pre style="font-size:50%;"><code class="css">grid-template-columns: [first sidebar-start] 250px [sidebar-end content-start] 1fr [content-end last];
+grid-template-rows: [first header-start] 100px [header-end content-start] 1fr [content-end footer-start] 100px [footer-end last];</code></pre>
             <img class="plain" style="margin:0;max-height:65vh;" data-src="img/named-lines.svg" alt="Named lines">
             <aside class="notes">
-              <p>I mentioned named lines a little bit earlier, and line names can be any string except “span”, which is a keyword.</p>
-              <p>A handy feature with grid lines is that they have a negative index as well. That means if you need to refer to the last grid line, and you don't know how many grid lines there are, you can use -1 to always get the last grid line.</p>
-              <p>So say I want something to go into the big main area, I would set the <code>grid-row</code> to <code>2 / 3</code> or <code>content-start / footer-start</code>, and the <code>grid-column</code> to <code>2 / 3</code> or <code>content-start / last</code>.</p>
+              <p>Other than using a numerical index to refer to specific grid lines, we can give them names as well. Line names can be any string except “span”, which is a keyword.</p>
+              <p>A handy feature with grid lines is that there's also a negative index. That means if you need to refer to the last grid line, and you don't know how many grid lines there are, you can use -1 to always get the last grid line.</p>
+              <p>So say I want something to go into the big main area, I would set the both the <code>grid-row</code> and to <code>grid-column</code> <code>2 / 3</code> or use the line names <code>content-start / content-end</code>.</p>
             </aside>
           </section>
 
@@ -855,7 +834,7 @@ grid-template-rows: [first header-start] 100px [content-start] 1fr [footer-start
 }</style></div>
             </div>
             <aside class="notes">
-              <p>This example shows how we can place items by specifying the <code>grid-row</code> and <code>grid-column</code> properties. These are actually shorthand for their respective start and end properties.</p>
+              <p>Let's see how this works. <code>grid-row</code> and <code>grid-column</code> are actually shorthand for their respective start and end properties.</p>
               <p>By default, each grid item will take up 1 grid cell, so if I only put 1 value for the <code>grid-column</code> or <code>grid-row</code>, that will be the start position.</p>
               <p>Of course, I can make the grid item span multiple rows or columns by specifying an end value as well.</p>
             </aside>
@@ -882,7 +861,7 @@ grid-template-rows: [first header-start] 100px [content-start] 1fr [footer-start
               </div>
             </div>
             <aside class="notes">
-              <p>Other than using numerical indexes to define grid tracks and grid areas, we can also name them. The syntax of the <code>grid-template-areas</code> property provides a visualisation of the structure of the grid, making the overall layout of the grid container easier to understand.</p>
+              <p>While we're at the topic of naming things, we can also name grid areas. The syntax of the <code>grid-template-areas</code> property provides a visualisation of the structure of the grid, making the overall layout of the grid container easier to understand.</p>
               <p>We then place items in their respective areas using the <code>grid-area</code> property on the item.</p>
             </aside>
           </section>
@@ -930,7 +909,7 @@ grid-template-rows: [first header-start] 100px [content-start] 1fr [footer-start
           <section>
             <div class="l-double" style="align-items:center;justify-items:center;">
               <img class="plain" data-src="img/braun-mid.jpg" alt="Braun mid-width layout">
-              <img class="plain" style="max-height:85vh;" data-src="img/braun-narrow.jpg" alt="Braun narrow layout">
+              <img class="plain fragment" style="max-height:85vh;" data-src="img/braun-narrow.jpg" alt="Braun narrow layout">
             </div>
             <aside class="notes">
               <p>This is a real-world example of modifying the layout by just changing the grid itself. I've assigned each “section” its own named grid area. When the layout is too narrow for the original wide design, I don't change the sizing of the items, instead, I change the grid itself.</p>
@@ -1271,7 +1250,7 @@ button {
             </p>
             <aside class="notes">
               <p>Support for feature queries is really good, with coverage in over 90% of browsers, including Opera Mini. But you might notice that Internet Explorer does not, and will not ever get it.</p>
-              <p>So here is where a decision has to be made, and it will differ from project to project and functionality to functionality, on whether it is acceptable to forgo some of the features that IE11 does offer and serve up a more basic fallback instead.</p>
+              <p>So here is where a decision has to be made, and it will differ from project to project, on whether it is acceptable to forgo some of the features that IE11 does offer and serve up a more basic fallback instead.</p>
               <p>Again, there is no definitive answer to this until a proper discussion with relevant stakeholders arrives at an acceptable conclusion.</p>
             </aside>
           </section>
@@ -1551,19 +1530,9 @@ header {
   }
 }</code></pre>
             </div>
-            <aside class="notes">This second feature query is for the latest browsers, which support all the things. This layout's use of vertical whitespace, and the need to maintain alignment of its individual elements as the viewport changes, makes it a perfect candidate for CSS grid.</aside>
-          </section>
-
-          <section>
-            <div class="l-multiple">
-              <img class="plain" style="max-height:80vh;" data-src="img/ie11.jpg" alt="Wismut Labs site layout on IE11">
-              <img class="plain" style="max-height:80vh;" data-src="img/firefox.jpg" alt="Wismut Labs site layout on Firefox">
-              <img class="plain" style="max-height:80vh;" data-src="img/chrome.jpg" alt="Wismut Labs site layout on Chrome">
-            </div>
-            <small><a href="https://www.wismutlabs.com">https://www.wismutlabs.com</a></small>
             <aside class="notes">
-              <p>Okay, one more example. This is the company website for Wismut Labs. The layout on the left is what IE11 users will see, the one in the middle is what Firefox users will see, because Firefox doesn't support CSS shapes yet, but once it does, it will then look like the layout on the right, which is what Chrome users see now.</p>
-              <p>Because the code is feature-specific and not browser-specific, there is no need to keep revisiting the code every time the browser updates itself.</p>
+              <p>This second feature query is for the latest browsers, which support all the things. This layout's use of vertical whitespace, and the need to maintain alignment of its individual elements as the viewport changes, makes it a perfect candidate for CSS grid.</p>
+              <p>We can now write code that is not browser-specific, but feature-specific. Which means we don't have to keep revisiting our code every time the browser updates. The design updates itself, together with the browser, how cool is that?</p>
             </aside>
           </section>
 
@@ -1571,21 +1540,6 @@ header {
             <blockquote>“CSS isn't a programming language. It's a stylesheet language. We shouldn't expect it to behave like a programming language. It has its own <strong>unique landscape and structures</strong>, ones that people with programming language mental maps might not expect.”<br><small>—Danielle Huntrods</small></blockquote>
             <aside class="notes">Danielle Huntrods from Clearleft said it best. CSS has its own unique landscape and structures, and our mental maps around it need to reflect that.</aside>
           </section>
-        </section>
-
-        <section>
-          <h2>Shape the web we use and build for</h2>
-          <ul>
-            <li>CSS specifications are <a href="https://github.com/w3c/csswg-drafts">all on GitHub</a></li>
-            <li><a href="https://singaporecss.github.io/dev-voice/">Raising browser bugs</a> can and does make a difference</li>
-            <li>Write and talk about CSS features</li>
-            <li>Browser developers are people too, provide feedback and <a href="https://www.chenhuijing.com/blog/a-little-more-kindness/">be nice about it</a>.</li>
-          </ul>
-          <aside class="notes">
-            <p>The last thing I'd like to mention is how we can encourage people to participate in shaping the web. I don't think enough people know that all the CSS working drafts are hosted on GitHub and they are free to raise issues for clarification or even submit pull requests if they spot any errors.</p>
-            <p>Another avenue is raising browser bugs, which provides signals to browser vendors on which features are in demand and can help with prioritisation. Unfortunately, it seems that there is still a reluctance to use new features precisely because they are buggy. I'm hoping this mindset will change moving forward.</p>
-            <p>I would also love for more people to be writing and talking about CSS features. This not only benefits the community, but provides visibility and feedback to browser vendors and specification writers as well.</p>
-          </aside>
         </section>
 
         <section>
@@ -1645,8 +1599,8 @@ header {
           <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a dir="ltr" href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
           <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a dir="ltr" href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
           <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a dir="ltr" href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle;">@huijing</a></p>
+          <aside class="notes">Thank you all for your time and attention.</aside>
         </section>
-        <aside class="notes">Thank you all for your time and attention.</aside>
       </div>
 
       <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em;"><span>https://www.chenhuijing.com/slides/modern-layouts</span><span style="text-align:right;">@hj_chen</span></footer>

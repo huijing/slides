@@ -78,8 +78,6 @@ The basic premise of how grid works involves two steps. You define the grid, the
 
 There are numerous values we can use to define the size of our grids. There are those which are familiar, fixed units like pixels or ems and relative units like percentages or viewport units. Now, we also a new flexible unit known as `fr` or fractional unit, which I will cover in more detail later.
 
-I mentioned earlier that we can use a numerical index to reference grid lines, but if you have a complicated grid with, say 25 columns or more, for example, it may help to label specific lines with names. You can even give your grid lines multiple names for the sake of readability in your code.
-
 > “Cede control of your designs to the browsers that render them.”
 
 The web is not a static medium. It is dynamic and interactive and we manipulate this medium by writing code to tell the browser what we want it to do. Here's an idea, instead of micromanaging the pixels on our designs, why not just let the browser do its own thing?
@@ -92,13 +90,13 @@ An `fr` unit represents a fraction of free space available. A common use case th
 
 For layout methods that revolve around the width of the grid item, multiple media queries are necessary because the width of each item has to be explicitly stated depending on the width of the viewport.
 
-With the `fr` unit, we are essentially ceding control of the sizing of each grid item to the browser, allowing the browser to figure out how large each grid item should be based on the parameters we provide through the functions made available to us with CSS grid.
+With the fr unit, we are essentially ceding control of the sizing of each grid item to the browser, allowing the browser to figure out how large each grid item should be based on the parameters we provide through some new functions that CSS grid introduces.
 
 Here, I'm telling the browser I want 3 sets of 2 columns in the ratio of 3 to 2. By using the `fr` unit, all the available space is divided up accordingly. The grid then grows and shrinks together with viewport because it will occupy all the free space available in the container.
 
 ### The `minmax()` function
 
-CSS grid also introduces some new functions. The `minmax()` function allows us to do something we never could before, which is the define a range of values. Now I can tell the browser that I want my grid columns or rows to be between a value of x and y, and the browser can figure out exactly what that value should be.
+One of the new functions CSS grid gives us is the `minmax()` function. And it allows us to do something we never could before, which is the define a range of values. Now I can tell the browser that I want my grid columns or rows to be between a value of x and y, and the browser can figure out exactly what that value should be.
 
 ### The `repeat()` function
 
@@ -106,11 +104,11 @@ Also, if your design calls for a rather complex and large grid, you probably don
 
 The `repeat()` function also takes in the keywords of `auto-fit` and `auto-fill`, which are very similar. Both these keywords tell the browser to generate the number of tracks required based on the track list specified as the second argument. The minor difference is that for auto-fit, any empty tracks are collapsed. This becomes more evident if you're using a flexible range for track sizing.
 
-Here, I have asked the browser to make me columns that are at least 2.5ems wide, but can grow if free space permits. With the keyword set to auto-fill, because the space can contain 8 2.5em columns, even though I didn't have enough grid items to fill up the last 2 columns, the columns are still there.
+n this example, I have asked the browser to make me columns that are at least 2.5ems wide, but can grow if free space permits. With the keyword set to auto-fill, because the space can contain 8 2.5em columns, even though I didn't have enough grid items to fill up the last 2 columns, the columns are still there.
 
 When I change it to auto-fit, the last 2 columns are collapsed and the columns that do contain grid items grow to fill up the empty space.
 
-Here, I'm telling the browser that when the viewport size shrinks, I want to cap the shrink of each column at 10ems but if there's extra space, grow all my columns equally. By using `auto-fill` (or `auto-fit`), the browser will calculate how many columns fulfil my requirement. When the viewport size changes, the number of columns will decrease or increase until everything fits.
+For this example, I'm telling the browser that when the viewport size shrinks, I want to cap the shrink of each column at 10ems but if there's extra space, grow all my columns equally. By using auto-fill (or auto-fit), the browser will calculate how many columns fulfil my requirement. When the viewport size changes, the number of columns will decrease or increase until everything fits.
 
 And because the maximum value is a flexible unit, if there is an excess of space, like 6ems worth, all the columns will grow equally to fill up that extra space. And not a single media query needed to be written.
 
@@ -120,13 +118,11 @@ You might have noticed that, although I explained each feature individually, the
 
 One more thing I want to mention is the concept of an implicit grid. The explicit grid is the one we define using grid-template-columns and grid-template-rows. But there's nothing stopping us from placing an item outside the bounds of this grid. What happens then?
 
-In this simple 3×2 grid, the grid column lines only go up to 4. But if we place an item starting on grid line number 5, the browser will add 2 implicit columns (shown by the purple dashed lines on the grid) to accommodate this item.
-
-Browsers with grid support utilise an auto-placement algorithm to layout items in the grid so you don't have to write code for each grid item if it's a regular layout.
+In this simple 3×2 grid, the grid column lines only go up to 4. But if we place an item starting on grid line number 5, the browser will add 2 implicit columns (shown by the purple dashed lines on the grid) to accommodate this item. It's really quite smart.
 
 ## Alignment in grid
 
-An important part of building web layouts is aligning elements on the page. And box alignment can sometimes trip people up. I know it can be hard to remember which property does what.
+Next up, alignment. Aligning stuff on a page is practically the most important part of building web layouts. And box alignment can sometimes trip people up. I know it can be hard to remember which property does what.
 
 For me, I associate `justify` with the direction that text flows, because I've been justifying text in Microsoft Word since version 97. And if `justify` is for inline direction, then `align` must be for the other direction.
 
@@ -150,7 +146,7 @@ If everybody is completely lost now, please trust me when I say, it gets easier 
 
 ### Self alignment properties
 
-The `justify-self` and `align-self` properties are known as self-alignment properties. Justify is for the main or inline axis, which is the direction of text flow, while align is for the cross or block axis, which is the direction block boxes are stacked.
+The `justify-self` and `align-self` properties are known as **self-alignment properties**. `justify-*` is for the main or inline axis, which is the direction of text flow, while `align-*` is for the cross or block axis, which is the direction block boxes are stacked.
 
 These properties allow us to control how the content of each grid item is aligned within the grid area it's been allocated to. The default state is stretch, where the content stretches to fill the entire grid area. We can adjust the alignment of content within the grid item with `start`, `center` and `end`.
 
@@ -172,19 +168,15 @@ Remember, awesome together.
 
 The next thing we're going to cover is manual placement of grid items. When it comes to grid placement, my mind instinctively draws a parallel with placing pieces on a chessboard.
 
-I mentioned named lines a little bit earlier, and line names can be any string except “span”, which is a keyword.
+Other than using a numerical index to refer to specific grid lines, we can give them names as well. Line names can be any string except “span”, which is a keyword.
 
-A handy feature with grid lines is that they have a negative index as well. That means if you need to refer to the last grid line, and you don't know how many grid lines there are, you can use -1 to always get the last grid line.
+A handy feature with grid lines is that there's also a negative index. That means if you need to refer to the last grid line, and you don't know how many grid lines there are, you can use -1 to always get the last grid line.
 
-So say I want something to go into the big main area, I would set the `grid-row` to `2 / 3` or `content-start / footer-start`, and the `grid-column` to `2 / 3` or `content-start / last`.
+So say I want something to go into the big main area, I would set the both the `grid-row` and to `grid-column` `2 / 3` or use the line names `content-start / content-end`.
 
-This example shows how we can place items by specifying the `grid-row` and `grid-column` properties. These are actually shorthand for their respective `*-start` and `*-end` properties.
+Let's see how this works. `grid-row` and `grid-column` are actually shorthand for their respective start and end properties. By default, each grid item will take up 1 grid cell, so if I only put 1 value for the `grid-column` or `grid-row`, that will be the start position. Of course, I can make the grid item span multiple rows or columns by specifying an end value as well.
 
-By default, each grid item will take up 1 grid cell, so if I only put 1 value for the `grid-column` or `grid-row`, that will be the start position. Of course, I can make the grid item span multiple rows or columns by specifying an end value as well.
-
-Other than using numerical indexes to define grid tracks and grid areas, we can also name them. The syntax of the `grid-template-areas` property provides a visualisation of the structure of the grid, making the overall layout of the grid container easier to understand.
-
-We then place items in their respective areas using the `grid-area` property on the item.
+While we're at the topic of naming things, we can also name grid areas. The syntax of the `grid-template-areas` property provides a visualisation of the structure of the grid, making the overall layout of the grid container easier to understand. We then place items in their respective areas using the grid-area property on the item.
 
 ## On vertical whitespace
 
@@ -262,19 +254,11 @@ This first feature query is for browsers that support both Flexbox and feature q
 
 This second feature query is for the latest browsers, which support all the things. This layout's use of vertical whitespace, and the need to maintain alignment of its individual elements as the viewport changes, makes it a perfect candidate for CSS grid.
 
-Okay, one more example. This is the company website for Wismut Labs. The layout on the left is what IE11 users will see, the one in the middle is what Firefox users will see, because Firefox doesn't support CSS shapes yet, but once it does, it will then look like the layout on the right, which is what Chrome users see now.
-
-Because the code is feature-specific and not browser-specific, there is no need to keep revisiting the code every time the browser updates itself.
+We can now write code that is not browser-specific, but feature-specific. Which means we don't have to keep revisiting our code every time the browser updates. The design updates itself, together with the browser, how cool is that?
 
 ## Wrapping up
 
 Danielle Huntrods from Clearleft said it best. CSS has its own unique landscape and structures, and our mental maps around it need to reflect that.
-
-The last thing I'd like to mention is how we can encourage people to participate in shaping the web. I don't think enough people know that all the CSS working drafts are hosted on GitHub and they are free to raise issues for clarification or even submit pull requests if they spot any errors.
-
-Another avenue is raising browser bugs, which provides signals to browser vendors on which features are in demand and can help with prioritisation. Unfortunately, it seems that there is still a reluctance to use new features precisely because they are buggy. I'm hoping this mindset will change moving forward.
-
-I would also love for more people to be writing and talking about CSS features. This not only benefits the community, but provides visibility and feedback to browser vendors and specification writers as well.
 
 Jen Simmons and Rachel Andrew have done a lot for both developing layout on the web, as well as educating the web development community about it. Rachel Andrews has a CSS layout course which is completely online, and Jen Simmons has a wonderful collection of demos which you can check out.
 
