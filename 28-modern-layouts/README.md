@@ -168,9 +168,9 @@ Remember, awesome together.
 
 The next thing we're going to cover is manual placement of grid items. When it comes to grid placement, my mind instinctively draws a parallel with placing pieces on a chessboard.
 
-Other than using a numerical index to refer to specific grid lines, we can give them names as well. Line names can be any string except “span”, which is a keyword.
+Other than using a numerical index to refer to specific grid lines, we can give them names as well. Line names can be any string except “span”, which is a keyword. There is no limit to how many names you can assign to a particular line either.
 
-A handy feature with grid lines is that there's also a negative index. That means if you need to refer to the last grid line, and you don't know how many grid lines there are, you can use -1 to always get the last grid line.
+Another handy feature with grid lines is the negative index. That means if you need to refer to the last grid line, and you don't know how many grid lines there are, you can use -1 to always get the last grid line.
 
 So say I want something to go into the big main area, I would set the both the `grid-row` and to `grid-column` `2 / 3` or use the line names `content-start / content-end`.
 
