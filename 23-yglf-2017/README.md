@@ -116,7 +116,7 @@ If you've ever used web fonts before, you would have seen these font formats. Ha
 
 It was such a worthy problem that smart people came up with two different solutions. Donald Knuth created Metafont in 1978 for the TeX system, which generated compressed bitmap fonts. John Warnock, founder of Adobe, came up with Postscript in 1985, the very first vector font, and it really took off.
 
-TrueType was Apple and Microsoft's answer to Adobe's font monopoly. Both companies then worked separately to improve TrueType, especially with regards to fonts for East Asian writing systems. Eventually, Microsoft turned to Adobe and together they came up with OpenType.
+TrueType was Apple and Microsoft's answer to Adobe's font monopoly. Both companies then worked separately to improve TrueType, especially with regards to fonts for East Asian writing systems. Microsoft came up with TrueType Open in 1994 and eventually Adobe joined in and together they developed OpenType.
 
 EOT, or embedded OpenType is Microsoft's proprietary standard, which is a compact form of OpenType fonts meant for use on web pages. Although they tried to submit this as a W3C recommendation, it was rejected in favour of WOFF, or the Web Open Font Format. WOFF2 is an improvement over WOFF with significantly better compression rates.
 

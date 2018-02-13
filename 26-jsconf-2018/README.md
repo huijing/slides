@@ -120,7 +120,7 @@ If you've ever used web fonts before, you would have seen these font formats. Ha
 
 A lot of smart people worked on this problem. And one of the solutions came from Adobe founder, John Warnock. He created Postscript in 1985, the very first vector font, and it really took off.
 
-TrueType was Apple and Microsoft's answer to Adobe's font monopoly. Eventually, Microsoft turned to Adobe and together they came up with OpenType.
+TrueType was Apple and Microsoft's answer to Adobe's font monopoly. Microsoft came up with TrueType Open in 1994 and eventually Adobe joined in and together they developed OpenType.
 
 Microsoft also came up with EOT or embedded OpenType, a proprietary format for use on web pages. Although they tried to submit this as a W3C recommendation, it was rejected in favour of WOFF, or the Web Open Font Format. WOFF2 is an improvement over WOFF with significantly better compression rates.
 
