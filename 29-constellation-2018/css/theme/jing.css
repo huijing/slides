@@ -282,7 +282,8 @@ html {
   vertical-align: middle;
   margin-right: 1rem; }
 
-.reveal h2 {
+.reveal h2,
+.reveal h3 {
   text-transform: none; }
 
 .reveal strong {
@@ -305,8 +306,6 @@ html {
 
 .reveal .j-stamp {
   position: absolute;
-  top: 0;
-  left: 30%;
   transform: rotate(-30deg);
   background-color: #000;
   padding: 0.25em;
