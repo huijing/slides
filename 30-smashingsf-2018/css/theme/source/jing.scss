@@ -38,6 +38,11 @@ html {
     }
   }
 
+  .j-vert {
+    writing-mode:vertical-rl;
+    letter-spacing: 0.25em;
+  }
+
   .l-double {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -59,9 +64,9 @@ html {
 
   blockquote {
     width: 90%;
-    text-align: left;
     box-shadow: none;
     line-height: 1.5;
+    font-size: 125%;
 
     small {
       margin-top: 0.5em;
@@ -70,10 +75,15 @@ html {
 
   figcaption {
     font-style: italic;
+    font-size: 85%;
   }
 
   td {
     vertical-align: middle;
+  }
+
+  img {
+    max-height: 75vh;
   }
 }
 
@@ -108,78 +118,21 @@ span[role=img][aria-label]:hover::after {
   box-shadow: 2px 2px 4px $mainColor;
 }
 
-// Demo-related ------------------------------
-.livecode {
-  display: grid;
-  grid-gap: 0.5em;
-  margin: 0;
-  padding: 0;
-
-  .result {
-    max-height: 100%;
-    overflow-y: scroll;
-    width: 100%;
-    border: 1px dashed $headingColor;
-
-    li {
-      line-height: 0;
-    }
-
-    p {
-      margin: 0;
-      padding: 0;
-    }
-  }
-
-  .code {
-    text-align: left;
-    width: 100%;
-    font-family: monospace;
-    color: #efdcbc;
-    background-color: #3f3f3f;
-    font-size: 50%;
-    padding: 0.5em;
-    border-radius: 0.25em;
-    overflow-y: scroll;
-  }
+// Rainbow colour change ---------------------
+.rainbow {
+  animation: rainbow 10s infinite;
 }
 
-.livecode-2p {
-  grid-template-columns: 65% calc(35% - 0.5em);
-  height: 60vh;
-}
-
-.livecode-3p {
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 2fr 1fr;
-  grid-template-areas: 'a b'
-                       'a c';
-
-  .markup {
-    grid-area: a;
-  }
-
-  .result {
-    grid-area: b;
-  }
-
-  .code {
-    grid-area: c;
-  }
-}
-
-.code-editor {
-  display: block;
-  height: 100%;
-  white-space: pre-wrap;
-}
-
-.vidcode {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  height: 75vh;
-
-  video {
-    align-self: center;
-  }
+@keyframes rainbow {
+  0%   { fill: tomato; }
+  10%  { fill: orange; }
+  20%  { fill: yellow; }
+  30%  { fill: chartreuse; }
+  40%  { fill: mediumspringgreen; }
+  50%  { fill: lightseagreen; }
+  60%  { fill: turquoise; }
+  70%  { fill: deepbluesky; }
+  80%  { fill: mediumslateblue; }
+  90%  { fill: violet; }
+  100% { fill: tomato; }
 }
