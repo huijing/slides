@@ -5,15 +5,15 @@
  */
 
 // Default mixins and settings -----------------
-@import "../template/mixins";
-@import "../template/settings";
+@import '../template/mixins';
+@import '../template/settings';
 // ---------------------------------------------
 
 // Include theme-specific fonts
-@import url(../../lib/font/inria/inria.css);
+@import url('../../lib/font/inria/inria.css');
 
 // Theme template ------------------------------
-@import "../template/theme";
+@import '../template/theme';
 // ---------------------------------------------
 
 // Customised styles for this presentation
@@ -39,7 +39,7 @@ html {
   }
 
   .j-vert {
-    writing-mode:vertical-rl;
+    writing-mode: vertical-rl;
     letter-spacing: 0.25em;
   }
 
