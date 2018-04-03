@@ -204,7 +204,7 @@
 
           <section>
             <blockquote>“Typography is writing with prefabricated letters”<br><small>—Gerrit Noordzij</small></blockquote>
-            <aside class="notes">There are many definitions of Typography out there, and I personally like this one, by Gerrit Noordzij. Letters are the building blocks of a writing system, regardless of language. I believe there's a pretty diverse mix of languages spoken by the audience here today, and while a large number of those languages are alphabetic, Chinese is not one of them.</aside>
+            <aside class="notes">There are many definitions of Typography out there, and the one I've settled on is by Gerrit Noordzij, that typography is writing with prefabricated letters. Letters are the building blocks of a writing system, regardless of language. There's probably a pretty diverse mix of languages spoken by the audience here today, and while a large number of those languages are alphabetic, Chinese is not one of them.</aside>
           </section>
 
           <section data-background-image="img/directions.jpg">
@@ -294,7 +294,14 @@
                 <figcaption>Hei Ti</figcaption>
               </figure>
             </div>
-            <aside class="notes">These days, typefaces used for printing Chinese publications can be broadly classified into the following families: 宋体 (also known as 明体), 楷体, 仿宋体 and 黑体. Both 黑体 and 仿宋体 are twentieth century creations.</aside>
+            <aside class="notes">
+              <p>These days, typefaces used for printing Chinese publications can be broadly classified into the following families: 宋体 (also known as 明体), 楷体, 仿宋体 and 黑体.</p>
+              <p>宋体 is the standard font for body copy. 楷体 is used for runs of text that need to be differentiated from the rest of the content, like dialogues or references. 黑体 is most commonly seen in digital publishing but publishers have started to experiment with 黑体 in print as well. 仿宋体 is generally used in isolated paragraphs like quotations or highlighted sentences.  Both 黑体 and 仿宋体 are twentieth century creations.</p>
+            </aside>
+          </section>
+
+          <section data-background-image="img/display.jpg">
+            <aside class="notes">There are actually a huge variety of other styles, like those based of ancient scripts like 篆书 or 隶书, as well as brush script styles mimicking running scripts like 草书 or 行书. But they fall into a broad category called 花式体, mostly used for display text or short paragraphs. Not so much for long form reading.</aside>
           </section>
 
           <section data-background-image="img/glyphs.jpg">
@@ -326,6 +333,628 @@
           </section>
         </section>
 
+        <section>
+          <section>
+            <h2>Web fonts</h2>
+            <p>The CSS3 Fonts specification describes the basic controls CSS provides for selecting and using fonts within documents.</p>
+            <div style="display:flex;justify-content:center;align-items:center;">
+              <a href="https://www.chenhuijing.com/blog/tracing-the-history-of-css-fonts/">http://bit.ly/css-font-history/</a>
+              <img class="plain" style="max-height:30vh;margin-left:1em;" data-src="img/webfonts.svg">
+            </div>
+            <aside class="notes">When we talk about typography on the web, one of the first things that comes to mind is web fonts. So let's start off with some basics.</aside>
+          </section>
+
+          <section>
+            <h2>What is a font?</h2>
+            <div class="l-double">
+              <img class="plain fragment" data-src="img/analogue-fonts.jpg" alt="Analogue fonts">
+              <img class="plain fragment" data-src="img/digital-fonts.png" alt="Digital fonts">
+            </div>
+            <aside class="notes">
+              <p>In world of metal typesetting, this is a font, which refers to a complete set of metal types that were used to typeset entire pages of text. If you can see the tiny text label on the drawer, this set being shown is for Caslon, 12pt.</p>
+              <p>In the digital world, these are fonts, specifically font files. For both analogue and digital fonts, you can think of them as collections of glyphs.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>And what are glyphs?</h2>
+            <div class="l-multiple">
+              <figure class="fragment">
+                <img class="plain" style="margin:0 0.5em;" data-src="img/glyph1.jpg" alt="A metal sort AKA type">
+                <figcaption style="font-style:normal;">M</figcaption>
+              </figure>
+              <figure class="fragment">
+                <img class="plain" style="margin:0 0.5em;" data-src="img/glyph2.jpg" alt="A bitmap glyph">
+                <figcaption style="font-style:normal;">晽</figcaption>
+              </figure>
+              <figure class="fragment">
+                <img class="plain" style="margin:0 0.5em;" data-src="img/glyph3.jpg" alt="A vector glyph">
+                <figcaption style="font-style:normal;">あ</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">
+              <p>A glyph is the specific shape of a letter or character in a particular font. In the digital world, everything is data. So glyphs can be described with an array of pixels, or collections of vector images or even paths of Bézier curves and straight lines.</p>
+              <p>Different font formats store information about the font, like their glyphs, encodings, metadata about the font etc., differently based on how their specifications were written.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Font formats for web use</h2>
+            <table>
+              <tr>
+                <td>WOFF2 (Web Open Font Format 2)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                  <img class="plain l-logo" data-src="img/mozilla.svg">
+                  <img class="plain l-logo" data-src="img/opera.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>WOFF (Web Open Font Format)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                  <img class="plain l-logo" data-src="img/mozilla.svg">
+                  <img class="plain l-logo" data-src="img/opera.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>OTF (OpenType)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                  <img class="plain l-logo" data-src="img/adobe.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>TTF (TrueType)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                  <img class="plain l-logo" data-src="img/apple.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>EOT (Embedded Open Type)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>SVG (Scalable Vector Graphics)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/svg.svg">
+                </td>
+              </tr>
+            </table>
+            <aside class="notes">
+              <p>If you've ever used web fonts before, you would have seen these font formats. Have you wondered why there are so many? There's a bit of history here. The earliest fonts were pixel-based bitmaps, which didn't work out so well when it came to high-resolution printing.</p>
+              <p>A lot of smart people worked on this problem. And one of the solutions came from Adobe founder, John Warnock. He created Postscript in 1985, the very first vector font, and it really took off.</p>
+              <p>TrueType was Apple and Microsoft's answer to Adobe's font monopoly. Microsoft came up with TrueType Open in 1994 and eventually Adobe joined in and together they developed OpenType.</p>
+              <p>Microsoft also came up with EOT or embedded OpenType, a proprietary format for use on web pages. Although they tried to submit this as a W3C recommendation, it was rejected in favour of WOFF, or the Web Open Font Format. WOFF2 is an improvement over WOFF with significantly better compression rates.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>@font-face</h2>
+            <pre style="font-size:50%;"><code>@font-face {
+    font-family: 'Inria Sans';
+    src: url('inriasans-regular.woff2') format('woff2'),
+         url('inriasans-regular.woff') format('woff');
+  }</code></pre>
+            <div class="l-double">
+              <p style="width:100%;" class="ciu_embed" data-feature="woff" data-periods="future_1,current,past_1,past_2">
+                <a href="http://caniuse.com/#feat=woff"><img class="plain" data-src="img/caniuse-woff.png"></a>
+              </p>
+              <p style="width:100%;" class="ciu_embed" data-feature="woff2" data-periods="future_1,current,past_1,past_2">
+                <a href="http://caniuse.com/#feat=woff2"><img class="plain" data-src="img/caniuse-woff2.png"></a>
+              </p>
+            </div>
+            <aside class="notes">
+              <p>On the practical side of things, we use the <code>@font-face</code> rule to declare a list of different font formats in the hopes that our fonts will show up correctly in as many browsers as possible. The number of font formats we need to declare has decreased over the years and right now, you can pretty much get away with declaring just WOFF and WOFF2.</p>
+              <p>The <code>@font-face</code> rule has more descriptors but only these 2, <code>font-family</code> and <code>src</code>, are mandatory.</p>
+              <p>If either of them are absent, the entire <code>@font-face</code> rule is ignored. The <code>font-family</code> descriptor is simply a label that we reference in other CSS declarations. So even if you're using say, Frutiger, you could actually call it “Dumplings” and it would still work.</p>
+              <p>The <code>src</code> descriptor is comma-separated list of external references or locally-installed font face names. It is made up of the declaration of the font file's location, and an optional format hint. If the browser doesn't support a particular font format stated in that hint, it won't bother loading the font at all.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Anatomy of an <code style="text-transform:lowercase;">@font-face</code> rule</h2>
+            <pre><code style="font-size:150%;line-height:1.4;">@font-face {
+  font-family: &lt;family-name&gt;;
+  src: [ &lt;url&gt; [format(&lt;string&gt; #)]? | &lt;font-face-name&gt; ] #;
+  font-style: normal | italic | oblique ;
+  font-weight: normal | bold | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
+  font-stretch: normal | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded;
+  unicode-range: &lt;urange&gt; #;
+  font-variant: normal | none | [ &lt;common-lig-values&gt; || &lt;discretionary-lig-values&gt; || &lt;historical-lig-values&gt; || &lt;contextual-alt-values&gt; || stylistic(&lt;feature-value-name&gt;) || historical-forms || styleset(&lt;feature-value-name&gt; #) || character-variant(&lt;feature-value-name&gt; #) || swash(&lt;feature-value-name&gt;) || ornaments(&lt;feature-value-name&gt;) || annotation(&lt;feature-value-name&gt;) || [ small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps ] || &lt;numeric-figure-values&gt; || &lt;numeric-spacing-values&gt; || &lt;numeric-fraction-values&gt; || ordinal || slashed-zero || &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ];
+  font-feature-settings: normal | &lt;feature-tag-value&gt; #;
+}</code></pre>
+            <aside class="notes">The next 3 descriptors, for style, weight and stretch, are used to match styles to a particular typeface in later declarations. Technically, you could assign a black typeface to a font-weight of 100 and proceed to confuse your team members who cannot figure out why setting a weight of 100 gives them this massively bold typeface. Perhaps an idea for April Fool's day. #dontgetfired</aside>
+          </section>
+
+          <section>
+            <pre><code style="max-height:90vh;font-size:150%;line-height:1.4;">@font-face {
+  font-family: 'Heiti Plus';
+  src: local('Heiti SC');
+  /* no range specified, defaults to entire range */
+}
+
+@font-face {
+  font-family: 'Heiti Plus';
+  src: url('fonts/andikanewbasic-r.woff2') format('woff2'),
+       url('fonts/andikanewbasic-r.woff') format('woff');
+  unicode-range: U+0-2FF; /* Unicode range for Latin characters */
+}</code></pre>
+            <aside class="notes">
+              <p>Then we have the <code>unicode-range</code> descriptor. which allows us to create composite fonts that mix glyphs from different fonts for different scripts.</p>
+              <p>Sometimes the Latin characters for Chinese fonts don't look particularly nice, this is more apparent on older Windows systems, to be honest. So the <code>unicode-range</code> descriptor allows us to specify a specific font file to be loaded for individual code points or range of code points.</p>
+              <p>In this example, I've created a font-family called Heiti Plus, which will use the Heiti SC font for everything, but the second rule tells the browser to use the Andika New Basic font for all Latin characters instead.</p>
+            </aside>
+          </section>
+
+          <section>
+            <img class="plain" data-src="img/unicode-range.jpg" alt="Unicode-range descriptor in action">
+            <aside class="notes">
+              <p>The Firefox DevTools has a font panel that shows which fonts are loaded on your page. You can see that both Heiti SC and Andika New Basic are loaded for my custom font-family, Heiti Plus.</p>
+              <p>If a page does not contain any Latin characters, Andika New Basic will not be loaded at all because it is not needed.</p>
+              <p>Font descriptors and CSS properties look very similar, but are 2 completely different things.</p>
+            </aside>
+          </section>
+
+          <section data-background-image="img/descriptor-property.jpg">
+            <aside class="notes">Chris Lilley, who chaired the group that developed @font-face, explained it really well in his dotCSS talk. That properties are requests for styling and descriptors are descriptions of capabilities. A <code>font-weight: bold;</code> within a <code>@font-face</code> rule means this font can do bold. While a <code>font-weight: bold;</code> applied as a property means style this element with a font that can do bold.</aside>
+          </section>
+
+          <section>
+            <h2>Basic CSS font properties</h2>
+            <table style="font-size:85%">
+              <tr>
+                <td><code>font-size</code></td>
+                <td>Indicates the desired height of the glyphs. Takes absolute or relative values.</td>
+              </tr>
+              <tr>
+                <td><code>font-weight</code></td>
+                <td>Specifies the weight of the glyphs in the font. Can use keywords or numerical values.</td>
+              </tr>
+              <tr>
+                <td><code>font-style</code></td>
+                <td>Allows italic or oblique faces to be selected.</td>
+              </tr>
+              <tr>
+                <td><code>font-stretch</code></td>
+                <td>Selects a normal, condensed or expanded face from a font family. Range spans over 9 keywords.</td>
+              </tr>
+              <tr>
+                <td><code>font-size-adjust</code></td>
+                <td>Adjusts the font-size to preserve the x-height of the first choice font.</td>
+              </tr>
+              <tr>
+                <td><code>font-synthesis</code></td>
+                <td>Controls whether user agents are allowed to synthesize bold or oblique font faces when missing.</td>
+              </tr>
+            </table>
+            <aside class="notes">
+              <p>These here are CSS font properties. From what I've seen, properties like <code>font-size</code>, <code>font-weight</code> and <code>font-style</code> are pretty commonly used.</p>
+              <p>But <code>font-stretch</code> maybe a bit less. And the last 2, which are <code>font-size-adjust</code> and <code>font-synthesis</code>, I've almost never seen in the wild before. So let's touch on those 2, which were newly added to the Fonts Level 3 specification.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>font-size-adjust</code></h2>
+            <div class="l-double">
+              <img class="plain" data-src="img/font-size-adjust.png" alt="Font-size adjust example">
+              <p data-height="400" data-theme-id="9162" data-slug-hash="xLvYNw" data-default-tab="result" data-user="huijing" data-embed-version="2" data-pen-title="Demo of font-size-adjust" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/xLvYNw/">Demo of font-size-adjust</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+            </div>
+            <aside class="notes"><code>font-size-adjust</code> was put in to address legibility issues. Faces with low x-heights may sometimes be less legible, especially when they are triggered as fallback fonts. We can set the value of this property to the aspect ratio of the first choice font. Any fallback fonts triggered will have their font-size adjusted to match this ratio.</aside>
+          </section>
+
+          <section>
+            <h2><code>font-synthesis</code></h2>
+            <div class="l-double" style="grid-template-columns: 58% 42%;">
+              <figure>
+                <img class="plain" data-src="img/faux-bold.png" alt="Faux bold effect">
+                <figcaption></figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/faux-italic.png" alt="Faux italic effect">
+                <figcaption></figcaption>
+              </figure>
+            </div>
+            <small>Image credit: Piotr Grochowski</small>
+            <aside class="notes"><code>font-synthesis</code> was put in to address the issue of faux bolds and faux italics. Sometimes the true italic or heavier version of a font does not exist so the browser will try to compensate. Unfortunately, the end result isn't pretty. With this property, you can set a value of <code>none</code>, to tell the browser, it's fine, appreciate the effort, but no thanks.</aside>
+          </section>
+
+          <section>
+            <h2>Font feature properties</h2>
+            <table>
+              <tr>
+                <td style="width:30%;vertical-align:top;">
+                  <code>font-kerning</code>
+                  <img class="plain" data-src="img/kerning.svg">
+                </td>
+                <td style="width:35%;vertical-align:top;">
+                  <code>font-variant-position</code>
+                  <img class="plain" data-src="img/fv-position.png">
+                </td>
+                <td style="width:35%;vertical-align:top;">
+                  <code>font-variant-position-ligatures</code>
+                  <img class="plain" data-src="img/fv-ligatures.png">
+                </td>
+              </tr>
+              <tr>
+                <td style="width:30%;vertical-align:top;">
+                  <code>font-variant-numeric</code>
+                  <img class="plain" data-src="img/fv-numeric.png">
+                </td>
+                <td style="width:35%;vertical-align:top;">
+                  <code>font-variant-caps</code>
+                  <img class="plain" data-src="img/fv-caps.png">
+                </td>
+                <td style="width:35%;vertical-align:top;">
+                  <code>font-variant-alternates</code>
+                  <img class="plain" data-src="img/fv-alternates.png">
+                </td>
+              </tr>
+            </table>
+            <aside class="notes">
+              <p>Font feature properties were introduced in Fonts Level 3. Modern font technologies allow fonts to contain a lot more glyphs that before. So we can utilise a variety of typographic features like swashes, ligatures, old-style numerals and so on.</p>
+              <p>Perhaps some of you may be wondering, what's the point of having all these typographic features?</p>
+              <p>They are part and parcel of good typography, which is necessary to hold your reader's attention. The written word is a transference of speech, which is heard, into something visual, to be seen. Good speakers will vary their cadence, use gestures, emphasise certain words.</p>
+              <p>Typographic features like small caps, correct use of italics and punctuation do the same for text. Other features like old style numerals and ligatures help maintain typographic colour, to make reading more comfortable.</p>
+              <p>So these are the features you can turn on via CSS, but note that the font you are using must have these features to begin with. This lot up there, are the features most often mentioned at web typography talks.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>font-variant-east-asian</code></h2>
+            <img class="plain" style="display:block;margin:1em auto" data-src="img/fv-east-asian.png">
+            <aside class="notes">
+              <p>Few people talk about <code>font-variant-east-asian</code>. What this property does is allow for glyph substitution and positioning in East Asian text. If you're unfamiliar with Han characters, it might seem like these languages share the same glyphs, but it depends. Han unification involves assigning the same code point to different glyphs, and it has been quite a controversial issue.</p>
+              <p>We won't get into that, but the point is, the same code point can have variant glyphs depending on the language being used. Like, simplified Chinese glyphs versus traditional Chinese glyphs. Japanese glyphs have their own specification known as JIS or Japanese Industrial Standard, and they too have alternate glyphs for the same character. This property allows us to toggle these variant glyphs.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>font-feature-settings</code></h2>
+            <p>Provides low-level control of advanced OpenType features</p>
+            <ul style="list-style:none;font-size:40%;columns:9;text-align:center;margin-top:1em;border:1px dashed lightgrey;padding:1em 0;">
+              <li>aalt</li>
+              <li>abvf</li>
+              <li>abvm</li>
+              <li>abvs</li>
+              <li>afrc</li>
+              <li>akhn</li>
+              <li>blwf</li>
+              <li>blwm</li>
+              <li>blws</li>
+              <li>calt</li>
+              <li>case</li>
+              <li>ccmp</li>
+              <li>cfar</li>
+              <li>cjct</li>
+              <li>clig</li>
+              <li>cpct</li>
+              <li>cpsp</li>
+              <li>cswh</li>
+              <li>curs</li>
+              <li>cv01-cv99</li>
+              <li>c2pc</li>
+              <li>c2sc</li>
+              <li>dist</li>
+              <li>dlig</li>
+              <li>dnom</li>
+              <li>dtls</li>
+              <li>expt</li>
+              <li>falt</li>
+              <li>fin2</li>
+              <li>fin3</li>
+              <li>fina</li>
+              <li>flac</li>
+              <li>frac</li>
+              <li>fwid</li>
+              <li>half</li>
+              <li>haln</li>
+              <li>halt</li>
+              <li>hist</li>
+              <li>hkna</li>
+              <li>hlig</li>
+              <li>hngl</li>
+              <li>hojo</li>
+              <li>hwid</li>
+              <li>init</li>
+              <li>isol</li>
+              <li>ital</li>
+              <li>jalt</li>
+              <li>jp78</li>
+              <li>jp83</li>
+              <li>jp90</li>
+              <li>jp04</li>
+              <li>kern</li>
+              <li>lfbd</li>
+              <li>liga</li>
+              <li>ljmo</li>
+              <li>lnum</li>
+              <li>locl</li>
+              <li>ltra</li>
+              <li>ltrm</li>
+              <li>mark</li>
+              <li>med2</li>
+              <li>medi</li>
+              <li>mgrk</li>
+              <li>mkmk</li>
+              <li>mset</li>
+              <li>nalt</li>
+              <li>nlck</li>
+              <li>nukt</li>
+              <li>numr</li>
+              <li>onum</li>
+              <li>opbd</li>
+              <li>ordn</li>
+              <li>ornm</li>
+              <li>palt</li>
+              <li>pcap</li>
+              <li>pkna</li>
+              <li>pnum</li>
+              <li>pref</li>
+              <li>pres</li>
+              <li>pstf</li>
+              <li>psts</li>
+              <li>pwid</li>
+              <li>qwid</li>
+              <li>rand</li>
+              <li>rclt</li>
+              <li>rkrf</li>
+              <li>rlig</li>
+              <li>rphf</li>
+              <li>rtbd</li>
+              <li>rtla</li>
+              <li>rtlm</li>
+              <li>ruby</li>
+              <li>rvrn</li>
+              <li>salt</li>
+              <li>sinf</li>
+              <li>size</li>
+              <li>smcp</li>
+              <li>smpl</li>
+              <li>ss01</li>
+              <li>ss02</li>
+              <li>ss03</li>
+              <li>ss04</li>
+              <li>ss05</li>
+              <li>ss06</li>
+              <li>ss07</li>
+              <li>ss08</li>
+              <li>ss09</li>
+              <li>ss10</li>
+              <li>ss11</li>
+              <li>ss12</li>
+              <li>ss13</li>
+              <li>ss14</li>
+              <li>ss15</li>
+              <li>ss16</li>
+              <li>ss17</li>
+              <li>ss18</li>
+              <li>ss19</li>
+              <li>ss20</li>
+              <li>ssty</li>
+              <li>stch</li>
+              <li>subs</li>
+              <li>sups</li>
+              <li>swsh</li>
+              <li>titl</li>
+              <li>tjmo</li>
+              <li>tnam</li>
+              <li>tnum</li>
+              <li>trad</li>
+              <li>twid</li>
+              <li>unic</li>
+              <li>valt</li>
+              <li>vatu</li>
+              <li>vert</li>
+              <li>vhal</li>
+              <li>vjmo</li>
+              <li>vkna</li>
+              <li>vkrn</li>
+              <li>vpal</li>
+              <li>vrt2</li>
+              <li>vrtr</li>
+              <li>zero</li>
+            </ul>
+            <aside class="notes">
+              <p><code>font-feature-settings</code> allows us to toggle very specific OpenType properties. Last I checked, there were 141 OpenType feature tags to cover things like vertical kerning, unicase, scientific inferiors and so on.</p>
+              <p>Browser support for each of <code>font-variant</code> properties varies at the moment, with Firefox being the only browser that has supported all of them since version 34.0.</p>
+              <p><code>font-feature-settings</code>, on the other hand, has quite good support across most browsers. Although, the specification recommends to utilise the respective <code>font-variant</code> properties over the <code>font-feature-settings</code> property, until browser support becomes more robust, I suppose we'll continue to see <code>font-feature-settings</code> being used instead.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Variable fonts</h2>
+            <figure>
+              <img class="plain" style="max-height:65vh;" data-src="img/font-axes.png" alt="OpenType Variable font axes">
+              <figcaption><a href="https://medium.com/@tiro/https-medium-com-tiro-introducing-opentype-variable-fonts-12ba6cd2369"></a>Image credit: John Hudson</figcaption>
+            </figure>
+            <aside class="notes">
+              <p>Remember I mentioned OpenType earlier on? Well, in September 2016, version 1.8 of the specification introduced OpenType Font Variations. A joint development by Microsoft, Google, Apple and Adobe.</p>
+              <p>An OpenType variable font is one in which the equivalent of multiple individual fonts can be compactly packaged within a single font file, which can potentially be a big plus when it comes to performance. This is especially significant for fonts with large glyph sets, like CJK fonts.</p>
+              <p>In addition to that, the dynamism of variable fonts makes it perfect for the web medium, and opens up the possibility of new kinds of responsive typography.</p>
+            </aside>
+          </section>
+
+          <section>
+            <table>
+              <tr>
+                <th style="width:30%;">CSS property<br></th>
+                <th>Tag</th>
+                <th>Name<br></th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td><code>font-weight</code><br></td>
+                <td>'wght'</td>
+                <td>Weight</td>
+                <td>Used to vary stroke thicknesses to give variation from lighter to blacker.</td>
+              </tr>
+              <tr>
+                <td rowspan="2"><code>font-style</code><br></td>
+                <td>'slnt'</td>
+                <td>Slant</td>
+                <td>Used to vary between upright and slanted text.</td>
+              </tr>
+              <tr>
+                <td>'ital'</td>
+                <td>Italic</td>
+                <td>Used to vary between non-italic and italic.</td>
+              </tr>
+              <tr>
+                <td><code>font-stretch</code></td>
+                <td>'wdth'</td>
+                <td>Width</td>
+                <td>Used to vary width of text from narrower to wider.</td>
+              </tr>
+              <tr>
+                <td><code>font-optical-sizing</code><br></td>
+                <td>'opsz'</td>
+                <td>Optical size<br></td>
+                <td>Used to vary design to suit different text sizes.</td>
+              </tr>
+            </table>
+            <aside class="notes">
+              <p>If I start talking about variable fonts in depth, I'll probably need one more session, so I won't do that. If you weren't at Talk.CSS max-content, then you missed Mandy Michael's amazing presentation, where we saw how variable fonts could be animated. Not to worry, we recorded the session. You're welcome.</p>
+              <p>Because variable fonts are so new, the W3C are still working on drafting out how variation axis values should be controlled via CSS in the CSS Fonts Level 4 specification.</p>
+              <p>Currently, there are 5 common axes of variation that can be enabled by the <code>font-size</code>, <code>font-weight</code>, <code>font-stretch</code> and <code>font-style</code>. There is also one new property defined in the specification for optical sizing. But as new variation axes become popular, new properties will be added to control those axes in future.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>font-variation-settings</code></h2>
+            <p>Provides low-level control over OpenType or TrueType font <strong>variations</strong></p>
+            <aside class="notes">
+              <p><code>font-variation-settings</code>, like <code>font-feature-settings</code> are very low-level CSS properties that allow granular control of axes values.</p>
+              <p>Again, the specification recommends using the higher-level CSS properties whenever possible because this property was meant to be used as an escape hatch, not the main method of implementation.</p>
+            </aside>
+          </section>
+
+          <section>
+            <figure>
+              <video loop autoplay>
+                <source data-src="videos/axis-praxis.mp4" type="video/mp4" />
+                Sorry, your browser doesn't support embedded videos, 
+                but don't worry, you can <a href="videos/axis-praxis.mp4">download it</a>
+                and watch it with your favourite video player!
+              </video>
+              <figcaption><a href="https://www.axis-praxis.org/">https://www.axis-praxis.org/</a></figcaption>
+            </figure>
+            <aside class="notes">If you're interested in seeing how variable fonts behave, you have to check out Axis Praxis by Laurence Penney, which is essentially a playground for the available variable fonts on the web. Taipei-based type foundry Arphic Technology AKA 文鼎科技 created the first Chinese variable font 文鼎晶熙黑, and you can play with it on Axis Praxis.</aside>
+          </section>
+        </section>
+
+        <section>
+          <section data-background-image="img/writingmode1.jpg">
+            <aside class="notes">(1/4) Vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. But when it comes to design, we can layout text in all directions if we so choose.</aside>
+          </section>
+
+          <section data-background-image="img/writingmode2.jpg">
+            <aside class="notes">(2/4) Vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. But when it comes to design, we can layout text in all directions if we so choose.</aside>
+          </section>
+
+          <section data-background-image="img/writingmode3.jpg">
+            <aside class="notes">(3/4) Vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. But when it comes to design, we can layout text in all directions if we so choose.</aside>
+          </section>
+
+          <section data-background-image="img/writingmode4.jpg">
+            <aside class="notes">(4/4) Vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. But when it comes to design, we can layout text in all directions if we so choose.</aside>
+          </section>
+
+          <section>
+            <h2>The magic of Writing Modes</h2>
+            <p>CSS Writing Modes Level 3 defines CSS features to support for various international writing modes, such as <strong>left-to-right</strong> (e.g. Latin or Indic), <strong>right-to-left</strong> (e.g. Hebrew or Arabic), <strong>bidirectional</strong> (e.g. mixed Latin and Arabic) and <strong>vertical</strong> (e.g. Asian scripts).</p>
+            <aside class="notes">So I want to introduce the <code>writing-mode</code> property, which deals specifically with vertical text.</aside>
+          </section>
+
+          <section>
+            <div class="l-multiple" style="height:80vh;align-items:center;">
+              <p style="writing-mode:vertical-lr;width:4em;">You can make your browser literally turn on its side from left-to-right.</p>
+              <span class="fragment emoji"" role="img" tabindex="0" aria-label="upside-down face">&#x1F643;</span>
+              <p class="fragment" style="writing-mode:vertical-rl;width:4em;">Or make it read from right-to-left.</p>
+              <span class="fragment emoji"" role="img" tabindex="0" aria-label="upside-down face">&#x1F642;</span>
+              <p class="fragment" style="writing-mode:vertical-lr;text-orientation:upright;width:4em;">Vertical text is fun!</p>
+            </div>
+            <aside class="notes">You literally turn the browser on its side. Some people might be saying, no big deal, we can do that with transforms too. But it's kind of different.</aside>
+          </section>
+
+          <section>
+            <h2><code>writing-mode</code> property</h2>
+            <table>
+              <tr>
+                <td>horizontal-tb</td>
+                <td><span>从1987到现在</span></td>
+              </tr>
+              <tr>
+                <td>vertical-rl</td>
+                <td><span style="writing-mode:vertical-rl;height:3.5em;">从1987到现在</span></td>
+              </tr>
+              <tr>
+                <td>vertical-lr</td>
+                <td><span style="writing-mode:vertical-lr;height:3.5em;">从1987到现在</span></td>
+              </tr>
+              <tr>
+                <td>sideways-rl*</td>
+                <td><span style="writing-mode:sideways-rl;height:3.5em;">从1987到现在</span></td>
+              </tr>
+              <tr>
+                <td>sideways-lr*</td>
+                <td><span style="writing-mode:sideways-lr;height:3.5em;">从1987到现在</span></td>
+              </tr>
+            </table>
+            <small>Properties marked with * have been deferred to Writing Modes Level 4.</small>
+            <aside class="notes">This is what happens to your text when the different values of writing-mode are applied. The default is horizontal, top-to-bottom. To change the direction to vertical, we use <code>vertical-rl</code> or <code>vertical-lr</code>.</aside>
+          </section>
+
+          <section>
+            <h2><code>text-orientation</code>  property</h2>
+            <div class="l-multiple">
+              <figure>
+                <div><span style="writing-mode:vertical-rl;">从1987到现在</span></div>
+                <figcaption>mixed</figcaption>
+              </figure>
+              <figure>
+                <div><span style="writing-mode:vertical-rl;text-orientation:upright;text-align:justify;">从<span style="letter-spacing:-4px">1987</span>到现在</span></div>
+                <figcaption>upright</figcaption>
+              </figure>
+              <figure>
+                <div><span style="writing-mode:vertical-rl;text-orientation:sideways;">从1987到现在</span></div>
+                <figcaption>sideways</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">
+              <p>Now when we rotate text, it's not only the lines that change direction, because each line contains individual letters or characters. They have an orientation as well.</p>
+              <p>For text-orientation, the initial value is mixed. Browsers are smart enough to tell which languages can be typeset both vertically and horizontally, or in one direction only. So Chinese characters, for example, will always be displayed upright. While horizontal-only languages, will have their characters rotated when vertical.</p> 
+              <p>The <code>text-orientation</code> property let's you control this, and make all the characters upright or sideways, if you want to.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>text-combine-upright</code> property</h2>
+            <div class="l-multiple" style="margin-bottom:1em;">
+              <figure>
+                <div><span style="writing-mode:vertical-rl;">民國106年7月3日</span></div>
+                <figcaption>none</figcaption>
+              </figure>
+              <figure>
+                <div><span style="writing-mode:vertical-rl;">民國<span style="text-combine-upright:all">106</span>年<span style="text-combine-upright:all">7</span>月<span style="text-combine-upright:all">3</span>日</span></div>
+                <figcaption>all</figcaption>
+              </figure>
+              <figure>
+                <div><span style="writing-mode:vertical-rl;">民國<span style="text-combine-upright:digits 3">106</span>年<span style="text-combine-upright:digits">7</span>月<span style="text-combine-upright:digits">3</span>日</span></div>
+                <figcaption>digits &lt;integer&gt;*</figcaption>
+              </figure>
+            </div>
+            <a href="https://codepen.io/huijing/pen/bWzMEJ"><small>Codepen example for text-combine-upright</small></a>
+            <aside class="notes">
+              <p>One more relevant property is <code>text-combine-upright</code>. This addresses the issue of numerals and abbreviations in vertical text. A very common use case is dates, especially for Taiwan, where they use the 民國 calendar. This property lets us fit all the digits into the width of one character and display them upright.</p>
+              <p>No browser supports the digits value yet, which allows us to dictate how many digits are acceptable to be squeezed in. The range allowed is between 2 to 4 characters. For now, with the <code>all</code> value, there is no limit, so you could technically put hippopotamus in there and it will just look horribly squished.</p>
+            </aside>
+          </section>
+        </section>
+
         <section style="text-align:left;">
           <h1>Thank you!</h1>
           <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle;">https://www.chenhuijing.com</a></p>
@@ -340,8 +969,9 @@
     </div>
 
     <script src="lib/js/head.min.js"></script>
+    <script src="lib/js/caniuse-embed.min.js"></script>
     <script src="js/reveal.js"></script>
-    <script async src="lib/js/eijs.js"></script>
+    <script async src="lib/js/ei.js"></script>
 
     <script>
       Reveal.initialize({
