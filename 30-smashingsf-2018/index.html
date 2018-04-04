@@ -253,7 +253,7 @@
             <img class="plain" data-src="img/alphabets.jpg" alt="Evolution of the Latin alphabet">
             <aside class="notes">
               <p>The appearance of the earliest letterforms was directly influenced by the tools that were used to create them, and continually evolved in tandem with the limitations of the technologies of their time.</p>
-              <p>Take the Latin alphabet for example, which is derived from Greek. The earliest letters were sans-serif when writing was done with a hard reed pen. Serifs may have came about due to a transition to a square-cut writing implement, like a flat stiff brush.</p>
+              <p>Latin alphabets were derived from the Greek alphabet and the earliest Greek letters were sans-serif when writing was done with a hard reed pen. Serifs may have came about due to a transition to a square-cut writing implement, like a flat stiff brush.</p>
               <p>Later scribes and copyists used quill pens and as demand for written matter grew, they developed more efficient styles of writing, evolving the letterforms yet again.</p>
             </aside>
           </section>
@@ -305,9 +305,11 @@
           </section>
 
           <section data-background-image="img/glyphs.jpg">
+            <blockquote style="background-color:rgba(255,255,255,0.85)">“Chinese-script projects are crazy. The scope is mind-blowing.”<br><small>—David Březina from <a href="https://qz.com/522079/the-long-incredibly-tortuous-and-fascinating-process-of-creating-a-chinese-font/">The long, incredibly tortuous, and fascinating process of creating a Chinese font</a></small></blockquote>
             <aside class="notes">
               <p>Chinese typefaces are extremely challenging to create, simply due to the volume of glyphs required. The average number of glyphs for a Chinese system font clocks in at around 35,000 glyphs, give or take a couple thousand.</p>
-              <p>Typefaces that have enough glyph coverage to be used in body copy are usually made by foundries as very few independent type designers have the bandwidth for that.</p>
+              <p>You may have come across this article on Quartz that covers the process of creating a Chinese font. I saw it make the rounds on Twitter again earlier this year. It's an interesting read, and I'll share the link later, if anyone's interested.</p>
+              <p>For a typeface to be viably used as body copy, it will probably need a minimum coverage of around 7000 glyphs for simplified Chinese or around 13,000 for traditional Chinese. That's still a lot of glyphs, hence Chinese fonts are almost always designed by teams over a period of years, not months.</p>
             </aside>
           </section>
         </section>
@@ -351,7 +353,7 @@
               <img class="plain fragment" data-src="img/digital-fonts.png" alt="Digital fonts">
             </div>
             <aside class="notes">
-              <p>In world of metal typesetting, this is a font, which refers to a complete set of metal types that were used to typeset entire pages of text. If you can see the tiny text label on the drawer, this set being shown is for Caslon, 12pt.</p>
+              <p>In world of metal typesetting, this is a font, which refers to a complete set of metal types that were used to typeset entire pages of text. This particular set being shown is for Caslon, 12pt.</p>
               <p>In the digital world, these are fonts, specifically font files. For both analogue and digital fonts, you can think of them as collections of glyphs.</p>
             </aside>
           </section>
@@ -425,7 +427,7 @@
               </tr>
             </table>
             <aside class="notes">
-              <p>If you've ever used web fonts before, you would have seen these font formats. Have you wondered why there are so many? There's a bit of history here. The earliest fonts were pixel-based bitmaps, which didn't work out so well when it came to high-resolution printing.</p>
+              <p>If you've ever used web fonts before, you would have seen these font formats. To understand how we got to this point, we need to go back a time a little bit. The earliest fonts were pixel-based bitmaps, which didn't work out so well when it came to high-resolution printing.</p>
               <p>A lot of smart people worked on this problem. And one of the solutions came from Adobe founder, John Warnock. He created Postscript in 1985, the very first vector font, and it really took off.</p>
               <p>TrueType was Apple and Microsoft's answer to Adobe's font monopoly. Microsoft came up with TrueType Open in 1994 and eventually Adobe joined in and together they developed OpenType.</p>
               <p>Microsoft also came up with EOT or embedded OpenType, a proprietary format for use on web pages. Although they tried to submit this as a W3C recommendation, it was rejected in favour of WOFF, or the Web Open Font Format. WOFF2 is an improvement over WOFF with significantly better compression rates.</p>
@@ -467,7 +469,7 @@
   font-variant: normal | none | [ &lt;common-lig-values&gt; || &lt;discretionary-lig-values&gt; || &lt;historical-lig-values&gt; || &lt;contextual-alt-values&gt; || stylistic(&lt;feature-value-name&gt;) || historical-forms || styleset(&lt;feature-value-name&gt; #) || character-variant(&lt;feature-value-name&gt; #) || swash(&lt;feature-value-name&gt;) || ornaments(&lt;feature-value-name&gt;) || annotation(&lt;feature-value-name&gt;) || [ small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps ] || &lt;numeric-figure-values&gt; || &lt;numeric-spacing-values&gt; || &lt;numeric-fraction-values&gt; || ordinal || slashed-zero || &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ];
   font-feature-settings: normal | &lt;feature-tag-value&gt; #;
 }</code></pre>
-            <aside class="notes">The next 3 descriptors, for style, weight and stretch, are used to match styles to a particular typeface in later declarations. Technically, you could assign a black typeface to a font-weight of 100 and proceed to confuse your team members who cannot figure out why setting a weight of 100 gives them this massively bold typeface. Perhaps an idea for April Fool's day. #dontgetfired</aside>
+            <aside class="notes">The next 3 descriptors, for style, weight and stretch, are used to match styles to a particular typeface in later declarations. Technically, you could assign a black typeface to a font-weight of 100 and proceed to confuse your colleagues who cannot figure out why setting a weight of 100 gives them this massively bold typeface. If office pranks are your thing...I'm just saying. #dontgetfired.</aside>
           </section>
 
           <section>
@@ -493,9 +495,10 @@
           <section>
             <img class="plain" data-src="img/unicode-range.jpg" alt="Unicode-range descriptor in action">
             <aside class="notes">
-              <p>The Firefox DevTools has a font panel that shows which fonts are loaded on your page. You can see that both Heiti SC and Andika New Basic are loaded for my custom font-family, Heiti Plus.</p>
+              <p>I really have to shoutout Firefox Devtools here, if you're doing a lot of design work in the browser, it's just awesome. It has the best Grid Inspector tool, a Flexbox inspector, I could go on.</p>
+              <p>But anyway, there's also the font panel that shows which fonts are loaded on your page. You can see that both Heiti SC and Andika New Basic are loaded for my custom font-family, Heiti Plus.</p>
               <p>If a page does not contain any Latin characters, Andika New Basic will not be loaded at all because it is not needed.</p>
-              <p>Font descriptors and CSS properties look very similar, but are 2 completely different things.</p>
+              <p>All these font descriptors I've talked about thus far look very similar to CSS properties, but they are 2 completely different things.</p>
             </aside>
           </section>
 
@@ -505,7 +508,7 @@
 
           <section>
             <h2>Basic CSS font properties</h2>
-            <table style="font-size:85%">
+            <table>
               <tr>
                 <td><code>font-size</code></td>
                 <td>Indicates the desired height of the glyphs. Takes absolute or relative values.</td>
@@ -540,7 +543,7 @@
           <section>
             <h2><code>font-size-adjust</code></h2>
             <div class="l-double">
-              <img class="plain" data-src="img/font-size-adjust.png" alt="Font-size adjust example">
+              <img class="plain" style="max-height:70vh" data-src="img/font-size-adjust.png" alt="Font-size adjust example">
               <p data-height="400" data-theme-id="9162" data-slug-hash="xLvYNw" data-default-tab="result" data-user="huijing" data-embed-version="2" data-pen-title="Demo of font-size-adjust" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/xLvYNw/">Demo of font-size-adjust</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
             </div>
             <aside class="notes"><code>font-size-adjust</code> was put in to address legibility issues. Faces with low x-heights may sometimes be less legible, especially when they are triggered as fallback fonts. We can set the value of this property to the aspect ratio of the first choice font. Any fallback fonts triggered will have their font-size adjusted to match this ratio.</aside>
@@ -768,7 +771,7 @@
           <section>
             <h2>Variable fonts</h2>
             <figure>
-              <img class="plain" style="max-height:65vh;" data-src="img/font-axes.png" alt="OpenType Variable font axes">
+              <img class="plain" style="max-height:55vh;" data-src="img/font-axes.png" alt="OpenType Variable font axes">
               <figcaption><a href="https://medium.com/@tiro/https-medium-com-tiro-introducing-opentype-variable-fonts-12ba6cd2369"></a>Image credit: John Hudson</figcaption>
             </figure>
             <aside class="notes">
@@ -781,7 +784,7 @@
           <section>
             <table>
               <tr>
-                <th style="width:30%;">CSS property<br></th>
+                <th style="width:30%">CSS property<br></th>
                 <th>Tag</th>
                 <th>Name<br></th>
                 <th>Description</th>
@@ -817,10 +820,17 @@
               </tr>
             </table>
             <aside class="notes">
-              <p>If I start talking about variable fonts in depth, I'll probably need one more session, so I won't do that. If you weren't at Talk.CSS max-content, then you missed Mandy Michael's amazing presentation, where we saw how variable fonts could be animated. Not to worry, we recorded the session. You're welcome.</p>
               <p>Because variable fonts are so new, the W3C are still working on drafting out how variation axis values should be controlled via CSS in the CSS Fonts Level 4 specification.</p>
               <p>Currently, there are 5 common axes of variation that can be enabled by the <code>font-size</code>, <code>font-weight</code>, <code>font-stretch</code> and <code>font-style</code>. There is also one new property defined in the specification for optical sizing. But as new variation axes become popular, new properties will be added to control those axes in future.</p>
             </aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <img class="plain" data-src="img/mandy.png" alt="Mandy Michael's variable font demo showcase">
+              <p data-height="450" data-theme-id="9162" data-slug-hash="YYaWop" data-default-tab="result" data-user="mandymichael" data-embed-version="2" data-pen-title="Grassy Text with Variable fonts." class="codepen">See the Pen <a href="https://codepen.io/mandymichael/pen/YYaWop/">Grassy Text with Variable fonts.</a> by Mandy Michael (<a href="https://codepen.io/mandymichael">@mandymichael</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+            </div>
+            <aside class="notes">If I start talking about variable fonts in depth, I'll probably need one more session, so I won't do that. Some brilliant people have been building demos and writing articles about variable fonts, one of whom is Mandy Michael, who gave an amazing presentation in Singapore earlier this year. I'll share the link to that later as well.</aside>
           </section>
 
           <section>
@@ -882,7 +892,7 @@
 
           <section>
             <h2><code>writing-mode</code> property</h2>
-            <table>
+            <table style="font-size:75%;">
               <tr>
                 <td>horizontal-tb</td>
                 <td><span>从1987到现在</span></td>
@@ -953,6 +963,207 @@
               <p>No browser supports the digits value yet, which allows us to dictate how many digits are acceptable to be squeezed in. The range allowed is between 2 to 4 characters. For now, with the <code>all</code> value, there is no limit, so you could technically put hippopotamus in there and it will just look horribly squished.</p>
             </aside>
           </section>
+        </section>
+
+        <section>
+          <section>
+            <img class="plain" data-src="img/centring.jpg" alt="Vertical centring for vertical layout">
+            <aside class="notes">
+              <p>Laying out content in a different direction does require a change in perspective. And I gleaned quite a few insights from working with vertical layout. For example, the techniques I was so used to for centring items worked a bit differently with a vertical layout.</p>
+              <p>To vertically centre a block, setting the top and bottom margins to <code>auto</code> actually does work, unlike in horizontal writing, which is great. But trying to centre something horizontally is an exercise in pain.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div style="writing-mode:vertical-rl;width:100%;height:85vh;">
+              <h2>Willem de Kooning</h2>
+              <p style="font-size:75%;text-align:left;">If Jackson Pollock was the public face of the New York avant-garde, Willem de Kooning could be described as an artist’s artist, who was perceived by many of his peers as its leader. He was born in Rotterdam, where he grew up in an impoverished household and attended the Rotterdam Academy, training in fine and commercial arts. In 1926, the adventurous young artist stowed away on a ship bound for Argentina. While the ship was docked in Virginia, de Kooning slipped off, skirted immigration, and made his way to New Jersey—and so began the rest of his life.</p>
+            </div>
+            <aside class="notes">These directions of top, right, bottom, left start getting a bit confusing when you have rotated Latin text. Say you have this header, and you want some extra spacing between the header and the paragraph, is the margin set on the bottom or the left? It's actually the left.</aside>
+          </section>
+
+          <section>
+            <h2>CSS Logical Properties</h2>
+            <p class="ciu_embed" data-feature="css-logical-props" data-periods="future_1,current,past_1,past_2">
+              <a href="http://caniuse.com/#feat=css-logical-props"><img class="plain" data-src="img/caniuse-logical.png"></a>
+            </p>
+            <aside class="notes">
+              <p>That's why we have a CSS Logical Properties specification, which introduces new CSS properties that are flow-relative equivalents of physical box model properties. Properties like that use <code>block-start</code> and <code>block-end</code> or <code>inline-start</code> and <code>inline-end</code> instead of left and right.</p>
+              <p>Rachel Andrew recently wrote an in-depth article explaining how logical properties and values work on Smashing Magazine, so check that out if you haven't. The first public working draft was published in December last year, and I'm eager to see it developed and implemented. For now, support is kind of limited.</p>
+            </aside>
+          </section>
+
+          <section>
+            <video loop autoplay>
+              <source data-src="videos/vertical.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/vertical.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <aside class="notes">
+              <p>When I started this talk, I mentioned how I had assumed the digital world was always going to be left-to-right when I was a kid. And I had carried that assumption for quite a while. Even when Chinese language support on my PC and the web got much better, I never really thought about the layout part of things.</p>
+              <p>It wasn't until a couple years back when I was in a crowded subway train, peeking over the shoulder of this guy reading a Chinese novel on his phone, that I started to think, hey, a vertical layout seems like it would work really well here. I wonder if it's possible to do that on the web.,,?</p>
+              <p>So that's how I fell into this rabbit hole of vertical typesetting on the web, and learning a lot more about the Chinese language. And as you can see from this demo, the answer to my original question is a resounding yes, with all 3 properties I covered earlier being showcased here.</p>
+          </section>
+
+          <section>
+            <video loop autoplay>
+              <source data-src="videos/mode-switcher.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/mode-switcher.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <aside class="notes">
+              <p>This is a layout I built for displaying Chinese text with a toggle that allowed readers to switch between vertical and horizontal layouts. You know, because we can do that for Chinese. But it wasn't as straightforward as I thought it would be.</p>
+              <p>It was quite tricky to get the images to orientate correctly. It would have been nice to have a media query for writing modes so I could layout my images accordingly with the picture element, but that doesn't exist yet so I ended up working around the image issue with CSS transforms instead.</p>
+            </aside>
+          </section>
+
+          <section>
+            <img class="plain" data-src="img/i18n.png" alt="W3C Internationalization (I18n) Activity website">
+            <aside class="notes">
+              <p>So yes, there is still work to be done to further develop Chinese typesetting on the web, and for all non-Latin-based languages actually. The Chinese Layout Task Force, which I am a part of, aims to document requirements for the layout and presentation of text for the major languages of China when those languages are used by Web standards.</p>
+              <p>The document will provide requirements for the development of W3C standards affected by languages used in China, including Hanzi, Mongolian, Tibetan and Uighur scripts.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <figure>
+                <img class="plain" data-src="img/pghk.jpg" alt="Screenshot of PGHK homepage">
+                <figcaption><a href="http://penang-hokkien.gitlab.io/">Penang Hokkien website</a></figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/pghk-pages.jpg" alt="PGHK about and post pages">   
+                <figcaption><a href="http://penang-hokkien.gitlab.io/about/">About page</a></figcaption>
+              </figure>
+            </div>
+            <aside class="notes">Implementing vertical layouts has become much easier, as browser vendors continue to improve the functionality of their products, and this opens up an aspect of graphic design that isn't often seen on the web at the moment.</aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <figure>
+              <img class="plain" data-src="img/pghk-shelf.jpg" alt="Vertical text with CSS">
+              <figcaption>Bookshelf-style design with vertical text</figcaption>
+            </figure>
+            <aside class="notes">
+              <p>For example, you can make a bookshelf style list of posts with just CSS. Something like this can be done by applying a <code>vertical-rl</code> to each list item, plus some padding and inset box-shadows for the visual effect.</p>
+              <p>Another idea is for headers. For horizontal languages, you wouldn't layout long chunks of text vertically because that just makes it hard to read. But using vertical text for short titles or headers can break up the monotony of a long page.</p>
+            </aside>
+          </section>
+
+          <section>
+            <figure>
+              <img class="plain" data-src="img/wm-eg2.jpg" alt="Vertical blog tags">
+              <figcaption>Vertical blog tags</figcaption>
+            </figure>
+            <aside class="notes">Other subtle uses of vertical text could be for tags on blog posts, where the information is not critical to the main content, so laying it out vertically doesn't adversely affect the reading experience.</aside>
+          </section>
+
+          <section>
+            <figure>
+              <video style="max-height:70vh;" loop autoplay>
+                <source data-src="videos/pghk-resize.mp4" type="video/mp4" />
+                Sorry, your browser doesn't support embedded videos, 
+                but don't worry, you can <a href="videos/pghk-resize.mp4">download it</a>
+                and watch it with your favourite video player!
+              </video>
+              <figcaption>Responsive vertical to horizontal layout</figcaption>
+            </figure>
+            <aside class="notes">For languages meant to be read horizontally from top to bottom, vertical text should largely be decorative. We don't want to compromise the reading experience for long form passages. So at smaller screens, we can make use of media queries to revert to a horizontal layout that makes better use of the limited space.</aside>
+          </section>
+
+          <section>
+            <figure>
+              <video style="max-height:70vh;" loop autoplay>
+                <source data-src="videos/menu.mp4" type="video/mp4" />
+                Sorry, your browser doesn't support embedded videos, 
+                but don't worry, you can <a href="videos/menu.mp4">download it</a>
+                and watch it with your favourite video player!
+              </video>
+              <figcaption>Vertical mobile navigation</figcaption>
+            </figure>
+            <aside class="notes">Conversely, there are instances where text rotated vertically can work on narrow screen sizes as well. Perhaps you have realised that the hamburger menu is not the best mobile UI pattern we came with. Depending on the number of links in your navigation, laying them out vertically along the side edge could be a design worth considering. And I'm sure many of you can come up with even more interesting designs that utilise vertical layouts.</aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <figure>
+              <img class="plain" data-src="img/vertical-bugs.png" alt="Bugs in Firefox">
+              <figcaption>Bugs, bugs, bugs</figcaption>
+            </figure>
+            <aside class="notes">Statistically, there aren't that many sites which use the <code>writing-mode</code> property. When I started building vertical layouts, Grid hadn't landed yet, so I used Flexbox for a lot of the layout. Flexbox support is great, I mean, it has wider coverage than <code>border-radius</code>, but Flexbox with <code>writing-mode</code>? Not so good. I'll be honest, there are quite a large number of cross browser issues.</aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <figure>
+                <img class="plain" data-src="img/bugzilla.jpg" alt="Raising bugs for Firefox">
+                <figcaption><a href="https://bugzilla.mozilla.org/">Bugzilla@Mozilla</a></figcaption>
+              </figure>
+              <figure>
+              <img class="plain" data-src="img/chromium.jpg" alt="Raising bugs for Chrome">
+              <figcaption><a href="https://bugs.chromium.org/p/chromium/issues/list">Chromium Bugs</a></figcaption>
+            </div>
+            <aside class="notes">
+              <p>But that doesn't mean we should just shy away from using vertical text altogether. In fact, there's never been a better time than now to live on the cutting edge. Evergreen browsers are a thing now, with bug fixes and new features being shipped faster than ever.</p>
+              <p>CSS Grid, I feel, is one of the best rollouts of a new major CSS feature ever, with almost all the major browsers shipping it in March last year. By now, more than 70% of the market is using a browser that supports Grid.</p>
+              <p>And here's a little secret I discovered, by raising bugs we find when trying out new features, we are actually showing browser vendors that these features are in demand.</p>
+              <p>This works both ways, if we don't use features simply because they are buggy, browser vendors will think that nobody really cares about that feature and choose to fix more pressing bugs instead. But if more of us use those features and raise the bugs we discover, it sends a signal to browser vendors that people are using these features and encourage them to address related bugs sooner than later.</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <h2>A long list of references</h2>
+          <ul style="column-count:2;font-size:50%;">
+            <li><a href="https://w3techs.com/technologies/overview/content_language/all">Usage of content languages for websites</a></li>
+            <li><a href="https://www.typemag.org/home/2017/10/6/the-faces-of-microsoft">The faces of Microsoft</a></li>
+            <li><a href="https://www.zachleat.com/web/retire-bulletproof-syntax/">No @font-face Syntax will ever be Bulletproof, Nor Should It Be.</a></li>
+            <li><a href="http://justineo.github.io/slideshows/font/">字体漫谈</a></li>
+            <li><a href="https://blogs.adobe.com/CCJKType/2017/04/source-han-serif-history-development.html">Source Han Serif / Noto Serif CJK History & Development</a></li>
+            <li><a href="https://collab.itc.virginia.edu/wiki/toolbox/Chinese%20Fonts%20%26%20Related%20Issues.html">Chinese Fonts & Related Issues</a></li>
+            <li><a href="https://blog.typekit.com/2016/09/14/variable-fonts-a-new-kind-of-font-for-flexible-design/">Variable fonts, a new kind of font for flexible design</a></li>
+            <li><a href="https://medium.com/@tiro/https-medium-com-tiro-introducing-opentype-variable-fonts-12ba6cd2369">Introducing OpenType Variable Fonts</a></li>
+            <li><a href="https://www.microsoft.com/typography/otspec180/fvar.htm">fvar — Font Variations Table</a></li>
+            <li><a href="https://webkit.org/blog/7051/variable-fonts-on-the-web/">Variable Fonts on the Web</a></li>
+            <li><a href="https://webdesign.tutsplus.com/articles/how-to-use-variable-fonts-on-the-web--cms-30212">How to Use Variable Fonts on the Web</a></li>
+            <li><a href="http://clagnut.com/blog/2389/">Getting started with variable fonts</a></li>
+            <li><a href="http://www.arphic.com.tw/zh-tw/home/about#view_post/181">全球首款! 文鼎晶熙黑體支援可變式字體格式</a></li>
+            <li><a href="https://www.w3.org/International/talks/1409-china/index.html">W3C Internationalization & Text Layout Requirements</a></li>
+            <li>Berners-Lee, T., & Fischetti, M. (2011). <em>Weaving the web: The original design and ultimative destiny of the World Wide Web by its inventor.</em> New York, NY: HarperBusiness.</li>
+            <li>Zhang, X. & Han, Q. (2009). <em>The history of Chinese printing: (illustrated).</em> Paramus, N.J: Homa et Sekey Books.</li>
+            <li>Brokaw, C. & Reed, C. A. (2010). <em>From woodblocks to the Internet: Chinese publishing and print culture in transition, circa 1800 to 2008.</em> Leiden: Brill.</li>
+            <li>Tsien T. (2011). <em>Collected writings on Chinese culture.</em> Hong Kong: The Chinese University Press.</li>
+            <li>Tsien, T. & Shaughnessy, E. L. (2013). <em>Written on bamboo & silk: the beginnings of Chinese books & inscriptions.</em> Chicago: The University of Chicago Press.</li>
+            <li>Houston, K. (2016). <em>The book: a cover-to-cover exploration of the most powerful object of our time.</em> New York: W.W. Norton & Company.</li>
+            <li>厉致谦 (2013). 西文字体的故事. 上海市: 同济大学出版社.</li>
+            <li>Choi, K. E., & Kim, M. S. (2015). <em>A Comparative Study on the Sociocultural Drivers in the Development of Printing Technology in Korea and Europe</em>. Korea Journal, 55(4), 7-35.</li>
+            <li>Park, H. O. (2014). The History of Pre-Gutenberg Woodblock and Movable Type Printing in Korea. International Journal of Humanities and Social Science, 4(9), 1.</li>
+            <li>Haralambous, Y., & Horne, P. S. (2007). <em>Fonts & encodings</em>.</li>
+          </ul>
+          <aside class="notes">
+            <p>Here's the long list of resources I referred to when preparing this talk and I'll share these slides for anybody who is interested.</p>
+          </aside>
+        </section>
+
+        <section>
+          <div class="l-double">
+            <figure>
+              <img class="plain" data-src="img/tategaki.jpg" alt="Web awards for vertical writing">
+              <figcaption><a href="http://tategaki.github.io/awards/">http://tategaki.github.io/awards/</a></figcaption>
+            </figure>
+            <figure>
+            <img class="plain" data-src="img/layoutlab.png" alt="Jen Simmons' experimental layout lab">
+            <figcaption><a href="http://labs.jensimmons.com/">http://labs.jensimmons.com/</a></figcaption>
+          </div>
+          <aside class="notes">
+            <p>If you need inspiration for vertical layouts, the Tateyoko Web Awards site has really nice list. Jen Simmons also has an experimental layout lab where she showcases all the different things that are now possible with modern CSS.</p>
+            <p>And even if you don't end up using any of what I've covered immediately in your next project, I hope that you keep these techniques and properties in the back of your mind. And maybe one day, when you're tired of building the same old layouts again and again, you'll reach for them and create something amazing.</p>
+          </aside>
         </section>
 
         <section style="text-align:left;">

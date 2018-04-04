@@ -51,6 +51,7 @@ html {
   .l-double {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
   }
 
   .j-icon {
@@ -80,6 +81,10 @@ html {
 
   figcaption {
     font-style: italic;
+    font-size: 85%;
+  }
+
+  table {
     font-size: 85%;
   }
 

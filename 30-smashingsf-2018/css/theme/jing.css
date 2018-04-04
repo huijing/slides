@@ -284,7 +284,8 @@ html {
 
 .reveal .l-double {
   display: grid;
-  grid-template-columns: 1fr 1fr; }
+  grid-template-columns: 1fr 1fr;
+  align-items: center; }
 
 .reveal .j-icon {
   display: inline-block;
@@ -307,6 +308,9 @@ html {
 
 .reveal figcaption {
   font-style: italic;
+  font-size: 85%; }
+
+.reveal table {
   font-size: 85%; }
 
 .reveal td {
