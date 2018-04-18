@@ -261,7 +261,8 @@ body {
 
 html {
   box-sizing: border-box;
-  height: 100%; }
+  height: 100%;
+  font-size: 125%; }
 
 *,
 *::before,
@@ -315,9 +316,6 @@ html {
 
 .reveal td {
   vertical-align: middle; }
-
-.reveal img {
-  max-height: 75vh; }
 
 span.emoji {
   font-family: 'Apple Color Emoji', 'Segoe UI Emoji';

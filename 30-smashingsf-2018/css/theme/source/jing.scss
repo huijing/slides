@@ -20,6 +20,7 @@
 html {
   box-sizing: border-box;
   height: 100%;
+  font-size: 125%;
 }
 
 *,
@@ -90,10 +91,6 @@ html {
 
   td {
     vertical-align: middle;
-  }
-
-  img {
-    max-height: 75vh;
   }
 }
 
