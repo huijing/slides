@@ -27,16 +27,22 @@
         <section data-background-image="img/penang.jpg" >
           <h1 style="text-transform:uppercase;font-size:1.999em;"">Vertical writing on the web</h1>
           <h3 style="font-size:1em;">Inadvertent layout inspiration from a search for cultural identity</h3>
-          <aside class="notes">Hello everyone! It has been an amazing conference thus far, hasn't it? With so many incredible speakers who have really expanded my horizons, and I feel blessed to be able to share the stage with all of them.</aside>
+          <aside class="notes">
+            <p>Hello everyone! It has been an amazing conference thus far, hasn't it? With so many incredible speakers who have really expanded my horizons, and I feel blessed to be able to share the stage with all of them.</p>
+            <p>The title of my talk is quite a mouthful, but it is a pretty good summary of what the next 40 minutes will entail. A bit about the web, a bit about culture, some writing and a dash of layout thrown in for good measure.</p>
+          </aside>
         </section>
 
         <section data-background-image="img/emoji-bg.png" data-background-repeat="repeat" data-background-size="200px">
-          <div class="l-double" style="font-size:150%;">
-            <div>
-              <img data-src="img/avatar.jpg" alt="Jing" style="border-radius:50%;">
+          <div class="l-double">
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <img data-src="img/name.svg" alt="Chen Hui Jing" class="plain" style="max-height:25vh">
+              <div>
+                <img data-src="img/avatar.jpg" alt="Jing" style="border-radius:50%;max-height:40vh;">
+              </div>
               <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
             </div>
-            <div style="display:grid;grid-template-columns:repeat(3,3em);grid-template-rows:repeat(3,3em);width:100%;grid-template-areas:'a . b''. c .''d . e';">
+            <div style="display:grid;grid-template-columns:repeat(3,3em);grid-template-rows:repeat(3,3em);width:100%;grid-template-areas:'a . b''. c .''d . e';font-size:150%;">
               <span style="font-size:calc(1.5em + 3vw);grid-area:a;" class="emoji" role="img" tabindex="0" aria-label="Malaysia">&#x1F1F2;&#x1F1FE;</span>
               <span style="font-size:calc(1.5em + 3vw);grid-area:b;" class="emoji fragment" role="img" tabindex="0" aria-label="basketball">&#x1F3C0;</span>
               <span style="font-size:calc(1.5em + 3vw);grid-area:c;" class="emoji fragment" role="img" tabindex="0" aria-label="woman technologist">&#x1F469;&#x200D;&#x1F4BB;</span>
@@ -44,13 +50,13 @@
               <span style="font-size:calc(1.5em + 3vw);grid-area:e;" class="emoji fragment" role="img" tabindex="0" aria-label="fox">&#x1F98A;</span>
             </div>
           </div>
-          <aside class="notes">I doubt anybody has ever heard of me, so some introductions are probably in order. My name is Hui Jing and I'm from Malaysia. I used to play basketball full time and it was what kick-started my web career. My inordinate love of CSS is what compels me to write and speak about this topic. I also happen to be a Mozilla TechSpeaker, which is a program by Mozilla that supports technical evangelists in regional communities by providing resources and funding.</aside>
+          <aside class="notes">My name is Hui Jing, I go by Jing as well, and I'm from Malaysia. I used to play basketball full time and it was what kick-started my web career. My inordinate love of CSS is what compels me to write and speak about this topic. I also happen to be a Mozilla TechSpeaker, which is an initiative by Mozilla that supports technical evangelists in regional communities around the world by providing resources and funding.</aside>
         </section>
 
         <section>
           <section>
             <h2>What does the web mean to you?</h2>
-            <aside class="notes">Smashing has been around since 2006, and it has always been focused on the web. Offering practical resources for designers and developers to create and build for the web. So I would like to start off by asking everyone here, what does the web mean to you?</aside>
+            <aside class="notes">Smashing has been around since 2006, and it has always been focused on the web. Offering practical resources for designers and developers to create and build for this medium. So I would like to start off by asking everyone here, what does the web mean to you?</aside>
           </section>
 
           <section>
@@ -59,8 +65,8 @@
               <img class="plain" style="margin:auto" data-src="img/weaving-the-web.jpg" alt="Weaving the web">
             </div>
             <aside class="notes">
-              <p>For me, I love the web. Last month, I read a book called “Weaving the Web”, which is the story of the World Wide Web, told by its creator, Sir Tim Berners-Lee. And he mentioned that there was no ‘Eureka’ moment, no ‘an-apple-hit-me-on-the-head’ kind of event, when it came to inventing the web.</p>
-              <p>For him, inventing the World Wide Web involved a growing realisation that there was a power in arranging ideas in an unconstrained, web-like manner. An awareness that he developed through a process of accretion over the course of his life and experiences prior.</p>
+              <p>Personally, I love the web. Last month, I read a book called “Weaving the Web”, which is the story of the World Wide Web, told by its creator, Sir Tim Berners-Lee. And he mentioned that there was no ‘Eureka’ moment, no ‘an-apple-hit-me-on-the-head’ kind of event, when it came to inventing the web.</p>
+              <p>For him, inventing the World Wide Web involved a growing realisation that there was a power in arranging ideas in an unconstrained, web-like manner.</p>
               <p>Unlike computers, which are absolutely great at following step-by-step instructions, but fail terribly at making random associations, the human mind has a special ability to link random bits of information and connect seemingly unrelated ideas to generate new ones.</p>
             </aside>
           </section>
@@ -69,7 +75,7 @@
             <blockquote>“For the Web, the external link is what would allow it to actually become ‘worldwide’.”<br><small>—Sir Tim Berners-Lee</small></blockquote>
             <span style="font-size:400%;" class="emoji" role="img" tabindex="0" aria-label="link">&#x1F517;</span>
             <aside class="notes">
-              <p>Many of the technical decisions around the web arose because of the key idea of universality, which led to the basic revelation that one information space could encompass all the different documentation systems out there, providing huge power and consistency.</p>
+              <p>Many of the technical decisions around the web arose because of the key idea of universality, that one information space could encompass all the different documentation systems out there.</p>
               <p>We're talking about the ability to easily create a link from one document to another, across different organisations or institutions, without needing to merge databases or even have direct access to the other system. This was the premise the web was built upon.</p>
             </aside>
           </section>
@@ -89,11 +95,19 @@
               Your browser does not support the <code>audio</code> element.
             </audio>
             <aside class="notes">
-              <p>I was a lucky kid, in that even though our family was far from rich, we've always had a computer in the house. I think my parents needed one for work or something. But when I was yea tall, the only thing I was concerned about out of that beige box was what games I could play on it.</p>
-              <p>Key functions of the computers from my childhood included, the 5.25 inch floppy drive, and the wonderfully clicky turbo button. I had no idea what it did at the time, but loved to press it anyway.</p>
-              <p>And my first experience with the web sounded something like this. This is music to my ears. If you've never heard this before, well, you're obviously not from my generation. When I think about the web, I think about how amazing it is that it can connect the world's population.</p>
-              <p>In fact, without the web, the odds of me even being here are rather slim. Without the web, the odds that we would have ever crossed paths are practically anorexic at best. And I would definitely not be standing up here, telling you this story about the web and reminiscing about my youth.</p>
+              <p>I didn't come from a rich family, but I was really lucky to have grown up with a computer in the house. Key functions of the computers from my childhood included, the 5.25 inch floppy drive, and the wonderfully clicky turbo button. I had no idea what it did at the time, but loved to press it anyway.</p>
+              <p>And my first experience with the web sounded something like this. This is music to my ears. If you've never heard this before, well, you're obviously not from my generation. It blows my mind to think about how the web can connect people from opposite sides of the planet.</p>
+              <p>Without the web, the odds of me being here are rather slim. Without the web, the chances of us ever crossing paths would be practically anorexic at best. And I would definitely not be standing up here, telling you this story about the web and reminiscing about my youth.</p>
             </aside>
+          </section>
+
+          <section>
+            <div style="position:relative">
+              <img class="plain" data-src="img/startrek.jpg" alt="Michelle Yeoh in Star Trek: Discovery" style="max-height:75vh">
+              <img class="plain fragment" data-src="img/ewok.png" alt="No ewoks in Star Trek" style="max-height:30vh;position:absolute;top:0;left:20%;background-color:transparent;">
+              <img class="plain fragment" data-src="img/porg.png" alt="No porgs in Star Trek" style="max-height:30vh;position:absolute;bottom:0;left:20%;background-color:transparent;">
+            </div>
+            <aside class="notes">Has anybody watched Star Trek Discovery? Any fans of the show here today? For all the non-sci-fi people, Star Trek and Star Wars are not the same thing. There are no cute furry creatures in Star Trek.</aside>
           </section>
 
           <section>
@@ -102,14 +116,14 @@
               <figcaption><a href="https://youtu.be/0b6HxVA_q2U?t=190">https://youtu.be/0b6HxVA_q2U?t=190</a></figcaption>
             </figure>
             <aside class="notes">
-              <p>Has anybody watched Star Trek Discovery? Any fans of the show here today? Some of you may recognise this beautiful woman up here from Star Trek Discovery, or films like Guardians of the Galaxy Vol. 2 and Crouching Tiger, Hidden Dragon. She is Michelle Yeoh, one of the greatest action stars of all time and the pride of Malaysians everywhere.</p>
+              <p>Some of you may recognise this beautiful woman up here from Star Trek Discovery, or films like Guardians of the Galaxy Vol. 2 and Crouching Tiger, Hidden Dragon. She is Michelle Yeoh, one of the greatest action stars of all time and the pride of Malaysians everywhere.</p>
               <p>When she first got to Hollywood, people were amazed that she could speak English so well. And she, in turn, was equally amazed that people in Hollywood had such a limited grasp of world geography, seeing as they did not know where Malaysia was.</p>
             </aside>
           </section>
 
           <section data-background-image="img/worldmap.png">
             <aside class="notes">
-              <p>I'm sure many people from America and Europe know exactly where Southeast Asia is. I mean, it's sort of self-explanatory, it's the South-Eastern section of Asia. But then again, I have also met people whose idea of Asia was limited to, China, India or Japan.</p>
+              <p>I'm sure many people from America and Europe know exactly where Southeast Asia is. I mean, it's sort of self-explanatory, it's the South-Eastern section of Asia. But then again, I have also met people whose idea of Asia was limited to, China, India or Japan. Maybe they hadn't learned not to eat soggy waffles yet.</p>
               <p>Southeast Asia is made up of 11 countries, and every single one of them has their own distinct culture. English is taught in schools across the region, but we have so many other languages as well.</p>
             </aside>
           </section>
@@ -123,7 +137,7 @@
           </section>
 
           <section data-background-image="img/childhood.jpg">
-            <aside class="notes">I grew up in Malaysia and Singapore. Both countries a melting pot of cultures, races and languages. All around me, I could see street signs in Jawi and Latin characters, store-fronts with signs printed in Chinese and Malay. I read novels in Chinese, storybooks in English. All around me, the analogue world was filled with writing systems in all directions.</aside>
+            <aside class="notes">I grew up in Malaysia and Singapore. Both countries a melting pot of cultures, races and languages. All around me, I could see street signs in Jawi and Latin characters, store-fronts with signs printed in Chinese and Malay. I read novels in Chinese, storybooks in English. All around me, the physical world was filled with writing systems in all directions.</aside>
           </section>
 
           <section>
@@ -139,7 +153,7 @@
           <section>
             <div class="l-double">
               <figure>
-                <svg style="max-height:65vh;" viewBox="0 0 336 337"><g fill="none" fill-rule="evenodd" transform="translate(0 .29)"><circle class="rainbow" cx="168" cy="168.5" r="167.93" fill="salmon"/><path fill="#48004C" d="M168 168.5L218.574 8.32C202.614 3.285 185.624.57 168 .57V168.5z"/><text fill="#fff" transform="rotate(-81 183.245 64.587)" font-size="16" font-weight="400"><tspan x="122.245" y="70.087">English (~4.9%)</tspan></text><text fill="#000" font-size="16" font-weight="400"><tspan x="32.068" y="207.102">Every other language in the world</tspan> <tspan x="135.38" y="224.102">(~95.1%)</tspan></text></g></svg>
+                <svg style="max-height:65vh;" viewBox="0 0 336 337"><g fill="none" fill-rule="evenodd" transform="translate(0 .29)"><circle class="rainbow" cx="168" cy="168.5" r="167.93" fill="salmon"/><path fill="#48004C" d="M168 168.5L218.574 8.32C202.614 3.285 185.624.57 168 .57V168.5z"/><text fill="#fff" transform="rotate(-81 183.245 64.587)" font-size="16" font-weight="400"><tspan x="122.245" y="70.087">English (~5%)</tspan></text><text fill="#000" font-size="16" font-weight="400"><tspan x="32.068" y="207.102">Every other language in the world</tspan> <tspan x="135.38" y="224.102">(~95%)</tspan></text></g></svg>
                 <figcaption>Distribution of languages used around the world</figcaption>
               </figure>
               <figure class="fragment">
@@ -148,14 +162,15 @@
               </figure>
             </div>
             <p class="fragment"><small>Sources: <a href="http://www.worldometers.info/world-population/">Worldometers</a>, <a href="https://www.ethnologue.com/language/eng">Ethnologue</a>, <a href="https://w3techs.com/technologies/overview/content_language/all">W3Techs</a></small></p>
-            <aside class="notes">Of the world's 7.6 billion people, only 4.9% are native English speakers, but 52% of websites are in English. Something isn't quite right about this ratio.</aside>
+            <aside class="notes">Of the world's 7.6 billion people, only 5% are native English speakers, but 52% of websites are in English. Something isn't quite right about this ratio.</aside>
           </section>
 
           <section data-background-image="img/diversity.jpg">
-            <aside class="notes">
-              <p>The world is beautiful because of its cultural diversity. Language is part of a society's cultural heritage and is especially important for the maintenance of it.</p>
-              <p>The web is an informational medium, people go online to find out about things. Even if you're going online to buy something, don't you need information about the product you're going to purchase? So the priority is always content. The web is only useful to people who can understand the content on it.</p>
-            </aside>
+            <aside class="notes">Language is an integral part of a society's cultural heritage, and a means to preserve it. As the world gradually moves toward the digital medium, it is crucial that we promote the creation of locally relevant content.</aside>
+          </section>
+
+          <section data-background-image="img/content.jpg">
+            <aside class="notes">The web is an informational medium, where people go online to find out about things. Like Yiying said yesterday, content is king. The web is only useful to people who can understand the content on it.</aside>
           </section>
 
           <section>
@@ -165,7 +180,7 @@
           </section>
 
           <section style="font-size:50%;">
-            <div style="display:grid;grid-template-columns:25vw 25vw 25vw 10vw;grid-template-rows:repeat(6,12vh);grid-template-areas:'a b c d''a b c d''e g c d''e g i d''f h i d''f h i d';grid-gap:1vw;align-items:center;">
+            <div style="display:grid;grid-template-columns:28% 28% 28% 10%;grid-template-rows:repeat(6,13vh);grid-template-areas:'a b c d''a b c d''e g c d''e g i d''f h i d''f h i d';grid-gap:2%;align-items:center;">
               <p lang="ar" dir="rtl" style="grid-area:a;text-align:right;">هانق تواه هو محارب وبحار ملايوي من ملاكا عاش في عهد حكم السلطان منصور شاه في القرن الخامس عشر الميلادي، وكان واحداً من أقدر أميرالات السلطان الذين يسمون لكسامانا إلى جانب هانق كاستوري ، وهانق ليكيو، وهانق ليكير، وهانق جيبات.</p>
               <p lang="zh-Hans" style="grid-area:b;text-align:justify;">从前，在马来西亚的西海岸边上，住着一个叫左汉的渔夫，他每天早出晚归出海捕鱼，卖鱼的钱除了吃饭、穿衣等必需的日常开销外，剩下的就不多了。左汉对辛辛苦苦的捕鱼生活很不满意，一心只想着发财。可是，左汉心里明白：靠捕鱼，自己是永远不会成为富翁的。</p>
               <p lang="my" style="grid-area:c;text-align:left;">မိုးလင်းကတည်းကပင် ကောင်းကင်သည် အုံ့မှိုင်း ညို့မှုန်လျက်ရှိသည်။ တိမ်တိုက်ဟူ၍ ဘာမှကြည်လင်စွာမမြင်ရ။ မိုးကိုကြည့်ရသည်မှာ မြူသန်းနေသော ပင်လယ်ပြင်ကြီးလို ဝိုးဝိုးဝါးဝါးနေသည်။ မိုးသည် ကင်းကင်းလွတ်လွတ်စဲသည် ဟူ၍မရှိ၊ တဖွဲဖွဲ ဖွဲနေလိုက်၊ တဖြိုင်ဖြိုင်ရွာချလိုက်နှင့်၊ နောက် စွေ၍ နေလေသည်။</p>
@@ -186,25 +201,18 @@
           <section>
             <h2>Do developers even care about typography?</h2>
             <aside class="notes">
-              <p>I got asked this question before, do developers even care about typography? At the time I thought this was a ridiculous question. In my mind, I was like, of course they do. But I'm wrong about a lot of things. So how many of you think typography is important?</p>
+              <p>So here's another question, do developers even care about typography? When I was asked this, I thought it was a ridiculous question. In my mind, I was like, of course they do. But I'm wrong about a lot of things. So how many of you think typography is important?</p>
               <p>Typography has always been an integral part of Human-Computer Interaction and software design. Rendering text and graphics on an electronic screen is no easy task.</p>
               <p>If you really think about it, anything we see on a screen has everything to do with the field of computer graphics. And digital typography is really a cross-disciplinary field involving technical engineering, aesthetic design and mathematical precision.</p>
             </aside>
           </section>
 
           <section>
-            <blockquote>“Web design is 95% typography”<br><small>—<a href="https://twitter.com/reichenstein">Oliver Reichenstein</a></small></blockquote>
-            <aside class="notes">
-              <p>Oliver Reichenstein said this in his article back in 2006. He reiterated that the web as a medium, is all about information.</p>
-              <p>You might disagree with me, but as front-end developers, the code we write impacts how our sites or applications look, so we too have a share of the responsibility in the design of our products.</p>
-              <p>Textual content is the most straightforward method of delivering information on the web. And whether we like it or not, Typography is increasingly becoming what differentiates a good website from bad.</p>
-              <p>Let's be honest, people are superficial and have short attention spans these days. The typography, layout and design of a site or application are like the clothes you wear. And people make judgements off their first impressions of you or your site based on what they see.</p>
-            </aside>
-          </section>
-
-          <section>
             <blockquote>“Typography is writing with prefabricated letters”<br><small>—Gerrit Noordzij</small></blockquote>
-            <aside class="notes">There are many definitions of Typography out there, and the one I've settled on is by Gerrit Noordzij, that typography is writing with prefabricated letters. Letters are the building blocks of a writing system, regardless of language. There's probably a pretty diverse mix of languages spoken by the audience here today, and while a large number of those languages are alphabetic, Chinese is not one of them.</aside>
+            <aside class="notes">
+              <p>There are many definitions of Typography out there, and the one I've settled on is by Gerrit Noordzij, that typography is writing with prefabricated letters. Letters are the building blocks of a writing system, regardless of language.</p>
+              <p>There's probably a pretty diverse mix of languages spoken by the audience here today, and while a large number of those languages are alphabetic, Chinese is not one of them.</p>
+            </aside>
           </section>
 
           <section data-background-image="img/directions.jpg">
@@ -296,7 +304,7 @@
             </div>
             <aside class="notes">
               <p>These days, typefaces used for printing Chinese publications can be broadly classified into the following families: 宋体 (also known as 明体), 楷体, 仿宋体 and 黑体.</p>
-              <p>宋体 is the standard font for body copy. 楷体 is used for runs of text that need to be differentiated from the rest of the content, like dialogues or references. 黑体 is most commonly seen in digital publishing but publishers have started to experiment with 黑体 in print as well. 仿宋体 is generally used in isolated paragraphs like quotations or highlighted sentences. Both 黑体 and 仿宋体 are twentieth century creations.</p>
+              <p>宋体 is the standard font for body copy. 楷体 is used for runs of text that need to be differentiated from the rest of the content, like dialogues or references. 黑体 is most commonly seen in digital publishing but publishers have started to experiment with 黑体 in print as well. 仿宋体 is generally used in isolated paragraphs like quotations or highlighted sentences.</p>
             </aside>
           </section>
 
@@ -329,8 +337,7 @@
           <section data-background-image="img/unicorn.jpg">
             <h2 class="fragment" style="padding:0.25em;background-color:rgba(255,255,255,0.55);color:#000;">The web is a unique medium of its own</h2>
             <aside class="notes">
-              <p>The web isn't even 30 yet, and this young medium is like nothing we've seen before. It is dynamic and interactive. Some designers, especially those who are used to having absolute control over their final presentations, may find this behaviour disturbing.</p>
-              <p>Although it may be tempting to view the web as simply print expressed on an electronic screen, it is not. It is a unique medium of its own.</p>
+              <p>The web isn't even 30 yet, and this young medium is like nothing we've seen before. It is dynamic and interactive. Although it may be tempting to view the web as simply print expressed on an electronic screen, it is not. It is a unique medium of its own.</p>
             </aside>
           </section>
         </section>
@@ -495,7 +502,7 @@
           <section>
             <img class="plain" data-src="img/unicode-range.jpg" alt="Unicode-range descriptor in action">
             <aside class="notes">
-              <p>I really have to shoutout Firefox Devtools here, if you're doing a lot of design work in the browser, it's just awesome. It has the best Grid Inspector tool, a Flexbox inspector, I could go on.</p>
+              <p>I really have to shoutout Firefox Devtools here. if you're doing a lot of design work in the browser, it's just awesome. It has the best Grid Inspector tool, a Flexbox inspector, I could go on. So to reiterate what Rachel said yesterday, get yourself a copy of Firefox.</p>
               <p>But anyway, there's also the font panel that shows which fonts are loaded on your page. You can see that both Heiti SC and Andika New Basic are loaded for my custom font-family, Heiti Plus.</p>
               <p>If a page does not contain any Latin characters, Andika New Basic will not be loaded at all because it is not needed.</p>
               <p>All these font descriptors I've talked about thus far look very similar to CSS properties, but they are 2 completely different things.</p>
@@ -562,7 +569,10 @@
               </figure>
             </div>
             <small>Image credit: Piotr Grochowski</small>
-            <aside class="notes"><code>font-synthesis</code> was put in to address the issue of faux bolds and faux italics. Sometimes the true italic or heavier version of a font does not exist so the browser will try to compensate. Unfortunately, the end result isn't pretty. With this property, you can set a value of <code>none</code>, to tell the browser, it's fine, appreciate the effort, but no thanks.</aside>
+            <aside class="notes">
+              <p><code>font-synthesis</code> was put in to address the issue of faux bolds and faux italics. Sometimes the true italic or heavier version of a font does not exist so the browser will try to compensate. Unfortunately, the end result isn't pretty.</p>
+              <p>Actually, most Chinese fonts don't have italic variants. With this property, you can set a value of <code>none</code>, to tell the browser to leave your font alone.</p>
+            </aside>
           </section>
 
           <section>
@@ -599,8 +609,7 @@
             </table>
             <aside class="notes">
               <p>Font feature properties were introduced in Fonts Level 3. Modern font technologies allow fonts to contain a lot more glyphs that before. So we can utilise a variety of typographic features like swashes, ligatures, old-style numerals and so on.</p>
-              <p>Perhaps some of you may be wondering, what's the point of having all these typographic features?</p>
-              <p>They are part and parcel of good typography, which is necessary to hold your reader's attention. The written word is a transference of speech, which is heard, into something visual, to be seen. Good speakers will vary their cadence, use gestures, emphasise certain words.</p>
+              <p>These features are part and parcel of good typography, which is necessary to hold your reader's attention. The written word is a transference of speech, which is heard, into something visual, to be seen. Good speakers will vary their cadence, use gestures, emphasise certain words.</p>
               <p>Typographic features like small caps, correct use of italics and punctuation do the same for text. Other features like old style numerals and ligatures help maintain typographic colour, to make reading more comfortable.</p>
               <p>So these are the features you can turn on via CSS, but note that the font you are using must have these features to begin with. This lot up there, are the features most often mentioned at web typography talks.</p>
             </aside>
@@ -610,7 +619,7 @@
             <h2><code>font-variant-east-asian</code></h2>
             <img class="plain" style="display:block;margin:1em auto" data-src="img/fv-east-asian.png">
             <aside class="notes">
-              <p>Few people talk about <code>font-variant-east-asian</code>. What this property does is allow for glyph substitution and positioning in East Asian text. If you're unfamiliar with Han characters, it might seem like these languages share the same glyphs, but it depends. Han unification involves assigning the same code point to different glyphs, and it has been quite a controversial issue.</p>
+              <p>Scarely anybody talks about <code>font-variant-east-asian</code>. What this property does is allow for glyph substitution and positioning in East Asian text. If you're unfamiliar with Han characters, it might seem like these languages share the same glyphs, but it depends. Han unification involves assigning the same code point to different glyphs, and it has been quite a controversial issue.</p>
               <p>We won't get into that, but the point is, the same code point can have variant glyphs depending on the language being used. Like, simplified Chinese glyphs versus traditional Chinese glyphs. Japanese glyphs have their own specification known as JIS or Japanese Industrial Standard, and they too have alternate glyphs for the same character. This property allows us to toggle these variant glyphs.</p>
             </aside>
           </section>
@@ -887,7 +896,7 @@
               <span class="fragment emoji"" role="img" tabindex="0" aria-label="upside-down face">&#x1F642;</span>
               <p class="fragment" style="writing-mode:vertical-lr;text-orientation:upright;width:4em;">Vertical text is fun!</p>
             </div>
-            <aside class="notes">You literally turn the browser on its side. Some people might be saying, no big deal, we can do that with transforms too. But it's kind of different.</aside>
+            <aside class="notes">You literally turn the browser on its side. Some people might be saying, no big deal, we can do that with transforms too. Not exactly. Changing the <code>writing-mode</code> affects an elements box alignment axes.</aside>
           </section>
 
           <section>
@@ -987,10 +996,15 @@
             <p class="ciu_embed" data-feature="css-logical-props" data-periods="future_1,current,past_1,past_2">
               <a href="http://caniuse.com/#feat=css-logical-props"><img class="plain" data-src="img/caniuse-logical.png"></a>
             </p>
-            <aside class="notes">
-              <p>That's why we have a CSS Logical Properties specification, which introduces new CSS properties that are flow-relative equivalents of physical box model properties. Properties like that use <code>block-start</code> and <code>block-end</code> or <code>inline-start</code> and <code>inline-end</code> instead of left and right.</p>
-              <p>Rachel Andrew recently wrote an in-depth article explaining how logical properties and values work on Smashing Magazine, so check that out if you haven't. The first public working draft was published in December last year, and I'm eager to see it developed and implemented. For now, support is kind of limited.</p>
-            </aside>
+            <aside class="notes">And Rachel also mentioned this yesterday. The CSS Logical Properties specification. So instead of <code>left</code> or <code>right</code>, we use properties like <code>block-start</code> and <code>block-end</code> or <code>inline-start</code> and <code>inline-end</code>.</aside>
+          </section>
+
+          <section data-background-image="img/logical-properties.jpg">
+            <div style="display:flex;justify-content:center;align-items:center;background:rgba(0,0,0,0.65);">
+              <img class="plain" style="max-height:30vh;margin-right:0.25em;" data-src="img/logical-props.svg">
+              <a href="https://www.smashingmagazine.com/2018/03/understanding-logical-properties-values/">https://www.smashingmagazine.com/2018/03/understanding-logical-properties-values/</a>
+            </div>
+            <aside class="notes">If you haven't actually read Rachel's article yet, I'm plugging it again right now. The first public working draft of the specification was published in December last year, and I'm eager to see it developed and more widely implemented.</aside>
           </section>
 
           <section>
@@ -1002,7 +1016,7 @@
             </video>
             <aside class="notes">
               <p>When I started this talk, I mentioned how I had assumed the digital world was always going to be left-to-right when I was a kid. And I had carried that assumption for quite a while. Even when Chinese language support on my PC and the web got much better, I never really thought about the layout part of things.</p>
-              <p>It wasn't until a couple years back when I was in a crowded subway train, peeking over the shoulder of this guy reading a Chinese novel on his phone, that I started to think, hey, a vertical layout seems like it would work really well here. I wonder if it's possible to do that on the web.,,?</p>
+              <p>It wasn't until a couple years back when I was in a crowded subway train, peeking over the shoulder of this guy reading a Chinese novel on his phone, that I started to think, hey, a vertical layout seems like it would work really well here. I wonder if it's possible to do that on the web...?</p>
               <p>So that's how I fell into this rabbit hole of vertical typesetting on the web, and learning a lot more about the Chinese language. And as you can see from this demo, the answer to my original question is a resounding yes, with all 3 properties I covered earlier being showcased here.</p>
           </section>
 
@@ -1021,10 +1035,7 @@
 
           <section>
             <img class="plain" data-src="img/i18n.png" alt="W3C Internationalization (I18n) Activity website">
-            <aside class="notes">
-              <p>So yes, there is still work to be done to further develop Chinese typesetting on the web, and for all non-Latin-based languages actually. The Chinese Layout Task Force, which I am a part of, aims to document requirements for the layout and presentation of text for the major languages of China when those languages are used by Web standards.</p>
-              <p>The document will provide requirements for the development of W3C standards affected by languages used in China, including Hanzi, Mongolian, Tibetan and Uighur scripts.</p>
-            </aside>
+            <aside class="notes">So yes, there is still work to be done to further develop Chinese typesetting on the web, and for all non-Latin-based languages actually. The Chinese Layout Task Force, which I am a part of, aims to document requirements for the layout and presentation of text for the major languages of China when they are used by Web standards, like Hanzi, Mongolian, Tibetan and Uighur scripts.</aside>
           </section>
 
           <section>
@@ -1085,7 +1096,10 @@
               </video>
               <figcaption>Vertical mobile navigation</figcaption>
             </figure>
-            <aside class="notes">On the other hand, there are instances where text rotated vertically can work on narrow screen sizes as well. I think we can all agree that the hamburger menu was not the best mobile UI pattern we came with. Depending on the number of links in your navigation, laying them out vertically along the side edge could be a design worth considering. And I'm sure many of you can come up with even more interesting designs that utilise vertical layouts.</aside>
+            <aside class="notes">
+              <p>On the other hand, there are instances where text rotated vertically can work on narrow screen sizes as well. Like Joe explained yesterday, the hamburger menu is not a design axiom.</p>
+              <p>Depending on the number of links in your navigation, laying them out vertically along the side edge could be a design worth considering. And I'm sure many of you can come up with even more interesting designs that utilise vertical layouts.</p>
+            </aside>
           </section>
         </section>
 
@@ -1095,7 +1109,7 @@
               <img class="plain" data-src="img/vertical-bugs.png" alt="Bugs in Firefox">
               <figcaption>Bugs, bugs, bugs</figcaption>
             </figure>
-            <aside class="notes">Statistically, there aren't that many sites which use the <code>writing-mode</code> property. When I started building vertical layouts, Grid hadn't landed yet, so I used Flexbox for a lot of the layout. Flexbox support is great, I mean, it has wider coverage than <code>border-radius</code>, but Flexbox with <code>writing-mode</code>? Not so good. I'll be honest, there are quite a  number of cross browser issues.</aside>
+            <aside class="notes">Statistically, there aren't that many sites which use the <code>writing-mode</code> property. When I started building vertical layouts, Grid hadn't landed yet, so I used Flexbox for a lot of the layout. Flexbox support is great, I mean, it has wider coverage than <code>border-radius</code>, but Flexbox with <code>writing-mode</code>? Not so good. I'll be honest, there are quite a number of cross browser issues.</aside>
           </section>
 
           <section>
@@ -1111,7 +1125,7 @@
             <aside class="notes">
               <p>But that doesn't mean we should just shy away from using vertical text altogether. In fact, there's never been a better time than now to live on the cutting edge. Evergreen browsers are a thing now, with bug fixes and new features being shipped faster than ever.</p>
               <p>And here's a little something I learned along the way. By raising bugs we find when trying out new features, we are actually telling browser vendors that these features are in demand.</p>
-              <p>Conversely, if we don't use features simply because they are buggy, browser vendors will think that nobody really cares about that feature and focus on something else instead. But if more of us use those features and raise the bugs we discover, it sends a signal to browser vendors that people are using these features and encourage them to address related bugs sooner than later.</p>
+              <p>Conversely, if we don't use features simply because they are buggy, browser vendors will think that nobody really cares about that feature and focus on something else instead. Because we all have to prioritise.</p>
               <p>Raising bugs will probably gain you karma points and helps make the web better for all of us.</p>
             </aside>
           </section>
@@ -1145,9 +1159,7 @@
             <li>Park, H. O. (2014). The History of Pre-Gutenberg Woodblock and Movable Type Printing in Korea. International Journal of Humanities and Social Science, 4(9), 1.</li>
             <li>Haralambous, Y., & Horne, P. S. (2007). <em>Fonts & encodings</em>.</li>
           </ul>
-          <aside class="notes">
-            <p>This is the long list of resources I referred to when preparing this talk, and these slides will be shared with anyone who's interested.</p>
-          </aside>
+          <aside class="notes">This is the long list of resources I referred to when preparing this talk, and these slides will be shared with anyone who's interested.</aside>
         </section>
 
         <section>

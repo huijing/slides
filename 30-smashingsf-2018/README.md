@@ -4,37 +4,39 @@
 
 Hello everyone! It has been an amazing conference thus far, hasn't it? With so many incredible speakers who have really expanded my horizons, and I feel blessed to be able to share the stage with all of them.
 
-I doubt anybody has ever heard of me, so some introductions are probably in order. My name is Hui Jing and I'm from Malaysia. I used to play basketball full time and it was what kick-started my web career. My inordinate love of CSS is what compels me to write and speak about this topic. I also happen to be a Mozilla TechSpeaker, which is a program by Mozilla that supports technical evangelists in regional communities by providing resources and funding.
+The title of my talk is quite a mouthful, but it is a pretty good summary of what the next 40 minutes will entail. A bit about the web, a bit about culture, some writing and a dash of layout thrown in for good measure.
 
-Smashing has been around since 2006, and it has always been focused on the web. Offering practical resources for designers and developers to create and build for the web. So I would like to start off by asking everyone here, what does the web mean to you?
+I doubt anybody has ever heard of me, so some introductions are probably in order. My name is Hui Jing, I go by Jing as well, and I'm from Malaysia. I used to play basketball full time and it was what kick-started my web career. My inordinate love of CSS is what compels me to write and speak about this topic. I also happen to be a Mozilla TechSpeaker, which is an initiative by Mozilla that supports technical evangelists in regional communities around the world by providing resources and funding.
+
+Smashing has been around since 2006, and it has always been focused on the web. Offering practical resources for designers and developers to create and build for this medium. So I would like to start off by asking everyone here, what does the web mean to you?
 
 ## On the web
 
-For me, I love the web. Last month, I read a book called “Weaving the Web”, which is the story of the World Wide Web, told by its creator, Sir Tim Berners-Lee. And he mentioned that there was no ‘Eureka’ moment, no ‘an-apple-hit-me-on-the-head’ kind of event, when it came to inventing the web.
+Personally, I love the web. Last month, I read a book called “Weaving the Web”, which is the story of the World Wide Web, told by its creator, Sir Tim Berners-Lee. And he mentioned that there was no ‘Eureka’ moment, no ‘an-apple-hit-me-on-the-head’ kind of event, when it came to inventing the web.
 
-For him, inventing the World Wide Web involved a growing realisation that there was a power in arranging ideas in an unconstrained, web-like manner. An awareness that he developed through a process of accretion over the course of his life and experiences prior.
+For him, inventing the World Wide Web involved a growing realisation that there was a power in arranging ideas in an unconstrained, web-like manner.
 
 Unlike computers, which are absolutely great at following step-by-step instructions, but fail terribly at making random associations, the human mind has a special ability to link random bits of information and connect seemingly unrelated ideas to generate new ones.
 
-Many of the technical decisions around the web arose because of the key idea of universality, which led to the basic revelation that one information space could encompass all the different documentation systems out there, providing huge power and consistency.
+Many of the technical decisions around the web arose because of the key idea of universality, that one information space could encompass all the different documentation systems out there.
 
 We're talking about the ability to easily create a link from one document to another, across different organisations or institutions, without needing to merge databases or even have direct access to the other system. This was the premise the web was built upon.
 
-I was a lucky kid, in that even though our family was far from rich, we've always had a computer in the house. I think my parents needed one for work or something. But when I was yea tall, the only thing I was concerned about out of that beige box was what games I could play on it.
+I didn't come from a rich family, but I was really lucky to have grown up with a computer in the house. Key functions of the computers from my childhood included, the 5.25 inch floppy drive, and the wonderfully clicky turbo button. I had no idea what it did at the time, but loved to press it anyway.
 
-Key functions of the computers from my childhood included, the 5.25 inch floppy drive, and the wonderfully clicky turbo button. I had no idea what it did at the time, but loved to press it anyway.
+And my first experience with the web sounded something like this. This is music to my ears. If you've never heard this before, well, you're obviously not from my generation. It blows my mind to think about how the web can connect people from opposite sides of the planet.
 
-And my first experience with the web sounded something like this. This is music to my ears. If you've never heard this before, well, you're obviously not from my generation. When I think about the web, I think about how amazing it is that it can connect the world's population.
-
-In fact, without the web, the odds of me even being here are rather slim. Without the web, the odds that we would have ever crossed paths are practically anorexic at best. And I would definitely not be standing up here, telling you this story about the web and reminiscing about my youth.
+Without the web, the odds of me being here are rather slim. Without the web, the chances of us ever crossing paths would be practically anorexic at best. And I would definitely not be standing up here, telling you this story about the web and reminiscing about my youth.
 
 ## On growing up Southeast-Asian
 
-Has anybody watched Star Trek Discovery? Any fans of the show here today? Some of you may recognise this beautiful woman up here from Star Trek Discovery, or films like Guardians of the Galaxy Vol. 2 and Crouching Tiger, Hidden Dragon. She is Michelle Yeoh, one of the greatest action stars of all time and the pride of Malaysians everywhere.
+Has anybody watched Star Trek Discovery? Any fans of the show here today? For all the non-sci-fi people, Star Trek and Star Wars are not the same thing. There are no cute furry creatures in Star Trek.
+
+Some of you may recognise this beautiful woman up here from Star Trek Discovery, or films like Guardians of the Galaxy Vol. 2 and Crouching Tiger, Hidden Dragon. She is Michelle Yeoh, one of the greatest action stars of all time and the pride of Malaysians everywhere.
 
 When she first got to Hollywood, people were amazed that she could speak English so well. And she, in turn, was equally amazed that people in Hollywood had such a limited grasp of world geography, seeing as they did not know where Malaysia was.
 
-I'm sure many people from America and Europe know exactly where Southeast Asia is. I mean, it's sort of self-explanatory, it's the South-Eastern section of Asia. But then again, I have also met people whose idea of Asia was limited to, China, India or Japan.
+I'm sure many people from America and Europe know exactly where Southeast Asia is. I mean, it's sort of self-explanatory, it's the South-Eastern section of Asia. But then again, I have also met people whose idea of Asia was limited to, China, India or Japan. Maybe they hadn't learned not to eat soggy waffles yet.
 
 Southeast Asia is made up of 11 countries, and every single one of them has their own distinct culture. English is taught in schools across the region, but we have so many other languages as well.
 
@@ -42,17 +44,17 @@ Southeast Asia was heavily colonised by European powers starting from the 16th c
 
 As nascent countries, which were also ex-European colonies, there was an inevitable self-deprecation, a sentiment of Western superiority. It's a frame of mind that still lingers a little to this day. Because you cannot just declare independence and expect the culture and mindset of people who were occupied for generations to change overnight.
 
-I grew up in Malaysia and Singapore. Both countries a melting pot of cultures, races and languages. All around me, I could see street signs in Jawi and Latin characters, store-fronts with signs printed in Chinese and Malay. I read novels in Chinese, storybooks in English. All around me, the analogue world was filled with writing systems in all directions.
+I grew up in Malaysia and Singapore. Both countries a melting pot of cultures, races and languages. All around me, I could see street signs in Jawi and Latin characters, store-fronts with signs printed in Chinese and Malay. I read novels in Chinese, storybooks in English. All around me, the physical world was filled with writing systems in all directions.
 
 But in the digital world, everything was horizontal, top-to-bottom. And when you're a kid, you don't really think too much about such things. I had just assumed that was the way things worked. That in the digital world, interfaces would always be left-to-right. And almost always in English.
 
 ## On internationalisation
 
-Of the world's 7.6 billion people, only 4.9% are native English speakers, but 52% of websites are in English. Something isn't quite right about this ratio.
+Of the world's 7.6 billion people, only 5% are native English speakers, but 52% of websites are in English. Something isn't quite right about this ratio.
 
-The world is beautiful because of its cultural diversity. Language is part of a society's cultural heritage and is especially important for the maintenance of it.
+Language is an integral part of a society's cultural heritage, and a means to preserve it. As the world gradually moves toward the digital medium, it is crucial that we promote the creation of locally relevant content.
 
-The web is an informational medium, people go online to find out about things. Even if you're going online to buy something, don't you need information about the product you're going to purchase? So the priority is always content. The web is only useful to people who can understand the content on it.
+The web is an informational medium, where people go online to find out about things. Like Yiying said yesterday, content is king. The web is only useful to people who can understand the content on it.
 
 Which is why I'm slightly comforted to know that Internationalisation is a priority at the W3C. It is crucial that a technology meant to be ubiquitous supports the creation of local content across the world. That every writing system in the world can be correctly rendered on the web.
 
@@ -60,21 +62,15 @@ Just to prove a point, these are the various scripts in use in Southeast Asia, a
 
 ## On typography
 
-I got asked this question before, do developers even care about typography? At the time I thought this was a ridiculous question. In my mind, I was like, of course they do. But I'm wrong about a lot of things. So how many of you think typography is important?
+So here's another question, do developers even care about typography? When I was asked this, I thought it was a ridiculous question. In my mind, I was like, of course they do. But I'm wrong about a lot of things. So how many of you think typography is important?
 
 Typography has always been an integral part of Human-Computer Interaction and software design. Rendering text and graphics on an electronic screen is no easy task.
 
 If you really think about it, anything we see on a screen has everything to do with the field of computer graphics. And digital typography is really a cross-disciplinary field involving technical engineering, aesthetic design and mathematical precision.
 
-Oliver Reichenstein said this in his article back in 2006. He reiterated that the web as a medium, is all about information.
+There are many definitions of Typography out there, and the one I've settled on is by Gerrit Noordzij, that typography is writing with prefabricated letters. Letters are the building blocks of a writing system, regardless of language.
 
-You might disagree with me, but as front-end developers, the code we write impacts how our sites or applications look, so we too have a share of the responsibility in the design of our products.
-
-Textual content is the most straightforward method of delivering information on the web. And whether we like it or not, Typography is increasingly becoming what differentiates a good website from bad.
-
-Let's be honest, people are superficial and have short attention spans these days. The typography, layout and design of a site or application are like the clothes you wear. And people make judgements off their first impressions of you or your site based on what they see.
-
-There are many definitions of Typography out there, and the one I've settled on is by Gerrit Noordzij, that typography is writing with prefabricated letters. Letters are the building blocks of a writing system, regardless of language. There's probably a pretty diverse mix of languages spoken by the audience here today, and while a large number of those languages are alphabetic, Chinese is not one of them.
+There's probably a pretty diverse mix of languages spoken by the audience here today, and while a large number of those languages are alphabetic, Chinese is not one of them.
 
 ## On language and writing
 
@@ -106,7 +102,7 @@ The key implement of Chinese writing is the brush. Calligraphy was and still is 
 
 These days, typefaces used for printing Chinese publications can be broadly classified into the following families: 宋体 (also known as 明体), 楷体, 仿宋体 and 黑体.
 
-宋体 is the standard font for body copy. 楷体 is used for runs of text that need to be differentiated from the rest of the content, like dialogues or references. 黑体 is most commonly seen in digital publishing but publishers have started to experiment with 黑体 in print as well. 仿宋体 is generally used in isolated paragraphs like quotations or highlighted sentences. Both 黑体 and 仿宋体 are twentieth century creations.
+宋体 is the standard font for body copy. 楷体 is used for runs of text that need to be differentiated from the rest of the content, like dialogues or references. 黑体 is most commonly seen in digital publishing but publishers have started to experiment with 黑体 in print as well. 仿宋体 is generally used in isolated paragraphs like quotations or highlighted sentences.
 
 There are actually a huge variety of other styles, like those based of ancient scripts like 篆书 or 隶书, as well as brush script styles mimicking running scripts like 草书 or 行书. But they fall into a broad category called 花式体, mostly used for display text or short paragraphs. Not so much for long form reading.
 
@@ -122,9 +118,7 @@ Right now, the medium of our time is the screen and the browser. Our types are n
 
 I would like to point out though, that an electronic display is a proxy medium. Whatever we see displayed on a screen comes from data encoded as electronic signals. The heart of electronic displays is light. It is transient. We cannot touch light.
 
-The web isn't even 30 yet, and this young medium is like nothing we've seen before. It is dynamic and interactive. Some designers, especially those who are used to having absolute control over their final presentations, may find this behaviour disturbing.
-
-Although it may be tempting to view the web as simply print expressed on an electronic screen, it is not. It is a unique medium of its own.
+The web isn't even 30 yet, and this young medium is like nothing we've seen before. It is dynamic and interactive. Although it may be tempting to view the web as simply print expressed on an electronic screen, it is not. It is a unique medium of its own.
 
 ## On web fonts
 
@@ -182,19 +176,19 @@ But font-stretch maybe a bit less. And the last 2, which are font-size-adjust an
 
 font-size-adjust was added to address legibility issues. Faces with low x-heights may sometimes be less legible, especially when they are triggered as fallback fonts. We can set the value of this property to the aspect ratio of the first choice font. Any fallback fonts triggered will have their font-size adjusted to match this ratio.
 
-font-synthesis was put in to address the issue of faux bolds and faux italics. Sometimes the true italic or heavier version of a font does not exist so the browser will try to compensate. Unfortunately, the end result isn't pretty. With this property, you can set a value of none, to tell the browser, it's fine, appreciate the effort, but no thanks.
+font-synthesis was put in to address the issue of faux bolds and faux italics. Sometimes the true italic or heavier version of a font does not exist so the browser will try to compensate. Unfortunately, the end result isn't pretty. Actually, most Chinese fonts don't have italic variants. With this property, you can set a value of none, to tell the browser to leave your font alone.
+
+
 
 Font feature properties were introduced in Fonts Level 3. Modern font technologies allow fonts to contain a lot more glyphs that before. So we can utilise a variety of typographic features like swashes, ligatures, old-style numerals and so on.
 
-Perhaps some of you may be wondering, what's the point of having all these typographic features?
-
-They are part and parcel of good typography, which is necessary to hold your reader's attention. The written word is a transference of speech, which is heard, into something visual, to be seen. Good speakers will vary their cadence, use gestures, emphasise certain words.
+These features are part and parcel of good typography, which is necessary to hold your reader's attention. The written word is a transference of speech, which is heard, into something visual, to be seen. Good speakers will vary their cadence, use gestures, emphasise certain words.
 
 Typographic features like small caps, correct use of italics and punctuation do the same for text. Other features like old style numerals and ligatures help maintain typographic colour, to make reading more comfortable.
 
 So these are the features you can turn on via CSS, but note that the font you are using must have these features to begin with. This lot up there, are the features most often mentioned at web typography talks.
 
-Few people talk about font-variant-east-asian. What this property does is allow for glyph substitution and positioning in East Asian text. If you're unfamiliar with Han characters, it might seem like these languages share the same glyphs, but it depends. Han unification involves assigning the same code point to different glyphs, and it has been quite a controversial issue.
+Scarely anybody talks about font-variant-east-asian. What this property does is allow for glyph substitution and positioning in East Asian text. If you're unfamiliar with Han characters, it might seem like these languages share the same glyphs, but it depends. Han unification involves assigning the same code point to different glyphs, and it has been quite a controversial issue.
 
 We won't get into that, but the point is, the same code point can have variant glyphs depending on the language being used. Like, simplified Chinese glyphs versus traditional Chinese glyphs. Japanese glyphs have their own specification known as JIS or Japanese Industrial Standard, and they too have alternate glyphs for the same character. This property allows us to toggle these variant glyphs.
 
@@ -228,7 +222,7 @@ Vertical writing is traditionally East Asian. For Han characters, which are used
 
 So I want to introduce the writing-mode property, which deals specifically with vertical text.
 
-You literally turn the browser on its side. Some people might be saying, no big deal, we can do that with transforms too. But it's kind of different.
+You literally turn the browser on its side. Some people might be saying, no big deal, we can do that with transforms too. Not exactly. Changing the writing-mode affects an elements box alignment axes.
 
 This is what happens to your text when the different values of writing-mode are applied. The default is horizontal, top-to-bottom. To change the direction to vertical, we use vertical-rl or vertical-lr.
 
@@ -248,13 +242,13 @@ To vertically centre a block, setting the top and bottom margins to auto actuall
 
 These directions of top, right, bottom, left start getting a bit confusing when you have rotated Latin text. Say you have this header, and you want some extra spacing between the header and the paragraph, is the margin set on the bottom or the left? It's actually the left.
 
-That's why we have a CSS Logical Properties specification, which introduces new CSS properties that are flow-relative equivalents of physical box model properties. Properties like that use block-start and block-end or inline-start and inline-end instead of left and right.
+And Rachel also mentioned this yesterday. The CSS Logical Properties specification. So instead of left or right, we use properties like block-start and block-end or inline-start and inline-end.
 
-Rachel Andrew recently wrote an in-depth article explaining how logical properties and values work on Smashing Magazine, so check that out if you haven't. The first public working draft was published in December last year, and I'm eager to see it developed and implemented. For now, support is kind of limited.
+If you haven't actually read Rachel's article yet, I'm plugging it again right now. The first public working draft of the specification was published in December last year, and I'm eager to see it developed and more widely implemented.
 
 When I started this talk, I mentioned how I had assumed the digital world was always going to be left-to-right when I was a kid. And I had carried that assumption for quite a while. Even when Chinese language support on my PC and the web got much better, I never really thought about the layout part of things.
 
-It wasn't until a couple years back when I was in a crowded subway train, peeking over the shoulder of this guy reading a Chinese novel on his phone, that I started to think, hey, a vertical layout seems like it would work really well here. I wonder if it's possible to do that on the web.,,?
+It wasn't until a couple years back when I was in a crowded subway train, peeking over the shoulder of this guy reading a Chinese novel on his phone, that I started to think, hey, a vertical layout seems like it would work really well here. I wonder if it's possible to do that on the web...?
 
 So that's how I fell into this rabbit hole of vertical typesetting on the web, and learning a lot more about the Chinese language. And as you can see from this demo, the answer to my original question is a resounding yes, with all 3 properties I covered earlier being showcased here.
 
@@ -262,9 +256,7 @@ This is a layout I built for displaying Chinese text with a toggle that allowed 
 
 It was quite tricky to get the images to orientate correctly. It would have been nice to have a media query for writing modes so I could layout my images accordingly with the picture element, but that doesn't exist yet so I ended up working around the image issue with CSS transforms instead.
 
-So yes, there is still work to be done to further develop Chinese typesetting on the web, and for all non-Latin-based languages actually. The Chinese Layout Task Force, which I am a part of, aims to document requirements for the layout and presentation of text for the major languages of China when those languages are used by Web standards.
-
-The document will provide requirements for the development of W3C standards affected by languages used in China, including Hanzi, Mongolian, Tibetan and Uighur scripts.
+So yes, there is still work to be done to further develop Chinese typesetting on the web, and for all non-Latin-based languages actually. The Chinese Layout Task Force, which I am a part of, aims to document requirements for the layout and presentation of text for the major languages of China when they are used by Web standards, like Hanzi, Mongolian, Tibetan and Uighur scripts.
 
 ## On utilising vertical layouts
 
@@ -278,7 +270,9 @@ Other subtle uses of vertical text could be for tags on blog posts for example, 
 
 If you're working with a language meant to be read horizontally from top to bottom, then vertical text should largely be decorative. We don't want to compromise the reading experience for long form passages. So at smaller screens, we can make use of media queries to revert to a horizontal layout that makes better use of the limited space.
 
-On the other hand, there are instances where text rotated vertically can work on narrow screen sizes as well. I think we can all agree that the hamburger menu was not the best mobile UI pattern we came with. Depending on the number of links in your navigation, laying them out vertically along the side edge could be a design worth considering. And I'm sure many of you can come up with even more interesting designs that utilise vertical layouts.
+On the other hand, there are instances where text rotated vertically can work on narrow screen sizes as well. Like Joe explained yesterday, the hamburger menu is not a design axiom.
+
+Depending on the number of links in your navigation, laying them out vertically along the side edge could be a design worth considering. And I'm sure many of you can come up with even more interesting designs that utilise vertical layouts.
 
 Statistically, there aren't that many sites which use the writing-mode property. When I started building vertical layouts, Grid hadn't landed yet, so I used Flexbox for a lot of the layout. Flexbox support is great, I mean, it has wider coverage than border-radius, but Flexbox with writing-mode? Not so good. I'll be honest, there are quite a number of cross browser issues.
 
@@ -286,7 +280,7 @@ But that doesn't mean we should just shy away from using vertical text altogethe
 
 And here's a little something I learned along the way. By raising bugs we find when trying out new features, we are actually telling browser vendors that these features are in demand.
 
-Conversely, if we don't use features simply because they are buggy, browser vendors will think that nobody really cares about that feature and focus on something else instead. But if more of us use those features and raise the bugs we discover, it sends a signal to browser vendors that people are using these features and encourage them to address related bugs sooner than later.
+Conversely, if we don't use features simply because they are buggy, browser vendors will think that nobody really cares about that feature and focus on something else instead. Because we all have to prioritise.
 
 Raising bugs will probably gain you karma points and helps make the web better for all of us.
 
