@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Amaranth';
+    src: url('amaranth-regular.woff2') format('woff2'),
+         url('amaranth-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Amaranth';
+    src: url('amaranth-bold.woff2') format('woff2'),
+         url('amaranth-bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Amaranth';
+    src: url('amaranth-italic.woff2') format('woff2'),
+         url('amaranth-italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
