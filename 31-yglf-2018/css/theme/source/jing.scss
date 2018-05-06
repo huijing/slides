@@ -32,15 +32,12 @@ html {
   .l-multiple {
     display: flex;
     justify-content: space-around;
-
-    .j-vert {
-      width: 1em;
-    }
   }
 
   .l-double {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
   }
 
   .j-icon {
@@ -49,12 +46,13 @@ html {
     margin-right: 1rem;
   }
 
-  .tb-letters td {
-    text-align: center;
+  .j-vert {
+    writing-mode: vertical-rl;
+    letter-spacing: 0.25em;
   }
 
-  h2 {
-    text-transform: none;
+  .tb-letters td {
+    text-align: center;
   }
 
   strong {
@@ -77,6 +75,10 @@ html {
 
   td {
     vertical-align: middle;
+  }
+
+  img {
+    max-height: 80vh;
   }
 }
 
