@@ -335,7 +335,7 @@
             <aside class="notes">These days, typefaces used for printing Chinese publications can be broadly classified into the following families: 宋体 (also known as 明体), 楷体, 仿宋体 and 黑体. Both 黑体 and 仿宋体 are twentieth century creations.</aside>
           </section>
 
-          <section>
+          <section data-background-image="img/process.jpg">
             <blockquote style="background-color:rgba(255,255,255,0.85)">“Chinese-script projects are crazy. The scope is mind-blowing.”<br><small>—David Březina from <a href="https://qz.com/522079/the-long-incredibly-tortuous-and-fascinating-process-of-creating-a-chinese-font/">The long, incredibly tortuous, and fascinating process of creating a Chinese font</a></small></blockquote>
             <aside class="notes">
               <p>Chinese typefaces are extremely challenging to create, simply due to the volume of glyphs required. The average number of glyphs for a Chinese system font clocks in at around 35,000 glyphs, give or take a couple thousand.</p>
@@ -346,7 +346,7 @@
         </section>
 
         <section>
-          <section>
+          <section data-background-image="img/analogue.jpg">
             <aside class="notes">
               <p>For the longest time, writing has been done on analogue mediums. Etchings on bone, inscriptions on stone and bronze, calligraphy and printing on parchment and paper. All these are things you can touch and feel. But the medium of our time is now the screen, and the browser.</p>
               <p>As more and more of our communications move onto the digital realm, it is important that we preserve language diversity. Languages are representative of human heritage, and convey unique cultures. I believe most people in this audience speaks more than one language, and if you think about it, there are certain concepts that simply get lost in translation.</p>
@@ -365,13 +365,170 @@
               </figure>
             </div>
             <p class="fragment"><small>Sources: <a href="http://www.worldometers.info/world-population/">Worldometers</a>, <a href="https://www.ethnologue.com/language/eng">Ethnologue</a>, <a href="https://w3techs.com/technologies/overview/content_language/all">W3Techs</a></small></p>
-            <aside class="notes">Of the world's 7.6 billion people, only 4.9% are native English speakers, but 51.2% of websites are in English. Something isn't quite right about this ratio.</aside>
+            <aside class="notes">Of the world's 7.6 billion people, only 4.9% are native English speakers, but 51.2% of websites are in English. Something isn't quite right about this ratio. The online world is far from being representative of the real world.</aside>
+          </section>
+
+          <section>
+            <h2>Local content</h2>
+            <blockquote>“Local content is a critical component of efforts to bridge the digital divide.”<br><small>—<a href="https://www.internetsociety.org/policybriefs/localcontent">Internet Society Policy Brief: Local Content</a></small></blockquote>
+            <aside class="notes">
+              <p>Studies done by the Internet Society have shown that while cost of access is a barrier to getting people online, many non-Internet users claim that the Internet is simply not relevant or of interest to them.</p>
+              <p>If the Internet is meant to enhance the free flow of information and ideas across the world, then creation of content on the web should not largely be limited to English-speaking communities.</p>
+              <p>Diversity of thought and perspective in the online world will be greatly enhanced by the participation of cultures and societies who speak all kinds of languages.</p>
+            </aside>
           </section>
 
           <section>
             <h2>Internationalisation (i18n)</h2>
             <blockquote>“To ensure that the technology supports text in any writing system of the world.”<br><small>—<a href="https://www.w3.org/standards/webdesign/i18n">W3C Internationalisation</a></small></blockquote>
-            <aside class="notes">Which is why I'm slightly comforted to know that Internationalisation is a priority at the W3C. It is crucial that a technology meant to be ubiquitous supports the creation of local content across the world. That every writing system in the world can be correctly rendered on the web.</aside>
+            <aside class="notes">Which is why Internationalisation is a priority at the W3C. It is crucial that a technology meant to be ubiquitous supports the creation of local content across the world. That every writing system in the world can be correctly rendered on the web.</aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Do developers even care about typography?</h2>
+            <aside class="notes">
+              <p>So here's another question, do developers even care about typography? When I was asked this, I thought it was a ridiculous question. In my mind, I was like, of course they do. But I'm wrong about a lot of things. So how many of you think typography is important?</p>
+              <p>Typography has always been an integral part of Human-Computer Interaction and software design. Rendering text and graphics on an electronic screen is no easy task.</p>
+              <p>If you really think about it, anything we see on a screen has everything to do with the field of computer graphics. And digital typography is really a cross-disciplinary field involving technical engineering, aesthetic design and mathematical precision.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Web fonts</h2>
+            <p>The CSS3 Fonts specification describes the basic controls CSS provides for selecting and using fonts within documents.</p>
+            <div style="display:flex;justify-content:center;align-items:center;">
+              <a href="https://www.chenhuijing.com/blog/tracing-the-history-of-css-fonts/">http://bit.ly/css-font-history/</a>
+              <img class="plain" style="max-height:30vh;margin-left:1em;" data-src="img/webfonts.svg">
+            </div>
+            <aside class="notes">When we talk about typography on the web, one of the first things that comes to mind is web fonts. So let's start off with some basics.</aside>
+          </section>
+
+          <section>
+            <h2>What is a font?</h2>
+            <div class="l-double">
+              <img class="plain fragment" data-src="img/analogue-fonts.jpg" alt="Analogue fonts">
+              <img class="plain fragment" data-src="img/digital-fonts.png" alt="Digital fonts">
+            </div>
+            <aside class="notes">
+              <p>In world of metal typesetting, this is a font, which refers to a complete set of metal types that were used to typeset entire pages of text. This particular set being shown is for Caslon, 12pt.</p>
+              <p>In the digital world, these are fonts, specifically font files. For both analogue and digital fonts, you can think of them as collections of glyphs.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>And what are glyphs?</h2>
+            <div class="l-multiple">
+              <figure class="fragment">
+                <img class="plain" style="margin:0 0.5em;" data-src="img/glyph1.jpg" alt="A metal sort AKA type">
+                <figcaption style="font-style:normal;">M</figcaption>
+              </figure>
+              <figure class="fragment">
+                <img class="plain" style="margin:0 0.5em;" data-src="img/glyph2.jpg" alt="A bitmap glyph">
+                <figcaption style="font-style:normal;">晽</figcaption>
+              </figure>
+              <figure class="fragment">
+                <img class="plain" style="margin:0 0.5em;" data-src="img/glyph3.jpg" alt="A vector glyph">
+                <figcaption style="font-style:normal;">Ж</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">
+              <p>A glyph is the specific shape of a letter or character in a particular font. In the digital world, everything is data. So glyphs can be described with an array of pixels, or collections of vector images or even paths of Bézier curves and straight lines.</p>
+              <p>Different font formats store information about the font, like their glyphs, encodings, metadata about the font etc., differently based on how their specifications were written.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Font formats for web use</h2>
+            <table>
+              <tr>
+                <td>WOFF2 (Web Open Font Format 2)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                  <img class="plain l-logo" data-src="img/mozilla.svg">
+                  <img class="plain l-logo" data-src="img/opera.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>WOFF (Web Open Font Format)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                  <img class="plain l-logo" data-src="img/mozilla.svg">
+                  <img class="plain l-logo" data-src="img/opera.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>OTF (OpenType)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                  <img class="plain l-logo" data-src="img/adobe.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>TTF (TrueType)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                  <img class="plain l-logo" data-src="img/apple.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>EOT (Embedded Open Type)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>SVG (Scalable Vector Graphics)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/svg.svg">
+                </td>
+              </tr>
+            </table>
+            <aside class="notes">
+              <p>If you've ever used web fonts before, you would have seen these font formats. To understand how we got to this point, we need to go back a time a little bit. The earliest fonts were pixel-based bitmaps, which didn't work out so well when it came to high-resolution printing.</p>
+              <p>A lot of smart people worked on this problem. And one of the solutions came from Adobe founder, John Warnock. He created Postscript in 1985, the very first vector font, and it really took off.</p>
+              <p>TrueType was Apple and Microsoft's answer to Adobe's font monopoly. Microsoft came up with TrueType Open in 1994 and eventually Adobe joined in and together they developed OpenType.</p>
+              <p>Microsoft also came up with EOT or embedded OpenType, a proprietary format for use on web pages. Although they tried to submit this as a W3C recommendation, it was rejected in favour of WOFF, or the Web Open Font Format. WOFF2 is an improvement over WOFF with significantly better compression rates.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>@font-face</h2>
+            <pre style="font-size:50%;"><code>@font-face {
+    font-family: 'Inria Sans';
+    src: url('inriasans-regular.woff2') format('woff2'),
+         url('inriasans-regular.woff') format('woff');
+  }</code></pre>
+            <div class="l-double">
+              <p style="width:100%;" class="ciu_embed" data-feature="woff" data-periods="future_1,current,past_1,past_2">
+                <a href="http://caniuse.com/#feat=woff"><img class="plain" data-src="img/caniuse-woff.png"></a>
+              </p>
+              <p style="width:100%;" class="ciu_embed" data-feature="woff2" data-periods="future_1,current,past_1,past_2">
+                <a href="http://caniuse.com/#feat=woff2"><img class="plain" data-src="img/caniuse-woff2.png"></a>
+              </p>
+            </div>
+            <aside class="notes">
+              <p>On the practical side of things, we use the <code>@font-face</code> rule to declare a list of different font formats in the hopes that our fonts will show up correctly in as many browsers as possible. The number of font formats we need to declare has decreased over the years and right now, you can pretty much get away with declaring just WOFF and WOFF2.</p>
+              <p>The <code>@font-face</code> rule has more descriptors but only these 2, <code>font-family</code> and <code>src</code>, are mandatory.</p>
+              <p>If either of them are absent, the entire <code>@font-face</code> rule is ignored. The <code>font-family</code> descriptor is simply a label that we reference in other CSS declarations. So even if you're using say, Frutiger, you could actually call it “Dumplings” and it would still work.</p>
+              <p>The <code>src</code> descriptor is comma-separated list of external references or locally-installed font face names. It is made up of the declaration of the font file's location, and an optional format hint. If the browser doesn't support a particular font format stated in that hint, it won't bother loading the font at all.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Anatomy of an <code style="text-transform:lowercase;">@font-face</code> rule</h2>
+            <pre><code style="font-size:150%;line-height:1.4;">@font-face {
+  font-family: &lt;family-name&gt;;
+  src: [ &lt;url&gt; [format(&lt;string&gt; #)]? | &lt;font-face-name&gt; ] #;
+  font-style: normal | italic | oblique ;
+  font-weight: normal | bold | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
+  font-stretch: normal | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded;
+  unicode-range: &lt;urange&gt; #;
+  font-variant: normal | none | [ &lt;common-lig-values&gt; || &lt;discretionary-lig-values&gt; || &lt;historical-lig-values&gt; || &lt;contextual-alt-values&gt; || stylistic(&lt;feature-value-name&gt;) || historical-forms || styleset(&lt;feature-value-name&gt; #) || character-variant(&lt;feature-value-name&gt; #) || swash(&lt;feature-value-name&gt;) || ornaments(&lt;feature-value-name&gt;) || annotation(&lt;feature-value-name&gt;) || [ small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps ] || &lt;numeric-figure-values&gt; || &lt;numeric-spacing-values&gt; || &lt;numeric-fraction-values&gt; || ordinal || slashed-zero || &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ];
+  font-feature-settings: normal | &lt;feature-tag-value&gt; #;
+}</code></pre>
+            <aside class="notes">The next 3 descriptors, for style, weight and stretch, are used to match styles to a particular typeface in later declarations. Technically, you could assign a black typeface to a font-weight of 100 and proceed to confuse your colleagues who cannot figure out why setting a weight of 100 gives them this massively bold typeface. If office pranks are your thing...I'm just saying. #dontgetfired.</aside>
           </section>
         </section>
 
