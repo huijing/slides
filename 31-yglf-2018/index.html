@@ -28,8 +28,8 @@
           <h1 style="text-transform:uppercase;">East Asian web typography</h1>
           <h3>Crossing cultural boundaries for web layout inspiration</h3>
           <aside class="notes">
-            <p>добрий день (do-bry den)! This is my first time in Ukraine and Kyiv is a really beautiful city. Today, I'm going to talking about typography, specifically, East Asian typography, and how it can inspire web layouts that different from the cookie-cutter 12-column grid based layouts that we see so often.</p>
-            <p>I'm going to assume almost everyone here speaks Ukrainian and English. Does anybody here speak Chinese? </p>
+            <p>добрий день (do-bry den)! This is my first time in Ukraine and Kyiv is a really beautiful city. Today, I'm going to talking about a number of things. Starting with a bit of typography, then about web fonts, followed by how East Asian typography and modern CSS can inspire web layouts that are different from the standard 12-column grid designs that we see almost everywhere.</p>
+            <p>I'm going to assume almost everyone here speaks Ukrainian and English. Does anybody here speak Chinese?</p>
           </aside>
         </section>
 
@@ -387,22 +387,17 @@
 
         <section>
           <section>
-            <h2>Do developers even care about typography?</h2>
-            <aside class="notes">
-              <p>So here's another question, do developers even care about typography? When I was asked this, I thought it was a ridiculous question. In my mind, I was like, of course they do. But I'm wrong about a lot of things. So how many of you think typography is important?</p>
-              <p>Typography has always been an integral part of Human-Computer Interaction and software design. Rendering text and graphics on an electronic screen is no easy task.</p>
-              <p>If you really think about it, anything we see on a screen has everything to do with the field of computer graphics. And digital typography is really a cross-disciplinary field involving technical engineering, aesthetic design and mathematical precision.</p>
-            </aside>
-          </section>
-
-          <section>
             <h2>Web fonts</h2>
             <p>The CSS3 Fonts specification describes the basic controls CSS provides for selecting and using fonts within documents.</p>
             <div style="display:flex;justify-content:center;align-items:center;">
               <a href="https://www.chenhuijing.com/blog/tracing-the-history-of-css-fonts/">http://bit.ly/css-font-history/</a>
               <img class="plain" style="max-height:30vh;margin-left:1em;" data-src="img/webfonts.svg">
             </div>
-            <aside class="notes">When we talk about typography on the web, one of the first things that comes to mind is web fonts. So let's start off with some basics.</aside>
+            <aside class="notes">
+              <p>Typography has always been an integral part of Human-Computer Interaction and software design. Rendering text and graphics on an electronic screen is no easy task.</p>
+              <p>If you really think about it, anything we see on a screen has everything to do with the field of computer graphics. And digital typography is really a cross-disciplinary field involving technical engineering, aesthetic design and mathematical precision.</p>
+              <p>When we talk about typography on the web, one of the first things that comes to mind is web fonts. So let's start off with some basics.</p>
+            </aside>
           </section>
 
           <section>
@@ -412,7 +407,7 @@
               <img class="plain fragment" data-src="img/digital-fonts.png" alt="Digital fonts">
             </div>
             <aside class="notes">
-              <p>In world of metal typesetting, this is a font, which refers to a complete set of metal types that were used to typeset entire pages of text. This particular set being shown is for Caslon, 12pt.</p>
+              <p>In world of metal typesetting, these are fonts. If you are familiar with letterpress printing, you may have seen drawers containing individual metal sorts. Well, for Chinese fonts, we have type shelves. Rows and rows of type shelves.</p>
               <p>In the digital world, these are fonts, specifically font files. For both analogue and digital fonts, you can think of them as collections of glyphs.</p>
             </aside>
           </section>
@@ -496,9 +491,9 @@
           <section>
             <h2>@font-face</h2>
             <pre style="font-size:50%;"><code>@font-face {
-    font-family: 'Inria Sans';
-    src: url('inriasans-regular.woff2') format('woff2'),
-         url('inriasans-regular.woff') format('woff');
+    font-family: 'Infini';
+    src: url('infini.woff2') format('woff2'),
+         url('infini.woff') format('woff');
   }</code></pre>
             <div class="l-double">
               <p style="width:100%;" class="ciu_embed" data-feature="woff" data-periods="future_1,current,past_1,past_2">
@@ -511,8 +506,8 @@
             <aside class="notes">
               <p>On the practical side of things, we use the <code>@font-face</code> rule to declare a list of different font formats in the hopes that our fonts will show up correctly in as many browsers as possible. The number of font formats we need to declare has decreased over the years and right now, you can pretty much get away with declaring just WOFF and WOFF2.</p>
               <p>The <code>@font-face</code> rule has more descriptors but only these 2, <code>font-family</code> and <code>src</code>, are mandatory.</p>
-              <p>If either of them are absent, the entire <code>@font-face</code> rule is ignored. The <code>font-family</code> descriptor is simply a label that we reference in other CSS declarations. So even if you're using say, Frutiger, you could actually call it “Dumplings” and it would still work.</p>
-              <p>The <code>src</code> descriptor is comma-separated list of external references or locally-installed font face names. It is made up of the declaration of the font file's location, and an optional format hint. If the browser doesn't support a particular font format stated in that hint, it won't bother loading the font at all.</p>
+              <p>If either of them are absent, the entire <code>@font-face</code> rule is ignored. The <code>font-family</code> descriptor is simply a label that we reference in other CSS declarations. So even if you're using say, Frutiger, you could actually call it “Varenyky” and it would still work.</p>
+              <p>The <code>src</code> descriptor tells the browser where to find the font file, it could be an external reference, or locally installed. It also includes an optional format hint. If the browser doesn't support a particular font format stated in that hint, it won't bother loading the font at all.</p>
             </aside>
           </section>
 
@@ -530,6 +525,351 @@
 }</code></pre>
             <aside class="notes">The next 3 descriptors, for style, weight and stretch, are used to match styles to a particular typeface in later declarations. Technically, you could assign a black typeface to a font-weight of 100 and proceed to confuse your colleagues who cannot figure out why setting a weight of 100 gives them this massively bold typeface. If office pranks are your thing...I'm just saying. #dontgetfired.</aside>
           </section>
+
+          <section>
+            <pre><code style="font-size:150%;line-height:1.4;">@font-face {
+  font-family: 'Infini';
+  src: url('fonts/infini.woff2') format('woff2'),
+       url('fonts/infini.woff') format('woff');
+  /* no range specified, defaults to entire range */
+}
+
+@font-face {
+  font-family: 'Infini';
+  src: url('fonts/linbiolimum.woff2') format('woff2'),
+       url('fonts/linbiolimum.woff') format('woff');
+  unicode-range: U+0400–U+04FF; /* Unicode range for Cyrillic characters */
+}</code></pre>
+            <aside class="notes">
+              <p>Then we have the <code>unicode-range</code> descriptor. which allows us to create composite fonts that mix glyphs from different fonts for different scripts.</p>
+              <p>For example, this presentation uses the font Infini, which unfortunately does not support Cyrillic letters. So I used the <code>unicode-range</code> descriptor to tell my browser to load the Linux Biolinum font when it encounters any Cyrillic characters.</p>
+              <p>Remember that for font-face rules, the font-family is simply a label, so what I've done here is created a composite font that uses the name Infini, but in actuality, loads 2 different font files depending on what characters need to be displayed.</p>
+            </aside>
+          </section>
+
+          <section>
+            <video loop autoplay>
+              <source data-src="videos/font-highlighter.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/font-highlighter.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <aside class="notes">
+              <p>I really have to shoutout Firefox Devtools here. if you're doing a lot of design work in the browser, it's just awesome. It has the best Grid Inspector tool, a Flexbox inspector, I could go on.</p>
+              <p>But anyway, there's also the font panel that shows which fonts are loaded on your page. And if you're using the latest Firefox Nightly 62, you can toggle a brand font highlighter feature.</p>
+              <p>Here, you can see that both Infini and Linux Biolinum are loaded for my custom Infini font-family. And when I hover over elements, I can see which characters are using which loaded fonts.</p>
+              <p>If a page does not contain any Cyrillic characters, Linux Biolinum won't be loaded at all because it is not needed. Same goes for any pages that don't contain Chinese characters, then Ping Fang SC won't be loaded either.</p>
+              <p>All these font descriptors I've talked about thus far look very similar to CSS properties, but they are 2 completely different things.</p>
+            </aside>
+          </section>
+
+          <section data-background-image="img/descriptor-property.jpg">
+            <aside class="notes">Chris Lilley, who chaired the group that developed @font-face, explained it really well in his dotCSS talk. That properties are requests for styling and descriptors are descriptions of capabilities. A <code>font-weight: bold;</code> within a <code>@font-face</code> rule means this font can do bold. While a <code>font-weight: bold;</code> applied as a property means style this element with a font that can do bold.</aside>
+          </section>
+
+          <section>
+            <h2>Basic CSS font properties</h2>
+            <table style="font-size: 85%">
+              <tr>
+                <td width="25%"><code>font-size</code></td>
+                <td >Indicates the desired height of the glyphs. Takes absolute or relative values.</td>
+              </tr>
+              <tr>
+                <td><code>font-weight</code></td>
+                <td>Specifies the weight of the glyphs in the font. Can use keywords or numerical values.</td>
+              </tr>
+              <tr>
+                <td><code>font-style</code></td>
+                <td>Allows italic or oblique faces to be selected.</td>
+              </tr>
+              <tr>
+                <td><code>font-stretch</code></td>
+                <td>Selects a normal, condensed or expanded face from a font family. Range spans over 9 keywords.</td>
+              </tr>
+              <tr>
+                <td><code>font-size-adjust</code></td>
+                <td>Adjusts the font-size to preserve the x-height of the first choice font.</td>
+              </tr>
+              <tr>
+                <td><code>font-synthesis</code></td>
+                <td>Controls whether user agents are allowed to synthesize bold or oblique font faces when missing.</td>
+              </tr>
+            </table>
+            <aside class="notes">
+              <p>These here are CSS font properties. From what I've seen, properties like <code>font-size</code>, <code>font-weight</code> and <code>font-style</code> are pretty commonly used.</p>
+              <p>But <code>font-stretch</code> maybe a bit less. And the last 2, which are <code>font-size-adjust</code> and <code>font-synthesis</code>, I've almost never seen in the wild before. So let's touch on those 2, which were newly added to the Fonts Level 3 specification.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>font-size-adjust</code></h2>
+            <div class="l-double">
+              <img class="plain" style="justify-self:center" data-src="img/font-size-adjust.png" alt="Font-size adjust example">
+              <p data-height="400" data-theme-id="9162" data-slug-hash="xLvYNw" data-default-tab="result" data-user="huijing" data-embed-version="2" data-pen-title="Demo of font-size-adjust" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/xLvYNw/">Demo of font-size-adjust</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+            </div>
+            <aside class="notes"><code>font-size-adjust</code> was added to address legibility issues. Faces with low x-heights may sometimes be less legible, especially when they are triggered as fallback fonts. We can set the value of this property to the aspect ratio of the first choice font. Any fallback fonts triggered will have their font-size adjusted to match this ratio.</aside>
+          </section>
+
+          <section>
+            <h2><code>font-synthesis</code></h2>
+            <div class="l-double" style="grid-template-columns: 58% 42%;">
+              <figure>
+                <img class="plain" data-src="img/faux-bold.png" alt="Faux bold effect">
+                <figcaption></figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/faux-italic.png" alt="Faux italic effect">
+                <figcaption></figcaption>
+              </figure>
+            </div>
+            <small>Image credit: Piotr Grochowski</small>
+            <aside class="notes">
+              <p><code>font-synthesis</code> was put in to address the issue of faux bolds and faux italics. Sometimes the true italic or heavier version of a font does not exist so the browser will try to compensate. Unfortunately, the end result isn't pretty.</p>
+              <p>In fact, most Chinese fonts don't have italic variants. With this property, you can set a value of <code>none</code>, to tell the browser to leave your font alone.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Font feature properties</h2>
+            <table>
+              <tr>
+                <td style="width:30%;vertical-align:top;">
+                  <code style="font-size:85%">font-kerning</code>
+                  <img class="plain" data-src="img/kerning.svg">
+                </td>
+                <td style="width:35%;vertical-align:top;">
+                  <code style="font-size:85%">font-variant-position</code>
+                  <img class="plain" data-src="img/fv-position.png">
+                </td>
+                <td style="width:35%;vertical-align:top;">
+                  <code style="font-size:85%">font-variant-position-ligatures</code>
+                  <img class="plain" data-src="img/fv-ligatures.png">
+                </td>
+              </tr>
+              <tr>
+                <td style="width:30%;vertical-align:top;">
+                  <code style="font-size:85%">font-variant-numeric</code>
+                  <img class="plain" data-src="img/fv-numeric.png">
+                </td>
+                <td style="width:35%;vertical-align:top;">
+                  <code style="font-size:85%">font-variant-caps</code>
+                  <img class="plain" data-src="img/fv-caps.png">
+                </td>
+                <td style="width:35%;vertical-align:top;">
+                  <code style="font-size:85%">font-variant-alternates</code>
+                  <img class="plain" data-src="img/fv-alternates.png">
+                </td>
+              </tr>
+            </table>
+            <aside class="notes">
+              <p>Font feature properties were introduced in Fonts Level 3. Modern font technologies allow fonts to contain a lot more glyphs that before. So we can utilise a variety of typographic features like swashes, ligatures, old-style numerals and so on.</p>
+              <p>These features are part and parcel of good typography, which is necessary to hold your reader's attention. The written word is a transference of speech, which is heard, into something visual, to be seen. Good speakers will vary their cadence, use gestures, emphasise certain words.</p>
+              <p>Typographic features like small caps, correct use of italics and punctuation do the same for text. Other features like old style numerals and ligatures help maintain typographic colour, to make reading more comfortable.</p>
+              <p>So these are the features you can turn on via CSS, but note that the font you are using must have these features to begin with. This lot up there, are the features most often mentioned at web typography talks.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>font-variant-east-asian</code></h2>
+            <img class="plain" style="display:block;margin:1em auto" data-src="img/fv-east-asian.png">
+            <aside class="notes">
+              <p>Hardly anybody talks about <code>font-variant-east-asian</code>. What this property does is allow for glyph substitution and positioning in East Asian text. If you're unfamiliar with Han characters, it might seem like these languages share the same glyphs, but it depends. Han unification involves assigning the same code point to different glyphs, and it has been quite a controversial issue.</p>
+              <p>We won't get into that, but the point is, the same code point can have variant glyphs depending on the language being used. Like, simplified Chinese glyphs versus traditional Chinese glyphs. Japanese glyphs have their own specification known as JIS or Japanese Industrial Standard, and they too have alternate glyphs for the same character. This property allows us to toggle these variant glyphs.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Variable fonts</h2>
+            <figure>
+              <img class="plain" data-src="img/font-axes.png" alt="OpenType Variable font axes">
+              <figcaption><a href="https://medium.com/@tiro/https-medium-com-tiro-introducing-opentype-variable-fonts-12ba6cd2369"></a>Image credit: John Hudson</figcaption>
+            </figure>
+            <aside class="notes">
+              <p>Remember I mentioned OpenType earlier on? Well, in September 2016, version 1.8 of the specification introduced OpenType Font Variations. A joint development by Microsoft, Google, Apple and Adobe.</p>
+              <p>An OpenType variable font is one in which the equivalent of multiple individual fonts can be compactly packaged within a single font file, which can potentially be a big plus when it comes to performance. This is especially significant for fonts with large glyph sets, like CJK fonts.</p>
+              <p>In addition to that, the dynamism of variable fonts makes it perfect for the web medium, and opens up the possibility of new kinds of responsive typography.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <img class="plain" data-src="img/mandy.png" alt="Mandy Michael's variable font demo showcase">
+              <p data-height="450" data-theme-id="9162" data-slug-hash="YYaWop" data-default-tab="result" data-user="mandymichael" data-embed-version="2" data-pen-title="Grassy Text with Variable fonts." class="codepen">See the Pen <a href="https://codepen.io/mandymichael/pen/YYaWop/">Grassy Text with Variable fonts.</a> by Mandy Michael (<a href="https://codepen.io/mandymichael">@mandymichael</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+            </div>
+            <aside class="notes">If I start talking about variable fonts in depth, I'll probably need one more session, so I won't do that. Some brilliant people have been building demos and writing articles about variable fonts, one of whom is Mandy Michael, who gave an amazing presentation in Singapore earlier this year. There's video of her talk, included in my slides, which will be shared with everyone.</aside>
+          </section>
+
+          <section>
+            <figure>
+              <video loop autoplay>
+                <source data-src="videos/axis-praxis.mp4" type="video/mp4" />
+                Sorry, your browser doesn't support embedded videos, 
+                but don't worry, you can <a href="videos/axis-praxis.mp4">download it</a>
+                and watch it with your favourite video player!
+              </video>
+              <figcaption><a href="https://www.axis-praxis.org/">https://www.axis-praxis.org/</a></figcaption>
+            </figure>
+            <aside class="notes">If you're interested in seeing how variable fonts behave, you have to check out Axis Praxis by Laurence Penney, which is essentially a playground for the available variable fonts on the web. Taipei-based type foundry Arphic Technology AKA 文鼎科技 created the first Chinese variable font 文鼎晶熙黑, and you can play with it on Axis Praxis.</aside>
+          </section>
+        </section>
+
+        <section>
+          <section data-background-image="img/writingmode1.jpg">
+            <aside class="notes">(1/4) Vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. But when it comes to design, we can layout text in all directions if we so choose.</aside>
+          </section>
+
+          <section data-background-image="img/writingmode2.jpg">
+            <aside class="notes">(2/4) Vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. But when it comes to design, we can layout text in all directions if we so choose.</aside>
+          </section>
+
+          <section data-background-image="img/writingmode3.png">
+            <aside class="notes">(3/4) Vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. But when it comes to design, we can layout text in all directions if we so choose.</aside>
+          </section>
+
+          <section data-background-image="img/writingmode4.jpg">
+            <aside class="notes">(4/4) Vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. But when it comes to design, we can layout text in all directions if we so choose.</aside>
+          </section>
+
+          <section>
+            <h2>The magic of Writing Modes</h2>
+            <p>CSS Writing Modes Level 3 defines CSS features to support for various international writing modes, such as <strong>left-to-right</strong> (e.g. Latin or Indic), <strong>right-to-left</strong> (e.g. Hebrew or Arabic), <strong>bidirectional</strong> (e.g. mixed Latin and Arabic) and <strong>vertical</strong> (e.g. Asian scripts).</p>
+            <aside class="notes">So I want to introduce the <code>writing-mode</code> property, which deals specifically with vertical text.</aside>
+          </section>
+
+          <section>
+            <div class="l-multiple" style="align-items:center">
+              <p style="writing-mode:vertical-lr;width:4em;">You can make your browser literally turn on its side from left-to-right.</p>
+              <span class="fragment emoji"" role="img" tabindex="0" aria-label="upside-down face">&#x1F643;</span>
+              <p class="fragment" style="writing-mode:vertical-rl;width:4em;">Or make it read from right-to-left.</p>
+              <span class="fragment emoji"" role="img" tabindex="0" aria-label="upside-down face">&#x1F642;</span>
+              <p class="fragment" style="writing-mode:vertical-lr;text-orientation:upright;width:4em;">Vertical text is fun!</p>
+            </div>
+            <aside class="notes">You literally turn the browser on its side. Some people might be saying, no big deal, we can do that with transforms too. Not exactly. Changing the <code>writing-mode</code> affects an elements box alignment axes.</aside>
+          </section>
+
+          <section>
+            <h2><code>writing-mode</code> property</h2>
+            <table style="font-size:75%;">
+              <tr>
+                <td>horizontal-tb</td>
+                <td><span>从1987到现在</span></td>
+              </tr>
+              <tr>
+                <td>vertical-rl</td>
+                <td><span style="writing-mode:vertical-rl;height:3.5em;">从1987到现在</span></td>
+              </tr>
+              <tr>
+                <td>vertical-lr</td>
+                <td><span style="writing-mode:vertical-lr;height:3.5em;">从1987到现在</span></td>
+              </tr>
+              <tr>
+                <td>sideways-rl*</td>
+                <td><span style="writing-mode:sideways-rl;height:3.5em;">从1987到现在</span></td>
+              </tr>
+              <tr>
+                <td>sideways-lr*</td>
+                <td><span style="writing-mode:sideways-lr;height:3.5em;">从1987到现在</span></td>
+              </tr>
+            </table>
+            <small>Properties marked with * have been deferred to Writing Modes Level 4.</small>
+            <aside class="notes">This is what happens to your text when the different values of writing-mode are applied. The default is horizontal, top-to-bottom. To change the direction to vertical, we use <code>vertical-rl</code> or <code>vertical-lr</code>.</aside>
+          </section>
+
+          <section>
+            <h2><code>text-orientation</code>  property</h2>
+            <div class="l-multiple">
+              <figure>
+                <div><span style="writing-mode:vertical-rl;">从1987到现在</span></div>
+                <figcaption>mixed</figcaption>
+              </figure>
+              <figure>
+                <div><span style="writing-mode:vertical-rl;text-orientation:upright;text-align:justify;">从<span style="letter-spacing:-4px">1987</span>到现在</span></div>
+                <figcaption>upright</figcaption>
+              </figure>
+              <figure>
+                <div><span style="writing-mode:vertical-rl;text-orientation:sideways;">从1987到现在</span></div>
+                <figcaption>sideways</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">
+              <p>Now when we rotate text, it's not only the lines that change direction, because each line contains individual letters or characters. They have an orientation as well.</p>
+              <p>For text-orientation, the initial value is mixed. Browsers are smart enough to tell which languages can be typeset both vertically and horizontally, or in one direction only. So Chinese characters, for example, will always be displayed upright. While horizontal-only languages, will have their characters rotated when vertical.</p> 
+              <p>The <code>text-orientation</code> property let's you control this, and make all the characters upright or sideways, if you want to.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>text-combine-upright</code> property</h2>
+            <div class="l-multiple" style="margin-bottom:1em;">
+              <figure>
+                <div><span style="writing-mode:vertical-rl;">民國107年5月25日</span></div>
+                <figcaption>none</figcaption>
+              </figure>
+              <figure>
+                <div><span style="writing-mode:vertical-rl;">民國<span style="text-combine-upright:all">107</span>年<span style="text-combine-upright:all">5</span>月<span style="text-combine-upright:all">25</span>日</span></div>
+                <figcaption>all</figcaption>
+              </figure>
+              <figure>
+                <div><span style="writing-mode:vertical-rl;">民國<span style="text-combine-upright:digits 3">107</span>年<span style="text-combine-upright:digits">5</span>月<span style="text-combine-upright:digits">25</span>日</span></div>
+                <figcaption>digits &lt;integer&gt;*</figcaption>
+              </figure>
+            </div>
+            <a href="https://codepen.io/huijing/pen/bWzMEJ"><small>Codepen example for text-combine-upright</small></a>
+            <aside class="notes">
+              <p>One more relevant property is <code>text-combine-upright</code>. This addresses the issue of numerals and abbreviations in vertical text. A very common use case is dates, especially for Taiwan, where they use the 民國 calendar. This property lets us fit all the digits into the width of one character and display them upright.</p>
+              <p>No browser supports the digits value yet, which allows us to dictate how many digits are acceptable to be squeezed in. The range allowed is between 2 to 4 characters. For now, with the <code>all</code> value, there is no limit, so you could technically put hippopotamus in there and it will just look horribly squished.</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <img class="plain" data-src="img/centring.jpg" alt="Vertical centring for vertical layout">
+            <aside class="notes">
+              <p>Laying out content in a different direction does require a change in perspective. And I gleaned quite a few insights from working with vertical layout. For example, the techniques I was so used to for centring items worked a bit differently with a vertical layout.</p>
+              <p>To vertically centre a block, setting the top and bottom margins to <code>auto</code> actually does work, unlike in horizontal writing, which is great. But trying to centre something horizontally is an exercise in pain.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div style="writing-mode:vertical-rl;width:100%;">
+              <h2>Yayoi Kusama</h2>
+              <p style="font-size:75%;text-align:left;">A vital part of New York’s avant-garde art scene from the late 1950s to the early 1970s, Yayoi Kusama developed a distinctive style utilizing approaches associated with Abstract Expressionism, Minimalism, Pop art, Feminist art, and Institutional Critique—but she always defined herself in her own terms. “I am an obsessional artist,” she once said. “People may call me otherwise, but…I consider myself a heretic of the art world.”</p>
+              <p style="font-size:75%;text-align:left;">Kusama was born in 1929 into a well-off but dysfunctional family in Nagano, Japan. Largely shielded from the horrors of World War II, she was, as she has claimed, nevertheless scarred by her mother’s cruelty, her father’s infidelities, and her family’s discouragement of her interest in art making. She started painting at the age of 10 when she began experiencing the visual and aural hallucinations that would plague her, while also fueling her creativity, for the rest of her life. She has maintained that her “artwork is an expression of my life, particularly of my mental disease.”</p>
+            </div>
+            <aside class="notes">These directions of top, right, bottom, left start getting a bit confusing when you have rotated Latin text. Say you have this header, and you want some extra spacing between the header and the paragraph, is the margin set on the bottom or the left? It's actually the left.</aside>
+          </section>
+
+          <section>
+            <h2>CSS Logical Properties</h2>
+            <p class="ciu_embed" data-feature="css-logical-props" data-periods="future_1,current,past_1,past_2">
+              <a href="http://caniuse.com/#feat=css-logical-props"><img class="plain" data-src="img/caniuse-logical.png"></a>
+            </p>
+            <aside class="notes">That's why we have a CSS Logical Properties specification. So instead of <code>left</code> or <code>right</code>, we use properties like <code>block-start</code> and <code>block-end</code> or <code>inline-start</code> and <code>inline-end</code>.</aside>
+          </section>
+
+          <section data-background-image="img/logical-properties.jpg">
+            <div style="display:flex;justify-content:center;align-items:center;background:rgba(0,0,0,0.65);">
+              <img class="plain" style="max-height:30vh;margin-right:0.25em;" data-src="img/logical-props.svg">
+              <a href="https://www.smashingmagazine.com/2018/03/understanding-logical-properties-values/">https://www.smashingmagazine.com/2018/03/understanding-logical-properties-values/</a>
+            </div>
+            <aside class="notes">Rachel Andrew wrote an in-depth article on CSS logical properties on Smashing Magazine recently, and you really should read it if you haven't. The first public working draft of the specification was published in December last year, and I'm eager to see it developed and more widely implemented.</aside>
+          </section>
+
+          <section>
+            <video loop autoplay>
+              <source data-src="videos/vertical.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/vertical.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <aside class="notes">
+              <p>When I started this talk, I mentioned how I had assumed the digital world was always going to be left-to-right when I was a kid. And I had carried that assumption for quite a while. Even when Chinese language support on my PC and the web got much better, I never really thought about the layout part of things.</p>
+              <p>It wasn't until a couple years back when I was in a crowded subway train, peeking over the shoulder of this guy reading a Chinese novel on his phone, that I started to think, hey, a vertical layout seems like it would work really well here. I wonder if it's possible to do that on the web...?</p>
+              <p>So that's how I fell into this rabbit hole of vertical typesetting on the web, and learning a lot more about the Chinese language. And as you can see from this demo, the answer to my original question is a resounding yes, with all 3 properties I covered earlier being showcased here.</p>
+            </aside>
+          </section>
+
         </section>
 
         <section>
@@ -573,8 +913,9 @@
     </div>
 
     <script src="lib/js/head.min.js"></script>
+    <script src="lib/js/caniuse-embed.min.js"></script>
     <script src="js/reveal.js"></script>
-    <script async src="lib/js/eijs.js"></script>
+    <script async src="lib/js/ei.js"></script>
 
     <script>
       Reveal.initialize({
