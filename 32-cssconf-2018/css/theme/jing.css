@@ -294,6 +294,8 @@ html {
   line-height: 1.5; }
   .reveal blockquote small {
     margin-top: 0.5em; }
+  .reveal blockquote img {
+    max-height: 75vh; }
 
 .reveal figcaption {
   font-style: italic; }
