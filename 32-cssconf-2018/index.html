@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <title>The web is not just left-to-right</title>
-    <meta name="description" content="">
+    <meta name="description" content="In the grand scheme of things, digital is still relatively new, compared to thousands of years of design on analogue mediums. The web as a medium has reached a new stage of maturity that allows us to translate designs from traditional mediums like print, onto the dynamic web. Hence, layouts no longer have to only run from top-to-bottom, left-to-right. Modern CSS provides new tools that allow us to explore and create designs that break out from cookie cutter layouts.">
 
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/jing.css">
@@ -52,39 +52,86 @@
           </aside>
         </section>
 
-        <section data-background-image="img/childhood.jpg">
-          <aside class="notes">
-            <p>I grew up in Malaysia and Singapore, both countries are next to each other, and I spent most of the first 18 years of my life commuting across the border to go to school.</p>
-            <p>Both countries are a melting pot of cultures, races and languages. All around me, I could see street signs in Jawi and Latin characters, store-fronts with signs printed in Chinese and Malay. I read novels in Chinese, storybooks in English. All around me, the physical world was filled with writing systems in all directions.</p>
+        <section>
+          <section data-background-image="img/childhood.jpg">
+            <aside class="notes">
+              <p>I grew up in Malaysia and Singapore, both countries are next to each other, and I spent most of the first 18 years of my life commuting across the border to go to school.</p>
+              <p>Both countries are a melting pot of cultures, races and languages. All around me, I could see street signs in Jawi and Latin characters, store-fronts with signs printed in Chinese and Malay. I read novels in Chinese, storybooks in English. All around me, the physical world was filled with writing systems in all directions.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div style="display:grid;grid-template-columns:50% 50%;grid-template-rows:1fr 1fr;justify-items:center;">
+              <img class="plain" data-src="img/ltr1.jpg" style="max-height:35vh" alt="Windows 3.1 interface">
+              <img class="plain" data-src="img/ltr2.jpg" style="max-height:35vh" alt="DOOM DOS installer interface">
+              <img class="plain" data-src="img/ltr4.jpg" style="max-height:35vh" alt="Lotus 1-2-3 start screen">
+              <img class="plain" data-src="img/ltr3.jpg" style="max-height:35vh" alt="SimCity interface">
+            </div>
+            <aside class="notes">But in the digital world, everything was horizontal, top-to-bottom. And when I was a kid, I didn't really think too much about such things. I had just assumed that was the way things worked. That in the digital world, interfaces would always be left-to-right. And almost always in English.</aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <figure>
+                <svg style="max-height:55vh" viewBox="0 0 336 337"><g fill="none" fill-rule="evenodd" transform="translate(0 .29)"><circle class="rainbow" cx="168" cy="168.5" r="167.93" fill="salmon"/><path fill="#48004C" d="M168 168.5L218.574 8.32C202.614 3.285 185.624.57 168 .57V168.5z"/><text fill="#fff" transform="rotate(-81 183.245 64.587)" font-size="16" font-weight="400"><tspan x="122.245" y="70.087">English (~5%)</tspan></text><text fill="#000" font-size="16" font-weight="400"><tspan x="32.068" y="207.102">Every other language in the world</tspan> <tspan x="135.38" y="224.102">(~95%)</tspan></text></g></svg>
+                <figcaption>Distribution of languages used around the world</figcaption>
+              </figure>
+              <figure class="fragment">
+                <svg style="max-height:55vh" viewBox="0 0 337 337"><g fill="none" fill-rule="evenodd"><circle style="animation-delay: -2.5s;" class="rainbow" cx="168.383" cy="168.602" r="167.93" fill="salmon"/><path fill="#48004C" d="M168.383 336.53c92.745 0 167.93-75.183 167.93-167.928 0-92.745-75.185-167.93-167.93-167.93v167.93l-12.22 167.492c4.036.29 8.11.437 12.22.437z"/><text fill="#000" font-size="16" font-weight="400"><tspan x="43.479" y="152.5">Every other </tspan> <tspan x="43.479" y="172.5">language in </tspan> <tspan x="43.479" y="192.5">the world</tspan> <tspan x="43.479" y="212.5">(~48.0%)</tspan></text><text fill="#fff" font-size="16" font-weight="400"><tspan x="191.521" y="174">English (~52.0%)</tspan></text></g></svg>
+                <figcaption>Distribution of content languages on the web</figcaption>
+              </figure>
+            </div>
+            <p class="fragment"><small>Sources: <a href="http://www.worldometers.info/world-population/">Worldometers</a>, <a href="https://www.ethnologue.com/language/eng">Ethnologue</a>, <a href="https://w3techs.com/technologies/overview/content_language/all">W3Techs</a></small></p>
+            <aside class="notes">When I got older, I did some digging. It turns out that of the world's 7.6 billion people, only 5% are native English speakers, but 52% of websites are in English. Something isn't quite right about this ratio.</aside>
+          </section>
+
+          <section>
+            <h2>Local content</h2>
+            <blockquote>“Local content is a critical component of efforts to bridge the digital divide.”<br><small>—<a href="https://www.internetsociety.org/policybriefs/localcontent">Internet Society Policy Brief: Local Content</a></small></blockquote>
+            <aside class="notes">
+              <p>Studies done by the Internet Society have shown that while cost of access is a barrier to getting people online, many non-Internet users claim that the Internet is simply not relevant or of interest to them.</p>
+              <p>If the Internet is meant to enhance the free flow of information and ideas across the world, then creation of content on the web should not largely be limited to English-speaking communities.</p>
+              <p>Diversity of thought and perspective in the online world will be greatly enhanced by the participation of cultures and societies who speak all kinds of languages.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Internationalisation (i18n)</h2>
+            <blockquote>“To ensure that the technology supports text in any writing system of the world.”<br><small>—<a href="https://www.w3.org/standards/webdesign/i18n">W3C Internationalisation</a></small></blockquote>
+            <aside class="notes">Which is why Internationalisation is a priority at the W3C. It is crucial that a technology meant to be ubiquitous supports the creation of local content across the world. That every writing system in the world can be correctly rendered on the web.</aside>
+          </section>
         </section>
 
         <section>
-          <div style="display:grid;grid-template-columns:50% 50%;grid-template-rows:1fr 1fr;justify-items:center;">
-            <img class="plain" data-src="img/ltr1.jpg" style="max-height:35vh" alt="Windows 3.1 interface">
-            <img class="plain" data-src="img/ltr2.jpg" style="max-height:35vh" alt="DOOM DOS installer interface">
-            <img class="plain" data-src="img/ltr4.jpg" style="max-height:35vh" alt="Lotus 1-2-3 start screen">
-            <img class="plain" data-src="img/ltr3.jpg" style="max-height:35vh" alt="SimCity interface">
-          </div>
-          <aside class="notes">But in the digital world, everything was horizontal, top-to-bottom. And when I was a kid, I didn't really think too much about such things. I had just assumed that was the way things worked. That in the digital world, interfaces would always be left-to-right. And almost always in English.</aside>
+          <section>
+            <h2>The web is a unique medium of its own</h2>
+            <div class="l-double fragment" style="margin-top:2em">
+              <figure>
+                <div style="font-size:2.25em;"><span class="emoji" role="img" tabindex="0" aria-label="open hands">&#x1F450;</span> ➡ <span class="emoji" role="img" tabindex="0" aria-label="sparkles">&#x2728;</span></div>
+                <figcaption>Physical media</figcaption>
+              </figure>
+              <figure>
+                <div style="font-size:2.25em;"><span class="emoji" role="img" tabindex="0" aria-label="open hands">&#x1F450;</span> ➡ <span class="emoji" role="img" tabindex="0" aria-label="laptop computer">&#x1F4BB;</span> ➡ <span class="emoji" role="img" tabindex="0" aria-label="sparkles">&#x2728;</span></div>
+                <figcaption>Web medium</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">
+              <p>The web is less than 30 years old, and because it is a completely new medium, it's only natural that people try to reconcile it with something familiar, like print. Even the terminology was borrowed from print, we use terms like web <em>pages</em>.</p>
+              <p>However, there is an additional degree of separation between the creator and the final output. As such, we cannot have the same set of expectations when it comes to handling the web as a medium.</p>
+              <p>This is a medium where you cannot directly manipulate the canvas, in this case, the viewport of the browser. Instead what we do is write code as instructions to the browser, to tell them how we want our designs to be rendered.</p>
+            </aside>
+          </section>
+
+          <section>
+            <aside class="notes">Modern CSS gives us a wider vocabulary with which to communicate with the browser, so we can leverage these new capabilities that browsers now have for better art direction, more creative layouts and fresher designs that break out of the cookie cutter moulds we're so used to seeing on the web over the past couple of years.</aside>
+          </section>
         </section>
 
         <section>
-          <div class="l-double">
-            <figure>
-              <svg style="max-height:55vh" viewBox="0 0 336 337"><g fill="none" fill-rule="evenodd" transform="translate(0 .29)"><circle class="rainbow" cx="168" cy="168.5" r="167.93" fill="salmon"/><path fill="#48004C" d="M168 168.5L218.574 8.32C202.614 3.285 185.624.57 168 .57V168.5z"/><text fill="#fff" transform="rotate(-81 183.245 64.587)" font-size="16" font-weight="400"><tspan x="122.245" y="70.087">English (~5%)</tspan></text><text fill="#000" font-size="16" font-weight="400"><tspan x="32.068" y="207.102">Every other language in the world</tspan> <tspan x="135.38" y="224.102">(~95%)</tspan></text></g></svg>
-              <figcaption>Distribution of languages used around the world</figcaption>
-            </figure>
-            <figure class="fragment">
-              <svg style="max-height:55vh" viewBox="0 0 337 337"><g fill="none" fill-rule="evenodd"><circle style="animation-delay: -2.5s;" class="rainbow" cx="168.383" cy="168.602" r="167.93" fill="salmon"/><path fill="#48004C" d="M168.383 336.53c92.745 0 167.93-75.183 167.93-167.928 0-92.745-75.185-167.93-167.93-167.93v167.93l-12.22 167.492c4.036.29 8.11.437 12.22.437z"/><text fill="#000" font-size="16" font-weight="400"><tspan x="43.479" y="152.5">Every other </tspan> <tspan x="43.479" y="172.5">language in </tspan> <tspan x="43.479" y="192.5">the world</tspan> <tspan x="43.479" y="212.5">(~48.0%)</tspan></text><text fill="#fff" font-size="16" font-weight="400"><tspan x="191.521" y="174">English (~52.0%)</tspan></text></g></svg>
-              <figcaption>Distribution of content languages on the web</figcaption>
-            </figure>
-          </div>
-          <p class="fragment"><small>Sources: <a href="http://www.worldometers.info/world-population/">Worldometers</a>, <a href="https://www.ethnologue.com/language/eng">Ethnologue</a>, <a href="https://w3techs.com/technologies/overview/content_language/all">W3Techs</a></small></p>
-          <aside class="notes">When I got older, I did some digging. It turns out that of the world's 7.6 billion people, only 5% are native English speakers, but 52% of websites are in English. Something isn't quite right about this ratio.</aside>
-        </section>
-
-        <section>
-          <aside class="notes"></aside>
+          <section>
+            <h2></h2>
+            <aside class="notes"></aside>
+          </section>
         </section>
 
         <section style="text-align:left;">
