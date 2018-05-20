@@ -506,7 +506,7 @@
             <aside class="notes">
               <p>On the practical side of things, we use the <code>@font-face</code> rule to declare a list of different font formats in the hopes that our fonts will show up correctly in as many browsers as possible. Nowadays, it's safe enough to declare just WOFF and WOFF2.</p>
               <p>The <code>@font-face</code> rule has many descriptors but only <code>font-family</code> and <code>src</code>, are mandatory.</p>
-              <p>If either of them are absent, the entire <code>@font-face</code> rule block is ignored. The <code>font-family</code> descriptor is simply a label that we reference in other CSS declarations. So maybe you're using Helvetica, you don't have to put “Helvetica” as the descriptor, “Varenyky” would work just fine.</p>
+              <p>If either of them are absent, the entire <code>@font-face</code> rule block is ignored. The <code>font-family</code> descriptor is simply a label that we reference in other CSS declarations. So maybe you're using Helvetica, you don't have to put “Helvetica” as the descriptor, вареники (va-re-ny-ky) would work just fine.</p>
               <p>The <code>src</code> descriptor tells the browser where to find the font file, it could be an external reference, or a locally installed font. It also includes an optional format hint. If the browser doesn't support a particular font format stated in that hint, it won't bother loading the font at all.</p>
             </aside>
           </section>
@@ -818,7 +818,7 @@
             <a href="https://codepen.io/huijing/pen/bWzMEJ"><small>Codepen example for text-combine-upright</small></a>
             <aside class="notes">
               <p>One more relevant property is <code>text-combine-upright</code>. This addresses the issue of numerals and abbreviations in vertical text. A very common use case is dates, especially for the Taiwanese calendar. This property lets us fit all the digits into the width of one character and display them upright.</p>
-              <p>No browser supports the digits value yet, which allows us to dictate how many digits are acceptable to be squeezed in. The range allowed is between 2 to 4 characters. For now, with the <code>all</code> value, there is no limit, so you could technically put long words like Kruchenyky in there and it will just look horribly squished.</p>
+              <p>No browser supports the digits value yet, which allows us to dictate how many digits are acceptable to be squeezed in. The range allowed is between 2 to 4 characters. For now, with the <code>all</code> value, there is no limit, so you could technically put long words like Крученики (kru-che-ni-ki) in there and it will just look horribly squished.</p>
             </aside>
           </section>
         </section>
