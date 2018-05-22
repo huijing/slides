@@ -2,7 +2,9 @@
 
 *For You Gotta Love Frontend Kyiv 2018. This is sort of a transcript of the talk.*
 
-добрий день (do-bry den)! This is my first time in Ukraine and I've been here for a couple of days. I must say, Kyiv is a stunningly beautiful city. Today, I'm going to talking about a number of things. Starting with a bit of typography, then about web fonts, followed by how East Asian typography and modern CSS can inspire web layouts that are different from the standard 12-column grid designs that we see almost everywhere.
+добрий день!
+
+This is my first time in Ukraine and I've been here for a couple of days. I must say, Kyiv is a stunningly beautiful city. Today, I'm going to talking about a number of things. Starting with a bit of typography, then about web fonts, followed by how East Asian typography and modern CSS can inspire web layouts that are different from the standard 12-column grid designs that we see almost everywhere.
 
 I'm going to assume almost everyone here speaks Ukrainian and English. Does anybody here speak Chinese?
 
