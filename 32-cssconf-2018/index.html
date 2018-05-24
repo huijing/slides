@@ -74,11 +74,11 @@
             <div class="l-double">
               <figure>
                 <svg style="max-height:70vh" viewBox="0 0 336 337"><g fill="none" fill-rule="evenodd" transform="translate(0 .29)"><circle class="rainbow" cx="168" cy="168.5" r="167.93" fill="salmon"/><path fill="#48004C" d="M168 168.5L218.574 8.32C202.614 3.285 185.624.57 168 .57V168.5z"/><text fill="#fff" transform="rotate(-81 183.245 64.587)" font-size="16" font-weight="400"><tspan x="122.245" y="70.087">English (~5%)</tspan></text><text fill="#000" font-size="16" font-weight="400"><tspan x="32.068" y="207.102">Every other language in the world</tspan> <tspan x="135.38" y="224.102">(~95%)</tspan></text></g></svg>
-                <figcaption style="font-size:75%">Distribution of languages used around the world</figcaption>
+                <figcaption>Distribution of languages used around the world</figcaption>
               </figure>
               <figure class="fragment">
                 <svg style="max-height:70vh" viewBox="0 0 337 337"><g fill="none" fill-rule="evenodd"><circle style="animation-delay: -2.5s;" class="rainbow" cx="168.383" cy="168.602" r="167.93" fill="salmon"/><path fill="#48004C" d="M168.383 336.53c92.745 0 167.93-75.183 167.93-167.928 0-92.745-75.185-167.93-167.93-167.93v167.93l-12.22 167.492c4.036.29 8.11.437 12.22.437z"/><text fill="#000" font-size="16" font-weight="400"><tspan x="43.479" y="152.5">Every other </tspan> <tspan x="43.479" y="172.5">language in </tspan> <tspan x="43.479" y="192.5">the world</tspan> <tspan x="43.479" y="212.5">(~48.0%)</tspan></text><text fill="#fff" font-size="16" font-weight="400"><tspan x="191.521" y="174">English (~52.0%)</tspan></text></g></svg>
-                <figcaption style="font-size:75%">Distribution of content languages on the web</figcaption>
+                <figcaption>Distribution of content languages on the web</figcaption>
               </figure>
             </div>
             <p class="fragment"><small>Sources: <a href="http://www.worldometers.info/world-population/">Worldometers</a>, <a href="https://www.ethnologue.com/language/eng">Ethnologue</a>, <a href="https://w3techs.com/technologies/overview/content_language/all">W3Techs</a></small></p>
@@ -87,7 +87,7 @@
 
           <section>
             <h2>Local content</h2>
-            <blockquote>“Local content is a critical component of efforts to bridge the digital divide.”<br><small>—<a href="https://www.internetsociety.org/policybriefs/localcontent">Internet Society Policy Brief: Local Content</a></small></blockquote>
+            <blockquote>“Local content is a critical component of efforts<br> to bridge the digital divide.”<br><small>—<a href="https://www.internetsociety.org/policybriefs/localcontent">Internet Society Policy Brief: Local Content</a></small></blockquote>
             <aside class="notes">
               <p>Studies done by the Internet Society have shown that while cost of access is a barrier to getting people online, many non-Internet users claim that the Internet is simply not relevant or of interest to them.</p>
               <p>If the Internet is meant to enhance the free flow of information and ideas across the world, then creation of content on the web should not be largely limited to English-speaking communities.</p>
@@ -97,7 +97,7 @@
 
           <section>
             <h2>Internationalisation (i18n)</h2>
-            <blockquote>“To ensure that the technology supports text in any writing system of the world.”<br><small>—<a href="https://www.w3.org/standards/webdesign/i18n">W3C Internationalisation</a></small></blockquote>
+            <blockquote>“To ensure that the technology supports text<br> in <strong>any writing system</strong> of the world.”<br><small>—<a href="https://www.w3.org/standards/webdesign/i18n">W3C Internationalisation</a></small></blockquote>
             <aside class="notes">Which is why Internationalisation is a priority at the W3C. It is crucial that a technology meant to be ubiquitous supports the creation of local content across the world. That every writing system in the world can be correctly rendered on the web.</aside>
           </section>
         </section>
@@ -189,9 +189,9 @@
 
           <section>
             <div style="display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;grid-template-areas:'a b''c b';align-items:center">
-              <img class="plain" data-src="img/wm-eg.jpg" alt="CSS layout properties" style="grid-area:b">
-              <img class="plain" data-src="img/wm-eg2.jpg" alt="CSS layout properties" style="grid-area:a">
-              <img class="plain" data-src="img/wm-eg3.jpg" alt="CSS layout properties" style="grid-area:c">
+              <img class="plain" data-src="img/wm-eg.jpg" alt="CSS layout properties" style="grid-area:b;box-shadow: 0px 2px 6px #444">
+              <img class="plain" data-src="img/wm-eg2.jpg" alt="CSS layout properties" style="grid-area:a;box-shadow: 0px 2px 6px #444">
+              <img class="plain" data-src="img/wm-eg3.jpg" alt="CSS layout properties" style="grid-area:c;box-shadow: 0px 2px 6px #444">
             </div>
             <aside class="notes">
               <p>For horizontal-only languages, you wouldn't want to layout text vertically for long passages, but there are subtle ways you can insert vertical text into your designs to add some flavour without compromising the reading experience.</p>
@@ -202,7 +202,7 @@
           <section data-background-image="img/inspiration.jpg">
             <aside class="notes">
               <p>I find that a lot of great graphic design can be found from posters, record labels, book covers, things that we encounter almost on a daily basis.</p>
-              <p>Vertical layouts are not a new thing. It's just that the web used hadn't reached a level of maturity that could do them well until recently.</p>
+              <p>Vertical layouts are not a new thing. It's just that the web hadn't reached a level of maturity that could do them well, until recently.</p>
             </aside>
           </section>
 
@@ -242,6 +242,7 @@
 
           <section>
             <h2>Creating CSS pencils</h2>
+            <p>(<em>Transforms edition</em>)</p>
             <ol>
               <li class="fragment">Mark-up</li>
               <li class="fragment">Visual styles</li>
@@ -266,7 +267,7 @@
                   </li>
                 </ul>
               </div>
-              <div class="code"><style class="code-editor"><ul>
+              <pre><code><ul>
   <li>
     <p>This is a pencil</p>
   </li>
@@ -276,8 +277,9 @@
   <li>
     <p>Because why not</p>
   </li>
-</ul></style></div>
+</ul></code></pre>
             </div>
+            <aside class="notes">Mark-up is very basic. The additional <code>p</code> tag inside the list item is for styling purposes, because I only have two pseudo-elements to play with, and that's not enough.</aside>
           </section>
 
           <section>
@@ -296,7 +298,7 @@
                   </li>
                 </ul>
               </div>
-             <div class="code" style="font-size:50%"><style class="code-editor" contenteditable="true">.transforms1 li {
+             <div class="code" style="font-size:50%"><style class="code-editor">.transforms1 li {
   display: flex;
   align-items: start;
   margin-bottom: 1em;
@@ -325,7 +327,8 @@
   border-top: 0.5em solid #ffd268;
   border-bottom: 0.5em solid #ffd268;
   height: 2em;
-  width: 60vh;
+  width: 50vmin;
+  min-width: 10em;
   position: relative;
   padding-left: 1em;
 }
@@ -353,6 +356,10 @@
   left: -0.5em;
 }</style></div>
             </div>
+            <aside class="notes">
+              <p>So key style properties here are borders. The border property is, in my opinion, an underrated CSS property. If you've read Lea Verou's brilliant book, CSS Secrets, or watched her talk on the humble border-radius, you might already know this.</p>
+              <p>So the tips of the pencils are made from CSS triangles technique, which makes use of the fact that borders meet as diagonals.</p>
+            </aside>
           </section>
 
           <section>
@@ -371,25 +378,52 @@
                   </li>
                 </ul>
               </div>
-             <div class="code" style="font-size:50%"><style class="code-editor" contenteditable="true">.transforms2 {
-  transform: rotate(90deg) translate(0%, -100%);
-  transform-origin: 10% 25%;
+             <div class="code" style="font-size:65%"><style class="code-editor">.transforms2 {
+  transform: rotate(90deg) translateY(-150%);
+  transform-origin: 0% 0%;
 }</style></div>
             </div>
+            <aside class="notes">There are four 2D-transform functions available to us, and we'll use the rotate transform to get the pencils vertical. The tricky part about using transforms is that you have to keep in mind the <code>transform-origin</code>, and how the browser deals with transforms to begin with.</aside>
+          </section>
+
+          <section>
+            <h2>What happens when you apply a transform?</h2>
+            <ul>
+              <li class="fragment">establishes a <strong>new local coordinate system</strong> at the element that it is applied to</li>
+              <li class="fragment">does <strong>not</strong> affect the flow of the content surrounding the transformed element</li>
+              <li class="fragment">results in the creation of a <strong>stacking context</strong></li>
+            </ul>
+            <aside class="notes">Transforms bring the element in question into its own layer, and takes it out of the normal document flow. So if you're trying to rotate elements that are supposed to be part of a larger layout, which is a super common use-case, you might end-up with unwanted overflows or overlaps.</aside>
+          </section>
+
+          <section>
+            <div class="l-double" style="justify-items:center">
+              <video loop autoplay>
+                <source data-src="videos/diagonal-scroll.mp4" type="video/mp4" />
+                Sorry, your browser doesn't support embedded videos, 
+                but don't worry, you can <a href="videos/diagonal-scroll.mp4">download it</a>
+                and watch it with your favourite video player!
+              </video>
+              <figure style="width:64vw;height:80vh">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/4k0cAQLjDtg?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <figcaption><a href="https://supersillyhackathon.sg/">Super Silly Hackathon</a></figcaption>
+              </figure>
+            </div>
+            <aside class="notes">A friend of mine tried to transform his entire website and discovered so many interesting things about transforms that it warranted a 20 minute talk at our CSS meetup. So what other options do we have?</aside>
           </section>
         </section>
 
         <section>
           <section>
             <img class="plain" data-src="img/card-writingmode.png" alt="Writing mode trading card">
-            <aside class="notes"></aside>
+            <aside class="notes">Well, the outcome of my research into typesetting Chinese vertically on the web led me to discover the existence of the writing modes specification.</aside>
           </section>
 
           <section>
             <h2>CSS Writing Modes</h2>
             <p>Defines CSS features to support for various international writing modes, such as <strong>left-to-right</strong> (e.g. Latin or Indic), <strong>right-to-left</strong> (e.g. Hebrew or Arabic), <strong>bidirectional</strong> (e.g. mixed Latin and Arabic) and <strong>vertical</strong> (e.g. Asian scripts).</p>
             <aside class="notes">
-              <p>Anyway, the writing modes specification covers all sorts of international writing systems, extending and replacing the `unicode-bidi` and `direction` features defined in CSS2.1</p>
+              <p>This specification covers all sorts of international writing systems, extending and replacing the `unicode-bidi` and `direction` features defined in CSS2.1</p>
               <p>It also introduces a number of rules and properties that are required to properly support vertical text layout in CSS.</p>
             </aside>
           </section>
@@ -468,6 +502,160 @@
               <p>For now, with the <code>all</code> value, there is no limit, so you use it on a long word like “Beethoven”, and the browser will squish all those letters into that single-character space.</p>
             </aside>
           </section>
+
+          <section>
+            <h2>Creating CSS pencils</h2>
+            <p>(<em>writing-mode edition</em>)</p>
+            <ol>
+              <li>Mark-up</li>
+              <li>Layout and visual styles</li>
+            </ol>
+            <aside class="notes">So, back to pencils. We'll keep the same strategy as before, except that layout and visual styles are essentially done together. You'll see why in a bit.</aside>
+          </section>
+
+          <section>
+            <h2>1. Mark-up</h2>
+             <div class="livecode livecode-2p">
+              <div class="result">
+                <ul>
+                  <li>
+                    <p>This is a pencil</p>
+                  </li>
+                  <li>
+                    <p>A CSS only pencil</p>
+                  </li>
+                  <li>
+                    <p>Because why not</p>
+                  </li>
+                </ul>
+              </div>
+              <pre><code><ul>
+  <li>
+    <p>This is a pencil</p>
+  </li>
+  <li>
+    <p>A CSS only pencil</p>
+  </li>
+  <li>
+    <p>Because why not</p>
+  </li>
+</ul></code></pre>
+            </div>
+            <aside class="notes">No change to the markup for this.</aside>
+          </section>
+
+          <section>
+            <h2>2. Layout styles</h2>
+             <div class="livecode livecode-2p">
+              <div class="result" style="font-size:30px">
+                <ul class="writingmode1">
+                  <li>
+                    <p>This is a pencil</p>
+                  </li>
+                  <li>
+                    <p>A CSS only pencil</p>
+                  </li>
+                  <li>
+                    <p>Because why not</p>
+                  </li>
+                </ul>
+              </div>
+             <div class="code" style="font-size:75%"><style class="code-editor">.writingmode1 {
+  writing-mode: vertical-rl;
+}</style></div>
+            </div>
+            <aside class="notes">
+              <p>Here, we apply <code>writing-mode</code> first, because presently, we still rely heavily on physical directions of left, right, top and bottom when it comes to styling elements.</p>
+              <p>Hence, all the borders have to be re-calibrated, it's not just taking the styling from the transforms use-case and applying vertical-rl to the unordered list.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>3. Visual styles</h2>
+             <div class="livecode livecode-2p">
+              <div class="result" style="font-size:30px">
+                <ul class="writingmode1 writingmode2">
+                  <li>
+                    <p>This is a pencil</p>
+                  </li>
+                  <li>
+                    <p>A CSS only pencil</p>
+                  </li>
+                  <li>
+                    <p>Because why not</p>
+                  </li>
+                </ul>
+              </div>
+             <div class="code" style="font-size:65%"><style class="code-editor">.writingmode2 li {
+  margin-left: 1em;
+  display: flex;
+  align-items: start;
+}
+.writingmode2 li::after {
+  content: '';
+  display: block;
+  border-style: solid;
+  border-color: #e29663 transparent transparent transparent;
+  border-width: 2em 1em 1em;
+}
+.writingmode2 li::before {
+  content: '';
+  width: 2em;
+  height: 2.5em;
+  background: #d76f6e;
+  border-right: 0.5em solid #da8e8d;
+  border-left: 0.5em solid #c85957;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.writingmode2 p {
+  background: #ffc334;
+  border-left: 0.5em solid #ffd268;
+  border-right: 0.5em solid #ffd268;
+  width: 2em;
+  height: 50vh;
+  min-height: 10em;
+  position: relative;
+  padding-top: 1em;
+}
+.writingmode2 p::after {
+  position: absolute;
+  content: '';
+  border-style: solid;
+  border-color: #262626 transparent transparent transparent;
+  border-width: 2em 1em 1em;
+  right: -0.5em;
+  top: 102%;
+  transform: scale(0.4);
+}
+.writingmode2 p::before {
+  content: '';
+  position: absolute;
+  height: 0.5em;
+  width: 2em;
+  background: #ccc;
+  border-right: 0.5em solid #dedede;
+  border-left: 0.5em solid #b9bfbf;
+  top: 0;
+  left: -0.5em;
+}</style></div>
+            </div>
+            <aside class="notes">If you compare the code for this and the transforms version, you'll notice that even though the words are rotated and flowing from right-to-left, the margins and paddings are respective to our perspective. For example, padding on the left of my pencil text is applied with <code>padding-top</code> and so on. This confuses me a lot.</aside>
+          </section>
+
+          <section>
+            <img class="plain" data-src="img/card-logical.png" alt="Logical properties trading card">
+            <aside class="notes">Luckily, we have an up-and-coming new player on Team Layout, CSS Logical Properties. What it does is use logical properties like <code>block-start</code> and <code>block-end</code> or <code>inline-start</code> or <code>inline-end</code>, which are direction agnostic, and allows the same code to be used regardless of writing mode.</aside>
+          </section>
+
+          <section data-background-image="img/logical-properties.jpg">
+            <div style="display:flex;justify-content:center;align-items:center;background:rgba(0,0,0,0.65);">
+              <img class="plain" style="max-height:30vh;margin-right:0.25em;" data-src="img/logical-props.svg">
+              <a style="color:#43c280" href="https://www.smashingmagazine.com/2018/03/understanding-logical-properties-values/">https://www.smashingmagazine.com/2018/03/understanding-logical-properties-values/</a>
+            </div>
+            <aside class="notes">I highly suggest reading Rachel Andrew's in-depth article on Smashing Magazine to gain a better understanding. The first public working draft of the specification was published in December last year, and I'm eager to see it developed and more widely implemented.</aside>
+          </section>
         </section>
 
         <section>
@@ -477,15 +665,1603 @@
           </section>
 
           <section>
+            <h2>Moar pencils, please</h2>
+             <div class="livecode livecode-2p">
+              <div class="result" style="font-size:30px">
+                <div>
+                  <ul>
+                    <li>
+                      <p>This is a pencil</p>
+                    </li>
+                    <li>
+                      <p>A CSS only pencil</p>
+                    </li>
+                    <li>
+                      <p>Because why not</p>
+                    </li>
+                  </ul>
 
+                  <ul>
+                    <li>
+                      <p>This is a pencil</p>
+                    </li>
+                    <li>
+                      <p>A CSS only pencil</p>
+                    </li>
+                    <li>
+                      <p>Because why not</p>
+                    </li>
+                  </ul>
+
+                  <ul>
+                    <li>
+                      <p>This is a pencil</p>
+                    </li>
+                    <li>
+                      <p>A CSS only pencil</p>
+                    </li>
+                    <li>
+                      <p>Because why not</p>
+                    </li>
+                  </ul>
+
+                  <ul>
+                    <li>
+                      <p>This is a pencil</p>
+                    </li>
+                    <li>
+                      <p>A CSS only pencil</p>
+                    </li>
+                    <li>
+                      <p>Because why not</p>
+                    </li>
+                  </ul>
+                  
+                  <ul>
+                    <li>
+                      <p>This is a pencil</p>
+                    </li>
+                    <li>
+                      <p>A CSS only pencil</p>
+                    </li>
+                    <li>
+                      <p>Because why not</p>
+                    </li>
+                  </ul>
+
+                  <ul>
+                    <li>
+                      <p>This is a pencil</p>
+                    </li>
+                    <li>
+                      <p>A CSS only pencil</p>
+                    </li>
+                    <li>
+                      <p>Because why not</p>
+                    </li>
+                  </ul>
+
+                  <ul>
+                    <li>
+                      <p>This is a pencil</p>
+                    </li>
+                    <li>
+                      <p>A CSS only pencil</p>
+                    </li>
+                    <li>
+                      <p>Because why not</p>
+                    </li>
+                  </ul>
+
+                  <ul>
+                    <li>
+                      <p>This is a pencil</p>
+                    </li>
+                    <li>
+                      <p>A CSS only pencil</p>
+                    </li>
+                    <li>
+                      <p>Because why not</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+             <pre><code><div>
+  <ul>
+    <li>
+      <p>This is a pencil</p>
+    </li>
+    <li>
+      <p>A CSS only pencil</p>
+    </li>
+    <li>
+      <p>Because why not</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>This is a pencil</p>
+    </li>
+    <li>
+      <p>A CSS only pencil</p>
+    </li>
+    <li>
+      <p>Because why not</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>This is a pencil</p>
+    </li>
+    <li>
+      <p>A CSS only pencil</p>
+    </li>
+    <li>
+      <p>Because why not</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>This is a pencil</p>
+    </li>
+    <li>
+      <p>A CSS only pencil</p>
+    </li>
+    <li>
+      <p>Because why not</p>
+    </li>
+  </ul>
+  
+  <ul>
+    <li>
+      <p>This is a pencil</p>
+    </li>
+    <li>
+      <p>A CSS only pencil</p>
+    </li>
+    <li>
+      <p>Because why not</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>This is a pencil</p>
+    </li>
+    <li>
+      <p>A CSS only pencil</p>
+    </li>
+    <li>
+      <p>Because why not</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>This is a pencil</p>
+    </li>
+    <li>
+      <p>A CSS only pencil</p>
+    </li>
+    <li>
+      <p>Because why not</p>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <p>This is a pencil</p>
+    </li>
+    <li>
+      <p>A CSS only pencil</p>
+    </li>
+    <li>
+      <p>Because why not</p>
+    </li>
+  </ul>
+</div></code></pre>
+            </div>
+            <aside class="notes">
+              <p>So let's have more pencils, many more pencils. And I want a mixture of vertical and horizontal pencils. This is becoming a larger scale layout situation, and is what Flexbox is capable of handling. It's versatile like that.</p>
+              <p>The markup is similar to the previous examples, just multiplied.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Mixed writing-modes?</h2>
+             <div class="livecode livecode-2p">
+              <div class="result" style="font-size:18px">
+                <div class="flex1">
+                  <ul class="vert">
+                    <li>
+                      <p class="blue">This is a pencil</p>
+                    </li>
+                    <li>
+                      <p class="blue">A CSS only pencil</p>
+                    </li>
+                    <li>
+                      <p class="blue">Because why not</p>
+                    </li>
+                  </ul>
+
+                  <ul class="horz">
+                    <li>
+                      <p class="blue">This is a pencil</p>
+                    </li>
+                    <li>
+                      <p class="blue">A CSS only pencil</p>
+                    </li>
+                    <li>
+                      <p class="blue">Because why not</p>
+                    </li>
+                  </ul>
+
+                  <ul class="vert">
+                    <li>
+                      <p class="red">This is a pencil</p>
+                    </li>
+                    <li>
+                      <p class="red">A CSS only pencil</p>
+                    </li>
+                    <li>
+                      <p class="red">Because why not</p>
+                    </li>
+                  </ul>
+
+                  <ul class="horz">
+                    <li>
+                      <p class="red">This is a pencil</p>
+                    </li>
+                    <li>
+                      <p class="red">A CSS only pencil</p>
+                    </li>
+                    <li>
+                      <p class="red">Because why not</p>
+                    </li>
+                  </ul>
+                  
+                  <ul class="vert">
+                    <li>
+                      <p class="yellow">This is a pencil</p>
+                    </li>
+                    <li>
+                      <p class="yellow">A CSS only pencil</p>
+                    </li>
+                    <li>
+                      <p class="yellow">Because why not</p>
+                    </li>
+                  </ul>
+
+                  <ul class="horz">
+                    <li>
+                      <p class="yellow">This is a pencil</p>
+                    </li>
+                    <li>
+                      <p class="yellow">A CSS only pencil</p>
+                    </li>
+                    <li>
+                      <p class="yellow">Because why not</p>
+                    </li>
+                  </ul>
+
+                  <ul class="vert">
+                    <li>
+                      <p class="green">This is a pencil</p>
+                    </li>
+                    <li>
+                      <p class="green">A CSS only pencil</p>
+                    </li>
+                    <li>
+                      <p class="green">Because why not</p>
+                    </li>
+                  </ul>
+
+                  <ul class="horz">
+                    <li>
+                      <p class="green">This is a pencil</p>
+                    </li>
+                    <li>
+                      <p class="green">A CSS only pencil</p>
+                    </li>
+                    <li>
+                      <p class="green">Because why not</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+             <div class="code" style="font-size:50%"><style class="code-editor">.flex1 .vert {
+  writing-mode: vertical-rl;
+}
+
+.flex1 .vert li {
+  display: flex;
+  align-items: start;
+  margin: 0.5em;
+}
+
+.flex1 .vert li::after {
+  content: '';
+  display: block;
+  border-style: solid;
+  border-color: #e29663 transparent transparent transparent;
+  border-width: 2em 1em 1em;
+}
+
+.flex1 .vert li::before {
+  content: '';
+  width: 2em;
+  height: 2.5em;
+  background: #d76f6e;
+  border-right: 0.5em solid #da8e8d;
+  border-left: 0.5em solid #c85957;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.flex1 .vert p {
+  border-width: 0 0.5em;
+  border-style: solid;
+  width: 2em;
+  height: 10em;
+  position: relative;
+  padding-top: 1em;
+}
+
+.flex1 .vert p::after {
+  position: absolute;
+  content: '';
+  border-style: solid;
+  border-color: #262626 transparent transparent transparent;
+  border-width: 2em 1em 1em;
+  right: -0.5em;
+  top: 102%;
+  transform: scale(0.4);
+}
+
+.flex1 .vert p::before {
+  content: '';
+  position: absolute;
+  height: 0.5em;
+  width: 2em;
+  background: #ccc;
+  border-right: 0.5em solid #dedede;
+  border-left: 0.5em solid #b9bfbf;
+  top: 0;
+  left: -0.5em;
+}
+
+.flex1 .horz li {
+  display: flex;
+  align-items: start;
+  margin: 0.5em;
+}
+
+.flex1 .horz li::after {
+  content: '';
+  border-style: solid;
+  border-color: transparent transparent transparent #e29663;
+  border-width: 1em 2em 1em;
+}
+
+.flex1 .horz li::before {
+  content: '';
+  width: 2.5em;
+  height: 2em;
+  background: #d76f6e;
+  border-top: 0.5em solid #da8e8d;
+  border-bottom: 0.5em solid #c85957;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.flex1 .horz p {
+  border-width: 0.5em 0;
+  border-style: solid;
+  height: 2em;
+  width: 10em;
+  position: relative;
+  padding-left: 1em;
+}
+
+.flex1 .horz p::after {
+  position: absolute;
+  content: '';
+  border-style: solid;
+  border-color: transparent transparent transparent #262626;
+  border-width: 1em 2em 1em;
+  top: -0.5em;
+  left: 100%;
+  transform: scale(0.4);
+}
+
+.flex1 .horz p::before {
+  content: '';
+  position: absolute;
+  height: 2em;
+  width: 0.5em;
+  background: #ccc;
+  border-top: 0.5em solid #dedede;
+  border-bottom: 0.5em solid #b9bfbf;
+  top: -0.5em;
+  left: -0.5em;
+}
+
+.flex1 .yellow {
+  background: #ffc334;
+  border-color: #ffd268;
+}
+
+.flex1 .red {
+  background: #ff6347;
+  border-color: #fa8072;
+}
+
+.flex1 .green {
+  background: #32cd32;
+  border-color: #98fb98;
+}
+
+.flex1 .blue {
+  background: #00bfff;
+  border-color: #87cefa;
+}</style></div>
+            </div>
+            <aside class="notes">
+              <p>These pencils are a mix of vertical and horizontal, with different colours so you can tell which way they are being laid out. The cool thing about flexbox is that it can do space distribution and content alignment like nothing we've seen before.</p>
+              <p>Flex children can be laid out in any flow direction, left, right, down or even up, if that's what you want. Display order can also be reversed or rearranged, though this does have accessibility implications and should be used with caution.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Single dimension daisy chains</h2>
+            <div class="l-double">
+              <figure>
+                <img class="plain" data-src="img/daisy-row.svg" alt="Flex-direction row" style="max-height:75vh">
+                <figcaption>flex-direction: row</figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/daisy-col.svg" alt="Flex-direction column" style="max-height:75vh">
+                <figcaption>flex-direction: column</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">Items within a flex container are laid out like a long daisy chain. But even if they wrap around, there is actually no relationship between the rows and columns. It's just one really long row, or one really long column that wrapped around.</aside>
+          </section>
+
+          <section>
+            <h2>Re-ordering flow</h2>
+             <div class="livecode livecode-2p">
+              <div class="result" style="font-size:18px">
+                <div class="flex1 flex2">
+                  <ul class="vert">
+                    <li>
+                      <p class="blue">This is a pencil</p>
+                    </li>
+                    <li>
+                      <p class="blue">A CSS only pencil</p>
+                    </li>
+                    <li>
+                      <p class="blue">Because why not</p>
+                    </li>
+                  </ul>
+
+                  <ul class="horz">
+                    <li>
+                      <p class="blue">This is a pencil</p>
+                    </li>
+                    <li>
+                      <p class="blue">A CSS only pencil</p>
+                    </li>
+                    <li>
+                      <p class="blue">Because why not</p>
+                    </li>
+                  </ul>
+
+                  <ul class="vert">
+                    <li>
+                      <p class="red">This is a pencil</p>
+                    </li>
+                    <li>
+                      <p class="red">A CSS only pencil</p>
+                    </li>
+                    <li>
+                      <p class="red">Because why not</p>
+                    </li>
+                  </ul>
+
+                  <ul class="horz">
+                    <li>
+                      <p class="red">This is a pencil</p>
+                    </li>
+                    <li>
+                      <p class="red">A CSS only pencil</p>
+                    </li>
+                    <li>
+                      <p class="red">Because why not</p>
+                    </li>
+                  </ul>
+                  
+                  <ul class="vert">
+                    <li>
+                      <p class="yellow">This is a pencil</p>
+                    </li>
+                    <li>
+                      <p class="yellow">A CSS only pencil</p>
+                    </li>
+                    <li>
+                      <p class="yellow">Because why not</p>
+                    </li>
+                  </ul>
+
+                  <ul class="horz">
+                    <li>
+                      <p class="yellow">This is a pencil</p>
+                    </li>
+                    <li>
+                      <p class="yellow">A CSS only pencil</p>
+                    </li>
+                    <li>
+                      <p class="yellow">Because why not</p>
+                    </li>
+                  </ul>
+
+                  <ul class="vert">
+                    <li>
+                      <p class="green">This is a pencil</p>
+                    </li>
+                    <li>
+                      <p class="green">A CSS only pencil</p>
+                    </li>
+                    <li>
+                      <p class="green">Because why not</p>
+                    </li>
+                  </ul>
+
+                  <ul class="horz">
+                    <li>
+                      <p class="green">This is a pencil</p>
+                    </li>
+                    <li>
+                      <p class="green">A CSS only pencil</p>
+                    </li>
+                    <li>
+                      <p class="green">Because why not</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+             <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.flex2 {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  flex-wrap: wrap;
+  flex-direction: row;
+}</style></div>
+            </div>
+            <aside class="notes">The property that controls the flow direction, is aptly named <code>flex-direction</code>, and with this, we can reorder flow of content. Again, I want to emphasise that this merely modifies the visual order and not the source order of the flex items. Screen readers and keyboard control will still respect source order.</aside>
           </section>
         </section>
 
         <section>
           <section>
             <img class="plain" data-src="img/card-grid.png" alt="CSS grid trading card">
+            <aside class="notes">If Flexbox is an all-star, then Grid is shaping up to be a hall-of-fame level legend. Because Grid lets us do a lot of things that were previously either impossible or highly untenable.</aside>
+          </section>
+
+          <section>
+            <blockquote>“Grid works from the <strong>container</strong> in,<br> other layout methods start with the <strong>item</strong>”<br><small>—<a href="https://rachelandrew.co.uk/">Rachel Andrew</a></small></blockquote>
+            <aside class="notes">I can't talk about Grid without quoting Rachel Andrew so here's a good one. Think about how we've done layout in the pre-Grid era. Let's look at the example of a simple uniform grid layout.</aside>
+          </section>
+
+          <section>
+            <h2>Layout technique: <code>inline-block</code></h2>
+            <div class="livecode livecode-2p">
+              <div class="result inlineblock" style="font-size:75%;">
+                <div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item A</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item B</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item C</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item D</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item E</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item F</p></div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.inlineblock__item {
+  display: inline-block;
+  width: calc(100% / 3);
+}</style></div>
+            </div>
+            <aside class="notes">One approach for creating such a layout is the <code>inline-block</code> technique. For a three column grid, we set the display of the items to <code>inline-block</code> and give them all a width of a third of the container.</aside>
+          </section>
+
+          <section>
+            <h2>Layout technique: <code>float</code></h2>
+            <div class="livecode livecode-2p">
+              <div class="result float" style="font-size:75%;">
+                <div class="float__item" style="border:1px solid;padding:1em 0;">
+                  <p>Item A</p>
+                </div>
+                <div class="float__item" style="border:1px solid;padding:1em 0;">
+                  <p>Item B</p>
+                </div>
+                <div class="float__item" style="border:1px solid;padding:1em 0;">
+                  <p>Item C</p>
+                </div>
+                <div class="float__item" style="border:1px solid;padding:1em 0;">
+                  <p>Item D</p>
+                </div>
+                <div class="float__item" style="border:1px solid;padding:1em 0;">
+                  <p>Item E</p>
+                </div>
+                <div class="float__item" style="border:1px solid;padding:1em 0;">
+                  <p>Item F</p>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.float__item {
+  float: left;
+  width: calc(100% / 3);
+}</style></div>
+            </div>
+            <aside class="notes">It's almost the same if you use <code>float</code>, because you also need to set a width on each item.</aside>
+          </section>
+
+          <section>
+            <h2>Layout technique: <code>flex</code></h2>
+            <div class="livecode livecode-2p">
+              <div class="result flexbox" style="font-size:75%;">
+                <div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item A</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item B</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item C</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item D</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item E</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item F</p></div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.flexbox {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flexbox__item {
+  flex: 0 0 calc(100% / 3);
+}</style></div>
+            </div>
+            <aside class="notes">
+              <p>For Flexbox, to ensure our items line up in three columns, we have to make sure the <code>flex-basis</code> is a third of the container. Again, the properties we are applying go on the item.</p>
+              <p>For all 3 techniques I just described, there isn't actually a grid. It just looks that way because we've forced the items to line up with each other.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Established relationship between rows and columns</h2>
+            <img class="plain" data-src="img/grid-rowcol.svg" alt="Relationship between rows and columns" style="max-height:80vh">
+            <p><small>Diagram inspired by <a href="http://brendastorer.com/">Brenda Storer</a>'s <em><a href="http://brendastorer.com/presentations/2017-10-CSSDevConf/assets/player/KeynoteDHTMLPlayer.html">Using CSS in the real world</a></em> talk.</small></p>
+            <aside class="notes">
+              <p>With Grid, the grid actually exists. We define its rows and columns, then place items on that grid wherever we want to. We are freed from the limitation of elements having to line up next to each other all the time.</p>
+              <p>That means our layouts can be canonically non-sequential now. We don't have to mess around with absolute positioning or spacer <code>div</code>s or any of those other workarounds we used for vertical spacing.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Using <code>grid-column</code> and <code>grid-row</code></h2>
+            <div class="livecode livecode-2p">
+              <div class="result placement" style="font-size:75%;justify-content:center">
+                <div class="placement__item" style="border:1px dashed;font-size:175%">
+                  <p>⚽️</p>
+                </div>
+                <div class="placement__item" style="border:1px dashed;font-size:175%">
+                  <p>🏀</p>
+                </div>
+                <div class="placement__item" style="border:1px dashed;font-size:175%">
+                  <p>🏈</p>
+                </div>
+                <div class="placement__item" style="border:1px dashed;font-size:175%">
+                  <p>⚾️</p>
+                </div>
+                <div class="placement__item" style="border:1px dashed;font-size:175%">
+                  <p>🎾</p>
+                </div>
+                <div class="placement__item" style="border:1px dashed;font-size:175%">
+                  <p>🏐</p>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.placement {
+  display: grid;
+  grid-template-columns: repeat(6, 2.5em);
+  grid-template-rows: repeat(6, 2.5em);
+}
+
+.placement__item:nth-child(1) {
+  grid-column: 4;
+  grid-row: 2;
+}
+
+.placement__item:nth-child(3) {
+  grid-column: 2;
+  grid-row: 5;
+}
+
+.placement__item:nth-child(4) {
+  grid-column: 5;
+  grid-row: 1;
+}
+
+.placement__item:nth-child(6) {
+  grid-column: 3;
+  grid-row: 3;
+}</style></div>
+            </div>
             <aside class="notes"></aside>
           </section>
+
+          <section>
+            <div class="l-double">
+              <img class="plain" data-src="img/moholy.jpg" alt="Page 126 of Malerei, Fotografie, Film by Moholy-Nagy" style="max-height:95vh">
+              <img class="plain fragment " data-src="img/moholy2.jpg" alt="Recreation of page 126 of Malerei, Fotografie, Film with grid and flexbox" style="max-height:95vh">
+            </div>
+            <p><small>Original image from <a href="http://bibliothequekandinsky.centrepompidou.fr/imagesbk/RLPF727/M5050_X0031_LIV_RLPF0727.pdf">Moholy-Nagy, Malerei, Fotografie, Film</a></small></p>
+            <aside class="notes"></aside>
+          </section>
+
+          <section>
+            <h2>Bauhaus in the browser</h2>
+            <div class="livecode livecode-2p">
+              <div>
+                <p>Featuring...</p>
+                <ul style="list-style-position: inside">
+                  <li style="margin-left:1em">Grid</li>
+                  <li style="margin-left:1em">Flexbox</li>
+                  <li style="margin-left:1em">Writing mode</li>
+                  <li style="margin-left:1em">Transforms</li>
+                  <li style="margin-left:1em">Box alignment</li>
+                </ul>
+                <p><small><a href="https://codepen.io/huijing/pen/PpqomV">https://codepen.io/huijing/pen/PpqomV</a> | <a href="https://www.chenhuijing.com/demos/bauhaus/">Full page demo</a></small></p>
+              </div>
+              <pre><code>h1 {
+  text-align: center;
+  font-size: 200%;
+}
+
+.font-smg {
+  font-family: 'Sorts Mill Goudy', serif;
+}
+
+.font-ttw {
+  font-family: 'Titillium Web', sans-serif;
+  
+  &.vert {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    font-size: 200%;
+    letter-spacing: 0.75ch;
+  }
+  
+  &.large {
+    font-size: 400%;
+    margin: 0 auto;
+    width: 1ch;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+.gear {
+  height: 5em;
+  width: 5em;
+  background-color: #000;
+  border-radius: 50%;
+  position: relative;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    content: '';
+  }
+  
+  &::before {
+    height: 3em;
+    width: 1em;
+    box-shadow: 0em -3em 0em 0em #000, 0em 3em 0 0em #000;
+  }
+  
+  &::after {
+    height: 1em;
+    width: 3em;
+    box-shadow: 3em 0 0em 0em #000, -3em 0 0 0em #000;
+  }
+}
+
+.inner-gear {
+  height: 2em;
+  width: 2em;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #e1e1d5;
+  
+  &::before,
+  &::after {
+    position: absolute;
+    display: block;
+    content: '';
+  }
+  
+  &::before {
+    height: 3em;
+    width: 1em;
+    box-shadow: 0em -3em 0em 0em #000, 0em 3em 0 0em #000;
+    transform: rotate(45deg);
+    transform-origin: (75% 75%);
+  }
+  
+  &::after {
+    height: 1em;
+    width: 3em;
+    box-shadow: 3em 0 0em 0em #000, -3em 0 0 0em #000;
+    transform: rotate(45deg);
+    transform-origin: (25% 75%);
+  }
+}
+
+.arrow {
+  display: inline-block;
+  width: 0.5em;
+  height: 65%;
+  background-color: #000;
+  position: relative;
+  margin-bottom: 2.5em;
+  
+  &::after {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -1em;
+    border-style: solid;
+    border-width: 1em 1em 0 1em;
+    border-color: #000 transparent transparent transparent;
+  }
+}
+
+.box {
+  height: calc(9vw - 2vmin);
+  width: calc(100% + 0.5vmin);
+  margin: 1em -0.25vmin 0 -0.25vmin;
+  background-color: #000;
+}
+
+// Grid styles
+.example-wrapper::before {
+  content: 'This example requires a browser that supports CSS Grid, like Firefox Nightly. If your browser did support CSS Grid, you would have seen something that resembled the image below, except recreated in HTML and CSS instead.';
+  display: inline-block;
+  margin-bottom: 1em;
+  line-height: 1.5;
+}
+
+.example-wrapper::after {
+  content: url('https://res.cloudinary.com/huijing/image/upload/c_scale,w_500/Bauhaus_8.jpg');
+  display: block;
+  text-align: center;
+  max-width: 100%;
+}
+
+.example-wrapper > * {
+  display: none;
+}
+
+.example-wrapper {
+  padding: 5vmin;
+  margin-bottom: 1em;
+}
+
+@supports (display: grid) {
+  .example-wrapper::before,
+  .example-wrapper::after {
+    content: none;
+  }
+  
+  .example-wrapper {
+    display: block;
+    max-width: none;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 30% 9% 9% 9% 9% 9%;
+    justify-content: center;
+  }
+
+  .grid__item:nth-child(1) {
+    grid-column: span 3;
+    justify-self: end;
+    border-right: 1em solid;
+    padding: 1em;
+    text-align: justify;
+    text-align-last: justify;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .content {
+      max-width: 12em;
+      letter-spacing: 1px;
+    }
+    
+    p:last-of-type {
+      margin-bottom: 1em;
+    }
+  }
+
+  .grid__item:nth-child(2) {
+    grid-column: 4 / span 3;
+    align-self: end;
+    font-size: 200%;
+    padding: 0.25em;
+  }
+
+  .grid__item:nth-child(3) {
+    grid-column: 1 / span 3;
+    border-top: 1em solid;
+    border-bottom: 1em solid;
+    padding: 1em 2em;
+    letter-spacing: 1px;
+    text-align: justify;
+
+    p:first-child {
+      margin-bottom: 1em;
+    }
+  }
+
+  .grid__item:nth-child(4) {
+    grid-column: 4 / span 3;
+    border-top: 1em solid;
+    border-bottom: 1em solid;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .grid__item:nth-child(5) {
+    grid-row: 3 / 5;
+    border-right: 1em solid;
+    padding: 1em;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+
+    img {
+      width: 100%;
+      max-width: 20em;
+    }
+  }
+
+  .grid__item:nth-child(6) {
+    writing-mode: vertical-rl;
+    border-right: 1em solid;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .grid__item:nth-child(7) {
+    padding: 0.5em 0.25em;
+    font-size: 85%;
+    border-right: 1em solid;
+  }
+
+  .grid__item:nth-child(8) {
+    border-left: 0.5em solid;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .grid__item:nth-child(9) {
+    letter-spacing: 1px;
+    padding: 0.5em 0.25em;
+    border-right: 1em solid;
+  }
+
+  .grid__item:nth-child(10) {
+    grid-row: 3 / 5;
+    grid-column: 6;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .grid__item:nth-child(11) {
+    grid-column: 2 / 4;
+    letter-spacing: 1px;
+    padding: 0.5em;
+    border-top: 1em solid;
+    border-right: 1em solid;
+  }
+
+  .grid__item:nth-child(12) {
+    border-top: 1em solid;
+    border-right: 1em solid;
+  }
+
+  .grid__item:nth-child(13) {
+    border-top: 1em solid;
+    border-right: 1em solid;
+  }
+}</code></pre>
+            </div>
+            <aside class="notes"></aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <img class="plain" data-src="img/charles.jpg" alt="Original colour diagrams by Charles Hayter, 1826" style="max-height:95vh">
+              <img class="plain fragment " data-src="img/charles2.jpg" alt="Colour diagrams recreated with CSS grid and blend-modes" style="max-height:95vh">
+            </div>
+            <p><small>Original image by <a href="https://archive.org/details/newpracticaltrea00hayt">Charles Hayter</a></small></p>
+            <aside class="notes"></aside>
+          </section>
+
+          <section>
+            <h2>Colour theory with blend-modes</h2>
+            <div class="livecode livecode-2p">
+              <div>
+                <p>Featuring...</p>
+                <ul style="list-style-position: inside">
+                  <li style="margin-left:1em">Grid</li>
+                  <li style="margin-left:1em">Box alignment</li>
+                  <li style="margin-left:1em">Blend modes</li>
+                  <li style="margin-left:1em">Box shadow</li>
+                </ul>
+                <p><small><a href="https://codepen.io/huijing/pen/gmOERN">https://codepen.io/huijing/pen/gmOERN</a> | <a href="https://www.chenhuijing.com/demos/colour-diagrams/">Full page demo</a></small></p>
+              </div>
+              <pre><code>.grid1 {
+    display: grid;
+    grid-template-columns: repeat(3, 2vw 5vw 5vw 5vw 5vw 5vw 2vw);
+    grid-auto-rows: 15vw;
+    grid-gap: 0.1vw;
+    justify-content: center;
+
+    margin-bottom: 1em;
+  }
+
+  .grid__item {
+    border-radius: 50%;
+    border: 0.1vw solid;
+    box-shadow: 0px 0px 0px 0.4vw white, 0px 0px 0px 0.5vw black;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .yel1 {
+    grid-row: 1;
+    grid-column: 3 / span 3;
+    background-color: $yellow;
+  }
+
+  .yel2 {
+    grid-row: 2;
+    grid-column: 2 / span 3;
+    background-color: $yellow;
+    mix-blend-mode: soft-light;
+  }
+
+  .red1 {
+    grid-row: 2;
+    grid-column: 4 / span 3;
+    background-color: $red;
+  }
+
+  .org1 {
+    grid-row: 3;
+    grid-column: 3 / span 3;
+    background-color: $orange;
+  }
+
+  .org2 {
+    grid-row: 4;
+    grid-column: 2 / span 3;
+    background-color: $orange;
+    mix-blend-mode: soft-light;
+  }
+
+  .grn1 {
+    grid-row: 4;
+    grid-column: 4 / span 3;
+    background-color: $green;
+  }
+
+  .olv1 {
+    grid-row: 5;
+    grid-column: 3 / span 3;
+    background-color: $olive;
+  }
+
+  .red2 {
+    grid-row: 1;
+    grid-column: 10 / span 3;
+    background-color: $red;
+  }
+
+  .yel3 {
+    grid-row: 2;
+    grid-column: 9 / span 3;
+    background-color: $yellow;
+    mix-blend-mode: soft-light;
+  }
+
+  .blu1 {
+    grid-row: 2;
+    grid-column: 11 / span 3;
+    background-color: $blue;
+  }
+
+  .grn2 {
+    grid-row: 3;
+    grid-column: 10 / span 3;
+    background-color: $green;
+  }
+
+  .org3 {
+    grid-row: 4;
+    grid-column: 9 / span 3;
+    background-color: $orange;
+    mix-blend-mode: soft-light;
+  }
+
+  .prp1 {
+    grid-row: 4;
+    grid-column: 11 / span 3;
+    background-color: $purple;
+  }
+
+  .brn1 {
+    grid-row: 5;
+    grid-column: 10 / span 3;
+    background-color: $brown;
+  }
+
+  .blu2 {
+    grid-row: 1;
+    grid-column: 17 / span 3;
+    background-color: $blue;
+  }
+
+  .red3 {
+    grid-row: 2;
+    grid-column: 16 / span 3;
+    background-color: $red;
+    mix-blend-mode: soft-light;
+  }
+
+  .blu3 {
+    grid-row: 2;
+    grid-column: 18 / span 3;
+    background-color: $blue;
+  }
+
+  .prp2 {
+    grid-row: 3;
+    grid-column: 17 / span 3;
+    background-color: $purple;
+  }
+
+  .grn3 {
+    grid-row: 4;
+    grid-column: 16 / span 3;
+    background-color: $green;
+    mix-blend-mode: soft-light;
+  }
+
+  .prp3 {
+    grid-row: 4;
+    grid-column: 18 / span 3;
+    background-color: $purple;
+  }
+
+  .slt1 {
+    grid-row: 5;
+    grid-column: 17 / span 3;
+    background-color: $slate;
+  }
+  
+  .grid2 {
+    display: grid;
+    grid-template-columns: repeat(3, 0.5vw 6vw 6vw 6vw 6vw 6vw 0.5vw);
+    grid-auto-rows: 9vw;
+    grid-gap: 0.1vw;
+    justify-content: center;
+  }
+
+  .yel4 {
+    grid-row: 1 / span 2;
+    grid-column: 2 / span 3;
+    background-color: $yellow;
+    mix-blend-mode: soft-light;
+  }
+
+  .red4 {
+    grid-row: 1 / span 2;
+    grid-column: 4 / span 3;
+    background-color: $red;
+    mix-blend-mode: soft-light;
+  }
+
+  .blu4 {
+    grid-row: 2 / span 2;
+    grid-column: 3 / span 3;
+    background-color: $blue;
+  }
+
+  .org4 {
+    grid-row: 1 / span 2;
+    grid-column: 10 / span 3;
+    background-color: $orange;
+    mix-blend-mode: soft-light;
+  }
+
+  .grn4 {
+    grid-row: 2 / span 2;
+    grid-column: 9 / span 3;
+    background-color: $green;
+  }
+
+  .prp4 {
+    grid-row: 2 / span 2;
+    grid-column: 11 / span 3;
+    background-color: $purple;
+    mix-blend-mode: soft-light;
+  }
+
+  .olv2 {
+    grid-row: 1 / span 2;
+    grid-column: 16 / span 3;
+    background-color: $olive;
+    mix-blend-mode: soft-light;
+  }
+
+  .brn2 {
+    grid-row: 1 / span 2;
+    grid-column: 18 / span 3;
+    background-color: $brown;
+    mix-blend-mode: soft-light;
+  }
+
+  .slt2 {
+    grid-row: 2 / span 2;
+    grid-column: 17 / span 3;
+    background-color: $slate;
+  }
+}</code></pre>
+            </div>
+            <aside class="notes"></aside>
+          </section>
+
+          <section>
+            <h2>Say yes to dynamic layouts</h2>
+            <div class="l-double">
+              <img class="plain" data-src="img/braun.jpg" alt="CSS layout properties" style="max-height:95vh">
+              <img class="plain fragment " data-src="img/braun2.jpg" alt="CSS layout properties" style="max-height:95vh">
+            </div>
+            <p><small>Original image by <a href="https://www.plakatkontor.de/katalog-21/nr-37---52/index.html">Wolfgang Schmittel</a></small></p>
+            <aside class="notes"></aside>
+          </section>
+
+          <section>
+            <div class="livecode livecode-2p">
+              <figure style="align-self:center">
+                <video loop autoplay>
+                  <source data-src="videos/braun.mp4" type="video/mp4" />
+                  Sorry, your browser doesn't support embedded videos, 
+                  but don't worry, you can <a href="videos/braun.mp4">download it</a>
+                  and watch it with your favourite video player!
+                </video>
+                <figcaption><a href="https://codepen.io/huijing/pen/xPEjWb">https://codepen.io/huijing/pen/xPEjWb</a><br><a href="https://www.chenhuijing.com/demos/grids-braun/">Full page demo</a></figcaption>
+              </figure>
+              <pre><code>main {
+  display: grid;
+  grid-gap: 0.5em;
+  grid-template-columns: calc((100vw - 3em) / 3) calc((100vw - 3em) / 3) calc((100vw - 3em) / 3);
+  grid-template-areas: "title title title"
+                       "text text text"
+                       "key key key"
+                       "detail1 detail2 detail3"
+}
+
+@media screen and (min-aspect-ratio: 1/1) and (min-height: 35em) {
+  main {
+    grid-template-columns: 18.75em 1fr 1fr 1fr;
+    grid-template-rows: calc((100vh - 3em) / 3) calc((100vh - 3em) / 3) calc((100vh - 3em) / 3);
+    height: calc(100vh - 2em);
+    grid-template-areas: "title key key key"
+                         "text key key key"
+                         "text detail1 detail2 detail3";
+  }
+  
+  h1 span {
+    display: block;
+  }
+  
+  img:first-of-type {
+    height: calc(((100vh - 2em) / 3) * 2);
+    object-fit: cover;
+  }
+  
+  img:nth-of-type(2),
+  img:nth-of-type(3),
+  img:nth-of-type(4) {
+    height: calc((100vh - 3em) / 3);
+    object-fit: cover;
+  }
+  
+  svg {
+    grid-area: text;
+    align-self: end;
+  }
+}
+
+@media screen and (min-aspect-ratio: 8/5) and (min-height: 35em) {
+  main {
+    grid-template-columns: 18.75em 4fr 1fr 1fr;
+    grid-template-rows: calc((100vh - 3em) / 3) calc((100vh - 3em) / 3) calc((100vh - 3em) / 3);
+    height: calc(100vh - 2em);
+    grid-template-areas: "title key . ."
+                         "text key detail1 detail2"
+                         "text . detail3 ."
+  }
+  
+  div {
+    margin-top: -2em;
+  }
+}
+
+h1 {
+  grid-area: title;
+}
+
+div {
+  grid-area: text;
+}
+
+img:first-of-type {
+  grid-area: key;
+}
+
+img:nth-of-type(2) {
+  grid-area: detail1;
+}
+
+img:nth-of-type(3) {
+  grid-area: detail2;
+}
+
+img:nth-of-type(4) {
+  grid-area: detail3;
+}</code></pre>
+            </div>
+            <aside class="notes"></aside>
+          </section>
+
+          <section>
+            <h2>Art direction for the web</h2>
+            <div class="l-double">
+              <img class="plain" data-src="img/tycho.jpg" alt="CSS layout properties" style="max-height:95vh">
+              <img class="plain fragment " data-src="img/tycho2.jpg" alt="CSS layout properties" style="max-height:95vh">
+            </div>
+            <p><small>Original design by <a href="https://dribbble.com/shots/3002189-Tycho/">Drew Sullivan</a></small></p>
+            <aside class="notes"></aside>
+          </section>
+
+          <section>
+            <div class="livecode livecode-2p">
+              <figure style="align-self:center">
+                <video loop autoplay>
+                  <source data-src="videos/grid-tycho.mp4" type="video/mp4" />
+                  Sorry, your browser doesn't support embedded videos, 
+                  but don't worry, you can <a href="videos/grid-tycho.mp4">download it</a>
+                  and watch it with your favourite video player!
+                </video>
+                <figcaption><a href="https://codepen.io/huijing/pen/QQGBjY">https://codepen.io/huijing/pen/QQGBjY</a><br><a href="https://www.chenhuijing.com/demos/grids-tycho/">Full page demo</a></figcaption>
+              </figure>
+              <pre><code>@media (min-width: 42em) and (min-height: 27em) {
+  main {
+    max-width: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 2fr minmax(10em, max-content) minmax(14em, max-content) minmax(1em, 1fr) fit-content(28em) calc(2em + 0.5vw);
+    grid-template-rows: 35vh 40vh 15vh 10vh;
+  }
+
+  h1 {
+    grid-column: 3 / 6;
+    grid-row: 1 / 2;
+    z-index: 2;
+    padding-left: 0.25em;
+    margin-bottom: initial;
+  }
+
+  h2 {
+    grid-row: 1 / -1;
+    grid-column: 6 / 7;
+    writing-mode: vertical-rl;
+    margin-bottom: initial;
+    color: $text;
+  }
+
+  hr {
+    grid-column: 5 / 6;
+    grid-row: 2;
+    height: 6px;
+    background-color: $text;
+    width: 20ch;
+  }
+
+  .about {
+    grid-column: 5 / 6;
+    grid-row: 2;
+    align-self: end;
+    padding-bottom: 4vh;
+    margin-bottom: initial;
+  }
+
+  a {
+    grid-column: 5 / 6;
+    justify-self: end;
+    align-self: center;
+    margin-bottom: initial;
+
+    &::before {
+      content: '';
+      display: block;
+      height: 4px;
+      background-color: $accent;
+      width: 4ch;
+      margin-bottom: 1em;
+    }
+  }
+
+  img {
+    grid-column: 1 / 4;
+    grid-row: 1 / 4;
+  }
+
+  .location {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+    z-index: 2;
+    background: $main;
+    text-align: center;
+    display: flex;
+
+    p {
+      margin: auto;
+    }
+  }
+
+  button {
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+    position: initial;
+    padding: 0;
+  }
+
+@media (min-width: 48em) and (min-height: 27em) {
+  hr {
+    opacity: 1;
+  }
+}</code></pre>
+            </div>
+            <aside class="notes"></aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <img class="plain" data-src="img/critical.png" alt="CSS layout properties" style="max-height:95vh">
+              <img class="plain fragment " data-src="img/critical2.jpg" alt="CSS layout properties" style="max-height:95vh">
+            </div>
+            <p><small>Original image from <a href="https://css-tricks.com/the-critical-request/">CSS tricks</a></small></p>
+            <aside class="notes"></aside>
+          </section>
+
+          <section>
+            <div class="livecode livecode-2p">
+               <video loop autoplay style="align-self:center">
+                <source data-src="videos/ie11.mp4" type="video/mp4" />
+                Sorry, your browser doesn't support embedded videos, 
+                but don't worry, you can <a href="videos/ie11.mp4">download it</a>
+                and watch it with your favourite video player!
+              </video>
+              <pre><code>header {
+  background-color: $background;
+  overflow: hidden;
+  max-height: 60vh;
+  position: relative;
+}
+
+@media screen and (max-width: 480px) {
+  header {
+    min-height: 20em;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  header {
+    min-height: 16em;
+  }
+}
+
+.title {
+  color: $txt-light;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 2.5em;
+  z-index: 1;
+  padding-right: 0.25em;
+}
+
+.time {
+  color: $txt-dark;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.5em;
+}
+
+.grid__item:nth-of-type(1) {
+  background-color: $blue;
+  width: 30vw;
+}
+
+.grid__item:nth-of-type(2) {
+  background-color: $purple;
+  width: 45vw;
+}
+
+.grid__item:nth-of-type(3) {
+  background-color: $yellow;
+  width: 60vw;
+  position: relative;
+  z-index: 2;
+}
+
+.time {
+  width: calc(100% / 9);
+  float: left;
+  padding: 1em;
+}
+
+.time:nth-child(8) {
+  position: relative;
+
+  &::before {
+    display: block;
+    content: '';
+    height: 3.5em;
+    width: 3.5em;
+    border-radius: 50%;
+    position: absolute;
+    border: 0.2em solid $blue;
+    z-index: 1;
+  }
+}
+
+.border {
+  width: 0.2em;
+  background-color: $red;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  left: calc((100% / 9) * 7);
+}</code></pre>
+            </div>
+            <aside class="notes"></aside>
+          </section>
+
+          
         </section>
 
         <section style="text-align:left;">

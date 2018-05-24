@@ -43,6 +43,7 @@ html {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    justify-items: center;
   }
 
   .j-icon {
@@ -71,10 +72,15 @@ html {
 
   figcaption {
     font-style: italic;
+    font-size: 75%;
   }
 
   td {
     vertical-align: middle;
+  }
+
+  pre {
+    max-height: 95vh;
   }
 }
 

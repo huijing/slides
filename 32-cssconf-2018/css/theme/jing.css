@@ -278,7 +278,8 @@ html {
 .reveal .l-double {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center; }
+  align-items: center;
+  justify-items: center; }
 
 .reveal .j-icon {
   display: inline-block;
@@ -298,10 +299,14 @@ html {
     max-height: 75vh; }
 
 .reveal figcaption {
-  font-style: italic; }
+  font-style: italic;
+  font-size: 75%; }
 
 .reveal td {
   vertical-align: middle; }
+
+.reveal pre {
+  max-height: 95vh; }
 
 span.emoji {
   font-family: 'Apple Color Emoji', 'Segoe UI Emoji';
