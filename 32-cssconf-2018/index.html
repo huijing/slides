@@ -2156,6 +2156,31 @@ img:nth-of-type(4) {
             </div>
             <aside class="notes"></aside>
           </section>
+        </section>
+
+        <section>
+          <section>
+            <img class="plain" data-src="img/card-featurequeries.png" alt="Feature queries trading card">
+            <aside class="notes">A often raised concern when it comes to using newer CSS features, especially those for layout, is browser support. Because nobody wants their site to look broken. And here's where feature queries come in.</aside>
+          </section>
+
+          <section>
+            <h2>Anatomy of a feature query</h2>
+            <pre><code style="max-height:none;" class="css">.selector {
+  /* Styles that are supported in old browsers */
+}
+
+@supports (property:value) {
+  .selector {
+    /* Styles for browsers that support the specified property */
+  }
+}</code></pre>
+            <aside class="notes">
+              <p>And this is how a feature query looks like. The conditional checks if the browser supports a particular property or not. If it doesn't, the entire block within the <code>@supports</code> rule is ignored.</p>
+              <p>This means we start off with the basic layout that works everywhere. It could be a flexbox-based layout, or even single column, maybe largely browser default UI elements, that sort of thing. Then we layer on styles based on the features we want to use.</p>
+              <p>By organising our code in this manner, the browsers that do not support feature queries or the specified property still get styled, while those that do get a different look. We're making use of the ‘C’ in CSS. Call it ‘Cascading Web Design’. If this concept ever takes off, remember you heard it here first.</p>
+            </aside>
+          </section>
 
           <section>
             <div class="l-double">
@@ -2261,7 +2286,31 @@ img:nth-of-type(4) {
             <aside class="notes"></aside>
           </section>
 
-          
+          <section>
+            <div class="livecode livecode-2p">
+               <video loop autoplay style="align-self:center">
+                <source data-src="videos/grid.mp4" type="video/mp4" />
+                Sorry, your browser doesn't support embedded videos, 
+                but don't worry, you can <a href="videos/grid.mp4">download it</a>
+                and watch it with your favourite video player!
+              </video>
+              <pre><code></code></pre>
+            </div>
+            <aside class="notes"></aside>
+          </section>
+
+          <section>
+            <div style="display:grid;grid-template-columns:repeat(3,5.5em);grid-gap:2em;justify-content:center;">
+              <img style="" class="plain" data-src="img/wl-ie11.jpg" alt="IE11 layout">
+              <img style="" class="plain" data-src="img/wl-firefox.jpg" alt="Firefox layout">
+              <img class="plain" data-src="img/wl-chrome.jpg" alt="Chrome layout">
+            </div>
+            <aside class="notes"></aside>
+          </section>
+        </section>
+
+        <section>
+          <aside class="notes"></aside>
         </section>
 
         <section style="text-align:left;">
