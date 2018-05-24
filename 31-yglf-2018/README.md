@@ -26,7 +26,7 @@ The world is very diverse when it comes to language and culture, so it's only na
 
 This is just a small sampling of a bunch of different alphabets. Before I came here, I tried to learn a bit of Ukrainian. I'm still terrible at it, but I can sort of say things like “Ви розмовляєте англійською?”, which I was told meant “Do you speak English?”.
 
-Please tell me this is legit and I'm not saying something highly inappropriate. And I also learned that the Ukrainian alphabet has 33 letters. That's 7 more letters than the English alphabet, which only has 26 letters.
+If that wasn't legit, then I might have been saying something highly appropriate to people since Saturday. So I learned that the Ukrainian alphabet has 33 letters. That's 7 more letters than the English alphabet, which only has 26 letters.
 
 The point I'm trying to make here is that alphabetic writing systems utilise a small set of letters to form all the words the language needs for the purpose of communication.
 
