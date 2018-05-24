@@ -598,7 +598,7 @@
             <aside class="notes">
               <p>CSS font properties are our typesetting tools for the web. When you use them in your CSS declarations, imagine that you're running your own printing workshop. And you're telling your apprentice, in this case, the browser, that you need a font which is a particular size, style, weight and so on.</p>
               <p>Your apprentice then runs off to the back room, where all the fonts are kept, and tries to find the font that best matches your instructions based on their descriptors, which were assigned in the @font-face rule.</p>
-              <p>I believe most people have used the first 3 or 4 on this list in your stylesheets. We're going to talk about the last 2, which were newly introduced in Fonts Level 3.</p>
+              <p>I believe most people have used the first 3 or 4 on this list in your stylesheets. And Lea already covered how they have been updated to take extra values for variable fonts, as well as <code>font-display</code> earlier. So I'm going to talk a bit about the last 2.</p>
             </aside>
           </section>
 
@@ -625,7 +625,7 @@
             </div>
             <small>Image credit: Piotr Grochowski</small>
             <aside class="notes">
-              <p>Now, your smart apprentice can sometimes be too well-meaning. Sometimes the true italic or heavier version of a font does not exist, so the browser will try to create that effect by itself, based on a regular font. Unfortunately, the end result isn't pretty.</p>
+              <p>Now, your smart apprentice can sometimes be too well-meaning. Sometimes the true italic or heavier version of a font does not exist, so the browser will try to create that effect by itself, based on a regular font. Lea also showed us an example of how it doesn't turn out very nicely.</p>
               <p>In fact, most Chinese fonts don't have italic variants. We can set the <code>font-synthesis</code> property to a value of <code>none</code>, to tell the browser to just leave the font alone.</p>
             </aside>
           </section>
@@ -686,10 +686,14 @@
               <figcaption><a href="https://medium.com/@tiro/https-medium-com-tiro-introducing-opentype-variable-fonts-12ba6cd2369"></a>Image credit: John Hudson</figcaption>
             </figure>
             <aside class="notes">
-              <p>Remember I mentioned OpenType earlier on? Well, in September 2016, version 1.8 of the specification introduced OpenType Font Variations. A joint development by Microsoft, Google, Apple and Adobe.</p>
+              <p>I know some of you just discovered Variable Fonts earlier today. Version 1.8 of the OpenType specification introduced it as OpenType Font Variations in September 2016. A joint development by Microsoft, Google, Apple and Adobe.</p>
               <p>An OpenType variable font is one in which the equivalent of multiple individual fonts can be compactly packaged within a single font file, which can potentially be a big plus when it comes to performance. This is especially significant for fonts with large glyph sets, like CJK fonts.</p>
               <p>In addition to that, the dynamism of variable fonts makes it perfect for the web medium, and opens up the possibility of new kinds of responsive typography.</p>
             </aside>
+          </section>
+
+          <section data-background-image="img/lea.jpg">
+            <aside class="notes">Variable Fonts is a topic that needs a dedicated session, to be honest. And Lea had already showed us how awesome they can be, so I won't go into too much detail here.</aside>
           </section>
 
           <section>
@@ -697,7 +701,7 @@
               <img class="plain" data-src="img/mandy.png" alt="Mandy Michael's variable font demo showcase">
               <p data-height="450" data-theme-id="9162" data-slug-hash="YYaWop" data-default-tab="result" data-user="mandymichael" data-embed-version="2" data-pen-title="Grassy Text with Variable fonts." class="codepen">See the Pen <a href="https://codepen.io/mandymichael/pen/YYaWop/">Grassy Text with Variable fonts.</a> by Mandy Michael (<a href="https://codepen.io/mandymichael">@mandymichael</a>) on <a href="https://codepen.io">CodePen</a>.</p>
             </div>
-            <aside class="notes">If I start talking about variable fonts in depth, I'll probably need one more session, so I won't do that. Some brilliant people have been building demos and writing articles about variable fonts, one of whom is Mandy Michael, who gave an amazing presentation in Singapore earlier this year. There's video of her talk, included in my slides, which will be shared with everyone.</aside>
+            <aside class="notes">I'm just going to show you another awesome example of what variable fonts can do. This demo was created by Mandy Michael, who gave an excellent presentation in Singapore earlier this year. There's video of her talk, and I'll share that link in my slides later.</aside>
           </section>
 
           <section>
@@ -710,7 +714,7 @@
               </video>
               <figcaption><a href="https://www.axis-praxis.org/">https://www.axis-praxis.org/</a></figcaption>
             </figure>
-            <aside class="notes">If you're interested in seeing how variable fonts behave, you have to check out Axis Praxis by Laurence Penney, which is essentially a playground for the available variable fonts on the web. Taipei-based type foundry Arphic Technology created the first Chinese variable font, and you can play with it on Axis Praxis.</aside>
+            <aside class="notes">Earlier, Lea showed us <code>v-fonts.com</code>, so I'm going to show you Axis Praxis by Laurence Penney, which is also a playground for the available variable fonts on the web. Taipei-based type foundry Arphic Technology created the first Chinese variable font, and you can play with it on Axis Praxis.</aside>
           </section>
         </section>
 
@@ -989,6 +993,7 @@
             <li><a href="https://webdesign.tutsplus.com/articles/how-to-use-variable-fonts-on-the-web--cms-30212">How to Use Variable Fonts on the Web</a></li>
             <li><a href="http://clagnut.com/blog/2389/">Getting started with variable fonts</a></li>
             <li><a href="http://www.arphic.com.tw/zh-tw/home/about#view_post/181">全球首款! 文鼎晶熙黑體支援可變式字體格式</a></li>
+            <li><a href="https://youtu.be/9EU7urOl1LE">Creative text effects with CSS</a> by Mandy Michael (video)</li>
             <li><a href="https://www.w3.org/International/talks/1409-china/index.html">W3C Internationalization & Text Layout Requirements</a></li>
             <li>Zhang, X. & Han, Q. (2009). <em>The history of Chinese printing: (illustrated).</em> Paramus, N.J: Homa et Sekey Books.</li>
             <li>Brokaw, C. & Reed, C. A. (2010). <em>From woodblocks to the Internet: Chinese publishing and print culture in transition, circa 1800 to 2008.</em> Leiden: Brill.</li>
