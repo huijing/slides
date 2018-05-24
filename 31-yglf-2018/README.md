@@ -176,7 +176,9 @@ If you're interested in seeing how variable fonts behave, you have to check out 
 
 ## On implementing vertical writing on the web
 
-Vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. But when it comes to design, we can layout text in all directions if we so choose. So I want to introduce the `writing-mode` property, which deals specifically with vertical text.
+Vertical writing may be traditionally used for East Asian languages, but you don't have to miss out on the fun just because you don't design for those languages. Vertical layouts are not a new thing. Print design has had plenty of those for quite a while now. It's just that the web hadn't reached a level of maturity that could do them well, until recently.
+
+So I want to introduce the `writing-mode` property, which deals specifically with vertical text.
 
 You literally turn the browser on its side. Some people might be saying, no big deal, we can do that with transforms too. Not exactly. Changing the `writing-mode` affects an elements box alignment axes.
 
