@@ -560,7 +560,7 @@
                   </li>
                 </ul>
               </div>
-             <div class="code" style="font-size:75%"><style class="code-editor">.writingmode1 {
+             <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.writingmode1 {
   writing-mode: vertical-rl;
 }</style></div>
             </div>
@@ -591,6 +591,7 @@
   display: flex;
   align-items: start;
 }
+
 .writingmode2 li::after {
   content: '';
   display: block;
@@ -598,6 +599,7 @@
   border-color: #e29663 transparent transparent transparent;
   border-width: 2em 1em 1em;
 }
+
 .writingmode2 li::before {
   content: '';
   width: 2em;
@@ -619,6 +621,7 @@
   position: relative;
   padding-top: 1em;
 }
+
 .writingmode2 p::after {
   position: absolute;
   content: '';
@@ -629,6 +632,7 @@
   top: 102%;
   transform: scale(0.4);
 }
+
 .writingmode2 p::before {
   content: '';
   position: absolute;
@@ -1380,7 +1384,7 @@
   grid-row: 3;
 }</style></div>
             </div>
-            <aside class="notes"></aside>
+            <aside class="notes">Here I have a 6-by-6 grid, and 6 grid items arbitrarily placed all over the place. Grid makes it really simple, and intuitive to have vertical white-space in our layouts.</aside>
           </section>
 
           <section>
@@ -1389,7 +1393,9 @@
               <img class="plain fragment " data-src="img/moholy2.jpg" alt="Recreation of page 126 of Malerei, Fotografie, Film with grid and flexbox" style="max-height:95vh">
             </div>
             <p><small>Original image from <a href="http://bibliothequekandinsky.centrepompidou.fr/imagesbk/RLPF727/M5050_X0031_LIV_RLPF0727.pdf">Moholy-Nagy, Malerei, Fotografie, Film</a></small></p>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              <p>Like I mentioned, there's a lot of great graphic design that we can draw inspiration from, for example, this is a page from László Moholy-Nagy's book, Malerei, Fotografie, Film.</p>
+              <p>It's a striking design with bold black borders, and content aligned in different configurations. If we want to have such a design on the web, some teamwork will need to be involved.</aside>
           </section>
 
           <section>
@@ -1406,164 +1412,7 @@
                 </ul>
                 <p><small><a href="https://codepen.io/huijing/pen/PpqomV">https://codepen.io/huijing/pen/PpqomV</a> | <a href="https://www.chenhuijing.com/demos/bauhaus/">Full page demo</a></small></p>
               </div>
-              <pre><code>h1 {
-  text-align: center;
-  font-size: 200%;
-}
-
-.font-smg {
-  font-family: 'Sorts Mill Goudy', serif;
-}
-
-.font-ttw {
-  font-family: 'Titillium Web', sans-serif;
-  
-  &.vert {
-    writing-mode: vertical-lr;
-    transform: rotate(180deg);
-    font-size: 200%;
-    letter-spacing: 0.75ch;
-  }
-  
-  &.large {
-    font-size: 400%;
-    margin: 0 auto;
-    width: 1ch;
-  }
-}
-
-img {
-  max-width: 100%;
-}
-
-.gear {
-  height: 5em;
-  width: 5em;
-  background-color: #000;
-  border-radius: 50%;
-  position: relative;
-
-  &::before,
-  &::after {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: block;
-    content: '';
-  }
-  
-  &::before {
-    height: 3em;
-    width: 1em;
-    box-shadow: 0em -3em 0em 0em #000, 0em 3em 0 0em #000;
-  }
-  
-  &::after {
-    height: 1em;
-    width: 3em;
-    box-shadow: 3em 0 0em 0em #000, -3em 0 0 0em #000;
-  }
-}
-
-.inner-gear {
-  height: 2em;
-  width: 2em;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #e1e1d5;
-  
-  &::before,
-  &::after {
-    position: absolute;
-    display: block;
-    content: '';
-  }
-  
-  &::before {
-    height: 3em;
-    width: 1em;
-    box-shadow: 0em -3em 0em 0em #000, 0em 3em 0 0em #000;
-    transform: rotate(45deg);
-    transform-origin: (75% 75%);
-  }
-  
-  &::after {
-    height: 1em;
-    width: 3em;
-    box-shadow: 3em 0 0em 0em #000, -3em 0 0 0em #000;
-    transform: rotate(45deg);
-    transform-origin: (25% 75%);
-  }
-}
-
-.arrow {
-  display: inline-block;
-  width: 0.5em;
-  height: 65%;
-  background-color: #000;
-  position: relative;
-  margin-bottom: 2.5em;
-  
-  &::after {
-    display: block;
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -1em;
-    border-style: solid;
-    border-width: 1em 1em 0 1em;
-    border-color: #000 transparent transparent transparent;
-  }
-}
-
-.box {
-  height: calc(9vw - 2vmin);
-  width: calc(100% + 0.5vmin);
-  margin: 1em -0.25vmin 0 -0.25vmin;
-  background-color: #000;
-}
-
-// Grid styles
-.example-wrapper::before {
-  content: 'This example requires a browser that supports CSS Grid, like Firefox Nightly. If your browser did support CSS Grid, you would have seen something that resembled the image below, except recreated in HTML and CSS instead.';
-  display: inline-block;
-  margin-bottom: 1em;
-  line-height: 1.5;
-}
-
-.example-wrapper::after {
-  content: url('https://res.cloudinary.com/huijing/image/upload/c_scale,w_500/Bauhaus_8.jpg');
-  display: block;
-  text-align: center;
-  max-width: 100%;
-}
-
-.example-wrapper > * {
-  display: none;
-}
-
-.example-wrapper {
-  padding: 5vmin;
-  margin-bottom: 1em;
-}
-
-@supports (display: grid) {
-  .example-wrapper::before,
-  .example-wrapper::after {
-    content: none;
-  }
-  
-  .example-wrapper {
-    display: block;
-    max-width: none;
-  }
-
-  .grid {
+              <pre><code>.grid {
     display: grid;
     grid-template-columns: 30% 9% 9% 9% 9% 9%;
     justify-content: center;
@@ -1688,10 +1537,9 @@ img {
   .grid__item:nth-child(13) {
     border-top: 1em solid;
     border-right: 1em solid;
-  }
-}</code></pre>
+  }</code></pre>
             </div>
-            <aside class="notes"></aside>
+            <aside class="notes">The code shown here is abridged to show mainly the layout code, but even the gear and arrow are pure CSS, made with <code>box-shadow</code>. In order to align the internal content of each grid child without disrupting the rendering of those thick black borders, we'll need to make each grid child a flex parent.</aside>
           </section>
 
           <section>
@@ -1700,7 +1548,11 @@ img {
               <img class="plain fragment " data-src="img/charles2.jpg" alt="Colour diagrams recreated with CSS grid and blend-modes" style="max-height:95vh">
             </div>
             <p><small>Original image by <a href="https://archive.org/details/newpracticaltrea00hayt">Charles Hayter</a></small></p>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              <p>Another thing that Grid makes a lot easier is overlap. We could have achieved an overlap effect with absolute positioning, but removing an element from the document flow usually brings about a lot of unwanted consequences.</p>
+              <p>With grid placement, overlap is easily achieved without disrupting the rest of the layout at all. This is from another vintage publication, English painter Charles Hayter's A New Practical Treatise on the Three Primitive Colours.</p>
+              <p>Totally doable on the web.</p>
+            </aside>
           </section>
 
           <section>
@@ -1937,7 +1789,10 @@ img {
   }
 }</code></pre>
             </div>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              <p>Again, the code is abridged, but placement is a matter of defining which row and column you'd like your element to appear in. And how many grid cells you'd like it to take up. It is perfectly acceptable to have multiple elements occupy the same space on your grid.</p>
+              <p>This demo was also an excuse to play with <code>blend-modes</code>. CSS blend-modes work the same way as in Photoshop, and I learned from Lea Verou last week that Adobe proposed the specification for it.</p>
+            </aside>
           </section>
 
           <section>
@@ -1947,7 +1802,7 @@ img {
               <img class="plain fragment " data-src="img/braun2.jpg" alt="CSS layout properties" style="max-height:95vh">
             </div>
             <p><small>Original image by <a href="https://www.plakatkontor.de/katalog-21/nr-37---52/index.html">Wolfgang Schmittel</a></small></p>
-            <aside class="notes"></aside>
+            <aside class="notes">This poster for Braun is by German graphic designer and photographer, Wolfgang Schmittel. And it is a rather grid-able design. So no surprises here, that such a design can be done on the web with CSS grid.</aside>
           </section>
 
           <section>
@@ -2042,7 +1897,10 @@ img:nth-of-type(4) {
   grid-area: detail3;
 }</code></pre>
             </div>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              <p>But when we take into account how dynamic the web is, how we are designing for a medium whereby we have absolutely no control over how our designs will be viewed, things get a bit more interesting.</p>
+              <p>It's probably a better idea to consider aspect ratios over absolute dimensions when it comes to designing web layouts. And the <code>aspect-ratio</code> media query lets us do that natively.</p>
+            </aside>
           </section>
 
           <section>
@@ -2052,7 +1910,7 @@ img:nth-of-type(4) {
               <img class="plain fragment " data-src="img/tycho2.jpg" alt="CSS layout properties" style="max-height:95vh">
             </div>
             <p><small>Original design by <a href="https://dribbble.com/shots/3002189-Tycho/">Drew Sullivan</a></small></p>
-            <aside class="notes"></aside>
+            <aside class="notes">Even though the most common media query is width, there are 13 media features that are available for use as conditions, including <code>height</code> and <code>orientation</code>. Somehow we're not seeing them being used very often on the web at the moment.</aside>
           </section>
 
           <section>
@@ -2188,7 +2046,7 @@ img:nth-of-type(4) {
               <img class="plain fragment " data-src="img/critical2.jpg" alt="CSS layout properties" style="max-height:95vh">
             </div>
             <p><small>Original image from <a href="https://css-tricks.com/the-critical-request/">CSS tricks</a></small></p>
-            <aside class="notes"></aside>
+            <aside class="notes">This image was the header for a CSS Tricks article, and it caught my eye simply because it was diagonal, to be honest. It looks almost exactly the same when recreated in HTML and CSS. Almost.</aside>
           </section>
 
           <section>
@@ -2199,8 +2057,26 @@ img:nth-of-type(4) {
                 but don't worry, you can <a href="videos/ie11.mp4">download it</a>
                 and watch it with your favourite video player!
               </video>
-              <pre><code>header {
+              <pre><code>header::before {
+  content: 'This example requires a browser that supports CSS Flexbox or Grid. If your browser did support CSS Grid, you would have seen something that resembles the image below, except recreated in HTML and CSS instead.';
+  display: inline-block;
+  background-color: rgba(253, 182, 182, 0.75);
+  font-size: initial;
+  max-width: 36em;
+  color: #000;
+  padding: 0.5em;
+}
+
+header > * {
+  display: none;
+}
+
+header {
   background-color: $background;
+  background-image: url('./fallback.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
   overflow: hidden;
   max-height: 60vh;
   position: relative;
@@ -2218,72 +2094,86 @@ img:nth-of-type(4) {
   }
 }
 
-.title {
-  color: $txt-light;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  font-size: 2.5em;
-  z-index: 1;
-  padding-right: 0.25em;
-}
-
-.time {
-  color: $txt-dark;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 0.5em;
-}
-
-.grid__item:nth-of-type(1) {
-  background-color: $blue;
-  width: 30vw;
-}
-
-.grid__item:nth-of-type(2) {
-  background-color: $purple;
-  width: 45vw;
-}
-
-.grid__item:nth-of-type(3) {
-  background-color: $yellow;
-  width: 60vw;
-  position: relative;
-  z-index: 2;
-}
-
-.time {
-  width: calc(100% / 9);
-  float: left;
-  padding: 1em;
-}
-
-.time:nth-child(8) {
-  position: relative;
-
-  &::before {
-    display: block;
-    content: '';
-    height: 3.5em;
-    width: 3.5em;
-    border-radius: 50%;
-    position: absolute;
-    border: 0.2em solid $blue;
-    z-index: 1;
+@supports (display: flex) {
+  header::before {
+    content: none;
   }
-}
 
-.border {
-  width: 0.2em;
-  background-color: $red;
-  position: absolute;
-  top: 0;
-  height: 100%;
-  left: calc((100% / 9) * 7);
+  header {
+    background-image: none;
+  }
+
+  .grid {
+    display: block;
+  }
+
+  .title {
+    color: $txt-light;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 2.5em;
+    z-index: 1;
+    padding-right: 0.25em;
+  }
+
+  .time {
+    color: $txt-dark;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.5em;
+  }
+
+  .grid__item:nth-of-type(1) {
+    background-color: $blue;
+    width: 30vw;
+  }
+
+  .grid__item:nth-of-type(2) {
+    background-color: $purple;
+    width: 45vw;
+  }
+
+  .grid__item:nth-of-type(3) {
+    background-color: $yellow;
+    width: 60vw;
+    position: relative;
+    z-index: 2;
+  }
+
+  .time {
+    width: calc(100% / 9);
+    float: left;
+    padding: 1em;
+  }
+
+  .time:nth-child(8) {
+    position: relative;
+
+    &::before {
+      display: block;
+      content: '';
+      height: 3.5em;
+      width: 3.5em;
+      border-radius: 50%;
+      position: absolute;
+      border: 0.2em solid $blue;
+      z-index: 1;
+    }
+  }
+
+  .border {
+    width: 0.2em;
+    background-color: $red;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: calc((100% / 9) * 7);
+  }
 }</code></pre>
             </div>
-            <aside class="notes"></aside>
+            <aside class="notes">With feature queries, you can do quite a lot of things. For example, display a message informing users that a feature is not supported, with pseudo-elements, and having a fall-back, in this case, an image for IE11.</aside>
           </section>
 
           <section>
@@ -2294,9 +2184,145 @@ img:nth-of-type(4) {
                 but don't worry, you can <a href="videos/grid.mp4">download it</a>
                 and watch it with your favourite video player!
               </video>
-              <pre><code></code></pre>
+              <pre><code>@supports (display:grid) {
+  .time {
+    grid-row: 7;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows:  repeat(3, 2em) repeat(3, minmax(10vmin, 3em)) 2em 2em 10vh;
+    grid-gap: 0.125em;
+    position: relative;
+  }
+
+  @media screen and (min-width: 480px) {
+    .grid {
+      transform: rotate(-30deg) translateX(5vh);
+      grid-template-rows:  repeat(3, 2em) repeat(3, minmax(10vmin, 3em)) 2em 2em 50vh;
+    }
+  }
+
+  @media screen and (min-width: 640px) {
+    .grid {
+      transform: rotate(-30deg) translateY(-15vh);
+    }
+  }
+
+  .grid__item:nth-of-type(1) {
+    grid-row: 4;
+    grid-column: span 3;
+    width: auto;
+  }
+
+  .grid__item:nth-of-type(2) {
+    grid-row: 5;
+    grid-column: span 5;
+    width: auto;
+  }
+
+  .grid__item:nth-of-type(3) {
+    grid-row: 6;
+    grid-column: span 7;
+    width: auto;
+  }
+
+  .border {
+    grid-row: 1 / -1;
+    grid-column: 8;
+    margin-left: -0.125em;
+    width: 1px;
+    border-left: 0.2em solid $red;
+    left: initial;
+  }
+
+  .square1 {
+    grid-column: 2;
+    position: relative;
+    
+    &::before {
+      display: block;
+      content: '';
+      height: 1.25em;
+      width: 1.25em;
+      border: 0.2em solid $purple;
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  .square2 {
+    grid-column: 3;
+    grid-row: 2;
+    position: relative;
+
+    &::before {
+      display: block;
+      content: '';
+      height: 0.5em;
+      width: 0.5em;
+      background-color: $green;
+      position: absolute;
+      right: 1em;
+      top: 1em;
+    }
+  }
+
+  .circle {
+    grid-column: 2;
+    grid-row: 3;
+    position: relative;
+    
+    &::before {
+      display: block;
+      content: '';
+      border: 0.2em solid $yellow;
+      border-radius: 50%;
+      position: absolute;
+      height: 4em;
+      width: 4em;
+      top: calc(50% -  0.5em);
+      left: calc(50% - 2em);
+    }
+  }
+
+  .square3 {
+    grid-column: 8;
+    grid-row: 6;
+    position: relative;
+
+    &::before {
+      display: block;
+      content: '';
+      height: 0.75em;
+      width: 0.75em;
+      background-color: $yellow;
+      position: absolute;
+      right: 0;
+      top: 1em;
+    }
+  }
+
+  .square4 {
+    grid-column: 6;
+    grid-row: 8;
+    position: relative;
+
+    &::before {
+      display: block;
+      content: '';
+      height: 1.5em;
+      width: 1.5em;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      border: 0.2em solid $green;
+    }
+  }
+}</code></pre>
             </div>
-            <aside class="notes"></aside>
+            <aside class="notes">But most often, the feature query will contain code that acts as an enhancement to a design that works in all browsers. And there's nothing stopping you from using feature queries and media queries in combination to cater for different browsers on different devices.</aside>
           </section>
 
           <section>
@@ -2305,7 +2331,11 @@ img:nth-of-type(4) {
               <img style="" class="plain" data-src="img/wl-firefox.jpg" alt="Firefox layout">
               <img class="plain" data-src="img/wl-chrome.jpg" alt="Chrome layout">
             </div>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              <p>With feature queries, we don't have to revisit our code-base to rewrite things when a browser gets updated, because the code is not browser-specific, it's feature specific. Once a feature gets shipped, your design will be updated automatically.</p>
+              <p>This example makes use of a combination of feature queries for both Grid and CSS Shapes. If you're on a legacy browser, you'll get a simpler design, but everything is still styled.</p>
+              <p>For now, Firefox users don't get to see the CSS Shapes effect, but once they do, the layout will automatically look like the one Chrome users see at the moment.</p>
+            </aside>
           </section>
         </section>
 
