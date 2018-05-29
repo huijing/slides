@@ -77,12 +77,16 @@
                 <figcaption>Distribution of languages used around the world</figcaption>
               </figure>
               <figure class="fragment">
-                <svg style="max-height:70vh" viewBox="0 0 337 337"><g fill="none" fill-rule="evenodd"><circle style="animation-delay: -2.5s;" class="rainbow" cx="168.383" cy="168.602" r="167.93" fill="salmon"/><path fill="#48004C" d="M168.383 336.53c92.745 0 167.93-75.183 167.93-167.928 0-92.745-75.185-167.93-167.93-167.93v167.93l-12.22 167.492c4.036.29 8.11.437 12.22.437z"/><text fill="#000" font-size="16" font-weight="400"><tspan x="43.479" y="152.5">Every other </tspan> <tspan x="43.479" y="172.5">language in </tspan> <tspan x="43.479" y="192.5">the world</tspan> <tspan x="43.479" y="212.5">(~48.0%)</tspan></text><text fill="#fff" font-size="16" font-weight="400"><tspan x="191.521" y="174">English (~52.0%)</tspan></text></g></svg>
+                <svg style="max-height:70vh" viewBox="0 0 337 337"><g fill="none" fill-rule="evenodd"><circle style="animation-delay: -2.5s;" class="rainbow" cx="168.383" cy="168.602" r="167.93" fill="salmon"/><path fill="#48004C" d="M168.383 336.53c92.745 0 167.93-75.183 167.93-167.928 0-92.745-75.185-167.93-167.93-167.93v167.93l-12.22 167.492c4.036.29 8.11.437 12.22.437z"/><text fill="#000" font-size="16" font-weight="400"><tspan x="43.479" y="152.5">Every other </tspan> <tspan x="43.479" y="172.5">language in </tspan> <tspan x="43.479" y="192.5">the world</tspan> <tspan x="43.479" y="212.5">(~47.7%)</tspan></text><text fill="#fff" font-size="16" font-weight="400"><tspan x="191.521" y="174">English (~52.3%)</tspan></text></g></svg>
                 <figcaption>Distribution of content languages on the web</figcaption>
               </figure>
             </div>
             <p class="fragment"><small>Sources: <a href="http://www.worldometers.info/world-population/">Worldometers</a>, <a href="https://www.ethnologue.com/language/eng">Ethnologue</a>, <a href="https://w3techs.com/technologies/overview/content_language/all">W3Techs</a></small></p>
             <aside class="notes">When I got older, I did some digging. And it turns out that of the world's 7.6 billion people, only 5% are native English speakers, but 52% of websites are in English. Something isn't quite right about this ratio.</aside>
+          </section>
+
+          <section data-background-image="img/arabic.jpg">
+            <aside class="notes">There are an estimated 315 million Arabic first-language speakers in the world, which is around 4.1% of the world. The percentage of Arabic language sites on the web? 0.6%.</aside>
           </section>
 
           <section>
@@ -180,6 +184,17 @@
             <aside class="notes">
               <p>It was purely by chance that I started exploring vertical layouts on the web. I was stuck in a crowded subway train a few years ago and was inadvertently peering over the shoulder of the man in front of me reading a Chinese novel on his phone.</p>
               <p>That was when I first thought to myself, a traditional vertical layout would work great on a phone, and I wonder if that could be done on the web?</p>
+            </aside>
+          </section>
+
+          <section data-background-image="img/japanese.jpg">
+            <aside class="notes">Turns out, it can. And really well too. These are websites that have won the Tateyoko Web Award, given to those who are willing to take up the challenge of ushering in the next generation of web typography for vertical text, by designing and utilising new typesetting standards with modern CSS.</aside>
+          </section>
+
+          <section data-background-video="videos/maru-mori.mp4">
+            <aside class="notes">
+              <p>Some of you may find this hard to believe, but vertical text was supported by Internet Explorer since version 5.5, with a much earlier version of the specification which originated from SVG.</p>
+              <p>Chrome started shipping it in 2010, followed by Safari in 2011, then Opera in 2013 and finally, Firefox in 2015.</p>
             </aside>
           </section>
 
@@ -653,7 +668,7 @@
 
           <section>
             <img class="plain" data-src="img/card-logical.png" alt="Logical properties trading card">
-            <aside class="notes">Luckily, we have an up-and-coming new player on team layout, CSS Logical Properties. What it does is use logical properties like <code>block-start</code> and <code>block-end</code> or <code>inline-start</code> or <code>inline-end</code>, which are relative to the block flow of the page, and allows the same code to be used regardless of writing mode.</aside>
+            <aside class="notes">Luckily, we have an up-and-coming new player on team layout, CSS Logical Properties. What it does is use logical properties like <code>block-start</code> and <code>block-end</code> or <code>inline-start</code> and <code>inline-end</code>, which are relative to the block flow of the page, and allows the same code to be used regardless of writing mode.</aside>
           </section>
 
           <section data-background-image="img/logical-properties.jpg">
@@ -1550,7 +1565,7 @@
 
           <section>
             <div class="l-double" style="justify-items:stretch">
-              <figure class="fragment">
+              <figure>
                 <img class="plain" data-src="img/fit.svg" alt="Self-alignment properties">
                 <figcaption>These are not the borders you are looking for</figcaption>
               </figure>
@@ -2350,8 +2365,8 @@ header {
 
           <section>
             <div style="display:grid;grid-template-columns:repeat(3,5.5em);grid-gap:2em;justify-content:center;">
-              <img style="" class="plain" data-src="img/wl-ie11.jpg" alt="IE11 layout">
-              <img style="" class="plain" data-src="img/wl-firefox.jpg" alt="Firefox layout">
+              <img class="plain" data-src="img/wl-ie11.jpg" alt="IE11 layout">
+              <img class="plain" data-src="img/wl-firefox.jpg" alt="Firefox layout">
               <img class="plain" data-src="img/wl-chrome.jpg" alt="Chrome layout">
             </div>
             <aside class="notes">
@@ -2363,7 +2378,54 @@ header {
         </section>
 
         <section>
-          <aside class="notes"></aside>
+          <section>
+            <h2>Frequency of major browser releases</h2>
+            <img class="plain" data-src="img/browser-releases.png" alt="Frequency of browser releases">
+            <aside class="notes">
+              <p>It used to be that a new feature or bug fix would take a long time to ship, and that was true in the earlier days, when browsers were updated maybe every 6 months. But these days, the upgrade cycle has shortened immensely.</p>
+              <p>This probably isn't the best visualisation you've ever seen, but the point I'm trying to make here is that browsers are being updated fast and furious these days.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>CSS Grid release dates</h2>
+            <img class="plain" data-src="img/grid-release.png" alt="CSS grid release dates">
+            <aside class="notes">My favourite example to talk about is the release of CSS grid. Most of the major browsers shipped it in March of last year. By October, 75% of web users around the world were using a browser that supported Grid.</aside>
+          </section>
+
+          <section>
+            <h2>CSS Grid browser support</h2>
+            <p class="ciu_embed" data-feature="css-grid" data-periods="future_1,current,past_1,past_2,past_3" data-accessible-colours="false">
+              <a href="http://caniuse.com/#feat=css-grid"><img class="plain" data-src="img/caniuse-grid.png" alt=" Data on support for the css-grid feature across the major browsers from caniuse.com."></a>
+            </p>
+            <aside class="notes">Today, that number is 87%. It's been all of 15 months. How amazing is that?</aside>
+          </section>
+
+          <section>
+            <div style="display:grid;grid-template-columns:50% 50%;grid-template-rows:1fr 1fr;justify-items:center">
+              <figure>
+                <img class="plain" data-src="img/chromium-bugs.jpg" style="max-height:45vh" alt="Chromium bug tracker">
+                <figcaption>Chromium issue tracker</figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/firefox-bugs.jpg" style="max-height:45vh" alt="Firefox bug tracker">
+                <figcaption>Firefox Bugzilla</figcaption>
+              </figure>
+              <figure style="margin-bottom:1em">
+                <img class="plain" data-src="img/webkit-bugs.jpg" style="max-height:45vh" alt="Webkit bug tracker">
+                <figcaption>Webkit Bugzilla</figcaption>
+              </figure>
+              <figure style="margin-bottom:1em">
+                <img class="plain" data-src="img/edge-bugs.jpg" style="max-height:45vh" alt="Edge bug tracker">
+                <figcaption>Edge issue tracker</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">
+              <p>It's so much easier to get enthusiastic about new CSS features these days because they ship and become widely supported so much quicker now. And the same goes for bug fixes.</p>
+              <p>Every major browser engine has a pretty open process for raising bugs, and raising bugs for a particular feature sends a signal to browser vendors that developers want to use this feature. This encourages them to prioritise related bug fixes.</p>
+              <p>It's a win for everyone. By taking the time to submit a bug report, you gain karma points, get your bugs fixed AND make the web better for all of us.</p>
+            </aside>
+          </section>
         </section>
 
         <section style="text-align:left;">
@@ -2373,7 +2435,7 @@ header {
           <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
           <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle">@huijing</a></p>
           <p style="text-align:right;"><small>Font used is <a href="https://fonts.google.com/specimen/Amaranth">Amaranth</a>, by <a href="http://www.gesine-todt.de/">Gesine Todt</a></small></p>
-          <aside class="notes">Thank you all for your attention.</aside>
+          <aside class="notes">So that's it for me. And I just wanted to end off by saying, that you don't need to use any of these techniques or properties that I covered if they don't fit your use-cases today. But know that when the time comes, they'll all be right here waiting for you. Thank you all for your attention.</aside>
         </section>
       </div>
 
@@ -2382,6 +2444,7 @@ header {
 
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.js"></script>
+    <script src="lib/js/caniuse-embed.min.js"></script>
     <script async src="lib/js/eijs.js"></script>
 
     <script>
