@@ -275,6 +275,10 @@ html {
   .reveal .l-multiple .j-vert {
     width: 1em; }
 
+.reveal .j-vert {
+  writing-mode: vertical-rl;
+  letter-spacing: 0.25em; }
+
 .reveal .l-double {
   display: grid;
   grid-template-columns: 1fr 1fr;

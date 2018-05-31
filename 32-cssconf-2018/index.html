@@ -24,7 +24,7 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <section>
+        <section data-background-image="img/cover.jpg">
           <h1>The web is not just left-to-right</h1>
           <aside class="notes"></aside>
         </section>
@@ -53,56 +53,299 @@
         </section>
 
         <section>
-          <section data-background-image="img/childhood.jpg">
+          <section data-background-image="img/typography-news.jpg">
             <aside class="notes">
-              <p>I grew up in Malaysia and Singapore, two countries which are literally next to each other. And I spent most of the first 18 years of my life commuting across the border to go to school.</p>
-              <p>Both countries are a melting pot of cultures, races and languages. All around me, I could see street signs in Jawi and Latin characters, store-fronts with signs printed in Chinese and Malay. I read novels in Chinese, storybooks in English. All around me, the physical world was filled with writing systems in all directions.</p>
+              <p>What do you think about when you hear the word typography? It used to be that typography was a bit of a niche subject, something only artsy, creative types care about. But these days, it seems that typographic stories have been making their way into  mainstream news.</p>
+              <p>We have big brand names, like Netflix and National Geographic, talking extensively about their font redesigns. The Microsoft font, Calibri by Lucas de Groot, was a crucial piece of evidence that proved the forgery of financial documents in a Supreme Court case in Pakistan.</p>
             </aside>
           </section>
 
           <section>
-            <div style="display:grid;grid-template-columns:50% 50%;grid-template-rows:1fr 1fr;justify-items:center;align-items:center">
-              <img class="plain" data-src="img/ltr1.jpg" style="max-height:45vh" alt="Windows 3.1 interface">
-              <img class="plain" data-src="img/ltr2.jpg" style="max-height:45vh" alt="DOOM DOS installer interface">
-              <img class="plain" data-src="img/ltr4.jpg" style="max-height:45vh" alt="Lotus 1-2-3 start screen">
-              <img class="plain" data-src="img/ltr3.jpg" style="max-height:45vh" alt="SimCity interface">
+            <h2>What is typography?</h2>
+            <blockquote class="fragment">“Typography is writing with prefabricated letters”<br><small>—Gerrit Noordzij</small></blockquote>
+            <aside class="notes">But what is typography? There are plenty of definitions out there, but I always refer to this one by Gerrit Noordzij, that typography is writing with prefabricated letters. Letters are a type of grapheme, which is the smallest unit of a writing system of any given language.</aside>
+          </section>
+
+          <section data-background-image="img/writing-systems.svg" data-background-size="contain">
+            <aside class="notes">
+              <p>Writing systems are visual representations of verbal communication. A means to record whatever we say, in our respective languages, for storage and transfer.</p>
+              <p>The world is very diverse when it comes to language and culture, so it's only natural that there are many different writing systems used all over the planet. A majority of the world use writing systems that consist of alphabets.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr">
+              <table class="tb-letters" >
+                <tr>
+                  <td>ا</td>
+                  <td>ب</td>
+                  <td>ج</td>
+                  <td>د</td>
+                  <td>ه</td>
+                  <td>و</td>
+                </tr>
+                <tr>
+                  <td>ز</td>
+                  <td>ح</td>
+                  <td>ط</td>
+                  <td>ي</td>
+                  <td>ك</td>
+                  <td>ل</td>
+                </tr>
+                <tr>
+                  <td>م</td>
+                  <td>ن</td>
+                  <td>س</td>
+                  <td>ع</td>
+                  <td>ف</td>
+                  <td>ص</td>
+                </tr>
+                <tr>
+                  <td>ق</td>
+                  <td>ر</td>
+                  <td>ش</td>
+                  <td>ت</td>
+                  <td>ث</td>
+                  <td>خ</td>
+                </tr>
+                <tr>
+                  <td>ذ</td>
+                  <td>ض</td>
+                  <td>ظ</td>
+                  <td>غ</td>
+                  <td colspan="2" style="font-size:65%">Arabic (28)</td>
+                </tr>
+              </table>
+
+              <table class="tb-letters" style="font-size:70%">
+                <tr>
+                  <td>А а</td>
+                  <td>Б б</td>
+                  <td>В в</td>
+                  <td>Г г</td>
+                  <td>Ґ ґ</td>
+                  <td>Д д</td>
+                </tr>
+                <tr>
+                  <td>Е е</td>
+                  <td>Є є</td>
+                  <td>Ж ж</td>
+                  <td>З з</td>
+                  <td>И и</td>
+                  <td>І і</td>
+                </tr>
+                <tr>
+                  <td>Ї ї</td>
+                  <td>Й й</td>
+                  <td>К к</td>
+                  <td>Л л</td>
+                  <td>М м</td>
+                  <td>Н н</td>
+                </tr>
+                <tr>
+                  <td>О о</td>
+                  <td>П п</td>
+                  <td>Р р</td>
+                  <td>С с</td>
+                  <td>Т т</td>
+                  <td>У у</td>
+                </tr>
+                <tr>
+                  <td>Ф ф</td>
+                  <td>Х х</td>
+                  <td>Ц ц</td>
+                  <td>Ч ч</td>
+                  <td>Ш ш</td>
+                  <td>Щ щ</td>
+                </tr>
+                <tr>
+                  <td>Ь ь</td>
+                  <td>Ю ю</td>
+                  <td>Я я</td>
+                  <td></td>
+                  <td colspan="2" style="font-size:92.85%">Ukranian (33)</td>
+                </tr>
+              </table>
+
+              <table class="tb-letters" >
+                <tr>
+                  <td>א</td>
+                  <td>ב</td>
+                  <td>ג</td>
+                  <td>ד</td>
+                  <td>ה</td>
+                  <td>ו</td>
+                </tr>
+                <tr>
+                  <td>ז</td>
+                  <td>ח</td>
+                  <td>ט</td>
+                  <td>י</td>
+                  <td>ך כ</td>
+                  <td>ל</td>
+                </tr>
+                <tr>
+                  <td>ם מ</td>
+                  <td>ן נ</td>
+                  <td>ס</td>
+                  <td>ע</td>
+                  <td>ף פ</td>
+                  <td>ץ צ</td>
+                </tr>
+                <tr>
+                  <td>ק</td>
+                  <td>ר</td>
+                  <td>ש</td>
+                  <td>ת</td>
+                  <td colspan="2" style="font-size:65%">Hebrew (22)</td>
+                </tr>
+              </table>
+
+              <table class="tb-letters" style="font-size:75%">
+                <tr>
+                  <td>A a</td>
+                  <td>B b</td>
+                  <td>C c</td>
+                  <td>D d</td>
+                  <td>E e</td>
+                  <td>F f</td>
+                </tr>
+                <tr>
+                  <td>G g</td>
+                  <td>H h</td>
+                  <td>I i</td>
+                  <td>J j</td>
+                  <td>K k</td>
+                  <td>L l</td>
+                </tr>
+                <tr>
+                  <td>M m</td>
+                  <td>N n</td>
+                  <td>O o</td>
+                  <td> P p</td>
+                  <td>Q q</td>
+                  <td>R r</td>
+                </tr>
+                <tr>
+                  <td>S s<br></td>
+                  <td>T t</td>
+                  <td>U u</td>
+                  <td>V v</td>
+                  <td>W w</td>
+                  <td>X x</td>
+                </tr>
+                <tr>
+                  <td>Y y</td>
+                  <td>Z z</td>
+                  <td></td>
+                  <td></td>
+                  <td colspan="2" style="font-size:86.66%">English (26)</td>
+                </tr>
+              </table>
             </div>
-            <aside class="notes">But in the digital world, everything was horizontal, top-to-bottom. And when I was a kid, I didn't really think too much about such things. I had just assumed that was the way things worked. That in the digital world, interfaces would always be left-to-right. And almost always in English.</aside>
+            <aside class="notes">
+              <p>This is just a small sampling of a bunch of different alphabets. The Hebrew alphabet only has 22 letters. The Ukrainian alphabet is slightly larger, with 33 letters. That's 7 more letters than the English alphabet, which has 26.</p>
+              <p>The point I'm trying to make here is that alphabetic writing systems utilise a small set of letters to form all the words the language needs for the purpose of communication.</p>
+            </aside>
+          </section>
+
+          <section data-background-image="img/glyphs.jpg">
+            <blockquote style="width:auto;display:inline-block;background-color:rgba(255,255,255,0.85)">Source Hans Serif Regular (65,535 glyphs)</blockquote>
+            <aside class="notes">
+              <p>Chinese is different, in that, it is a logographic language. Chinese characters number in the tens of thousands. And each character is a unique glyph that can express meaning on their own or be used in combination with other glyphs. Let's look at a few examples.</p>
+            </aside>
+          </section>
+
+          <section data-background-image="img/communication.jpg">
+            <div class="l-double" style="font-size:150%;">
+              <p style="color:#000;">Communication<br><small>(English) 13 letters</small></p>
+              <p style="color:#000;" class="fragment"><span class="j-vert" style="justify-self:center;" lang="zh-hans">沟通</span></p>
+            </div>
+            <aside class="notes">For example, Communication, an English word of 13 letters. Chinese only needs 2 characters, 沟通.</aside>
+          </section>
+
+          <section data-background-image="img/slap.jpg">
+            <div class="l-double" style="font-size:150%;">
+              <p style="color:#000;">Backpfeifengesicht<br><small>(German) 18 letters</small></p>
+              <p class="j-vert fragment" style="justify-self:center;color:#000;" lang="zh-hans">欠扁</p>
+            </div>
+            <aside class="notes">Backpfeifengesicht (Back-fai-fen-ger-zeecht), German word of 18 characters. In Chinese, we can say 欠扁.</aside>
+          </section>
+
+          <section data-background-image="img/photography.jpg">
+            <div class="l-double" style="font-size:150%;">
+              <p style="color:#000;">Grianghrafadóireachta<br><small>(Irish) 21 letters</small></p>
+              <p style="color:#000;" class="fragment"><span class="j-vert" style="justify-self:center;" lang="zh-hans">摄影</span></p>
+            </div>
+            <aside class="notes">Grianghrafadóireachta (Green-hra-fer-doi-rek-te), Irish word of 21 letters. Again, 2 characters will do, 摄影. What can I say, Chinese is a concise language.</aside>
+          </section>
+
+          <section data-background-image="img/writing-directions.svg" data-background-size="contain">
+            <aside class="notes">And although a large swath of the world mostly reads from left-to-right, writing systems can go in all directions. Modern day vertical writing applies to East Asian scripts that utilise Han characters, so mainly Chinese, Korean and Japanese, and are read from right-to-left. Mongolian also uses vertical writing, but is read from left-to-right.</aside>
+          </section>
+
+          <section data-background-image="img/directions.jpg">
+            <aside class="notes">
+              <p>Han characters are sometimes called square characters, because each character is composed within a uniform square. That allows Chinese to be read efficiently, regardless of whether it is typeset vertically or horizontally.</p>
+              <p>Chinese texts can be typeset into neat rows and columns. And if you don't understand Chinese, you may not know which direction the text is going. It could be vertical, right-to-left, or horizontal top-to-bottom.</p>
+            </aside>
+          </section>
+
+          <section data-background-image="img/proto.jpg">
+            <div class="l-double">
+              <h2 style="color:#000;">Phoenician alphabet</h2>
+              <h2 class="j-vert" style="justify-self:center;color:#000;" lang="zh-hans">甲骨文</h2>
+            </div>
+            <aside class="notes">The Chinese script is said to have developed independently from the Proto-Sinaitic scripts, which were the origins of alphabetic characters. This is potentially why the Indo-European writing systems are inherently different from those of East Asia.</aside>
+          </section>
+
+          <section>
+            <img class="plain" data-src="img/alphabets.jpg" alt="Evolution of alphabets">
+            <aside class="notes">
+              <p>As different alphabetic writing sytems branched out from the Phoenician alphabet, their letterforms evolved and changed. The appearances of letterforms were often directly influenced by the tools used to create them.</p>
+              <p>The earliest letters were sans-serif when writing was done with a hard reed pen. When the transition was made to a square-cut writing implement, like a flat stiff brush, letters developed serifs.</p>
+              <p>In the middle ages, when demand for written matter kept growing, scribes and copyists who used quill pens developed more efficient styles of writing, evolving the letterforms once more.</p>
+            </aside>
+          </section>
+
+          <section>
+            <img class="plain" data-src="img/hanzi.jpg" alt="Evolution of Hanzi">
+            <aside class="notes">Chinese characters have too evolved greatly since the earliest glyphs were scratched into turtle shells and animal bones as far back as 1600BCE. This early script was called Oracle Bone script because the ancient rulers would use them to divine important questions about topics like agriculture, weather, warfare and so on.</aside>
+          </section>
+
+          <section data-background-image="img/brush.jpg">
+            <aside class="notes">The key implement of Chinese writing is the brush. Calligraphy was and still is one of the most highly regarded Chinese arts. The works of famous calligraphers were used as the basis for carving woodblocks used for printing, which was invented in China.</aside>
           </section>
 
           <section>
             <div class="l-double">
-              <figure>
-                <svg style="max-height:70vh" viewBox="0 0 336 337"><g fill="none" fill-rule="evenodd" transform="translate(0 .29)"><circle class="rainbow" cx="168" cy="168.5" r="167.93" fill="salmon"/><path fill="#48004C" d="M168 168.5L218.574 8.32C202.614 3.285 185.624.57 168 .57V168.5z"/><text fill="#fff" transform="rotate(-81 183.245 64.587)" font-size="16" font-weight="400"><tspan x="122.245" y="70.087">English (~5%)</tspan></text><text fill="#000" font-size="16" font-weight="400"><tspan x="32.068" y="207.102">Every other language in the world</tspan> <tspan x="135.38" y="224.102">(~95%)</tspan></text></g></svg>
-                <figcaption>Distribution of languages used around the world</figcaption>
+              <figure style="margin-bottom:1em;">
+                <img class="plain" style="height:30vh;" data-src="img/songti.svg" alt="SongTi">
+                <figcaption>Song Ti</figcaption>
               </figure>
-              <figure class="fragment">
-                <svg style="max-height:70vh" viewBox="0 0 337 337"><g fill="none" fill-rule="evenodd"><circle style="animation-delay: -2.5s;" class="rainbow" cx="168.383" cy="168.602" r="167.93" fill="salmon"/><path fill="#48004C" d="M168.383 336.53c92.745 0 167.93-75.183 167.93-167.928 0-92.745-75.185-167.93-167.93-167.93v167.93l-12.22 167.492c4.036.29 8.11.437 12.22.437z"/><text fill="#000" font-size="16" font-weight="400"><tspan x="43.479" y="152.5">Every other </tspan> <tspan x="43.479" y="172.5">language in </tspan> <tspan x="43.479" y="192.5">the world</tspan> <tspan x="43.479" y="212.5">(~47.7%)</tspan></text><text fill="#fff" font-size="16" font-weight="400"><tspan x="191.521" y="174">English (~52.3%)</tspan></text></g></svg>
-                <figcaption>Distribution of content languages on the web</figcaption>
+              <figure class="fragment" style="margin-bottom:1em;">
+                <img class="plain" style="height:30vh;" data-src="img/kaiti.svg" alt="KaiTi">
+                <figcaption>Kai Ti</figcaption>
+              </figure>
+              <figure class="fragment" >
+                <img class="plain" style="height:30vh;" data-src="img/fangsongti.svg" alt="FangSongTi">
+                <figcaption>Fang Song Ti</figcaption>
+              </figure>
+              <figure class="fragment" >
+                <img class="plain" style="height:30vh;" data-src="img/heiti.svg" alt="HeiTi">
+                <figcaption>Hei Ti</figcaption>
               </figure>
             </div>
-            <p class="fragment"><small>Sources: <a href="http://www.worldometers.info/world-population/">Worldometers</a>, <a href="https://www.ethnologue.com/language/eng">Ethnologue</a>, <a href="https://w3techs.com/technologies/overview/content_language/all">W3Techs</a></small></p>
-            <aside class="notes">When I got older, I did some digging. And it turns out that of the world's 7.6 billion people, only 5% are native English speakers, but 52% of websites are in English. Something isn't quite right about this ratio.</aside>
+            <aside class="notes">These days, typefaces used for printing Chinese publications can be broadly classified into these four families: 宋体, 楷体, 仿宋体 and 黑体.</aside>
           </section>
 
-          <section data-background-image="img/arabic.jpg">
-            <aside class="notes">There are an estimated 315 million Arabic first-language speakers in the world, which is around 4.1% of the world. The percentage of Arabic language sites on the web? 0.6%.</aside>
-          </section>
-
-          <section>
-            <h2>Local content</h2>
-            <blockquote>“Local content is a critical component of efforts<br> to bridge the digital divide.”<br><small>—<a href="https://www.internetsociety.org/policybriefs/localcontent">Internet Society Policy Brief: Local Content</a></small></blockquote>
+          <section data-background-image="img/process.jpg">
+            <blockquote style="background-color:rgba(255,255,255,0.85)">“Chinese-script projects are crazy. The scope is mind-blowing.”<br><small>—David Březina from <a href="https://qz.com/522079/the-long-incredibly-tortuous-and-fascinating-process-of-creating-a-chinese-font/">The long, incredibly tortuous, and fascinating process of creating a Chinese font</a></small></blockquote>
             <aside class="notes">
-              <p>Studies done by the Internet Society have shown that while cost of access is a barrier to getting people online, many non-Internet users claim that the Internet is simply not relevant or of interest to them.</p>
-              <p>If the Internet is meant to enhance the free flow of information and ideas across the world, then creation of content on the web should not be largely limited to English-speaking communities.</p>
-              <p>Diversity of thought and perspective in the online world will be greatly enhanced by the participation of cultures and societies who speak all kinds of languages.</p>
+              <p>Chinese typefaces are extremely challenging to create, simply due to the volume of glyphs required. The average number of glyphs for a Chinese system font clocks in at around 35,000 glyphs, give or take a couple thousand.</p>
+              <p>This quote is from an article on Quartz that covered the process of creating a Chinese font, and it's a pretty interesting read, which goes into how much effort is needed to design and create a Chinese typeface.</p>
+              <p>For a typeface to be viably used as body copy, it will probably need a minimum coverage of around 7000 glyphs for simplified Chinese or around 13,000 for traditional Chinese. That's still a lot of glyphs, hence Chinese fonts are almost always designed by teams over a period of years.</p>
             </aside>
-          </section>
-
-          <section>
-            <h2>Internationalisation (i18n)</h2>
-            <blockquote>“To ensure that the technology supports text<br> in <strong>any writing system</strong> of the world.”<br><small>—<a href="https://www.w3.org/standards/webdesign/i18n">W3C Internationalisation</a></small></blockquote>
-            <aside class="notes">Which is why Internationalisation is a priority at the W3C. It is crucial that a technology meant to be ubiquitous supports the creation of local content across the world. That every writing system in the world can be correctly rendered on the web.</aside>
           </section>
         </section>
 
@@ -235,10 +478,6 @@
 
           <section data-background-image="img/inspiration4.jpg">
             <aside class="notes">This is a vintage cover of Architectural Design magazine, with a radial text layout.</aside>
-          </section>
-
-          <section data-background-image="img/inspiration5.jpg">
-            <aside class="notes">An excellent example of the paste-up technique for art & architecture magazine's April 1943 issue.</aside>
           </section>
 
           <section data-background-image="img/pencils.jpg">
@@ -421,10 +660,10 @@
               </video>
               <figure style="width:64vw;height:80vh">
                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/4k0cAQLjDtg?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                <figcaption><a href="https://supersillyhackathon.sg/">Super Silly Hackathon</a>by <a href="">Lim Chee Aun</a></figcaption>
+                <figcaption><a href="https://supersillyhackathon.sg/">Super Silly Hackathon</a> by <a href="">Lim Chee Aun</a></figcaption>
               </figure>
             </div>
-            <aside class="notes">A friend of mine tried to transform his entire website and discovered so many interesting things about transforms that it warranted a 20 minute talk at our CSS meetup. So what other options do we have?</aside>
+            <aside class="notes">A friend of mine tried to transform an entire website and discovered so many interesting things about transforms that it warranted a 20 minute talk at our CSS meetup. So what other options do we have?</aside>
           </section>
         </section>
 

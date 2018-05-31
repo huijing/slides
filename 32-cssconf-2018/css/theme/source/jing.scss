@@ -39,6 +39,11 @@ html {
     }
   }
 
+  .j-vert {
+    writing-mode: vertical-rl;
+    letter-spacing: 0.25em;
+  }
+
   .l-double {
     display: grid;
     grid-template-columns: 1fr 1fr;
