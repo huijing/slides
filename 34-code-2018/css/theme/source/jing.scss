@@ -10,7 +10,7 @@
 // ---------------------------------------------
 
 // Include theme-specific fonts
-@import url(../../lib/font/space/space.css);
+@import url(../../lib/font/overpass/overpass.css);
 
 // Theme template ------------------------------
 @import "../template/theme";
@@ -20,6 +20,7 @@
 html {
   box-sizing: border-box;
   height: 100%;
+  font-size: 150%;
 }
 
 *,
@@ -41,6 +42,8 @@ html {
   .l-double {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
   }
 
   .j-icon {
@@ -49,31 +52,35 @@ html {
     margin-right: 1rem;
   }
 
-  h2 {
-    text-transform: none;
-  }
-
   strong {
     color: $headingColor;
   }
 
   blockquote {
     width: 90%;
-    text-align: left;
     box-shadow: none;
     line-height: 1.5;
 
     small {
       margin-top: 0.5em;
     }
+
+    img {
+      max-height: 75vh;
+    }
   }
 
   figcaption {
     font-style: italic;
+    font-size: 75%;
   }
 
   td {
     vertical-align: middle;
+  }
+
+  pre {
+    max-height: 95vh;
   }
 }
 
@@ -121,13 +128,8 @@ span[role=img][aria-label]:hover::after {
     width: 100%;
     border: 1px dashed $headingColor;
 
-    li {
-      line-height: 0;
-    }
-
     p {
       margin: 0;
-      padding: 0;
     }
   }
 
@@ -137,7 +139,7 @@ span[role=img][aria-label]:hover::after {
     font-family: monospace;
     color: #efdcbc;
     background-color: #3f3f3f;
-    font-size: 50%;
+    font-size: 65%;
     padding: 0.5em;
     border-radius: 0.25em;
     overflow-y: scroll;
@@ -145,8 +147,8 @@ span[role=img][aria-label]:hover::after {
 }
 
 .livecode-2p {
-  grid-template-columns: 65% calc(35% - 0.5em);
-  height: 60vh;
+  grid-template-columns: 50% 50%;
+  height: 75vh;
 }
 
 .livecode-3p {
@@ -181,5 +183,197 @@ span[role=img][aria-label]:hover::after {
 
   video {
     align-self: center;
+  }
+}
+
+// Pure CSS Galaxy S5 ------------------------------
+.galaxys5 {
+  display: inline-block;
+  position: relative;
+  box-sizing: content-box !important;
+  padding: 60px 18px;
+  border-radius: 42px;
+  width: 320px;
+  height: 568px;
+  background: #bcbcbc;
+
+  &:before,
+  &:after {
+    width: calc(100% - 52px);
+    content: '';
+    display: block;
+    height: 26px;
+    background: inherit;
+    position: absolute;
+    border-radius: 500px / 40px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &:before {
+    top: -7px;
+  }
+
+  &:after {
+    bottom: -7px;
+  }
+
+  .screen {
+    width: 90%;
+    position: relative;
+    height: 82.5%;
+    top: 8%;
+    z-index: 3;
+    background: white;
+    overflow: hidden;
+    display: block;
+    margin: 0 auto;
+    border-radius: 1px;
+    box-shadow: 0 0 0 2px #444;
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .vert-txt {
+    writing-mode: vertical-rl;
+
+    p {
+      margin-right: 1em;
+    }
+  }
+
+  .middle-bar {
+    width: 3px;
+    height: 4px;
+    top: 0px;
+    left: 90px;
+    background: black;
+    position: absolute;
+  }
+
+  .top-bar {
+    display: block;
+    border-radius: 37px;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    top: 5px;
+    left: 5px;
+    background:
+        radial-gradient(rgba(0, 0, 0, 0.02) 20%, transparent 60%) 0 0,
+        radial-gradient(rgba(0, 0, 0, 0.02) 20%, transparent 60%) 3px 3px;
+    background-color: white;
+    background-size: 4px 4px;
+    background-position: center;
+    z-index: 2;
+    position: absolute;
+
+    &:before,
+    &:after {
+      width: calc(100% - 48px);
+      content: '';
+      display: block;
+      height: 26px;
+      background: inherit;
+      position: absolute;
+      border-radius: 500px / 40px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &:before {
+      top: -7px;
+    }
+
+    &:after {
+      bottom: -7px;
+    }
+  }
+
+  .sleep {
+    width: 3px;
+    position: absolute;
+    left: -3px;
+    top: 100px;
+    height: 100px;
+    background: #cecece;
+    border-radius: 2px 0px 0px 2px;
+  }
+
+  .speaker {
+    width: 68px;
+    height: 8px;
+    position: absolute;
+    top: 20px;
+    display: block;
+    z-index: 3;
+    left: 50%;
+    margin-left: -34px;
+    background-color: #bcbcbc;
+    background-position: top left;
+    border-radius: 4px;
+  }
+
+  .sensor {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 100px;
+    background: #3c3d3d;
+    border-radius: 100%;
+    width: 8px;
+    height: 8px;
+    z-index: 3;
+
+    &:after {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 0px;
+      right: 12px;
+      background: #3c3d3d;
+      border-radius: 100%;
+      width: 8px;
+      height: 8px;
+      z-index: 3;
+    }
+  }
+
+  .camera {
+    display: block;
+    position: absolute;
+    top: 24px;
+    right: 42px;
+    background: black;
+    border-radius: 100%;
+    width: 10px;
+    height: 10px;
+    z-index: 3;
+
+    &:before {
+      width: 4px;
+      height: 4px;
+      background: #3c3d3d;
+      border-radius: 100%;
+      position: absolute;
+      content: '';
+      top: 50%;
+      left: 50%;
+      margin-top: -2px;
+      margin-left: -2px;
+    }
+  }
+
+  .home {
+    position: absolute;
+    z-index: 3;
+    bottom: 17px;
+    left: 50%;
+    width: 70px;
+    height: 20px;
+    background: white;
+    border-radius: 18px;
+    display: block;
+    margin-left: -35px;
+    border: 2px solid black;
   }
 }

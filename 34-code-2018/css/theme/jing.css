@@ -3,28 +3,28 @@
  *
  * Copyright (C) 2018 Chen Hui Jing, https://www.chenhuijing.com/
  */
-@import url(../../lib/font/space/space.css);
+@import url(../../lib/font/overpass/overpass.css);
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #fff;
-  background-color: #fff; }
+  background: #fffdf8;
+  background-color: #fffdf8; }
 
 .reveal {
-  font-family: "Space Text", serif;
+  font-family: "Overpass", sans-serif;
   font-size: 2.5em;
   font-weight: normal;
   color: #000; }
 
 ::selection {
   color: #000;
-  background: #d5e3fa;
+  background: #f7ff3f;
   text-shadow: none; }
 
 ::-moz-selection {
   color: #000;
-  background: #d5e3fa;
+  background: #f7ff3f;
   text-shadow: none; }
 
 .reveal .slides > section,
@@ -42,12 +42,12 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #1d877a;
-  font-family: "Space Text", serif;
+  color: #ff2321;
+  font-family: "Overpass", sans-serif;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: normal;
-  text-transform: uppercase;
+  text-transform: none;
   text-shadow: none;
   word-wrap: break-word; }
 
@@ -203,20 +203,20 @@ body {
  * LINKS
  *********************************************/
 .reveal a {
-  color: #7baaf0;
+  color: #ff5108;
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
   transition: color .15s ease; }
 
 .reveal a:hover {
-  color: #1f6fe6;
+  color: #a13000;
   text-shadow: none;
   border: none; }
 
 .reveal .roll span:after {
   color: #fff;
-  background: #367ee8; }
+  background: #bb3700; }
 
 /*********************************************
  * IMAGES
@@ -238,21 +238,21 @@ body {
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #7baaf0;
+  border-color: #ff5108;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
 /*********************************************
  * NAVIGATION CONTROLS
  *********************************************/
 .reveal .controls {
-  color: #7baaf0; }
+  color: #ff5108; }
 
 /*********************************************
  * PROGRESS BAR
  *********************************************/
 .reveal .progress {
   background: rgba(0, 0, 0, 0.2);
-  color: #7baaf0; }
+  color: #ff5108; }
 
 .reveal .progress span {
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
@@ -261,7 +261,8 @@ body {
 
 html {
   box-sizing: border-box;
-  height: 100%; }
+  height: 100%;
+  font-size: 150%; }
 
 *,
 *::before,
@@ -276,32 +277,36 @@ html {
 
 .reveal .l-double {
   display: grid;
-  grid-template-columns: 1fr 1fr; }
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center; }
 
 .reveal .j-icon {
   display: inline-block;
   vertical-align: middle;
   margin-right: 1rem; }
 
-.reveal h2 {
-  text-transform: none; }
-
 .reveal strong {
-  color: #1d877a; }
+  color: #ff2321; }
 
 .reveal blockquote {
   width: 90%;
-  text-align: left;
   box-shadow: none;
   line-height: 1.5; }
   .reveal blockquote small {
     margin-top: 0.5em; }
+  .reveal blockquote img {
+    max-height: 75vh; }
 
 .reveal figcaption {
-  font-style: italic; }
+  font-style: italic;
+  font-size: 75%; }
 
 .reveal td {
   vertical-align: middle; }
+
+.reveal pre {
+  max-height: 95vh; }
 
 span.emoji {
   font-family: 'Apple Color Emoji', 'Segoe UI Emoji';
@@ -317,7 +322,7 @@ span[role=img][aria-label] {
 span[role=img][aria-label]:focus::after,
 span[role=img][aria-label]:hover::after {
   font-size: 25%;
-  font-family: "Space Text", serif;
+  font-family: "Overpass", sans-serif;
   font-weight: 400;
   position: absolute;
   display: block;
@@ -325,9 +330,9 @@ span[role=img][aria-label]:hover::after {
   content: attr(aria-label);
   z-index: 1;
   background: #000;
-  color: #fff;
+  color: #fffdf8;
   padding: 0.25em;
-  border: 1px solid #fff;
+  border: 1px solid #fffdf8;
   box-shadow: 2px 2px 4px #000; }
 
 .livecode {
@@ -339,26 +344,23 @@ span[role=img][aria-label]:hover::after {
     max-height: 100%;
     overflow-y: scroll;
     width: 100%;
-    border: 1px dashed #1d877a; }
-    .livecode .result li {
-      line-height: 0; }
+    border: 1px dashed #ff2321; }
     .livecode .result p {
-      margin: 0;
-      padding: 0; }
+      margin: 0; }
   .livecode .code {
     text-align: left;
     width: 100%;
     font-family: monospace;
     color: #efdcbc;
     background-color: #3f3f3f;
-    font-size: 50%;
+    font-size: 65%;
     padding: 0.5em;
     border-radius: 0.25em;
     overflow-y: scroll; }
 
 .livecode-2p {
-  grid-template-columns: 65% calc(35% - 0.5em);
-  height: 60vh; }
+  grid-template-columns: 50% 50%;
+  height: 75vh; }
 
 .livecode-3p {
   grid-template-columns: 1fr 1fr;
@@ -382,3 +384,153 @@ span[role=img][aria-label]:hover::after {
   height: 75vh; }
   .vidcode video {
     align-self: center; }
+
+.galaxys5 {
+  display: inline-block;
+  position: relative;
+  box-sizing: content-box !important;
+  padding: 60px 18px;
+  border-radius: 42px;
+  width: 320px;
+  height: 568px;
+  background: #bcbcbc; }
+  .galaxys5:before, .galaxys5:after {
+    width: calc(100% - 52px);
+    content: '';
+    display: block;
+    height: 26px;
+    background: inherit;
+    position: absolute;
+    border-radius: 500px / 40px;
+    left: 50%;
+    transform: translateX(-50%); }
+  .galaxys5:before {
+    top: -7px; }
+  .galaxys5:after {
+    bottom: -7px; }
+  .galaxys5 .screen {
+    width: 90%;
+    position: relative;
+    height: 82.5%;
+    top: 8%;
+    z-index: 3;
+    background: white;
+    overflow: hidden;
+    display: block;
+    margin: 0 auto;
+    border-radius: 1px;
+    box-shadow: 0 0 0 2px #444;
+    font-size: 14px;
+    text-align: left; }
+  .galaxys5 .vert-txt {
+    writing-mode: vertical-rl; }
+    .galaxys5 .vert-txt p {
+      margin-right: 1em; }
+  .galaxys5 .middle-bar {
+    width: 3px;
+    height: 4px;
+    top: 0px;
+    left: 90px;
+    background: black;
+    position: absolute; }
+  .galaxys5 .top-bar {
+    display: block;
+    border-radius: 37px;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    top: 5px;
+    left: 5px;
+    background: radial-gradient(rgba(0, 0, 0, 0.02) 20%, transparent 60%) 0 0, radial-gradient(rgba(0, 0, 0, 0.02) 20%, transparent 60%) 3px 3px;
+    background-color: white;
+    background-size: 4px 4px;
+    background-position: center;
+    z-index: 2;
+    position: absolute; }
+    .galaxys5 .top-bar:before, .galaxys5 .top-bar:after {
+      width: calc(100% - 48px);
+      content: '';
+      display: block;
+      height: 26px;
+      background: inherit;
+      position: absolute;
+      border-radius: 500px / 40px;
+      left: 50%;
+      transform: translateX(-50%); }
+    .galaxys5 .top-bar:before {
+      top: -7px; }
+    .galaxys5 .top-bar:after {
+      bottom: -7px; }
+  .galaxys5 .sleep {
+    width: 3px;
+    position: absolute;
+    left: -3px;
+    top: 100px;
+    height: 100px;
+    background: #cecece;
+    border-radius: 2px 0px 0px 2px; }
+  .galaxys5 .speaker {
+    width: 68px;
+    height: 8px;
+    position: absolute;
+    top: 20px;
+    display: block;
+    z-index: 3;
+    left: 50%;
+    margin-left: -34px;
+    background-color: #bcbcbc;
+    background-position: top left;
+    border-radius: 4px; }
+  .galaxys5 .sensor {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 100px;
+    background: #3c3d3d;
+    border-radius: 100%;
+    width: 8px;
+    height: 8px;
+    z-index: 3; }
+    .galaxys5 .sensor:after {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 0px;
+      right: 12px;
+      background: #3c3d3d;
+      border-radius: 100%;
+      width: 8px;
+      height: 8px;
+      z-index: 3; }
+  .galaxys5 .camera {
+    display: block;
+    position: absolute;
+    top: 24px;
+    right: 42px;
+    background: black;
+    border-radius: 100%;
+    width: 10px;
+    height: 10px;
+    z-index: 3; }
+    .galaxys5 .camera:before {
+      width: 4px;
+      height: 4px;
+      background: #3c3d3d;
+      border-radius: 100%;
+      position: absolute;
+      content: '';
+      top: 50%;
+      left: 50%;
+      margin-top: -2px;
+      margin-left: -2px; }
+  .galaxys5 .home {
+    position: absolute;
+    z-index: 3;
+    bottom: 17px;
+    left: 50%;
+    width: 70px;
+    height: 20px;
+    background: white;
+    border-radius: 18px;
+    display: block;
+    margin-left: -35px;
+    border: 2px solid black; }
