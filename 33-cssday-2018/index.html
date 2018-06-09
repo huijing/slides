@@ -137,15 +137,47 @@
         </section>
 
         <section>
-          <aside class="notes"></aside>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;grid-template-rows:3fr 1fr 1fr 3fr;grid-template-areas:'a a b b''a a b b''c c d d''c c d d';grid-gap:1em;height:65vh">
+            <h2 style="grid-row:2/4;grid-column:2/4">Layout of boxes</h2>
+            <ul style="display:contents;list-style-type:'📦 ';list-style-position:inside">
+              <li style="grid-area:a;text-align:center" class="fragment">Box dimensions and type</li>
+              <li style="grid-area:b;justify-self:end;text-align:center" class="fragment">Positioning scheme <small>(normal flow / float / absolute positioning)</small></li>
+              <li style="grid-area:c;align-self:end;text-align:center" class="fragment">Relationships between elements in the document tree</li>
+              <li style="grid-area:d;align-self:end;justify-self:end;text-align:center" class="fragment">External information <small>(e.g. viewport size, intrinsic dimensions of images etc.)</small></li>
+            </ul>
+          </div>
+          <aside class="notes">
+            <p>After the browser generates the boxes, it'll have to lay them out, and the layout of these boxes are dependent on several factors:</p>
+            <ul>
+              <li>the box dimensions and type</li>
+              <li>the positioning scheme used</li>
+              <li>relationships between elements in the document tree</li>
+              <li>external information like viewport size, intrinsic dimensions and so on</li>
+            </ul>
+          </aside>
         </section>
 
         <section>
           <h2>The <code>display</code> property</h2>
-          <p>Defines an element's <strong>display type</strong>, which consists of the two basic qualities of how an element generates boxes</p>
+          <p style="margin-bottom:1em">Defines an element's <strong>display type</strong>, which consists of the two basic qualities of how an element generates boxes</p>
+          <div class="l-double" style="grid-gap:1em">
+            <div class="fragment">
+              <h3>Inner display type</h3>
+              <p>Defines the generated formatting context for descendant boxes</p>
+            </div>
+            <div class="fragment">
+              <h3>Outer display type</h3>
+              <p>Dictates a principal box's own participation in flow layout</p>
+            </div>
+          </div>
           <aside class="notes">
-           
+            <p>So now, let's talk about the <code>display</code> property. It defines the type of box, okay, but what are these 2 basic qualities of box generation?</p>
+            <p></p>
           </aside>
+        </section>
+
+        <section>
+          <pre><code class="html"></code></pre>
         </section>
 
         <section>
@@ -160,26 +192,7 @@
           <aside class="notes"></aside>
         </section>
 
-        <section>
-          <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;grid-template-rows:3fr 1fr 1fr 3fr;grid-template-areas:'a a b b''a a b b''c c d d''c c d d';grid-gap:1em;height:65vh">
-            <h2 style="grid-row:2/4;grid-column:2/4">Layout of boxes</h2>
-            <ul style="display:contents;list-style-type:'📦 ';list-style-position:inside">
-              <li style="grid-area:a;text-align:center" class="fragment">Box dimensions and type</li>
-              <li style="grid-area:b;justify-self:end;text-align:center" class="fragment">Positioning scheme <small>(normal flow / float / absolute positioning)</small></li>
-              <li style="grid-area:c;align-self:end;text-align:center" class="fragment">Relationships between elements in the document tree</li>
-              <li style="grid-area:d;align-self:end;justify-self:end;text-align:center" class="fragment">External information <small>(e.g. viewport size, intrinsic dimensions of images etc.)</small></li>
-            </ul>
-          </div>
-          <aside class="notes">
-            <p>This model defines the layout of the generated boxes based on 4 factors:</p>
-            <ul>
-              <li>the box dimensions and type</li>
-              <li>the positioning scheme used</li>
-              <li>relationships between elements in the document tree</li>
-              <li>external information like viewport size, intrinsic dimensions and so on</li>
-            </ul>
-          </aside>
-        </section>
+        
 
         <section>
           <table style="font-size:60%;">
@@ -227,8 +240,12 @@
 
         <section>
           <h2>References and resources</h2>
-          <ul style="column-count:2;font-size:50%;">
+          <ul>
             <li><a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">Inside a super fast CSS engine: Quantum CSS (aka Stylo)</a></li>
+            <li><a href="https://www.w3.org/TR/CSS22/visuren.html">CSS2.2 Visual formatting model</a></li>
+            <li><a href="https://www.w3.org/TR/css-display-3/">CSS Display Module Level 3</a></li>
+            <li><a href="https://www.w3.org/TR/css-align-3/">CSS Box Alignment Module Level 3</a></li>
+            <li><a href="https://www.w3.org/TR/css-writing-modes-3/">CSS Writing Modes Level 3</a></li>
           </ul>
           <aside class="notes"></aside>
         </section>
