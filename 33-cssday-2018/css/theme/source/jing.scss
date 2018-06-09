@@ -11,6 +11,7 @@
 
 // Include theme-specific fonts
 @import url(../../lib/font/space/space.css);
+@import url(../../lib/font/playbox/playbox.css);
 
 // Theme template ------------------------------
 @import "../template/theme";
@@ -74,6 +75,15 @@ html {
   td {
     vertical-align: middle;
   }
+
+  .bomb-txt {
+    font-family: 'Playbox', sans-serif;
+    font-size: calc(10vmax + 3em);
+  }
+}
+
+.reveal .slides section .fragment.fade-out.visible:not(.current-fragment) {
+  display: none;
 }
 
 // Accessible emojis ------------------------------
