@@ -338,8 +338,11 @@
             <p>Boxes are laid out one after another, in the block flow direction, from the start of the containing block</p>
             <img data-src="img/bfc.svg" alt="Block formatting context" class="plain" style="max-height:25vh">
           </div>
-          <p class="fragment">Margins in the block flow direction between adjacent block-level boxes in the same block formatting context collapse.</p>
-          <aside class="notes"></aside>
+          <p class="fragment">Margins along the block flow direction between <strong>adjacent block-level</strong> boxes in the <strong>same</strong> block formatting context collapse.</p>
+          <aside class="notes">
+            <p>A block formatting context, which I will abbreviate to BFC, is the context that block-level boxes participate in. Boxes are laid out one after another in the block-flow direction, which is determined by a box's writing mode.</p>
+            <p>Margins along the block flow direction between boxes within the same BFC will collapse. This is otherwise known as the infamous collapsing margins phenomenon.</p>
+          </aside>
         </section>
 
         <section>
@@ -349,8 +352,103 @@
             <li class="fragment">Absolutely positioned elements</li>
             <li class="fragment">Block containers that are <strong>not</strong> block boxes</li>
             <li class="fragment">Block boxes with <code>overflow</code> <strong>other than</strong> <code>visible</code></li>
+            <li class="fragment">Boxes with <code>display</code> set to <code>flow-root</code></li>
           </ul>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            <p>Earlier I mentioned that when a new formatting context is established, boxes within this new context are largely shielded from their outside environment. Which can come in pretty handy at times.</p>
+            <p>There are a number of ways to establish new BFCs:</p>
+            <ul>
+              <li>You can float a box</li>
+              <li>Or position it absolutely</li>
+              <li>Block containers like inline-blocks, table-cells and table-captions will work</li>
+              <li>Also, block boxes whose <code>overflow</code> value is anything but its initial value of <code>visible</code></li>
+              <li>And the new way to do it, via <code>display: flow-root</code></li>
+            </ul>
+          </aside>
+        </section>
+
+        <section>
+          <h2>We need a new BFC because...?</h2>
+          <p>1. Prevent collapsing margins</p>
+          <div class="livecode livecode-3p" style="height:60vh">
+            <pre class="markup"><code class="html"><p>This is a line of text in a p tag.</p>
+<div class="block-wrapper">
+  <div class="div1">I'm a box with margins.</div>
+  <div class="div2">I'm another box with margins.</div>
+</div></code></pre>
+            <div class="result collapse">
+              <p style="margin-bottom:0.5em">This is a line of text in a p tag.</p>
+              <div class="block-wrapper" style="background-color:pink">
+                <div class="div1" style="background-color:salmon">I'm a box with margins.</div>
+                <div class="div2" style="background-color:forestgreen;color:white">I'm another box with margins.</div>
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.collapse .block-wrapper {
+  
+}
+
+.collapse .div1 {
+  margin: 0.5em;
+}
+
+.collapse .div2 {
+  margin: 0.5em;
+}</style></div>
+          </div>
+          <aside class="notes">So what good is a new BFC? I'm glad you asked! </aside>
+        </section>
+
+        <section>
+          <p>2. Stop text from flowing around the float</p>
+          <div class="livecode livecode-3p" style="height:60vh">
+            <pre class="markup"><code class="html"><div class="block-wrapper">
+  <div class="div1">I'm a floated box!</div>
+  <div class="div2">This is just a bunch of text that is going on and on so it's long enough to wrap around the float, line boxes yo!</div>
+</div></code></pre>
+            <div class="result stop-flow">
+              <div class="block-wrapper" style="background-color:pink">
+                <div class="div1" style="background-color:salmon">I'm a floated box!</div>
+                <div class="div2" style="background-color:forestgreen;color:white">This is just a bunch of text that is going on and on so it's long enough to wrap around the float, line boxes yo!</div>
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.stop-flow .div1 {
+  float: left;
+}
+
+.stop-flow .div2 {
+  
+}</style></div>
+          </div>
+          <aside class="notes">So what good is a new BFC? I'm glad you asked! </aside>
+        </section>
+
+        <section>
+          <p>3. Contains floats</p>
+          <div class="livecode livecode-3p" style="height:60vh">
+            <pre class="markup"><code class="html"><div class="block-wrapper">
+  <div class="div1">Floaty! ^_^</div>
+  <div class="div2">Floaty too! :)</div>
+</div></code></pre>
+            <div class="result contain">
+              <div class="block-wrapper" style="background-color:pink">
+                <div class="div1" style="background-color:salmon">Floaty! ^_^</div>
+                <div class="div2" style="background-color:forestgreen;color:white">Floaty too! :)</div>
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.contain .block-wrapper {
+  border: 3px solid indigo;
+  
+}
+
+.contain .div1 {
+  float: left;
+}
+
+.contain .div2 {
+  float: left;
+}</style></div>
+          </div>
+          <aside class="notes">So what good is a new BFC? I'm glad you asked! </aside>
         </section>
 
         <section>

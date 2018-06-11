@@ -159,17 +159,17 @@ span[role=img][aria-label]:hover::after {
 }
 
 .livecode-3p {
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 2fr 1fr;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 1fr 1fr;
   grid-template-areas: 'a b'
                        'a c';
 
   .markup {
-    grid-area: a;
+    grid-area: b;
   }
 
   .result {
-    grid-area: b;
+    grid-area: a;
   }
 
   .code {

@@ -156,13 +156,14 @@ body {
 .reveal pre {
 	display: block;
 	position: relative;
-	width: 90%;
+	border-radius: 0.25em;
+	width: 100%;
 	margin: $blockMargin auto;
 
 	text-align: left;
 	font-size: 0.55em;
 	font-family: monospace;
-	line-height: 1.2em;
+	line-height: 1.4em;
 
 	word-wrap: break-word;
 
@@ -180,6 +181,7 @@ body {
 	overflow: auto;
 	word-wrap: normal;
 	height: 100%;
+	border-radius: 0.25em;
 }
 
 .reveal table {
