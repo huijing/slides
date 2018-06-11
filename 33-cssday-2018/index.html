@@ -105,7 +105,8 @@
         <section data-background-image="img/visual-formatting-model.jpg">
           <aside class="notes">
             <p>CSS2 had expanded the formatting model, which is what we know now as the visual formatting model. This model determines how user agents process the document tree for visual media.</p>
-            <p>And one particular sentence in the specification stood out to me. “...generates zero or more boxes according to the box model”.</aside>
+            <p>And one particular sentence in the specification stood out to me. “...generates zero or more boxes according to the box model”.</p>
+          </aside>
         </section>
 
         <section>
@@ -183,7 +184,7 @@
           <aside class="notes">
             <p>Which then brings us to the <code>display</code> property. The CSS Display Module Level 3 is meant to replace and extend the display property from CSS2. Some of the things I mention may not be implemented in browsers yet, but do paint a picture of future CSS to come.</p>
             <p>It used to be that a single-keyword syntax for display was enough, because we only had block boxes, inline boxes and table boxes. And they could pretty much exist in the world on their own.</p>
-            <p>Flexbox was the first module to introduce the concept of a parent-child relationship between a box and its children. Grid does so as well.</p>
+            <p>Flexbox was the first module to introduce the concept of a parent-child relationship between a box and its children. And Grid does that as well.</p>
           </aside>
         </section>
 
@@ -268,7 +269,7 @@
               </tr>
             </tbody>
           </table>
-          <aside class="notes">This table is directly lifted from the specification, and I've split it across 2 slides. We're not going to go through them all.</aside>
+          <aside class="notes">This table is directly lifted from the specification, and I've split it across 2 slides. We're not going to go through them all. But notice that the outer display property is either block or inline. I'm glossing over run-in for now because its implementation status is iffy at the moment.</aside>
         </section>
 
         <section>
@@ -323,23 +324,50 @@
               </tr>
             </tbody>
           </table>
-          <aside class="notes">But notice that the outer display property is either block or inline. I'm glossing over run-in for now because its implementation status is iffy at the moment.</aside>
+          <aside class="notes">
+            <p>There's a part of the specification that is relevant for browser vendors, probably not so much for web developers, that explain how certain layout effects require the blockification or inlinification of box types to ensure a box is matched to its context.</p>
+            <p>As far as I know, the multi-value syntax is not supported in any browser, I've only managed to find an entry for it on Firefox's bug tracker, and none from the other browsers but if someone here can verify this for me, I'd appreciate it greatly.</p>
+            <p>Out of this long list of values though, only <code>flow-root</code> is a brand-new value. When a box has its <code>display</code> set to <code>flow-root</code>, it generates a block-level block container that establishes a new block formatting context.</p>
+          </aside>
         </section>
 
         <section>
-        </section>
-
-        <section>
-          <h2>Block-level boxes</h2>
-          <p>Boxes that participate in a <strong>block formatting context</strong></p>
-          <p>Laid out one after another, vertically, beginning at the top of a containing block</p>
+          <h2>Block formatting context</h2>
+          <p>The context that <strong>block-level</strong> boxes participate in</p>
+          <div class="fragment">
+            <p>Boxes are laid out one after another, in the block flow direction, from the start of the containing block</p>
+            <img data-src="img/bfc.svg" alt="Block formatting context" class="plain" style="max-height:25vh">
+          </div>
+          <p class="fragment">Margins in the block flow direction between adjacent block-level boxes in the same block formatting context collapse.</p>
           <aside class="notes"></aside>
         </section>
 
         <section>
-          <h2>Inline-level boxes</h2>
-          <p>Boxes that participate in an <strong>inline formatting context</strong></p>
-          <p>Laid out horizontally, one after the other, beginning at the top of a containing block</p>
+          <h2>Who establishes new block formatting contexts?</h2>
+          <ul>
+            <li class="fragment">Floats</li>
+            <li class="fragment">Absolutely positioned elements</li>
+            <li class="fragment">Block containers that are <strong>not</strong> block boxes</li>
+            <li class="fragment">Block boxes with <code>overflow</code> <strong>other than</strong> <code>visible</code></li>
+          </ul>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Inline formatting contexts</h2>
+          <p>Established by a block container box that contains <strong>no block-level</strong> boxes</p>
+          <div class="fragment">
+            <p>Boxes are laid out one after another, in the inline direction, from the start of the containing block</p>
+            <img data-src="img/ifc.svg" alt="Inline formatting context" class="plain" style="max-height:40vh">
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <div>
+            <p>Boxes may be aligned along the block-axis in different ways, with the <code>vertical-align</code> property</p>
+            <img data-src="img/vertical-align.svg" alt="Vertical alignment of line boxes" class="plain" style="max-height:25vh">
+          </div>
           <aside class="notes"></aside>
         </section>
 
@@ -396,6 +424,7 @@
             <li><a href="https://www.w3.org/TR/CSS22/tables.html">CSS2.2 Tables</a></li>
             <li><a href="https://www.w3.org/TR/css-align-3/">CSS Box Alignment Module Level 3</a></li>
             <li><a href="https://www.w3.org/TR/css-writing-modes-3/">CSS Writing Modes Level 3</a></li>
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1038294">Bug 1038294 - [css-display] Implement the multi-keyword syntax for the 'display' property</a></li>
           </ul>
           <aside class="notes"></aside>
         </section>
