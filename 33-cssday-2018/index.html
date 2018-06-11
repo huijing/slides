@@ -158,26 +158,175 @@
         </section>
 
         <section>
-          <h2>The <code>display</code> property</h2>
-          <p style="margin-bottom:1em">Defines an element's <strong>display type</strong>, which consists of the two basic qualities of how an element generates boxes</p>
-          <div class="l-double" style="grid-gap:1em">
-            <div class="fragment">
-              <h3>Inner display type</h3>
-              <p>Defines the generated formatting context for descendant boxes</p>
-            </div>
-            <div class="fragment">
-              <h3>Outer display type</h3>
-              <p>Dictates a principal box's own participation in flow layout</p>
-            </div>
-          </div>
+          <h2>Positioning schemes</h2>
           <aside class="notes">
-            <p>So now, let's talk about the <code>display</code> property. It defines the type of box, okay, but what are these 2 basic qualities of box generation?</p>
-            <p></p>
+            <p>Let's talk positioning schemes first, because there's some terminology introduced here that pretty much sets up the remainder of the talk. There are 3 types of positioning schemes, normal flow, floats and absolute positioning.
+            <p>Boxes in a normal flow will belong to a formatting context. And right now, we have several of those. Relatively positioned boxes remain part of this normal flow.</p>
+            <p>When a box is floated, it is first laid out in the normal flow, then taken out of it and shifted as far left, or right, as possible.</p>
+            <p>When a box is absolutely positioned, it's removed from the normal flow altogether, and given a position with respect to its containing box.</p>
           </aside>
         </section>
 
         <section>
-          <pre><code class="html"></code></pre>
+          <h2>What is a formatting context?</h2>
+          <img data-src="img/formatting-context.svg" alt="Formatting context" class="plain" style="max-height:65vh">
+          <aside class="notes">
+            <p>A formatting context is the environment in which a set of related boxes are laid out. And different formatting contexts have different rules for how they lay out the boxes within them.</p>
+            <p>Boxes are capable of generating new formatting contexts, creating a new environment where the layout of its children is mostly not affected by the rules and contents of the environment outside itself.</p>
+            <p>I say mostly, because certain formatting contexts can allow interaction between their contents, like, line boxes within an inline formatting context can interact with floats belonging to the block formatting context containing them.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>The <code>display</code> property</h2>
+          <p>Defines an element's <strong>display type</strong>, which consists of the two basic qualities of how an element generates boxes</p>
+          <aside class="notes">
+            <p>Which then brings us to the <code>display</code> property. The CSS Display Module Level 3 is meant to replace and extend the display property from CSS2. Some of the things I mention may not be implemented in browsers yet, but do paint a picture of future CSS to come.</p>
+            <p>It used to be that a single-keyword syntax for display was enough, because we only had block boxes, inline boxes and table boxes. And they could pretty much exist in the world on their own.</p>
+            <p>Flexbox was the first module to introduce the concept of a parent-child relationship between a box and its children. Grid does so as well.</p>
+          </aside>
+        </section>
+
+        <section>
+          <div class="l-double" style="grid-gap:1em">
+            <div>
+              <h2>Inner display type</h2>
+              <div class="fragment">
+                <p>Defines the generated formatting context for descendant boxes</p>
+                <img data-src="img/inside-display.svg" alt="Inner display type" class="plain" style="max-height:35vh">
+              </div>
+            </div>
+            <div>
+              <h2>Outer display type</h2>
+              <div class="fragment">
+                <p>Dictates a principal box's own participation in flow layout</p>
+                <img data-src="img/outside-display.svg" alt="Outer display type" class="plain" style="max-height:45vh">
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            <p>In Display Level 3, the single-keyword syntax is still very much valid, but each of these values have a longer “full” version, that indicates how the box itself behaves, and how its children behave.</p>
+            <p>There's the inner display type, which determines the kind of formatting context the box generates, and this affects the child boxes within it.</p>
+            <p>And there's the outer display type, which dictates how the box itself participates in flow layout.</p>
+          </aside>
+        </section>
+
+        <section>
+          <table style="font-size:75%">
+            <thead>
+              <tr style="border-bottom:3px solid black">
+                  <th width="20%">Short <code>display</code><br></th>
+                  <th width="30%">Full <code>display</code></th>
+                  <th>Generated box</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td>none</td>
+                  <td>—</td>
+                  <td>subtree omitted from box tree</td>
+              </tr>
+              <tr style="border-bottom:3px solid black">
+                  <td>contents</td>
+                  <td>—</td>
+                  <td>element replaced by content in box tree</td>
+              </tr>
+              <tr>
+                  <td>block</td>
+                  <td>block flow</td>
+                  <td>block-level block container</td>
+              </tr>
+              <tr>
+                  <td>flow-root</td>
+                  <td>block flow-root</td>
+                  <td>block-level block container that establishes a new block formatting context (BFC)</td>
+              </tr>
+              <tr>
+                  <td>inline</td>
+                  <td>inline flow</td>
+                  <td>inline box</td>
+              </tr>
+              <tr>
+                  <td>inline-block</td>
+                  <td>inline flow-root</td>
+                  <td>inline-level block container</td>
+              </tr>
+              <tr>
+                  <td>list-item</td>
+                  <td>block flow list-item</td>
+                  <td>block box with additional marker box</td>
+              </tr>
+              <tr>
+                  <td>inline list-item</td>
+                  <td>inline flow list-item</td>
+                  <td>inline box with additional marker box</td>
+              </tr>
+              <tr>
+                  <td>run-in</td>
+                  <td>run-in flow</td>
+                  <td>run-in box (inline box with special box-tree-munging rules) </td>
+              </tr>
+            </tbody>
+          </table>
+          <aside class="notes">This table is directly lifted from the specification, and I've split it across 2 slides. We're not going to go through them all.</aside>
+        </section>
+
+        <section>
+          <table style="font-size:75%">
+            <thead>
+              <tr style="border-bottom:3px solid black">
+                  <th width="20%">Short <code>display</code><br></th>
+                  <th width="30%">Full <code>display</code></th>
+                  <th>Generated box</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td>flex</td>
+                  <td>block flex</td>
+                  <td>block-level flex container</td>
+              </tr>
+              <tr>
+                  <td>inline-flex</td>
+                  <td>inline flex</td>
+                  <td>inline-level flex container</td>
+              </tr>
+              <tr>
+                  <td>grid</td>
+                  <td>block grid</td>
+                  <td>block-level grid container</td>
+              </tr>
+              <tr>
+                  <td>inline-grid</td>
+                  <td>inline grid</td>
+                  <td>inline-level grid container</td>
+              </tr>
+              <tr>
+                  <td>ruby</td>
+                  <td>inline ruby</td>
+                  <td>inline-level ruby container</td>
+              </tr>
+              <tr>
+                  <td>block ruby</td>
+                  <td>block ruby</td>
+                  <td>block box containing ruby container</td>
+              </tr>
+              <tr>
+                  <td>table</td>
+                  <td>block table</td>
+                  <td>block-level table wrapper box containing table box</td>
+              </tr>
+              <tr>
+                  <td>inline-table</td>
+                  <td>inline table</td>
+                  <td>inline-level table wrapper box containing table box</td>
+              </tr>
+            </tbody>
+          </table>
+          <aside class="notes">But notice that the outer display property is either block or inline. I'm glossing over run-in for now because its implementation status is iffy at the moment.</aside>
+        </section>
+
+        <section>
         </section>
 
         <section>
@@ -189,10 +338,10 @@
 
         <section>
           <h2>Inline-level boxes</h2>
+          <p>Boxes that participate in an <strong>inline formatting context</strong></p>
+          <p>Laid out horizontally, one after the other, beginning at the top of a containing block</p>
           <aside class="notes"></aside>
         </section>
-
-        
 
         <section>
           <table style="font-size:60%;">
@@ -244,6 +393,7 @@
             <li><a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">Inside a super fast CSS engine: Quantum CSS (aka Stylo)</a></li>
             <li><a href="https://www.w3.org/TR/CSS22/visuren.html">CSS2.2 Visual formatting model</a></li>
             <li><a href="https://www.w3.org/TR/css-display-3/">CSS Display Module Level 3</a></li>
+            <li><a href="https://www.w3.org/TR/CSS22/tables.html">CSS2.2 Tables</a></li>
             <li><a href="https://www.w3.org/TR/css-align-3/">CSS Box Alignment Module Level 3</a></li>
             <li><a href="https://www.w3.org/TR/css-writing-modes-3/">CSS Writing Modes Level 3</a></li>
           </ul>
