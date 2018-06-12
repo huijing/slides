@@ -80,6 +80,13 @@ html {
     font-family: 'Playbox', sans-serif;
     font-size: calc(10vmax + 3em);
   }
+
+  .spec {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 9vh;
+  }
 }
 
 .reveal .slides section .fragment.fade-out.visible:not(.current-fragment) {
@@ -154,7 +161,7 @@ span[role=img][aria-label]:hover::after {
 }
 
 .livecode-2p {
-  grid-template-columns: 65% calc(35% - 0.5em);
+  grid-template-columns: 50% 50%;
   height: 60vh;
 }
 
