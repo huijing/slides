@@ -165,6 +165,20 @@
         <section>
           <a href="https://www.w3.org/TR/CSS22/visuren.html#positioning-scheme"><img data-src="img/spec-vfm.svg" alt="CSS2.2 Visual formatting model" class="plain spec"></a>
           <h2>Positioning schemes</h2>
+          <div class="l-multiple" style="align-items:center">
+            <figure style="margin-right:1em">
+              <img data-src="img/normal-flow.svg" alt="Normal flow" class="plain">
+              <figcaption>Normal flow</figcaption>
+            </figure>
+            <figure class="fragment" style="margin-right:1em">
+              <img data-src="img/floats.svg" alt="Floats" class="plain">
+              <figcaption>Floats</figcaption>
+            </figure>
+            <figure class="fragment">
+              <img data-src="img/flex-abs.svg" alt="Absolute positioning" class="plain">
+              <figcaption>Absolute positioning</figcaption>
+            </figure>
+          </div>
           <aside class="notes">
             <p>Let's talk positioning schemes first, because there's some terminology introduced here that pretty much sets up the remainder of the talk. There are 3 types of positioning schemes, normal flow, floats and absolute positioning.
             <p>Boxes in a normal flow will belong to a formatting context. And right now, we have several of those. Relatively positioned boxes remain part of this normal flow.</p>
@@ -349,7 +363,7 @@
             <p>Boxes are laid out one after another, in the block flow direction, from the start of the containing block</p>
             <img data-src="img/bfc.svg" alt="Block formatting context" class="plain" style="max-height:25vh">
           </div>
-          <p class="fragment">Margins along the block flow direction between <strong>adjacent block-level</strong> boxes in the <strong>same</strong> block formatting context collapse.</p>
+          <p class="fragment">Margins along the block flow direction between <strong>adjacent block-level</strong> boxes in the <strong>same</strong> block formatting context collapse</p>
           <aside class="notes">
             <p>A block formatting context, which I will abbreviate to BFC, is the context that block-level boxes participate in. Boxes are laid out one after another in the block-flow direction, which is determined by a box's writing mode.</p>
             <p>Margins along the block flow direction between boxes within the same BFC will collapse. This is otherwise known as the infamous collapsing margins phenomenon.</p>
@@ -406,11 +420,15 @@
 
 .collapse .box2 {
   margin: 0.5em;
+  
 }</style></div>
           </div>
           <aside class="notes">
             <p>So what good is a new BFC? I'm glad you asked! Remember that I mentioned a new formatting context will generally contain the boxes within it? If collapsing margins isn't your thing, then this might help.</p>
-            <p>Any of the methods mentioned earlier will work.</p>
+            <p>Here, both the green and orange boxes have a margin of 0.5em set on them, but the top margin of the first box and the bottom margin of the second box has collapsed into their parent.</p>
+            <p>Making the parent a new BFC will solve this problem. Any of the methods mentioned earlier will work, so let's try a commonly-used one, <code>overflow: hidden</code>.</p>
+            <p>Right now, both the green and orange boxes are block boxes in the same BFC, but if I apply <code>display: inline-block</code> to the green box, the margins between them no longer collapse.</p>
+            <p>Because an anonymous block box has been generated around the green box to ensure both boxes are at block-level.</p>
           </aside>
         </section>
 
@@ -437,8 +455,9 @@
 }</style></div>
           </div>
           <aside class="notes">
-            <p>This is exactly the situation I described earlier where contents within 2 different formatting contexts sort of end up “interacting”. To prevent the inline boxes from poking into the space below the floated box, we can make the <code>p</code> element wrapping the text a block formatting context.</p>
-            <p>This means the float and the text now belong to separate formatting contexts and thus have their contents contained within their own environment, so to speak.</p>
+            <p>This is next example is exactly the situation I described earlier where contents within 2 different formatting contexts sort of end up “interacting”.</p>
+            <p>To prevent the inline boxes from poking into the space below the floated box, we can make the <code>p</code> element wrapping the text a block formatting context. Let's try a <code>overflow: auto</code> here, and now the text will stay in its own lane. It's probably not the most semantic thing to do, but setting <code>display</code> to <code>table-cell</code> works too.</p>
+            <p>We've essentially made the float and the text belong to separate formatting contexts so their contents are now contained within their own environment, so to speak.</p>
           </aside>
         </section>
 
@@ -469,7 +488,12 @@
   float: left;
 }</style></div>
           </div>
-          <aside class="notes">This may be the most common use-case for establishing a BFC, as a technique for containing floats, or sometimes we may say clearing them.</aside>
+          <aside class="notes">
+            <p>And lastly, this may be the most common use-case for establishing a BFC, as a technique for containing floats, or sometimes we may say clearing them.</p>
+            <p>This situation happens when all the items within a container are floated, and the parent container ends up with no height. This is because floats are not in the normal flow, and no longer affect the height of the parent.</p>
+            <p>Establishing a new BFC let's the parent contain the floats, so this time let's try <code>display: flow-root</code>, and now the parent box wraps its children nicely.</p>
+            <p>Applying a float to the parent box, or setting it to <code>display: inline-block</code> also works, but the width of the parent will shrink to fit its children.</p>
+          </aside>
         </section>
 
         <section>
@@ -508,12 +532,14 @@
 .linebox .line-container strong {
   
   
+  
 }</style></div>
           </div>
           <aside class="notes">
             <p>This is an example of a block box that contains 5 inline boxes, the block box in this case, being the <code>p</code> element. For now there is enough room so all 5 boxes fit into a single line box. But when there isn't enough room, inline boxes can be split across multiple line boxes.</p>
             <p>Splitting an inline box is like slicing a Snickers bar. The cut part won't have any chocolate coating on it, so margins, paddings and borders don't apply to the “split” part of the box.</p>
             <p>Only margins and padding along the inline axis have any visible effect on the inline box. I'll put some background colour on so you can see that even though padding is applied all around, the distance between the line boxes do not change.</p>
+            <p>Though there could be some interesting things from a design perspective that might work here. Not sure, maybe throw in some blend-modes (screen).</p>
           </aside>
         </section>
 
@@ -522,8 +548,11 @@
           <h2>Alignment along the inline-axis</h2>
           <p>The <code>text-align</code> property aligns inline boxes along the inline-axis</p>
           <img data-src="img/horizontal-align.svg" alt="Horizontal alignment of line boxes" class="plain" style="max-height:40vh">
-          <p>Applicable only when there is extra space available in the line box</p>
-          <aside class="notes">So if we want to align inline boxes along the inline axis, we use <code>text-align</code>. Just note that there has to be excess space within the line box for this to happen. <code>text-align</code> comes into play only after all the required line boxes have been generated and all the inline boxes have been laid out.</aside>
+          <p>Applicable only when there is extra space available in the <strong>line box</strong></p>
+          <aside class="notes">
+            <p>Now that we're better acquainted with line boxes, it's alignment time. To align them along the inline axis, things are reasonably straight-forward, we use <code>text-align</code>. You can do left, right, centre and justify.</p>
+            <p>Just note that there has to be excess space within the line box for this to happen. Also, <code>text-align</code> comes into play only after all the required line boxes have been generated and all the inline boxes have been laid out accordingly.</p>
+          </aside>
         </section>
 
         <section>
@@ -534,8 +563,9 @@
             <img data-src="img/vertical-align.svg" alt="Vertical alignment of line boxes" class="plain" style="max-height:25vh">
           </div>
           <aside class="notes">
-            <p>A line box will always be tall enough to contain all the boxes within it. It can even be taller than the tallest box it contains. Shorter inline boxes can be aligned along the block-axis with the <code>vertical-align</code> property. This property only applies to inline-level and table-cell elements.</p>
-            <p>It's key to remember that <code>vertical-align</code> controls the alignment of the inline boxes within the line box, <strong>not</strong> the alignment of the line boxes themselves.</p>
+            <p>A line box will always be tall enough to contain all the boxes within it. It can even be taller than the tallest box it contains. Shorter inline boxes can be aligned along the block-axis with the <code>vertical-align</code> property.</p>
+            <p><code>vertical-align</code> is one of those properties that trips up people who are new to CSS, because it is only applicable to inline-level and table-cell elements.</p>
+            <p>But, come on, there's no way you'd know that if you read it at face-value, right? And it's key to remember that <code>vertical-align</code> controls the alignment of the inline boxes within the line box, <strong>not</strong> the alignment of the line boxes themselves.</p>
           </aside>
         </section>
 
@@ -544,8 +574,8 @@
           <p>The height of the line box is based on its font, and its line-height</p>
           <img data-src="img/line-height.svg" alt="Line height of inline boxes" class="plain" style="max-height:45vh">
           <aside class="notes">
-            <p>The <code>height</code> property does not apply to inline boxes. The height of an inline box is determined by their font, and their line-height. User agents are free to decide if they want to use the em box or the maximum ascender and descender of the font.</p>
-            <p>You can use an absolute length value, like 1.5ems, to set the height of an inline box. But we can also use unit-less numbers, which the browser will multiply by the element's font-size to get the computed value. Similarly, a percentage will also be multiplied by the element's font-size, not the height of the parent element.</p>
+            <p>The <code>height</code> property does not apply to inline boxes. The height of an inline box is determined by their font, and their line-height. Here's where the spec gets a bit laissez faire about things because user agents are free to decide if they want to use the em box or the maximum ascender and descender of the font to calculate this value.</p>
+            <p>You can use an absolute length values, like ems or pixels, to set the height of an inline box. But we can also use unit-less numbers, which the browser will multiply by the element's font-size to get a computed value. If you use a percentage, it will also be multiplied by the element's font-size, not the height of the parent element, which is a more typical resolution for percentage values.</p>
           </aside>
         </section>
 
@@ -579,15 +609,17 @@
           </div>
           <p><small><a href="https://css-tricks.com/centering-in-the-unknown/">Centering in the Unknown</a> by Chris Coyier</small></p>
           <aside class="notes">
-            <p>Before Flexbox became widely adopted, there were a number of techniques for centring things along the block-axis. One of them was this inline-block technique I first discovered from a CSS Tricks article by Chris Coyier, called Centring in the Unknown.</p>
+            <p>So let's have an illustrative example. Before Flexbox became widely adopted, there were a number of techniques for centring things along the block-axis. </p>
+            <p>One of them was this inline-block technique I first discovered from a CSS Tricks article by Chris Coyier, called Centring in the Unknown. It involves aligning the target block with a pseudo-element that is as tall at the parent container.</p>
             <p>An inline-block is an inline-level block box, also known as atomic inline because it participates in an inline formatting context as a single opaque box.</p>
-            <p>Setting both the pseudo-element and the child box to inline-block means they are in an inline formatting context. Because we've made the pseudo-element as tall as the wrapper, the <code>vertical-align</code> property can be used with the block of text.</p>
+            <p>Setting both the pseudo-element and the child box to inline-block means they are both in an inline formatting context. Because the pseudo-element is as tall as the wrapper, the <code>vertical-align</code> property can be used with the block of text.</p>
           </aside>
         </section>
 
         <section>
+          <a href="https://www.w3.org/TR/css-flexbox-1/"><img data-src="img/spec-flexbox.svg" alt="CSS Flexible Box Layout Module Level 1" class="plain spec"></a>
           <h2>Flex formatting context</h2>
-          <p>Established by a block-level or inline-level flex container box</p>
+          <p>Established by a block-level or inline-level <strong>flex</strong> container box</p>
           <div class="l-multiple" style="align-items:end">
             <img data-src="img/flex-mc.svg" alt="No margin collapse" class="fragment plain" style="max-height:25vh">
             <img data-src="img/flex-fc.svg" alt="No floats or clear" class="fragment plain" style="max-height:25vh">
@@ -608,11 +640,320 @@
         </section>
 
         <section>
+          <a href="https://www.w3.org/TR/css-flexbox-1/#flex-lines"><img data-src="img/spec-flexbox.svg" alt="CSS Flexible Box Layout Module Level 1" class="plain spec"></a>
+          <h2>Flex axes</h2>
+          <img data-src="img/flex-axis.svg" alt="Flex terminology" class="plain" style="max-height:55vh">
+          <aside class="notes">
+            <p>I've been using the terms block direction and inline direction for the entirety of the talk thus far. And now I'm going to introduce a new type of direction, called the flex direction.</p>
+            <p>Think of the flex direction as the direction which flex items flow. Flex layout is fun because flex items can flow in any physical direction depending on the <code>flex-flow</code>, <code>flex-wrap</code> and <code>writing-mode</code> values of the flex container.</p>
+            <p>The main axis is the primary axis flex items are laid out, and the cross axis is always perpendicular to it.</p>
+          </aside>
+        </section>
+
+        <section>
+          <a href="https://www.w3.org/TR/css-flexbox-1/#flex-lines"><img data-src="img/spec-flexbox.svg" alt="CSS Flexible Box Layout Module Level 1" class="plain spec"></a>
           <h2>Flex lines</h2>
-          <div class="l-double" style="justify-items:center">
-            <img data-src="img/single-flex.svg" alt="Single flex line" class="fragment plain" style="align-self:center; max-height:12.5vh">
-            <img data-src="img/multi-flex.svg" alt="Multiple flex lines" class="fragment plain" style="max-height:45vh">
+          <div class="l-multiple" style="justify-items:center;align-items:center">
+            <figure class="fragment">
+              <img data-src="img/nowrap.svg" alt="Single flex line, nowrap" class="plain" style="max-height:12.5vh">
+              <figcaption><code>nowrap</code></figcaption>
+            </figure>
+            <figure class="fragment">
+              <img data-src="img/wrap.svg" alt="Multiple flex lines, wrap" class="plain" style="max-height:45vh">
+              <figcaption><code>wrap</code></figcaption>
+            </figure>
+            <figure class="fragment">
+              <img data-src="img/wrap-reverse.svg" alt="Multiple flex lines, wrap-reverse" class="plain" style="max-height:45vh">
+              <figcaption><code>wrap-reverse</code></figcaption>
+            </figure>
           </div>
+          <aside class="notes">
+            <p>Flex items are laid out within flex lines. These containers are a little bit similar to line boxes, in that you can't see them in the source, but they are used for positioning and alignment of flex items. We can have single-line containers or multi-line containers based on the <code>flex-wrap</code> property.</p>
+            <p>A single-line flex container will lay out all its children in one line, even if that means overflow, and this is the default flex container behaviour if you don't explicitly set a <code>flex-wrap</code> value.</p>
+            <p>Setting it to <code>wrap</code> will cause flex items to break across multiple flex lines. Additional lines are stacked along the cross-axis, and the direction of this stacking is affected by the <code>flex-wrap</code> property.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Flex directions</h2>
+          <div class="livecode livecode-2p">
+            <div class="result directions">
+              <div class="wrapper" style="font-size:initial;margin-bottom:1em">
+                <div class="box">1一</div>
+                <div class="box">2二</div>
+                <div class="box">3三</div>
+                <div class="box">4四</div>
+                <div class="box">5五</div>
+                <div class="box">6六</div>
+                <div class="box">7七</div>
+                <div class="box">8八</div>
+                <div class="box">9九</div>
+                <div class="box">10十</div>
+                <div class="box">11十一</div>
+                <div class="box">12十二</div>
+                <div class="box">13十三</div>
+                <div class="box">14十四</div>
+                <div class="box">15十五</div>
+                <div class="box">16十六</div>
+                <div class="box">17十七</div>
+                <div class="box">18十八</div>
+                <div class="box">19十四</div>
+                <div class="box">20二十</div>
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.directions .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  writing-mode: horizontal-tb;
+  flex-direction: row;
+}
+
+.directions .box {
+  height: 4em;
+  width: 4em;
+  border: 1px solid;
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>Combinations of the <code>writing-mode</code> property, the <code>flex-direction</code> and the <code>flex-wrap</code> property will determine how your flex items will flow.</p>
+            <ul>
+              <li><code>flex-direction</code> -> <code>row</code>, <code>row-reverse</code>, <code>column</code> and <code>column-reverse</code></li>
+              <li><code>flex-wrap</code> -> <code>wrap-reverse</code>, then together with <code>row-reverse</code></li>
+              <li><code>writing-mode</code> -> <code>vertical-rl</code>, <code>vertical-lr</code>, <code>sideways-lr</code></li>
+            </ul>
+            <p>So really, many many possibilities.</p>
+          </aside>
+        </section>
+
+        <section>
+          <a href="https://www.w3.org/TR/css-flexbox-1/#flex-lines"><img data-src="img/spec-flexbox.svg" alt="CSS Flexible Box Layout Module Level 1" class="plain spec"></a>
+          <h2>All the directions</h2>
+          <img data-src="img/combinations.svg" alt="Number of different combinations for flex direction is 64" class="plain" style="max-height:65vh">
+          <aside class="notes">
+            <p>Also wanted to point out that there are also right-to-left languages, so just multiply everything by 2, and voila, 64 combinations.</p>
+            <p>If you do take the time to try out every combination, don't worry, you won't get 64 different results, because some combinations do give you similar end-results.</p>
+          </aside>
+        </section>
+
+        <section>
+          <a href="https://www.w3.org/TR/css-flexbox-1/#alignment"><img data-src="img/spec-flexbox.svg" alt="CSS Flexible Box Layout Module Level 1" class="plain spec"></a>
+          <h2>Aligning with <code>auto</code> margins</h2>
+          <div class="livecode livecode-2p">
+            <div class="result automargin" style="font-size:75%;">
+              <div>
+                <img class="plain" data-src="img/box.svg">
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.automargin{
+  display: flex;
+}
+
+.automargin div {
+  border: 1px solid;
+  
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>Okay, alignment time! Let's start with something that is mostly direction agnostic. For flex layouts, margins are distributed before alignment properties kick in.</p>
+            <p>Any positive free space will be distributed to auto margins in their respective dimensions. So if I set a <code>margin-left: auto</code>, Boxie ends up all the way on the other end of the container. And if I do a <code>margin-top: auto</code>, Boxie gets sent all the way down.</p>
+            <p>If we don't specify a dimension, then any free space will be equally distributed on either side of the flex item. And I love showing this example to people who have just started out with CSS and ran into a wall when it comes to centring items.</p>
+            <p>Set a <code>margin: auto</code> and boom, 1-line solution to all your centring problems. Caveat, works best if you have only 1 flex child.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Defining “auto” by Elika Etemad (AKA fantasai)</h2>
+          <iframe src="https://player.vimeo.com/video/134597090" width="800" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          <aside class="notes">This is one of my all-time favourite talks by Elika Etemad at CSS Day 3 years ago. In case you didn't know, she works on almost every CSS specification, and is one of the few people in the world that can answer any question you could possibly have about them. So this talk is definitely worth watching.</aside>
+        </section>
+
+        <section>
+          <a href="https://www.w3.org/TR/css-flexbox-1/#alignment"><img data-src="img/spec-flexbox.svg" alt="CSS Flexible Box Layout Module Level 1" class="plain spec"></a>
+          <h2>Aligning along the main axis</h2>
+          <p><code>justify-content</code> helps distribute extra free space left over <strong>after</strong> flexible lengths and auto margins are resolved.</p>
+          <div class="livecode livecode-2p">
+            <div class="result mainaxis">
+              <div class="wrapper" style="font-size:initial">
+                <div class="box">1一</div>
+                <div class="box">2二</div>
+                <div class="box">3三</div>
+                <div class="box">4四</div>
+                <div class="box">5五</div>
+                <div class="box">6六</div>
+                <div class="box">7七</div>
+                <div class="box">8八</div>
+                <div class="box">9九</div>
+                <div class="box">10十</div>
+                <div class="box">11十一</div>
+                <div class="box">12十二</div>
+                <div class="box">13十三</div>
+                <div class="box">14十四</div>
+                <div class="box">15十五</div>
+                <div class="box">16十六</div>
+                <div class="box">17十七</div>
+                <div class="box">18十八</div>
+                <div class="box">19十四</div>
+                <div class="box">20二十</div>
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.mainaxis .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.mainaxis .box {
+  height: 5em;
+  width: 5em;
+  border: 1px solid;
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>For the most part, we are going to have multiple flex items within our flex container. And they will need aligning as well. We have 4 alignment properties at our disposal when it comes to flexbox.</p>
+            <p><code>justify-content</code> helps distribute free space left over after flexible lengths and auto margins are resolved. Like this space I have on the right that is not quite 5ems.</p>
+            <p>The initial value is <code>flex-start</code> but we can do <code>flex-end</code> and <code>center</code>, as well as distribute the space between flex items, using <code>space-around</code>, <code>space-between</code> and <code>space-evenly</code>.</p>
+          </aside>
+        </section>
+
+        <section>
+          <a href="https://www.w3.org/TR/css-flexbox-1/#alignment"><img data-src="img/spec-flexbox.svg" alt="CSS Flexible Box Layout Module Level 1" class="plain spec"></a>
+          <img data-src="img/axis-alignment.svg" alt="justify-content values for main axis alignment" class="plain" style="max-height:75vh">
+          <aside class="notes">Just some illustrations to show how the values work. I'm missing <code>space-evenly</code> because its reasonably new, only supported in Firefox 52 and Chrome 60 onwards.</aside>
+        </section>
+
+        <section>
+          <a href="https://www.w3.org/TR/css-flexbox-1/#alignment"><img data-src="img/spec-flexbox.svg" alt="CSS Flexible Box Layout Module Level 1" class="plain spec"></a>
+          <h2>Aligning along the cross axis</h2>
+          <p><code>align-items</code> sets the default alignment for all flex items along the cross axis of the flex line. Over-ridable by <code>align-self</code>.</p>
+          <div class="livecode livecode-2p">
+            <div class="result crossaxis">
+              <div class="wrapper" style="font-size:initial">
+                <div class="box">1一</div>
+                <div class="box">2二</div>
+                <div class="box">3三</div>
+                <div class="box">4四</div>
+                <div class="box">5五</div>
+                <div class="box">6六</div>
+                <div class="box">7七</div>
+                <div class="box">8八</div>
+                <div class="box">9九</div>
+                <div class="box">10十</div>
+                <div class="box">11十一</div>
+                <div class="box">12十二</div>
+                <div class="box">13十三</div>
+                <div class="box">14十四</div>
+                <div class="box">15十五</div>
+                <div class="box">16十六</div>
+                <div class="box">17十七</div>
+                <div class="box">18十八</div>
+                <div class="box">19十四</div>
+                <div class="box">20二十</div>
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.crossaxis .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.crossaxis .box { border: 1px solid }
+.crossaxis .box:nth-child(2n) { padding: 2em; } 
+.crossaxis .box:nth-child(3n) { padding: 1.5em; }
+.crossaxis .box:nth-child(2n+1) { 
+  padding: 0.25em 1em 1.5em;
+  
+} 
+.crossaxis .box:nth-child(3n+2) { padding: 2.5em 1em; }</style></div>
+          </div>
+          <aside class="notes">
+            <p>So the next thing is to align along the cross axis. Here we have flex children of various different heights so there is space within the flex line for them to be aligned.</p>
+            <p><code>align-items</code> sets the default alignment for all the flex children at once. And the initial value is flex-start, but again, we can do flex-end and center. And we can also stretch out the children to fill up the available space.</p>
+            <p>Another value that can be used is <code>baseline</code>, which aligns the baseline for every flex item so all your text lines up rather neatly.</p>
+            <p>If we want to tweak the positions of individual flex items, then we'll make use of <code>align-self</code> which does the same thing, but for a single flex item.</p>
+          </aside>
+        </section>
+
+        <section>
+          <a href="https://www.w3.org/TR/css-flexbox-1/#alignment"><img data-src="img/spec-flexbox.svg" alt="CSS Flexible Box Layout Module Level 1" class="plain spec"></a>
+          <img data-src="img/cross-alignment.svg" alt="align-items values for cross axis alignment" class="plain" style="max-height:75vh">
+          <aside class="notes">Another bunch of illustrations to show how things work. I really didn't know what to do about the baseline value, so this it, sorry.</aside>
+        </section>
+
+        <section>
+          <a href="https://www.w3.org/TR/css-flexbox-1/#alignment"><img data-src="img/spec-flexbox.svg" alt="CSS Flexible Box Layout Module Level 1" class="plain spec"></a>
+          <h2>Packing flex lines</h2>
+          <p><code>align-content</code> aligns flex lines within the flex container if there is extra space along the <strong>cross-axis</strong>.</p>
+          <div class="livecode livecode-2p">
+            <div class="result packaxis">
+              <div class="wrapper" style="font-size:initial;height:59.7vh">
+                <div class="box">1一</div>
+                <div class="box">2二</div>
+                <div class="box">3三</div>
+                <div class="box">4四</div>
+                <div class="box">5五</div>
+                <div class="box">6六</div>
+                <div class="box">7七</div>
+                <div class="box">8八</div>
+                <div class="box">9九</div>
+                <div class="box">10十</div>
+                <div class="box">11十一</div>
+                <div class="box">12十二</div>
+                <div class="box">13十三</div>
+                <div class="box">14十四</div>
+                <div class="box">15十五</div>
+                <div class="box">16十六</div>
+                <div class="box">17十七</div>
+                <div class="box">18十八</div>
+                <div class="box">19十四</div>
+                <div class="box">20二十</div>
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.packaxis .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
+}
+
+.packaxis .box {
+  height: 5em;
+  width: 5em;
+  border: 1px solid;
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>I lifted this heaader directly from the specification because, it's so descriptive. You're literally compacting the flex lines.</p>
+            <p>If a flex container has more space along the cross axis than necessary to contain all the flex children, the flex lines stretch to fill up all the space. Flex lines, not flex children.</p>
+            <p>The property that controls this is <code>align-content</code>. Only multi-line flex containers will ever have free space along the cross-axis for us to do alignment stuff. Flex lines in single-line containers stretch to take up all the space.</p>
+            <p>If there's one thing to take away from this talk, is that, you can only align stuff if there's extra space available in the container box.</p>
+          </aside>
+        </section>
+
+        <section>
+          <a href="https://www.w3.org/TR/css-align-3/#overview"><img data-src="img/spec-grid.svg" alt="CSS Grid Layout Module Level 1" class="plain spec"></a>
+          <h2>Grid formatting context</h2>
+          <p>Established by a block-level or inline-level <strong>grid</strong> container box</p>
+          <div class="l-multiple" style="align-items:end">
+            <img data-src="img/flex-mc.svg" alt="No margin collapse" class="fragment plain" style="max-height:25vh">
+            <img data-src="img/flex-fc.svg" alt="No floats or clear" class="fragment plain" style="max-height:25vh">
+            <img data-src="img/flex-va.svg" alt="No vertical-align" class="fragment plain" style="max-height:25vh">
+            <img data-src="img/grid-linealign.svg" alt="Grid lines form containing block" class="fragment plain" style="max-height:40vh">
+          </div>
+          <aside class="notes">
+            <p>Now, we're going to move on to what is arguably the hottest in CSS layout these days, Grid. The layout rules for a grid formatting context are somewhat similar to that of a flex formatting context.</p>
+            <ul>
+              <li>the grid container's margins also do not collapse with the margins of its children</li>
+              <li><code>float</code> and <code>clear</code> don't really do anything to a grid item</li>
+              <li>neither does <code>vertical-align</code></li>
+              <li>grid lines form the boundaries of each grid items containing block</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section>
+          <a href="https://www.w3.org/TR/css-grid-1/#grid-concepts"><img data-src="img/spec-grid.svg" alt="CSS Grid Layout Module Level 1" class="plain spec"></a>
+          <h2>Grid terminology</h2>
+          <img data-src="img/terminology.svg" alt="CSS grid terminology" class="plain" style="max-height:75vh">
+          <aside class="notes">And these are the terms used whenever we discuss CSS grid. Grid lines are referred to by their numerical index, which starts at 1 and not 0. You can use a negative index or even name grid lines, if you want to.</aside>
         </section>
 
         <section>
@@ -657,6 +998,203 @@
               <td>flex-containers and grid-containers<br></td>
             </tr>
           </table>
+          <aside class="notes">
+            <p>Eventually, the CSS working group decided it made sense to come up with a cohesive and common box alignment model that could be shared across all the different formatting contexts.</p>
+            <p>And that's the CSS Box Alignment Module Level 3, which define the 6 properties that control alignment of boxes within other boxes.</p>
+            <p>CSS grid uses all 6 of them, where flexbox only uses 4. <code>justify-self</code> and <code>justify-items</code> do not apply to flexbox.</p>
+            <p>In the future, these box alignment properties will be applicable to block formatting contexts as well, making alignment a much more straight-forward process than what we have now.</p>
+          </aside>
+        </section>
+
+        <section>
+          <a href="https://www.w3.org/TR/css-align-3/#overview"><img data-src="img/spec-boxalignment.svg" alt="CSS Box Alignment Module Level 3" class="plain spec"></a>
+          <h2><code>justify/align-content</code></h2>
+          <p>content-distribution properties</p>
+          <div class="livecode livecode-2p">
+            <div class="result content" style="font-size:75%;">
+              <div style="border:1px solid;" class="content_itemA">A</div>
+              <div style="border:1px solid;" class="content_itemB">B</div>
+              <div style="border:1px solid;" class="content_itemC">C</div>
+              <div style="border:1px solid;" class="content_itemD">D</div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.content {
+justify-content: normal;
+align-content: normal;
+
+display: grid;
+grid-template-columns: repeat(3, 25%);
+grid-template-rows: repeat(3, 20%);
+grid-gap: 1em;
+grid-template-areas: 
+  "a b b"
+  "a b b"
+  "c c d";
+}
+
+.content_itemA {
+grid-area: a;
+}
+
+.content_itemB {
+grid-area: b;
+}
+
+.content_itemC {
+grid-area: c;
+}
+
+.content_itemD {
+grid-area: d;
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>The <code>justify-content</code> and <code>align-content</code> properties are known as <strong>content-distribution properties</strong>. And we've already seen them in action in a flex formatting context.</p>
+            <p>These properties, again, are relevant when the container is larger than the total width or height of the grid rows and columns, and we want to set the alignment of the rows and columns with respect to the entire grid container.</p>
+            <p>How many people have trouble remembering which value affects which axis? Justify versus align? Is there anyone here who has <strong>not</strong> used Microsoft Word or any word processing software before?</p>
+            <p>Almost every word processing interface I've ever used has these 4 icons that lets you justify text, right? Justifying text moves it along the direction of your text, so by process of elimination, align must move it along the only other direction available.</p>
+          </aside>
+        </section>
+
+        <section>
+          <a href="https://www.w3.org/TR/css-align-3/#overview"><img data-src="img/spec-boxalignment.svg" alt="CSS Box Alignment Module Level 3" class="plain spec"></a>
+          <table style="font-size:75%">
+            <tr>
+              <th>Values</th>
+              <th><code>justify-content</code></th>
+              <th><code>align-content</code></th>
+            </tr>
+            <tr>
+              <td><code>center</code></td>
+              <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/jc-center.png" alt="justify-content:center"></td>
+              <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/ac-center.png" alt="align-content:center"></td>
+            </tr>
+            <tr>
+              <td><code>start</code></td>
+              <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/jc-start.png" alt="justify-content:start"></td>
+              <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/ac-start.png" alt="align-content:start"></td>
+            </tr>
+            <tr>
+              <td><code>end</code></td>
+              <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/jc-end.png" alt="justify-content:end"></td>
+              <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/ac-end.png" alt="align-content:end"></td>
+            </tr>
+            <tr>
+              <td><code>space-around</code></td>
+              <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/jc-sa.png" alt="justify-content:space-around"></td>
+              <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/ac-sa.png" alt="align-content:space-around"></td>
+            </tr>
+            <tr>
+              <td><code>space-between</code></td>
+              <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/jc-sb.png" alt="justify-content:space-between"></td>
+              <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/ac-sb.png" alt="align-content:space-between"></td>
+            </tr>
+            <tr>
+              <td><code>space-evenly</code></td>
+              <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/jc-se.png" alt="justify-content:space-evenly"></td>
+              <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/ac-se.png" alt="align-content:space-evenly"></td>
+            </tr>
+          </table>
+          <aside class="notes">This table is a summary of the values we've covered for content distribution. And is only applicable when there is more space in the container than the height and/or width of all the children combined.</aside>
+        </section>
+
+        <section>
+          <a href="https://www.w3.org/TR/css-align-3/#overview"><img data-src="img/spec-boxalignment.svg" alt="CSS Box Alignment Module Level 3" class="plain spec"></a>
+          <h2><code>justify/align-self</code></h2>
+          <p>self-alignment properties</p>
+          <div class="livecode livecode-2p">
+            <div class="result self" style="font-size:75%;">
+              <div style="border:1px solid;" class="self_itemA">A</div>
+              <div style="border:1px solid;" class="self_itemB">B</div>
+              <div style="border:1px solid;" class="self_itemC">C</div>
+              <div style="border:1px solid;" class="self_itemD">D</div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.self {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-gap: 1em;
+grid-auto-rows: calc(25% - 1em);
+grid-template-areas: 
+  "a a b b"
+  "a a b b"
+  "c c d d"
+  "c c d d";
+}
+
+.self_itemA {
+grid-area: a;
+}
+
+.self_itemB {
+grid-area: b;
+align-self: start;
+//justify-self: start;
+}
+
+.self_itemC {
+grid-area: c;
+align-self: end;
+//justify-self: end;
+}
+
+.self_itemD {
+grid-area: d;
+align-self: center;
+//justify-self: center;
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>The <code>justify-self</code> and <code>align-self</code> properties are known as <strong>self-alignment properties</strong>.
+            <p>These properties allow us to control how the content of each grid item is aligned within the grid area it's been allocated to. The default state is <code>stretch</code>, where the content stretches to fill the entire grid area.</p>
+            <p>We can adjust the alignment of content within the grid item with <code>start</code>, <code>center</code> and <code>end</code>. Once we apply any of these values, the grid item shrinks to fit its contents along the respective axis of alignment.</p>
+            <p>There is also a short-hand called <code>place-self</code> that takes 2 values, the first being <code>align-self</code> and the second being <code>justify-self</code>. <code>justify-self</code> will default to the same value if only 1 value is provided.</p>
+          </aside>
+        </section>
+
+        <section>
+          <a href="https://www.w3.org/TR/css-align-3/#overview"><img data-src="img/spec-boxalignment.svg" alt="CSS Box Alignment Module Level 3" class="plain spec"></a>
+          <h2><code>justify/align-items</code></h2>
+          <p>defaults for justify/align-self</p>
+          <div class="livecode livecode-2p">
+            <div class="result items" style="font-size:75%;">
+              <div style="border:1px solid;" class="items_itemA">A</div>
+              <div style="border:1px solid;" class="items_itemB">B</div>
+              <div style="border:1px solid;" class="items_itemC">C</div>
+              <div style="border:1px solid;" class="items_itemD">D</div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.items {
+justify-items: stretch;
+align-items: stretch;
+
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-gap: 1em;
+grid-auto-rows: calc(25% - 1em);
+grid-template-areas: 
+  "a a b b"
+  "a a b b"
+  "c c d d"
+  "c c d d";
+}
+
+.items_itemA {
+grid-area: a;
+}
+
+.items_itemB {
+grid-area: b;
+}
+
+.items_itemC {
+grid-area: c;
+}
+
+.items_itemD {
+grid-area: d;
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>Finally, we have the <code>align-items</code> and <code>justify-items</code> properties, which set the default <code>align-self</code> and <code>justify-self</code> behaviour of all the items within the grid. Similar to flexbox, except that <code>justify-items</code> does not apply to flexbox.</p>
+          </aside>
         </section>
 
         <section>
@@ -670,6 +1208,7 @@
             <li><a href="https://www.w3.org/TR/css-writing-modes-3/">CSS Writing Modes Level 3</a></li>
             <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1038294">Bug 1038294 - [css-display] Implement the multi-keyword syntax for the 'display' property</a></li>
             <li><a href="http://book.mixu.net/css/1-positioning.html">Learn CSS the pedantic way</a></li>
+            <li><a href="http://christopheraue.net/design/vertical-align">Vertical-Align: All You Need To Know</a></li>
           </ul>
           <aside class="notes"></aside>
         </section>
