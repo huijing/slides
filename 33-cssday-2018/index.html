@@ -754,7 +754,8 @@
 }</style></div>
           </div>
           <aside class="notes">
-            <p>Okay, alignment time! Let's start with something that is mostly direction agnostic. For flex layouts, margins are distributed before alignment properties kick in.</p>
+            <p>Okay, alignment time! Hidde had already showed us how much easier it is to align things with the newer layout modes and I'm going to build on that. Also, thank you, Hidde, for the mention.</p>
+            <p>I'm going to start with something that is somewhat direction agnostic. For flex layouts, margins are distributed before alignment properties kick in.</p>
             <p>Any positive free space will be distributed to auto margins in their respective dimensions. So if I set a <code>margin-left: auto</code>, Boxie ends up all the way on the other end of the container. And if I do a <code>margin-top: auto</code>, Boxie gets sent all the way down.</p>
             <p>If we don't specify a dimension, then any free space will be equally distributed on either side of the flex item. And I love showing this example to people who have just started out with CSS and ran into a wall when it comes to centring items.</p>
             <p>Set a <code>margin: auto</code> and boom, 1-line solution to all your centring problems. Caveat, works best if you have only 1 flex child.</p>
@@ -1198,8 +1199,184 @@ grid-area: d;
         </section>
 
         <section>
+          <div class="l-double" style="justify-items:center">
+            <img class="plain" data-src="img/moholy.jpg" alt="Page 126 of Malerei, Fotografie, Film by Moholy-Nagy" style="max-height:75vh">
+            <img class="plain fragment " data-src="img/moholy2.jpg" alt="Recreation of page 126 of Malerei, Fotografie, Film with grid and flexbox" style="max-height:75vh">
+          </div>
+          <p><small>Original image from <a href="http://bibliothequekandinsky.centrepompidou.fr/imagesbk/RLPF727/M5050_X0031_LIV_RLPF0727.pdf">Moholy-Nagy, Malerei, Fotografie, Film</a></small></p>
+          <aside class="notes">
+            <p>I love Hidde's talk, which showcased so many examples of great graphic design that we can draw inspiration from. So I want to toss in one more example to that list. This is a page from László Moholy-Nagy's book, Malerei, Fotografie, Film.</p>
+            <p>It's a striking design with bold black borders, and content aligned in different configurations. And here's where all the alignment properties I've just talked about come in really handy.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Bauhaus in the browser</h2>
+          <div class="livecode livecode-2p">
+            <div>
+              <p>Featuring...</p>
+              <ul style="list-style-position: inside">
+                <li style="margin-left:1em">Grid</li>
+                <li style="margin-left:1em">Flexbox</li>
+                <li style="margin-left:1em">Writing mode</li>
+                <li style="margin-left:1em">Transforms</li>
+                <li style="margin-left:1em">Box alignment</li>
+              </ul>
+              <p><small><a href="https://codepen.io/huijing/pen/PpqomV">https://codepen.io/huijing/pen/PpqomV</a> | <a href="https://www.chenhuijing.com/demos/bauhaus/">Full page demo</a></small></p>
+            </div>
+            <pre style="max-height:60vh"><code>.grid {
+  display: grid;
+  grid-template-columns: 30% 9% 9% 9% 9% 9%;
+  justify-content: center;
+}
+
+.grid__item:nth-child(1) {
+  grid-column: span 3;
+  justify-self: end;
+  border-right: 1em solid;
+  padding: 1em;
+  text-align: justify;
+  text-align-last: justify;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .content {
+    max-width: 12em;
+    letter-spacing: 1px;
+  }
+  
+  p:last-of-type {
+    margin-bottom: 1em;
+  }
+}
+
+.grid__item:nth-child(2) {
+  grid-column: 4 / span 3;
+  align-self: end;
+  font-size: 200%;
+  padding: 0.25em;
+}
+
+.grid__item:nth-child(3) {
+  grid-column: 1 / span 3;
+  border-top: 1em solid;
+  border-bottom: 1em solid;
+  padding: 1em 2em;
+  letter-spacing: 1px;
+  text-align: justify;
+
+  p:first-child {
+    margin-bottom: 1em;
+  }
+}
+
+.grid__item:nth-child(4) {
+  grid-column: 4 / span 3;
+  border-top: 1em solid;
+  border-bottom: 1em solid;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid__item:nth-child(5) {
+  grid-row: 3 / 5;
+  border-right: 1em solid;
+  padding: 1em;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+
+  img {
+    width: 100%;
+    max-width: 20em;
+  }
+}
+
+.grid__item:nth-child(6) {
+  writing-mode: vertical-rl;
+  border-right: 1em solid;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.grid__item:nth-child(7) {
+  padding: 0.5em 0.25em;
+  font-size: 85%;
+  border-right: 1em solid;
+}
+
+.grid__item:nth-child(8) {
+  border-left: 0.5em solid;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid__item:nth-child(9) {
+  letter-spacing: 1px;
+  padding: 0.5em 0.25em;
+  border-right: 1em solid;
+}
+
+.grid__item:nth-child(10) {
+  grid-row: 3 / 5;
+  grid-column: 6;
+  justify-self: center;
+  align-self: center;
+}
+
+.grid__item:nth-child(11) {
+  grid-column: 2 / 4;
+  letter-spacing: 1px;
+  padding: 0.5em;
+  border-top: 1em solid;
+  border-right: 1em solid;
+}
+
+.grid__item:nth-child(12) {
+  border-top: 1em solid;
+  border-right: 1em solid;
+}
+
+.grid__item:nth-child(13) {
+  border-top: 1em solid;
+  border-right: 1em solid;
+}</code></pre>
+          </div>
+          <aside class="notes">
+            <p>The code shown here is abridged to show mainly the layout code, but even the gear and arrow can be made with pure CSS, with some help from the <code>box-shadow</code> property.</p>
+            <p>In order to align the internal content of each grid child without disrupting the rendering of those thick black borders, we'll need to make each grid child a flex parent.</p>
+          </aside>
+        </section>
+
+        <section>
+          <div class="l-double" style="justify-items:stretch">
+            <figure>
+              <img class="plain" style="height:65vh" data-src="img/fit.svg" alt="Self-alignment properties">
+              <figcaption>These are not the borders you are looking for</figcaption>
+            </figure>
+            <figure class="fragment">
+              <img class="plain" style="height:65vh" data-src="img/flex.svg" alt="Display flex on grid items">
+              <figcaption>That's more like it</figcaption>
+            </figure>
+          </div>
+          <aside class="notes">
+            <p>Remember that by default, the value of a grid item's alignment is stretch, where it fills up the entire space of the grid cell. Once an alignment is applied to the grid item's contents, it will shrink to fit its content.</p>
+            <p>Making each grid item a flex container allows us to use box alignment properties to adjust the position of the grid item's content while keeping the borders at the edge of the grid cell.</p>
+          </aside>
+        </section>
+
+        <section>
           <h2>References and resources</h2>
-          <ul>
+          <ul style="column-count:2;font-size:80%">
             <li><a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">Inside a super fast CSS engine: Quantum CSS (aka Stylo)</a></li>
             <li><a href="https://www.w3.org/TR/CSS22/visuren.html">CSS2.2 Visual formatting model</a></li>
             <li><a href="https://www.w3.org/TR/css-display-3/">CSS Display Module Level 3</a></li>
@@ -1209,6 +1386,9 @@ grid-area: d;
             <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1038294">Bug 1038294 - [css-display] Implement the multi-keyword syntax for the 'display' property</a></li>
             <li><a href="http://book.mixu.net/css/1-positioning.html">Learn CSS the pedantic way</a></li>
             <li><a href="http://christopheraue.net/design/vertical-align">Vertical-Align: All You Need To Know</a></li>
+            <li><a href="https://www.smashingmagazine.com/2017/12/understanding-css-layout-block-formatting-context/">Understanding CSS Layout And The Block Formatting Context</a></li>
+            <li><a href="hhttps://www.smashingmagazine.com/2016/11/css-grids-flexbox-box-alignment-new-layout-standard/">The New Layout Standard For The Web: CSS Grid, Flexbox And Box Alignment</a></li>
+            <li><a href="https://medium.com/@patrickbrosset/demystifying-css-alignment-2d3ea7a02a36">Demystifying CSS alignment</a></li>
           </ul>
           <aside class="notes"></aside>
         </section>
