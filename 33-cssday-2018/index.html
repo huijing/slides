@@ -47,7 +47,7 @@
             </div>
           </div>
           <aside class="notes">
-            <p>My name is Hui Jing, I go by Jing as well. And I'm going to make use of the 2,666 emojis we currently have at our disposal to introduce myself. I'm from Malaysia, and I used to play basketball full time. Basketball actually helped kick-start my web career. Please ask me about that later, if you find this interesting.</p>
+            <p>My name is Hui Jing, I go by Jing as well. And I'm going to make use of the 2,666 emojis we currently have at our disposal to introduce myself. I was born in Malaysia, and I used to play basketball full time. Basketball actually helped kick-start my web career. Please ask me about that later, if you find this interesting.</p>
             <p>I absolutely love CSS, and so I like writing about it, and sometimes speaking about it as well. I also happen to be a Mozilla TechSpeaker, which is an initiative by Mozilla that supports technical evangelists in regional communities around the world by providing resources and funding.</p>
           </aside>
         </section>
@@ -100,13 +100,13 @@
         </section>
 
         <section data-background-image="img/not-layout.jpg">
-          <aside class="notes">Upon further perusal of this document, I discovered that, at the time, CSS was not meant for doing layout, just a little something to think about.</aside>
+          <aside class="notes">Fun fact: upon further perusal of this document, I discovered that, at the time, CSS was not meant for doing layout, just a little something to think about.</aside>
         </section>
 
         <section data-background-image="img/visual-formatting-model.jpg">
           <aside class="notes">
             <p>CSS2 had expanded the formatting model, which is what we know now as the visual formatting model. This model determines how user agents process the document tree for visual media.</p>
-            <p>And one particular sentence in the specification stood out to me. “...generates zero or more boxes according to the box model”.</p>
+            <p>And one particular sentence in the specification stood out to me. It reads: “In the visual formatting model, each element in the document tree generates zero or more boxes according to the box model”.</p>
           </aside>
         </section>
 
@@ -166,7 +166,7 @@
           <a href="https://www.w3.org/TR/CSS22/visuren.html#positioning-scheme"><img data-src="img/spec-vfm.svg" alt="CSS2.2 Visual formatting model" class="plain spec"></a>
           <h2>Positioning schemes</h2>
           <div class="l-multiple" style="align-items:center">
-            <figure style="margin-right:1em">
+            <figure class="fragment" style="margin-right:1em">
               <img data-src="img/normal-flow.svg" alt="Normal flow" class="plain">
               <figcaption>Normal flow</figcaption>
             </figure>
@@ -182,7 +182,7 @@
           <aside class="notes">
             <p>Let's talk positioning schemes first, because there's some terminology introduced here that pretty much sets up the remainder of the talk. There are 3 types of positioning schemes, normal flow, floats and absolute positioning.
             <p>Boxes in a normal flow will belong to a formatting context. And right now, we have several of those. Relatively positioned boxes remain part of this normal flow.</p>
-            <p>When a box is floated, it is first laid out in the normal flow, then taken out of it and shifted as far left, or right, as possible.</p>
+            <p>When we float a box, it is first laid out in the normal flow, then taken out of it and shifted as far left, or right, as possible.</p>
             <p>When a box is absolutely positioned, it's removed from the normal flow altogether, and given a position with respect to its containing box.</p>
           </aside>
         </section>
@@ -386,8 +386,8 @@
             <ul>
               <li>You can float a box</li>
               <li>Or position it absolutely</li>
-              <li>Block containers like inline-blocks, table-cells and table-captions will work</li>
-              <li>Also, block boxes whose <code>overflow</code> value is anything but its initial value of <code>visible</code></li>
+              <li>If you make the box an inline-block, a table-cell or table-caption, that can give you a new BFC</li>
+              <li>Or you could set a block box's <code>overflow</code> value to anything but its initial value of <code>visible</code></li>
               <li>And the new way to do it, via <code>display: flow-root</code></li>
             </ul>
           </aside>
@@ -428,7 +428,6 @@
             <p>Here, both the green and orange boxes have a margin of 0.5em set on them, but the top margin of the first box and the bottom margin of the second box has collapsed into their parent.</p>
             <p>Making the parent a new BFC will solve this problem. Any of the methods mentioned earlier will work, so let's try a commonly-used one, <code>overflow: hidden</code>.</p>
             <p>Right now, both the green and orange boxes are block boxes in the same BFC, but if I apply <code>display: inline-block</code> to the green box, the margins between them no longer collapse.</p>
-            <p>Because an anonymous block box has been generated around the green box to ensure both boxes are at block-level.</p>
           </aside>
         </section>
 
@@ -456,7 +455,7 @@
           </div>
           <aside class="notes">
             <p>This is next example is exactly the situation I described earlier where contents within 2 different formatting contexts sort of end up “interacting”.</p>
-            <p>To prevent the inline boxes from poking into the space below the floated box, we can make the <code>p</code> element wrapping the text a block formatting context. Let's try a <code>overflow: auto</code> here, and now the text will stay in its own lane. It's probably not the most semantic thing to do, but setting <code>display</code> to <code>table-cell</code> works too.</p>
+            <p>To prevent the inline boxes from poking into the space below the floated box, we can make the <code>p</code> element wrapping the text a BFC. Let's try a <code>overflow: auto</code> here, and now the text will stay in its own lane. It's probably not the most semantic thing to do, but setting <code>display</code> to <code>table-cell</code> works too.</p>
             <p>We've essentially made the float and the text belong to separate formatting contexts so their contents are now contained within their own environment, so to speak.</p>
           </aside>
         </section>
@@ -575,7 +574,7 @@
           <img data-src="img/line-height.svg" alt="Line height of inline boxes" class="plain" style="max-height:45vh">
           <aside class="notes">
             <p>The <code>height</code> property does not apply to inline boxes. The height of an inline box is determined by their font, and their line-height. Here's where the spec gets a bit laissez faire about things because user agents are free to decide if they want to use the em box or the maximum ascender and descender of the font to calculate this value.</p>
-            <p>You can use an absolute length values, like ems or pixels, to set the height of an inline box. But we can also use unit-less numbers, which the browser will multiply by the element's font-size to get a computed value. If you use a percentage, it will also be multiplied by the element's font-size, not the height of the parent element, which is a more typical resolution for percentage values.</p>
+            <p>You can use absolute length values, like ems or pixels, to set the height of an inline box. But we can also use unit-less numbers, which the browser will multiply by the element's font-size to get a computed value. If you use a percentage, it will also be multiplied by the element's font-size, not the height of the parent element, which is a more typical resolution for percentage values.</p>
           </aside>
         </section>
 
@@ -730,8 +729,8 @@
           <h2>All the directions</h2>
           <img data-src="img/combinations.svg" alt="Number of different combinations for flex direction is 64" class="plain" style="max-height:65vh">
           <aside class="notes">
-            <p>Also wanted to point out that there are also right-to-left languages, so just multiply everything by 2, and voila, 64 combinations.</p>
-            <p>If you do take the time to try out every combination, don't worry, you won't get 64 different results, because some combinations do give you similar end-results.</p>
+            <p>Also wanted to point out that there are right-to-left languages, so just multiply everything by 2, and voila, 64 potential combinations.</p>
+            <p>If you do take the time to try out every combination, don't worry, you won't get 64 different results, because a number of combinations do end up giving you the same end result.</p>
           </aside>
         </section>
 
@@ -922,7 +921,7 @@
 }</style></div>
           </div>
           <aside class="notes">
-            <p>I lifted this heaader directly from the specification because, it's so descriptive. You're literally compacting the flex lines.</p>
+            <p>I lifted this header directly from the specification because, it's so descriptive. You're literally compacting the flex lines.</p>
             <p>If a flex container has more space along the cross axis than necessary to contain all the flex children, the flex lines stretch to fill up all the space. Flex lines, not flex children.</p>
             <p>The property that controls this is <code>align-content</code>. Only multi-line flex containers will ever have free space along the cross-axis for us to do alignment stuff. Flex lines in single-line containers stretch to take up all the space.</p>
             <p>If there's one thing to take away from this talk, is that, you can only align stuff if there's extra space available in the container box.</p>
@@ -1009,55 +1008,6 @@
 
         <section>
           <a href="https://www.w3.org/TR/css-align-3/#overview"><img data-src="img/spec-boxalignment.svg" alt="CSS Box Alignment Module Level 3" class="plain spec"></a>
-          <h2><code>justify/align-content</code></h2>
-          <p>content-distribution properties</p>
-          <div class="livecode livecode-2p">
-            <div class="result content" style="font-size:75%;">
-              <div style="border:1px solid;" class="content_itemA">A</div>
-              <div style="border:1px solid;" class="content_itemB">B</div>
-              <div style="border:1px solid;" class="content_itemC">C</div>
-              <div style="border:1px solid;" class="content_itemD">D</div>
-            </div>
-            <div class="code"><style class="code-editor" contenteditable="true">.content {
-justify-content: normal;
-align-content: normal;
-
-display: grid;
-grid-template-columns: repeat(3, 25%);
-grid-template-rows: repeat(3, 20%);
-grid-gap: 1em;
-grid-template-areas: 
-  "a b b"
-  "a b b"
-  "c c d";
-}
-
-.content_itemA {
-grid-area: a;
-}
-
-.content_itemB {
-grid-area: b;
-}
-
-.content_itemC {
-grid-area: c;
-}
-
-.content_itemD {
-grid-area: d;
-}</style></div>
-          </div>
-          <aside class="notes">
-            <p>The <code>justify-content</code> and <code>align-content</code> properties are known as <strong>content-distribution properties</strong>. And we've already seen them in action in a flex formatting context.</p>
-            <p>These properties, again, are relevant when the container is larger than the total width or height of the grid rows and columns, and we want to set the alignment of the rows and columns with respect to the entire grid container.</p>
-            <p>How many people have trouble remembering which value affects which axis? Justify versus align? Is there anyone here who has <strong>not</strong> used Microsoft Word or any word processing software before?</p>
-            <p>Almost every word processing interface I've ever used has these 4 icons that lets you justify text, right? Justifying text moves it along the direction of your text, so by process of elimination, align must move it along the only other direction available.</p>
-          </aside>
-        </section>
-
-        <section>
-          <a href="https://www.w3.org/TR/css-align-3/#overview"><img data-src="img/spec-boxalignment.svg" alt="CSS Box Alignment Module Level 3" class="plain spec"></a>
           <table style="font-size:75%">
             <tr>
               <th>Values</th>
@@ -1095,7 +1045,49 @@ grid-area: d;
               <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/ac-se.png" alt="align-content:space-evenly"></td>
             </tr>
           </table>
-          <aside class="notes">This table is a summary of the values we've covered for content distribution. And is only applicable when there is more space in the container than the height and/or width of all the children combined.</aside>
+          <aside class="notes">
+            <p>The <code>justify-content</code> and <code>align-content</code> properties are known as <strong>content-distribution properties</strong>. And we've already seen them in action in a flex formatting context. This table is a summary of the values we've covered thus far for content distribution.</p>
+            <p>How many people have trouble remembering which value affects which axis? Justify versus align? Is there anyone here who has <strong>not</strong> used Microsoft Word or any word processing software before?</p>
+            <p>Here's how I remember them. Almost every word processing interface I've ever used has these 4 icons that lets you justify text, right? Justifying text moves it along the direction of your text, so by process of elimination, align must move it along the only other direction available.</p>
+          </aside>
+        </section>
+
+        <section>
+          <a href="https://www.w3.org/TR/css-align-3/#overview"><img data-src="img/spec-boxalignment.svg" alt="CSS Box Alignment Module Level 3" class="plain spec"></a>
+          <h2><code>justify/align-content</code></h2>
+          <p>content-distribution properties</p>
+          <div class="livecode livecode-2p">
+            <div class="result content" style="font-size:75%;">
+              <div style="border:1px solid;" class="content_itemA">A</div>
+              <div style="border:1px solid;" class="content_itemB">B</div>
+              <div style="border:1px solid;" class="content_itemC">C</div>
+              <div style="border:1px solid;" class="content_itemD">D</div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.content {
+  justify-content: normal;
+  align-content: normal;
+  
+  display: grid;
+  grid-template-columns: repeat(3, 25%);
+  grid-template-rows: repeat(3, 20%);
+  grid-gap: 1em;
+  grid-template-areas: 
+    "a b b"
+    "a b b"
+    "c c d";
+}
+
+.content_itemA { grid-area: a }
+.content_itemB { grid-area: b }
+.content_itemC { grid-area: c }
+.content_itemD { grid-area: d }</style></div>
+          </div>
+          <aside class="notes">
+            <p>The values that we covered for flexbox are applicable for grid as well, except that instead of <code>flex-start</code>, we'd use <code>start</code> instead.</p>
+            <p>If you do end up using any flex-prefixed values in a non-flex formatting context, the browser will resolve away the prefix. Let's just verify that works. You're free to use the <code>start</code> and <code>end</code> for flexbox though.</p>
+            <p>And now that we've sorted out the align versus justify situation, I want to bring your attention to a short-hand for setting both values in a single declaration. We can use the word “place” to do that. For this example, let's do <code>place-content</code>.</p>
+            <p>The first value sets <code>align-content</code>, and the second sets <code>justify-content</code>. If you only enter a single value, then <code>justify-content</code> will default to the same value as <code>align-content</code>.</p>
+          </aside>
         </section>
 
         <section>
@@ -1147,7 +1139,7 @@ align-self: center;
             <p>The <code>justify-self</code> and <code>align-self</code> properties are known as <strong>self-alignment properties</strong>.
             <p>These properties allow us to control how the content of each grid item is aligned within the grid area it's been allocated to. The default state is <code>stretch</code>, where the content stretches to fill the entire grid area.</p>
             <p>We can adjust the alignment of content within the grid item with <code>start</code>, <code>center</code> and <code>end</code>. Once we apply any of these values, the grid item shrinks to fit its contents along the respective axis of alignment.</p>
-            <p>There is also a short-hand called <code>place-self</code> that takes 2 values, the first being <code>align-self</code> and the second being <code>justify-self</code>. <code>justify-self</code> will default to the same value if only 1 value is provided.</p>
+            <p>The <code>place-self</code> short-hand is also available here.</p>
           </aside>
         </section>
 
@@ -1194,7 +1186,44 @@ grid-area: d;
 }</style></div>
           </div>
           <aside class="notes">
-            <p>Finally, we have the <code>align-items</code> and <code>justify-items</code> properties, which set the default <code>align-self</code> and <code>justify-self</code> behaviour of all the items within the grid. Similar to flexbox, except that <code>justify-items</code> does not apply to flexbox.</p>
+            <p>Finally, we have the <code>align-items</code> and <code>justify-items</code> properties, which set the default <code>align-self</code> and <code>justify-self</code> behaviour of all the items within the grid. Similar to flexbox, except that <code>justify-items</code> does not apply to flexbox. And use <code>place-items</code> if you'd very much prefer a single-line declaration.</p>
+          </aside>
+        </section>
+
+        <section>
+          <a href="https://www.w3.org/TR/css-align-3/#alignment-values"><img data-src="img/spec-boxalignment.svg" alt="CSS Box Alignment Module Level 3" class="plain spec"></a>
+          <h2>Overflow alignment keywords</h2>
+          <div class="livecode livecode-2p">
+            <div class="result overflow" style="font-size:75%;">
+              <div style="border:1px solid;" class="overflow_itemA">A</div>
+              <div style="border:1px solid;" class="overflow_itemB">B</div>
+              <div style="border:1px solid;" class="overflow_itemC">C</div>
+              <div style="border:1px solid;" class="overflow_itemD">D</div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.overflow {
+  justify-content: normal;
+  align-content: end;
+  
+  display: grid;
+  grid-template-columns: repeat(3, 25%);
+  grid-template-rows: repeat(3, 35%);
+  grid-gap: 1em;
+  grid-template-areas: 
+    "a b b"
+    "a b b"
+    "c c d";
+}
+
+.overflow_itemA { grid-area: a }
+.overflow_itemB { grid-area: b }
+.overflow_itemC { grid-area: c }
+.overflow_itemD { grid-area: d }</style></div>
+          </div>
+          <aside class="notes">
+            <p>Alignment keywords, or the values that we use in these various alignment properties, can be classified into 4 categories. We've covered distributed alignment, touched on baseline alignment, as well as gone through positional alignment.</p>
+            <p>There are also keywords for managing overflow. Let me explain. If the contents within a container are larger than the container itself, overflow occurs. That's when we get scrollbars, depending on the value of the overflow property.</p>
+            <p>But there might be instances where, an alignment mode sends part of the box out past the viewport's start edge, where you can't even scroll to get to it, like this example right here.</p>
+            <p>To exercise some semblance of control over such behaviour, we can make use of the <code>safe</code> and <code>unsafe</code> keywords. The <code>safe</code> will override the alignment mode and make it behave like <code>start</code> in an overflow situation, while <code>unsafe</code> will respect the specified alignment mode regardless.</p>
           </aside>
         </section>
 
@@ -1206,7 +1235,7 @@ grid-area: d;
           <p><small>Original image from <a href="http://bibliothequekandinsky.centrepompidou.fr/imagesbk/RLPF727/M5050_X0031_LIV_RLPF0727.pdf">Moholy-Nagy, Malerei, Fotografie, Film</a></small></p>
           <aside class="notes">
             <p>I love Hidde's talk, which showcased so many examples of great graphic design that we can draw inspiration from. So I want to toss in one more example to that list. This is a page from László Moholy-Nagy's book, Malerei, Fotografie, Film.</p>
-            <p>It's a striking design with bold black borders, and content aligned in different configurations. And here's where all the alignment properties I've just talked about come in really handy.</p>
+            <p>When I first saw this poster I thought to myself, this looks really grid-able. It's a striking design with bold black borders, and content aligned in different configurations. And here's where all the alignment properties I've just talked about come in really handy.</p>
           </aside>
         </section>
 
@@ -1369,8 +1398,10 @@ grid-area: d;
             </figure>
           </div>
           <aside class="notes">
-            <p>Remember that by default, the value of a grid item's alignment is stretch, where it fills up the entire space of the grid cell. Once an alignment is applied to the grid item's contents, it will shrink to fit its content.</p>
+            <p>Because by default, the value of a grid item's alignment is stretch, where it fills up the entire space of the grid cell. Once an alignment is applied to the grid item's contents, it will shrink to fit its content.</p>
             <p>Making each grid item a flex container allows us to use box alignment properties to adjust the position of the grid item's content while keeping the borders at the edge of the grid cell.</p>
+            <p>When I started preparing for this talk, I wasn't really sure how much I could talk about box alignment, but that was because I hadn't really dug into what box alignment was all about. The more I dug, the more I realised, hang on, I'd been using all these techniques without really understanding how they worked.</p>
+            <p>So I don't know about you, but this has been a great experience for me. But I do hope that you find some of the things I covered useful to you and that you enjoyed this talk as much as I enjoyed giving it.</p>
           </aside>
         </section>
 
@@ -1390,16 +1421,21 @@ grid-area: d;
             <li><a href="hhttps://www.smashingmagazine.com/2016/11/css-grids-flexbox-box-alignment-new-layout-standard/">The New Layout Standard For The Web: CSS Grid, Flexbox And Box Alignment</a></li>
             <li><a href="https://medium.com/@patrickbrosset/demystifying-css-alignment-2d3ea7a02a36">Demystifying CSS alignment</a></li>
           </ul>
-          <aside class="notes"></aside>
+          <aside class="notes">Here's a list of links and resources.</aside>
         </section>
         <section style="text-align:left;">
           <h1>Thank you!</h1>
-          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle;">https://www.chenhuijing.com</a></p>
-          <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
-          <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
-          <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle;">@huijing</a></p>
+          <div class="l-double">
+            <div>
+            <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle;">https://www.chenhuijing.com</a></p>
+            <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
+            <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
+            <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle;">@huijing</a></p>
+          </div>
+          <img class="plain" style="height:60vh;place-self:start center;" data-src="img/box-fam.svg" alt="All the boxes">
+        </div>
           <p style="text-align:right;"><small>Font used is <a href="https://github.com/floriankarsten/space-text">Space Text</a>, by <a href="http://floriankarsten.com/">Florian Karsten</a></small></p>
-          <aside class="notes">Thank you all for your attention.</aside>
+          <aside class="notes">And thank you all for your attention.</aside>
         </section>
       </div>
 
