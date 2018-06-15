@@ -708,8 +708,8 @@
 }
 
 .directions .box {
-  height: 4em;
-  width: 4em;
+  height: 6em;
+  width: 6em;
   border: 1px solid;
 }</style></div>
           </div>
@@ -857,13 +857,13 @@
 }
 
 .crossaxis .box { border: 1px solid }
-.crossaxis .box:nth-child(2n) { padding: 2em; } 
+.crossaxis .box:nth-child(2n) { padding: 2.5em; } 
 .crossaxis .box:nth-child(3n) { padding: 1.5em; }
 .crossaxis .box:nth-child(2n+1) { 
-  padding: 0.25em 1em 1.5em;
+  padding: 0.5em 1.5em 3em;
   
 } 
-.crossaxis .box:nth-child(3n+2) { padding: 2.5em 1em; }</style></div>
+.crossaxis .box:nth-child(3n+2) { padding: 3.5em 1em; }</style></div>
           </div>
           <aside class="notes">
             <p>So the next thing is to align along the cross axis. Here we have flex children of various different heights so there is space within the flex line for them to be aligned.</p>
@@ -924,6 +924,7 @@
             <p>I lifted this header directly from the specification because, it's so descriptive. You're literally compacting the flex lines.</p>
             <p>If a flex container has more space along the cross axis than necessary to contain all the flex children, the flex lines stretch to fill up all the space. Flex lines, not flex children.</p>
             <p>The property that controls this is <code>align-content</code>. Only multi-line flex containers will ever have free space along the cross-axis for us to do alignment stuff. Flex lines in single-line containers stretch to take up all the space.</p>
+            <p>If we don't want the default value of <code>stretch</code>, which sometimes cause unwanted behaviour like in this example, we can <em>pack</em> the flex lines and position them accordingly within the flex container (<code>flex-start</code> | <code>flex-end</code> | <code>center</code>). Or adjust the distribution of the flex lines within the flex container (<code>space-around</code> | <code>space-between</code> | <code>space-evenly</code>).</p>
             <p>If there's one thing to take away from this talk, is that, you can only align stuff if there's extra space available in the container box.</p>
           </aside>
         </section>
