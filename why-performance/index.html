@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Why Performance</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/simple.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Why performance?</h1>
+        </section>
+
+        <section>
+          <blockquote>“a slowdown of <strong>3 seconds</strong> on page load time caused a mean percentage <strong>drop of 7.9%</strong> in article views over a period of 28 days”<br><small>—<a href="http://engineroom.wpengine.com/2016/04/04/a-faster-ft-com/">Financial Times Technology Department</a></small></blockquote>
+        </section>
+
+        <section>
+          <blockquote>“<strong>53%</strong> of mobile site visits are <strong>abandoned</strong> if pages take <strong>longer than 3 seconds</strong> to load”<br><small>—<a href="https://www.doubleclickbygoogle.com/articles/mobile-speed-matters/">DoubleClick by Google</a></small></blockquote>
+        </section>
+
+        <section>
+          <blockquote>“...led to a <strong>40% decrease</strong> in Pinner <strong>wait time</strong>, a <strong>15% increase</strong> in <strong>SEO traffic</strong> and a <strong>15% increase</strong> increase in <strong>conversion rate</strong> to signup.”<br><small>—<a href="https://medium.com/@Pinterest_Engineering/driving-user-growth-with-performance-improvements-cfc50dafadd7">Pinterest Engineering</a></small></blockquote>
+        </section>
+
+        <section>
+          <blockquote>“...for <strong>every additional second</strong> a page takes to load, <strong>10 per cent</strong> of users leave. ”<br><small>—<a href="https://www.creativebloq.com/features/how-the-bbc-builds-websites-that-scale">BBC</a></small></blockquote>
+        </section>
+
+        <section>
+          <h2>Performance is a pillar of good user experience</h2>
+        </section>
+
+        <section>
+          <h2>Rendering engines 101</h2>
+          <figure>
+            <img class="plain" src="img/01-intro.png" alt="CSS engines">
+            <figcaption>Reads HTML and CSS files and turns them into pixels on the screen</figcaption>
+          </figure>
+          <p style="margin-top:2em;"><small>Images and explanations by <a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">Lin Clark</a></small></p>
+        </section>
+
+        <section>
+          <figure>
+            <img class="plain" style="max-height:65vh;" src="img/02-parse.png" alt="Parsing files into objects">
+            <figcaption>Parse the files into objects the browser can understand, including the DOM</figcaption>
+          </figure>
+          <p style="margin-top:2em;"><small>Images and explanations by <a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">Lin Clark</a></small></p>
+        </section>
+
+        <section>
+          <figure>
+            <img class="plain" style="max-height:65vh;" src="img/03-style.png" alt="Apply styles and values to elements">
+            <figcaption>Figure out what the elements should look like</figcaption>
+          </figure>
+          <p style="margin-top:2em;"><small>Images and explanations by <a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">Lin Clark</a></small></p>
+        </section>
+
+        <section>
+          <figure>
+            <img class="plain" style="max-height:65vh;" src="img/04-layout.png" alt="Create and layout boxes on screen">
+            <figcaption>Figure out dimensions for each node and where it goes on the screen</figcaption>
+          </figure>
+          <p style="margin-top:2em;"><small>Images and explanations by <a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">Lin Clark</a></small></p>
+        </section>
+
+        <section>
+          <figure>
+            <img class="plain" style="max-height:65vh;" src="img/05-paint.png" alt="Paint the boxes on the screen">
+            <figcaption>Paint the different boxes</figcaption>
+          </figure>
+          <p style="margin-top:2em;"><small>Images and explanations by <a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">Lin Clark</a></small></p>
+        </section>
+
+        <section>
+          <figure>
+            <img class="plain" style="max-height:65vh;" src="img/06-composite.png" alt="Composite and render layers as one image">
+            <figcaption>Composite the different layers into one image and render on screen</figcaption>
+          </figure>
+          <p style="margin-top:2em;"><small>Images and explanations by <a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">Lin Clark</a></small></p>
+        </section>
+
+        <section>
+          <ul class="sequence-list">
+            <li>network</li>
+            <li>parsing</li>
+            <li>DOM</li>
+            <li>style</li>
+            <li>layout</li>
+            <li>paint</li>
+            <li>compose</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Resources</h2>
+          <ul>
+            <li><a href="https://developers.google.com/web/fundamentals/performance/why-performance-matters/">Why Performance Matters</a></li>
+            <li><a href="https://www.smashingmagazine.com/2015/09/why-performance-matters-the-perception-of-time/">Why Perceived Performance Matters, Part 1: The Perception Of Time</a></li>
+            <li><a href="https://www.smashingmagazine.com/2015/11/why-performance-matters-part-2-perception-management/">Why Performance Matters, Part 2: Perception Management</a></li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>
