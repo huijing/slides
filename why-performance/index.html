@@ -8,19 +8,9 @@
 
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/simple.css">
-
-    <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
-
-    <!-- Printing and PDF exports -->
-    <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
   </head>
+
   <body>
     <div class="reveal">
       <div class="slides">
@@ -47,6 +37,8 @@
         <section>
           <h2>Performance is a pillar of good user experience</h2>
         </section>
+
+        <section data-background-image="img/page-weight.png" data-background-size="contain" data-background-color="white"></section>
 
         <section>
           <h2>Rendering engines 101</h2>
@@ -100,12 +92,48 @@
         <section>
           <ul class="sequence-list">
             <li>network</li>
-            <li>parsing</li>
-            <li>DOM</li>
-            <li>style</li>
-            <li>layout</li>
-            <li>paint</li>
-            <li>compose</li>
+            <li class="fragment">parsing</li>
+            <li class="fragment">DOM</li>
+            <li class="fragment">style</li>
+            <li class="fragment">layout</li>
+            <li class="fragment">paint</li>
+            <li class="fragment">compose</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Images are huge</h2>
+          <ul>
+            <li>Use the right format</li>
+            <li>Always optimise images</li>
+            <li>Consider lazy-loading</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>CSS is render-blocking</h2>
+          <ul>
+            <li>Keep stylesheet size small</li>
+            <li>Combine & compress stylesheets</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Javascript is parser-blocking</h2>
+          <ul>
+            <li>Make Javascript asynchronous</li>
+            <li>Defer loading of Javascript</li>
+            <li>Choose libraries wisely</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Web fonts affect rendering speed</h2>
+          <ul>
+            <li>Limit weights and styles</li>
+            <li>Consider subsetting</li>
+            <li>Use formats with better compression</li>
+            <li>Lazy-load font files</li>
           </ul>
         </section>
 
@@ -115,6 +143,9 @@
             <li><a href="https://developers.google.com/web/fundamentals/performance/why-performance-matters/">Why Performance Matters</a></li>
             <li><a href="https://www.smashingmagazine.com/2015/09/why-performance-matters-the-perception-of-time/">Why Perceived Performance Matters, Part 1: The Perception Of Time</a></li>
             <li><a href="https://www.smashingmagazine.com/2015/11/why-performance-matters-part-2-perception-management/">Why Performance Matters, Part 2: Perception Management</a></li>
+            <li><a href="https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/">How Browsers Work: Behind the scenes of modern web browsers</a></li>
+            <li><a href="http://www.unakravets.com/perf-design-wins/">3 Easy Performance Wins for Designers</a></li>
+            <li><a href="https://www.zachleat.com/web/comprehensive-webfonts/">A Comprehensive Guide to Font Loading Strategies</a></li>
           </ul>
         </section>
       </div>
