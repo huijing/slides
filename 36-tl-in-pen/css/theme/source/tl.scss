@@ -5,73 +5,42 @@
  */
 
 // Default mixins and settings -----------------
-@import "../template/mixins";
-@import "../template/settings";
+@import '../template/mixins';
+@import '../template/settings';
 // ---------------------------------------------
 
 // Include theme-specific fonts
-@import url(../../lib/font/chivo/chivo.css);
-@import url(../../lib/font/sassy_molassy/sassy_molassy.css);
-
-// Override theme settings (see ../template/settings.scss)
-$backgroundColor: rgba(255, 255, 255, 1);
-
-$mainColor: rgba(0, 0, 0, 1);
-$headingColor: rgba(0, 0, 0, 1);
-$highlightColor: rgba(122, 55, 139, 1);
-
-$secondary-colors: (
-  "school-bus": #FFDB01,
-  "riptide": #88E8DC,
-  "java": #21C9C9,
-  "mulberry-wood": #660A34,
-  "coral-red": #F83C4B,
-  "brink-pink": #F76477,
-  "sundown": #FEB1C1,
-  "mercury": #E9E9E9
-);
-
-$mainFontSize: 38px;
-$mainFont: 'Chivo', Arial, sans-serif;
-$headingFont: 'Chivo', Arial, sans-serif;
-$logoFont: 'Sassy Molassy', cursive;
-$headingTextShadow: none;
-$headingLetterSpacing: normal;
-$headingTextTransform: uppercase;
-$headingFontWeight: 700;
-$linkColor: rgba(122, 55, 139, 1);
-$linkColorHover: lighten($linkColor, 15%);
-$selectionBackgroundColor: lighten($linkColor, 25%);
-
-$heading1Size: 2.2em;
-$heading2Size: 1.4em;
-$heading3Size: 1.2em;
-$heading4Size: 1.0em;
+@import url('../../lib/font/edmondsans/edmondsans.css');
+@import url('../../lib/font/sassy_molassy/sassy_molassy.css');
 
 // Theme template ------------------------------
-@import "../template/theme";
+@import '../template/theme';
 
 .reveal pre code {
-  background: #3F3F3F;
-  color: #DCDCDC;
+  background: #3f3f3f;
+  color: #dcdcdc;
 }
 // ---------------------------------------------
 
 // Additional styles ------------------------------
+$secondary-colors: (
+  'school-bus': #ffdb01,
+  'riptide': #88e8dc,
+  'java': #21c9c9,
+  'mulberry-wood': #660a34,
+  'coral-red': #f83c4b,
+  'brink-pink': #f76477,
+  'sundown': #feb1c1,
+  'mercury': #e9e9e9
+);
+
 h1.tl-logo {
   font-family: $logoFont;
   font-weight: 400;
   font-size: 5em;
   letter-spacing: 16px;
   text-transform: none;
-}
-
-.tl-lowercase {
-  text-transform: lowercase;
-}
-
-.tl-border-bottom {
-  border-bottom: 1px solid !important;
+  line-height: 0.75;
 }
 
 .tl-nowrap {
@@ -83,31 +52,13 @@ h1.tl-logo {
 }
 
 .tl-svgicon {
-  width: 8rem;
-  height: 8rem;
-}
-
-.tl-svgimg {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 70%;
-}
-
-.tl-invert {
-  -webkit-filter: invert(100%);
-  filter: invert(100%);
-}
-
-.reveal table {
-  font-size: 1.5rem;
-  margin-bottom: .85em;
-  border-bottom: 1px solid;
+  width: 8em;
+  height: 8em;
 }
 
 .reveal ul {
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5em;
 }
 
 .reveal figcaption {
@@ -115,28 +66,11 @@ h1.tl-logo {
   font-style: italic;
 }
 
-header.tl-header {
-  border-top: 1px solid $backgroundColor;
-  border-bottom: 1px solid $backgroundColor;
-  text-align: left;
-  margin-bottom: 15vh;
-  svg {
-    height: 4rem;
-    width: 4rem;
-    display: inline-block;
-    vertical-align: middle;
-  }
-  h3 {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0;
-  }
-}
-
 section.tl-reverse {
   h1,
   h2,
-  p {
+  p,
+  a {
     color: $backgroundColor;
   }
 }
@@ -144,17 +78,20 @@ section.tl-reverse {
 div.tl-example-1 {
   text-align: left;
   font-size: 50%;
+
   ul li {
     color: green;
   }
+
   ul {
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
   }
 }
 
 div.tl-example-2 {
   text-align: left;
   font-size: 65%;
+
   a:hover {
     text-decoration: underline;
     color: green;
@@ -164,28 +101,34 @@ div.tl-example-2 {
 div.tl-example-3 {
   text-align: left;
   font-size: 40%;
+
   h1 {
     border: 2px dashed map-get($secondary-colors, coral-red);
   }
+
   p {
     border: 2px dashed map-get($secondary-colors, school-bus);
   }
+
   h2 {
     border: 2px dashed map-get($secondary-colors, java);
   }
+
   ul {
     border: 2px dashed map-get($secondary-colors, brink-pink);
   }
+
   li {
     border: 2px dashed map-get($secondary-colors, sundown);
   }
 }
 
 p.tl-example-4 {
-  padding: 1rem;
+  padding: 1em;
   font-size: 65%;
   text-align: left;
   border: 2px solid map-get($secondary-colors, mercury);
+
   a {
     border: 2px dashed map-get($secondary-colors, sundown);
   }
@@ -195,16 +138,20 @@ div.tl-example-5,
 div.tl-example-6 {
   text-align: left;
   font-size: 40%;
+
   * {
     margin: 0;
     padding: 0;
   }
+
   p {
     border: 2px dashed map-get($secondary-colors, school-bus);
   }
+
   h2 {
     border: 2px dashed map-get($secondary-colors, java);
   }
+
   ul {
     border: 2px dashed map-get($secondary-colors, brink-pink);
     list-style-position: inside;
@@ -232,8 +179,9 @@ div.tl-example-6b {
 div.tl-example-7 {
   height: 30vh;
   background-color: #170104;
-  background: url(../../img/background.jpg);
+  background: url('../../img/background.jpg');
   font-size: 65%;
+
   p {
     color: white;
     line-height: 30vh;
@@ -253,22 +201,16 @@ div.tl-example-7c {
 }
 
 div.tl-example-8 {
-  padding: 1rem;
+  padding: 1em;
   height: 30vh;
-  background-color: #EBEBEB;
-  background: url(../../img/sativa.jpg) repeat;
+  background-color: #ebebeb;
+  background: url('../../img/sativa.jpg') repeat;
   font-size: 65%;
 }
 
 div.tl-col {
   display: flex;
-  justify-content: space-around;
-  margin-left: -0.5rem;
-  margin-right: -0.5rem;
-
-  div {
-    padding: 0 0.5rem 1rem;
-  }
+  justify-content: space-evenly;
 }
 
 .flex-2 {
@@ -285,16 +227,14 @@ div.tl-col {
 
 div.tl-box {
   font-size: 200%;
-  border: 3px solid $highlightColor;
-  padding: 2rem 0;
+  border: 3px solid;
+  padding: 0.5em 0;
 }
 
 ul.tl-multi {
   width: 100%;
   list-style-position: inside;
-  -webkit-column-width: 13rem;
-  -moz-column-width: 13rem;
-  column-width: 13rem;
+  column-width: 13em;
   font-size: 45%;
 }
 
@@ -306,11 +246,11 @@ span.tl-emoji {
 section img.tl-icon {
   display: inline-block;
   vertical-align: middle;
-  margin-right: 1rem;
+  margin-right: 1em;
 }
 
 // CSS for PC mockup ------------------------------
-@import "computer";
+@import 'computer';
 .brain-wrapper {
   float: left;
   width: calc(100% - 720px);

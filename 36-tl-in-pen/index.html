@@ -1,50 +1,27 @@
 <!doctype html>
-<html lang="en">
-
+<html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>TechLadies in KL</title>
-
-    <meta name="description" content="This workshop will introduce the basics of the web, HTML and CSS. We will also be styling a basic Guess The Number game built on top of the Sinatra framework for some practical experience.">
-    <meta name="author" content="Chen Hui Jing">
-
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <title>TechLadies in Penang</title>
 
     <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/tl.css" id="theme">
-
+    <link rel="stylesheet" href="css/theme/tl.css">
     <link rel="stylesheet" href="lib/css/zenburn.css">
-
-    <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
-
-    <!--[if lt IE 9]>
-    <script src="lib/js/html5shiv.js"></script>
-    <![endif]-->
   </head>
 
   <body>
-
     <div class="reveal">
-
       <div class="slides">
-        <section data-background="#000" class="tl-reverse">
+        <section data-background="#7A378B" class="tl-reverse">
           <h1 class="tl-logo">TechLadies</h1>
-          <h2>in KL 🇲🇾</h2>
+          <h2>in Penang 🇲🇾</h2>
           <p><small>By <a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
         </section>
 
         <section>
-          <section data-background="#000" class="tl-reverse">
+          <section data-background="#7A378B" class="tl-reverse">
             <h1>About web development</h1>
           </section>
           <section>
@@ -110,12 +87,12 @@
             <h2>HTML and CSS are the foundation of the web</h2>
             <div class="tl-col">
               <div>
-                <svg class="tl-svgimg" viewBox="0 0 101 143">
+                <svg style="max-height:50vh" viewBox="0 0 101 143">
                   <g fill="none" fill-rule="evenodd"><path d="M9.167 131.086L0 28.236h100.724L91.548 131.07 50.3 142.51 9.167 131.085z" fill="#E45126"/><path d="M50.362 133.765l33.33-9.244 7.842-87.874H50.362v97.12z" fill="#F36619"/><path d="M50.318 74.79v12.614h15.528l-1.464 16.36-14.064 3.797v13.126l25.85-7.168.19-2.13 2.963-33.21.31-3.387H50.318zm0-25.53v12.614h30.458l.253-2.836.573-6.395.3-3.384H50.32z" fill="#FFF"/><path d="M50.362 74.79H33.676l-1.152-12.917h17.838V49.258h-31.62l.303 3.385 3.1 34.76H50.36v-12.61zm0 32.76l-.055.016-14.044-3.794-.898-10.06H22.707l1.767 19.806 25.83 7.174.058-.017V107.55z" fill="#EBEBEB"/><path d="M9.37.284h6.41v6.333h5.86V.284h6.41v19.18h-6.41V13.04h-5.86v6.423H9.372V.283zm27.107 6.36h-5.642V.284h17.693v6.36h-5.643v12.82h-6.408V6.644zm14.86-6.36h6.682l4.11 6.74 4.104-6.74h6.684v19.18h-6.382V9.956l-4.41 6.82h-.11l-4.41-6.82v9.506h-6.272V.282zm24.772 0h6.41v12.84h9.01v6.34H76.11V.284z" fill="#020202"/></g>
                 </svg>
               </div>
               <div>
-                <svg class="tl-svgimg" viewBox="0 0 101 143">
+                <svg style="max-height:50vh" viewBox="0 0 101 143">
                   <g fill="none" fill-rule="evenodd"><path d="M9.353 131.094L.186 28.244H100.91l-9.176 102.833-41.247 11.44-41.134-11.423z" fill="#1673B6"/><path d="M50.548 133.774l33.33-9.245 7.842-87.877H50.548v97.12z" fill="#35A9DB"/><path d="M50.548 73.915h16.686l1.153-12.917h-17.84V48.383h31.62l-.302 3.385-3.1 34.76H50.55V73.916z" fill="#FFF"/><path d="M50.624 106.675l-.055.016-14.045-3.793-.897-10.06H22.97l1.767 19.806 25.828 7.173.06-.016v-13.125z" fill="#EBEBEB"/><path d="M66.162 85.995l-1.518 16.894-14.063 3.796v13.124l25.85-7.167.19-2.13 2.194-24.518H66.162z" fill="#FFF"/><path d="M50.592 48.384v12.614h-30.46l-.25-2.836-.575-6.394-.302-3.384h31.587zm-.044 25.533V86.53H36.682l-.252-2.834-.575-6.395-.3-3.383h14.993z" fill="#EBEBEB"/><path d="M79.117 5.55h-8.36l8.694 9.438v4.492H61.544v-5.26h8.693l-8.693-9.438V.284h17.574V5.55zm-21.123 0h-8.36l8.694 9.438v4.492H40.42v-5.26h8.694L40.42 4.782V.284h17.574V5.55zm-20.916.214h-9.02V14h9.02v5.48H21.646V.283h15.432v5.48z" fill="#151515"/></g>
                 </svg>
               </div>
@@ -210,7 +187,7 @@
         </section>
 
         <section>
-          <section data-background="#000" class="tl-reverse">
+          <section data-background="#7A378B" class="tl-reverse">
             <h1>Internet basics</h1>
           </section>
           <section>
@@ -268,17 +245,17 @@
           <section>
             <h2>If you like reading books...</h2>
             <div class="tl-col">
-              <div>
-                <a href="http://opentrolley.com.sg/Book_Detail.aspx?EAN=9780684832678"><img src="img/where-wizards-stay-up-late.jpg" alt="Where Wizards Stay Up Late: The Origins Of The Internet"></a>
+              <div style="margin-right:1em">
+                <a href="http://opentrolley.com.sg/Book_Detail.aspx?EAN=9780684832678"><img src="img/where-wizards-stay-up-late.jpg" class="plain" alt="Where Wizards Stay Up Late: The Origins Of The Internet"></a>
+              </div>
+              <div style="margin-right:1em">
+                <a href="http://opentrolley.com.sg/Book_Detail.aspx?EAN=9780061994951"><img src="img/tubes.png" class="plain" alt="Tubes: A Journey to the Center of the Internet"></a>
+              </div>
+              <div style="margin-right:1em">
+                <a href="http://opentrolley.com.sg/Book_Detail.aspx?EAN=9781511654944"><img src="img/intro-to-networking.jpg" class="plain" alt="Introduction to Networking: How the Internet Works"></a>
               </div>
               <div>
-                <a href="http://opentrolley.com.sg/Book_Detail.aspx?EAN=9780061994951"><img src="img/tubes.png" alt="Tubes: A Journey to the Center of the Internet"></a>
-              </div>
-              <div>
-                <a href="http://opentrolley.com.sg/Book_Detail.aspx?EAN=9781511654944"><img src="img/intro-to-networking.jpg" alt="Introduction to Networking: How the Internet Works"></a>
-              </div>
-              <div>
-                <a href="http://opentrolley.com.sg/Book_Detail.aspx?EAN=9780062515872"><img src="img/weaving-the-web.jpg" alt="Weaving the Web: The Original Design and Ultimate Destiny of the World Wide Web"></a>
+                <a href="http://opentrolley.com.sg/Book_Detail.aspx?EAN=9780062515872"><img src="img/weaving-the-web.jpg" class="plain" alt="Weaving the Web: The Original Design and Ultimate Destiny of the World Wide Web"></a>
               </div>
             </div>
           </section>
@@ -614,7 +591,7 @@
             <p>Browser sends request to server and server locates the requested file</p>
             <svg viewBox="0 0 691 277">
               <defs>
-                <linearGradient x1="0%" y1="0%" y2="100%" id="a">
+                <linearGradient x1="0%" y1="0%" y2="100%" id="a2">
                   <stop stop-color="#FBDA61" offset="0%"/>
                   <stop stop-color="#F76B1C" offset="100%"/>
                 </linearGradient>
@@ -642,7 +619,7 @@
                 </g>
                 <g class="fragment">
                   <g transform="translate(528 65)">
-                    <path d="M19.32 7.46c-2.114 0-3.798 1.705-3.798 3.82v62.44c0 2.115 1.684 3.82 3.798 3.82h46.36c2.114 0 3.798-1.705 3.798-3.82V26.802H55.51c-2.858 0-5.353-2.086-5.353-4.856V7.46H19.32zm33.494 0v14.486c0 1.138 1.083 2.2 2.697 2.2H69.48L52.814 7.46z" fill="url(#a)"/>
+                    <path d="M19.32 7.46c-2.114 0-3.798 1.705-3.798 3.82v62.44c0 2.115 1.684 3.82 3.798 3.82h46.36c2.114 0 3.798-1.705 3.798-3.82V26.802H55.51c-2.858 0-5.353-2.086-5.353-4.856V7.46H19.32zm33.494 0v14.486c0 1.138 1.083 2.2 2.697 2.2H69.48L52.814 7.46z" fill="url(#a2)"/>
                     <rect fill="#4D4D4D" x="22.682" y="24.17" width="25.252" height="4.108" rx="1.767"/>
                     <rect fill="#4D4D4D" x="22.682" y="43.314" width="39.635" height="4.108" rx="1.767"/>
                     <rect fill="#4D4D4D" x="22.682" y="33.742" width="25.252" height="4.108" rx="1.767"/>
@@ -687,7 +664,7 @@
                 </g>
                 <g>
                   <g transform="translate(528 65)">
-                    <path d="M19.32 7.46c-2.114 0-3.798 1.705-3.798 3.82v62.44c0 2.115 1.684 3.82 3.798 3.82h46.36c2.114 0 3.798-1.705 3.798-3.82V26.802H55.51c-2.858 0-5.353-2.086-5.353-4.856V7.46H19.32zm33.494 0v14.486c0 1.138 1.083 2.2 2.697 2.2H69.48L52.814 7.46z" fill="url(#a)"/>
+                    <path d="M19.32 7.46c-2.114 0-3.798 1.705-3.798 3.82v62.44c0 2.115 1.684 3.82 3.798 3.82h46.36c2.114 0 3.798-1.705 3.798-3.82V26.802H55.51c-2.858 0-5.353-2.086-5.353-4.856V7.46H19.32zm33.494 0v14.486c0 1.138 1.083 2.2 2.697 2.2H69.48L52.814 7.46z" fill="url(#a2)"/>
                     <rect fill="#4D4D4D" x="22.682" y="24.17" width="25.252" height="4.108" rx="1.767"/>
                     <rect fill="#4D4D4D" x="22.682" y="43.314" width="39.635" height="4.108" rx="1.767"/>
                     <rect fill="#4D4D4D" x="22.682" y="33.742" width="25.252" height="4.108" rx="1.767"/>
@@ -714,7 +691,7 @@
             <p>A link on a web page is a pre-entered URL. Clicking the link sends a request to the server.</p>
             <svg viewBox="0 0 691 311">
               <defs>
-                <linearGradient x1="0%" y1="0%" y2="100%" id="a">
+                <linearGradient x1="0%" y1="0%" y2="100%" id="a2">
                   <stop stop-color="#FBDA61" offset="0%"/>
                   <stop stop-color="#F76B1C" offset="100%"/>
                 </linearGradient>
@@ -727,7 +704,7 @@
                 <path d="M614.175 228.9h6.768v37.134h-6.768V228.9zM627.71 228.9h6.77v37.134h-6.77V228.9zM641.248 228.9h6.768v37.134h-6.768V228.9zM654.784 228.9h6.77v37.134h-6.77V228.9zM668.32 228.978h6.77v37.136h-6.77v-37.136z" stroke="#7D7D7D" stroke-width="2.5" fill="#9C9C9C"/>
                 <g>
                   <g transform="translate(528 65)">
-                    <path d="M19.32 7.46c-2.114 0-3.798 1.705-3.798 3.82v62.44c0 2.115 1.684 3.82 3.798 3.82h46.36c2.114 0 3.798-1.705 3.798-3.82V26.802H55.51c-2.858 0-5.353-2.086-5.353-4.856V7.46H19.32zm33.494 0v14.486c0 1.138 1.083 2.2 2.697 2.2H69.48L52.814 7.46z" fill="url(#a)"/>
+                    <path d="M19.32 7.46c-2.114 0-3.798 1.705-3.798 3.82v62.44c0 2.115 1.684 3.82 3.798 3.82h46.36c2.114 0 3.798-1.705 3.798-3.82V26.802H55.51c-2.858 0-5.353-2.086-5.353-4.856V7.46H19.32zm33.494 0v14.486c0 1.138 1.083 2.2 2.697 2.2H69.48L52.814 7.46z" fill="url(#a2)"/>
                     <rect fill="#4D4D4D" x="22.682" y="24.17" width="25.252" height="4.108" rx="1.767"/>
                     <rect fill="#4D4D4D" x="22.682" y="43.314" width="39.635" height="4.108" rx="1.767"/>
                     <rect fill="#4D4D4D" x="22.682" y="33.742" width="25.252" height="4.108" rx="1.767"/>
@@ -758,7 +735,7 @@
                 </g>
                 <g>
                   <g transform="translate(528 209)">
-                    <path d="M19.32 7.46c-2.114 0-3.798 1.705-3.798 3.82v62.44c0 2.115 1.684 3.82 3.798 3.82h46.36c2.114 0 3.798-1.705 3.798-3.82V26.802H55.51c-2.858 0-5.353-2.086-5.353-4.856V7.46H19.32zm33.494 0v14.486c0 1.138 1.083 2.2 2.697 2.2H69.48L52.814 7.46z" fill="url(#a)"/>
+                    <path d="M19.32 7.46c-2.114 0-3.798 1.705-3.798 3.82v62.44c0 2.115 1.684 3.82 3.798 3.82h46.36c2.114 0 3.798-1.705 3.798-3.82V26.802H55.51c-2.858 0-5.353-2.086-5.353-4.856V7.46H19.32zm33.494 0v14.486c0 1.138 1.083 2.2 2.697 2.2H69.48L52.814 7.46z" fill="url(#a2)"/>
                     <rect fill="#4D4D4D" x="22.682" y="24.17" width="25.252" height="4.108" rx="1.767"/>
                     <rect fill="#4D4D4D" x="22.682" y="43.314" width="39.635" height="4.108" rx="1.767"/>
                     <rect fill="#4D4D4D" x="22.682" y="33.742" width="25.252" height="4.108" rx="1.767"/>
@@ -778,7 +755,7 @@
             <p>The server sends the requested file back to the browser, which replaces the current page with the new file.</p>
             <svg viewBox="0 0 691 311">
               <defs>
-                <linearGradient x1="0%" y1="0%" y2="100%" id="a">
+                <linearGradient x1="0%" y1="0%" y2="100%" id="a3">
                   <stop stop-color="#FBDA61" offset="0%"/>
                   <stop stop-color="#F76B1C" offset="100%"/>
                 </linearGradient>
@@ -802,7 +779,7 @@
                 </g>
                 <g>
                   <g transform="translate(528 65)">
-                    <path d="M19.32 7.46c-2.114 0-3.798 1.705-3.798 3.82v62.44c0 2.115 1.684 3.82 3.798 3.82h46.36c2.114 0 3.798-1.705 3.798-3.82V26.802H55.51c-2.858 0-5.353-2.086-5.353-4.856V7.46H19.32zm33.494 0v14.486c0 1.138 1.083 2.2 2.697 2.2H69.48L52.814 7.46z" fill="url(#a)"/>
+                    <path d="M19.32 7.46c-2.114 0-3.798 1.705-3.798 3.82v62.44c0 2.115 1.684 3.82 3.798 3.82h46.36c2.114 0 3.798-1.705 3.798-3.82V26.802H55.51c-2.858 0-5.353-2.086-5.353-4.856V7.46H19.32zm33.494 0v14.486c0 1.138 1.083 2.2 2.697 2.2H69.48L52.814 7.46z" fill="url(#a3)"/>
                     <rect fill="#4D4D4D" x="22.682" y="24.17" width="25.252" height="4.108" rx="1.767"/>
                     <rect fill="#4D4D4D" x="22.682" y="43.314" width="39.635" height="4.108" rx="1.767"/>
                     <rect fill="#4D4D4D" x="22.682" y="33.742" width="25.252" height="4.108" rx="1.767"/>
@@ -813,7 +790,7 @@
                 </g>
                 <g>
                   <g transform="translate(528 209)">
-                    <path d="M19.32 7.46c-2.114 0-3.798 1.705-3.798 3.82v62.44c0 2.115 1.684 3.82 3.798 3.82h46.36c2.114 0 3.798-1.705 3.798-3.82V26.802H55.51c-2.858 0-5.353-2.086-5.353-4.856V7.46H19.32zm33.494 0v14.486c0 1.138 1.083 2.2 2.697 2.2H69.48L52.814 7.46z" fill="url(#a)"/>
+                    <path d="M19.32 7.46c-2.114 0-3.798 1.705-3.798 3.82v62.44c0 2.115 1.684 3.82 3.798 3.82h46.36c2.114 0 3.798-1.705 3.798-3.82V26.802H55.51c-2.858 0-5.353-2.086-5.353-4.856V7.46H19.32zm33.494 0v14.486c0 1.138 1.083 2.2 2.697 2.2H69.48L52.814 7.46z" fill="url(#a3)"/>
                     <rect fill="#4D4D4D" x="22.682" y="24.17" width="25.252" height="4.108" rx="1.767"/>
                     <rect fill="#4D4D4D" x="22.682" y="43.314" width="39.635" height="4.108" rx="1.767"/>
                     <rect fill="#4D4D4D" x="22.682" y="33.742" width="25.252" height="4.108" rx="1.767"/>
@@ -844,7 +821,7 @@
         </section>
 
         <section>
-          <section data-background="#000" class="tl-reverse">
+          <section data-background="#7A378B" class="tl-reverse">
             <h1>Hands-on Practice</h1>
           </section>
           <section>
@@ -859,52 +836,52 @@
                 </ol>
               </div>
               <div>
-                <svg height="55vmin" viewBox="0 0 462 926">
+                <svg style="max-height:75vmin" viewBox="0 0 462 926">
                   <defs>
-                    <linearGradient id="a" x1="50%" x2="50%" y1="100%" y2="0%">
+                    <linearGradient id="a4" x1="50%" x2="50%" y1="100%" y2="0%">
                       <stop stop-color="#E3E3E3" offset="0%"/>
                       <stop stop-color="#92DCFF" offset="100%"/>
                     </linearGradient>
-                    <linearGradient id="b" x1="0%" y1="0%" y2="100%">
+                    <linearGradient id="b1" x1="0%" y1="0%" y2="100%">
                       <stop stop-color="#B4ED50" offset="0%"/>
                       <stop stop-color="#429321" offset="100%"/>
                     </linearGradient>
-                    <linearGradient id="c" x1="0%" y1="0%" y2="100%">
+                    <linearGradient id="c1" x1="0%" y1="0%" y2="100%">
                       <stop stop-color="#FBDA61" offset="0%"/>
                       <stop stop-color="#F76B1C" offset="100%"/>
                     </linearGradient>
-                    <linearGradient id="d" x1="100%" x2="0%" y1="100%" y2="0%">
+                    <linearGradient id="d1" x1="100%" x2="0%" y1="100%" y2="0%">
                       <stop stop-color="#F58B51" offset="0%"/>
                       <stop stop-color="#FE8899" offset="100%"/>
                     </linearGradient>
-                    <linearGradient id="e" x1="0%" x2="97.313%" y1="0%" y2="97.313%">
+                    <linearGradient id="e1" x1="0%" x2="97.313%" y1="0%" y2="97.313%">
                       <stop stop-opacity="0" offset="0%"/>
                       <stop stop-color="#D7D7D7" offset="100%"/>
                     </linearGradient>
-                    <linearGradient id="f" x1="100%" x2="0%" y1="100%" y2="0%">
+                    <linearGradient id="f1" x1="100%" x2="0%" y1="100%" y2="0%">
                       <stop stop-color="#F5515F" offset="0%"/>
                       <stop stop-color="#FE8899" offset="100%"/>
                     </linearGradient>
-                    <linearGradient id="g" x1="100%" x2="0%" y1="100%" y2="0%">
+                    <linearGradient id="g1" x1="100%" x2="0%" y1="100%" y2="0%">
                       <stop stop-color="#F58B51" offset="0%"/>
                       <stop stop-color="#FE8899" offset="100%"/>
                     </linearGradient>
                   </defs>
                   <g fill="none" fill-rule="evenodd">
                     <path fill="#AFAFAF" d="M75.938 69H5.06C2.268 69 0 66.762 0 64.004v-45.04c0-2.757 2.268-4.914 5.063-4.914H81v49.954C81 66.762 78.732 69 75.937 69"/>
-                    <path fill="url(#a)" d="M40.5 9.99H5.062C2.268 9.99 0 12.15 0 14.907v45.04c0 2.757 2.268 4.995 5.063 4.995h70.874c2.795 0 5.063-2.237 5.063-4.993V9.99H40.5"/>
+                    <path fill="url(#a4)" d="M40.5 9.99H5.062C2.268 9.99 0 12.15 0 14.907v45.04c0 2.757 2.268 4.995 5.063 4.995h70.874c2.795 0 5.063-2.237 5.063-4.993V9.99H40.5"/>
                     <path fill="#84D1F8" d="M75.938 0H50.624c-2.794 0-5.063 2.238-5.063 4.996 0 0-.658 4.58-5.062 4.995H81V4.997C81 2.238 78.732 0 75.937 0z"/>
                     <text fill="#000" font-family="Georgia" font-size="24">
                       <tspan x="109" y="40">master</tspan>
                     </text>
                     <path fill="#AFAFAF" d="M210.938 152h-70.875c-2.795 0-5.063-2.238-5.063-4.996v-45.04c0-2.757 2.268-4.914 5.063-4.914H216v49.954c0 2.758-2.268 4.996-5.063 4.996"/>
-                    <path fill="url(#a)" d="M40.5 9.99H5.062C2.268 9.99 0 12.15 0 14.907v45.04c0 2.757 2.268 4.995 5.063 4.995h70.874c2.795 0 5.063-2.237 5.063-4.993V9.99H40.5" transform="translate(135 83)"/>
+                    <path fill="url(#a4)" d="M40.5 9.99H5.062C2.268 9.99 0 12.15 0 14.907v45.04c0 2.757 2.268 4.995 5.063 4.995h70.874c2.795 0 5.063-2.237 5.063-4.993V9.99H40.5" transform="translate(135 83)"/>
                     <path fill="#84D1F8" d="M210.938 83h-25.313c-2.794 0-5.063 2.238-5.063 4.996 0 0-.658 4.58-5.062 4.995H216v-4.994c0-2.758-2.268-4.996-5.063-4.996z"/>
                     <text fill="#000" font-family="Georgia" font-size="24" transform="translate(135 83)">
                       <tspan x="109" y="40">public</tspan>
                     </text>
                     <path fill="#AFAFAF" d="M210.938 435h-70.875c-2.795 0-5.063-2.238-5.063-4.996v-45.04c0-2.757 2.268-4.914 5.063-4.914H216v49.954c0 2.758-2.268 4.996-5.063 4.996"/>
-                    <path fill="url(#a)" d="M40.5 9.99H5.062C2.268 9.99 0 12.15 0 14.907v45.04c0 2.757 2.268 4.995 5.063 4.995h70.874c2.795 0 5.063-2.237 5.063-4.993V9.99H40.5" transform="translate(135 366)"/>
+                    <path fill="url(#a4)" d="M40.5 9.99H5.062C2.268 9.99 0 12.15 0 14.907v45.04c0 2.757 2.268 4.995 5.063 4.995h70.874c2.795 0 5.063-2.237 5.063-4.993V9.99H40.5" transform="translate(135 366)"/>
                     <path fill="#84D1F8" d="M210.938 366h-25.313c-2.794 0-5.063 2.238-5.063 4.996 0 0-.658 4.58-5.062 4.995H216v-4.994c0-2.758-2.268-4.996-5.063-4.996z"/>
                     <text fill="#000" font-family="Georgia" font-size="24" transform="translate(135 366)">
                       <tspan x="109" y="40">views</tspan>
@@ -912,7 +889,7 @@
                     <path stroke="#979797" stroke-width="4" d="M41 90v800.5h65M42 119h62M44 402h62M41 694h62M42 793h62M175 176v135l65-.33M176 210h62" stroke-linecap="round"/>
                     <g>
                       <g transform="translate(262 266.5)">
-                        <path fill="url(#b)" d="M19.32 7.46c-2.114 0-3.798 1.705-3.798 3.82v62.44c0 2.115 1.684 3.82 3.798 3.82h46.36c2.114 0 3.798-1.705 3.798-3.82V26.802H55.51c-2.858 0-5.353-2.086-5.353-4.856V7.46H19.32zm33.494 0v14.486c0 1.138 1.083 2.2 2.697 2.2H69.48L52.814 7.46z"/>
+                        <path fill="url(#b1)" d="M19.32 7.46c-2.114 0-3.798 1.705-3.798 3.82v62.44c0 2.115 1.684 3.82 3.798 3.82h46.36c2.114 0 3.798-1.705 3.798-3.82V26.802H55.51c-2.858 0-5.353-2.086-5.353-4.856V7.46H19.32zm33.494 0v14.486c0 1.138 1.083 2.2 2.697 2.2H69.48L52.814 7.46z"/>
                         <rect width="25.252" height="4.108" x="22.682" y="24.17" fill="#4D4D4D" rx="1.767"/>
                         <rect width="39.635" height="4.108" x="22.682" y="43.314" fill="#4D4D4D" rx="1.767"/>
                         <rect width="25.252" height="4.108" x="22.682" y="33.742" fill="#4D4D4D" rx="1.767"/>
@@ -925,7 +902,7 @@
                     </g>
                     <g>
                       <g transform="translate(262 166.5)">
-                        <path fill="url(#c)" d="M19.32 7.46c-2.114 0-3.798 1.705-3.798 3.82v62.44c0 2.115 1.684 3.82 3.798 3.82h46.36c2.114 0 3.798-1.705 3.798-3.82V26.802H55.51c-2.858 0-5.353-2.086-5.353-4.856V7.46H19.32zm33.494 0v14.486c0 1.138 1.083 2.2 2.697 2.2H69.48L52.814 7.46z"/>
+                        <path fill="url(#c1)" d="M19.32 7.46c-2.114 0-3.798 1.705-3.798 3.82v62.44c0 2.115 1.684 3.82 3.798 3.82h46.36c2.114 0 3.798-1.705 3.798-3.82V26.802H55.51c-2.858 0-5.353-2.086-5.353-4.856V7.46H19.32zm33.494 0v14.486c0 1.138 1.083 2.2 2.697 2.2H69.48L52.814 7.46z"/>
                         <rect width="25.252" height="4.108" x="22.682" y="24.17" fill="#4D4D4D" rx="1.767"/>
                         <rect width="39.635" height="4.108" x="22.682" y="43.314" fill="#4D4D4D" rx="1.767"/>
                         <rect width="25.252" height="4.108" x="22.682" y="33.742" fill="#4D4D4D" rx="1.767"/>
@@ -939,7 +916,7 @@
                     <path stroke="#979797" stroke-width="4" d="M176 460v133l65-.325M176 504h62" stroke-linecap="round"/>
                     <g>
                       <g transform="translate(262 550.223)">
-                        <path fill="url(#d)" d="M19.32 7.46c-2.114 0-3.798 1.705-3.798 3.82v62.44c0 2.115 1.684 3.82 3.798 3.82h46.36c2.114 0 3.798-1.705 3.798-3.82V26.802H55.51c-2.858 0-5.353-2.086-5.353-4.856V7.46H19.32zm33.494 0v14.486c0 1.138 1.083 2.2 2.697 2.2H69.48L52.814 7.46z"/>
+                        <path fill="url(#d1)" d="M19.32 7.46c-2.114 0-3.798 1.705-3.798 3.82v62.44c0 2.115 1.684 3.82 3.798 3.82h46.36c2.114 0 3.798-1.705 3.798-3.82V26.802H55.51c-2.858 0-5.353-2.086-5.353-4.856V7.46H19.32zm33.494 0v14.486c0 1.138 1.083 2.2 2.697 2.2H69.48L52.814 7.46z"/>
                         <rect width="25.252" height="4.108" x="22.682" y="24.17" fill="#4D4D4D" rx="1.767"/>
                         <rect width="39.635" height="4.108" x="22.682" y="43.314" fill="#4D4D4D" rx="1.767"/>
                         <rect width="25.252" height="4.108" x="22.682" y="33.742" fill="#4D4D4D" rx="1.767"/>
@@ -952,7 +929,7 @@
                     </g>
                     <g>
                       <g transform="translate(135 650)">
-                        <path fill="url(#e)" d="M19.32 7.46c-2.114 0-3.798 1.705-3.798 3.82v62.44c0 2.115 1.684 3.82 3.798 3.82h46.36c2.114 0 3.798-1.705 3.798-3.82V26.802H55.51c-2.858 0-5.353-2.086-5.353-4.856V7.46H19.32zm33.494 0v14.486c0 1.138 1.083 2.2 2.697 2.2H69.48L52.814 7.46z"/>
+                        <path fill="url(#e1)" d="M19.32 7.46c-2.114 0-3.798 1.705-3.798 3.82v62.44c0 2.115 1.684 3.82 3.798 3.82h46.36c2.114 0 3.798-1.705 3.798-3.82V26.802H55.51c-2.858 0-5.353-2.086-5.353-4.856V7.46H19.32zm33.494 0v14.486c0 1.138 1.083 2.2 2.697 2.2H69.48L52.814 7.46z"/>
                         <rect width="25.252" height="4.108" x="22.682" y="24.17" fill="#4D4D4D" rx="1.767"/>
                         <rect width="39.635" height="4.108" x="22.682" y="43.314" fill="#4D4D4D" rx="1.767"/>
                         <rect width="25.252" height="4.108" x="22.682" y="33.742" fill="#4D4D4D" rx="1.767"/>
@@ -965,7 +942,7 @@
                     </g>
                     <g>
                       <g transform="translate(135 749)">
-                        <path fill="url(#e)" d="M19.798 10C17.683 10 16 11.704 16 13.818v62.44c0 2.116 1.683 3.82 3.798 3.82h46.36c2.114 0 3.797-1.704 3.797-3.82V29.342H55.99c-2.86 0-5.355-2.085-5.355-4.855V10H19.798zm33.493 0v14.485c0 1.138 1.085 2.2 2.7 2.2h13.965L53.29 10z"/>
+                        <path fill="url(#e1)" d="M19.798 10C17.683 10 16 11.704 16 13.818v62.44c0 2.116 1.683 3.82 3.798 3.82h46.36c2.114 0 3.797-1.704 3.797-3.82V29.342H55.99c-2.86 0-5.355-2.085-5.355-4.855V10H19.798zm33.493 0v14.485c0 1.138 1.085 2.2 2.7 2.2h13.965L53.29 10z"/>
                         <rect width="25.252" height="4.108" x="22.682" y="24.17" fill="#4D4D4D" rx="1.767"/>
                         <rect width="39.635" height="4.108" x="22.682" y="43.314" fill="#4D4D4D" rx="1.767"/>
                         <rect width="25.252" height="4.108" x="22.682" y="33.742" fill="#4D4D4D" rx="1.767"/>
@@ -978,7 +955,7 @@
                     </g>
                     <g>
                       <g transform="translate(135 848)">
-                        <path fill="url(#f)" d="M19.32 7.46c-2.114 0-3.798 1.705-3.798 3.82v62.44c0 2.115 1.684 3.82 3.798 3.82h46.36c2.114 0 3.798-1.705 3.798-3.82V26.802H55.51c-2.858 0-5.353-2.086-5.353-4.856V7.46H19.32zm33.494 0v14.486c0 1.138 1.083 2.2 2.697 2.2H69.48L52.814 7.46z"/>
+                        <path fill="url(#f1)" d="M19.32 7.46c-2.114 0-3.798 1.705-3.798 3.82v62.44c0 2.115 1.684 3.82 3.798 3.82h46.36c2.114 0 3.798-1.705 3.798-3.82V26.802H55.51c-2.858 0-5.353-2.086-5.353-4.856V7.46H19.32zm33.494 0v14.486c0 1.138 1.083 2.2 2.697 2.2H69.48L52.814 7.46z"/>
                         <rect width="25.252" height="4.108" x="22.682" y="24.17" fill="#4D4D4D" rx="1.767"/>
                         <rect width="39.635" height="4.108" x="22.682" y="43.314" fill="#4D4D4D" rx="1.767"/>
                         <rect width="25.252" height="4.108" x="22.682" y="33.742" fill="#4D4D4D" rx="1.767"/>
@@ -991,7 +968,7 @@
                     </g>
                     <g>
                       <g transform="translate(262 450.5)">
-                        <path fill="url(#g)" d="M19.32 7.46c-2.114 0-3.798 1.705-3.798 3.82v62.44c0 2.115 1.684 3.82 3.798 3.82h46.36c2.114 0 3.798-1.705 3.798-3.82V26.802H55.51c-2.858 0-5.353-2.086-5.353-4.856V7.46H19.32zm33.494 0v14.486c0 1.138 1.083 2.2 2.697 2.2H69.48L52.814 7.46z"/>
+                        <path fill="url(#g1)" d="M19.32 7.46c-2.114 0-3.798 1.705-3.798 3.82v62.44c0 2.115 1.684 3.82 3.798 3.82h46.36c2.114 0 3.798-1.705 3.798-3.82V26.802H55.51c-2.858 0-5.353-2.086-5.353-4.856V7.46H19.32zm33.494 0v14.486c0 1.138 1.083 2.2 2.697 2.2H69.48L52.814 7.46z"/>
                         <rect width="25.252" height="4.108" x="22.682" y="24.17" fill="#4D4D4D" rx="1.767"/>
                         <rect width="39.635" height="4.108" x="22.682" y="43.314" fill="#4D4D4D" rx="1.767"/>
                         <rect width="25.252" height="4.108" x="22.682" y="33.742" fill="#4D4D4D" rx="1.767"/>
@@ -1010,7 +987,7 @@
         </section>
 
         <section>
-          <section data-background="#000" class="tl-reverse">
+          <section data-background="#7A378B" class="tl-reverse">
             <h1>Hypertext Mark-up Language (HTML)</h1>
           </section>
           <section>
@@ -1052,7 +1029,7 @@
             </aside>
           </section>
           <section>
-            <h2><code class="tl-lowercase">&lt;html&gt;</code> element</h2>
+            <h2><code>&lt;html&gt;</code> element</h2>
             <pre><code>&lt;html lang="en"&gt;
 // HTML code for web page
 &lt;/html&gt;</code></pre>
@@ -1067,7 +1044,7 @@
             </aside>
           </section>
           <section>
-            <h2><code class="tl-lowercase">&lt;head&gt;</code> element</h2>
+            <h2><code>&lt;head&gt;</code> element</h2>
             <pre><code>&lt;head&gt;
   &lt;meta charset="utf-8"&gt;
   &lt;title&gt;Your site title&lt;/title&gt;
@@ -1083,7 +1060,7 @@
             </ul>
           </section>
           <section>
-            <h2><code class="tl-lowercase">&lt;body&gt;</code> element</h2>
+            <h2><code>&lt;body&gt;</code> element</h2>
             <pre><code>&lt;body&gt;
   &lt;header&gt;
     &lt;img src="img/logo.png" alt="Site logo"&gt;
@@ -1235,7 +1212,7 @@
               <li>Web pages are made up of rectangular boxes</li>
               <li>These boxes are placed from top to bottom, left to right</li>
             </ul>
-            <svg viewBox="0 0 430 274" class="tl-svgimg">
+            <svg style="max-height:50vh" viewBox="0 0 430 274">
               <g fill="none" fill-rule="evenodd">
                 <rect fill="#D4D4D4" width="429.987" height="63.71" rx="15"/>
                 <rect stroke="#D3D3D3" stroke-width="2" fill="#FFF" y="49" width="429.987" height="225"/>
@@ -1259,21 +1236,19 @@
             <h2>Block-level elements</h2>
             <p>Block-level elements take up the entire width of the container.</p>
             <div class="tl-col">
-              <div>
-                <div class="tl-example-3">
-                  <h1>Rainbows</h1>
-                  <p>A rainbow is a meteorological phenomenon that is caused by reflection, refraction and dispersion of light in water droplets resulting in a spectrum of light appearing in the sky.</p>
-                  <h2>Colours</h2>
-                  <ul>
-                    <li>Red</li>
-                    <li>Orange</li>
-                    <li>Yellow</li>
-                    <li>Green</li>
-                    <li>Blue</li>
-                    <li>Indigo</li>
-                    <li>Violet</li>
-                  </ul>
-                </div>
+              <div class="tl-example-3" style="margin-right:1em">
+                <h1>Rainbows</h1>
+                <p>A rainbow is a meteorological phenomenon that is caused by reflection, refraction and dispersion of light in water droplets resulting in a spectrum of light appearing in the sky.</p>
+                <h2>Colours</h2>
+                <ul>
+                  <li>Red</li>
+                  <li>Orange</li>
+                  <li>Yellow</li>
+                  <li>Green</li>
+                  <li>Blue</li>
+                  <li>Indigo</li>
+                  <li>Violet</li>
+                </ul>
               </div>
               <div>
                 <p class="tl-text-left">The block-level tags shown in this example are <code>h1</code>, <code>h2</code>, <code>p</code>, <code>ul</code> and <code>li</code>.</p>
@@ -1292,7 +1267,7 @@
         </section>
 
         <section>
-          <section data-background="#000" class="tl-reverse">
+          <section data-background="#7A378B" class="tl-reverse">
             <h1>Cascading Style Sheets (CSS)</h1>
           </section>
           <section>
@@ -1426,7 +1401,7 @@
             <h2>When to use margin</h2>
             <p>Margin controls the space between elements.</p>
             <div class="tl-col">
-              <div>
+              <div style="margin-right:1em">
                 <pre><code>h2 {
     margin: 5px 0 5px 0;
   }</code></pre>
@@ -1462,7 +1437,7 @@
             <h2>When to use padding</h2>
             <p>Padding controls the size of the box without adjusting the size of the content within it.</p>
             <div class="tl-col">
-              <div>
+              <div style="margin-right:1em">
                 <pre><code>h2 {
     padding: 0;
   }</code></pre>
@@ -1496,7 +1471,7 @@
           </section>
           <section>
             <h2>Where to write your styles</h2>
-            <p class="tl-text-left">Browsers will pick up your CSS if they are between a <code>&lt;style&gt;</code> tags which is a child of the <code>&lt;head&gt;</code> tag.</p>
+            <p>Browsers will pick up your CSS if they are between a <code>&lt;style&gt;</code> tags which is a child of the <code>&lt;head&gt;</code> tag.</p>
             <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
   &lt;head&gt;
@@ -1527,15 +1502,15 @@
           <section>
             <h2>CSS Specificity</h2>
             <div class="tl-col">
-              <div class="flex-4">
+              <div class="flex-4" style="margin-right:0.5em">
                 <div class="tl-box">0-∞</div>
                 <p>Inline styles</p>
               </div>
-              <div class="flex-4">
+              <div class="flex-4" style="margin-right:0.5em">
                 <div class="tl-box">0-∞</div>
                 <p>IDs</p>
               </div>
-              <div class="flex-4">
+              <div class="flex-4" style="margin-right:0.5em">
                 <div class="tl-box">0-∞</div>
                 <p>Classes, attributes and pseudo-classes</p>
               </div>
@@ -1584,7 +1559,7 @@
         </section>
 
         <section>
-          <section data-background="#000" class="tl-reverse">
+          <section data-background="#7A378B" class="tl-reverse">
             <h1>Using Images</h1>
           </section>
           <section>
@@ -1650,7 +1625,7 @@ background-color: transparent</code></pre>
             <h2>background-position</h2>
             <p>This is used to set the position of the image</p>
             <div class="tl-col">
-              <div>
+              <div style="margin-right:1em">
                 <pre><code>div {
     background-color: #170104;
     background-image: url('img/background.jpg');
@@ -1692,7 +1667,7 @@ background-color: transparent</code></pre>
         </section>
 
         <section>
-          <section section data-background="#000" class="tl-reverse">
+          <section section data-background="#7A378B" class="tl-reverse">
             <h1>Web typography</h1>
           </section>
           <section>
@@ -1726,7 +1701,7 @@ h1 {
         </section>
 
         <section>
-          <section data-background="#000" class="tl-reverse">
+          <section data-background="#7A378B" class="tl-reverse">
             <h1>Browser developer tools</h1>
           </section>
           <section>
@@ -1767,12 +1742,12 @@ h1 {
         </section>
 
         <section>
-          <section data-background="#000" class="tl-reverse">
+          <section data-background="#7A378B" class="tl-reverse">
             <h1>Responsive web design</h1>
           </section>
           <section>
             <h2>The web is fluid</h2>
-            <img src="img/content-is-like-water.jpg" alt="Content is like water">
+            <img src="img/content-is-like-water.jpg" alt="Content is like water" style="max-height:65vh">
             <small>Image by <a href="https://web.archive.org/web/20160309151859/http://blog.stephaniewalter.fr/illustration-content-is-like-water-et-traduction-responsive-webdesign-present-et-futur-de-ladaptation-mobile/">Stephanie Walter</a></small>
           </section>
           <section>
@@ -1817,7 +1792,7 @@ h1 {
         </section>
 
         <section>
-          <section data-background="#000" class="tl-reverse">
+          <section data-background="#7A378B" class="tl-reverse">
             <h1>Web accessibility</h1>
           </section>
           <section>
@@ -1851,33 +1826,35 @@ h1 {
         </section>
 
         <section>
-          <section data-background="#000" class="tl-reverse">
+          <section data-background="#7A378B" class="tl-reverse">
             <h1>Deploying your website</h1>
           </section>
           <section>
             <h2>Web hosting</h2>
-            <div class="tl-col2-50">
-              <img src="img/web-hosting.jpg" alt="Web hosting">
-            </div>
-            <div class="tl-col2-50">
-              <p class="tl-text-left">Renting server space for your website</p>
-              <p class="tl-text-left">Shared hosting, Dedicated hosting, VPS (Virtual Private Server)</p>
-              <p class="tl-text-left">Managed vs Unmanaged</p>
+            <div class="tl-col">
+              <div>
+                <img src="img/web-hosting.jpg" alt="Web hosting" class="plain" style="margin-right:1em">
+              </div>
+              <ul>
+                <li>Renting server space for your website</li>
+                <li>Shared hosting, Dedicated hosting, VPS (Virtual Private Server)</li>
+                <li>Managed vs Unmanaged</li>
+              </ul>
             </div>
           </section>
           <section>
             <h2>Domain name registration</h2>
-            <p>Domain names map to your server's IP address</p>
+            <p>Domain names map to your <strong>server's IP address</strong></p>
             <p>Provides a human-readable name for ypur site</p>
             <p>Top-level domains, e.g. <code>.com</code>, <code>.io</code>, <code>.org</code>, <code>.edu</code>
-            <p>Register domain names with a domain name registrar</p>
+            <p>Register domain names with a <strong>domain name registrar</strong></p>
           </section>
           <section>
             <h2>Getting your site online</h2>
-            <p>Upload the files onto your server, Git or FTP</p>
-            <p>Servers usually run on Linux</p>
+            <p>Upload the files onto your server, <strong>Git</strong> or <strong>FTP</strong></p>
+            <p>Servers usually run on <strong>Linux</strong></p>
             <p>Type of hosting determines level of control</p>
-            <p>Must be running a HTTP server, common ones are Apache or Nginx</p>
+            <p>Must be running a HTTP server, common ones are <strong>Apache</strong> or <strong>Nginx</strong></p>
           </section>
           <section>
             <h2>Basic Git Terminology</h2>
@@ -1899,7 +1876,7 @@ h1 {
         </section>
 
         <section>
-          <section data-background="#000" class="tl-reverse">
+          <section data-background="#7A378B" class="tl-reverse">
             <h1>Resources</h1>
           </section>
           <section>
@@ -1913,45 +1890,33 @@ h1 {
           </section>
         </section>
 
-        <section style="text-align: left;" data-background="#000" class="tl-reverse">
-          <h1>THE END</h1>
-          <p><img class="tl-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com">https://www.chenhuijing.com</a></p>
-          <p><img class="tl-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen">@hj_chen</a></p>
-          <p><img class="tl-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen">@hj_chen</a></p>
-          <p><img class="tl-icon tl-invert plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/">@huijing</a></p>
+        <section style="text-align:left;">
+          <h1>The End</h1>
+          <p><img class="tl-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle">https://www.chenhuijing.com</a></p>
+          <p><img class="tl-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
+          <p><img class="tl-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
+          <p><img class="tl-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle">@huijing</a></p>
+          <p style="text-align:right;"><small>Font used is <a href="http://jamestedmondson.com/typefaces/Edmondsans">Edmond Sans</a>, by <a href="http://jamestedmondson.com/">James T. Edmondson</a></small></p>
         </section>
 
       </div>
-
     </div>
 
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.js"></script>
 
     <script>
-
-      // Full list of configuration options available at:
-      // https://github.com/hakimel/reveal.js#configuration
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
       Reveal.initialize({
-        controls: true,
-        progress: true,
-        history: true,
-        center: true,
-
-        transition: 'slide', // none/fade/slide/convex/concave/zoom
-
-        // Optional reveal.js plugins
         dependencies: [
-          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-          { src: 'plugin/zoom-js/zoom.js', async: true },
-          { src: 'plugin/notes/notes.js', async: true }
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
         ]
       });
-
     </script>
-
   </body>
 </html>
