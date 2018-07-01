@@ -5,7 +5,7 @@
 $backgroundColor: #fff;
 
 // Primary/body text
-$mainFont: 'Space Text', serif;
+$mainFont: 'Space Text', sans-serif;
 $mainFontSize: 2.5em;
 $mainColor: #000;
 
@@ -14,7 +14,7 @@ $blockMargin: 20px;
 
 // Headings
 $headingMargin: 0 0 $blockMargin 0;
-$headingFont: 'Space Text', serif;
+$headingFont: 'Space Text', sans-serif;
 $headingColor: #1d877a;
 $headingLineHeight: 1.2;
 $headingLetterSpacing: normal;
@@ -30,7 +30,7 @@ $heading4Size: 1.000em;
 
 // Links and actions
 $linkColor: #7baaf0;
-$linkColorHover: darken( $linkColor, 20% );
+$linkColorHover: darken($linkColor, 20%);
 
 // Text selection
 $selectionBackgroundColor: #d5e3fa;
