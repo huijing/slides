@@ -1,0 +1,273 @@
+/**
+ * Techladies theme for Reveal.js presentations.
+ *
+ * Copyright (C) 2016-2017 Chen Hui Jing, https://www.chenhuijing.com/
+ */
+
+// Default mixins and settings -----------------
+@import '../template/mixins';
+@import '../template/settings';
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url('../../lib/font/edmondsans/edmondsans.css');
+@import url('../../lib/font/sassy_molassy/sassy_molassy.css');
+
+// Theme template ------------------------------
+@import '../template/theme';
+
+.reveal pre code {
+  background: #3f3f3f;
+  color: #dcdcdc;
+}
+// ---------------------------------------------
+
+// Additional styles ------------------------------
+$secondary-colors: (
+  'school-bus': #ffdb01,
+  'riptide': #88e8dc,
+  'java': #21c9c9,
+  'mulberry-wood': #660a34,
+  'coral-red': #f83c4b,
+  'brink-pink': #f76477,
+  'sundown': #feb1c1,
+  'mercury': #e9e9e9
+);
+
+.reveal {
+  .l-double {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .j-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1rem;
+  }
+}
+
+h1.tl-logo {
+  font-family: $logoFont;
+  font-weight: 400;
+  font-size: 5em;
+  letter-spacing: 16px;
+  text-transform: none;
+  line-height: 0.75;
+}
+
+.tl-nowrap {
+  white-space: nowrap;
+}
+
+.tl-text-left {
+  text-align: left;
+}
+
+.tl-svgicon {
+  width: 8em;
+  height: 8em;
+}
+
+.reveal ul {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.reveal figcaption {
+  font-size: 75%;
+  font-style: italic;
+}
+
+section.tl-reverse {
+  h1,
+  h2,
+  p,
+  a {
+    color: $backgroundColor;
+  }
+}
+
+div.tl-example-1 {
+  text-align: left;
+  font-size: 50%;
+
+  ul li {
+    color: green;
+  }
+
+  ul {
+    margin-bottom: 1em;
+  }
+}
+
+div.tl-example-2 {
+  text-align: left;
+  font-size: 65%;
+
+  a:hover {
+    text-decoration: underline;
+    color: green;
+  }
+}
+
+div.tl-example-3 {
+  text-align: left;
+  font-size: 40%;
+
+  h1 {
+    border: 2px dashed map-get($secondary-colors, coral-red);
+  }
+
+  p {
+    border: 2px dashed map-get($secondary-colors, school-bus);
+  }
+
+  h2 {
+    border: 2px dashed map-get($secondary-colors, java);
+  }
+
+  ul {
+    border: 2px dashed map-get($secondary-colors, brink-pink);
+  }
+
+  li {
+    border: 2px dashed map-get($secondary-colors, sundown);
+  }
+}
+
+p.tl-example-4 {
+  padding: 1em;
+  font-size: 65%;
+  text-align: left;
+  border: 2px solid map-get($secondary-colors, mercury);
+
+  a {
+    border: 2px dashed map-get($secondary-colors, sundown);
+  }
+}
+
+div.tl-example-5,
+div.tl-example-6 {
+  text-align: left;
+  font-size: 40%;
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  p {
+    border: 2px dashed map-get($secondary-colors, school-bus);
+  }
+
+  h2 {
+    border: 2px dashed map-get($secondary-colors, java);
+  }
+
+  ul {
+    border: 2px dashed map-get($secondary-colors, brink-pink);
+    list-style-position: inside;
+  }
+}
+
+div.tl-example-5a {
+  h2 {
+    margin: 5px 0;
+  }
+}
+
+div.tl-example-5b {
+  h2 {
+    margin: 20px 0;
+  }
+}
+
+div.tl-example-6b {
+  h2 {
+    padding: 20px 0;
+  }
+}
+
+div.tl-example-7 {
+  height: 30vh;
+  background-color: #170104;
+  background: url('../../img/background.jpg');
+  font-size: 65%;
+
+  p {
+    color: white;
+    line-height: 30vh;
+  }
+}
+
+div.tl-example-7a {
+  background-size: cover;
+}
+
+div.tl-example-7b {
+  background-position: center;
+}
+
+div.tl-example-7c {
+  background-position: left bottom;
+}
+
+div.tl-example-8 {
+  padding: 1em;
+  height: 30vh;
+  background-color: #ebebeb;
+  background: url('../../img/sativa.jpg') repeat;
+  font-size: 65%;
+}
+
+div.tl-col {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.flex-2 {
+  flex: 0 0 50%;
+}
+
+.flex-3 {
+  flex: 0 0 32%;
+}
+
+.flex-4 {
+  flex: 0 0 25%;
+}
+
+div.tl-box {
+  font-size: 200%;
+  border: 3px solid;
+  padding: 0.5em 0;
+}
+
+ul.tl-multi {
+  width: 100%;
+  list-style-position: inside;
+  column-width: 13em;
+  font-size: 45%;
+}
+
+span.tl-emoji {
+  font-family: $mainFont;
+  font-weight: 400;
+}
+
+section img.tl-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1em;
+}
+
+// CSS for PC mockup ------------------------------
+@import 'computer';
+.brain-wrapper {
+  float: left;
+  width: calc(100% - 720px);
+}
+
+// CSS for Terminal mockup ------------------------------
+@import 'terminal';

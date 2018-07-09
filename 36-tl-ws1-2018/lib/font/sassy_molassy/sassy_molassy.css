@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Sassy Molassy';
+  src: url('sassy_molassy.woff2') format('woff2'),
+       url('sassy_molassy.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Edmond Sans';
+  src: url('edmondsans-regular.woff2') format('woff2'),
+       url('edmondsans-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Edmond Sans';
+  src: url('edmondsans-bold.woff2') format('woff2'),
+       url('edmondsans-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
