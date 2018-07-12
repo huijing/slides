@@ -302,7 +302,8 @@ h1.tl-logo {
 section.tl-reverse h1,
 section.tl-reverse h2,
 section.tl-reverse p,
-section.tl-reverse a {
+section.tl-reverse a,
+section.tl-reverse figcaption {
   color: #fff; }
 
 div.tl-example-1 {
