@@ -295,6 +295,12 @@ h1.tl-logo {
   display: block;
   margin-bottom: 0.5em; }
 
+.reveal figure {
+  margin-bottom: 1em; }
+
+.reveal figure img {
+  margin: 0; }
+
 .reveal figcaption {
   font-size: 75%;
   font-style: italic; }

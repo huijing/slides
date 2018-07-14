@@ -40,17 +40,9 @@
           </div>
         </section>
 
-        <section data-background="#7A378B" class="tl-reverse">
+        <section>
           <h1>Agenda</h1>
           <div style="display:grid;grid-template-columns:repeat(4,25%);">
-            <figure>
-              <img data-src="img/command-line.svg" alt="Terminal console" class="plain" style="max-height:20vmin">
-              <figcaption>Command line</figcaption>
-            </figure>
-            <figure>
-              <img data-src="img/version-control.png" alt="Version control" class="plain" style="max-height:25vmin;background-color:white;border-radius:50%">
-              <figcaption>Version control (Git)</figcaption>
-            </figure>
             <figure>
               <img data-src="img/html.svg" alt="HTML logo" class="plain" style="max-height:25vmin">
               <figcaption>HTML</figcaption>
@@ -58,6 +50,14 @@
             <figure>
               <img data-src="img/css.svg" alt="CSS logo" class="plain" style="max-height:25vmin">
               <figcaption>CSS</figcaption>
+            </figure>
+            <figure>
+              <img data-src="img/command-line.svg" alt="Terminal console" class="plain" style="max-height:20vmin">
+              <figcaption>Command line</figcaption>
+            </figure>
+            <figure>
+              <img data-src="img/version-control.png" alt="Version control" class="plain" style="max-height:25vmin;background-color:white;border-radius:50%">
+              <figcaption>Version control (Git)</figcaption>
             </figure>
           </div>
         </section>
@@ -228,7 +228,7 @@
 
         <section>
           <section data-background="#7A378B" class="tl-reverse">
-            <h1>Internet basics</h1>
+            <h1><span>Internet</span> <span style="font-size:65%;display:block;margin:0.25em 0 0.35em">versus</span> <span>World Wide Web</span></h1>
           </section>
 
           <section>
@@ -304,6 +304,12 @@
                 <a href="http://opentrolley.com.sg/Book_Detail.aspx?EAN=9780062515872"><img data-src="img/weaving-the-web.jpg" class="plain" alt="Weaving the Web: The Original Design and Ultimate Destiny of the World Wide Web"></a>
               </div>
             </div>
+          </section>
+        </section>
+
+        <section>
+          <section data-background="#7A378B" class="tl-reverse">
+            <h1>How the web works</h1>
           </section>
 
           <section>
@@ -904,6 +910,15 @@
             <aside class="notes">
               Tags are markers wrapped around text in the document to indicate how user-agents should interpret it
             </aside>
+          </section>
+
+          <section data-background-image="img/html-anatomy.png" data-background-size="90%"></section>
+
+          <section>
+            <figure>
+              <img src="img/british-shorthair.jpg" alt="British shorthair kitten" class="plain" style="max-height:75vh">
+              <figcaption>What on earth are you doing?</figcaption>
+            </figure>
           </section>
 
           <section>
@@ -1723,6 +1738,55 @@ h1 {
               </div>
             </div>
           </section>
+
+          <section>
+            <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr">
+              <figure>
+                <img data-src="img/windows-cli.png" alt="" class="plain" style="max-height:35vh">
+                <figcaption>Command prompt</figcaption>
+              </figure>
+              <figure>
+                <img data-src="img/powershell.png" alt="" class="plain" style="max-height:35vh">
+                <figcaption>Powershell ISE</figcaption>
+              </figure>
+              <figure>
+                <img data-src="img/iterm.png" alt="" class="plain" style="max-height:35vh">
+                <figcaption>iTerm2</figcaption>
+              </figure>
+              <figure>
+                <img data-src="img/ubuntu-cli.png" alt="" class="plain" style="max-height:35vh">
+                <figcaption>Ubuntu terminal</figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section data-background-image="img/codeanywhere.png"></section>
+        </section>
+
+        <section>
+          <section data-background="#7A378B" class="tl-reverse">
+            <h1>Why version control?</h1>
+          </section>
+
+          <section>
+            <h2>Basic Git Terminology</h2>
+            <p>Git is a <strong>version control system</strong></p>
+            <p class="tl-text-left"><strong>Repository:</strong> A place that stores all your project files</p>
+            <p class="tl-text-left"><strong>Commit:</strong> Used to take a "snapshot" of the state of your project</p>
+            <p class="tl-text-left"><strong>Branch:</strong> Used to develop features without disrupting the main code base</p>
+            <p class="tl-text-left"><strong>Fork:</strong> A copy of a repository, allows you to freely experiment with changes without affecting the original project.</p>
+          </section>
+
+          <section>
+            <h2>Commit your work</h2>
+            <p><em>Make sure you're in your project directory, otherwise the following commands will not work.</em></p>
+            <p>Stage the files you've been working on</p>
+            <pre><code>git add .</code></pre>
+            <p>Write a sensible commit message</p>
+            <pre><code>git commit -m "Add styling to Guess the Number app"</code></pre>
+            <p>Push your changes to the remote repository</p>
+            <pre><code>git push origin master</code></pre>
+          </section>
         </section>
 
         <section>
@@ -1890,70 +1954,7 @@ h1 {
 
         <section>
           <section data-background="#7A378B" class="tl-reverse">
-            <h1>Deploying your website</h1>
-          </section>
-
-          <section>
-            <h2>Web hosting</h2>
-            <div class="tl-col">
-              <div>
-                <img data-src="img/web-hosting.jpg" alt="Web hosting" class="plain" style="margin-right:1em">
-              </div>
-              <ul>
-                <li>Renting server space for your website</li>
-                <li>Shared hosting, Dedicated hosting, VPS (Virtual Private Server)</li>
-                <li>Managed vs Unmanaged</li>
-              </ul>
-            </div>
-          </section>
-
-          <section>
-            <h2>Domain name registration</h2>
-            <p>Domain names map to your <strong>server's IP address</strong></p>
-            <p>Provides a human-readable name for ypur site</p>
-            <p>Top-level domains, e.g. <code>.com</code>, <code>.io</code>, <code>.org</code>, <code>.edu</code></p>
-            <p>Register domain names with a <strong>domain name registrar</strong></p>
-          </section>
-
-          <section>
-            <h2>Getting your site online</h2>
-            <p>Upload the files onto your server, <strong>Git</strong> or <strong>FTP</strong></p>
-            <p>Servers usually run on <strong>Linux</strong></p>
-            <p>Type of hosting determines level of control</p>
-            <p>Must be running a HTTP server, common ones are <strong>Apache</strong> or <strong>Nginx</strong></p>
-          </section>
-
-          <section>
-            <h2>Basic Git Terminology</h2>
-            <p>Git is a <strong>version control system</strong></p>
-            <p class="tl-text-left"><strong>Repository:</strong> A place that stores all your project files</p>
-            <p class="tl-text-left"><strong>Commit:</strong> Used to take a "snapshot" of the state of your project</p>
-            <p class="tl-text-left"><strong>Branch:</strong> Used to develop features without disrupting the main code base</p>
-            <p class="tl-text-left"><strong>Fork:</strong> A copy of a repository, allows you to freely experiment with changes without affecting the original project.</p>
-          </section>
-
-          <section>
-            <h2>Commit your work</h2>
-            <p><em>Make sure you're in your project directory, otherwise the following commands will not work.</em></p>
-            <p>Stage the files you've been working on</p>
-            <pre><code>git add .</code></pre>
-            <p>Write a sensible commit message</p>
-            <pre><code>git commit -m "Add styling to Guess the Number app"</code></pre>
-            <p>Push your changes to the remote repository</p>
-            <pre><code>git push origin master</code></pre>
-          </section>
-
-          <section>
-            <h2>What is Heroku?</h2>
-            <p>A place to host your application</p>
-            <p>Connects to GitHub for easier deployment</p>
-            <a href="https://www.heroku.com/">https://www.heroku.com/</a>
-          </section>
-        </section>
-
-        <section>
-          <section data-background="#7A378B" class="tl-reverse">
-            <h1>Responsive web design</h1>
+            <h1>Designing for the web</h1>
           </section>
 
           <section>
@@ -1963,7 +1964,7 @@ h1 {
           </section>
 
           <section>
-            <h2>Browsers are responsive by default</h2>
+            <h2>Content flows and wraps by default</h2>
             <p>Our problems with websites are self-created</p>
             <a href="http://motherfuckingwebsite.com/">Satirical but true example</a>
             <blockquote cite="http://alistapart.com/article/dao">"The control which designers know in the print medium, and often desire in the web medium, is simply a function of the limitation of the printed page." <br>- John Allsop, A Dao of Web Design (2000)</blockquote>
@@ -2039,6 +2040,49 @@ h1 {
               <li><strong>Multimedia alternatives</strong>: To have alternative formats for audio and visual impaired</li>
             </ul>
             <p>Visit <a href="https://www.w3.org/WAI/">Web Accessibility Initiative (WAI)</a> to understand more about this important aspect of the web</p>
+          </section>
+        </section>
+
+        <section>
+          <section data-background="#7A378B" class="tl-reverse">
+            <h1>Deploying your website</h1>
+          </section>
+
+          <section>
+            <h2>Web hosting</h2>
+            <div class="tl-col">
+              <div>
+                <img data-src="img/web-hosting.jpg" alt="Web hosting" class="plain" style="margin-right:1em">
+              </div>
+              <ul>
+                <li>Renting server space for your website</li>
+                <li>Shared hosting, Dedicated hosting, VPS (Virtual Private Server)</li>
+                <li>Managed vs Unmanaged</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h2>Domain name registration</h2>
+            <p>Domain names map to your <strong>server's IP address</strong></p>
+            <p>Provides a human-readable name for ypur site</p>
+            <p>Top-level domains, e.g. <code>.com</code>, <code>.io</code>, <code>.org</code>, <code>.edu</code></p>
+            <p>Register domain names with a <strong>domain name registrar</strong></p>
+          </section>
+
+          <section>
+            <h2>Getting your site online</h2>
+            <p>Upload the files onto your server, <strong>Git</strong> or <strong>FTP</strong></p>
+            <p>Servers usually run on <strong>Linux</strong></p>
+            <p>Type of hosting determines level of control</p>
+            <p>Must be running a HTTP server, common ones are <strong>Apache</strong> or <strong>Nginx</strong></p>
+          </section>
+
+          <section>
+            <h2>What is Heroku?</h2>
+            <p>A place to host your application</p>
+            <p>Connects to GitHub for easier deployment</p>
+            <a href="https://www.heroku.com/">https://www.heroku.com/</a>
           </section>
         </section>
 
