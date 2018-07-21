@@ -1,0 +1,826 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Grid is the new black</title>
+    <meta name="description" content="2017 was the year of CSS grid, a powerful tool that was developed specially to do layout on the web. It allows us to do many things that we couldn't before, without extreme measures of hackish-ness. It is definitely not hyperbole to say that CSS grid will revolutionise web design moving forward. This workshop will run through what CSS grid is, how it works and what you can do with it.">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/jing.css">
+
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1 style="text-transform:uppercase">Grid is the new black</h1>
+          <h3>Revolutionising visual design on the web</h3>
+          <aside class="notes">
+            <p>This workshop assumes you have a reasonably good grasp of CSS, and how to handle specificity and the cascade. That you could write an entire site’s layout in vanilla CSS without any frameworks.</p>
+            <p>If you are a bit more novice on the CSS front, no worries, just that the pace might be a little fast. But you can ask our facilitator, Shirlaine, for help if you get really lost.</p>
+            <p>Just to get a grasp of the audience today, how many people have used CSS grid before? In production? How many of you use Flexbox day-to-day? And what’s the most common technique you use to build your layouts? Floats? Tables?</p>
+            <p>If you ask me, I will always say context matters. That there is never a single way to achieve something, so don’t treat whatever you learn today as dogma, or the ONE WAY. Think of this as adding tools to your CSS toolbox, and it’s up to you to choose the right tool for the right situation.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Starter files</h2>
+          <p><a href="files/grid-workshop-files.zip">https://www.chenhuijing.com/slides/grid-workshop/files/grid-workshop-files.zip</a></p>
+        </section>
+
+        <section>
+          <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:50vh 10vh 25vh;justify-items:center;">
+            <img class="plain" style="grid-row:1 / 3;grid-column:1 / 3;" data-src="img/nightly.svg" alt="Firefox Nightly">
+            <img class="plain fragment" style="grid-row:2 / 4;grid-column:1 / 2;" data-src="img/editor.svg" alt="Text editor">
+            <img class="plain fragment" style="grid-row:2 / 4;grid-column:2 / 3;" data-src="img/paper.svg" alt="Pencil and paper">
+          </div>
+          <aside class="notes">
+            <p>Does everybody have Firefox Nightly installed? And I think you all should have received some instructions via email outlining the different ways you can set this up. At the end of the day, everything we are doing is vanilla HTML and CSS. There is nothing extra to install to get your code to work.</p>
+            <p>Nightly is recommended so you can make use of the Grid Inspector tool, and the starter kit is merely a workflow that I personally use because I’m too lazy to press Command-Shift-R hundreds of times a day. Like I said, the assumption is that this audience comprises of experienced web developers, so do whatever suits you best.</p>
+            <p>At the very least, just have an HTML file and write your styles between &lt;style&gt; tags in the &lt;head&gt;, or ideally in a separate style sheet. CodePen is definitely an option, I just wasn’t sure how stable the internet connection was going to be. Pencil and paper is a plus, you'll see.</p>
+            <p>Everybody set up? Good. Let’s begin.</p>
+          </aside>
+        </section>
+
+        <section>
+          <section>
+            <h2>Rendering engines 101</h2>
+            <figure>
+              <img class="plain" src="img/01-intro.png" alt="CSS engines">
+              <figcaption>Reads HTML and CSS files and turns them into pixels on the screen</figcaption>
+            </figure>
+            <p style="margin-top:2em;"><small>Images and explanations by <a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">Lin Clark</a></small></p>
+            <aside class="notes">
+              <p>Anybody who worked/works in an agency? How often do you get designs that are very “print”? I believe not all agencies are the same, but very often, as the developer, I ended up with one comp, for desktop, and a bunch of people expecting the website to look exactly like the psd, down to the pixel.</p>
+              <p>Sometimes you’d get a comp for the mobile version too, and that usually made my life worse, because the mobile version’s layout isn’t even remotely related to the desktop version with regards to layout.</p>
+              <p>I truly believe this is because of a lack of understanding of how the web as a medium works. And I admit, earlier on in my career and life, I wasn’t the best communicator. I was kinda sullen, and would give my designers all varieties of dirty looks. So immature, really.</p>
+              <p>Does everyone know how a browser renders elements on the page? If so, just bear with me for a moment, I’ll try to give the abridged version. These graphics are from Lin Clark, author of Code Cartoons, and someone I really look up to in the web industry, and have personally learned a lot from.</p>
+            </aside>
+          </section>
+
+          <section>
+            <figure>
+              <img class="plain" style="max-height:65vh;" src="img/02-parse.png" alt="Parsing files into objects">
+              <figcaption>Parse the files into objects the browser can understand, including the DOM</figcaption>
+            </figure>
+            <p style="margin-top:2em;"><small>Images and explanations by <a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">Lin Clark</a></small></p>
+            <aside class="notes">HTML and CSS are human-readable (largely), but the rendering engine needs to parse the information into objects the browser can understand. At this point in the rendering process, the DOM knows about how the page is structured and all the parent/child relationships between elements. It just doesn't know HOW those elements should look like yet.</aside>
+          </section>
+
+          <section>
+            <figure>
+              <img class="plain" style="max-height:65vh;" src="img/03-style.png" alt="Apply styles and values to elements">
+              <figcaption>Figure out what the elements should look like</figcaption>
+            </figure>
+            <p style="margin-top:2em;"><small>Images and explanations by <a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">Lin Clark</a></small></p>
+            <aside class="notes">Only after everything has been parsed, will the browser start to figure out how the elements ought to look like based on CSS.</aside>
+          </section>
+
+          <section>
+            <figure>
+              <img class="plain" style="max-height:65vh;" src="img/04-layout.png" alt="Create and layout boxes on screen">
+              <figcaption>Figure out dimensions for each node and where it goes on the screen</figcaption>
+            </figure>
+            <p style="margin-top:2em;"><small>Images and explanations by <a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">Lin Clark</a></small></p>
+            <aside class="notes">The rendering engine will then work out how big every node has to be, and where each node has to be positioned on the screen. Boxes are created for this purpose, for every DOM node as well as things inside DOM nodes, like text.</aside>
+          </section>
+
+          <section>
+            <figure>
+              <img class="plain" style="max-height:65vh;" src="img/05-paint.png" alt="Paint the boxes on the screen">
+              <figcaption>Paint the different boxes</figcaption>
+            </figure>
+            <p style="margin-top:2em;"><small>Images and explanations by <a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">Lin Clark</a></small></p>
+            <aside class="notes">The different boxes are then painted on screen, and can occur on multiple layers. Lin Clark described it like an old-school hand drawn animation, which are layers upon layers. This makes it possible to change one layer without having to repaint things on other layers.</aside>
+          </section>
+
+          <section>
+            <figure>
+              <img class="plain" style="max-height:65vh;" src="img/06-composite.png" alt="Composite and render layers as one image">
+              <figcaption>Composite the different layers into one image and render on screen</figcaption>
+            </figure>
+            <p style="margin-top:2em;"><small>Images and explanations by <a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">Lin Clark</a></small></p>
+            <aside class="notes">The different painted layers will be composited, i.e. turned into one single image and rendered on the screen. So the process is not exactly straightforward, but there are things we can take note of to make the whole process go faster. Like not animating position properties like left and right, because they trigger a repaint.</aside>
+          </section>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:1em;">Web layouts over the years</h2>
+          <div class="l-multiple">
+            <img class="plain" style="margin:0 0.5em;" data-src="img/layouts1.png" alt="No layout">
+            <img class="plain" style="margin:0 0.5em;" data-src="img/layouts2.png" alt="Table-based layout">
+            <img class="plain" style="margin:0 0.5em;" data-src="img/layouts3.png" alt="Float-based layout">
+            <img class="plain" style="margin:0 0.5em;" data-src="img/layouts4.png" alt="Panel-style from frameworks">
+          </div>
+          <aside class="notes">
+            <p>When the web started, there was no way to do layout at all, because all browsers could do was display text, or maybe some images, if you were lucky. But as more users started getting online, people started to find new ways to utilise the web and design for it. So properties that were never meant to be used for layout, like HTML tables or floats, were the next best hack we could think of.</p>
+            <p>Eventually, this got really painful and people started relying on frameworks to do the heavy lifting, especially when it comes to the layout side of things. In fact, I've inherited a lot of legacy projects that include the entire Boostrap library but only use its grid system.</p>
+            <p>This is an overview of how web layouts have evolved over the years. CSS grid gives us a level of control over how elements are rendered on a page that we’ve never had before. And that’s the biggest reason why it is revolutionary.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Basic terminology</h2>
+          <img style="height:75vh" class="plain" data-src="img/terminology.svg" alt="Grid terminology">
+          <aside class="notes">
+            <p>There are a number of terms I will constantly refer to throughout this workshop, so let’s make sure everyone is on the same page. Grid lines are the horizontal and vertical lines that form the basis of the grid structure, and can be referred to by their numerical index, which starts from 1.</p>
+            <p>Each space between grid lines are known as grid tracks, which make up the rows and columns of the grid, and represent the spaces your items appear in.</p>
+            <p>The grid cell is a single unit of the grid and is made up of 2 adjacent row lines and 2 adjacent column lines. By default, each grid item takes up 1 grid cell. A grid area is made up of multiple grid cells.</p>
+            <p>The best part about Grid, is the ability to define grid gaps, which are the gutters between grid tracks. Fun fact, grid gap wasn't in the original specification until Rachel Andrew championed it during one of her conference talks.</p>
+            <p>One of the specification writers was in the audience and they worked together to get this feature into the specification. So the next time you use grid gap, remember you have Rachel Andrew to thank for this excellent feature.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Flexbox and Grid</h2>
+          <p>Based on the container-child relationship</p>
+          <svg width="50%" viewBox="0 0 564 324"><g fill="none" fill-rule="evenodd" transform="translate(5.07 -3)"><rect width="558.051" height="273.508" x="-2.5" y="50.5" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="bevel" rx="3"/><rect width="252.547" height="145.828" x="56.727" y="139.039" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="bevel" rx="3"/><text fill="#000" font-size="50%"><tspan x=".132" y="37">Flex/Grid container</tspan></text><text fill="#000" font-size="50%"><tspan x="59.627" y="125.539">Flex/Grid item</tspan></text></g></svg>
+          <aside class="notes">The first concept to wrap our heads around is the fact that Grid, like Flexbox, operates on the parent-child relationship, whereby, the display property is set on the parent element. This then affects the layout of all that elements immediate children.</aside>
+        </section>
+
+        <section>
+          <blockquote>“Grid works from the <strong>container</strong> in, other layout methods start with the <strong>item</strong>”<br><small>—<a href="https://rachelandrew.co.uk/">Rachel Andrew</a></small></blockquote>
+          <aside class="notes">
+            <p>My favourite way to explaining the CSS grid mental model comes from Rachel Andrew, who describes it as such: “Grid works from the container in. All other layout techniques start from the item first.”</p>
+            <p>Let’s illustrate this with some simple examples, which will also serve as the introduction to the most basic set up for using CSS grid.</p>
+          </aside>
+        </section>
+
+        <section>
+            <h2>Layout technique: <code>inline-block</code></h2>
+            <div class="livecode livecode-2p">
+              <div class="result inlineblock" style="font-size:75%;">
+                <div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item A</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item B</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item C</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item D</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item E</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item F</p></div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.inlineblock__item {
+  display: inline-block;
+  width: calc(100% / 3);
+}</style></div>
+            </div>
+            <aside class="notes">The setup here is 6 items we want to place into a column grid. One approach creating such a layout is by using the <code>inline-block</code> technique. For a three column grid, we set the display of the items to <code>inline-block</code> and give them all a width of a third of the container.</aside>
+          </section>
+
+          <section>
+            <h2>Layout technique: <code>float</code></h2>
+            <div class="livecode livecode-2p">
+              <div class="result float" style="font-size:75%;">
+                <div class="float__item" style="border:1px solid;padding:1em 0;">
+                  <p>Item A</p>
+                </div>
+                <div class="float__item" style="border:1px solid;padding:1em 0;">
+                  <p>Item B</p>
+                </div>
+                <div class="float__item" style="border:1px solid;padding:1em 0;">
+                  <p>Item C</p>
+                </div>
+                <div class="float__item" style="border:1px solid;padding:1em 0;">
+                  <p>Item D</p>
+                </div>
+                <div class="float__item" style="border:1px solid;padding:1em 0;">
+                  <p>Item E</p>
+                </div>
+                <div class="float__item" style="border:1px solid;padding:1em 0;">
+                  <p>Item F</p>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.float__item {
+  float: left;
+  width: calc(100% / 3);
+}</style></div>
+            </div>
+            <aside class="notes">It's almost the same if you use <code>float</code>, because you also need to set a width on each item.</aside>
+          </section>
+
+          <section>
+            <h2>Layout technique: <code>flex</code></h2>
+            <div class="livecode livecode-2p">
+              <div class="result flexbox" style="font-size:75%;">
+                <div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item A</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item B</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item C</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item D</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item E</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item F</p></div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.flexbox {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flexbox__item {
+  flex: 0 0 calc(100% / 3);
+}</style></div>
+            </div>
+            <aside class="notes">
+              <p>For Flexbox, to ensure our items line up in three columns, we prevent them from growing or shrinking, then set the flex-basis to a third of the container. Again, the properties we are applying go on the item.</p>
+              <p>For all 3 techniques I just described, there isn't actually a grid. It just looks that way because we've forced the items to line up with each other.</p>
+            </aside>
+          </section>
+
+          <section>
+            <blockquote>“Grid is the only layout technique that establishes a <strong>relationship</strong> between rows and columns of grid items.”</blockquote>
+            <aside class="notes">But for Grid, the dimensions for rows and columns are defined on the parent container instead. The grid is real, and we can place items inside this grid.</aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Properties on the Grid container</h2>
+          </section>
+
+          <section>
+            <h2>Defining a grid</h2>
+            <div class="livecode livecode-3p">
+              <pre class="markup"><code class="html">&lt;div class="grid1"&gt;
+  &lt;div class="grid1__item"&gt;
+    &lt;p&gt;Item A&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="grid1__item"&gt;
+    &lt;p&gt;Item B&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="grid1__item"&gt;
+    &lt;p&gt;Item C&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="grid1__item"&gt;
+    &lt;p&gt;Item D&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="grid1__item"&gt;
+    &lt;p&gt;Item E&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="grid1__item"&gt;
+    &lt;p&gt;Item F&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              <div class="result grid1" style="font-size:75%;">
+                <div class="grid1__item" style="border:1px solid;"><p>Item A</p></div><div class="grid1__item" style="border:1px solid;"><p>Item B</p></div><div class="grid1__item" style="border:1px solid;"><p>Item C</p></div><div class="grid1__item" style="border:1px solid;"><p>Item D</p></div><div class="grid1__item" style="border:1px solid;"><p>Item E</p></div><div class="grid1__item" style="border:1px solid;"><p>Item F</p></div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.grid1 {
+  
+  
+  
+  
+}</style></div>
+            </div>
+            <aside class="notes">There are numerous values we can use to define the size of our grids. There are those which are familiar, fixed units like pixels and ems, relative units like percentages and viewport units, and also a new flexible unit known as fr or fractional unit, which I will go into more detail later.</aside>
+          </section>
+
+          <section>
+            <h2>Naming grid lines</h2>
+            <div class="livecode livecode-2p">
+              <div class="result grid2" style="font-size:75%;">
+                <div class="grid2__item a" style="border:1px solid;padding:1em 0;"><p>Item A</p></div><div class="grid2__item b" style="border:1px solid;padding:1em 0;"><p>Item B</p></div><div class="grid2__item c" style="border:1px solid;padding:1em 0;"><p>Item C</p></div><div class="grid2__item d" style="border:1px solid;padding:1em 0;"><p>Item D</p></div><div class="grid2__item e" style="border:1px solid;padding:1em 0;"><p>Item E</p></div><div class="grid2__item f" style="border:1px solid;padding:1em 0;"><p>Item F</p></div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.grid2 {
+  display: grid;
+  grid-template-columns: [alpha-start] 150px [alpha-end beta-start] 150px [beta-end gamma-start] 150px [gamma-end];
+}
+
+.grid2 .c {
+  grid-column: alpha-start / beta-end;
+}</style></div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Naming grid areas</h2>
+            <div class="livecode livecode-2p">
+              <div class="result grid3" style="font-size:75%;">
+                <div class="grid3__item a" style="border:1px solid;padding:1em 0;"><p>Item A</p></div><div class="grid3__item b" style="border:1px solid;padding:1em 0;"><p>Item B</p></div><div class="grid3__item c" style="border:1px solid;padding:1em 0;"><p>Item C</p></div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.grid3 {
+  display: grid;
+  grid-template-columns: 150px 150px 150px 150px;
+  grid-template-rows: 100px 100px 100px;
+  grid-template-areas: 'a . . .'
+                       'a . . c'
+                       '. b . c';
+}
+
+.grid3 .a { grid-area: a; }
+.grid3 .b { grid-area: b; }
+.grid3 .c { grid-area: c; }</style></div>
+            </div>
+          </section>
+
+          <section>
+            <h2>The <code>fr</code> unit</h2>
+            <p>Represents a <strong>fraction</strong> of the <strong>free space</strong> in the grid container.</p>
+            <div class="livecode livecode-2p">
+              <div class="result grid4" style="font-size:75%;">
+                <div class="grid4__item a" style="border:1px solid;padding:1em 0;"><p>Item A</p></div><div class="grid4__item b" style="border:1px solid;padding:1em 0;"><p>Item B</p></div><div class="grid4__item c" style="border:1px solid;padding:1em 0;"><p>Item C</p></div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.grid4 {
+  display: grid;
+  grid-template-columns: 150px 1fr 2fr;
+}</style></div>
+            </div>
+            <aside class="notes">
+              <p>The <code>fr</code> unit represents the distribution of free space left over after all inflexible units have been accounted for. A common use case that fr units can solve is for responsive uniform grids that needs to adjust to the width of the viewport. For layout methods that revolve around the width of the grid item, multiple media queries are necessary because the width of each item has to be explicitly stated depending on the width of the viewport.</p>
+              <p>With the fr unit, we are essentially ceding control of the sizing of each grid item to the browser, allowing the browser to figure out how large each grid item should be based on the parameters we provide through the functions made available to us with CSS grid.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Fluid CSS grid</h2>
+            <pre style="font-size:65%;"><code class="css">.container {
+  display: grid;
+  grid-template-columns: repeat(3, 3fr 2fr);
+}</code></pre>
+            <video controls loop class="video" style="width:70%;">
+              <source data-src="videos/fluid-grid.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/fluid-grid.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <aside class="notes">Here, I'm telling the browser I want 3 sets of 2 columns in the ratio of 3 to 2. By using the <code>fr</code> unit, all the available space is divided up accordingly. The grid then grows and shrinks together with viewport because it will occupy all the free space available in the container.</aside>
+          </section>
+
+          <section>
+            <h2>The <code>minmax()</code> function</h2>
+            <p>Defines a size range for columns or rows in the grid.</p>
+            <div class="livecode livecode-2p">
+              <div class="result grid5" style="font-size:75%;">
+                <div class="grid5__item a" style="border:1px solid;padding:1em 0;"><p>Item A</p></div><div class="grid5__item b" style="border:1px solid;padding:1em 0;"><p>Item B</p></div><div class="grid5__item c" style="border:1px solid;padding:1em 0;"><p>Item C</p></div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.grid5 {
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) 300px 300px;
+}</style></div>
+            </div>
+          </section>
+
+          <section>
+            <h2>The <code>repeat()</code> function</h2>
+            <p>To specify a large number of columns or rows that follow a similar pattern</p>
+            <div class="livecode livecode-2p">
+              <div class="result grid6" style="font-size:75%;">
+                <div class="grid6__item" style="border:1px solid;padding:1em 0;"><p>Item</p></div><div class="grid6__item" style="border:1px solid;padding:1em 0;"><p>Item</p></div><div class="grid6__item" style="border:1px solid;padding:1em 0;"><p>Item</p></div><div class="grid6__item" style="border:1px solid;padding:1em 0;"><p>Item</p></div><div class="grid6__item" style="border:1px solid;padding:1em 0;"><p>Item</p></div><div class="grid6__item" style="border:1px solid;padding:1em 0;"><p>Item</p></div><div class="grid6__item" style="border:1px solid;padding:1em 0;"><p>Item</p></div><div class="grid6__item" style="border:1px solid;padding:1em 0;"><p>Item</p></div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.grid6 {
+  display: grid;
+  grid-template-columns: repeat(4, 75px 120px);
+}</style></div>
+            </div>
+          </section>
+
+          <section>
+            <h2><code>auto-fill</code> versus <code>auto-fit</code></h2>
+            <div class="livecode livecode-2p">
+                <div class="result keyword" style="font-size:75%;">
+                  <div class="keyword__item" style="border:1px solid;">
+                    <p>A</p>
+                  </div>
+                  <div class="keyword__item" style="border:1px solid;">
+                    <p>B</p>
+                  </div>
+                  <div class="keyword__item" style="border:1px solid;">
+                    <p>C</p>
+                  </div>
+                  <div class="keyword__item" style="border:1px solid;">
+                    <p>D</p>
+                  </div>
+                  <div class="keyword__item" style="border:1px solid;">
+                    <p>E</p>
+                  </div>
+                  <div class="keyword__item" style="border:1px solid;">
+                    <p>F</p>
+                  </div>
+                </div>
+                <div class="code"><style class="code-editor" contenteditable="true">.keyword {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}</style></div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Responsive grid without media queries</h2>
+             <pre style="font-size:65%;"><code class="css" style="font-size: 90%;">.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+}</code></pre>
+            <video controls loop class="video" style="width:70%;">
+              <source data-src="videos/responsive-grid.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/responsive-grid.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Properties on the grid item</h2>
+          </section>
+
+          <section>
+            <h2>Using <code>grid-column</code> and <code>grid-row</code></h2>
+            <div class="livecode livecode-2p">
+              <div class="result grid7" style="font-size:75%;">
+                <div class="grid7__item" style="background-color:dodgerblue;">
+                  <p>🍏</p>
+                </div>
+                <div class="grid7__item" style="background-color:dodgerblue;">
+                  <p>🍊</p>
+                </div>
+                <div class="grid7__item" style="background-color:dodgerblue;">
+                  <p>🥥</p>
+                </div>
+                <div class="grid7__item" style="background-color:dodgerblue;">
+                  <p>🥑</p>
+                </div>
+                <div class="grid7__item" style="background-color:dodgerblue;">
+                  <p>🍇</p>
+                </div>
+                <div class="grid7__item" style="background-color:dodgerblue;">
+                  <p>🍌</p>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.grid7 {
+  display: grid;
+  grid-template-columns: repeat(6, 2em);
+  grid-template-rows: repeat(6, 2em);
+}
+
+.grid7__item:nth-child(1) {
+  grid-column: 4;
+  grid-row: 2;
+}
+
+.grid7__item:nth-child(3) {
+  grid-column: 2;
+  grid-row: 5;
+}
+
+.grid7__item:nth-child(4) {
+  grid-column: 5;
+  grid-row: 1;
+}
+
+.grid7__item:nth-child(6) {
+  grid-column: 3;
+  grid-row: 3;
+}</style></div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Using <code>grid-area</code></h2>
+            <div class="livecode livecode-2p">
+              <div class="result grid8" style="font-size:75%;">
+                <div class="a" style="border:1px solid;padding:1em 0;">
+                  <p>Item A</p>
+                </div>
+                <div class="b" style="border:1px solid;padding:1em 0;">
+                  <p>Item B</p>
+                </div>
+                <div class="c" style="border:1px solid;padding:1em 0;">
+                  <p>Item C</p>
+                </div>
+              </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.grid8 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: "a . . ."
+                       ". b . ."
+                       ". . . c";
+}
+
+.grid8 .a { grid-area: a; }
+.grid8 .b { grid-area: b; }
+.grid8 .c { grid-area: c; }</style></div>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Aligning your grid items</h2>
+          </section>
+
+          <section>
+            <table style="font-size:60%;">
+              <tr style="border-bottom:2px solid;">
+                <th width="19%;">Property</th>
+                <th width="10%;">Axis</th>
+                <th>Aligns</th>
+                <th width="25%;">Applies to<br></th>
+              </tr>
+              <tr>
+                <td><code>justify-content<code><br></td>
+                <td>main/inline</td>
+                <td rowspan="2"><p style="width:65%;display:inline-block;">content within element<br>(effectively adjusts padding)</p><img class="plain" style="max-width:7em;vertical-align:top;" data-src="img/content.svg" alt="Content diagram"></td>
+                <td rowspan="2">block containers, flex containers and grid containers<br></td>
+              </tr>
+              <tr style="border-bottom:2px solid;">
+                <td><code>align-content</code></td>
+                <td>cross/block</td>
+              </tr>
+              <tr>
+                <td><code>justify-self</code></td>
+                <td>inline</td>
+                <td rowspan="2"><p style="width:65%;display:inline-block;">element within parent<br>(effectively adjusts margins)</p><img class="plain" style="max-width:7em;vertical-align:top;" data-src="img/self.svg" alt="Self diagram"></td>
+                <td>block-level boxes, absolutely-positioned boxes and grid items<br></td>
+              </tr>
+              <tr style="border-bottom:2px solid;">
+                <td><code>align-self</code></td>
+                <td>cross/block</td>
+                <td>absolutely-positioned boxes, flex items and grid items<br></td>
+              </tr>
+              <tr>
+                <td><code>justify-items</code></td>
+                <td>inline</td>
+                <td rowspan="2"><p style="width:65%;display:inline-block;">items inside box<br>(controls child items)</p><img class="plain" style="max-width:7em;vertical-align:top;" data-src="img/items.svg" alt="Items diagram"></td>
+                <td>block containers and grid containers<br></td>
+              </tr>
+              <tr style="border-bottom:2px solid;">
+                <td><code>align-items</code></td>
+                <td>cross/block</td>
+                <td>flex-containers and grid-containers<br></td>
+              </tr>
+            </table>
+            <p><small>Source: <a href="https://www.w3.org/TR/css-align-3/#overview">CSS Box Alignment Module Level 3</a></small></p>
+            <aside class="notes">
+              <p>An important part of building web layouts is aligning elements on the page. And box alignment can sometimes trip people up. I know it can be hard to remember which property does what.</p>
+              <p>For me, I associate <code>justify</code> with the direction that text flows, because I've been justifying text in Microsoft Word since version 97. And if justify is for inline direction, then align must be for the other direction.</p>
+              <p>Directions are not the most tricky part. It's the second word in these properties, content, item and self, that seem to confuse people. This table summarises the 6 box alignment properties that are regularly used when building with Flexbox and Grid.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>justify/align-content</code></h2>
+            <p>content-distribution properties</p>
+            <div class="livecode livecode-2p" style="grid-template-columns:60% calc(40% - 0.5em)">
+              <div class="result content" style="font-size:75%;">
+                <div style="border:1px solid;" class="content_itemA">A</div>
+                <div style="border:1px solid;" class="content_itemB">B</div>
+                <div style="border:1px solid;" class="content_itemC">C</div>
+                <div style="border:1px solid;" class="content_itemD">D</div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.content {
+  justify-content: normal;
+  align-content: normal;
+
+  display: grid;
+  grid-template-columns: repeat(3, 25%);
+  grid-template-rows: repeat(3, 20%);
+  grid-gap: 1em;
+  grid-template-areas: 
+    "a b b"
+    "a b b"
+    "c c d";
+}
+
+.content_itemA {
+  grid-area: a;
+}
+
+.content_itemB {
+  grid-area: b;
+}
+
+.content_itemC {
+  grid-area: c;
+}
+
+.content_itemD {
+  grid-area: d;
+}</style></div>
+            </div>
+            <aside class="notes">
+              <p>The <code>justify-content</code> and <code>align-content</code> properties are known as <strong>content-distribution properties</strong>. These properties are relevant when the container is larger than the total width or height of the grid rows and columns.</p>
+              <p>As we can see from this example, there is some space to the right and bottom of the grid items. It is possible to set the alignment of the rows and columns with respect to the entire grid container.</p>
+              <p>We can position the grid rows and columns within its container using 3 values, <code>start</code>, <code>center</code> and <code>end</code>. We can also adjust the space between rows and columns with <code>space-around</code>, <code>space-between</code> and <code>space-evenly</code>.</p>
+            </aside>
+          </section>
+
+          <section>
+            <table style="font-size:75%;">
+              <tr>
+                <th>Values</th>
+                <th><code>justify-content</code></th>
+                <th><code>align-content</code></th>
+              </tr>
+              <tr>
+                <td><code>center</code></td>
+                <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/jc-center.png" alt="justify-content:center"></td>
+                <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/ac-center.png" alt="align-content:center"></td>
+              </tr>
+              <tr>
+                <td><code>start</code></td>
+                <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/jc-start.png" alt="justify-content:start"></td>
+                <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/ac-start.png" alt="align-content:start"></td>
+              </tr>
+              <tr>
+                <td><code>end</code></td>
+                <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/jc-end.png" alt="justify-content:end"></td>
+                <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/ac-end.png" alt="align-content:end"></td>
+              </tr>
+              <tr>
+                <td><code>space-around</code></td>
+                <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/jc-sa.png" alt="justify-content:space-around"></td>
+                <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/ac-sa.png" alt="align-content:space-around"></td>
+              </tr>
+              <tr>
+                <td><code>space-between</code></td>
+                <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/jc-sb.png" alt="justify-content:space-between"></td>
+                <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/ac-sb.png" alt="align-content:space-between"></td>
+              </tr>
+              <tr>
+                <td><code>space-evenly</code></td>
+                <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/jc-se.png" alt="justify-content:space-evenly"></td>
+                <td style="text-align:center;"><img class="plain" style="max-height:2.5em;margin:0;" data-src="img/ac-se.png" alt="align-content:space-evenly"></td>
+              </tr>
+            </table>
+            <aside class="notes">
+              <p>It's probably easier to refer to this table. <code>space-around</code> puts an equal amount of space on both sides of the row or column, so the spaces at the edge of the container will be half of the spaces between inner rows or columns.</p>
+              <p><code>space-between</code> distributes all the tracks evenly in the grid container with the first and last rows or columns flush with the edges of the container.</p>
+              <p><code>space-evenly</code> is currently only supported in Chrome 60 onwards and Firefox 52 onwards. It distributes the grid tracks evenly within the grid container such that the space between any 2 adjacent grid tracks are the same.</p>
+              <p>Is everyone totally lost now? Trust me, it gets easier with experience.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>justify/align-self</code></h2>
+            <p>self-alignment properties</p>
+            <div class="livecode livecode-2p">
+              <div class="result self" style="font-size:75%;">
+                <div style="border:1px solid;" class="self_itemA">A</div>
+                <div style="border:1px solid;" class="self_itemB">B</div>
+                <div style="border:1px solid;" class="self_itemC">C</div>
+                <div style="border:1px solid;" class="self_itemD">D</div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.self {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1em;
+  grid-auto-rows: calc(25% - 1em);
+  grid-template-areas: 
+    "a a b b"
+    "a a b b"
+    "c c d d"
+    "c c d d";
+}
+
+.self_itemA {
+  grid-area: a;
+}
+
+.self_itemB {
+  grid-area: b;
+  align-self: start;
+//justify-self: start;
+}
+
+.self_itemC {
+  grid-area: c;
+  align-self: end;
+//justify-self: end;
+}
+
+.self_itemD {
+  grid-area: d;
+  align-self: center;
+//justify-self: center;
+}</style></div>
+            </div>
+            <aside class="notes">
+              <p>The <code>justify-self</code> and <code>align-self</code> properties are known as <strong>self-alignment properties</strong>. <strong>Justify</strong> is for the main or inline axis, which is the direction of text flow, while <strong>align</strong> is for the cross or block axis, which is the direction block boxes are stacked.</p>
+              <p>These properties allow us to control how the content of each grid item is aligned within the grid area it's been allocated to. The default state is <code>stretch</code>, where the content stretches to fill the entire grid area. We can adjust the alignment of content within the grid item with <code>start</code>, <code>center</code> and <code>end</code>.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>justify/align-items</code></h2>
+            <p>defaults for justify/align-self</p>
+            <div class="livecode livecode-2p" style="grid-template-columns:60% calc(40% - 0.5em)">
+              <div class="result items" style="font-size:75%;">
+                <div style="border:1px solid;" class="items_itemA">A</div>
+                <div style="border:1px solid;" class="items_itemB">B</div>
+                <div style="border:1px solid;" class="items_itemC">C</div>
+                <div style="border:1px solid;" class="items_itemD">D</div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.items {
+  justify-items: normal;
+  align-items: normal;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1em;
+  grid-auto-rows: calc(25% - 1em);
+  grid-template-areas: 
+    "a a b b"
+    "a a b b"
+    "c c d d"
+    "c c d d";
+}
+
+.items_itemA {
+  grid-area: a;
+}
+
+.items_itemB {
+  grid-area: b;
+}
+
+.items_itemC {
+  grid-area: c;
+}
+
+.items_itemD {
+  grid-area: d;
+}</style></div>
+            </div>
+            <aside class="notes">
+              <p>Finally, we have the <code>align-items</code> and <code>justify-items</code> properties, which set the default <code>align-self</code> and <code>justify-self</code> behaviour of all the items within the grid.</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Examples / Demos</h2>
+            <p>Simple responsive dashboard</p>
+            <p>Artist profile page</p>
+            <p><a href="https://codepen.io/huijing/pen/zdNjEg">Responsive header (if time permits)</a></p>
+            <p><a href="https://codepen.io/huijing/pen/LLMORr">JSConf.Asia logo (if time permits)</a></p>
+          </section>
+
+          <section>
+            <h2>Simple responsive dashboard</h2>
+            <video controls loop class="video" style="width:70%;">
+              <source data-src="videos/grid-dashboard.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/grid-dashboard.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+          </section>
+
+          <section>
+            <h2>Artist profile page</h2>
+            <video controls loop class="video" style="width:70%;">
+              <source data-src="videos/grid-tycho.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/grid-tycho.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+          </section>
+
+          <section>
+            <h2>Diagonal header</h2>
+            <p data-height="500" data-theme-id="9162" data-slug-hash="zdNjEg" data-default-tab="result" data-user="huijing" data-embed-version="2" data-pen-title="The Critical Request header" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/zdNjEg/">The Critical Request header</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+          </section>
+        </section>
+
+        <section>
+          <h2>Useful references</h2>
+          <ul style="column-count:2;font-size:70%;">
+            <li><a href="https://www.w3.org/TR/css-grid-1/">CSS Grid Layout Module Level 1</a></li>
+            <li><a href="https://tympanus.net/codrops/css_reference/grid/">Codrops CSS Grid reference</a></li>
+            <li><a href="https://gridbyexample.com/">Grid by Example</a></li>
+            <li><a href="http://jensimmons.com/post/feb-27-2017/learn-css-grid">Learn CSS Grid</a></li>
+            <li><a href="https://blogs.igalia.com/mrego/2015/02/25/grid-auto-placement-is-ready/">Grid Auto-Placement Is Ready</a></li>
+            <li><a href="https://blogs.igalia.com/svillar/2016/05/10/automatizing-the-grid/">Automatizing the Grid</a></li>
+            <li><a href="https://blogs.igalia.com/mrego/2016/02/01/deep-dive-into-grid-layout-placement/">Deep Dive into Grid Layout Placement</a></li>
+            <li><a href="https://blogs.igalia.com/mrego/2016/05/27/css-grid-layout-and-positioned-items/">CSS Grid Layout and positioned items</a></li>
+            <li><a href="https://alistapart.com/article/the-story-of-css-grid-from-its-creators">The Story of CSS Grid, from Its Creators</a></li>
+            <li><a href="https://blogs.igalia.com/mrego/2017/03/16/css-grid-layout-is-here-to-stay/">CSS Grid Layout is Here to Stay</a></li>
+            <li><a href="https://www.smashingmagazine.com/2016/11/css-grids-flexbox-box-alignment-new-layout-standard/">The New Layout Standard For The Web: CSS Grid, Flexbox And Box Alignment</a></li>
+          </ul>
+        </section>
+
+        <section style="text-align:left;">
+          <h1>Thank you!</h1>
+          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a dir="ltr" href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle;">https://www.chenhuijing.com</a></p>
+          <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a dir="ltr" href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a dir="ltr" href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a dir="ltr" href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle;">@huijing</a></p>
+        </section>
+      </div>
+
+      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em;"><span>https://www.chenhuijing.com/slides/27-grid-workshop</span><span style="text-align:right;">@hj_chen</span></footer>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script async src="lib/js/eijs.js"></script>
+
+    <script>
+      Reveal.initialize({
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script> 
+  </body>
+</html>
