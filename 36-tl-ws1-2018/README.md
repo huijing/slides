@@ -1,3 +1,3 @@
-# TechLadies in Penang
+# TechLadies Pre Bootcamp Workshop #1
 
-At TechLadies, 30 June, 2018.
+At TechLadies, 14 July, 2018.
