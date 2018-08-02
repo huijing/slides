@@ -139,7 +139,7 @@
 
           <section>
             <blockquote>“I think Intrinsic Web Design is about the shift from being limited by CSS’ capabilities to being empowered by them.”<br><small>—<a href="https://ezequiel.works/">Ezequiel Bruni</a></small></blockquote>
-            <aside class="notes">Web designer, Ezequiel Bruni, had this wonderful quote about what he thought Intrinsic Web Design meant. That instead of being limited by web technologies like CSS, they have matured to a point where we can now be empowered by their capabilities. Other mediums have had more than a hundred or even thousands of years to evolve and develop. With the web, we've only just gotten started.</aside>
+            <aside class="notes">Web designer, Ezequiel Bruni, had this wonderful quote about what he thought Intrinsic Web Design meant. CSS is no longer a limitation, instead, it has matured into something that can empower designers and developers. Other mediums have had more than a hundred or even thousands of years to evolve and develop. With the web, we've only just gotten started.</aside>
           </section>
 
           <section>
@@ -641,7 +641,7 @@
             </div>
             <aside class="notes">
               <p>If you compare the code for this and the transforms version, you'll notice that even though the words are rotated and flowing from right-to-left, the direction of margins and paddings still adhere to our perspective.</p>
-              <p>For example, padding on the left of my pencil text is applied with <code>padding-top</code> and so on. I find this rather disorienting.</p>
+              <p>For example, the padding on the left of my pencil text, that space between the eraser and the text? That's <code>padding-top</code>, which is rather disorienting to me.</p>
             </aside>
           </section>
 
@@ -1391,8 +1391,8 @@
             </div>
             <p><small>Original image from <a href="http://bibliothequekandinsky.centrepompidou.fr/imagesbk/RLPF727/M5050_X0031_LIV_RLPF0727.pdf">Moholy-Nagy, Malerei, Fotografie, Film</a></small></p>
             <aside class="notes">
-              <p>Like I mentioned, there's a lot of great graphic design that we can draw inspiration from, for example, this is a page from László Moholy-Nagy's book, Malerei, Fotografie, Film.</p>
-              <p>It's a striking design with bold black borders, and content aligned in different configurations. If we want to have such a design on the web, some teamwork will need to be involved.</p>
+              <p>So we're done with pencils now. But like I mentioned, there's a lot of great graphic design that we can draw inspiration from, for example, this is a page from László Moholy-Nagy's book, Malerei, Fotografie, Film.</p>
+              <p>It's a striking design with bold black borders, and content aligned in different configurations. If we want to have such a design on the web, Grid alone is not enough.</p>
             </aside>
           </section>
 
@@ -1807,7 +1807,7 @@
   }
 }</code></pre>
             </div>
-            <aside class="notes">Again, the code is abridged, but placement is a matter of defining which row and column you'd like your element to appear in. And how many grid cells you'd like it to take up. It is perfectly acceptable to have multiple elements occupy the same space on your grid.</aside>
+            <aside class="notes">Again, this code is abridged, but placement is a matter of defining which row and column you'd like your element to appear in. And how many grid cells you'd like it to take up. It is perfectly acceptable to have multiple elements occupy the same space on your grid.</aside>
           </section>
 
           <section data-background-image="img/cssgram.jpg">
@@ -1926,7 +1926,10 @@ img:nth-of-type(4) {
         <section>
           <section>
             <img class="plain" data-src="img/card-viewportunits.png" alt="CSS viewport units trading card">
-            <aside class="notes">Designing with viewport units is the next step in embracing the dynamism of the web, by sizing elements relative to the width and/or height of the viewport they are viewed in. Values like <code>vmin</code> and <code>vmax</code> allow us to move from prescriptive sizing to adaptive sizing. No more micromanaging pixels.</aside>
+            <aside class="notes">
+              <p>Designing with viewport units is the next step in embracing the dynamism of the web, by sizing elements relative to the width and/or height of the viewport they are viewed in. Sara showed us how viewport units can be used for responsive typography, by scaling font sizes relative to the viewport.</p>
+              <p>But I would like to see more people using these units in layout level sizing as well. Values like <code>vmin</code> and <code>vmax</code> allow us to move from prescriptive sizing to adaptive sizing. No more micromanaging pixels.</p>
+            </aside>
           </section>
 
           <section>
@@ -1993,7 +1996,7 @@ img:nth-of-type(4) {
               <img class="plain fragment " data-src="img/tycho2.jpg" alt="CSS layout properties" style="max-height:95vh">
             </div>
             <p><small>Original design by <a href="https://dribbble.com/shots/3002189-Tycho/">Drew Sullivan</a></small></p>
-            <aside class="notes">Even though the most common media query is width, there are 13 media features that are available for use as conditions, including <code>height</code> and <code>orientation</code>. Somehow we're not seeing them being used very often on the web at the moment.</aside>
+            <aside class="notes">Even though the most common media query is width, the level 4 specification defines 18 media features that are available for use as conditions, like <code>height</code> or <code>orientation</code>. And there are even newer ones in the level 5 specification that Sara mentioned, like <code>prefers-reduced-motion</code> and <code>light-level</code>. Somehow we're not seeing them being used very often on the web at the moment.</aside>
           </section>
 
           <section>
@@ -2480,7 +2483,11 @@ header {
           <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
           <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle">@huijing</a></p>
           <p style="text-align:right;"><small>Font used is <a href="http://overpassfont.org/">Overpass</a>, by <a href="https://www.delvefonts.com/">Delve Fonts</a></small></p>
-          <aside class="notes">This was a talk about possibilities. You don't need to use any of these techniques or properties that I covered if they don't fit your use-cases today. But knowing what the web is capable of, and what you can potentially build with it, is the act of growing your web design toolbox. So you can be sure, that when the time comes, you have a vast array of tools at your disposal to create a masterpiece for the ages. Thank you all for your attention.</aside>
+          <aside class="notes">
+            <p>This was a talk about possibilities.</p>
+            <p>You don't need to use any of these techniques or properties that I covered if they don't fit your use-cases today. But knowing what the web is capable of, and what you can potentially build with it, is the act of growing your web design toolbox. So you can be sure, that when the time comes, you have a vast array of tools at your disposal to create a masterpiece for the ages.</p>
+            <p>Thank you all for your attention.</p>
+          </aside>
         </section>
       </div>
 
