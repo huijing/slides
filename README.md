@@ -58,12 +58,32 @@
 
 29. [Why CSS Grid is a game-changer for web design](https://www.chenhuijing.com/slides/29-constellation-2018)
 
-30. *\*WIP* [Vertical writing on the web: inadvertent layout inspiration from a search for cultural identity](javascript:void(0)) 
+30. [Vertical writing on the web: inadvertent layout inspiration from a search for cultural identity](https://www.chenhuijing.com/slides/30-smashingsf-2018) 
 
-31. *\*WIP* [East Asian web typography: crossing cultural boundaries for web layout inspiration](javascript:void(0))
+31. [East Asian web typography: crossing cultural boundaries for web layout inspiration](https://www.chenhuijing.com/slides/31-yglf-2018)
 
-32. *\*WIP* [Box Alignment](javascript:void(0))
+32. [The web is not just left-to-right](https://www.chenhuijing.com/slides/32-cssconf-2018)
 
-33. *\*WIP* [The web is all directions](javascript:void(0))
+33. [Box Alignment](https://www.chenhuijing.com/slides/33-cssday-2018)
 
-34. *\*WIP* [Layout the web with CSS grid](javascript:void(0))
+34. [Why performance?](https://www.chenhuijing.com/slides/34-why-performance)
+
+35. [TechLadies in Penang 🇲🇾](https://www.chenhuijing.com/slides/35-tl-in-pen)
+
+36. [TechLadies Pre-Bootcamp Workshop #1](https://www.chenhuijing.com/slides/36-tl-ws1-2018)
+
+37. [Not in Kansas anymore: a new frontier for web design](https://www.chenhuijing.com/slides/37-code-2018)
+
+38. *WIP* [Layout the web with CSS grid](https://www.chenhuijing.com/slides/38-ffc-2018)
+
+39. *WIP* [East Asian typography on the web](https://www.chenhuijing.com/slides/39-refresh-2018)
+
+40. *WIP* [Techspeakers meetup](javascript:void(0))
+
+41. *WIP* [CSS-Minsk-JS](javascript:void(0))
+
+42. *WIP* [Be like water: applying Bruce Lee's philosophy to web design](javascript:void(0))
+
+42. *WIP* [beyond tellerrand](javascript:void(0))
+
+43. *WIP* [deTECH conference](javascript:void(0))
