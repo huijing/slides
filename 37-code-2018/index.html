@@ -139,7 +139,10 @@
 
           <section>
             <blockquote>“I think Intrinsic Web Design is about the shift from being limited by CSS’ capabilities to being empowered by them.”<br><small>—<a href="https://ezequiel.works/">Ezequiel Bruni</a></small></blockquote>
-            <aside class="notes">Web designer, Ezequiel Bruni, had this wonderful quote about what he thought Intrinsic Web Design meant. CSS is no longer a limitation, instead, it has matured into something that can empower designers and developers. Other mediums have had more than a hundred or even thousands of years to evolve and develop. With the web, we've only just gotten started.</aside>
+            <aside class="notes">
+              <p>Web designer, Ezequiel Bruni, had this wonderful quote about what he thought Intrinsic Web Design meant. CSS is no longer a limitation, instead, it has matured into something that can empower designers and developers.</p>
+              <p>Other mediums have had more than a hundred or even thousands of years to evolve and develop. With the web, we've only just gotten started.</p>
+            </aside>
           </section>
 
           <section>
@@ -148,8 +151,8 @@
             <p>And more...</p>
             <aside class="notes">
               <p>I first got the idea of comparing CSS to a sports team some time last year, when I started experimenting and building layouts with Grid. Because I found that, as powerful as Grid was on its own, it worked even better with complementary properties like Flexbox and <code>object-fit</code>, for example.</p>
-              <p>To me, CSS as a holistic technology. Yes, you definitely can use properties in isolation, but the full power of CSS shines through when properties are used in combination.</p>
-              <p>I'm not sure how many sports fans are in the audience today, but this talk is pretty similar to a scouting report, featuring properties that are integral to doing layout on the web, and how they can work really well together to handle certain situations.</p>
+              <p>To me, CSS is a holistic technology. Sure, you can use properties in isolation, but the full power of CSS shines through when properties are used in combination.</p>
+              <p>I'm not sure how many sports fans are in the audience today, but this talk is pretty similar to a scouting report, featuring properties that are very useful for doing layout on the web, and how they can work really well together to handle certain situations.</p>
             </aside>
           </section>
         </section>
@@ -393,7 +396,7 @@
             </div>
             <aside class="notes">
               <p>The key property for making a list item look like a pencil, is borders. The border property is, in my opinion, an underrated CSS property. If you've read Lea Verou's brilliant book, CSS Secrets, or watched her talk on the humble border-radius, you might already know this.</p>
-              <p>The erasers are <code>before</code> pseudo-elements, while the tips of the pencils are <code>after</code> pseudo-elements. The tips were created using the CSS triangles technique, which makes use of the fact that borders meet as diagonals.</p>
+              <p>The erasers are <code>before</code> pseudo-elements, while the tips of the pencils are <code>after</code> pseudo-elements. The tips were created using the CSS triangles technique, which makes use of the fact that, on the web, borders meet as diagonals.</p>
             </aside>
           </section>
 
@@ -1238,7 +1241,10 @@
   flex-direction: row;
 }</style></div>
             </div>
-            <aside class="notes">The property that controls the flow direction, is aptly named <code>flex-direction</code>, and with this, we can reorder flow of content. Again, I want to emphasise that this merely modifies the visual order and not the source order of the flex items. Screen readers and keyboard control will still respect source order.</aside>
+            <aside class="notes">The property that controls the flow direction, is aptly named <code>
+              <p>flex-direction</code>, and with this, we can reorder flow of content. Again, I want to emphasise that this merely modifies the visual order and not the source order of the flex items.Screen readers and keyboard control will still respect source order.</p>
+              <p>But the point is, things on the web don't necessarily have to flow from top-to-bottom, left-to-right all the time.</p>
+            </aside>
           </section>
         </section>
 
@@ -1811,7 +1817,7 @@
           </section>
 
           <section data-background-image="img/cssgram.jpg">
-            <aside class="notes">This demo was also an excuse to play with <code>blend-modes</code>. CSS blend-modes work the same way as in Photoshop. Una Kravets has written and spoken extensively about CSS blend modes, and even created CSSgram, a library for creating Instagram filters with CSS filters and blend modes.</aside>
+            <aside class="notes">This demo was also an excuse to play with <code>blend-modes</code>. CSS blend-modes work the same way as in Photoshop. Una Kravets has written and spoken extensively about CSS blend modes. She even created CSSgram, a library for creating Instagram filters with CSS filters and blend modes.</aside>
           </section>
 
           <section>
@@ -1996,7 +2002,10 @@ img:nth-of-type(4) {
               <img class="plain fragment " data-src="img/tycho2.jpg" alt="CSS layout properties" style="max-height:95vh">
             </div>
             <p><small>Original design by <a href="https://dribbble.com/shots/3002189-Tycho/">Drew Sullivan</a></small></p>
-            <aside class="notes">Even though the most common media query is width, the level 4 specification defines 18 media features that are available for use as conditions, like <code>height</code> or <code>orientation</code>. And there are even newer ones in the level 5 specification that Sara mentioned, like <code>prefers-reduced-motion</code> and <code>light-level</code>. Somehow we're not seeing them being used very often on the web at the moment.</aside>
+            <aside class="notes">
+              <p>Even though the most common media query is width, the level 4 specification defines 18 media features that are available for use as conditions, like <code>height</code> or <code>orientation</code>. And there are even newer ones in the level 5 specification that Sara mentioned, like <code>prefers-reduced-motion</code> and <code>light-level</code>. Somehow we're not seeing them being used very often on the web at the moment.</p>
+              <p>A design like this looks great in landscape mode, and can still look alright on a small screen, it's viewed in landscape, right? Conversely, I have colleagues who have big monitors set up in portrait mode. You see where I'm going with this?</p>
+            </aside>
           </section>
 
           <section>
@@ -2098,14 +2107,61 @@ img:nth-of-type(4) {
   }
 }</code></pre>
             </div>
-            <aside class="notes">Aspect-ratio media queries are especially useful for designs that use viewport units, but there is no limit on how you wish to combine multiple media queries to make your design fully adaptable.</aside>
+            <aside class="notes">Thankfully, we have aspect-ratio media queries. And they are especially useful for designs that utilise viewport units, but there is no limit on how you wish to combine multiple media queries to make your design fully adaptable.</aside>
           </section>
         </section>
 
         <section>
           <section>
+            <h2>CSS Shapes browser support</h2>
+            <p class="ciu_embed" data-feature="css-shapes" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+              <a href="http://caniuse.com/#feat=css-shapes"><img class="plain" data-src="img/caniuse-shapes.png" alt="Data on support for the css-shapes feature across the major browsers from caniuse.com."></a>
+            </p>
+            <p><a href="https://www.sarasoueidan.com/blog/css-shapes/">Creating Non-Rectangular Layouts With CSS Shapes</a> by Sara Soueidan</p>
+            <aside class="notes">
+              <p>Remember when Sara showed the CSS Masks browser support table earlier? I'm going to introduce you to a bunch of related CSS properties. Relatively new-ish properties. They all fall into the category of making things on the web NOT rectangles. However, browser support for all of them doesn't look too good.</p>
+              <p>One of them is CSS shapes, which Sara had written about back in 2013. I really love CSS shapes. The CSS nerd that I am, I have a CSS properties leaderboard in my head, and trust me, Shapes is up there.</p>
+            </aside>
+          </section>
+
+          <section data-background-image="img/css-shapes.jpg" data-background-size="contain">
+            <aside class="notes">Because Shapes lets us flow content around non-rectangular shapes, like circles or polygons. And even images. Yes, as long as the image has transparency, it is possible to let text flow around Beyoncé looking like a boss. You do have to float your shaped element or image for things to work though.</aside>
+          </section>
+
+          <section>
+            <h2>CSS clip-path browser support</h2>
+            <p class="ciu_embed" data-feature="css-clip-path" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+              <a href="http://caniuse.com/#feat=css-clip-path"><img class="plain" data-src="img/caniuse-clippath.png" alt="Data on support for the css-clip-path feature across the major browsers from caniuse.com."></a>
+            </p>
+            <p><a href="https://css-tricks.com/masking-vs-clipping-use/">Masking vs. Clipping: When to Use Each</a> by Sarah Drasner</p>
+            <aside class="notes">Clip-path and mask are sort of similar, in that both of them allow us to hide parts of an element. And neither have particularly good browser support. Such techniques are super useful for creating unique layouts and even spice up interactive animations when we throw in some Javascript.</aside>
+          </section>
+
+          <section>
+            <video loop autoplay>
+              <source data-src="videos/mask.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/mask.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <aside class="notes">Something like this. Really cool, right?</aside>
+          </section>
+
+          <section data-background-image="img/clip-path.jpg" data-background-size="contain">
+            <aside class="notes">Can you imagine the possibilities for this? Interactive Beyoncé spotlights on websites, that's what.</aside>
+          </section>
+
+          <section>
+            <h2>CSS Exclusions browser support</h2>
+            <p class="ciu_embed" data-feature="css-exclusions" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+              <a href="http://caniuse.com/#feat=css-exclusions"><img class="plain" data-src="img/caniuse-exclusions.png" alt="Data on support for the css-exclusions feature across the major browsers from caniuse.com."></a>
+            </p>
+            <aside class="notes">Let's have one more, CSS exclusions. Terrible browser support, really. CSS exclusions define arbitrary areas around which inline content can flow, and can be defined on any CSS block-level element. Very similar to Shapes, but you don't need to float your element for it to work.</aside>
+          </section>
+
+          <section>
             <img class="plain" data-src="img/card-featurequeries.png" alt="Feature queries trading card">
-            <aside class="notes">An often raised concern when it comes to using newer CSS features, especially those for layout, is browser support. Because nobody wants their site to look broken. And here's where feature queries come in.</aside>
+            <aside class="notes">My point is, browser support is an often raised concern when it comes to using newer CSS features, especially those for layout. Because nobody wants their site to look broken. And here's where feature queries come in.</aside>
           </section>
 
           <section>
@@ -2121,7 +2177,7 @@ img:nth-of-type(4) {
 }</code></pre>
             <aside class="notes">
               <p>It is a conditional that checks if the browser supports a particular property or not. If it doesn't, the entire block within the <code>@supports</code> rule is ignored.</p>
-              <p>This means we start off with the basic layout that works everywhere before laying on styles based on the features we want to use.</p>
+              <p>This means we start off with a basic layout that works everywhere before laying on styles based on the features we want to use.</p>
               <p>By organising our code in this manner, the browsers that do not support feature queries or the specified property still get styled, while those that do get a different look. Really making use of the ‘C’ in CSS.</p>
             </aside>
           </section>
@@ -2412,7 +2468,8 @@ header {
           </section>
 
           <section>
-            <div style="display:grid;grid-template-columns:repeat(3,5.5em);grid-gap:2em;justify-content:center;">
+            <h2>Falling back with grace</h2>
+            <div style="display:grid;grid-template-columns:repeat(3,5.5em);grid-gap:2em;justify-content:center">
               <img class="plain" data-src="img/wl-ie11.jpg" alt="IE11 layout">
               <img class="plain" data-src="img/wl-firefox.jpg" alt="Firefox layout">
               <img class="plain" data-src="img/wl-chrome.jpg" alt="Chrome layout">
@@ -2422,6 +2479,14 @@ header {
               <p>This example makes use of a combination of feature queries for both Grid and CSS Shapes. If you're on a legacy browser, you'll get a simpler design, but everything is still styled.</p>
               <p>For now, Firefox users don't get to see the CSS Shapes effect, but once they do, the layout will automatically look like the one Chrome users see at the moment.</p>
             </aside>
+          </section>
+
+          <section>
+            <div style="display:grid;grid-template-columns:repeat(2,10.5em);grid-gap:1em;justify-content:center">
+              <img class="plain" data-src="img/exclusions-yes.jpg" alt="Edge and IE support Exclusions">
+              <img class="plain" data-src="img/exclusions-no.jpg" alt="Chrome, Firefox and Safari do not support Exclusions">
+            </div>
+            <aside class="notes">Even something with terrible browser support, like Exclusions, can be used as an enhancement, to browsers that do support it, without compromising the experience on browsers that don't.</aside>
           </section>
         </section>
 
@@ -2472,6 +2537,14 @@ header {
               <p>It's so much easier to get enthusiastic about new CSS features these days because they ship and become widely supported so much quicker now. And the same goes for bug fixes.</p>
               <p>Every major browser engine has a pretty open process for raising bugs, and raising bugs for a particular feature sends a signal to browser vendors that developers want to use this feature. This encourages them to prioritise related bug fixes.</p>
               <p>It's a win for everyone. By taking the time to submit a bug report, you gain karma points, get your bugs fixed AND make the web better for all of us.</p>
+            </aside>
+          </section>
+
+          <section data-background-image="img/needs-you.jpg" data-background-size="contain">
+            <aside class="notes">
+              <p>I want to encourage everyone to move away from a “why bother” mindset, to a “why not?” mindset. And whenever you come across a new feature that seems interesting, or might be useful to you, just go ahead and try it out. Build something with it. Anything. Demos don't have to be grand, monetisable side projects. It can even be an excuse to spend hours searching for the perfect photo of Beyoncé.</p>
+              <p>Building demos, writing articles, or even just starting a conversation on Twitter. All this helps build awareness of new CSS features, and act as feedback to browser vendors and specification writers on what developers are looking for out of the web platform.</p>
+              <p>This is in line with what Phil talked about earlier, about getting involved and participating in discussions on standards. You can help me make the dream of having text flow around both of Beyoncé's elbows on the web a reality.</p>
             </aside>
           </section>
         </section>

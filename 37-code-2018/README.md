@@ -2,6 +2,8 @@
 
 *For Web Directions Code 2018. This is sort of a transcript of the talk.*
 
+Hello, everyone! I hope you all had a good lunch, I thought it was delicious. It's my first time at a Web Directions conference, and I'm having a wonderful time. One of my interns saw this title slide of mine, and asked, what does this mean? Isn't Kansas a place? I probably should rethink any future decisions when it comes to including cultural references in my talk titles. 
+
 My name is Hui Jing, I go by Jing as well. I'm from Malaysia, very proud of that. And I used to play basketball full time. Basketball actually helped kick-start my web career. Ask me about that later, if you're interested.
 
 My inordinate love of CSS is what compels me to write and speak about this topic. I also happen to be a Mozilla TechSpeaker, which is an initiative by Mozilla that supports technical evangelists in regional communities around the world by providing resources and funding.
@@ -42,9 +44,9 @@ Web designer, Ezequiel Bruni, had this wonderful quote about what he thought Int
 
 I first got the idea of comparing CSS to a sports team some time last year, when I started experimenting and building layouts with Grid. Because I found that, as powerful as Grid was on its own, it worked even better with complementary properties like Flexbox and object-fit, for example.
 
-To me, CSS as a holistic technology. Yes, you definitely can use properties in isolation, but the full power of CSS shines through when properties are used in combination.
+To me, CSS is a holistic technology. Sure, you can use properties in isolation, but the full power of CSS shines through when properties are used in combination.
 
-I'm not sure how many sports fans are in the audience today, but this talk is pretty similar to a scouting report, featuring properties that are integral to doing layout on the web, and how they can work really well together to handle certain situations.
+I'm not sure how many sports fans are in the audience today, but this talk is pretty similar to a scouting report, featuring properties that are very useful for doing layout on the web, and how they can work really well together to handle certain situations.
 
 ## On pushing the boundaries of web design
 
@@ -100,7 +102,7 @@ Mark-up is very basic. But we do require an additional p tag inside each list it
 
 The key property for making a list item look like a pencil, is borders. The border property is, in my opinion, an underrated CSS property. If you've read Lea Verou's brilliant book, CSS Secrets, or watched her talk on the humble border-radius, you might already know this.
 
-The erasers are before pseudo-elements, while the tips of the pencils are after pseudo-elements. The tips were created using the CSS triangles technique, which makes use of the fact that borders meet as diagonals.
+The erasers are before pseudo-elements, while the tips of the pencils are after pseudo-elements. The tips were created using the CSS triangles technique, which makes use of the fact that, on the web, borders meet as diagonals.
 
 There are four 2D-transform functions available to us, and we'll use the rotate transform to get the pencils vertical. The tricky part about using transforms is that you have to keep in mind the transform-origin, and how the browser deals with transforms to begin with.
 
@@ -220,15 +222,33 @@ Sometimes using viewport units for heights can result in rather funky results wh
 
 Even though the most common media query is width, the level 4 specification defines 18 media features that are available for use as conditions, like height or orientation. And there are even newer ones in the level 5 specification that Sara mentioned, like prefers-reduced-motion and light-level. Somehow we're not seeing them being used very often on the web at the moment.
 
-Aspect-ratio media queries are especially useful for designs that use viewport units, but there is no limit on how you wish to combine multiple media queries to make your design fully adaptable.
+A design like this looks great in landscape mode, and can still look alright on a small screen, it's viewed in landscape, right? Conversely, I have colleagues who have big monitors set up in portrait mode. You see where I'm going with this?
+
+Thankfully, we have aspect-ratio media queries. And they are especially useful for designs that utilise viewport units, but there is no limit on how you wish to combine multiple media queries to make your design fully adaptable.
+
+### Non-rectangular layout properties
+
+Remember when Sara showed the CSS Masks browser support table earlier? I'm going to introduce you to a bunch of related CSS properties. Relatively new-ish properties. They all fall into the category of making things on the web NOT rectangles. However, browser support for all of them doesn't look too good.
+
+One of them is CSS shapes, which Sara had written about back in 2013. I really love CSS shapes. The CSS nerd that I am, I have a CSS properties leaderboard in my head, and trust me, Shapes is up there.
+
+Because Shapes lets us flow content around non-rectangular shapes, like circles or polygons. And even images. Yes, as long as the image has transparency, it is possible to let text flow around Beyoncé looking like a boss. You do have to float your shaped element or image for things to work though.
+
+Clip-path and mask are sort of similar, in that both of them allow us to hide parts of an element. And neither have particularly good browser support. Such techniques are super useful for creating unique layouts and even spice up interactive animations when we throw in some Javascript.
+
+Something like this. Really cool, right? Can you imagine the possibilities for this?
+
+Interactive Beyoncé spotlights on websites, that's what.
+
+Let's have one more, CSS exclusions. Terrible browser support, really. CSS exclusions define arbitrary areas around which inline content can flow, and can be defined on any CSS block-level element. Very similar to Shapes, but you don't need to float your element for it to work.
 
 ### Feature queries
 
-An often raised concern when it comes to using newer CSS features, especially those for layout, is browser support. Because nobody wants their site to look broken. And here's where feature queries come in.
+My point is, browser support is an often raised concern when it comes to using newer CSS features, especially those for layout. Because nobody wants their site to look broken. And here's where feature queries come in.
 
 It is a conditional that checks if the browser supports a particular property or not. If it doesn't, the entire block within the @supports rule is ignored.
 
-This means we start off with the basic layout that works everywhere before laying on styles based on the features we want to use.
+This means we start off with a basic layout that works everywhere before laying on styles based on the features we want to use.
 
 By organising our code in this manner, the browsers that do not support feature queries or the specified property still get styled, while those that do get a different look. Really making use of the ‘C’ in CSS.
 
@@ -243,6 +263,8 @@ With feature queries, we don't have to revisit our code-base to rewrite things w
 This example makes use of a combination of feature queries for both Grid and CSS Shapes. If you're on a legacy browser, you'll get a simpler design, but everything is still styled.
 
 For now, Firefox users don't get to see the CSS Shapes effect, but once they do, the layout will automatically look like the one Chrome users see at the moment
+
+Even something with terrible browser support, like Exclusions, can be used as an enhancement, to browsers that do support it, without compromising the experience on browsers that don't.
 
 ## On shaping the future of the web
 
@@ -259,6 +281,12 @@ It's so much easier to get enthusiastic about new CSS features these days becaus
 Every major browser engine has a pretty open process for raising bugs, and raising bugs for a particular feature sends a signal to browser vendors that developers want to use this feature. This encourages them to prioritise related bug fixes.
 
 It's a win for everyone. By taking the time to submit a bug report, you gain karma points, get your bugs fixed AND make the web better for all of us.
+
+I want to encourage everyone to move away from a “why bother” mindset, to a “why not?” mindset. And whenever you come across a new feature that seems interesting, or might be useful to you, just go ahead and try it out. Build something with it. Anything. Demos don't have to be grand, monetisable side projects. It can even be an excuse to spend hours searching for the perfect photo of Beyoncé.
+
+Building demos, writing articles, or even just starting a conversation on Twitter. All this helps build awareness of new CSS features, and act as feedback to browser vendors and specification writers on what developers are looking for out of the web platform.
+
+This is in line with what Phil talked about earlier, about getting involved and participating in discussions on standards. All of you can help me make the dream of having text flow around both of Beyoncé's elbows on the web a reality.
 
 ## Wrapping up
 
