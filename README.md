@@ -80,10 +80,12 @@
 
 40. *WIP* [Techspeakers meetup](javascript:void(0))
 
-41. *WIP* [CSS-Minsk-JS](javascript:void(0))
+41. *WIP* [Rich Dynamic Design with Modern CSS](javascript:void(0))
 
-42. *WIP* [Be like water: applying Bruce Lee's philosophy to web design](javascript:void(0))
+42. *WIP* [Typesetting East Asian languages on the web](javascript:void(0))
 
-42. *WIP* [beyond tellerrand](javascript:void(0))
+43. *WIP* [Be like water: applying Bruce Lee's philosophy to web design](javascript:void(0))
 
-43. *WIP* [deTECH conference](javascript:void(0))
+44. *WIP* [beyond tellerrand](javascript:void(0))
+
+45. *WIP* [deTECH conference](javascript:void(0))
