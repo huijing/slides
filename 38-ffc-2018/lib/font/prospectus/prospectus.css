@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Prospectus';
+    src: url('prospectusstdreg.woff2') format('woff2'),
+         url('prospectusstdreg.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Prospectus';
+    src: url('prospectusstdbld.woff2') format('woff2'),
+         url('prospectusstdbld.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Prospectus';
+    src: url('prospectusstditalic.woff2') format('woff2'),
+         url('prospectusstditalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
