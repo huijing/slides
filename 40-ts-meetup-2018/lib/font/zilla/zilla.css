@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Zilla Slab';
+    src: url('zillaslab-regular.woff2') format('woff2'),
+         url('zillaslab-regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Zilla Slab';
+    src: url('zillaslab-regularitalic.woff2') format('woff2'),
+         url('zillaslab-regularitalic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Zilla Slab';
+    src: url('zillaslab-bold.woff2') format('woff2'),
+         url('zillaslab-bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}

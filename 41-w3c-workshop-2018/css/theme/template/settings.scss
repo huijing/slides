@@ -1,0 +1,43 @@
+// Base settings for all themes that can optionally be
+// overridden by the super-theme
+
+// Background of the presentation
+$backgroundColor: rgba(250, 255, 250, 1);
+
+// Primary/body text
+$mainFont: 'Magnetic Pro', sans-serif;
+$mainFontSize: 2.4em;
+$mainColor: rgba(42, 42, 42, 1);
+
+// Vertical spacing between blocks of text
+$blockMargin: 20px;
+
+// Headings
+$headingMargin: 0 0 $blockMargin 0;
+$headingFont: 'Magnetic Pro Black', sans-serif;
+$headingColor: rgba(55, 40, 34, 1);
+$headingLineHeight: 1.2;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingTextShadow: none;
+$headingFontWeight: 700;
+$heading1TextShadow: $headingTextShadow;
+
+$heading1Size: 1.999em;
+$heading2Size: 1.414em;
+$heading3Size: 1.000em;
+$heading4Size: 1.000em;
+
+// Links and actions
+$linkColor: rgba(74, 188, 65, 1);
+$linkColorHover: lighten( $linkColor, 20% );
+
+// Text selection
+$selectionBackgroundColor: rgba(0, 0, 0, 0.75);
+$selectionColor: #000;
+
+// Generates the presentation background, can be overridden
+// to return a background image or gradient
+@mixin bodyBackground() {
+	background: $backgroundColor;
+}

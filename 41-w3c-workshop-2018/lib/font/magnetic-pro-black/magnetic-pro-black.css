@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'Magnetic Pro Black';
+  src: url('bender-bold.eot');
+  src: url('bender-bold.eot?#iefix') format('embedded-opentype'),
+     url('bender-bold.woff2') format('woff2'),
+     url('bender-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  unicode-range: U+0400-U+04FF;
+}
+
+@font-face {
+  font-family: 'Magnetic Pro Black';
+  src: url('magnetic-pro-black.eot');
+  src: url('magnetic-pro-black.eot?#iefix') format('embedded-opentype'),
+     url('magnetic-pro-black.woff2') format('woff2'),
+     url('magnetic-pro-black.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
