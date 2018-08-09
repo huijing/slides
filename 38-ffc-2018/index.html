@@ -25,8 +25,10 @@
     <div class="reveal">
       <div class="slides">
         <section>
+          <img class="plain" style="max-width:5em;margin-bottom:1em" data-src="img/boxmodel.svg" alt="Do you Box Model?">
           <h1 style="text-transform:uppercase">Layout the web with CSS grid</h1>
           <h3>and the rest of team layout</h3>
+          <img class="plain" style="max-width:8em;margin-top:1em" data-src="img/teamweb.svg" alt="#TeamWeb">
         </section>
 
         <section>
@@ -44,7 +46,6 @@
 
         <section>
           <section data-backgrond-transition="none">
-          <a href="https://www.w3.org/TR/CSS22/visuren.html"><img data-src="img/spec-vfm.svg" alt="CSS2.2 Visual formatting model" class="plain spec"></a>
           <div style="display:grid;grid-template-columns:40% 60%;justify-content:center">
             <img data-src="img/source.svg" alt="Source document" class="plain" style="max-height:65vh;justify-self:center">
             <img data-src="img/box-tree.svg" alt="Box tree" class="plain fragment" style="max-height:75vh">
@@ -55,17 +56,20 @@
           </aside>
         </section>
 
-        <section>
+        <section data-backgrond-transition="none">
+          <div style="display:grid;grid-template-columns:40% 60%;justify-content:center">
+            <img data-src="img/source.svg" alt="Source document" class="plain" style="max-height:65vh;justify-self:center">
+            <img data-src="img/box-tree-styles.svg" alt="Box tree" class="plain" style="max-height:75vh">
+          </div>
+          <aside class="notes">
+            <p>One of those CSS properties is <code>display</code>, which tells the browser what type of box to generate. So usually, it's a one-element one-box situation, but some values can generate more than one box, like <code>list-item</code>, which generates a principal block box AND a marker box, for the bullet.</p>
+            <p>Then we have values like <code>none</code>, which cause the element not to generate any boxes at all. So that's the generate zero boxes bit. Cleared that up now.</p>
+          </aside>
         </section>
 
         <section>
-          <h2 style="margin-bottom:1em;">Web layouts over the years</h2>
-          <div class="l-multiple">
-            <img class="plain" style="margin:0 0.5em;" data-src="img/layouts1.png" alt="No layout">
-            <img class="plain" style="margin:0 0.5em;" data-src="img/layouts2.png" alt="Table-based layout">
-            <img class="plain" style="margin:0 0.5em;" data-src="img/layouts3.png" alt="Float-based layout">
-            <img class="plain" style="margin:0 0.5em;" data-src="img/layouts4.png" alt="Panel-style from frameworks">
-          </div>
+          <h2 style="margin-bottom:1em;">Evolution of browsers</h2>
+          <img class="plain" data-src="img/browsers.svg" alt="Evolution of browser layout capabilities">
         </section>
 
         <section>
@@ -727,7 +731,7 @@
         </section>
 
         <section style="text-align:left;">
-          <h1>Thank you!</h1>
+          <h1>Salamat!</h1>
           <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a dir="ltr" href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle;">https://www.chenhuijing.com</a></p>
           <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a dir="ltr" href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
           <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a dir="ltr" href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
