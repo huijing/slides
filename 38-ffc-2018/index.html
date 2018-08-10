@@ -33,38 +33,16 @@
 
         <section>
           <h2>Starter files</h2>
-          <p><a href="files/grid-workshop-files.zip">https://www.chenhuijing.com/slides/38-ffc-2018/files/grid-workshop-files.zip</a></p>
+          <p><a href="files/grid-workshop-files.zip">http://bit.ly/ffc9-layout</a></p>
+          <img class="plain" style="max-width:12em" data-src="img/box-friends.svg" alt="Do you Box Model?">
         </section>
 
         <section>
-          <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:50vh 10vh 25vh;justify-items:center;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:65vh 10vh 25vh;justify-items:center;">
             <img class="plain" style="grid-row:1 / 3;grid-column:1 / 3;" data-src="img/nightly.svg" alt="Firefox Nightly">
             <img class="plain fragment" style="grid-row:2 / 4;grid-column:1 / 2;" data-src="img/editor.svg" alt="Text editor">
             <img class="plain fragment" style="grid-row:2 / 4;grid-column:2 / 3;" data-src="img/paper.svg" alt="Pencil and paper">
           </div>
-        </section>
-
-        <section>
-          <section data-backgrond-transition="none">
-          <div style="display:grid;grid-template-columns:40% 60%;justify-content:center">
-            <img data-src="img/source.svg" alt="Source document" class="plain" style="max-height:65vh;justify-self:center">
-            <img data-src="img/box-tree.svg" alt="Box tree" class="plain fragment" style="max-height:75vh">
-          </div>
-          <aside class="notes">
-            <p>Rendering engines parse the source document into objects the browsers can understand, but before it can actually render anything, an intermediary structure, called a box tree, is generated.</p>
-            <p>This is a representation of the formatting structure of the document. CSS will assign a computed value for each CSS property to every element and text node in the source tree.</p>
-          </aside>
-        </section>
-
-        <section data-backgrond-transition="none">
-          <div style="display:grid;grid-template-columns:40% 60%;justify-content:center">
-            <img data-src="img/source.svg" alt="Source document" class="plain" style="max-height:65vh;justify-self:center">
-            <img data-src="img/box-tree-styles.svg" alt="Box tree" class="plain" style="max-height:75vh">
-          </div>
-          <aside class="notes">
-            <p>One of those CSS properties is <code>display</code>, which tells the browser what type of box to generate. So usually, it's a one-element one-box situation, but some values can generate more than one box, like <code>list-item</code>, which generates a principal block box AND a marker box, for the bullet.</p>
-            <p>Then we have values like <code>none</code>, which cause the element not to generate any boxes at all. So that's the generate zero boxes bit. Cleared that up now.</p>
-          </aside>
         </section>
 
         <section>
@@ -73,26 +51,100 @@
         </section>
 
         <section>
-          <h2>Basic terminology</h2>
-          <img style="height:75vh" class="plain" data-src="img/terminology.svg" alt="Grid terminology">
+          <section>
+            <h2 style="text-transform:uppercase">How browsers render stuff</h2>
+            <h4>(and lay them out)</h4>
+          </section>
+
+          <section data-backgrond-transition="none">
+            <div style="display:grid;grid-template-columns:40% 60%;justify-content:center">
+              <img data-src="img/source.svg" alt="Source document" class="plain" style="max-height:65vh;justify-self:center">
+              <img data-src="img/box-tree.svg" alt="Box tree" class="plain fragment" style="max-height:75vh">
+            </div>
+            <aside class="notes">
+              <p>Rendering engines parse the source document into objects the browsers can understand, but before it can actually render anything, an intermediary structure, called a box tree, is generated.</p>
+              <p>This is a representation of the formatting structure of the document. CSS will assign a computed value for each CSS property to every element and text node in the source tree.</p>
+            </aside>
+          </section>
+
+          <section data-backgrond-transition="none">
+            <div style="display:grid;grid-template-columns:40% 60%;justify-content:center">
+              <img data-src="img/source.svg" alt="Source document" class="plain" style="max-height:65vh;justify-self:center">
+              <img data-src="img/box-tree-styles.svg" alt="Box tree" class="plain" style="max-height:75vh">
+            </div>
+            <aside class="notes">
+              <p>One of those CSS properties is <code>display</code>, which tells the browser what type of box to generate. So usually, it's a one-element one-box situation, but some values can generate more than one box, like <code>list-item</code>, which generates a principal block box AND a marker box, for the bullet.</p>
+              <p>Then we have values like <code>none</code>, which cause the element not to generate any boxes at all. So that's the generate zero boxes bit. Cleared that up now.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;grid-template-rows:3fr 1fr 1fr 3fr;grid-template-areas:'a a b b''a a b b''c c d d''c c d d';grid-gap:1em;height:65vh">
+              <h2 style="grid-row:2/4;grid-column:2/4">Layout of boxes</h2>
+              <ul style="display:contents;list-style-type:'📦 ';list-style-position:inside">
+                <li style="grid-area:a;text-align:center" class="fragment">Box dimensions and type</li>
+                <li style="grid-area:b;justify-self:end;text-align:center" class="fragment">Positioning scheme <small>(normal flow / float / absolute positioning)</small></li>
+                <li style="grid-area:c;align-self:end;text-align:center" class="fragment">Relationships between elements in the document tree</li>
+                <li style="grid-area:d;align-self:end;justify-self:end;text-align:center" class="fragment">External information <small>(e.g. viewport size, intrinsic dimensions of images etc.)</small></li>
+              </ul>
+            </div>
+            <aside class="notes">
+              <p>After the browser generates the boxes, it'll have to lay them out, and the layout of these boxes are dependent on several factors:</p>
+              <ul>
+                <li>the box dimensions and type</li>
+                <li>the positioning scheme used</li>
+                <li>relationships between elements in the document tree</li>
+                <li>external information like viewport size, intrinsic dimensions and so on</li>
+              </ul>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Positioning schemes</h2>
+            <div class="l-multiple" style="align-items:center">
+              <figure class="fragment" style="margin-right:1em">
+                <img data-src="img/normal-flow.svg" alt="Normal flow" class="plain" style="height:2.5em">
+                <figcaption>Normal flow</figcaption>
+              </figure>
+              <figure class="fragment" style="margin-right:1em">
+                <img data-src="img/floats.svg" alt="Floats" class="plain" style="height:3em">
+                <figcaption>Floats</figcaption>
+              </figure>
+              <figure class="fragment">
+                <img data-src="img/flex-abs.svg" alt="Absolute positioning" class="plain" style="max-height:8em">
+                <figcaption>Absolute positioning</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">
+              <p>Let's talk positioning schemes first, because there's some terminology introduced here that pretty much sets up the remainder of the talk. There are 3 types of positioning schemes, normal flow, floats and absolute positioning.</p>
+              <p>Boxes in a normal flow will belong to a formatting context. And right now, we have several of those. Relatively positioned boxes remain part of this normal flow.</p>
+              <p>When we float a box, it is first laid out in the normal flow, then taken out of it and shifted as far left, or right, as possible.</p>
+              <p>When a box is absolutely positioned, it's removed from the normal flow altogether, and given a position with respect to its containing box.</p>
+            </aside>
+          </section>
         </section>
 
         <section>
-          <h2>Flexbox and Grid</h2>
-          <p>Based on the container-child relationship</p>
-          <svg width="50%" viewBox="0 0 564 324"><g fill="none" fill-rule="evenodd" transform="translate(5.07 -3)"><rect width="558.051" height="273.508" x="-2.5" y="50.5" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="bevel" rx="3"/><rect width="252.547" height="145.828" x="56.727" y="139.039" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="bevel" rx="3"/><text fill="#000" font-size="50%"><tspan x=".132" y="37">Flex/Grid container</tspan></text><text fill="#000" font-size="50%"><tspan x="59.627" y="125.539">Flex/Grid item</tspan></text></g></svg>
-          <aside class="notes">The first concept to wrap our heads around is the fact that Grid, like Flexbox, operates on the parent-child relationship, whereby, the display property is set on the parent element. This then affects the layout of all that elements immediate children.</aside>
-        </section>
+          <section>
+            <h2>Basic terminology</h2>
+            <img style="height:75vh" class="plain" data-src="img/terminology.svg" alt="Grid terminology">
+          </section>
 
-        <section>
-          <blockquote>“Grid works from the <strong>container</strong> in, other layout methods start with the <strong>item</strong>”<br><small>—<a href="https://rachelandrew.co.uk/">Rachel Andrew</a></small></blockquote>
-          <aside class="notes">
-            <p>My favourite way to explaining the CSS grid mental model comes from Rachel Andrew, who describes it as such: “Grid works from the container in. All other layout techniques start from the item first.”</p>
-            <p>Let’s illustrate this with some simple examples, which will also serve as the introduction to the most basic set up for using CSS grid.</p>
-          </aside>
-        </section>
+          <section>
+            <h2>The container-child relationship</h2>
+            <svg width="50%" viewBox="0 0 564 324"><g fill="none" fill-rule="evenodd" transform="translate(5.07 -3)"><rect width="558.051" height="273.508" x="-2.5" y="50.5" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="bevel" rx="3"/><rect width="252.547" height="145.828" x="56.727" y="139.039" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="bevel" rx="3"/><text fill="#000" font-size="50%"><tspan x=".132" y="37">Flex/Grid container</tspan></text><text fill="#000" font-size="50%"><tspan x="59.627" y="125.539">Flex/Grid item</tspan></text></g></svg>
+            <aside class="notes">The first concept to wrap our heads around is the fact that Grid, like Flexbox, operates on the parent-child relationship, whereby, the display property is set on the parent element. This then affects the layout of all that elements immediate children.</aside>
+          </section>
 
-        <section>
+          <section>
+            <blockquote>“Grid works from the <strong>container</strong> in, other layout methods start with the <strong>item</strong>”<br><small>—<a href="https://rachelandrew.co.uk/">Rachel Andrew</a></small></blockquote>
+            <aside class="notes">
+              <p>My favourite way to explaining the CSS grid mental model comes from Rachel Andrew, who describes it as such: “Grid works from the container in. All other layout techniques start from the item first.”</p>
+              <p>Let’s illustrate this with some simple examples, which will also serve as the introduction to the most basic set up for using CSS grid.</p>
+            </aside>
+          </section>
+
+          <section>
             <h2>Layout technique: <code>inline-block</code></h2>
             <div class="livecode livecode-2p">
               <div class="result inlineblock" style="font-size:75%;">
@@ -101,7 +153,7 @@
               <div class="code"><style class="code-editor" contenteditable="true">.inlineblock__item {
   display: inline-block;
   width: calc(100% / 3);
-}</style></div>
+  }</style></div>
             </div>
             <aside class="notes">The setup here is 6 items we want to place into a column grid. One approach creating such a layout is by using the <code>inline-block</code> technique. For a three column grid, we set the display of the items to <code>inline-block</code> and give them all a width of a third of the container.</aside>
           </section>
@@ -166,7 +218,7 @@
 
         <section>
           <section>
-            <h2>Properties on the Grid container</h2>
+            <h2 style="text-transform:uppercase">Properties on the Grid container</h2>
           </section>
 
           <section>
@@ -351,30 +403,30 @@
 
         <section>
           <section>
-            <h2>Properties on the grid item</h2>
+            <h2 style="text-transform:uppercase">Properties on the grid item</h2>
           </section>
 
           <section>
             <h2>Using <code>grid-column</code> and <code>grid-row</code></h2>
             <div class="livecode livecode-2p">
-              <div class="result grid7" style="font-size:75%;">
-                <div class="grid7__item" style="background-color:dodgerblue;">
-                  <p>🍏</p>
+              <div class="result grid7" style="justify-content:center">
+                <div class="grid7__item" style="border:2px solid darkgrey;display:flex">
+                  <p style="margin:auto">🍏</p>
                 </div>
-                <div class="grid7__item" style="background-color:dodgerblue;">
-                  <p>🍊</p>
+                <div class="grid7__item" style="border:2px solid darkgrey;display:flex">
+                  <p style="margin:auto">🍊</p>
                 </div>
-                <div class="grid7__item" style="background-color:dodgerblue;">
-                  <p>🥥</p>
+                <div class="grid7__item" style="border:2px solid darkgrey;display:flex">
+                  <p style="margin:auto">🥥</p>
                 </div>
-                <div class="grid7__item" style="background-color:dodgerblue;">
-                  <p>🥑</p>
+                <div class="grid7__item" style="border:2px solid darkgrey;display:flex">
+                  <p style="margin:auto">🥑</p>
                 </div>
-                <div class="grid7__item" style="background-color:dodgerblue;">
-                  <p>🍇</p>
+                <div class="grid7__item" style="border:2px solid darkgrey;display:flex">
+                  <p style="margin:auto">🍇</p>
                 </div>
-                <div class="grid7__item" style="background-color:dodgerblue;">
-                  <p>🍌</p>
+                <div class="grid7__item" style="border:2px solid darkgrey;display:flex">
+                  <p style="margin:auto">🍌</p>
                 </div>
               </div>
               <div class="code"><style class="code-editor" contenteditable="true">.grid7 {
@@ -436,7 +488,7 @@
 
         <section>
           <section>
-            <h2>Aligning your grid items</h2>
+            <h2 style="text-transform:uppercase">Making sense of box alignment</h2>
           </section>
 
           <section>

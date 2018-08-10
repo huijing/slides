@@ -78,7 +78,7 @@
 
 39. *WIP* [East Asian typography on the web](https://www.chenhuijing.com/slides/39-refresh-2018)
 
-40. *WIP* [Techspeakers meetup](javascript:void(0))
+40. *WIP* [The case for modern CSS](javascript:void(0))
 
 41. *WIP* [Rich Dynamic Design with Modern CSS](javascript:void(0))
 

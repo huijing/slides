@@ -5,15 +5,15 @@
  */
 
 // Default mixins and settings -----------------
-@import "../template/mixins";
-@import "../template/settings";
+@import '../template/mixins';
+@import '../template/settings';
 // ---------------------------------------------
 
 // Include theme-specific fonts
-@import url(../../lib/font/prospectus/prospectus.css);
+@import url('../../lib/font/prospectus/prospectus.css');
 
 // Theme template ------------------------------
-@import "../template/theme";
+@import '../template/theme';
 // ---------------------------------------------
 
 // Customised styles for this presentation
@@ -49,10 +49,6 @@ html {
     margin-right: 1rem;
   }
 
-  h2 {
-    text-transform: none;
-  }
-
   strong {
     color: $headingColor;
   }
@@ -62,6 +58,7 @@ html {
     text-align: left;
     box-shadow: none;
     line-height: 1.5;
+    font-size: 150%;
 
     small {
       margin-top: 0.5em;
@@ -227,6 +224,7 @@ $logo: (#56aaeb, #256bc4, #9ae0ff, #021c7f, #256bc3, #ffed2a);
 
     @each $colour in $logo {
       $i: index($logo, $colour);
+
       div:nth-child(#{$i}) {
         border: 0.3rem solid $colour;
         border-radius: 0.3rem;

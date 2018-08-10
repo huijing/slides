@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2018 Chen Hui Jing, https://www.chenhuijing.com/
  */
-@import url(../../lib/font/prospectus/prospectus.css);
+@import url("../../lib/font/prospectus/prospectus.css");
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -47,7 +47,7 @@ body {
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: normal;
-  text-transform: uppercase;
+  text-transform: none;
   text-shadow: none;
   word-wrap: break-word; }
 
@@ -284,9 +284,6 @@ html {
   vertical-align: middle;
   margin-right: 1rem; }
 
-.reveal h2 {
-  text-transform: none; }
-
 .reveal strong {
   color: #31a2ac; }
 
@@ -294,7 +291,8 @@ html {
   width: 90%;
   text-align: left;
   box-shadow: none;
-  line-height: 1.5; }
+  line-height: 1.5;
+  font-size: 150%; }
   .reveal blockquote small {
     margin-top: 0.5em; }
 
