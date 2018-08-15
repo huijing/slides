@@ -284,6 +284,21 @@ html {
   vertical-align: middle;
   margin-right: 1rem; }
 
+.reveal .j-stamp {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: rotate(-30deg) translateX(-50%);
+  transform-origin: 0 0;
+  padding: 0.25em;
+  border: 0.2em solid #a70000;
+  color: #a70000;
+  text-shadow: 1px 1px 2px black;
+  box-shadow: 1px 1px 2px black;
+  border-radius: 0.5em;
+  text-transform: uppercase;
+  font-size: 125%; }
+
 .reveal strong {
   color: #31a2ac; }
 
