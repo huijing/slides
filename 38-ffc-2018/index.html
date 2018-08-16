@@ -1126,6 +1126,69 @@
           </section>
 
           <section>
+            <img class="plain" data-src="img/q&a.svg" alt="q&a" style="height:4em;position:fixed;right:0;top:0">
+            <h2 style="text-transform:uppercase">What is the most common mistake developers make when using flexbox?</h2>
+          </section>
+
+          <section>
+            <h2>Not using the <code>flex</code> shorthand</h2>
+            <blockquote>“Authors are encouraged to control flexibility using the <strong>flex shorthand</strong> rather than with its longhand properties directly, as the shorthand <strong>correctly resets</strong> any unspecified components to accommodate common uses.”<br><small>—<a href="https://www.w3.org/TR/css-flexbox-1/#flex-components">CSS Flexible Box Layout Module Level 1</a></small></blockquote>
+          </section>
+
+          <section>
+            <h2>Basic <code>flex</code> keyword values</h2>
+            <table>
+              <tr>
+                <td style="width:12em"><code>initial</code></td>
+                <td style="width:14em"><code>0 1 auto</code></td>
+                <td>cannot grow but can shrink when there isn't enough space</td>
+              </tr>
+              <tr>
+                <td><code>auto</code></td>
+                <td><code>1 1 auto</code></td>
+                <td>can grow and shrink to fit available space</td>
+              </tr>
+              <tr>
+                <td><code>none</code></td>
+                <td><code>0 0 auto</code></td>
+                <td>cannot grow or shrink, AKA inflexible</td>
+              </tr>
+              <tr>
+                <td><code>&lt;positive-number&gt;</code></td>
+                <td><code>&lt;positive-number&gt; 1 0</code></td>
+                <td>can grow and shrink, extent of growth depends on flex factor</td>
+              </tr>
+            </table>
+          </section>
+
+          <section>
+            <blockquote>“When a box is a flex item, flex is consulted instead of the main size property to determine the main size of the box.”<br><small>—<a href="https://www.w3.org/TR/css-flexbox-1/#flex-property">CSS Flexible Box Layout Module Level 1</a></small></blockquote>
+          </section>
+
+          <section>
+            <h2>The <code>flex</code> syntax</h2>
+            <img class="plain" data-src="img/flex-syntax.png" alt="Flex syntax explained"/>
+          </section>
+
+          <section>
+            <pre><code class="css" style="font-size:150%;line-height:1.3">/* One value, unitless number: flex-grow */
+flex: 3;
+
+/* One value, width/height: flex-basis */
+flex: 200px;
+flex: 45em;
+
+/* Two values: flex-grow | flex-basis */
+flex: 1 25ch;
+
+/* Two values: flex-grow | flex-shrink */
+flex: 2 1;
+
+/* Three values: flex-grow | flex-shrink | flex-basis */
+flex: 2 3 30%;</code></pre>
+          </section>
+
+          <section>
             <h2>Aligning with <code>auto</code> margins</h2>
             <div class="livecode livecode-2p">
               <div class="result automargin" style="font-size:75%;">
@@ -1289,13 +1352,88 @@
 
         <section>
           <section>
-            <h2 style="text-transform:uppercase">Falling back with style</h2>
+            <img class="plain" data-src="img/q&a.svg" alt="q&a" style="height:4em;position:fixed;right:0;top:0">
+            <h2 style="text-transform:uppercase">Is it safe to use CSS grid in production?</h2>
+          </section>
+
+          <section>
+            <h2>Falling back with style</h2>
+            <p>Using <code>@supports</code> AKA feature queries</p>
+            <pre><code style="max-height:none;" class="css">.selector {
+  /* Styles that are supported in old browsers */
+}
+
+@supports (property:value) {
+  .selector {
+    /* Styles for browsers that support the specified property */
+  }
+}</code></pre>
+          </section>
+
+          <section>
+            <h2>Diagonal header</h2>
+            <p data-height="500" data-theme-id="9162" data-slug-hash="zdNjEg" data-default-tab="result" data-user="huijing" data-embed-version="2" data-pen-title="The Critical Request header" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/zdNjEg/">The Critical Request header</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
           </section>
         </section>
 
         <section>
           <section>
-            <h2 style="text-transform:uppercase">More examples / demos</h2>
+            <img class="plain" data-src="img/q&a.svg" alt="q&a" style="height:4em;position:fixed;right:0;top:0">
+            <h2 style="text-transform:uppercase">How we can improve design using grids?</h2>
+            <p>and</p>
+            <h2 style="text-transform:uppercase">What are some of the amazing techniques you've seen that use CSS Grid?</h2>
+          </section>
+
+          <section>
+            <h2>Overlap</h2>
+          </section>
+
+          <section>
+            <h2>Vertical whitespace</h2>
+          </section>
+
+          <section>
+            <h2>CSS grid showcase</h2>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr)">
+              <figure>
+                <img class="plain" data-src="img/grid-eg4.jpg" alt="Isometric eCommerce CSSGrid">
+                <figcaption><a href="https://codepen.io/andybarefoot/pen/PBPrex">by Andy Barefoot</a></figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/grid-eg2.jpg" alt="Scantron Answer Sheet (CSS grid demo)">
+                <figcaption><a href="https://codepen.io/jkantner/pen/MGMMVo">by Jon Kantner</a></figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/grid-eg1.jpg" alt="Ikko Tanaka (pure CSS)">
+                <figcaption><a href="https://codepen.io/yuanchuan/pen/MQEeJo">by Yuan Chuan</a></figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/grid-eg4.jpg" alt="CSS Grid as a mask">
+                <figcaption><a href="https://codepen.io/andybarefoot/pen/YEOqpb">by Andy Barefoot</a></figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section>
+            <h2>CSS grid showcase</h2>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr)">
+              <figure>
+                <img class="plain" data-src="img/grid-eg8.jpg" alt="Malerei, Fotografie, Film (pg. 126)">
+                <figcaption><a href="https://codepen.io/huijing/pen/PpqomV">by Chen Hui Jing</a></figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/grid-eg5.jpg" alt="Pure CSS crossword - CSS Grid">
+                <figcaption><a href="https://codepen.io/adrianroworth/pen/OpeyZq">by Adrian Roworth</a></figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/grid-eg6.jpg" alt="Comic book style layout with CSS Grid">
+                <figcaption><a href="https://codepen.io/rrenula/full/LzLXYJ/">by  Aysha Anggraini</a></figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/grid-eg7.jpg" alt="Braun HiFi Steuergerät audio 300">
+                <figcaption><a href="https://codepen.io/huijing/pen/zPoGXw">by Chen Hui Jing</a></figcaption>
+              </figure>
+            </div>
           </section>
 
           <section>
@@ -1306,11 +1444,6 @@
               but don't worry, you can <a href="videos/grid-tycho.mp4">download it</a>
               and watch it with your favourite video player!
             </video>
-          </section>
-
-          <section>
-            <h2>Diagonal header</h2>
-            <p data-height="500" data-theme-id="9162" data-slug-hash="zdNjEg" data-default-tab="result" data-user="huijing" data-embed-version="2" data-pen-title="The Critical Request header" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/zdNjEg/">The Critical Request header</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
           </section>
         </section>
 
