@@ -32,6 +32,11 @@
         </section>
 
         <section>
+          <img class="plain" style="max-width:12em" data-src="img/pal.png" alt="Philippine Airlines">
+          <p>This workshop has been inadvertently brought to you by Philippine Airlines.</p>
+        </section>
+
+        <section>
           <h2>Starter files</h2>
           <p><a href="files/grid-workshop-files.zip">http://bit.ly/ffc9-layout</a></p>
           <img class="plain" style="max-width:12em" data-src="img/box-friends.svg" alt="Do you Box Model?">
@@ -1111,17 +1116,17 @@
                 </div>
               </div>
               <div class="code"><style class="code-editor" contenteditable="true">.directions .wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    writing-mode: horizontal-tb;
-    flex-direction: row;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  writing-mode: horizontal-tb;
+  flex-direction: row;
+}
 
-  .directions .box {
-    height: 6em;
-    width: 6em;
-    border: 1px solid;
-  }</style></div>
+.directions .box {
+  height: 6em;
+  width: 6em;
+  border: 1px solid;
+}</style></div>
             </div>
           </section>
 
@@ -1196,14 +1201,14 @@ flex: 2 3 30%;</code></pre>
                   <img class="plain" data-src="img/box.svg" style="width:4em">
                 </div>
               </div>
-              <div class="code"><style class="code-editor" contenteditable="true">.automargin{
-    display: flex;
-  }
+              <div class="code"><style class="code-editor" contenteditable="true">.automargin {
+  display: flex;
+}
 
-  .automargin div {
-    border: 1px solid;
-    
-  }</style></div>
+.automargin div {
+  border: 1px solid;
+  
+}</style></div>
             </div>
           </section>
 
@@ -1287,19 +1292,19 @@ flex: 2 3 30%;</code></pre>
                 </div>
               </div>
               <div class="code"><style class="code-editor" contenteditable="true">.crossaxis .wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
 
-  .crossaxis .box { border: 1px solid }
-  .crossaxis .box:nth-child(2n) { padding: 2.5em; } 
-  .crossaxis .box:nth-child(3n) { padding: 1.5em; }
-  .crossaxis .box:nth-child(2n+1) { 
-    padding: 0.5em 1.5em 3em;
-    
-  } 
-  .crossaxis .box:nth-child(3n+2) { padding: 3.5em 1em; }</style></div>
+.crossaxis .box { border: 1px solid }
+.crossaxis .box:nth-child(2n) { padding: 2.5em; } 
+.crossaxis .box:nth-child(3n) { padding: 1.5em; }
+.crossaxis .box:nth-child(2n+1) { 
+  padding: 0.5em 1.5em 3em;
+  
+} 
+.crossaxis .box:nth-child(3n+2) { padding: 3.5em 1em; }</style></div>
             </div>
           </section>
 
@@ -1336,17 +1341,21 @@ flex: 2 3 30%;</code></pre>
                 </div>
               </div>
               <div class="code"><style class="code-editor" contenteditable="true">.packaxis .wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: stretch;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
+}
 
-  .packaxis .box {
-    height: 5em;
-    width: 5em;
-    border: 1px solid;
-  }</style></div>
+.packaxis .box {
+  height: 5em;
+  width: 5em;
+  border: 1px solid;
+}</style></div>
             </div>
+          </section>
+
+          <section>
+            <h2>Responsive configuration page</h2>
           </section>
         </section>
 
@@ -1408,7 +1417,7 @@ flex: 2 3 30%;</code></pre>
                 <figcaption><a href="https://codepen.io/yuanchuan/pen/MQEeJo">by Yuan Chuan</a></figcaption>
               </figure>
               <figure>
-                <img class="plain" data-src="img/grid-eg4.jpg" alt="CSS Grid as a mask">
+                <img class="plain" data-src="img/grid-eg3.jpg" alt="CSS Grid as a mask">
                 <figcaption><a href="https://codepen.io/andybarefoot/pen/YEOqpb">by Andy Barefoot</a></figcaption>
               </figure>
             </div>
@@ -1460,8 +1469,44 @@ flex: 2 3 30%;</code></pre>
         </section>
 
         <section>
+          <section>
+            <h2 style="text-transform:uppercase">Creating a non-rectangular web</h2>
+          </section>
+
+          <section>
+            <h2>CSS Shapes</h2>
+          </section>
+
+          <section>
+            <h2>The <code>clip-path</code> property</h2>
+          </section>
+
+          <section>
+            <h2>CSS masking</h2>
+          </section>
+
+          <section>
+            <h2>CSS exclusions</h2>
+          </section>
+
+          <section>
+            <h2>Rectangles are just fine, actually</h2>
+          </section>
+        </section>
+
+        <section>
+          <div style="display:flex;flex-direction:column">
+            <div style="max-height:12em">
+              <img data-src="img/team-sport.png" class="plain" alt="CSS as a team sport">
+            </div>
+            <blockquote style="width:initial">“CSS is a team sport.”
+              <br><small>—<a href="https://twitter.com/hj_chen/status/988577619565137921">Me</a></small></blockquote>
+          </div>
+        </section>
+
+        <section>
           <h2>Useful references</h2>
-          <ul>
+          <ul style="columns:2;font-size:85%">
             <li><a href="https://www.w3.org/TR/css-grid-1/">CSS Grid Layout Module Level 1</a></li>
             <li><a href="https://tympanus.net/codrops/css_reference/grid/">Codrops CSS Grid reference</a></li>
             <li><a href="https://gridbyexample.com/">Grid by Example</a></li>
@@ -1470,9 +1515,13 @@ flex: 2 3 30%;</code></pre>
             <li><a href="https://blogs.igalia.com/svillar/2016/05/10/automatizing-the-grid/">Automatizing the Grid</a></li>
             <li><a href="https://blogs.igalia.com/mrego/2016/02/01/deep-dive-into-grid-layout-placement/">Deep Dive into Grid Layout Placement</a></li>
             <li><a href="https://blogs.igalia.com/mrego/2016/05/27/css-grid-layout-and-positioned-items/">CSS Grid Layout and positioned items</a></li>
+            <li><a href="https://blogs.igalia.com/mrego/2018/08/08/css-logical-properties-and-values-in-chromium/">CSS Logical Properties and Values in Chromium and WebKit</a></li>
+            <li><a href="https://blogs.igalia.com/mrego/2018/08/10/changes-on-css-grid-layout-in-percentages-and-indefinite-height/">Changes on CSS Grid Layout in percentages and indefinite height</a></li>
             <li><a href="https://alistapart.com/article/the-story-of-css-grid-from-its-creators">The Story of CSS Grid, from Its Creators</a></li>
             <li><a href="https://blogs.igalia.com/mrego/2017/03/16/css-grid-layout-is-here-to-stay/">CSS Grid Layout is Here to Stay</a></li>
             <li><a href="https://www.smashingmagazine.com/2016/11/css-grids-flexbox-box-alignment-new-layout-standard/">The New Layout Standard For The Web: CSS Grid, Flexbox And Box Alignment</a></li>
+            <li><a href="https://www.smashingmagazine.com/2018/08/flexbox-display-flex-container/">What Happens When You Create A Flexbox Flex Container?</a></li>
+            <li><a href="https://www.smashingmagazine.com/2018/08/flexbox-alignment/">Everything You Need To Know About Alignment In Flexbox</a></li>
           </ul>
         </section>
 
