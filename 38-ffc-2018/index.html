@@ -605,7 +605,7 @@
         <section>
           <section>
             <h2 style="text-transform:uppercase">Some Grid shorthands</h2>
-            <h4>(because brevity is a virtue…maybe)</h4><span style="font-family:Arial">¯\_(ツ)_/¯</span>
+            <h3>(because brevity is a virtue…maybe)</h3><span style="font-family:Arial">¯\_(ツ)_/¯</span>
           </section>
 
           <section>
@@ -1246,16 +1246,16 @@ flex: 2 3 30%;</code></pre>
                 </div>
               </div>
               <div class="code"><style class="code-editor" contenteditable="true">.mainaxis .wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
 
-  .mainaxis .box {
-    height: 5em;
-    width: 5em;
-    border: 1px solid;
-  }</style></div>
+.mainaxis .box {
+  height: 5em;
+  width: 5em;
+  border: 1px solid;
+}</style></div>
             </div>
           </section>
 
@@ -1297,14 +1297,25 @@ flex: 2 3 30%;</code></pre>
   align-items: flex-start;
 }
 
-.crossaxis .box { border: 1px solid }
-.crossaxis .box:nth-child(2n) { padding: 2.5em; } 
-.crossaxis .box:nth-child(3n) { padding: 1.5em; }
+.crossaxis .box { 
+  border: 1px solid
+}
+
+.crossaxis .box:nth-child(2n) { 
+  padding: 2.5em;
+}
+
+.crossaxis .box:nth-child(3n) { 
+  padding: 1.5em;
+}
+
 .crossaxis .box:nth-child(2n+1) { 
   padding: 0.5em 1.5em 3em;
-  
-} 
-.crossaxis .box:nth-child(3n+2) { padding: 3.5em 1em; }</style></div>
+}
+
+.crossaxis .box:nth-child(3n+2) { 
+  padding: 3.5em 1em;
+}</style></div>
             </div>
           </section>
 
@@ -1356,6 +1367,12 @@ flex: 2 3 30%;</code></pre>
 
           <section>
             <h2>Responsive configuration page</h2>
+            <video controls loop class="video" style="width:40%;">
+              <source data-src="videos/config.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/config.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
           </section>
         </section>
 
@@ -1395,10 +1412,27 @@ flex: 2 3 30%;</code></pre>
 
           <section>
             <h2>Overlap</h2>
+            <div style="width:60%;margin:0 auto">
+              <p data-height="600" data-theme-id="9162" data-slug-hash="mMqpMG" data-default-tab="result" data-user="huijing" data-pen-title="Responsive header example" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/mMqpMG/">Responsive header example</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+            </div>
+          </section>
+
+          <section>
+            <div style="width:60%;margin:0 auto">
+              <p data-height="600" data-theme-id="9162" data-slug-hash="PKOeQV" data-default-tab="result" data-user="huijing" data-pen-title="Grid layout with overlaps" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/PKOeQV/">Grid layout with overlaps</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+            </div>
+          </section>
+
+          <section>
+            <div style="width:60%;margin:0 auto">
+              <p data-height="600" data-theme-id="9162" data-slug-hash="gmOERN" data-default-tab="result" data-user="huijing" data-pen-title="Charles Hayter's colour diagrams" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/gmOERN/">Charles Hayter's colour diagrams</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+            </div>
           </section>
 
           <section>
             <h2>Vertical whitespace</h2>
+            <img class="plain" style="height:75vmin;display:block;margin:0 auto 1em" data-src="img/vertical-whitespace.jpg" alt="Screenshot of Talk.CSS #27 recap">
+            <a href="https://singaporecss.github.io/specials/s2701.html">https://singaporecss.github.io/specials/s2701.html</a>
           </section>
 
           <section>
@@ -1471,10 +1505,22 @@ flex: 2 3 30%;</code></pre>
         <section>
           <section>
             <h2 style="text-transform:uppercase">Creating a non-rectangular web</h2>
+            <h3>(just in case we have time left over)</h3><span style="font-family:Arial">¯\_(ツ)_/¯</span>
           </section>
 
           <section>
             <h2>CSS Shapes</h2>
+            <p>With the <code>shapes-outside</code> property</p>
+            <div class="livecode livecode-2p">
+              <div class="result shapes">
+                <img class="plain" data-src="img/pal.svg" alt="PAL plane">
+                <p>Robusta et coffee body cortado saucer blue mountain single origin. As steamed french press, crema medium et frappuccino extra sweet. Spoon half and half latte in iced whipped aftertaste mazagran milk skinny. That, kopi-luwak, blue mountain sweet brewed extraction, iced dripper carajillo whipped café au lait.</p>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.shapes img {
+  float: left;
+  shape-outside: url('img/pal.svg');
+}</style></div>
+            </div>
           </section>
 
           <section>
