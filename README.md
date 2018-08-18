@@ -74,13 +74,13 @@
 
 37. [Not in Kansas anymore: a new frontier for web design](https://www.chenhuijing.com/slides/37-code-2018)
 
-38. *WIP* [Layout the web with CSS grid](https://www.chenhuijing.com/slides/38-ffc-2018)
+38. [Layout the web with CSS grid](https://www.chenhuijing.com/slides/38-ffc-2018)
 
 39. *WIP* [East Asian typography on the web](https://www.chenhuijing.com/slides/39-refresh-2018)
 
-40. *WIP* [The case for modern CSS](javascript:void(0))
+40. *WIP* [The case for modern CSS](https://www.chenhuijing.com/slides/40-ts-meetup-2018)
 
-41. *WIP* [Rich dynamic design with modern CSS](javascript:void(0))
+41. *WIP* [Rich dynamic design with modern CSS](https://www.chenhuijing.com/slides/41-w3c-workshop-2018)
 
 42. *WIP* [Typesetting East Asian languages on the web](javascript:void(0))
 
