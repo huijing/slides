@@ -80,7 +80,7 @@
 
 40. *WIP* [The case for modern CSS](javascript:void(0))
 
-41. *WIP* [Rich Dynamic Design with Modern CSS](javascript:void(0))
+41. *WIP* [Rich dynamic design with modern CSS](javascript:void(0))
 
 42. *WIP* [Typesetting East Asian languages on the web](javascript:void(0))
 

@@ -1,3 +1,3 @@
-# Grid is the new black
+# Layout the web with CSS Grid (and friends)
 
-At JSConf.Asia, 26 January 2018.
+At Form Function & Class 9, 18 August 2018.
