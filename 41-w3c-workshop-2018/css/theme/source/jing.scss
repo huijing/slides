@@ -56,10 +56,6 @@ html {
     margin-right: 1rem;
   }
 
-  h2 {
-    text-transform: none;
-  }
-
   strong {
     color: $headingColor;
   }
@@ -82,22 +78,6 @@ html {
 
   td {
     vertical-align: middle;
-  }
-
-  .j-stamp {
-    position:absolute;
-    top: 0;
-    left: 30%;
-    transform:rotate(-30deg);
-    background-color: #fff;
-    padding: 0.25em;
-    border: 0.2em solid #ff4f5e;
-    color: #ff4f5e;
-    text-shadow: 1px 1px 2px #000;
-    box-shadow: 1px 1px 2px #000;
-    border-radius: 0.5em;
-    text-transform: uppercase;
-    font-size: 125%;
   }
 }
 

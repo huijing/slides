@@ -18,7 +18,7 @@ $headingFont: 'Zilla Slab', serif;
 $headingColor: #ff4f5e;
 $headingLineHeight: 1.2;
 $headingLetterSpacing: normal;
-$headingTextTransform: uppercase;
+$headingTextTransform: normal;
 $headingTextShadow: none;
 $headingFontWeight: 700;
 $heading1TextShadow: $headingTextShadow;
@@ -39,5 +39,5 @@ $selectionColor: #000;
 // Generates the presentation background, can be overridden
 // to return a background image or gradient
 @mixin bodyBackground() {
-	background: $backgroundColor;
+  background: $backgroundColor;
 }

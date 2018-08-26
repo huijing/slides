@@ -28,8 +28,8 @@ body {
   background: rgba(0, 0, 0, 0.75);
   text-shadow: none; }
 
-.reveal .slides > section,
-.reveal .slides > section > section {
+.reveal .slides section,
+.reveal .slides section > section {
   line-height: 1.3;
   font-weight: inherit; }
 
@@ -126,6 +126,7 @@ body {
   width: 70%;
   margin: 20px auto;
   padding: 5px;
+  font-style: italic;
   background: rgba(255, 255, 255, 0.05);
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2); }
 
@@ -156,8 +157,8 @@ body {
   display: block;
   padding: 5px;
   overflow: auto;
-  word-wrap: normal;
-  height: 100%; }
+  max-height: 400px;
+  word-wrap: normal; }
 
 .reveal table {
   margin: auto;
@@ -186,10 +187,12 @@ body {
   border-bottom: none; }
 
 .reveal sup {
-  vertical-align: super; }
+  vertical-align: super;
+  font-size: smaller; }
 
 .reveal sub {
-  vertical-align: sub; }
+  vertical-align: sub;
+  font-size: smaller; }
 
 .reveal small {
   display: inline-block;
@@ -260,6 +263,13 @@ body {
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
 
+/*********************************************
+ * PRINT BACKGROUND
+ *********************************************/
+@media print {
+  .backgrounds {
+    background-color: #fafffa; } }
+
 section.inverse, section.inverse h1, section.inverse h2, section.inverse h3, section.inverse h4, section.inverse h5, section.inverse h6 {
   color: #fafffa; }
 
@@ -287,9 +297,6 @@ html {
   vertical-align: middle;
   margin-right: 1rem; }
 
-.reveal h2 {
-  text-transform: none; }
-
 .reveal strong {
   color: #372822; }
 
@@ -307,21 +314,6 @@ html {
 
 .reveal td {
   vertical-align: middle; }
-
-.reveal .j-stamp {
-  position: absolute;
-  top: 0;
-  left: 30%;
-  transform: rotate(-30deg);
-  background-color: #fff;
-  padding: 0.25em;
-  border: 0.2em solid #ff4f5e;
-  color: #ff4f5e;
-  text-shadow: 1px 1px 2px #000;
-  box-shadow: 1px 1px 2px #000;
-  border-radius: 0.5em;
-  text-transform: uppercase;
-  font-size: 125%; }
 
 span.emoji {
   font-family: 'Apple Color Emoji', 'Segoe UI Emoji';

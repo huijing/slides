@@ -1,23 +1,22 @@
 <!doctype html>
 <html>
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
     <title>The case for modern CSS</title>
     <meta name="description" content="The days of being frustrated by the limitations of CSS are over. Modern CSS now empowers designers and developers with the tools they need to create for a medium as dynamic as the web.">
-
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/jing.css">
-
+    <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
-
+    <!-- Printing and PDF exports -->
     <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
     </script>
   </head>
 
@@ -27,11 +26,22 @@
         <section>
           <h1 style="text-transform:uppercase">The case for modern CSS</h1>
           <img class="plain" style="height: 5em;" data-src="img/techspeakers.png" alt="Mozilla TechSpeakers">
-          <aside class="notes">
-            <p>Hello everyone! My name is Hui Jing and I'm a front-end developer based in Singapore at the moment. Today I'm going to be presenting an elevator pitch on the case for modern CSS.</p>
-          </aside>
+          <aside class="notes">Hello everyone! My name is Hui Jing and I'm a front-end developer based in Singapore at the moment. Today I'm going to be presenting an elevator pitch on the case for modern CSS.</aside>
         </section>
-
+        <section>
+          <div class="l-multiple">
+            <div style="margin:0 0.5em;">
+              <img class="plain" data-src="img/meme1.jpg" alt="Writing CSS meme">
+            </div>
+            <div style="margin:0 0.5em;">
+              <img class="plain" data-src="img/meme2.jpg" alt="CSS floats meme">
+            </div>
+            <div style="margin:0 0.5em;">
+              <img class="plain" data-src="img/meme3.png" alt="CSS inheritence meme">
+            </div>
+          </div>
+          <aside class="notes">How many people here have used CSS in their projects? And how many of these memes are familiar to you? Personally, I don't like these memes very much. And I do recognise that I am very fond of CSS, and may be slightly biased toward it, I feel CSS unfairly bears the brunt of many such jokes.</aside>
+        </section>
         <section style="text-align:left;">
           <h1>Merci!</h1>
           <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle;">https://www.chenhuijing.com</a></p>
@@ -42,23 +52,25 @@
           <aside class="notes"></aside>
         </section>
       </div>
-
       <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em;"><span>https://www.chenhuijing.com/slides/40-ts-meetup-2018</span><span style="text-align:right;">@hj_chen</span></footer>
     </div>
-
     <script src="lib/js/head.min.js"></script>
-    <script src="lib/js/caniuse-embed.min.js"></script>
     <script src="js/reveal.js"></script>
-
+    <script src="lib/js/caniuse-embed.min.js"></script>
+    <script async src="lib/js/ei.js"></script>
     <script>
-      Reveal.initialize({
-        dependencies: [
-          { src: 'plugin/markdown/marked.js' },
-          { src: 'plugin/markdown/markdown.js' },
-          { src: 'plugin/notes/notes.js', async: true },
-          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-        ]
-      });
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      dependencies: [
+        { src: 'plugin/markdown/marked.js' },
+        { src: 'plugin/markdown/markdown.js' },
+        { src: 'plugin/notes/notes.js', async: true },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+      ]
+    });
     </script>
   </body>
+
 </html>
