@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'Farro';
+    src: url('farro-light.woff2') format('woff2'),
+         url('farro-light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Farro';
+    src: url('farro-bold.woff2') format('woff2'),
+         url('farro-bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Farro';
+    src: url('linbiolinum_r.woff2') format('woff2'),
+         url('linbiolinum_r.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    unicode-range: U+0407, U+0412, U+0413, U+0414, U+0416, U+041C, U+0425, U+0427, U+0428, U+0430, U+0433, U+0434, U+0435, U+0436, U+0437, U+0438, U+0439, U+043C, U+043D, U+043E, U+0441, U+0443, U+0445, U+0446, U+044F, U+0456;
+}
+
+@font-face {
+    font-family: 'Farro';
+    src: url('linbiolinum_rb.woff2') format('woff2'),
+         url('linbiolinum_rb.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    unicode-range: U+0021, U+0414, U+043A, U+0443, U+044E, U+044F;
+}
