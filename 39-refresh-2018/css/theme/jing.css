@@ -348,3 +348,30 @@ span[role=img][aria-label]:hover::after {
   padding: 0.25em;
   border: 1px solid #eaf6ff;
   box-shadow: 2px 2px 4px #232528; }
+
+.rainbow {
+  animation: rainbow 10s infinite; }
+
+@keyframes rainbow {
+  0% {
+    fill: tomato; }
+  10% {
+    fill: orange; }
+  20% {
+    fill: yellow; }
+  30% {
+    fill: chartreuse; }
+  40% {
+    fill: mediumspringgreen; }
+  50% {
+    fill: lightseagreen; }
+  60% {
+    fill: turquoise; }
+  70% {
+    fill: deepbluesky; }
+  80% {
+    fill: mediumslateblue; }
+  90% {
+    fill: violet; }
+  100% {
+    fill: tomato; } }
