@@ -245,8 +245,8 @@
               </table>
             </div>
             <aside class="notes">
-              <p>This is just a small sampling of a bunch of different alphabets. And before I got here, I tried to learn a little bit more about the Estonian language. Basic phrases like wei-das-sun-si-nu-ni-mi.</p>
-              <p>If that wasn't quite right, I apologise for butchering your beautiful language. But I did learn that the Estonian alphabet has 27 letters, of which 4 are only used in loanwords.</p>
+              <p>This is just a small sampling of a bunch of different alphabets. And before I got here, I tried to learn a little bit more about the Estonian language. Basic phrases like yat-koo lay-bah.</p>
+              <p>What can I say? Food is important to me. Along the way, I learnt that the Estonian alphabet has 27 letters, of which 4 are only used in loanwords.</p>
               <p>The Hebrew alphabet has 22 letters, Arabic has 28 letters and English has 26. The point I'm trying to make here is that alphabetic writing systems utilise a small set of letters to form all the words the language needs for the purpose of communication.</p>
             </aside>
           </section>
@@ -269,7 +269,7 @@
               <p>Sagedussõnastik<br><small>(Estonian) 15 letters</small></p>
               <p class="fragment"><span class="j-vert" style="justify-self:center" lang="zh-hans">词典</span></p>
             </div>
-            <aside class="notes">sa-geh-dus-sher-nas-tik, a 15-letter Estonian word. In Chinese, 词典.</aside>
+            <aside class="notes">Sagedussõnastik (sa-geh-dus-ser-nas-tik), a 15-letter Estonian word. In Chinese, 词典.</aside>
           </section>
 
           <section data-background-image="img/photography.jpg">
@@ -338,7 +338,7 @@
                 <figcaption>Hei Ti</figcaption>
               </figure>
             </div>
-            <aside class="notes">These days, typefaces used for printing Chinese publications can be broadly classified into these four families: 宋体, 楷体, 仿宋体 and 黑体.</aside>
+            <aside class="notes">While Latin-based scripts are classified into sans-serif and serif typefaces, Chinese has its own script classifications. These 4 are mainly used for printing Chinese publications nowadays. 宋体, 楷体, 仿宋体 and 黑体.</aside>
           </section>
 
           <section data-background-image="img/process.jpg">
@@ -526,10 +526,10 @@
               </p>
             </div>
             <aside class="notes">
-              <p>On the practical side of things, we use the <code>@font-face</code> rule to declare a list of different font formats in the hopes that our fonts will show up correctly in as many browsers as possible. Nowadays, it's safe enough to declare just WOFF and WOFF2.</p>
+              <p>On the practical side of things, we use the <code>@font-face</code> rule to declare a list of different font formats for browser support but nowadays, it's safe enough to declare just WOFF and WOFF2.</p>
               <p>The <code>@font-face</code> rule has many descriptors but only <code>font-family</code> and <code>src</code>, are mandatory.</p>
-              <p>If either of them are absent, the entire <code>@font-face</code> rule block is ignored. The <code>font-family</code> descriptor is simply a label that we reference in other CSS declarations. So maybe you're using Helvetica, you don't have to put “Helvetica” as the descriptor, вареники (va-re-ny-ky) would work just fine.</p>
-              <p>The <code>src</code> descriptor tells the browser where to find the font file, it could be an external reference, or a locally installed font. It also includes an optional format hint. If the browser doesn't support a particular font format stated in that hint, it won't bother loading the font at all.</p>
+              <p>The <code>font-family</code> descriptor is simply a label that we reference in other CSS declarations. So maybe you're using Helvetica, you don't have to put “Helvetica” as the descriptor. You could call it “Buratino” if you wanted.</p>
+              <p>The <code>src</code> descriptor tells the browser where to find the font file, it could be an external URL, or a local font. It also includes an optional format hint. If the browser doesn't support a particular font format stated in that hint, it won't bother looking for the font at all.</p>
             </aside>
           </section>
 
@@ -564,8 +564,8 @@
 }</code></pre>
             <aside class="notes">
               <p>Then we have the <code>unicode-range</code> descriptor. which allows us to create composite fonts that mix glyphs from different fonts for different scripts.</p>
-              <p>Earlier this year, I got the chance to speak in Kyiv, and my presentation was set using the font Infini, which unfortunately does not support Cyrillic letters. So I used the <code>unicode-range</code> descriptor to tell my browser to load the Linux Biolinum font when it encounters any Cyrillic characters.</p>
-              <p>Remember that for font-face rules, the font-family is simply a label, so what I've done here is created a composite font that uses the name Infini, but in actuality, loads 2 different font files depending on what characters need to be displayed.</p>
+              <p>Earlier this year, I got the chance to speak in Kyiv, and my presentation was set using the font, <em>Infini</em>, which unfortunately does not support Cyrillic letters. So I used the <code>unicode-range</code> descriptor to tell my browser to load a second font that did, when it encountered any Cyrillic characters.</p>
+              <p>Remember that for font-face rules, the font-family is simply a label, so what I've done here is created a composite font that uses the name <em>Infini</em>, but in actuality, loads 2 different font files depending on what characters need to be displayed.</p>
             </aside>
           </section>
 
@@ -628,6 +628,7 @@
             <aside class="notes">
               <p>CSS font properties are our typesetting tools for the web. When you use them in your CSS declarations, imagine that you're running your own printing workshop. And you're telling your apprentice, in this case, the browser, that you need a font which is a particular size, style, weight and so on.</p>
               <p>Your apprentice then runs off to the back room, where all the fonts are kept, and tries to find the font that best matches your instructions based on their descriptors, which were assigned in the @font-face rule.</p>
+              <p>Let's look at one which isn't that commonly used at the moment, <code>font-synthesis</code>.</p>
             </aside>
           </section>
 
@@ -685,7 +686,7 @@
             <aside class="notes">
               <p>Font feature properties were introduced in Fonts Level 3. allowing us to utilise a variety of typographic features like swashes, ligatures, old-style numerals and so on.</p>
               <p>Reading text that is typeset well, through use of features like small caps, italics and proper punctuation, is like listening to a compelling speech.</p>
-              <p>Other features like old style numerals and ligatures help maintain typographic colour and enhance the reading experience..</p>
+              <p>Other features like old style numerals and ligatures help maintain typographic colour and enhance the reading experience, which is necessary to hold your readers' attention.</p>
               <p>As long as the font you're using supports these features, we can toggle them with CSS.</p>
             </aside>
           </section>
@@ -744,7 +745,7 @@
                 <figcaption style="font-size:75%"><a href="https://v-fonts.com">https://v-fonts.com</a> by Nick Sherman</figcaption>
               </figure>
             </div>
-            <aside class="notes">If you're interested in playing around with variable fonts, here are a few apps that let you do just that.</aside>
+            <aside class="notes">If you're interested in playing around with variable fonts, here are a few apps that let you do just that. Axis Praxis, I think, was the first of such apps. The latest addition is the one in the middle, Font Playground, by Zhang Wenting.</aside>
           </section>
         </section>
 
@@ -856,7 +857,7 @@
               <div class="fragment" style="margin-bottom:1em;writing-mode:vertical-rl;font-family:'PingFang SC';font-size:175%"><span>列支敦斯登<span style="text-combine-upright:all">Liechtenstein</span></span></div>
             </div>
             <aside class="notes">
-              <p>One of the proposed values is <code>digits</code>, which controls how many glyphs we can squeeze into that tiny one-character space, but not browser supports it yet. So we only have the <code>all</code> value at the moment.</p>
+              <p>One of the proposed values is <code>digits</code>, which controls limits the number of glyphs we can squeeze into that tiny one-character space to between 2 and 4, but no browser supports it yet. We only have the <code>all</code> value at the moment.</p>
               <p>And it works fairly well, good support all around, as you can see here. Though when the word gets longer, things get a bit, tight. So maybe, don't do it for really long words?</p>
             </aside>
           </section>
@@ -1074,7 +1075,7 @@
         </section>
       </div>
 
-      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://www.chenhuijing.com/slides/38-refresh-2018</span><span style="text-align:right">@hj_chen</span></footer>
+      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://www.chenhuijing.com/slides/39-refresh-2018</span><span style="text-align:right">@hj_chen</span></footer>
     </div>
 
     <script src="lib/js/head.min.js"></script>
