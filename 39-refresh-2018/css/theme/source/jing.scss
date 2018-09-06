@@ -82,7 +82,7 @@ html {
     vertical-align: middle;
   }
 
-  img {
+  img[src*="svg"] {
     max-height: 75vh;
   }
 }
@@ -124,15 +124,26 @@ span[role=img][aria-label]:hover::after {
 }
 
 @keyframes rainbow {
-  0%   { fill: tomato; }
-  10%  { fill: orange; }
-  20%  { fill: yellow; }
-  30%  { fill: chartreuse; }
-  40%  { fill: mediumspringgreen; }
-  50%  { fill: lightseagreen; }
-  60%  { fill: turquoise; }
-  70%  { fill: deepbluesky; }
-  80%  { fill: mediumslateblue; }
-  90%  { fill: violet; }
-  100% { fill: tomato; }
+  0%   { fill: tomato }
+  10%  { fill: orange }
+  20%  { fill: yellow }
+  30%  { fill: chartreuse }
+  40%  { fill: mediumspringgreen }
+  50%  { fill: lightseagreen }
+  60%  { fill: turquoise }
+  70%  { fill: deepbluesky }
+  80%  { fill: mediumslateblue }
+  90%  { fill: violet }
+  100% { fill: tomato }
+}
+
+// Rainbow colour change ---------------------
+.dancing-emoji {
+  animation: dance 1s ease-in-out infinite;
+  display: inline-flex;
+}
+@keyframes dance {
+  0%   { transform: rotate(-10deg) }
+  50%  { transform: rotate(10deg) }
+  100% { transform: rotate(-10deg) }
 }
