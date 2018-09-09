@@ -124,10 +124,7 @@ body {
   position: relative;
   width: 70%;
   margin: 20px auto;
-  padding: 5px;
-  font-style: italic;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2); }
+  padding: 5px; }
 
 .reveal blockquote p:first-child,
 .reveal blockquote p:last-child {
@@ -232,7 +229,8 @@ body {
 
 .reveal section img.plain {
   border: 0;
-  box-shadow: none; }
+  box-shadow: none;
+  background: none; }
 
 .reveal a img {
   -webkit-transition: all .15s linear;
@@ -271,7 +269,8 @@ body {
 
 html {
   box-sizing: border-box;
-  height: 100%; }
+  height: 100%;
+  font-size: 125%; }
 
 *,
 *::before,
@@ -301,9 +300,24 @@ html {
   text-align: left;
   box-shadow: none;
   line-height: 1.5;
-  font-size: 120%; }
-  .reveal blockquote small {
-    margin-top: 0.5em; }
+  font-size: 120%;
+  position: relative; }
+  .reveal blockquote p::before {
+    position: absolute;
+    top: -0.25em;
+    left: -0.5em;
+    font-size: 2.5em;
+    font-family: Georgia, serif;
+    content: '\201C';
+    opacity: 0.5; }
+  .reveal blockquote p::after {
+    position: absolute;
+    bottom: 0;
+    right: 0.3em;
+    font-size: 2.5em;
+    font-family: Georgia, serif;
+    content: '\201D';
+    opacity: 0.5; }
 
 .reveal figcaption {
   font-style: italic; }
@@ -390,3 +404,15 @@ span[role=img][aria-label]:hover::after {
   height: 75vh; }
   .vidcode video {
     align-self: center; }
+
+.dancing-emoji {
+  animation: dance 1s ease-in-out infinite;
+  display: inline-flex; }
+
+@keyframes dance {
+  0% {
+    transform: rotate(-10deg); }
+  50% {
+    transform: rotate(10deg); }
+  100% {
+    transform: rotate(-10deg); } }

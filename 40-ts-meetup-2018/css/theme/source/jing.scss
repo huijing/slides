@@ -20,6 +20,7 @@
 html {
   box-sizing: border-box;
   height: 100%;
+  font-size: 125%;
 }
 
 *,
@@ -59,9 +60,26 @@ html {
     box-shadow: none;
     line-height: 1.5;
     font-size: 120%;
+    position: relative;
 
-    small {
-      margin-top: 0.5em;
+    p::before {
+      position: absolute;
+      top: -0.25em;
+      left: -0.5em;
+      font-size: 2.5em;
+      font-family: Georgia, serif;
+      content: '\201C';
+      opacity: 0.5;
+    }
+
+    p::after {
+      position: absolute;
+      bottom: 0;
+      right: 0.3em;
+      font-size: 2.5em;
+      font-family: Georgia, serif;
+      content: '\201D';
+      opacity: 0.5;
     }
   }
 
@@ -179,4 +197,15 @@ span[role=img][aria-label]:hover::after {
   video {
     align-self: center;
   }
+}
+
+// Dancing emoji ---------------------
+.dancing-emoji {
+  animation: dance 1s ease-in-out infinite;
+  display: inline-flex;
+}
+@keyframes dance {
+  0%   { transform: rotate(-10deg) }
+  50%  { transform: rotate(10deg) }
+  100% { transform: rotate(-10deg) }
 }
