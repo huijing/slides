@@ -209,7 +209,17 @@ h2 {
 
           <section>
             <h2>Styles for every browser</h2>
-            <aside class="notes"></aside>
+            <div class="l-double">
+              <figure>
+                <img class="plain" data-src="img/no-supports.png" alt="Universal layout">
+                <figcaption>Browsers that don't support feature queries</figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/yes-supports.png" alt="Enhanced layout">
+                <figcaption>Browsers that do support feature queries</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">Making use of the cascade is a key feature here. Universal styles first, so even if the browser does <strong>not</strong> support feature queries, you're still safe.</aside>
           </section>
 
           <section>
