@@ -267,6 +267,9 @@ body {
   .backgrounds {
     background-color: #fff; } }
 
+:root {
+  --accent-colour: #ff4f5e; }
+
 html {
   box-sizing: border-box;
   height: 100%;
@@ -319,11 +322,8 @@ html {
     content: '\201D';
     opacity: 0.5; }
 
-.reveal figcaption {
-  font-style: italic; }
-
-.reveal td {
-  vertical-align: middle; }
+.reveal h2 {
+  color: var(--accent-colour, #ff4f5e); }
 
 span.emoji {
   font-family: 'Apple Color Emoji', 'Segoe UI Emoji';
@@ -357,41 +357,15 @@ span[role=img][aria-label]:hover::after {
   grid-gap: 0.5em;
   margin: 0;
   padding: 0; }
-  .livecode .result {
-    max-height: 100%;
-    overflow-y: scroll;
-    width: 100%;
-    border: 1px dashed #ff4f5e; }
-    .livecode .result li {
-      line-height: 0; }
-    .livecode .result p {
-      margin: 0;
-      padding: 0; }
   .livecode .code {
     text-align: left;
     width: 100%;
     font-family: monospace;
     color: #efdcbc;
     background-color: #3f3f3f;
-    font-size: 50%;
     padding: 0.5em;
     border-radius: 0.25em;
     overflow-y: scroll; }
-
-.livecode-2p {
-  grid-template-columns: 65% calc(35% - 0.5em);
-  height: 60vh; }
-
-.livecode-3p {
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 2fr 1fr;
-  grid-template-areas: 'a b' 'a c'; }
-  .livecode-3p .markup {
-    grid-area: a; }
-  .livecode-3p .result {
-    grid-area: b; }
-  .livecode-3p .code {
-    grid-area: c; }
 
 .code-editor {
   display: block;

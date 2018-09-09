@@ -17,6 +17,10 @@
 // ---------------------------------------------
 
 // Customised styles for this presentation
+:root {
+  --accent-colour: #{$headingColor};
+}
+
 html {
   box-sizing: border-box;
   height: 100%;
@@ -83,12 +87,8 @@ html {
     }
   }
 
-  figcaption {
-    font-style: italic;
-  }
-
-  td {
-    vertical-align: middle;
+  h2 {
+    color: var(--accent-colour, #{$headingColor})
   }
 }
 
@@ -130,56 +130,15 @@ span[role=img][aria-label]:hover::after {
   margin: 0;
   padding: 0;
 
-  .result {
-    max-height: 100%;
-    overflow-y: scroll;
-    width: 100%;
-    border: 1px dashed $headingColor;
-
-    li {
-      line-height: 0;
-    }
-
-    p {
-      margin: 0;
-      padding: 0;
-    }
-  }
-
   .code {
     text-align: left;
     width: 100%;
     font-family: monospace;
     color: #efdcbc;
     background-color: #3f3f3f;
-    font-size: 50%;
     padding: 0.5em;
     border-radius: 0.25em;
     overflow-y: scroll;
-  }
-}
-
-.livecode-2p {
-  grid-template-columns: 65% calc(35% - 0.5em);
-  height: 60vh;
-}
-
-.livecode-3p {
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 2fr 1fr;
-  grid-template-areas: 'a b'
-                       'a c';
-
-  .markup {
-    grid-area: a;
-  }
-
-  .result {
-    grid-area: b;
-  }
-
-  .code {
-    grid-area: c;
   }
 }
 

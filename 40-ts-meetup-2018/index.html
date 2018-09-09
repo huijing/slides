@@ -114,22 +114,121 @@
             </div>
             <aside class="notes">If you're new to Grid, it's a 2-step process. Define your grid, then place items in it. That's the gist of it. The beauty of grid is that it can be as simple as you need, but also as elaborate as you want.</aside>
           </section>
+
+          <section>
+            <h2>From the simple…</h2>
+            <pre style="font-size:65%;"><code class="css" style="font-size: 90%;">.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+}</code></pre>
+            <video controls loop autoplay class="video" style="width:70%;">
+              <source data-src="videos/responsive-grid.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/responsive-grid.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <aside class="notes">You need all of 2 lines for a fully responsive grid. Media queries not required.</aside>
+          </section>
+
+          <section>
+            <h2>…to the elaborate</h2>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr)">
+              <figure>
+                <img class="plain" data-src="img/grid-eg4.jpg" alt="Isometric eCommerce CSSGrid">
+                <figcaption><a href="https://codepen.io/andybarefoot/pen/PBPrex">by Andy Barefoot</a></figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/grid-eg2.jpg" alt="Scantron Answer Sheet (CSS grid demo)">
+                <figcaption><a href="https://codepen.io/jkantner/pen/MGMMVo">by Jon Kantner</a></figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/grid-eg1.jpg" alt="Ikko Tanaka (pure CSS)">
+                <figcaption><a href="https://codepen.io/yuanchuan/pen/MQEeJo">by Yuan Chuan</a></figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/grid-eg3.jpg" alt="CSS Grid as a mask">
+                <figcaption><a href="https://codepen.io/andybarefoot/pen/YEOqpb">by Andy Barefoot</a></figcaption>
+              </figure>
+            </div>
+            <aside class="notes">And if you need full-scale art-directed page layouts, grid definitely has you covered as well.</aside>
+          </section>
         </section>
 
         <section>
           <section>
             <h2>#2: CSS Custom Properties</h2>
-            <aside class="notes">Anybody in the room uses preprocessors for their styles? One of the key reasons a lot of us use them, is the ability to define and utilise variables.</aside>
+            <p>Provides us <strong>dynamic</strong> variables in native CSS, comes with scoping, inheritance and the cascade.</p>
+            <aside class="notes">
+              <p>Anybody in the room uses preprocessors for their styles? One of the key reasons a lot of us use them, is the ability to define and utilise variables. But those variables are static, you can't change them on the fly with Javascript, because they have to compiled into CSS to take effect.</p>
+              <p>Custom properties, on the other hand, are dynamic. And that opens up a lot of possibilities.</p>
+            </aside>
+          </section>
+
+          <section class="variable">
+            <h2>Modify variable values on the fly</h2>
+            <pre style="width:auto;display:inline-block;margin-bottom:2em"><code style="padding:0.5em" class="css">/* CSS that is applied to this presentation */
+:root {
+  --accent-colour: #ff4f5e
+}
+
+h2 {
+  color: var(--accent-colour, #ff4f5e)
+}</code></pre>
+            <div class="livecode">
+              <div class="code"><style class="code-editor" contenteditable="true">h2 {
+  --accent-colour: #ff4f5e;
+}</style></div>
+            <p><small>Credit to <a href="https://www.madebymike.com.au/">Mike Riethmuller</a> for inspiring this live demo</small></p>
+            <aside class="notes"></aside>
           </section>
         </section>
 
         <section>
           <section>
             <h2>#3: Feature Queries</h2>
+            <p>Built-in <strong>feature detection</strong> with native CSS</p>
             <aside class="notes">
               <p>Feature queries are the unsung hero of this lot. Browsers started implementing it late 2012, but people started talking about it more only after Grid officially shipped. Because Grid was a great use-case for feature queries.</p>
               <p>Feature detection in native CSS, what's not to like?</p>
             </aside>
+          </section>
+
+          <section>
+            <h2>Using <code>@supports</code> (AKA feature queries)</h2>
+            <pre><code style="max-height:none;" class="css">.selector {
+  /* Styles that are supported in old browsers */
+}
+
+@supports (property:value) {
+  .selector {
+    /* Styles for browsers that support the specified property */
+  }
+}</code></pre>
+            <aside class="notes">We start off with basic styles that work universally across all browsers. Then add on styles, not per browser, but per feature we want to enhance our design with. Browsers that don't support the feature in question simply ignore the entire code block. Thus avoiding the issue of half-applied styles breaking your beautiful page.</aside>
+          </section>
+
+          <section>
+            <h2>Styles for every browser</h2>
+            <aside class="notes"></aside>
+          </section>
+
+          <section>
+            <h2>Self-updating designs</h2>
+            <div class="l-multiple">
+              <figure>
+                <img class="plain" style="max-width:6.5em" data-src="img/pre-52.png" alt="Wismut Labs website pre v52 Firefox">
+                <figcaption>Pre v52 (before Grid)</figcaption>
+              </figure>
+              <figure>
+                <img class="plain" style="max-width:6.5em" data-src="img/pre-62.png" alt="Wismut Labs website pre v62 Firefox">
+                <figcaption>Pre v62 (before Shapes)</figcaption>
+              </figure>
+              <figure>
+                <img class="plain" style="max-width:6.5em" data-src="img/current.png" alt="Wismut Labs website post v62 Firefox">
+                <figcaption>Current</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">I built a website a while ago that uses a number of relatively newer CSS features, like Grid and Shapes and so on. I did not modify the code since I launched it, but its design has evolved every time Firefox updates to support more CSS features.</aside>
           </section>
         </section>
 
@@ -223,7 +322,7 @@
               </li>
             </ul>
           </div>
-          <aside class="notes">For a short talk of 7 minutes, this is my cop-out slide. Each CSS feature I mentioned could warrant full length talks on their own, so here's a list of resources that go into much greater depth. Hopefully, I piqued the curiosity of at least 1 of you.</aside>
+          <aside class="notes">For a short talk of 7 minutes, this is my cop-out slide. Each CSS feature I mentioned could warrant full length talks on their own, so here's a list of resources that go into each topic with much greater depth. Hopefully, I piqued the curiosity of at least 1 of you to want to find out more.</aside>
         </section>
 
         <section data-background-image="img/cascade.jpg">
