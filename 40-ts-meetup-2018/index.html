@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>The case for modern CSS</title>
     <meta name="description" content="The days of being frustrated by the limitations of CSS are over. Modern CSS now empowers designers and developers with the tools they need to create for a medium as dynamic as the web.">
+
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/jing.css">
     <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -22,7 +23,7 @@
       <div class="slides">
         <section>
           <h1 style="text-transform:uppercase">The case for modern CSS</h1>
-          <img class="plain" style="height: 5em;" data-src="img/techspeakers.png" alt="Mozilla TechSpeakers">
+          <img class="plain" style="height: 5em" data-src="img/techspeakers.png" alt="Mozilla TechSpeakers">
           <p><small>By <a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
           <aside class="notes">Hello everyone! My name is Hui Jing. I'm a front-end developer based in Singapore at the moment. Today I'm going to be presenting an elevator pitch on the case for modern CSS.</aside>
         </section>
@@ -30,17 +31,20 @@
         <section>
           <section>
             <div class="l-multiple" style="align-items:center">
-              <div style="margin:0 0.5em;">
+              <div style="margin:0 0.5em">
                 <img class="plain" data-src="img/meme1.jpg" alt="Writing CSS meme">
               </div>
-              <div style="margin:0 0.5em;">
+              <div style="margin:0 0.5em">
                 <img class="plain" data-src="img/meme2.jpg" alt="CSS floats meme">
               </div>
-              <div style="margin:0 0.5em;">
+              <div style="margin:0 0.5em">
                 <img class="plain" data-src="img/meme3.png" alt="CSS inheritence meme">
               </div>
             </div>
-            <aside class="notes">How many people here have used CSS in their projects? And how many of these memes are familiar to you? Personally, I don't like these memes very much. And I do recognise that I am very fond of CSS, and may be slightly biased toward it, but I feel CSS unfairly bears the brunt of many such jokes.</aside>
+            <aside class="notes">
+              <p>How many people here have used CSS in their projects? And how many of these memes are familiar to you?</p>
+              <p>Personally, I don't like these memes very much. And I do recognise that I am very fond of CSS, and may be slightly biased toward it, but I feel CSS unfairly bears the brunt of many such jokes.</p>
+            </aside>
           </section>
 
           <section>
@@ -55,7 +59,7 @@
 
           <section data-background-image="img/rapids.jpg">
             <div style="font-size:250%;position:relative;display:flex;height:75vh">
-              <div style="margin:auto">
+              <div class="fragment" style="margin:auto">
                 <p class="dancing-emoji"><span class="emoji" role="img" tabindex="0" aria-label="pile of poo">&#x1F4A9;</span></p><p class="dancing-emoji"><span class="emoji" role="img" tabindex="0" aria-label="pile of poo">&#x1F4A9;</span></p><p class="dancing-emoji"><span class="emoji" role="img" tabindex="0" aria-label="pile of poo">&#x1F4A9;</span></p>
               </div>
               <img class="fragment plain" style="position:absolute;left:50%;transform:translateX(-50%)"data-src="img/cancel.svg" alt="The no symbol">
@@ -74,19 +78,20 @@
 
           <section>
             <img class="plain" data-src="img/not-layout.jpg" alt="CSS1 appendix">
-            <aside class="notes">I mean, in the earliest versions of CSS it wasn't even meant for doing layout. They even provided examples of what it wouldn't do, AND made the list open-ended.</aside>
+            <aside class="notes">In the earliest versions of CSS, it wasn't even meant for doing layout. The specification provided examples of what CSS wouldn't do on the layout front, AND made the list open-ended.</aside>
           </section>
 
           <section>
             <img class="plain" data-src="img/browsers.svg" alt="Evolution of browser capabilities for layout">
             <aside class="notes">
               <p>But what I like most about the web is that its APIs grow and adapt with the needs and requests of its users, developers like you and I, as well as our audiences.</p>
-              <p>Modern CSS is not a clearly defined term, I'll admit, it's not like an age limit where only CSS specifications written after X date make it into this category. Modern CSS refers more to the landscape of what we can achieve right now.</p>
+              <p>Modern CSS is not a clearly defined term, I'll admit, it's not like an age limit where only CSS specifications written after X date make it into this category.</p>
+              <p>No. What I'm referring to, is the landscape of what we can achieve right now.</p>
             </aside>
           </section>
 
           <section data-background-video="videos/css-props.mp4" data-background-size="contain" data-background-video-muted>
-            <aside class="notes">There are currently 503 distinct CSS properties in the index so clearly, 5 minutes is not enough to cover them all. So I want to highlight the 3 most impactful CSS features we can use today to supercharge our web designs.</aside>
+            <aside class="notes">There are currently 503 distinct CSS properties in the index so clearly, 5 minutes is not enough to cover them all. Instead, I will highlight three of the most impactful CSS features we can use today to supercharge our web designs.</aside>
           </section>
         </section>
 
@@ -96,7 +101,7 @@
             <p>Gives us an <strong>unprecedented level of control</strong> over where our elements are placed on a page</p>
             <aside class="notes">
               <p>CSS grid. It's a pretty big CSS thing. In the pre-Grid era, we were trapped. Trapped by the fact that our elements always had to line up next to each other.</p>
-              <p>Sure you could space things out with margins and paddings. Or even try to wrangle with positioning rules, but that usually ends up snowballing into avalanche of styles just to move an image to the lower right side of the page.</p>
+              <p>Sure you could space things out with margins and paddings. Some brave souls even try to wrangle with positioning rules, but that usually ends up snowballing into an avalanche of styles just to move an image to the lower-right side of the page.</p>
               <p>CSS grid gives us a straightforward means to position items on a page wherever we want.</p>
             </aside>
           </section>
@@ -104,24 +109,24 @@
           <section>
             <h2>CSS grid basics</h2>
             <div class="l-double">
-              <div class="fragment" style="width:100%;">
+              <div class="fragment" style="width:100%">
                 <p>Define your grid.</p>
-                <img class="plain" style="max-height:50vh;" data-src="img/define-grid.svg" alt="Define a grid">
+                <img class="plain" style="max-height:50vh" data-src="img/define-grid.svg" alt="Define a grid">
               </div>
-              <div class="fragment" style="width:100%;">
+              <div class="fragment" style="width:100%">
                 <p>Place items in the grid.</p>
-                <img class="plain" style="max-height:50vh;" data-src="img/place-items.svg" alt="Place items in the grid">
+                <img class="plain" style="max-height:50vh" data-src="img/place-items.svg" alt="Place items in the grid">
             </div>
             <aside class="notes">If you're new to Grid, it's a 2-step process. Define your grid, then place items in it. That's the gist of it. The beauty of grid is that it can be as simple as you need, but also as elaborate as you want.</aside>
           </section>
 
           <section>
             <h2>From the simple…</h2>
-            <pre style="font-size:65%;"><code class="css" style="font-size: 90%;">.container {
+            <pre style="font-size:65%"><code class="css" style="font-size: 90%">.container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
 }</code></pre>
-            <video controls loop autoplay class="video" style="width:70%;">
+            <video controls loop autoplay class="video" style="width:70%">
               <source data-src="videos/responsive-grid.mp4" type="video/mp4" />
               Sorry, your browser doesn't support embedded videos, 
               but don't worry, you can <a href="videos/responsive-grid.mp4">download it</a>
@@ -150,7 +155,7 @@
                 <figcaption><a href="https://codepen.io/andybarefoot/pen/YEOqpb">by Andy Barefoot</a></figcaption>
               </figure>
             </div>
-            <aside class="notes">And if you need full-scale art-directed page layouts, grid definitely has you covered as well.</aside>
+            <aside class="notes">And if you need full-scale art-directed page layouts, grid definitely has you covered as well. Moving on.</aside>
           </section>
         </section>
 
@@ -159,14 +164,15 @@
             <h2>#2: CSS Custom Properties</h2>
             <p>Provides us <strong>dynamic</strong> variables in native CSS, comes with scoping, inheritance and the cascade.</p>
             <aside class="notes">
-              <p>Anybody in the room uses preprocessors for their styles? One of the key reasons a lot of us use them, is the ability to define and utilise variables. But those variables are static, you can't change them on the fly with Javascript, because they have to compiled into CSS to take effect.</p>
+              <p>Anybody in the room uses preprocessors for their styles? One of the key reasons a lot of us use them, is the ability to define and utilise variables.</p>
+              <p>But those variables are static, you can't change them on the fly with Javascript, because they have to compiled into CSS to take effect.</p>
               <p>Custom properties, on the other hand, are dynamic. And that opens up a lot of possibilities.</p>
             </aside>
           </section>
 
           <section class="variable">
             <h2>Modify variable values on the fly</h2>
-            <pre style="width:auto;display:inline-block;margin-bottom:2em"><code style="padding:0.5em" class="css">/* CSS that is applied to this presentation */
+            <pre style="width:auto;display:inline-block;margin-bottom:2em"><code class="css">/* CSS that is applied to this presentation */
 :root {
   --accent-colour: #ff4f5e
 }
@@ -179,7 +185,60 @@ h2 {
   --accent-colour: #ff4f5e;
 }</style></div>
             <p><small>Credit to <a href="https://www.madebymike.com.au/">Mike Riethmuller</a> for inspiring this live demo</small></p>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              <p>The top bit is how the styles for this presentation have been set up. With my <code>h2</code> element styled using the <code>--accent-colour</code> variable.</p>
+              <p>CSS variables behave like any other CSS property, so we can make use of selectors to scope them.</p>
+              <p>If I change the <code>--accent-colour</code> value here to <code>green</code>, I change all the <code>h2</code>s on my slides. But I can also keep it to this one slide with a more specific class.</p>
+            </aside>
+          </section>
+
+          <section>
+            <pre style="width:auto;display:inline-block;margin-bottom:2em"><code class="css">:root {
+  --spacer: 0.5em;
+  --columns: 1;
+}
+
+.card {
+  background-color: #fff;
+  max-width: calc((100% / var(--columns, 1)) - var(--spacer, 0.5em) * 2);
+  border: 1px solid #6f777e;
+  margin: var(--spacer, 0.5em);
+  padding: var(--spacer, 0.5em);
+}
+
+/* Modify the variable values at specific breakpoints */
+@media screen and (min-width: 480px) {
+  :root {
+    --spacer: 0.75em;
+    --columns: 2;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  :root {
+    --spacer: 1em;
+    --columns: 3;
+  }
+}</code></pre>
+            <aside class="notes">Because they behave like any other CSS property, custom properties can also be defined and used within media queries, something we couldn't do with preprocessors.</aside>
+          </section>
+
+          <section>
+            <p data-height="600" data-theme-id="0" data-slug-hash="KmmKqy" data-default-tab="css,result" data-user="danwilson" data-pen-title="Single Custom Property, Multiple Calcs" class="codepen">See the Pen <a href="https://codepen.io/danwilson/pen/KmmKqy/">Single Custom Property, Multiple Calcs</a> by Dan Wilson (<a href="https://codepen.io/danwilson">@danwilson</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+            <p><small>Code by Dan Wilson from <a href="https://css-tricks.com/making-custom-properties-css-variables-dynamic/">Making Custom Properties (CSS Variables) More Dynamic</a></small></p>
+            <aside class="notes">When used together with the <code>calc()</code> function, we can build complex values for more complicated use-cases, like the values for transform properties.</aside>
+          </section>
+
+          <section>
+            <pre style="width:auto;display:inline-block;margin-bottom:2em"><code style="padding:0.5em" class="javascript">/* Retrieves and sanitises the value of a custom property. */
+const getVariable = (styles, propName) => String(styles.getPropertyValue(propName)).trim()
+
+/* Sets the value of a custom property at the document level */
+const setVariable = (propName, value) => {
+  document.documentElement.style.setProperty(propName, value)
+}</code></pre>
+            <p><small>Code based off <a href="https://googlechrome.github.io/samples/css-custom-properties/index.html">CSS Custom Properties (CSS Variables) Sample</a> by Sérgio Gomes</small></p>
+            <aside class="notes">And you can't get more dynamic than combining custom properties with Javascript. With the <code>getPropertyValue()</code> method, we can access the value of a custom property. While the <code>setProperty()</code> method lets us modify the value at runtime.</aside>
           </section>
         </section>
 
@@ -188,14 +247,15 @@ h2 {
             <h2>#3: Feature Queries</h2>
             <p>Built-in <strong>feature detection</strong> with native CSS</p>
             <aside class="notes">
-              <p>Feature queries are the unsung hero of this lot. Browsers started implementing it late 2012, but people started talking about it more only after Grid officially shipped. Because Grid was a great use-case for feature queries.</p>
+              <p>Lastly, feature queries.</p>
+              <p>They're really the unsung hero of this lot. Browsers started implementing feature queries in late 2012, but they only started to gain traction after Grid officially shipped. Because Grid was a great use-case for feature queries.</p>
               <p>Feature detection in native CSS, what's not to like?</p>
             </aside>
           </section>
 
           <section>
             <h2>Using <code>@supports</code> (AKA feature queries)</h2>
-            <pre><code style="max-height:none;" class="css">.selector {
+            <pre><code style="max-height:none" class="css">.selector {
   /* Styles that are supported in old browsers */
 }
 
@@ -204,7 +264,10 @@ h2 {
     /* Styles for browsers that support the specified property */
   }
 }</code></pre>
-            <aside class="notes">We start off with basic styles that work universally across all browsers. Then add on styles, not per browser, but per feature we want to enhance our design with. Browsers that don't support the feature in question simply ignore the entire code block. Thus avoiding the issue of half-applied styles breaking your beautiful page.</aside>
+            <aside class="notes">
+              <p>We start off with basic styles that work universally across all browsers. Then add on styles, not per browser, but per feature we want to enhance our design with.</p>
+              <p>Browsers that don't support the feature in question simply ignore the entire code block. Thus avoiding the issue of half-applied styles breaking your beautiful page.</p>
+            </aside>
           </section>
 
           <section>
@@ -219,7 +282,7 @@ h2 {
                 <figcaption>Browsers that do support feature queries</figcaption>
               </figure>
             </div>
-            <aside class="notes">Making use of the cascade is a key feature here. Universal styles first, so even if the browser does <strong>not</strong> support feature queries, you're still safe.</aside>
+            <aside class="notes">Making use of the cascade is <strong>the</strong> key strategy here. Universal styles first, so even if the browser does <strong>not</strong> support feature queries, you're still safe.</aside>
           </section>
 
           <section>
@@ -238,7 +301,7 @@ h2 {
                 <figcaption>Current</figcaption>
               </figure>
             </div>
-            <aside class="notes">I built a website a while ago that uses a number of relatively newer CSS features, like Grid and Shapes and so on. I did not modify the code since I launched it, but its design has evolved every time Firefox updates to support more CSS features.</aside>
+            <aside class="notes">Some time ago, I built a website that uses a number of relatively newer CSS features, like Grid, Shapes and so on. And I did not modify the code since I launched it, but its design, when viewed in Firefox, has evolved, as the browser continues to update.</aside>
           </section>
         </section>
 
@@ -292,6 +355,9 @@ h2 {
                 <a href="https://www.w3.org/TR/css-variables-1/">CSS Custom Properties for Cascading Variables Module Level 1</a>
               </li>
               <li>
+                <a href="https://developers.google.com/web/updates/2016/02/css-variables-why-should-you-care">CSS Variables: Why Should You Care?</a> by Rob Dodson
+              </li>
+              <li>
                 <a href="https://tympanus.net/codrops/css_reference/custom-properties/">Codrops CSS reference: Custom Properties</a> by Chen Hui Jing
               </li>
               <li>
@@ -302,6 +368,9 @@ h2 {
               </li>
               <li>
                 <a href="https://speakerdeck.com/malarkey/developing-inspired-guides-with-css-custom-properties-variables">Developing Inspired Guides with CSS Custom Properties (variables)</a> by Andy Clarke
+              </li>
+              <li>
+                <a href="https://css-tricks.com/making-custom-properties-css-variables-dynamic/">Making Custom Properties (CSS Variables) More Dynamic</a> by Dan Wilson
               </li>
               <li>
                 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables">Using CSS custom properties (variables)</a> by MDN
@@ -332,27 +401,34 @@ h2 {
               </li>
             </ul>
           </div>
-          <aside class="notes">For a short talk of 7 minutes, this is my cop-out slide. Each CSS feature I mentioned could warrant full length talks on their own, so here's a list of resources that go into each topic with much greater depth. Hopefully, I piqued the curiosity of at least 1 of you to want to find out more.</aside>
+          <aside class="notes">
+            <p>For a short talk of 7 minutes, this is my cop-out slide.</p>
+            <p>Each CSS feature I mentioned could warrant full length talks on their own, so here's a list of resources that go into each topic with much greater depth.</p>
+            <p>Hopefully, I piqued the curiosity of at least 1 of you to want to find out more.</p>
+          </aside>
         </section>
 
         <section data-background-image="img/cascade.jpg">
           <div style="font-size:250%">
             <p class="dancing-emoji"><span class="emoji" role="img" tabindex="0" aria-label="orange heart">&#x1F9E1;</span></p><p class="dancing-emoji"><span class="emoji" role="img" tabindex="0" aria-label="blue heart">&#x1F499;</span></p><p class="dancing-emoji"><span class="emoji" role="img" tabindex="0" aria-label="yellow heart">&#x1F49B;</span></p>
           </div>
-          <aside class="notes">At the end of the day, HTML, CSS and Javascript are the pillars on which the web is built, and there's never any harm in strengthening foundations. So embrace the cascade, and let's build a better web together.</aside>
+          <aside class="notes">
+            <p>At the end of the day, HTML, CSS and Javascript are the pillars on which the web is built, and there's never any harm in strengthening foundations.</p>
+            <p>So embrace the cascade, and let's build a better web together.</p>
+          </aside>
         </section>
 
-        <section style="text-align:left;">
+        <section style="text-align:left">
           <h1>Merci!</h1>
-          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle;">https://www.chenhuijing.com</a></p>
-          <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
-          <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle;">@hj_chen</a></p>
-          <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle;">@huijing</a></p>
-          <p style="text-align:right;"><small>Font used is <a href="https://github.com/mozilla/zilla-slab">Zilla Slab</a>, by <a href="https://www.typotheque.com/">Typotheque</a></small></p>
+          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle">https://www.chenhuijing.com</a></p>
+          <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle">@huijing</a></p>
+          <p style="text-align:right"><small>Font used is <a href="https://github.com/mozilla/zilla-slab">Zilla Slab</a>, by <a href="https://www.typotheque.com/">Typotheque</a></small></p>
         </section>
       </div>
 
-      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em;"><span>https://www.chenhuijing.com/slides/40-ts-meetup-2018</span><span style="text-align:right;">@hj_chen</span></footer>
+      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://www.chenhuijing.com/slides/40-ts-meetup-2018</span><span style="text-align:right">@hj_chen</span></footer>
 
     </div>
 
