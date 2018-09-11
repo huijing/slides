@@ -27,8 +27,9 @@
         <section data-background-image="img/background.jpg">
           <h1 style="text-transform:uppercase">Typesetting East Asian languages on the web</h1>
           <h3>(and how it can inspire alternative web layouts)</h3>
+          <p><small>By <a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
           <aside class="notes">
-            <p>Tere päevast! Welcome back to the front-end track. Before lunch, we covered the architectural side of things with Asim, as well as some functional programming concepts applied to Javascript with Milosz.</p>
+
             <p>And now, I'm going to talking a bit about the CSS side of things, which affects how your content looks like to your users. We'll be touching on CSS at the typography level, as well as the layout level.</p>
             <p>But before I begin, can I have a show of hands if anyone in the audience speaks any East Asian languages, like Chinese or Japanese?</p>
           </aside>
@@ -84,49 +85,57 @@
 
           <section>
             <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr">
-              <table class="tb-letters" style="font-size:70%">
+              <table class="tb-letters" style="font-size:70%" lang="be">
                 <tr>
                   <td>A a</td>
-                  <td>B b</td>
-                  <td>D d</td>
-                  <td>E e</td>
-                  <td>F f</td>
-                  <td>G g</td>
+                  <td>Б б</td>
+                  <td>В в</td>
+                  <td>Г г</td>
+                  <td>Д д</td>
+                  <td>Е е</td>
                 </tr>
                 <tr>
-                  <td>H h</td>
-                  <td>I i</td>
-                  <td>J j</td>
-                  <td>K k</td>
-                  <td>L l</td>
-                  <td>M m</td>
+                  <td>Ё ё</td>
+                  <td>Ж ж</td>
+                  <td>З з</td>
+                  <td>І і</td>
+                  <td>Й й</td>
+                  <td>К к</td>
                 </tr>
                 <tr>
-                  <td>N n</td>
-                  <td>O o</td>
-                  <td>P p</td>
-                  <td>R r</td>
-                  <td>S s</td>
-                  <td>Š š</td>
+                  <td>Л л</td>
+                  <td>М м</td>
+                  <td>Н н</td>
+                  <td>О о</td>
+                  <td>П п</td>
+                  <td>Р р</td>
                 </tr>
                 <tr>
-                  <td>Z z</td>
-                  <td>Ž ž</td>
-                  <td>T t</td>
-                  <td>U u</td>
-                  <td>V v</td>
-                  <td>Õ õ</td>
+                  <td>С с</td>
+                  <td>Т т</td>
+                  <td>У у</td>
+                  <td>Ў ў</td>
+                  <td>Ф ф</td>
+                  <td>Х х</td>
                 </tr>
                 <tr>
-                  <td>Ä ä</td>
-                  <td>Ö ö</td>
-                  <td>Ü ü</td>
+                  <td>Ц ц</td>
+                  <td>Ч ч</td>
+                  <td>Ш ш</td>
+                  <td>Ы ы</td>
+                  <td>Ь ь</td>
+                  <td>Э э</td>
+                </tr>
+                <tr>
+                  <td>Ю ю</td>
+                  <td>Я я</td>
                   <td></td>
-                  <td colspan="2" style="font-size:86.66%">Estonian (27)</td>
+                  <td></td>
+                  <td colspan="2" style="font-size:86.66%">Belarusian (32)</td>
                 </tr>
               </table>
 
-              <table class="tb-letters">
+              <table class="tb-letters" lang="ar" dir="rtl">
                 <tr>
                   <td>ا</td>
                   <td>ب</td>
@@ -164,11 +173,11 @@
                   <td>ض</td>
                   <td>ظ</td>
                   <td>غ</td>
-                  <td colspan="2" style="font-size:65%">Arabic (28)</td>
+                  <td colspan="2" style="font-size:65%" lang="en">Arabic (28)</td>
                 </tr>
               </table>
 
-              <table class="tb-letters" >
+              <table class="tb-letters" lang="he" dir="rtl">
                 <tr>
                   <td>א</td>
                   <td>ב</td>
@@ -198,7 +207,7 @@
                   <td>ר</td>
                   <td>ש</td>
                   <td>ת</td>
-                  <td colspan="2" style="font-size:65%">Hebrew (22)</td>
+                  <td colspan="2" style="font-size:65%" lang="en">Hebrew (22)</td>
                 </tr>
               </table>
 
@@ -223,7 +232,7 @@
                   <td>M m</td>
                   <td>N n</td>
                   <td>O o</td>
-                  <td> P p</td>
+                  <td>P p</td>
                   <td>Q q</td>
                   <td>R r</td>
                 </tr>
@@ -245,8 +254,8 @@
               </table>
             </div>
             <aside class="notes">
-              <p>This is just a small sampling of a bunch of different alphabets. And before I got here, I tried to learn a little bit more about the Estonian language. Basic phrases like yat-koo lay-bah.</p>
-              <p>What can I say? Food is important to me. Along the way, I learnt that the Estonian alphabet has 27 letters, of which 4 are only used in loanwords.</p>
+              <p>This is just a small sampling of a bunch of different alphabets. And before I got here, I tried to learn a bit of Belarusian.</p>
+              <p>Along the way, I learnt that the Belarusian alphabet has 32 letters, which is much less than the medieval Cyrillic alphabet which had 43.</p>
               <p>The Hebrew alphabet has 22 letters, Arabic has 28 letters and English has 26. The point I'm trying to make here is that alphabetic writing systems utilise a small set of letters to form all the words the language needs for the purpose of communication.</p>
             </aside>
           </section>
@@ -264,17 +273,17 @@
             <aside class="notes">The word, Communication, is an English word of 13 letters. Chinese only needs 2 characters, 沟通.</aside>
           </section>
 
-          <section data-background-image="img/dictionary.jpg">
+          <section>
             <div class="l-double" style="font-size:150%">
-              <p>Sagedussõnastik<br><small>(Estonian) 15 letters</small></p>
-              <p class="fragment"><span class="j-vert" style="justify-self:center" lang="zh-hans">词典</span></p>
+              <p>TBC<br><small>Need long Belarusian word</small></p>
+              <p class="fragment"><span class="j-vert" style="justify-self:center" lang="zh-hans"></span></p>
             </div>
-            <aside class="notes">Sagedussõnastik (sa-geh-dus-ser-nas-tik), a 15-letter Estonian word. In Chinese, 词典.</aside>
+            <aside class="notes">. In Chinese, .</aside>
           </section>
 
           <section data-background-image="img/photography.jpg">
             <div class="l-double" style="font-size:150%">
-              <p>Grianghrafadóireachta<br><small>(Irish) 21 letters</small></p>
+              <p><span lang="ga">Grianghrafadóireachta</span><br><small>(Irish) 21 letters</small></p>
               <p class="fragment"><span class="j-vert" style="justify-self:center" lang="zh-hans">摄影</span></p>
             </div>
             <aside class="notes">Grianghrafadóireachta (Green-hra-fer-doi-rek-te), Irish word of 21 letters. Again, 2 characters will do, 摄影. Chinese is quite a concise language.</aside>
@@ -302,8 +311,8 @@
           <section data-background-image="img/evolution-alphabets.png">
             <aside class="notes">
               <p>As different alphabetic writing sytems branched out from the Phoenician alphabet, their letterforms evolved and changed. The appearances of letterforms were often directly influenced by the tools used to create them.</p>
-              <p>The Latin alphabet was derived from Greek and the earliest letters were sans-serif when writing was done with a hard reed pen. Serifs may have came about due to a transition to a square-cut writing implement, like a flat stiff brush.</p>
-              <p>Later scribes and copyists used quill pens and as demand for written matter grew, they developed more efficient styles of writing, evolving the letterforms yet again.</p>
+              <p>The earliest letters were sans-serif when writing was done with a hard reed pen. Serifs may have came about due to a transition to a square-cut writing implement, like a flat stiff brush.</p>
+              <p>For quick informal writing, cursive scripts like Old Roman soon emerged. The Cyrillic alphabet was derived from the Greek uncial script, which developed from Old Roman.</p>
             </aside>
           </section>
 
@@ -360,15 +369,6 @@
             <aside class="notes">As more and more of our communications move onto the digital realm, it is important that we preserve language diversity. Languages are representative of human heritage, and convey unique cultures. I believe most people in this audience speaks more than one language, and if you think about it, there are certain concepts that simply get lost in translation.</aside>
           </section>
 
-          <section data-background-image="img/tallinn.jpg">
-            <span style="font-size:calc(2em + 5vw)" class="emoji" role="img" tabindex="0" aria-label="Estonia">&#x1F1EA;&#x1F1EA;</span>
-            <p>Population: 1,306,788 population (est. 2018)</p>
-            <p>Internet users: 1,276,521 (Dec 2017)</p>
-            <p><strong>97.7%</strong> internet penetration rate</p>
-            <p><small>Sources: <a href="https://www.internetworldstats.com/europa.htm#ee">Internet World Stats</a></small></p>
-            <aside class="notes">Estonia has one of the highest internet penetration rates in the world, with 97.7% of the population having access to the internet. But the thing about the internet is, it's a double-edged sword.</aside>
-          </section>
-
           <section data-background-image="img/content-language.png" data-background-size="100%">
             <h2>Distribution of content languages on the web</h2>
             <p><small>Sources: <a href="https://w3techs.com/technologies/overview/content_language/all">W3Techs</a></small></p>
@@ -376,11 +376,13 @@
           </section>
 
           <section>
-            <blockquote>“…smaller languages are not being given a chance to evolve and keep up to speed in the digital age…”<br><small>—<a href="https://www.theguardian.com/education/2014/mar/26/digital-extinction-europe-languages-fight-survive"><span style="font-family:Georgia Italic">Rihards Kalniņš, The Guardian</span></a></small></blockquote>
-            <aside class="notes">
-              <p>As a result, conversations around technology, software and business across the world are often peppered with English terminology.</p>
-              <p>According to this article in the Guardian published a few years back, it's definitely not due to deficiencies in our mother tongues. The Baltic languages, like Estonian and Latvian, are among the richest languages in the world.</p>
-            </aside>
+            <blockquote>“People long for their national identity, to be different, to be proud of who they are. Political is daily, cultural is eternal.”<br><small>—<a href="https://www.theguardian.com/world/2015/jan/28/-sp-russian-belarus-reclaims-language-belarusian">Alena Makouskaya, coordinator of Budzma</a></small></blockquote>
+            <aside class="notes"></aside>
+          </section>
+
+          <section>
+            <blockquote>“Only 13% of pupils in Belarus study in the Belarusian language.”<br><small>—<a href="https://belarusdigest.com/story/belarusian-language-declining-in-state-education-strengthening-in-civil-society">Alesia Rudnik, Belarus Digest</a></small></blockquote>
+            <aside class="notes"></aside>
           </section>
 
           <section>
@@ -447,7 +449,7 @@
               </figure>
               <figure class="fragment">
                 <img class="plain" style="margin:0 0.5em" data-src="img/glyph3.jpg" alt="A vector glyph">
-                <figcaption style="font-style:normal">ä</figcaption>
+                <figcaption style="font-style:normal">Ж</figcaption>
               </figure>
             </div>
             <aside class="notes">
@@ -513,9 +515,9 @@
           <section>
             <h2>@font-face</h2>
             <pre><code>@font-face {
-  font-family: 'Reforma';
-  src: url('reforma1969-gris.woff2') format('woff2'),
-       url('reforma1969-gris.woff') format('woff');
+  font-family: 'Farro';
+  src: url('farro-light.woff2') format('woff2'),
+       url('farro-light.woff') format('woff');
 }</code></pre>
             <div class="l-double">
               <p style="width:100%" class="ciu_embed" data-feature="woff" data-periods="future_1,current,past_1,past_2">
@@ -550,22 +552,22 @@
 
           <section>
             <pre><code style="font-size:150%;line-height:1.4">@font-face {
-  font-family: 'Infini';
-  src: url('fonts/infini.woff2') format('woff2'),
-       url('fonts/infini.woff') format('woff');
+  font-family: 'Farro';
+  src: url('fonts/farro-light.woff2') format('woff2'),
+       url('fonts/farro-light.woff') format('woff');
   /* no range specified, defaults to entire range */
 }
 
 @font-face {
-  font-family: 'Infini';
+  font-family: 'Farro';
   src: url('fonts/linbiolimum.woff2') format('woff2'),
        url('fonts/linbiolimum.woff') format('woff');
   unicode-range: U+0400–U+04FF; /* Unicode range for Cyrillic characters */
 }</code></pre>
             <aside class="notes">
               <p>Then we have the <code>unicode-range</code> descriptor. which allows us to create composite fonts that mix glyphs from different fonts for different scripts.</p>
-              <p>Earlier this year, I got the chance to speak in Kyiv, and my presentation was set using the font, <em>Infini</em>, which unfortunately does not support Cyrillic letters. So I used the <code>unicode-range</code> descriptor to tell my browser to load a second font that did, when it encountered any Cyrillic characters.</p>
-              <p>Remember that for font-face rules, the font-family is simply a label, so what I've done here is created a composite font that uses the name <em>Infini</em>, but in actuality, loads 2 different font files depending on what characters need to be displayed.</p>
+              <p>My presentation is using a font called <em>Farro</em>, which unfortunately does not support Cyrillic letters. So I used the <code>unicode-range</code> descriptor to tell my browser to load a second font that did, when it encountered any Cyrillic characters.</p>
+              <p>Remember that for font-face rules, the font-family is simply a label, so what I've done here is created a composite font that uses the name <em>Farro</em>, but in actuality, loads 2 different font files depending on what characters need to be displayed.</p>
             </aside>
           </section>
 
@@ -853,7 +855,7 @@
           <section>
             <div class="l-multiple">
               <div style="margin-bottom:1em;writing-mode:vertical-rl;font-family:'PingFang SC';font-size:175%"><span>古巴<span style="text-combine-upright:all">Cuba</span></span></div>
-              <div class="fragment" style="margin-bottom:1em;writing-mode:vertical-rl;font-family:'PingFang SC';font-size:175%"><span>愛沙尼亞共和國<span style="text-combine-upright:all">Estonia</span></span></div>
+              <div class="fragment" style="margin-bottom:1em;writing-mode:vertical-rl;font-family:'PingFang SC';font-size:175%"><span>白俄罗斯共和国<span style="text-combine-upright:all">Belarus</span></span></div>
               <div class="fragment" style="margin-bottom:1em;writing-mode:vertical-rl;font-family:'PingFang SC';font-size:175%"><span>列支敦斯登<span style="text-combine-upright:all">Liechtenstein</span></span></div>
             </div>
             <aside class="notes">
@@ -1066,7 +1068,7 @@
           <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
           <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
           <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle">@huijing</a></p>
-          <p style="text-align:right"><small>Font used is <a href="https://pampatype.com/blog/reforma">Reforma</a>, by <a href="https://pampatype.com/">PampaType</a></small></p>
+          <p style="text-align:right;"><small>Font used is <a href="https://playground.grayscale.design/farro/">Farro</a>, by <a href="https://grayscale.com.hk/about-grayscale/">Grayscale</a></small></p>
           <aside class="notes">
             <p>I just want to wrap up by saying, the thing about attending conferences, at least for me, is not so much to gain expertise overnight, but rather to get inspired. To learn of things that I did not know existed, to discover something new and perhaps gain insights and hear perspectives that never occurred to me before.</p>
             <p>So maybe for some of you, these techniques fit your use-case and you can go home and use them tomorrow, that's great. But even if they don't, that's fine too. Knowing what the web is capable of, and what you can potentially build with it, is the act of growing your web design toolbox.</p>

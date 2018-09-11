@@ -111,3 +111,14 @@ span[role=img][aria-label]:hover::after {
   border: 1px solid $backgroundColor;
   box-shadow: 2px 2px 4px $mainColor;
 }
+
+// Dancing emoji ---------------------
+.dancing-emoji {
+  animation: dance 1s ease-in-out infinite;
+  display: inline-flex;
+}
+@keyframes dance {
+  0%   { transform: rotate(-10deg) }
+  50%  { transform: rotate(10deg) }
+  100% { transform: rotate(-10deg) }
+}
