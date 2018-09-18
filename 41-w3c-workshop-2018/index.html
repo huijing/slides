@@ -27,7 +27,26 @@
           <h1>Rich dynamic design with modern CSS</h1>
           <p><small>By <a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
           <img class="plain" style="height:3em" data-src="img/w3c.svg" alt="W3C">
-          <aside class="notes">Good day, everyone. Today I would like to share some demos utilising some of the relatively newer CSS properties for laying out content.</aside>
+          <aside class="notes">Good day, everyone. Today I would like to share some demos utilising some of the relatively newer CSS properties for laying out content on the web.</aside>
+        </section>
+
+        <section data-background-image="img/emoji-bg.png" data-background-repeat="repeat" data-background-size="200px">
+          <div class="l-double">
+            <div style="display:flex;flex-direction:column;align-items:center">
+              <img data-src="img/name.svg" alt="Chen Hui Jing" class="plain" style="max-height:25vh">
+              <div>
+                <img data-src="img/avatar.jpg" alt="Jing" style="border-radius:50%;max-height:50vh">
+              </div>
+              <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,3em);grid-template-rows:repeat(3,3em);width:100%;grid-template-areas:'a . b''. c .''d . e';font-size:150%">
+              <span style="font-size:calc(1.75em + 3vw);grid-area:a" class="emoji" role="img" tabindex="0" aria-label="Malaysia">&#x1F1F2;&#x1F1FE;</span>
+              <span style="font-size:calc(1.75em + 3vw);grid-area:b" class="emoji" role="img" tabindex="0" aria-label="basketball">&#x1F3C0;</span>
+              <span style="font-size:calc(1.75em + 3vw);grid-area:c" class="emoji" role="img" tabindex="0" aria-label="woman technologist">&#x1F469;&#x200D;&#x1F4BB;</span>
+              <span style="font-size:calc(1.75em + 3vw);grid-area:d" class="emoji" role="img" tabindex="0" aria-label="memo">&#x1F4DD;</span>
+              <span style="font-size:calc(1.75em + 3vw);grid-area:e" class="emoji" role="img" tabindex="0" aria-label="fox">&#x1F98A;</span>
+            </div>
+          </div>
         </section>
 
         <section>
@@ -40,7 +59,7 @@
 
         <section data-background-image="img/screens.jpg">
           <aside class="notes">
-            <p>However, it is also important to recognise that the nature of the digital medium is different from that of physical media. There are the added components of interactivity and dynamism, as well as the decreased amount of control over the environment on which our content is viewed.</p>
+            <p>However, it is also important to recognise that the nature of the digital medium is different from that of physical media. Like what Rachel and Pablo demonstrated earlier, there are the added components of interactivity and dynamism, as well as the decreased amount of control over the environment on which our content is viewed.</p>
             <p>So as we strive to be able to match the capabilities of what can be achieved in the physical world, we also need to think about how to fully leverage the capabilities of the digital mediums, like the web.</p>
           </aside>
         </section>
@@ -137,7 +156,11 @@
             </video>
             <figcaption><a href="https://www.axis-praxis.org/">https://www.axis-praxis.org/</a></figcaption>
           </figure>
-          <aside class="notes">Currently, there are only a few variable fonts available for East Asian languages like Chinese and Japanese, understandably because the effort for creating East Asian language fonts in general takes much larger effort due to their large glyph sets.</aside>
+          <aside class="notes">
+            <p>Depending on the font designer, a variable font can have 5 axes of variation, weight, width, italic, slant and optical size. These variations are exposed to CSS via font properties like <code>font-style</code> and <code>font-weight</code>.</p>
+            <p>It is also possible for custom font axes to be controlled with CSS via the <code>font-variation-settings</code> property.</p>
+            <p>Currently, there are only a few variable fonts available for East Asian languages like Chinese and Japanese, understandably because the effort for creating East Asian language fonts in general takes much larger effort due to their large glyph sets.</p>
+          </aside>
         </section>
 
         <section>
@@ -231,6 +254,17 @@
             <p>It is also possible for text to flow around an image. The image has to have transparency, because the alpha channel is used to compute the shape. Pixels which fall below the <code>shape-image-threshold</code> value are “ignored“ so text can flow into that area instead.</p>
             <p>And even if a browser does not support CSS shapes, the design will not be broken, the text will behave as though the property was not applied.</p>
           </aside>
+        </section>
+
+        <section>
+          <video loop autoplay>
+            <source data-src="videos/alice.mp4" type="video/mp4" />
+            Sorry, your browser doesn't support embedded videos, 
+            but don't worry, you can <a href="videos/alice.mp4">download it</a>
+            and watch it with your favourite video player!
+          </video>
+          <p><a href="http://adobe-webplatform.github.io/Demo-for-Alice-s-Adventures-in-Wonderland/">http://adobe-webplatform.github.io/Demo-for-Alice-s-Adventures-in-Wonderland/</a></p>
+          <aside class="notes">Combined with the interactivity of the web, designs can respond to user actions like scrolling, and provide more compelling experiences for readers that we are unable to achieve on printed physical media.</aside>
         </section>
 
         <section>
@@ -390,6 +424,7 @@
           </video>
           <aside class="notes">
             <p>Vertical spacing was another challenge the web medium faced before CSS grid came along. Use of margins and paddings was unwieldy, especially when the viewport size changed. Absolute positioning disrupted the normal document flow and was tricky to maintain as well.</p>
+            <p>With CSS grid, this is no longer a challenge, as placing items on a page becomes as straightforward as moving pieces on a chessboard.</p>
           </aside>
         </section>
 
@@ -443,7 +478,28 @@
               </ul>
             </div>
           </div>
-          <aside class="notes">A challenge for web designers is the fact that we have no control over the environment in which our content is viewed. Media queries give us the means to cater for the wide spectrum of viewports our designs show up in.</aside>
+          <aside class="notes">
+            <p>A challenge for web designers is the fact that we have no control over the environment in which our content is viewed. Media queries give us the means to cater for the wide spectrum of viewports our designs show up in.</p>
+            <p>As newer media features are added to the specification, web designs will be able to adapt to the users' environment and preferences as well.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Responsive images</h2>
+          <div class="l-double" style="align-items:center">
+            <video loop autoplay style="height:75vh">
+              <source data-src="videos/picture.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/picture.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <pre style="white-space:pre-wrap"><code class="html" style="padding:0.5em"><picture>
+  <source media="(min-width: 960px)" srcset="ticker-tape-large.jpg">
+  <source media="(min-width: 575px)" srcset="ticker-tape-medium.jpg">
+  <img src="ticker-tape-small.jpg" alt="USWNT ticker-tape parade">
+</picture></code></pre>
+          </div>
+          <aside class="notes">The digital medium's advantage is its ability to adapt and morph before its reader's eyes. We are increasingly having more web APIs that allow us to support adaptive behaviour. For example, the picture element, which allows the serving of specific different images depending on the media query specified.</aside>
         </section>
 
         <section>
@@ -479,11 +535,7 @@
             and watch it with your favourite video player!
           </video>
           <p><a href="https://codepen.io/huijing/pen/QQGBjY">https://codepen.io/huijing/pen/QQGBjY</a></p>
-          <aside class="notes"></aside>
-        </section>
-
-        <section>
-          <aside class="notes"></aside>
+          <aside class="notes">CSS used to be seen as a limitation when it came to designing compelling experiences, but as the capabilities of the web platform evolve based on feedback from various avenues, CSS can now be a tool that empowers designers to better leverage the interactivity and dynamism of a digital medium.</aside>
         </section>
 
         <section style="text-align: left">

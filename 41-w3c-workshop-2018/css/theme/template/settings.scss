@@ -33,8 +33,8 @@ $linkColor: rgba(74, 188, 65, 1);
 $linkColorHover: lighten( $linkColor, 20% );
 
 // Text selection
-$selectionBackgroundColor: rgba(0, 0, 0, 0.75);
-$selectionColor: #000;
+$selectionBackgroundColor: rgba(74, 188, 65, 1);
+$selectionColor: rgba(250, 255, 250, 1);
 
 // Generates the presentation background, can be overridden
 // to return a background image or gradient
