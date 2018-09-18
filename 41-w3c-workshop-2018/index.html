@@ -76,7 +76,7 @@
               <figcaption>CSS to do layout</figcaption>
             </figure>
           </div>
-          <aside class="notes">CSS is our typesetting tool for the web medium, as with it we can fine-tune the way our content is displayed to our readers.</aside>
+          <aside class="notes">CSS is our typesetting tool for the web medium, as with it, we can fine-tune the way our content is displayed to our readers, on the typography level as well as the layout level.</aside>
         </section>
 
         <section>
@@ -118,7 +118,7 @@
           <h2><code>font-variant-east-asian</code></h2>
           <img class="plain" style="display:block;margin:1em auto" data-src="img/fv-east-asian.png">
           <aside class="notes">
-            <p>There's one particular font variant property for East Asian text, allowing us to control glyph substitution and positioning for Han characters. </p>
+            <p>There's one particular font variant property for East Asian text, allowing us to control glyph substitution and positioning for Han characters.</p>
             <p>Depending on the language, the same character does not necessarily use the same glyph. This property allows us to toggle between variant glyphs of certain characters.</p>
           </aside>
         </section>
@@ -158,7 +158,6 @@
           </figure>
           <aside class="notes">
             <p>Depending on the font designer, a variable font can have 5 axes of variation, weight, width, italic, slant and optical size. These variations are exposed to CSS via font properties like <code>font-style</code> and <code>font-weight</code>.</p>
-            <p>It is also possible for custom font axes to be controlled with CSS via the <code>font-variation-settings</code> property.</p>
             <p>Currently, there are only a few variable fonts available for East Asian languages like Chinese and Japanese, understandably because the effort for creating East Asian language fonts in general takes much larger effort due to their large glyph sets.</p>
           </aside>
         </section>
@@ -171,7 +170,10 @@
             and watch it with your favourite video player!
           </video>
           <p><a href="https://codepen.io/mandymichael/pen/YYaWop">https://codepen.io/mandymichael/pen/YYaWop</a></p>
-          <aside class="notes">In addition to performance benefits, the dynamism of variable fonts makes it perfect for the web medium, and opens up a world of creative possibility.</aside>
+          <aside class="notes">
+            <p>It is also possible for custom font axes to be controlled with CSS via the <code>font-variation-settings</code> property.</p>
+            <p>So in addition to performance benefits, the dynamism of variable fonts makes it perfect for the web medium, and opens up a world of creative possibility.</p>
+          </aside>
         </section>
 
         <section>
@@ -382,6 +384,58 @@
           <aside class="notes">
             <p>To this end, the development of CSS logical properties, which allow the use of logical directions rather than physical directions can simplify the code required.</p>
             <p>Without logical properties, authors would need to change the directions of margins and paddings when the writing-mode is switched.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Flex directions</h2>
+          <div class="livecode livecode-2p">
+            <div class="result directions">
+              <div class="wrapper" style="font-size:initial;margin-bottom:1em">
+                <div class="box">1一</div>
+                <div class="box">2二</div>
+                <div class="box">3三</div>
+                <div class="box">4四</div>
+                <div class="box">5五</div>
+                <div class="box">6六</div>
+                <div class="box">7七</div>
+                <div class="box">8八</div>
+                <div class="box">9九</div>
+                <div class="box">10十</div>
+                <div class="box">11十一</div>
+                <div class="box">12十二</div>
+                <div class="box">13十三</div>
+                <div class="box">14十四</div>
+                <div class="box">15十五</div>
+                <div class="box">16十六</div>
+                <div class="box">17十七</div>
+                <div class="box">18十八</div>
+                <div class="box">19十四</div>
+                <div class="box">20二十</div>
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.directions .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  writing-mode: horizontal-tb;
+  flex-direction: row;
+
+}
+
+.directions .box {
+  height: 6em;
+  width: 6em;
+  border: 1px solid;
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>One of the questions earlier was with regards to laying content in different directions. And the response was it isn't a technical problem. This example I just added to illustrate this point.</p>
+            <p>Combinations of the <code>writing-mode</code> property, the <code>flex-direction</code> and the <code>flex-wrap</code> property will determine the flow of content on your page.</p>
+            <ul>
+              <li><code>flex-direction</code> -> <code>row</code>, <code>row-reverse</code>, <code>column</code> and <code>column-reverse</code></li>
+              <li><code>flex-wrap</code> -> <code>wrap-reverse</code>, then together with <code>row-reverse</code></li>
+              <li><code>writing-mode</code> -> <code>vertical-rl</code>, <code>vertical-lr</code>, <code>sideways-lr</code></li>
+            </ul>
           </aside>
         </section>
 
