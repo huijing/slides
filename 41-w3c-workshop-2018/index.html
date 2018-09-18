@@ -24,14 +24,461 @@
     <div class="reveal">
       <div class="slides">
         <section data-background="rgba(42, 42, 42, 1)" class="inverse">
-          <h1 style="text-transform:uppercase">Rich Dynamic Design with Modern CSS</h1>
+          <h1>Rich dynamic design with modern CSS</h1>
           <p><small>By <a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
           <img class="plain" style="height:3em" data-src="img/w3c.svg" alt="W3C">
-          <aside class="notes"></aside>
+          <aside class="notes">Good day, everyone. Today I would like to share some demos utilising some of the relatively newer CSS properties for laying out content.</aside>
         </section>
 
         <section>
           <img class="plain" data-src="img/browsers.svg" alt="Evolution of browser capabilities for layout">
+          <aside class="notes">
+            <p>For the longest time, we have always transmitted and recorded knowledge on analogue mediums, on things that we can feel and touch. Digital, on the other hand, is relatively new, and all of us who work on this medium are still trying to figure things out along the way.</p>
+            <p>The web has made great strides in terms of the visual presentation of content, from layout to typography. At this point, I believe we are close to being able to match analogue typesetting.</p>
+          </aside>
+        </section>
+
+        <section data-background-image="img/screens.jpg">
+          <aside class="notes">
+            <p>However, it is also important to recognise that the nature of the digital medium is different from that of physical media. There are the added components of interactivity and dynamism, as well as the decreased amount of control over the environment on which our content is viewed.</p>
+            <p>So as we strive to be able to match the capabilities of what can be achieved in the physical world, we also need to think about how to fully leverage the capabilities of the digital mediums, like the web.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Typesetting the web</h2>
+          <div class="l-double">
+            <figure>
+              <img class="plain" style="margin:0.5em" data-src="img/font-level.svg" alt="Fonts on the web">
+              <figcaption>CSS to do typography</figcaption>
+            </figure>
+            <figure>
+              <img class="plain" style="margin:0.5em" data-src="img/layout-level.svg" alt="Layout on the web">
+              <figcaption>CSS to do layout</figcaption>
+            </figure>
+          </div>
+          <aside class="notes">CSS is our typesetting tool for the web medium, as with it we can fine-tune the way our content is displayed to our readers.</aside>
+        </section>
+
+        <section>
+          <h2>Font feature properties</h2>
+          <table>
+            <tr>
+              <td style="width:30%;vertical-align:top">
+                <code style="font-size:85%">font-kerning</code>
+                <img class="plain" data-src="img/kerning.svg">
+              </td>
+              <td style="width:35%;vertical-align:top">
+                <code style="font-size:85%">font-variant-position</code>
+                <img class="plain" data-src="img/fv-position.png">
+              </td>
+              <td style="width:35%;vertical-align:top">
+                <code style="font-size:85%">font-variant-position-ligatures</code>
+                <img class="plain" data-src="img/fv-ligatures.png">
+              </td>
+            </tr>
+            <tr>
+              <td style="width:30%;vertical-align:top">
+                <code style="font-size:85%">font-variant-numeric</code>
+                <img class="plain" data-src="img/fv-numeric.png">
+              </td>
+              <td style="width:35%;vertical-align:top">
+                <code style="font-size:85%">font-variant-caps</code>
+                <img class="plain" data-src="img/fv-caps.png">
+              </td>
+              <td style="width:35%;vertical-align:top">
+                <code style="font-size:85%">font-variant-alternates</code>
+                <img class="plain" data-src="img/fv-alternates.png">
+              </td>
+            </tr>
+          </table>
+          <aside class="notes">Font feature properties were introduced in Fonts Level 3. allowing us to utilise a variety of typographic features like swashes, ligatures, old-style numerals and so on. As long as the font you're using supports these features, we can toggle them with CSS.</aside>
+        </section>
+
+        <section>
+          <h2><code>font-variant-east-asian</code></h2>
+          <img class="plain" style="display:block;margin:1em auto" data-src="img/fv-east-asian.png">
+          <aside class="notes">
+            <p>There's one particular font variant property for East Asian text, allowing us to control glyph substitution and positioning for Han characters. </p>
+            <p>Depending on the language, the same character does not necessarily use the same glyph. This property allows us to toggle between variant glyphs of certain characters.</p>
+          </aside>
+        </section>
+
+        <section>
+           <div class="livecode livecode-2p">
+            <div class="result fvea" style="text-align:left">
+              <p>一个简体字可能对应多个繁体字，如简体字「发」，其相应的繁体字可能为「發」或「髮」；一个繁体汉字对应多个简体汉字的情况与前者相比数量极少但仍需注意，如繁体字「乾」可能对应简体字「干」或「乾」。繁简汉字的对应关系具体应由上下文决定。</p>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.fvea p {
+  font-variant-east-asian: simplified;
+}</style></div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Variable fonts</h2>
+          <figure>
+            <img class="plain" data-src="img/font-axes.png" alt="OpenType Variable font axes" style="max-height:75vh">
+            <figcaption><a href="https://medium.com/@tiro/https-medium-com-tiro-introducing-opentype-variable-fonts-12ba6cd2369"></a>Image credit: John Hudson</figcaption>
+          </figure>
+          <aside class="notes">
+            <p>OpenType Font Variations, AKA variable fonts, were introduced in September 2016, and has been gaining quite a bit of traction this year.</p>
+            <p>A variable font is the equivalent of multiple individual fonts, compactly packaged within a single font file, which can potentially be a big plus when it comes to performance. And is especially significant for fonts with large glyph sets, like CJK fonts.</p>
+          </aside>
+        </section>
+
+        <section>
+          <figure>
+            <video loop autoplay>
+              <source data-src="videos/axis-praxis.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/axis-praxis.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <figcaption><a href="https://www.axis-praxis.org/">https://www.axis-praxis.org/</a></figcaption>
+          </figure>
+          <aside class="notes">Currently, there are only a few variable fonts available for East Asian languages like Chinese and Japanese, understandably because the effort for creating East Asian language fonts in general takes much larger effort due to their large glyph sets.</aside>
+        </section>
+
+        <section>
+          <video loop autoplay>
+            <source data-src="videos/grass.mp4" type="video/mp4" />
+            Sorry, your browser doesn't support embedded videos, 
+            but don't worry, you can <a href="videos/grass.mp4">download it</a>
+            and watch it with your favourite video player!
+          </video>
+          <p><a href="https://codepen.io/mandymichael/pen/YYaWop">https://codepen.io/mandymichael/pen/YYaWop</a></p>
+          <aside class="notes">In addition to performance benefits, the dynamism of variable fonts makes it perfect for the web medium, and opens up a world of creative possibility.</aside>
+        </section>
+
+        <section>
+          <h2>CSS shapes: Basic shapes</h2>
+          <div class="livecode livecode-2p">
+            <div class="result shapes-cont1" style="font-size:50%;text-align:left">
+              <article style="clear:both;min-height:12em;">
+                <div class="circle shape"></div>
+                <p style="margin-bottom:1em;">Lollipop marshmallow lemon drops jujubes muffin fruitcake bonbon. Muffin carrot cake bear claw sweet roll tiramisu chocolate jelly beans toffee sweet roll. Biscuit candy sweet sweet powder tart bear claw. Tiramisu jelly beans apple pie donut topping dessert lemon drops gummies halvah.</p>
+                <p style="margin-bottom:1em;">Dessert pie dragée fruitcake chocolate oat cake donut muffin. Chocolate lemon drops cake muffin. Bonbon lemon drops chocolate fruitcake jujubes chupa chups sesame snaps sesame snaps pudding. Pastry chocolate jelly beans cake wafer.</p>
+              </article>
+              <article style="clear:both;min-height:12em;">
+                <div class="ellipse shape"></div>
+                <p style="margin-bottom:1em;">Donut jelly toffee macaroon macaroon. Cookie sesame snaps chupa chups. Lollipop jelly lollipop brownie pastry gummi bears.</p>
+                <p style="margin-bottom:1em;">Gummi bears apple pie chupa chups jelly pie halvah pastry sweet. Cookie dessert sweet roll icing cheesecake macaroon wafer cheesecake. Toffee lemon drops apple pie fruitcake sweet roll chocolate cake jelly bear claw jelly. Donut tiramisu chocolate cake sesame snaps marshmallow tootsie roll candy canes cheesecake cotton candy.</p>
+              </article>
+              <article style="clear:both;min-height:12em;">
+                <div class="inset shape"></div>
+                <p style="margin-bottom:1em;">Cake powder croissant lollipop cotton candy tiramisu lollipop tiramisu. Cookie candy canes gummies jujubes bonbon fruitcake ice cream gingerbread. Marzipan toffee carrot cake marshmallow danish cupcake jelly-o.</p>
+                <p style="margin-bottom:1em;">Halvah brownie lollipop. Chocolate cake marshmallow croissant muffin macaroon pastry. Gummies danish soufflé muffin gingerbread. Lollipop jelly cake croissant sesame snaps macaroon.</p>
+              </article>
+              <article>
+                <div class="polygon shape"></div>
+                <p style="margin-bottom:1em;">Biscuit gummies tart gingerbread wafer jujubes sweet roll. Wafer oat cake carrot cake liquorice chocolate bar chocolate cake jelly-o. Pastry donut oat cake. Fruitcake candy apple pie cake tootsie roll cotton candy candy canes. Halvah halvah chocolate jelly-o macaroon.</p>
+                <p style="margin-bottom:1em;">Macaroon dessert sweet roll dragée candy. Sweet cheesecake lemon drops. Sweet tart chocolate cake candy canes powder cotton candy. Apple pie danish chocolate cake danish bonbon. Muffin soufflé topping carrot cake chocolate. Macaroon toffee chupa chups sesame snaps gummi bears.</p>
+              </article>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.shapes-cont1 .circle {
+  shape-outside: circle();
+  float: left;
+  border-radius: 50%;
+}
+
+.shapes-cont1 .shape.ellipse {
+  shape-outside: ellipse();
+  width: 7.5em;
+  float: left;
+  border-radius: 50%;
+}
+
+.shapes-cont1 .inset {
+  shape-outside: inset(0px round 2em);
+  float: left;
+  border-radius: 2em;
+}
+
+.shapes-cont1 .polygon {
+  clip-path: polygon(0 0, 0 10em, 10em 5em);
+  shape-outside: polygon(0 0, 0 10em, 10em 5em);
+  float: left;
+}
+
+.shapes-cont1 .shape {
+  width: 10em;
+  height: 10em;
+  background-color: green;
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>CSS shapes is a property that lets us address a use-case regularly seen in print magazines, to allow text to flow around a shape.</p>
+            <p>There are 4 basic shape functions we can use to define the outline around which we want the text to flow. And with the release of Firefox 62 earlier this month, 82% of internet users are now using a browser that supports shapes.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>CSS Shapes: Shape from image</h2>
+          <div class="livecode livecode-2p">
+            <div class="result shapes-cont2" style="text-align:left">
+              <img class="plain" data-src="img/beyonce.png">
+              <p>Beyoncé Giselle Knowles-Carter is an American singer, songwriter, dancer and actress. Born and raised in Houston, Texas, Beyoncé performed in various singing and dancing competitions as a child. She rose to fame in the late 1990s as lead singer of the R&B girl-group Destiny's Child.</p>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.shapes-cont2 img {
+  shape-image-threshold: .5;
+  shape-margin: 0.1em;
+  shape-outside: url('img/beyonce.png');
+  float: left;
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>It is also possible for text to flow around an image. The image has to have transparency, because the alpha channel is used to compute the shape. Pixels which fall below the <code>shape-image-threshold</code> value are “ignored“ so text can flow into that area instead.</p>
+            <p>And even if a browser does not support CSS shapes, the design will not be broken, the text will behave as though the property was not applied.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Support for <code>writing-mode</code></h2>
+          <img class="plain" data-src="img/writing-mode.svg" alt="Release of writing mode in various browsers">
+          <aside class="notes">
+            <p>Another thing that we are now able to do reasonably well on the web is vertical writing. Writing mode is not exactly a new thing, with Internet Explorer 6 pioneering in 2001 using an older version of the specification.</p>
+            <p>Although support did not roll out universally across browsers, right now, it is well supported, even on mobile. And that is a great opportunity, for typesetting East Asian publications, as well as for graphic design in other languages that do not have a vertical writing mode.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2><code>writing-mode</code> property</h2>
+          <table style="font-size:75%">
+            <tr>
+              <td>horizontal-tb</td>
+              <td><span>从1987到现在</span></td>
+            </tr>
+            <tr>
+              <td>vertical-rl</td>
+              <td><span style="writing-mode:vertical-rl;height:3.5em">从1987到现在</span></td>
+            </tr>
+            <tr>
+              <td>vertical-lr</td>
+              <td><span style="writing-mode:vertical-lr;height:3.5em">从1987到现在</span></td>
+            </tr>
+            <tr>
+              <td>sideways-rl*</td>
+              <td><span style="writing-mode:sideways-rl;height:3.5em">从1987到现在</span></td>
+            </tr>
+            <tr>
+              <td>sideways-lr*</td>
+              <td><span style="writing-mode:sideways-lr;height:3.5em">从1987到现在</span></td>
+            </tr>
+          </table>
+          <small>Properties marked with * have been deferred to Writing Modes Level 4.</small>
+          <aside class="notes">Currently, we have 5 values for writing-mode, of which 2 have been deferred to level 4 of the specification. Modifying the writing mode of an element changes the flow of its contents on both the block and inline level.</aside>
+        </section>
+
+        <section>
+          <h2><code>text-orientation</code> property</h2>
+          <div class="l-multiple">
+            <figure>
+              <div><span style="writing-mode:vertical-rl;font-family:'PingFang SC'">从1987到现在</span></div>
+              <figcaption>mixed</figcaption>
+            </figure>
+            <figure>
+              <div><span style="writing-mode:vertical-rl;text-orientation:upright;text-align:justify;font-family:'PingFang SC'">从<span style="letter-spacing:-4px">1987</span>到现在</span></div>
+              <figcaption>upright</figcaption>
+            </figure>
+            <figure>
+              <div><span style="writing-mode:vertical-rl;text-orientation:sideways;font-family:'PingFang SC'">从1987到现在</span></div>
+              <figcaption>sideways</figcaption>
+            </figure>
+          </div>
+          <aside class="notes">The specification also defines a property that lets us control the orientation of characters on a line of text, other than their default orientation as determined by the unicode Vertical_Orientation (vo) property.</aside>
+        </section>
+
+        <section>
+          <h2><code>text-combine-upright</code> property</h2>
+          <div class="l-multiple" style="margin-bottom:1em">
+            <figure>
+              <div><span style="writing-mode:vertical-rl;font-family:'PingFang SC'">民國107年5月25日</span></div>
+              <figcaption>none</figcaption>
+            </figure>
+            <figure>
+              <div><span style="writing-mode:vertical-rl;font-family:'PingFang SC'">民國<span style="text-combine-upright:all">107</span>年<span style="text-combine-upright:all">5</span>月<span style="text-combine-upright:all">25</span>日</span></div>
+              <figcaption>all</figcaption>
+            </figure>
+            <figure>
+              <div><span style="writing-mode:vertical-rl;font-family:'PingFang SC'">民國<span style="text-combine-upright:digits 3">107</span>年<span style="text-combine-upright:digits">5</span>月<span style="text-combine-upright:digits">25</span>日</span></div>
+              <figcaption>digits &lt;integer&gt;*</figcaption>
+            </figure>
+          </div>
+          <aside class="notes">We can also fit runs of characters into the space of a single character when the writing mode is vertical with the <code>text-combine-upright</code> property.</aside>
+        </section>
+
+        <section>
+          <div class="l-multiple">
+            <div style="margin-bottom:1em;writing-mode:vertical-rl;font-family:'PingFang SC';font-size:175%"><span>古巴<span style="text-combine-upright:all">Cuba</span></span></div>
+            <div style="margin-bottom:1em;writing-mode:vertical-rl;font-family:'PingFang SC';font-size:175%"><span>愛沙尼亞共和國<span style="text-combine-upright:all">Estonia</span></span></div>
+            <div style="margin-bottom:1em;writing-mode:vertical-rl;font-family:'PingFang SC';font-size:175%"><span>列支敦斯登<span style="text-combine-upright:all">Liechtenstein</span></span></div>
+          </div>
+          <aside class="notes">Right now, without the <code>digits</code> value supported, we can't really limit the number of characters to be squeezed into the one character space. Excessively long runs of characters will end up being distorted quite badly.</aside>
+        </section>
+
+        <section>
+          <video loop autoplay>
+            <source data-src="videos/vertical.mp4" type="video/mp4" />
+            Sorry, your browser doesn't support embedded videos, 
+            but don't worry, you can <a href="videos/vertical.mp4">download it</a>
+            and watch it with your favourite video player!
+          </video>
+          <p><a href="https://codepen.io/huijing/pen/bWzMEJ">https://codepen.io/huijing/pen/bWzMEJ</a></p>
+          <aside class="notes">Together, all these properties allow to us to typeset vertical text that is generally comparable to print standards.</aside>
+        </section>
+
+        <section>
+          <video loop autoplay>
+            <source data-src="videos/mode-switcher.mp4" type="video/mp4" />
+            Sorry, your browser doesn't support embedded videos, 
+            but don't worry, you can <a href="videos/vertical.mp4">download it</a>
+            and watch it with your favourite video player!
+          </video>
+          <p><a href="https://codepen.io/huijing/pen/rrkvZa">https://codepen.io/huijing/pen/rrkvZa</a></p>
+          <aside class="notes">In a dynamic digital medium like the web, we can make use of the medium's interactivity to allow readers to change the writing mode of a document on the fly. Adjustments will need to be made at each writing mode to ensure the spacing and kerning of characters provide a comfortable reading experience in either orientation.</aside>
+        </section>
+
+        <section>
+          <h2>CSS logical properties</h2>
+          <div style="display:grid;grid-template-columns:55% 45%;align-items:center">
+            <img class="plain" data-src="img/horizontal-tb.png">
+            <img class="plain" data-src="img/vertical-rl.png"
+          </div>
+          <aside class="notes">
+            <p>To this end, the development of CSS logical properties, which allow the use of logical directions rather than physical directions can simplify the code required.</p>
+            <p>Without logical properties, authors would need to change the directions of margins and paddings when the writing-mode is switched.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>CSS grid for ease of placement</h2>
+          <div class="l-double">
+            <div style="width:100%">
+              <p>Define your grid.</p>
+              <img class="plain" style="max-height:50vh" data-src="img/define-grid.svg" alt="Define a grid">
+            </div>
+            <div style="width:100%">
+              <p>Place items in the grid.</p>
+              <img class="plain" style="max-height:50vh" data-src="img/place-items.svg" alt="Place items in the grid">
+          </div>
+          <aside class="notes">Another major development in CSS is the release of CSS grid. Grid has been supported in stable editions of major browsers for more than a year now. And it offers an unprecedented level of control over the placement of elements on a page.</aside>
+        </section>
+
+        <section>
+          <h2>Overlap elements</h2>
+          <video loop autoplay>
+            <source data-src="videos/overlap.mp4" type="video/mp4" />
+            Sorry, your browser doesn't support embedded videos, 
+            but don't worry, you can <a href="videos/overlap.mp4">download it</a>
+            and watch it with your favourite video player!
+          </video>
+          <aside class="notes">
+            <p>The ability to overlap elements on a design may seem trivial in print design, but until Grid came along, it was difficult to achieve on the web.</p>
+            <p>Grid makes it relatively simple to layer elements on top of each other, allowing us to further enhance our designs with visual effects that make use of blend-modes.</p>
+            <p>This is a simplified example that illustrates what I just described using solid blocks of colour, but more elaborate effects can be achieved if we size our grid columns with flexible units, or allow images to overlap and blend.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Vertical spacing</h2>
+          <video loop autoplay>
+            <source data-src="videos/overlap2.mp4" type="video/mp4" />
+            Sorry, your browser doesn't support embedded videos, 
+            but don't worry, you can <a href="videos/overlap2.mp4">download it</a>
+            and watch it with your favourite video player!
+          </video>
+          <aside class="notes">
+            <p>Vertical spacing was another challenge the web medium faced before CSS grid came along. Use of margins and paddings was unwieldy, especially when the viewport size changed. Absolute positioning disrupted the normal document flow and was tricky to maintain as well.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Leveraging media queries</h2>
+          <div style="display:grid;grid-template-columns:33% 33% 33%;font-size:75%">
+            <div>
+              <h3>Level 3</h3>
+              <ul>
+                <li>width</li>
+                <li>height</li>
+                <li>orientation</li>
+                <li>aspect-ratio</li>
+                <li>resolution</li>
+                <li>scan</li>
+                <li>grid</li>
+                <li>color</li>
+                <li>color-index</li>
+                <li>monochrome</li>
+                <li>device-width*</li>
+                <li>device-height*</li>
+                <li>device-aspect-ratio*</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3>Level 4</h3>
+              <ul>
+                <li>update</li>
+                <li>overflow-block</li>
+                <li>overflow-inline</li>
+                <li>color-gamut</li>
+                <li>pointer</li>
+                <li>hover</li>
+                <li>any-pointer</li>
+                <li>any-hover</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3>Level 5</h3>
+              <ul>
+                <li>light-level</li>
+                <li>environment-blending</li>
+                <li>scripting</li>
+                <li>inverted-colors</li>
+                <li>prefers-reduced-motion</li>
+                <li>prefers-reduced-transparency</li>
+                <li>prefers-contrast</li>
+                <li>prefers-color-scheme</li>
+              </ul>
+            </div>
+          </div>
+          <aside class="notes">A challenge for web designers is the fact that we have no control over the environment in which our content is viewed. Media queries give us the means to cater for the wide spectrum of viewports our designs show up in.</aside>
+        </section>
+
+        <section>
+          <video loop autoplay>
+            <source data-src="videos/pghk-resize.mp4" type="video/mp4" />
+            Sorry, your browser doesn't support embedded videos, 
+            but don't worry, you can <a href="videos/vertical.mp4">download it</a>
+            and watch it with your favourite video player!
+          </video>
+          <p><a href="https://penang-hokkien.gitlab.io">https://penang-hokkien.gitlab.io</a></p>
+          <aside class="notes">The most commonly seen media query is width. Using width to determine layout works fairly well when elements are sized with fixed units, because it becomes a matter of stacking blocks in an optimum manner.</aside>
+        </section>
+
+        <section>
+          <video loop autoplay>
+            <source data-src="videos/braun.mp4" type="video/mp4" />
+            Sorry, your browser doesn't support embedded videos, 
+            but don't worry, you can <a href="videos/braun.mp4">download it</a>
+            and watch it with your favourite video player!
+          </video>
+          <p><a href="https://codepen.io/huijing/pen/xPEjWb">https://codepen.io/huijing/pen/xPEjWb</a></p>
+          <aside class="notes">
+            <p>But once we use viewport units, which are lengths that correspond the width and height of the user's viewport, we lose the solidity of each individual block.</p>
+            <p>For example, some designs work best on a landscape orientation, so using width as a media query is insufficient, as the height is not accounted for. Using an aspect ratio media query can counteract this issue by introducing height as a factor as well.</p>
+          </aside>
+        </section>
+
+        <section>
+          <video loop autoplay>
+            <source data-src="videos/grid-tycho.mp4" type="video/mp4" />
+            Sorry, your browser doesn't support embedded videos, 
+            but don't worry, you can <a href="videos/grid-tycho.mp4">download it</a>
+            and watch it with your favourite video player!
+          </video>
+          <p><a href="https://codepen.io/huijing/pen/QQGBjY">https://codepen.io/huijing/pen/QQGBjY</a></p>
           <aside class="notes"></aside>
         </section>
 

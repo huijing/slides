@@ -310,10 +310,14 @@ html {
     margin-top: 0.5em; }
 
 .reveal figcaption {
-  font-style: italic; }
+  font-style: italic;
+  font-size: 75%; }
 
 .reveal td {
   vertical-align: middle; }
+
+.reveal img[src*="svg"] {
+  max-height: 75vh; }
 
 span.emoji {
   font-family: 'Apple Color Emoji', 'Segoe UI Emoji';
@@ -372,25 +376,7 @@ span[role=img][aria-label]:hover::after {
   grid-template-columns: 65% calc(35% - 0.5em);
   height: 60vh; }
 
-.livecode-3p {
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 2fr 1fr;
-  grid-template-areas: 'a b' 'a c'; }
-  .livecode-3p .markup {
-    grid-area: a; }
-  .livecode-3p .result {
-    grid-area: b; }
-  .livecode-3p .code {
-    grid-area: c; }
-
 .code-editor {
   display: block;
   height: 100%;
   white-space: pre-wrap; }
-
-.vidcode {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  height: 75vh; }
-  .vidcode video {
-    align-self: center; }
