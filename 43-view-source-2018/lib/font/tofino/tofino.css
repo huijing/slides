@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Tofino';
+    src: url('tofinopersonal-regular.woff2') format('woff2'),
+         url('tofinopersonal-regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Tofino';
+    src: url('tofinopersonal-regularitalic.woff2') format('woff2'),
+         url('tofinopersonal-regularitalic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Tofino';
+    src: url('tofinopersonal-bold.woff2') format('woff2'),
+         url('tofinopersonal-bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}

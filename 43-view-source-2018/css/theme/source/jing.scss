@@ -1,0 +1,166 @@
+/**
+ * Custom theme for Reveal.js presentations.
+ *
+ * Copyright (C) 2018 Chen Hui Jing, https://www.chenhuijing.com/
+ */
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url(../../lib/font/tofino/tofino.css);
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+// Customised styles for this presentation
+:root {
+  --accent-colour: #{$headingColor};
+}
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+  font-size: 125%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.reveal {
+  .l-multiple {
+    display: flex;
+    justify-content: space-around;
+
+    .j-vert {
+      width: 1em;
+    }
+  }
+
+  .l-double {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .j-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1rem;
+  }
+
+  strong {
+    color: $headingColor;
+  }
+
+  blockquote {
+    width: 80%;
+    text-align: left;
+    box-shadow: none;
+    line-height: 1.5;
+    font-size: 120%;
+    position: relative;
+
+    p::before {
+      position: absolute;
+      top: -0.25em;
+      left: -0.5em;
+      font-size: 2.5em;
+      font-family: Georgia, serif;
+      content: '\201C';
+      opacity: 0.5;
+    }
+
+    p::after {
+      position: absolute;
+      bottom: 0;
+      right: 0.3em;
+      font-size: 2.5em;
+      font-family: Georgia, serif;
+      content: '\201D';
+      opacity: 0.5;
+    }
+  }
+}
+
+// Accessible emojis ------------------------------
+span.emoji {
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji';
+  font-style: normal;
+  font-size: 125%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+span[role=img][aria-label],
+span[role=img][aria-label] {
+  position: relative;
+}
+
+span[role=img][aria-label]:focus::after,
+span[role=img][aria-label]:hover::after {
+  font-size: 25%;
+  font-family: $mainFont;
+  font-weight: 400;
+  position: absolute;
+  display: block;
+  line-height: 1.2;
+  content: attr(aria-label);
+  z-index: 1;
+  background: $mainColor;
+  color: $backgroundColor;
+  padding: 0.25em;
+  border: 1px solid $backgroundColor;
+  box-shadow: 2px 2px 4px $mainColor;
+}
+
+// Demo-related ------------------------------
+.livecode {
+  display: grid;
+  grid-gap: 0.5em;
+  margin: 0;
+  padding: 0;
+
+  .code {
+    text-align: left;
+    width: 100%;
+    font-family: 'Dank Mono', monospace;
+    color: #efdcbc;
+    background-color: #3f3f3f;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    overflow-y: scroll;
+  }
+}
+
+.code-editor {
+  display: block;
+  height: 100%;
+  white-space: pre-wrap;
+}
+
+.vidcode {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  height: 75vh;
+
+  video {
+    align-self: center;
+  }
+}
+
+// Dancing emoji ---------------------
+.dancing-emoji {
+  animation: dance 1s ease-in-out infinite;
+  display: inline-flex;
+}
+@keyframes dance {
+  0%   { transform: rotate(-10deg) }
+  50%  { transform: rotate(10deg) }
+  100% { transform: rotate(-10deg) }
+}
