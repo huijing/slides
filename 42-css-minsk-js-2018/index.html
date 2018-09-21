@@ -29,8 +29,8 @@
           <h3>(and how it can inspire alternative web layouts)</h3>
           <p><small>By <a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
           <aside class="notes">
-            <p>прывітанне! (pri-vit-tan-nyeh) I'm really excited to be here in Minsk and today, I'll be talking about using CSS for typography as well as for layout.</p>
-            <p>But before I begin, can I have a show of hands if anyone in the audience speaks any East Asian languages, like Chinese or Japanese?</p>
+            <p>прывітанне! (pri-vit-tan-nyeh) I'm really excited to be here in Minsk and today, I'll be talking about typesetting East Asian languages on the web with CSS, and how such techniques can also be used for other languages but for art direction and designing layouts.</p>
+            <p>Before I begin, can I have a show of hands if anyone in the audience speaks any East Asian languages, like Chinese or Japanese?</p>
           </aside>
         </section>
 
@@ -52,32 +52,16 @@
             </div>
           </div>
           <aside class="notes">
-            <p>As for myself, I speak both Chinese and English. My name is Hui Jing, I go by Jing as well. I was born in Malaysia, and I used to play basketball full time. Basketball actually helped kick-start my web career. You can ask me about that later, if you find this interesting.</p>
-            <p>I absolutely love CSS, and so I like writing about it, and sometimes speaking about it as well. I also happen to be a Mozilla TechSpeaker, which is an initiative by Mozilla that supports technical evangelists in regional communities around the world by providing resources and funding.</p>
+            <p>As for myself, I speak both Chinese and English. My name is Hui Jing, I go by Jing as well. I was born in Malaysia. Fun fact, I used to play basketball full-time and it kickstarted my web career.</p>
+            <p>I love CSS and will write articles about it. I also happen to be a Mozilla TechSpeaker, which is an initiative by Mozilla that supports technical evangelists in regional communities around the world by providing resources and funding.</p>
           </aside>
         </section>
 
         <section>
-          <section data-background-image="img/typography-news.jpg">
-            <aside class="notes">
-              <p>So let's get into it. What do you think about when you hear the word typography? Do you think about fancy letters and elaborate typefaces? Is typography a niche topic something only artsy, creative types care about?</p>
-              <p>Perhaps. But typography has made its way into mainstream news recently as well. Largely because big brand names like Netflix and National Geographic did a lot of marketing around their font redesigns.</p>
-              <p>There was also that Supreme Court case in Pakistan where the Microsoft font, Calibri, was the crucial piece of evidence that proved the forgery of financial documents.</p>
-            </aside>
-          </section>
-
-          <section>
-            <h2>What is typography?</h2>
-            <blockquote class="fragment">“Typography is writing with prefabricated letters”<br><small>—Gerrit Noordzij</small></blockquote>
-            <aside class="notes">
-              <p>So that's all quite interesting, but what exactly is typography? You can find lots of definitions out there, but personally, I've settled on this one by Gerrit Noordzij.</p>
-              <p>Typography is writing with prefabricated letters. Letters are a type of grapheme, which is the smallest unit of a writing system of any given language.</p>
-            </aside>
-          </section>
-
           <section data-background-image="img/writing-systems.png" data-background-size="contain">
             <aside class="notes">
-              <p>Writing systems are visual representations of verbal communication. A means to record whatever we say, in our respective languages. </p>
+              <p>So let's get into it. Before we can start talking about typography, however, we need to talk about writing systems.</p>
+              <p>Writing systems are visual representations of verbal communication. A means to record whatever we say, in our respective languages.</p>
               <p>The world is very diverse when it comes to language and culture, so it's only natural that there are many different writing systems used all over the planet. A majority of the world use writing systems that consist of alphabets.</p>
             </aside>
           </section>
@@ -253,23 +237,23 @@
               </table>
             </div>
             <aside class="notes">
-              <p>This is just a small sampling of a bunch of different alphabets. And before I got here, I tried to learn a bit of Belarusian, but I only got as far as я галодны (ya ho-lod-neh) and дзе я магу знайсці дранікі (jie ya ma-hu znai-tsi dra-ni-ki)</p>
-              <p>Along the way, I learnt that the Belarusian alphabet has 32 letters, which is much less than the medieval Cyrillic alphabet which had 43.</p>
-              <p>The Hebrew alphabet has 22 letters, Arabic has 28 letters and English has 26. The point I'm trying to make here is that alphabetic writing systems utilise a small set of letters to form all the words the language needs for communication.</p>
+              <p>Here we have a bunch of different alphabets. And before I got here, I tried to learn a bit of Belarusian, but I only got as far as я галодны (ya ha-lod-neh) and дзе я магу знайсці дранікі (jie ya ma-hu znai-tsi dra-ni-ki)</p>
+              <p>I did learn that the Belarusian alphabet has 32 letters, which is much less than the medieval Cyrillic alphabet which had 43.</p>
+              <p>The Hebrew alphabet has 22 letters, Arabic has 28 letters and English has 26. The point I'm trying to make here is that alphabetic writing systems utilise a small set of letters to form all the different words in that language.</p>
             </aside>
           </section>
 
           <section data-background-image="img/glyphs.jpg">
             <blockquote style="width:auto;display:inline-block;background-color:rgba(255,255,255,0.85)">Source Hans Serif Regular (65,535 glyphs)</blockquote>
-            <aside class="notes">Chinese is different, in that, it is a logographic language. Chinese characters number in the tens of thousands. And each character is a unique glyph that can express meaning on their own or be used in combination with other glyphs. Let's look at a few examples.</aside>
+            <aside class="notes">Chinese is different. It is a logographic language whose characters number in the tens of thousands. Each character is a unique glyph that can express meaning on their own or be used in combination with other glyphs.</aside>
           </section>
 
-          <section data-background-image="img/location.jpg">
+          <section data-background-image="img/landscape.jpg">
             <div class="l-double" style="font-size:150%;">
               <p>захапленне<br><small>(Belarusian) 10 letters</small></p>
-              <p class="fragment"><span class="j-vert" style="justify-self:center;" lang="zh-hans">敬佩</span></p>
+              <p class="fragment"><span class="j-vert" style="justify-self:center;" lang="zh-hans">入迷</span></p>
             </div>
-            <aside class="notes">захапленне (za-ha-ple-nyeh), Belarusian word of 10 letters. Chinese only needs 2 characters, 敬佩.</aside>
+            <aside class="notes">For example, захапленне (za-ha-ple-nyeh), Belarusian word of 10 letters. Chinese only needs 2 characters, 入迷.</aside>
           </section>
 
           <section data-background-image="img/communication.jpg">
@@ -285,11 +269,14 @@
               <p><span lang="ga">Grianghrafadóireachta</span><br><small>(Irish) 21 letters</small></p>
               <p class="fragment"><span class="j-vert" style="justify-self:center" lang="zh-hans">摄影</span></p>
             </div>
-            <aside class="notes">Grianghrafadóireachta (Green-hra-fer-doi-rek-te), Irish word of 21 letters. Again, 2 characters will do, 摄影. Chinese is quite a concise language.</aside>
+            <aside class="notes">Grianghrafadóireachta (Green-hra-fer-doi-rek-te), Irish word of 21 letters. Again, 2 characters will do, 摄影. It's as if Twitter was built for Chinese.</aside>
           </section>
 
           <section data-background-image="img/writing-directions.svg" data-background-size="contain">
-            <aside class="notes">And although a lot of the world mostly read from left-to-right, writing systems can go in all directions. Modern day vertical writing applies to East Asian scripts that utilise Han characters, so mainly Chinese, Korean and Japanese, and are read from right-to-left. Mongolian also uses vertical writing, but is read from left-to-right.</aside>
+            <aside class="notes">
+              <p>Although a lot of the world mostly read from left-to-right, writing systems can go in all directions.</p>
+              <p>Modern day vertical writing applies to East Asian scripts that utilise Han characters, so mainly Chinese, Korean and Japanese, and are read from right-to-left. Mongolian also uses vertical writing, but is read from left-to-right.</p>
+            </aside>
           </section>
 
           <section data-background-image="img/directions.jpg">
@@ -324,10 +311,6 @@
             </aside>
           </section>
 
-          <section data-background-image="img/brush.jpg">
-            <aside class="notes">The key implement of Chinese writing is the brush. Calligraphy was and still is one of the most highly regarded Chinese arts. The works of famous calligraphers were used as the basis for carving woodblocks used for printing, which was invented in China.</aside>
-          </section>
-
           <section>
             <div class="l-double">
               <figure style="margin-bottom:1em">
@@ -353,20 +336,22 @@
           <section data-background-image="img/process.jpg">
             <blockquote style="background-color:rgba(255,255,255,0.85)">“Chinese-script projects are crazy. The scope is mind-blowing.”<br><small>—David Březina from <a href="https://qz.com/522079/the-long-incredibly-tortuous-and-fascinating-process-of-creating-a-chinese-font/">The long, incredibly tortuous, and fascinating process of creating a Chinese font</a></small></blockquote>
             <aside class="notes">
-              <p>Chinese typefaces are extremely challenging to create, simply due to the volume of glyphs required. The average number of glyphs for a Chinese system font is around 35,000 glyphs, give or take a few thousand.</p>
-              <p>This quote is from an article on Quartz that covered the process of creating a Chinese font, and it's a pretty interesting read, which goes into how much effort is needed to design and create a Chinese typeface.</p>
-              <p>For a typeface to be viably used as body copy, it will probably need a minimum coverage of around 7000 glyphs for simplified Chinese or around 13,000 for traditional Chinese. Hence, Chinese fonts are almost always designed by teams over a period of years.</p>
+              <p>Because of the huge volume of glyphs required, creating Chinese typefaces takes years of effort by teams of designers. If you take a look at any Chinese system font you have on your machine, they usually cover more than 30,000 glyphs.</p>
+              <p>For a typeface to be viably used as body copy, it will probably need a minimum coverage of around 7000 glyphs for simplified Chinese or around 13,000 for traditional Chinese.</p>
             </aside>
           </section>
         </section>
 
         <section>
           <section data-background-image="img/analogue.jpg">
-            <aside class="notes">For the longest time, writing has been done on analogue mediums. Etchings on bone, inscriptions on stone and bronze, calligraphy and printing on parchment and paper. All these are things you can touch and feel. But the medium of our time is now the screen, and the browser.</aside>
+            <aside class="notes">For the longest time, writing has been done on analogue mediums. Etchings on bone, inscriptions on stone and bronze, calligraphy and printing on parchment and paper. All these are things we can touch and feel. But the medium of our time is now the screen, and the browser.</aside>
           </section>
 
           <section data-background-image="img/screens.jpg">
-            <aside class="notes">As more and more of our communications move onto the digital realm, it is important that we preserve language diversity. I believe most people in this audience speaks more than one language, and if you think about it, there are certain concepts that simply get lost in translation.</aside>
+            <aside class="notes">
+              <p>As more and more of our communications move onto the digital realm, it is important that we preserve language diversity.</p>
+              <p>I believe most people in this audience speaks more than one language, and if you can recall the words I tried to pronounce earlier, is it possible to fully express za-ha-ple-nyeh in another language?</p>
+            </aside>
           </section>
 
           <section data-background-image="img/content-language.png" data-background-size="100%">
@@ -384,7 +369,7 @@
             <blockquote>“Only 13% of pupils in Belarus study in the Belarusian language.”<br><small>—<a href="https://belarusdigest.com/story/belarusian-language-declining-in-state-education-strengthening-in-civil-society">Alesia Rudnik, Belarus Digest</a></small></blockquote>
             <aside class="notes">
               <p>There aren't that many Belarusian-language schools and the situation seems more problematic at the pre-school and university level.</p>
-              <p>Eighty five per cent of books published in Belarus each year are published in Russian, with Belarusian books taking up only 9.5% of the market.</p>
+              <p>85% of books published in Belarus each year are in Russian, while Belarusian books take up only 9.5% of the market.</p>
               <p>But maybe, the internet can help with that. The number of internet users in Belarus has grown from around 2.1 million to 6.7 million at the end of last year.</p> 
             </aside>
           </section>
@@ -425,8 +410,7 @@
               <img class="plain" style="max-height:30vh;margin-left:1em" data-src="img/webfonts.svg">
             </div>
             <aside class="notes">
-              <p>Typography has always been an integral part of Human-Computer Interaction and software design. Rendering text and graphics on an electronic screen is no easy task.</p>
-              <p>Anything we see on a screen has everything to do with the field of computer graphics. And digital typography is really a cross-disciplinary field involving technical engineering, aesthetic design and mathematical precision.</p>
+              <p>Anything we see on a screen has everything to do with the field of computer graphics. And digital typography is a cross-disciplinary field involving technical engineering, aesthetic design and mathematical precision.</p>
               <p>When we talk about typography on the web, one of the first things that comes to mind is web fonts.</p>
             </aside>
           </section>
@@ -461,7 +445,7 @@
             </div>
             <aside class="notes">
               <p>A glyph is the specific shape of a letter or character in a particular font. In the digital world, everything is data. So glyphs can be described as an array of pixels, or collections of vector images or even paths of Bézier curves and straight lines.</p>
-              <p>Different font formats store information about the font, like their glyphs, encodings, metadata about the font etc., differently based on how their specifications were written.</p>
+              <p>Different font formats store information about the font, like their glyphs, encodings, metadata about the font and so on, differently based on how their specifications were written.</p>
             </aside>
           </section>
 
@@ -512,10 +496,10 @@
               </tr>
             </table>
             <aside class="notes">
-              <p>But why do we have so many different font formats anyway? Time for a bit of history. The earliest fonts were pixel-based bitmaps, which didn't work out so well when it came to high-resolution printing.</p>
-              <p>A lot of smart people worked on this problem. And one of the solutions came from Adobe founder, John Warnock. He created Postscript in 1985, the very first vector font, and it really took off.</p>
+              <p>But why do we have so many different font formats anyway? Time for a bit of history. The earliest fonts were pixel-based bitmaps, okay for low-resolution screens, but not for high resolution printing.</p>
+              <p>One of the solutions to this problem came from Adobe founder, John Warnock, who created Postscript in 1985, the very first vector font, and it really took off.</p>
               <p>TrueType was Apple and Microsoft's answer to Adobe's font monopoly. Microsoft came up with TrueType Open in 1994 and eventually Adobe joined in and together they developed OpenType.</p>
-              <p>Microsoft also came up with EOT or embedded OpenType, a proprietary format for use on web pages. Although they tried to submit this as a W3C recommendation, it was rejected in favour of WOFF, or the Web Open Font Format. WOFF2 is an improvement over WOFF with significantly better compression rates.</p>
+              <p>Microsoft also came up with EOT or embedded OpenType, and tried to submit this as a W3C recommendation. However, it was rejected in favour of WOFF, or the Web Open Font Format. WOFF2 is an improvement over WOFF with significantly better compression rates.</p>
             </aside>
           </section>
 
@@ -557,7 +541,11 @@
   font-variant: normal | none | [ &lt;common-lig-values&gt; || &lt;discretionary-lig-values&gt; || &lt;historical-lig-values&gt; || &lt;contextual-alt-values&gt; || stylistic(&lt;feature-value-name&gt;) || historical-forms || styleset(&lt;feature-value-name&gt; #) || character-variant(&lt;feature-value-name&gt; #) || swash(&lt;feature-value-name&gt;) || ornaments(&lt;feature-value-name&gt;) || annotation(&lt;feature-value-name&gt;) || [ small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps ] || &lt;numeric-figure-values&gt; || &lt;numeric-spacing-values&gt; || &lt;numeric-fraction-values&gt; || ordinal || slashed-zero || &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ];
   font-feature-settings: normal | &lt;feature-tag-value&gt; #;
 }</code></pre>
-            <aside class="notes">Descriptors for style, weight and stretch, are used to match styles to a particular typeface in later CSS declarations. If you're bored at work, you could try assigning a black typeface to a font-weight of 100 and proceed to confuse your colleagues who cannot figure out why setting a weight of 100 gives them this massively bold typeface. If office pranks are your thing...I'm just saying. #dontgetfired.</aside>
+            <aside class="notes">
+              <p>Descriptors for style, weight and stretch, are used to match styles to a particular typeface in later CSS declarations.</p>
+              <p>If you're bored at work, you could try assigning a black typeface to a font-weight of 100 and proceed to confuse your colleagues who cannot figure out why setting a weight of 100 gives them this massively bold typeface.</p>
+              <p>If office pranks are your thing...I'm just saying. But it's not my fault if you get in trouble.</p>
+            </aside>
           </section>
 
           <section>
@@ -575,7 +563,7 @@
   unicode-range: U+0400–U+04FF; /* Unicode range for Cyrillic characters */
 }</code></pre>
             <aside class="notes">
-              <p>Then we have the <code>unicode-range</code> descriptor. which allows us to create composite fonts that mix glyphs from different fonts for different scripts.</p>
+              <p>We also have a <code>unicode-range</code> descriptor. which allows us to create composite fonts that mix glyphs from different fonts for different scripts.</p>
               <p>My presentation is using a font called <em>Farro</em>, which unfortunately does not support Cyrillic letters. So I used the <code>unicode-range</code> descriptor to tell my browser to load a second font that did, when it encountered any Cyrillic characters.</p>
               <p>Remember that for font-face rules, the font-family is simply a label, so what I've done here is created a composite font that uses the name <em>Farro</em>, but in actuality, loads 2 different font files depending on what characters need to be displayed.</p>
             </aside>
@@ -601,12 +589,7 @@
             <aside class="notes">
               <p>I have this habit of subsetting my webfonts quite aggressively. For presentations like this one, I only include characters for the few Belarusian words I use. But occasionally, I'll miss a character or two, so those letters will get rendered with the fallback font.</p>
               <p>Sometimes I see that the fallback font is being rendered from the fonts panel, but can't figure out which characters I missed out. With the font highlighter tool, I can see exactly which characters are using which fonts.</p>
-              <p>All these font descriptors I've talked about thus far look very similar to CSS properties, but they are 2 completely different things.</p>
             </aside>
-          </section>
-
-          <section data-background-image="img/descriptor-property.jpg">
-            <aside class="notes">I learned the difference between the 2 after watching Chris Lilley, who chaired the group that developed @font-face, explain it during his dotCSS talk. That properties are requests for styling and descriptors are descriptions of capabilities. A <code>font-weight: bold;</code> within a <code>@font-face</code> rule means this font can do bold. While a <code>font-weight: bold;</code> applied as a property means style this element with a font that can do bold.</aside>
           </section>
 
           <section>
@@ -696,7 +679,7 @@
               </tr>
             </table>
             <aside class="notes">
-              <p>Font feature properties were introduced in Fonts Level 3. allowing us to utilise a variety of typographic features like swashes, ligatures, old-style numerals and so on.</p>
+              <p>Font feature properties were introduced in Fonts Level 3. which just became a Candidate Recommendation today. They allow us to utilise a variety of typographic features like swashes, ligatures, old-style numerals and so on.</p>
               <p>Reading text that is typeset well, through use of features like small caps, italics and proper punctuation, is like listening to a compelling speech.</p>
               <p>Other features like old style numerals and ligatures help maintain typographic colour and enhance the reading experience, which is necessary to hold your readers' attention.</p>
               <p>As long as the font you're using supports these features, we can toggle them with CSS.</p>
@@ -726,7 +709,7 @@
               <figcaption><a href="https://medium.com/@tiro/https-medium-com-tiro-introducing-opentype-variable-fonts-12ba6cd2369"></a>Image credit: John Hudson</figcaption>
             </figure>
             <aside class="notes">
-              <p>OpenType Font Variations, AKA variable fonts, were introduced in September 2016, and has been gaining quite a bit of traction this year.</p>
+              <p>OpenType Font Variations, AKA variable fonts, were introduced in September 2016, and has been gaining quite a bit of traction this year. And I'm pretty sure we'll get our minds blown by Bram's talk after this.</p>
               <p>A variable font is the equivalent of multiple individual fonts, compactly packaged within a single font file, which can potentially be a big plus when it comes to performance. And is especially significant for fonts with large glyph sets, like CJK fonts.</p>
             </aside>
           </section>
@@ -737,27 +720,9 @@
               <p data-height="450" data-theme-id="9162" data-slug-hash="YYaWop" data-default-tab="result" data-user="mandymichael" data-embed-version="2" data-pen-title="Grassy Text with Variable fonts." class="codepen">See the Pen <a href="https://codepen.io/mandymichael/pen/YYaWop/">Grassy Text with Variable fonts.</a> by Mandy Michael (<a href="https://codepen.io/mandymichael">@mandymichael</a>) on <a href="https://codepen.io">CodePen</a>.</p>
             </div>
             <aside class="notes">
-              <p>In addition to that, the dynamism of variable fonts makes it perfect for the web medium, and opens up a world of creative possibility.</p>
-              <p>This demo was created by Mandy Michael, who gave an excellent presentation in Singapore earlier this year. There's video of her talk, and the link is in these slides I'll share later.</p>
+              <p>As a preview to Bram's talk, I'm showing you this incredible demo by Mandy Michael. The word “Grass” here is not a video or a gif, it's text that you can select and search on page.</p>
+              <p>So in addition to performance benefits, the dynamism of variable fonts makes it perfect for the web medium, and opens up a world of creative possibility.</p>
             </aside>
-          </section>
-
-          <section>
-            <div class="l-multiple" style="align-items:center">
-              <figure>
-                <img class="plain" data-src="img/axis-praxis.jpg" alt="Axis Praxis">
-                <figcaption style="font-size:75%"><a href="https://www.axis-praxis.org">https://www.axis-praxis.org</a> by Laurence Penney</figcaption>
-              </figure>
-              <figure>
-                <img class="plain" data-src="img/font-playground.png" alt="Font Playground">
-                <figcaption style="font-size:75%"><a href="http://play.typedetail.com">http://play.typedetail.com</a> by Zhang Wenting</figcaption>
-              </figure>
-              <figure>
-                <img class="plain" data-src="img/v-fonts.jpg" alt="Variable Fonts">
-                <figcaption style="font-size:75%"><a href="https://v-fonts.com">https://v-fonts.com</a> by Nick Sherman</figcaption>
-              </figure>
-            </div>
-            <aside class="notes">If you're interested in playing around with variable fonts, here are a few apps that let you do just that. Axis Praxis, I think, was the first of such apps. The latest addition is the one in the middle, Font Playground, by Zhang Wenting.</aside>
           </section>
         </section>
 
@@ -876,14 +841,48 @@
 
           <section>
             <h2>Typography suggestions</h2>
-            <ul>
-              <li class="fragment">Use and declare the correct font-family</li>
-              <li class="fragment">Make sure the font-size is large enough</li>
-              <li class="fragment">Set <code>line-height</code> for sufficient breathing room</li>
-              <li class="fragment">Use <code>text-align: justify</code></li>
-              <li class="fragment">Keep lines to around 25-35 characters</li>
-              <li class="fragment">Set a <code>margin-bottom</code> for the <code>p</code> element</li>
-            </ul>
+            <p>Use and declare the correct font-family</p>
+            <figure>
+              <img data-src="img/glyph-diff.png" class="plain" alt="Different glyphs for the character 次">
+              <figcaption>Image credit: <a href="https://medium.com/@najeira/flutter-and-cjk-font-selection-5dbc6a6164ba">Tetsuhiro Ueda</a></figcaption>
+            </figure>
+            <aside class="notes">
+              <p>If you do happen to work with languages that use East Asian text, here are some suggestions for typesetting them.</p>
+              <p>Different languages use different glyphs for the same character, so it's important to pick a font that supports glyphs for the correct language.</p>
+            </aside>
+          </section>
+
+          <section>
+            <p style="margin-bottom:2em">Make sure the font-size is large enough</p>
+            <p style="font-size:300%"><span lang="zh-hans">白俄罗斯</span> Belarus</p>
+            <aside class="notes">Han characters have a lot of strokes and visually, appear more dense than Latin alphabets, so it may be necessary to bump up the font size a little.</aside>
+          </section>
+
+          <section>
+            <p>Set larger <code>line-height</code> for sufficient breathing room</p>
+            <div class="l-double" lang="zh-hans">
+              <p style="padding:1em;text-align:justify;position:relative">世界上的事就是怪，不想发生的事偏发生了。我把那位迟到的学生带到办公室了解情况。原来他家离学校有二十多里路，他如果要准时到校的话，早晨五点钟就得起床，还要摸黑走上十几里山路。<span style="position:absolute;bottom:-1em;left:50%;transform:translateX(-50%)" class="emoji" role="img" tabindex="0" aria-label="person gesturing NO">&#x1F645;</span></p>
+              <p style="padding:1em;line-height:1.5;text-align:justify;position:relative">世界上的事就是怪，不想发生的事偏发生了。我把那位迟到的学生带到办公室了解情况。原来他家离学校有二十多里路，他如果要准时到校的话，早晨五点钟就得起床，还要摸黑走上十几里山路。<span style="position:absolute;bottom:-1em;left:50%;transform:translateX(-50%)" class="emoji" role="img" tabindex="0" aria-label="thumbs up">&#x1F44D;</span></p>
+              <aside class="notes">A larger line-height also improves readability for the same reason.</aside>
+            </div>
+          </section>
+
+          <section>
+            <p>Set appropriate margins between paragraphs</p>
+            <div lang="zh-hans" style="max-width:40ch;text-align:justify;margin:2em auto;line-height:1.5">
+              <p>我问他想不想走出大山。他说，想。我说，要走出大山就得好好读书。他抹着眼泪点点头。我说，相信老师，老师会帮你的。</p>
+              <p>这个冬天，每天早晨等上课铃响过后，我和另一位老师轮换着去查他的被褥。如果是湿的，我们就悄悄拿到自己的寝室里烘干。</p>
+            </div>
+            <aside class="notes">Usually margins between paragraphs already exist, but do take note not to let the amount of space be too wide.</aside>
+          </section>
+
+          <section>
+            <p>Use <code>text-align: justify</code></p>
+            <div class="l-double" style="text-align:initial">
+              <p lang="zh-hans" style="position:relative;padding:1em">课外活动时，我尝试着给他们读一些脍炙人口的诗篇：风雨沉沉的夜里，前面一片荒郊，走尽荒郊，便是人们的道，呀﹗黑暗里歧路万千，教我怎样走好，上帝﹗快给我些光明吧，让我向前跑，上帝慌着说：光明，我没处给你找，你要光明，你自己去造。<span style="position:absolute;bottom:-1em;left:50%;transform:translateX(-50%)" class="emoji" role="img" tabindex="0" aria-label="person gesturing NO">&#x1F645;</span></p>
+              <p lang="zh-hans" style="position:relative;padding:1em;text-align:justify">课外活动时，我尝试着给他们读一些脍炙人口的诗篇：风雨沉沉的夜里，前面一片荒郊，走尽荒郊，便是人们的道，呀﹗黑暗里歧路万千，教我怎样走好，上帝﹗快给我些光明吧，让我向前跑，上帝慌着说：光明，我没处给你找，你要光明，你自己去造。<span style="position:absolute;bottom:-1em;left:50%;transform:translateX(-50%)" class="emoji" role="img" tabindex="0" aria-label="thumbs up">&#x1F44D;</span></p>
+            </div>
+            <aside class="notes">As mentioned before, Han characters are square characters, so start and end of lines should be aligned well.</aside>
           </section>
         </section>
 
@@ -1058,18 +1057,18 @@
             <li><a href="https://medium.com/@tiro/https-medium-com-tiro-introducing-opentype-variable-fonts-12ba6cd2369">Introducing OpenType Variable Fonts</a></li>
             <li><a href="https://www.microsoft.com/typography/otspec180/fvar.htm">fvar — Font Variations Table</a></li>
             <li><a href="https://webkit.org/blog/7051/variable-fonts-on-the-web/">Variable Fonts on the Web</a></li>
-            <li><a href="https://webdesign.tutsplus.com/articles/how-to-use-variable-fonts-on-the-web--cms-30212">How to Use Variable Fonts on the Web</a></li>
             <li><a href="http://clagnut.com/blog/2389/">Getting started with variable fonts</a></li>
             <li><a href="http://www.arphic.com.tw/zh-tw/home/about#view_post/181">全球首款! 文鼎晶熙黑體支援可變式字體格式</a></li>
             <li><a href="https://youtu.be/9EU7urOl1LE">Creative text effects with CSS</a> by Mandy Michael (video)</li>
             <li><a href="https://www.w3.org/International/talks/1409-china/index.html">W3C Internationalization & Text Layout Requirements</a></li>
+            <li><a href="https://medium.com/@bobtung/best-practice-in-chinese-layout-f933aff1728f">Best Practices for Chinese Layout</a></li>
             <li>Brokaw, C. & Reed, C. A. (2010). <em>From woodblocks to the Internet: Chinese publishing and print culture in transition, circa 1800 to 2008.</em> Leiden: Brill.</li>
             <li>Tsien T. (2011). <em>Collected writings on Chinese culture.</em> Hong Kong: The Chinese University Press.</li>
             <li>Tsien, T. & Shaughnessy, E. L. (2013). <em>Written on bamboo & silk: the beginnings of Chinese books & inscriptions.</em> Chicago: The University of Chicago Press.</li>
             <li>Houston, K. (2016). <em>The book: a cover-to-cover exploration of the most powerful object of our time.</em> New York: W.W. Norton & Company.</li>
             <li>Haralambous, Y., & Horne, P. S. (2007). <em>Fonts & encodings</em>.</li>
           </ul>
-          <aside class="notes">Did quite a bit of research for this talk, so some further reading, if you're interested.</aside>
+          <aside class="notes">Some further reading for anyone who'd like to find out more about what I covered today.</aside>
         </section>
 
         <section>
@@ -1094,9 +1093,9 @@
           <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle">@huijing</a></p>
           <p style="text-align:right;"><small>Font used is <a href="https://playground.grayscale.design/farro/">Farro</a>, by <a href="https://grayscale.com.hk/about-grayscale/">Grayscale</a></small></p>
           <aside class="notes">
-            <p>I just want to wrap up by saying, the thing about attending conferences, at least for me, is not so much to gain expertise overnight, but rather to get inspired. To learn of things that I did not know existed, to discover something new and perhaps gain insights and hear perspectives that never occurred to me before.</p>
-            <p>So maybe for some of you, these techniques fit your use-case and you can go home and use them tomorrow, that's great. But even if they don't, that's fine too. Knowing what the web is capable of, and what you can potentially build with it, is the act of growing your web design toolbox.</p>
-            <p>That way, when the time comes, you are well equipped to craft a masterpiece for the ages.</p>
+            <p>To me, attending conferences is not to gain expertise overnight. Rather, I'm here discover new things I did not know existed and perhaps gain insights and hear perspectives that never occurred to me before.</p>
+            <p>The techniques I talked about today may be relevant to you today, or maybe not. And that's perfectly fine. This talk was meant to show what the web is capable of, and what we can potentially build with it.</p>
+            <p>And one day, when you do work on a project that needs these techniques, maybe you'll remember that you found out about them here at CSS-Minsk-JS.</p>
           </aside>
         </section>
       </div>

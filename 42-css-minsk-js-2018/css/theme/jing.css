@@ -315,6 +315,9 @@ html {
 .reveal img {
   max-height: 75vh; }
 
+.reveal figcaption {
+  font-size: 75%; }
+
 span.emoji {
   font-family: 'Apple Color Emoji', 'Segoe UI Emoji';
   font-style: normal;
