@@ -76,7 +76,7 @@ html {
     vertical-align: middle;
   }
 
-  img {
+  img[src*="svg"] {
     max-height: 75vh;
   }
 

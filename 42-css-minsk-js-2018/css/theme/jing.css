@@ -312,7 +312,7 @@ html {
 .reveal td {
   vertical-align: middle; }
 
-.reveal img {
+.reveal img[src*="svg"] {
   max-height: 75vh; }
 
 .reveal figcaption {
