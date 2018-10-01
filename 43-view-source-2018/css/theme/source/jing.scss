@@ -86,6 +86,10 @@ html {
       opacity: 0.5;
     }
   }
+
+  img[src*="svg"] {
+    max-height: 75vh;
+  }
 }
 
 // Accessible emojis ------------------------------
