@@ -301,25 +301,23 @@ html {
   width: 80%;
   text-align: left;
   box-shadow: none;
-  line-height: 1.5;
-  font-size: 120%;
+  line-height: 1.55;
+  font-size: 130%;
   position: relative; }
-  .reveal blockquote p::before {
-    position: absolute;
-    top: -0.25em;
-    left: -0.5em;
-    font-size: 2.5em;
-    font-family: Georgia, serif;
-    content: '\201C';
-    opacity: 0.5; }
+  .reveal blockquote p::before,
   .reveal blockquote p::after {
     position: absolute;
-    bottom: 0;
-    right: 0.3em;
     font-size: 2.5em;
     font-family: Georgia, serif;
-    content: '\201D';
-    opacity: 0.5; }
+    color: #44c185; }
+  .reveal blockquote p::before {
+    top: -0.125em;
+    left: -0.5em;
+    content: '\201C'; }
+  .reveal blockquote p::after {
+    bottom: 0;
+    right: -0.3em;
+    content: '\201D'; }
 
 .reveal img[src*="svg"] {
   max-height: 75vh; }
