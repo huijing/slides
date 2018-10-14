@@ -3,28 +3,28 @@
  *
  * Copyright (C) 2018 Chen Hui Jing, https://www.chenhuijing.com/
  */
-@import url("../../lib/font/tofino/tofino.css");
+@import url("../../lib/font/missiongothic/missiongothic.css");
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #191919;
-  background-color: #191919; }
+  background: #fff;
+  background-color: #fff; }
 
 .reveal {
-  font-family: "Tofino", sans-serif;
+  font-family: "Mission Gothic", sans-serif;
   font-size: 2.4em;
   font-weight: normal;
-  color: #fff; }
+  color: #0b4f6c; }
 
 ::selection {
-  color: #191919;
-  background: #f48136;
+  color: #fff;
+  background: #757575;
   text-shadow: none; }
 
 ::-moz-selection {
-  color: #191919;
-  background: #f48136;
+  color: #fff;
+  background: #757575;
   text-shadow: none; }
 
 .reveal .slides section,
@@ -42,8 +42,8 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #44c185;
-  font-family: "Tofino", sans-serif;
+  color: #20bf55;
+  font-family: "Mission Gothic", sans-serif;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: normal;
@@ -202,20 +202,20 @@ body {
  * LINKS
  *********************************************/
 .reveal a {
-  color: #f9d056;
+  color: #01baef;
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
   transition: color .15s ease; }
 
 .reveal a:hover {
-  color: #e1aa08;
+  color: #016b89;
   text-shadow: none;
   border: none; }
 
 .reveal .roll span:after {
   color: #fff;
-  background: #f6bb0c; }
+  background: #017fa3; }
 
 /*********************************************
  * IMAGES
@@ -223,7 +223,7 @@ body {
 .reveal section img {
   margin: 15px 0px;
   background: rgba(255, 255, 255, 0.12);
-  border: 4px solid #fff;
+  border: 4px solid #0b4f6c;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
 
 .reveal section img.plain {
@@ -238,21 +238,21 @@ body {
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #f9d056;
+  border-color: #01baef;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
 /*********************************************
  * NAVIGATION CONTROLS
  *********************************************/
 .reveal .controls {
-  color: #f9d056; }
+  color: #01baef; }
 
 /*********************************************
  * PROGRESS BAR
  *********************************************/
 .reveal .progress {
   background: rgba(0, 0, 0, 0.2);
-  color: #f9d056; }
+  color: #01baef; }
 
 .reveal .progress span {
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
@@ -264,7 +264,7 @@ body {
  *********************************************/
 @media print {
   .backgrounds {
-    background-color: #191919; } }
+    background-color: #fff; } }
 
 html {
   box-sizing: border-box;
@@ -292,7 +292,7 @@ html {
   margin-right: 1rem; }
 
 .reveal strong {
-  color: #44c185; }
+  color: #20bf55; }
 
 .reveal blockquote {
   width: 80%;
@@ -306,7 +306,7 @@ html {
     position: absolute;
     font-size: 2.5em;
     font-family: Georgia, serif;
-    color: #44c185; }
+    color: #20bf55; }
   .reveal blockquote p::before {
     top: -0.125em;
     left: -0.5em;
@@ -316,7 +316,7 @@ html {
     right: -0.3em;
     content: '\201D'; }
 
-.reveal img[src*="svg"] {
+.reveal img[src*='svg'] {
   max-height: 75vh; }
 
 span.emoji {
@@ -333,18 +333,18 @@ span[role=img][aria-label] {
 span[role=img][aria-label]:focus::after,
 span[role=img][aria-label]:hover::after {
   font-size: 25%;
-  font-family: "Tofino", sans-serif;
+  font-family: "Mission Gothic", sans-serif;
   font-weight: 400;
   position: absolute;
   display: block;
   line-height: 1.2;
   content: attr(aria-label);
   z-index: 1;
-  background: #fff;
-  color: #191919;
+  background: #0b4f6c;
+  color: #fff;
   padding: 0.25em;
-  border: 1px solid #191919;
-  box-shadow: 2px 2px 4px #fff; }
+  border: 1px solid #fff;
+  box-shadow: 2px 2px 4px #0b4f6c; }
 
 .livecode {
   display: grid;
@@ -372,15 +372,3 @@ span[role=img][aria-label]:hover::after {
   height: 75vh; }
   .vidcode video {
     align-self: center; }
-
-.dancing-emoji {
-  animation: dance 1s ease-in-out infinite;
-  display: inline-flex; }
-
-@keyframes dance {
-  0% {
-    transform: rotate(-10deg); }
-  50% {
-    transform: rotate(10deg); }
-  100% {
-    transform: rotate(-10deg); } }

@@ -10,12 +10,12 @@
 // ---------------------------------------------
 
 // Include theme-specific fonts
-@import url('../../lib/font/tofino/tofino.css');
+@import url('../../lib/font/missiongothic/missiongothic.css');
 
 // Theme template ------------------------------
 @import '../template/theme';
-
 // ---------------------------------------------
+
 // Customised styles for this presentation
 html {
   box-sizing: border-box;
@@ -83,7 +83,7 @@ html {
     }
   }
 
-  img[src*="svg"] {
+  img[src*='svg'] {
     max-height: 75vh;
   }
 }
@@ -152,15 +152,4 @@ span[role=img][aria-label]:hover::after {
   video {
     align-self: center;
   }
-}
-
-// Dancing emoji ---------------------
-.dancing-emoji {
-  animation: dance 1s ease-in-out infinite;
-  display: inline-flex;
-}
-@keyframes dance {
-  0%   { transform: rotate(-10deg) }
-  50%  { transform: rotate(10deg) }
-  100% { transform: rotate(-10deg) }
 }

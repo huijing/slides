@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Mission Gothic';
+    src: url('mission_gothic_regular.woff2') format('woff2'),
+         url('mission_gothic_regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mission Gothic';
+    src: url('mission_gothic_regular_italic.woff2') format('woff2'),
+         url('mission_gothic_regular_italic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Mission Gothic';
+    src: url('mission_gothic_bold.woff2') format('woff2'),
+         url('mission_gothic_bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
