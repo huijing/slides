@@ -87,7 +87,7 @@
           </aside>
         </section>
 
-        <section data-background-image="img/analogue.jpg">
+        <!-- <section data-background-image="img/analogue.jpg">
           <aside class="notes">
             <p>Have you ever wondered why humans managed to take over the planet? A theory put forth by historian, Professor Yuval Noah Harari, credits our unique ability to talk about things that only exist in our own imagination. The ability to tell stories.</p>
             <p>Writing has enabled humans to organise entire societies, allowing us to experience reality through the mediation of abstract symbols. For thousands of years, information dissemination was done through physical media, things we can feel and touch.</p> 
@@ -98,7 +98,7 @@
           <aside class="notes">
             <p>But when the first electronic computers came about in the 1940s, and screens started being used as output devices in the 50s, everything changed.</p>
             <p>An electronic display is a proxy medium, because whatever we see displayed on a screen comes from data encoded as electronic signals. The heart of electronic displays is light. It is transient. We cannot touch light.</p>
-        </section>
+        </section> -->
 
         <section>
           <div style="display:grid;grid-template-columns:50% 50%;">
@@ -119,8 +119,8 @@
 
         <section data-background-image="img/timeline.jpg" data-background-size="95%" data-background-color="#fff">
           <aside class="notes">
-            <p>The web has changed and evolved over the past 3 decades, as have I. I wasn't very useful in my early days. Couldn't walk, couldn't understand most instructions. Did whatever I felt like doing. Sort of like how browsers were back in the day, huh?</p>
-            <p>But as the years passed, browser capabilities advanced. Mine did too. I could run, throw a ball, even drive a car. Evidently, I can now understand much more complicated instructions than before.</p>
+            <p>The web has changed and evolved over the past 3 decades, as have I. I wasn't very useful in my early days. Couldn't walk, couldn't understand most instructions. Did whatever I felt like doing. Sort of like how browsers were back in the day.</p>
+            <p>But as the years passed, browser capabilities advanced. Mine did too. I developed the ability to run, throw a ball, even drive a car. I could also now understand much more complicated instructions than before.</p>
             <p>Modern CSS gives us a wider vocabulary with which to communicate with the browser, so we can leverage these new capabilities that browsers now have for better art direction, more creative layouts and fresher designs that break out of the cookie cutter moulds we're so used to seeing on the web.</p>
           </aside>
         </section>
@@ -130,11 +130,41 @@
           <aside class="notes">We need a new normal for the web. A normal where people don't expect websites to look the same on different browsers and devices. A normal where we embrace the fluidity of content and work with it instead of against it. A normal where we cede control of our designs to the browsers that render them.</aside>
         </section>
 
+        <section data-background-video="videos/css-props.mp4" data-background-size="contain" data-background-video-muted>
+          <aside class="notes">There are currently 511 distinct CSS properties in the index, each serving a distinct purpose. There are properties for colour, sizing, typography, layout, animation, visual effects, even sound. When we explore the myriad of potential combinations, the possibilities for the web are pretty endless.</aside>
+        </section>
+
         <section>
           <h2>Flexbox</h2>
+          <p>A CSS box model optimized for user interface design</p>
           <aside class="notes">
-            <p>Layout is a pretty big part of web design. And we now have the tools to build layouts that suit the dynamic nature of the web. Flexbox is short for flexible box, and it was conceived as a powerful tool for the distributing space and aligning content in ways that web apps and complex websites often need. Yes, I quoted from the specification.</p>
+            <p>Layout is a pretty big part of web design. And we now have the tools to build layouts that suit the dynamic nature of the web. Often, with CSS, there are multiple ways to achieve the same effect, however, the amount of effort required depends on whether we chose the right tool for the job.</p>
+            <p>Flexbox is short for flexible box, and it was conceived as a powerful tool for the distributing space and aligning content in ways that web apps and complex websites often need. Yes, I quoted from the specification.</p>
             <p>When people complain that flexbox doesn't make sense, and their items are not sized the way they want, they are fighting against the flexible nature of items in a flex formatting context.</p>
+          </aside>
+        </section>
+
+        <section>
+          <div class="livecode livecode-2p">
+            <div class="result automargin" style="font-size:75%;">
+              <div>
+                <img class="plain" data-src="img/box.svg" style="width:4em">
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.automargin {
+  display: flex;
+}
+
+.automargin div {
+  border: 1px solid;
+  
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>I'm going to start with something that is somewhat direction agnostic. For flex layouts, margins are distributed before alignment properties kick in.</p>
+            <p>Any positive free space will be distributed to auto margins in their respective dimensions. So if I set a <code>margin-left: auto</code>, Boxie ends up all the way on the other end of the container. And if I do a <code>margin-top: auto</code>, Boxie gets sent all the way down.</p>
+            <p>If we don't specify a dimension, then any free space will be equally distributed on either side of the flex item. And I love showing this example to people who have just started out with CSS and ran into a wall when it comes to centring items.</p>
+            <p>Set a <code>margin: auto</code> and boom, 1-line solution to all your centring problems. Caveat, works best if you have only 1 flex child.</p>
           </aside>
         </section>
 
@@ -172,6 +202,27 @@
           <aside class="notes">
             <p>Bruce Lee had put forth a criticism of martial arts masters who build up an illusion of fixed forms, who attempt to solidify the ever flowing. He called such practitioners insensitised patternised robots who merely perform methodical routines as responses rather than responding to “what is”.</p>
             <p>Perhaps we too, should allow our web designs to respond to “what is”. Perhaps we should be coming up with designs that “listen” to the circumstances of the different browsers that render them.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Really recommended reading</h2>
+          <ul style="column-count:2;font-size:75%;">
+            <li><a href="https://medium.freecodecamp.org/its-not-dark-magic-pulling-back-the-curtains-from-your-stylesheets-c8d677fa21b2">CSS Isn’t Black Magic</a></li>
+            <li><a href="http://jensimmons.com/post/sep-27-2016/six-layout-myths-busted">Six Layout Myths Busted</a></li>
+            <li><a href="https://www.w3.org/Style/CSS/all-properties.en.html">List of CSS properties, both proposed and standard</a></li>
+            <li><a href="https://www.smashingmagazine.com/2016/11/css-inheritance-cascade-global-scope-new-old-worst-best-friends/">CSS Inheritance, The Cascade And Global Scope: Your New Old Worst Best Friends</a></li>
+            <li><a href="http://annairish.github.io/historicizing/history">History of Flexbox</a></li>
+            <li><a href="https://www.smashingmagazine.com/2018/10/flexbox-use-cases/">Use cases for Flexbox</a></li>
+            <li><a href="https://hackernoon.com/11-things-i-learned-reading-the-flexbox-spec-5f0c799c776b/">11 things I learned reading the flexbox spec</a></li>
+            <li><a href="https://blogs.igalia.com/mrego/2016/02/01/deep-dive-into-grid-layout-placement/">Deep Dive into Grid Layout Placement</a></li>
+            <li><a href="https://blogs.igalia.com/mrego/2016/05/27/css-grid-layout-and-positioned-items/">CSS Grid Layout and positioned items</a></li>
+            <li><a href="https://hacks.mozilla.org/2017/06/new-css-grid-layout-panel-in-firefox-nightly/">Powerful New Additions to the CSS Grid Inspector in Firefox Nightly</a></li>
+            <li><a href="https://clearleft.com/posts/454">There are maps for these territories</a></li>
+            <li><a href="https://rachelandrew.co.uk/archives/2018/10/04/the-way-we-talk-about-css/">The Way We Talk About CSS</a></li>
+          </ul>
+          <aside class="notes">
+            <p>Here's a list of resources related to the things I covered in today's talk and I'll share these slides for anybody who is interested.</p>
           </aside>
         </section>
 

@@ -126,6 +126,22 @@ span[role=img][aria-label]:hover::after {
   margin: 0;
   padding: 0;
 
+  .result {
+    max-height: 100%;
+    overflow-y: scroll;
+    width: 100%;
+    border: 1px dashed $headingColor;
+
+    li {
+      line-height: 0;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
   .code {
     text-align: left;
     width: 100%;
@@ -154,13 +170,13 @@ span[role=img][aria-label]:hover::after {
   }
 }
 
-// Dancing emoji ---------------------
-.dancing-emoji {
-  animation: dance 1s ease-in-out infinite;
-  display: inline-flex;
+.livecode-2p {
+  grid-template-columns: 65% calc(35% - 0.5em);
+  height: 60vh;
 }
-@keyframes dance {
-  0%   { transform: rotate(-10deg) }
-  50%  { transform: rotate(10deg) }
-  100% { transform: rotate(-10deg) }
+
+.code-editor {
+  display: block;
+  height: 100%;
+  white-space: pre-wrap;
 }
