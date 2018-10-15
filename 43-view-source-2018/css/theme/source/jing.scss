@@ -54,6 +54,10 @@ html {
     color: $headingColor;
   }
 
+  code {
+    font-family: 'Dank Mono', monospace;
+  }
+
   blockquote {
     width: 80%;
     text-align: left;
@@ -172,7 +176,7 @@ span[role=img][aria-label]:hover::after {
 
 .livecode-2p {
   grid-template-columns: 65% calc(35% - 0.5em);
-  height: 60vh;
+  height: 70vh;
 }
 
 .code-editor {

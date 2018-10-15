@@ -30,8 +30,8 @@
         </section>
 
         <section data-background-image="img/emoji-bg.png" data-background-repeat="repeat" data-background-size="200px">
-          <div class="l-double">
-            <div style="display:flex;flex-direction:column;align-items:center">
+          <div class="l-double" style="align-items:center">
+            <div style="display:flex;flex-direction:column">
               <img data-src="img/name.svg" alt="Chen Hui Jing" class="plain" style="max-height:25vh">
               <div>
                 <img data-src="img/avatar.jpg" alt="Jing" style="border-radius:50%;max-height:50vh">
@@ -87,19 +87,6 @@
           </aside>
         </section>
 
-        <!-- <section data-background-image="img/analogue.jpg">
-          <aside class="notes">
-            <p>Have you ever wondered why humans managed to take over the planet? A theory put forth by historian, Professor Yuval Noah Harari, credits our unique ability to talk about things that only exist in our own imagination. The ability to tell stories.</p>
-            <p>Writing has enabled humans to organise entire societies, allowing us to experience reality through the mediation of abstract symbols. For thousands of years, information dissemination was done through physical media, things we can feel and touch.</p> 
-          </aside>
-        </section>
-
-        <section data-background-image="img/digital.jpg">
-          <aside class="notes">
-            <p>But when the first electronic computers came about in the 1940s, and screens started being used as output devices in the 50s, everything changed.</p>
-            <p>An electronic display is a proxy medium, because whatever we see displayed on a screen comes from data encoded as electronic signals. The heart of electronic displays is light. It is transient. We cannot touch light.</p>
-        </section> -->
-
         <section>
           <div style="display:grid;grid-template-columns:50% 50%;">
             <figure>
@@ -121,26 +108,470 @@
           <aside class="notes">
             <p>The web has changed and evolved over the past 3 decades, as have I. I wasn't very useful in my early days. Couldn't walk, couldn't understand most instructions. Did whatever I felt like doing. Sort of like how browsers were back in the day.</p>
             <p>But as the years passed, browser capabilities advanced. Mine did too. I developed the ability to run, throw a ball, even drive a car. I could also now understand much more complicated instructions than before.</p>
-            <p>Modern CSS gives us a wider vocabulary with which to communicate with the browser, so we can leverage these new capabilities that browsers now have for better art direction, more creative layouts and fresher designs that break out of the cookie cutter moulds we're so used to seeing on the web.</p>
+            <p>Modern CSS gives us a wider vocabulary with which to communicate with the browser.</p>
           </aside>
         </section>
 
+        <section>
+          <h2>What about frameworks?</h2>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <blockquote>
+            <p>Preformations simply <strong>lack the flexibility</strong> to adapt to the ever changing.</p>
+            <br><small>—Bruce Lee</small>
+          </blockquote>
+          <aside class="notes">If we choose to learn a framework, and learn it well, all we get is the ability to manoeuvre within the bounds of the framework. In this day and age, browsers are constantly being updated with new features and bug fixes. The web is ever changing, at odds with the fixed patterns of frameworks.</aside>
+        </section>
+  
         <section>
           <h2>Let's establish a new normal</h2>
           <aside class="notes">We need a new normal for the web. A normal where people don't expect websites to look the same on different browsers and devices. A normal where we embrace the fluidity of content and work with it instead of against it. A normal where we cede control of our designs to the browsers that render them.</aside>
         </section>
 
-        <section data-background-video="videos/css-props.mp4" data-background-size="contain" data-background-video-muted>
-          <aside class="notes">There are currently 511 distinct CSS properties in the index, each serving a distinct purpose. There are properties for colour, sizing, typography, layout, animation, visual effects, even sound. When we explore the myriad of potential combinations, the possibilities for the web are pretty endless.</aside>
+        <section>
+          <h2>State of Browsers (2018)</h2>
+          <div class="l-multiple">
+            <img class="plain" data-src="img/chrome.png" alt="Chrome">
+            <img class="plain" data-src="img/firefox.png" alt="Firefox">
+            <img class="plain" data-src="img/opera.png" alt="Opera">
+            <img class="plain" data-src="img/webkit.png" alt="Webkit">
+            <img class="plain" data-src="img/edge.png" alt="Edge">
+            <img class="plain" data-src="img/ie11.png" alt="IE11">
+            <img class="plain" data-src="img/uc.png" alt="UC Browser">
+            <img class="plain" data-src="img/android.png" alt="Android">
+            <img class="plain" data-src="img/samsung.png" alt="Samsung Internet">
+          </div>
+          <p>and many more...</p>
+          <aside class="notes">
+            <p>People access information on the web predominantly through browsers. And we do have a lot of them. But they are powered largely by four main layout engines, Blink by Google, Gecko by Mozilla, EdgeHTML by Microsoft and Webkit by Apple.</p>
+            <p>With the maturation of web standards, browser behaviour is less unpredictable than before, though each browser still has their quirks. Features aren't all supported at the same time. But you know what? That's perfectly fine. If we accept this as a feature of the web, instead of a bug, we've just opened up a lot more web design possibilities.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Feature Queries</h2>
+          <p class="ciu_embed" data-feature="css-featurequeries" data-periods="future_1,current,past_1,past_2">
+            <a href="http://caniuse.com/#feat=css-featurequeries"><img class="plain" data-src="img/caniuse-feature-queries.jpg"></a>
+          </p>
+          <aside class="notes">Feature queries are key to making this approach feasible. And support for it is really good, with coverage in over 90% of browsers, including Opera Mini. The only browsers that don't support it are Internet Explorer and Blackberry Mobile.</aside>
+        </section>
+
+        <section>
+          <pre><code class="css">.selector {
+  /* Styles that are supported in old browsers */
+}
+
+@supports (property:value) {
+  .selector {
+    /* Styles for browsers that support the specified property */
+  }
+}</code></pre>
+          <aside class="notes">
+            <p>And this is how a feature query looks like. It's a conditional that checks if the browser supports a particular property or not. If it doesn't, the entire block within the <code>@supports</code> rule is ignored.</p>
+            <p>This means we start off with the basic layout that works everywhere. It could be a float-based layout, or even single column, maybe largely browser default UI elements, that sort of thing. Then we layer on styles based on the features we want to use.</p>
+            <p>By organising our code in this manner, the browsers that do not support feature queries or the specified property still get styled, while those that do get a different look. We're making use of the ‘C’ in CSS. Call it ‘Cascading Web Design’. If this concept ever takes off, remember you heard it here first.</p>
+          </aside>
+        </section>
+
+        <section>
+          <div class="l-multiple">
+            <img class="plain" data-src="img/ie11.jpg" alt="Wismut Labs site layout on IE11">
+            <img class="plain" data-src="img/firefox.jpg" alt="Wismut Labs site layout on Firefox">
+            <img class="plain" data-src="img/chrome.jpg" alt="Wismut Labs site layout on Chrome">
+          </div>
+          <aside class="notes">
+
+            
+          </aside>
+        </section>
+
+        <section>
+          <blockquote>
+            <p>It is futile to argue as to which single leaf, which design of branch, or which attractive flower you like; when you <strong>understand the root</strong>, you understand all its blossoming.</p>
+            <br><small>—Bruce Lee</small>
+          </blockquote>
+          <aside class="notes">
+            <p>And yes, this approach does require a level of familiarity with CSS, but it's not rocket science. It boils down to experience, and the willingness to embrace CSS for what it is. With that in mind, let's talk about what we can use for web layouts.</p>
+          </aside>
+        </section>
+
+        <section data-background-image="img/not-layout.jpg">
+          <aside class="notes">
+            <p>Layout is a pretty big part of web design. But when CSS was first introduced, it wasn't meant for doing layout. Fast-forward to today, we are at a point where we can almost match what is possible in print.</p>
+            <p>However, we need to keep in mind that the web is a different medium from print. Just like there are some things print can do that the web can't, there are numerous things the web can do that print can't either.</p>
+            <p>Often, with CSS, there are multiple ways to achieve the same effect, however, the amount of effort required depends on whether we chose the right tool for the job.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Transforms</h2>
+          <p>Allows us to change the shape and position of the affected content<br>without disrupting the normal document flow</p>
+          <aside class="notes">CSS transforms is one of the tools we can use for layouts. Although we tend to associate transforms with animations, there is also a case to be made for static transforms, especially when it comes to layout design.</aside>
+        </section>
+
+        <section data-background-image="img/print/print-transforms4.jpg">
+          <aside class="notes">(1/4) Diagonals are a very dynamic visual direction, and when used in layout design, create an active composition that implies movement or depth. Such art direction is totally possible on the web.</aside>
+        </section>
+
+        <section data-background-image="img/print/print-transforms2.jpg">
+          <aside class="notes">(2/4) Diagonals are a very dynamic visual direction, and when used in layout design, create an active composition that implies movement or depth. Such art direction is totally possible on the web.</aside>
+        </section>
+
+        <section data-background-image="img/print/print-transforms3.jpg">
+          <aside class="notes">(3/4) Diagonals are a very dynamic visual direction, and when used in layout design, create an active composition that implies movement or depth. Such art direction is totally possible on the web.</aside>
+        </section>
+
+        <section data-background-image="img/print/print-transforms6.jpg">
+          <aside class="notes">(4/4) Diagonals are a very dynamic visual direction, and when used in layout design, create an active composition that implies movement or depth. Such art direction is totally possible on the web.</aside>
+        </section>
+
+        <section data-background-image="img/print/print-transforms5.jpg">
+          <aside class="notes">Like for this example, we can use Grid to place the items, then use transforms to make them have this floating-out-of-the-grid look. But it's still fine to present a regular layout that works on older browsers that don't support Grid or Transforms.</aside>
+        </section>
+
+        <section>
+          <h2>2D transform functions</h2>
+          <table>
+            <tr>
+              <td style="width:19em"><code>rotate( &lt;angle&gt; )</code></td>
+              <td>Performs a 2D rotation by the angle specified around the element's origin</td>
+            </tr>
+            <tr>
+              <td><code>translate( &lt;translation-value&gt; [, &lt;translation-value&gt; ]? )</code></td>
+              <td>Performs a 2D translation in the specified X and Y directions</td>
+            </tr>
+            <tr>
+              <td><code>skew( &lt;angle&gt; [, &lt;angle&gt; ]? )</code></td>
+              <td>Performs a 2D skew by the angles specified</td>
+            </tr>
+            <tr>
+              <td><code>scale( &lt;number&gt; [, &lt;number&gt; ]? )</code></td>
+              <td>Performs a 2D scale operation by the scaling vector specified</td>
+            </tr>
+          </table>
+          <aside class="notes">If you're familiar with image editing software like Photoshop, you'll find that a lot of image manipulation techniques can now be done in CSS as well. These are the four basic transformations in the two-dimensional space. But they're also available when it comes to three-dimensional transforms.</aside>
+        </section>
+
+        <section>
+          <h2>Diagonal text with rotate()</h2>
+          <div class="vidcode">
+            <video controls loop>
+              <source data-src="videos/transforms2d.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/transforms2d.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <pre><code>.trf2d-cont {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows:  repeat(3, 2em) repeat(3, minmax(10vmin, 3em)) 2em 2em 50vh;
+  grid-gap: 0.125em;
+  position: relative;
+}
+
+@media screen and (min-width: 480px) {
+  .trf2d-cont {
+    transform: rotate(-30deg) translateX(5vh);
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .trf2d-cont {
+    transform: rotate(-30deg) translateY(-15vh);
+  }
+}</code></pre>
+          </div>
+          <aside class="notes">
+            <p>There was an article titled ‘The Critical Request‘ that was published on CSS Tricks last month. It's a really good article on page performance, but what caught my eye was this beautifully designed header. It was an image on the actual article, but I felt it was something that definitely could be “web-ified”.</p>
+            <p>So on a narrow screen, diagonals may not be a good idea, but once we have enough space, why not? Again, for browsers that don't support Transforms, we can still present a layout that doesn't use those properties with the help of feature queries. Remember, things on the web don't need to look the same all the time.</p>
+          </aside>
+        </section>
+
+        <section data-background-image="img/print/print-transforms3d.jpg">
+          <aside class="notes">(1/2) 3D transforms also make for great visual impact. The benefit of doing it with text plus CSS is that it provides much better accessibility than sticking the text in an image.</aside>
+        </section>
+
+        <section data-background-image="img/print/print-transforms3d2.jpg">
+          <aside class="notes">(2/2) 3D transforms also make for great visual impact. The benefit of doing it with text plus CSS is that it provides much better accessibility than sticking the text in an image.</aside>
+        </section>
+
+        <section>
+          <h2>Perspective text</h2>
+          <div class="livecode livecode-2p">
+            <div class="result trf3d-cont">
+              <div>
+                <h1>Rethinking Web Design</h1>
+              </div>
+            </div>
+            <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.trf3d-cont div { 
+  perspective: 45vw;
+  perspective-origin: 50% 0%;
+}
+
+.trf3d-cont h1 { 
+  transform: rotateY(-45deg);
+  background-color: #44c185;
+  color: #191919;
+  padding: 0.25em 1em;
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>With 3D transforms, we are operating with one more axis, which is the z-axis, for depth. So there are some additional properties like <code>backface-visibility</code> and <code>perspective</code>, for example. The <code>perspective</code> property controls how far an element appears to recede into the horizon. The smaller the value, the more dramatic the 3D effect is.</p>
+            <p>So if I change the value of <code>perspective</code> here to something smaller, you can see that the horizon recedes much further away.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Transforms browser support</h2>
+          <div class="l-double">
+            <p class="ciu_embed" style="width:100%;" data-feature="transforms2d" data-periods="future_1,current,past_1,past_2">
+              <a href="http://caniuse.com/#feat=transforms2d"><img class="plain" data-src="img/caniuse-2dtrf.jpg"></a>
+            </p>
+            <p class="ciu_embed" style="width:100%;" data-feature="transforms3d" data-periods="future_1,current,past_1,past_2">
+              <a href="http://caniuse.com/#feat=transforms3d"><img class="plain" data-src="img/caniuse-3dtrf.jpg"></a>
+            </p>
+          </div>
+          <aside class="notes">Support for transforms is really good for both 2D and 3D transforms, but you don't have to use them if they don't fit your project. It's just good to know this option exists, and you can reach for it when the time comes.</aside>
+        </section>
+
+        <section data-background-image="img/print/print-shapes.jpg">
+          <aside class="notes">Magazine layouts are also chock full of interesting text flow shapes. Maybe we see this a bit more in fashion magazines, but shapes are not exclusive to those publications.</aside>
+        </section>
+
+        <section data-background-image="img/print/print-shapes3.jpg">
+          <aside class="notes">This one's from Bloomberg Businessweek.</aside>
+        </section>
+
+        <section data-background-image="img/print/print-shapes4.jpg">
+          <aside class="notes">Newspapers do it too, sometimes.</aside>
+        </section>
+
+        <section data-background-image="img/print/print-shapes5.jpg">
+          <aside class="notes">Generally, the idea is to let the text flow around something so it's not laid out in a rectangular shape all the time.</aside>
+        </section>
+
+        <section>
+          <h2>CSS Shapes</h2>
+          <p>Defines properties to control the geometry of an element’s float area</p>
+          <aside class="notes">So the CSS module that let's us do this is called CSS shapes. For now, we can only let text flow around shapes and images with the <code>shape-outside</code> property. When you apply this property to a floated element, text will flow on the opposite side of the float.</aside>
+        </section>
+
+        <section>
+          <h2>Basic shapes</h2>
+          <div class="livecode livecode-2p">
+            <div class="result shapes-cont1" style="font-size:50%;text-align:left;">
+              <article style="clear:both;min-height:12em;">
+                <div class="circle shape"></div>
+                <p style="margin-bottom:1em;">Lollipop marshmallow lemon drops jujubes muffin fruitcake bonbon. Muffin carrot cake bear claw sweet roll tiramisu chocolate jelly beans toffee sweet roll. Biscuit candy sweet sweet powder tart bear claw. Tiramisu jelly beans apple pie donut topping dessert lemon drops gummies halvah.</p>
+                <p style="margin-bottom:1em;">Dessert pie dragée fruitcake chocolate oat cake donut muffin. Chocolate lemon drops cake muffin. Bonbon lemon drops chocolate fruitcake jujubes chupa chups sesame snaps sesame snaps pudding. Pastry chocolate jelly beans cake wafer.</p>
+              </article>
+              <article style="clear:both;min-height:12em;">
+                <div class="ellipse shape"></div>
+                <p style="margin-bottom:1em;">Donut jelly toffee macaroon macaroon. Cookie sesame snaps chupa chups. Lollipop jelly lollipop brownie pastry gummi bears.</p>
+                <p style="margin-bottom:1em;">Gummi bears apple pie chupa chups jelly pie halvah pastry sweet. Cookie dessert sweet roll icing cheesecake macaroon wafer cheesecake. Toffee lemon drops apple pie fruitcake sweet roll chocolate cake jelly bear claw jelly. Donut tiramisu chocolate cake sesame snaps marshmallow tootsie roll candy canes cheesecake cotton candy.</p>
+              </article>
+              <article style="clear:both;min-height:12em;">
+                <div class="inset shape"></div>
+                <p style="margin-bottom:1em;">Cake powder croissant lollipop cotton candy tiramisu lollipop tiramisu. Cookie candy canes gummies jujubes bonbon fruitcake ice cream gingerbread. Marzipan toffee carrot cake marshmallow danish cupcake jelly-o.</p>
+                <p style="margin-bottom:1em;">Halvah brownie lollipop. Chocolate cake marshmallow croissant muffin macaroon pastry. Gummies danish soufflé muffin gingerbread. Lollipop jelly cake croissant sesame snaps macaroon.</p>
+              </article>
+              <article>
+                <div class="polygon shape"></div>
+                <p style="margin-bottom:1em;">Biscuit gummies tart gingerbread wafer jujubes sweet roll. Wafer oat cake carrot cake liquorice chocolate bar chocolate cake jelly-o. Pastry donut oat cake. Fruitcake candy apple pie cake tootsie roll cotton candy candy canes. Halvah halvah chocolate jelly-o macaroon.</p>
+                <p style="margin-bottom:1em;">Macaroon dessert sweet roll dragée candy. Sweet cheesecake lemon drops. Sweet tart chocolate cake candy canes powder cotton candy. Apple pie danish chocolate cake danish bonbon. Muffin soufflé topping carrot cake chocolate. Macaroon toffee chupa chups sesame snaps gummi bears.</p>
+              </article>
+            </div>
+            <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.shapes-cont1 .circle {
+  shape-outside: circle();
+  float: left;
+  border-radius: 50%;
+}
+
+.shapes-cont1 .shape.ellipse {
+  shape-outside: ellipse();
+  width: 7.5em;
+  float: left;
+  border-radius: 50%;
+}
+
+.shapes-cont1 .inset {
+  shape-outside: inset(0px round 2em);
+  float: left;
+  border-radius: 2em;
+}
+
+.shapes-cont1 .polygon {
+  clip-path: polygon(0 0, 0 10em, 10em 5em);
+  shape-outside: polygon(0 0, 0 10em, 10em 5em);
+  float: left;
+}
+
+.shapes-cont1 .shape {
+  width: 10em;
+  height: 10em;
+  background-color: green;
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>There are 4 basic shape functions we can use to define the outline around which we want the text to flow, namely, <code>circle()</code> <code>ellipse()</code>, <code>inset()</code> and <code>polygon()</code>.</p>
+            <p>These same functions are also used in the <code>clip-path</code> property, so as you can see in the <code>polygon()</code> example, both properties share the same value.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Shape from image</h2>
+          <div class="livecode livecode-2p">
+            <div class="result shapes-cont2">
+              <img class="plain" data-src="img/bruce2.png">
+              <p style="margin:0;text-align:left;">Lee Jun-fan (李振藩), known professionally as Bruce Lee, was a Hong Kong and American actor, film director, martial artist, martial arts instructor, philosopher and founder of the martial art Jeet Kune Do. He is widely considered by commentators, critics, media, and other martial artists to be one of the most influential martial artists of all time.</p>
+            </div>
+            <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.shapes-cont2 img {
+  shape-image-threshold: 0.5;
+  shape-margin: 0.3em;
+  shape-outside: url('img/bruce2.png');
+  float: left;
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>Shape from images is what really makes me happy. The image has to have transparency, because the alpha channel is used to compute the shape. Pixels which fall below the <code>shape-image-threshold</code> value are “ignored“ so text just flows into that area instead.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Writing-mode</h2>
+          <p>Defines CSS features to support for various international writing modes</p>
+          <aside class="notes">
+            <p>A large swathe of the world use writing systems that flow left-to-right, from top-to-bottom, languages like English and Malay. But writing systems go in all directions. Chinese and Japanese can be written vertically or horizontally. Arabic and Hebrew scripts are written from right-to-left.</p>
+            <p>That's why we have the writing-mode property. Because it's the WORLD wide web. But we're all creative people, right? So, yes, the primary use of writing-modes is to correctly present the various writing systems on the web. However, writing mode can also be used for art direction.</p>
+          </aside>
+        </section>
+
+        <section data-background-image="img/print/print-writingmode.jpg">
+          <aside class="notes">(1/3) Vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. The inline direction is from top-to-bottom and the text is read from right-to-left.</aside>
+        </section>
+
+        <section data-background-image="img/print/print-writingmode2.jpg">
+          <aside class="notes">(2/3) Vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. The inline direction is from top-to-bottom and the text is read from right-to-left.</aside>
+        </section>
+
+        <section data-background-image="img/print/print-writingmode3.jpg">
+          <aside class="notes">(3/3) Vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. The inline direction is from top-to-bottom and the text is read from right-to-left.</aside>
+        </section>
+
+        <section data-background-image="img/print/print-writingmode4.jpg">
+          <aside class="notes">(1/3) But you don't have to miss out on the fun just because you don't design for those languages. Vertical text has been part of print design for quite a while now, and it's about time the web got in on it as well.</aside>
+        </section>
+
+        <section data-background-image="img/print/print-writingmode5.jpg">
+          <aside class="notes">(2/3) But you don't have to miss out on the fun just because you don't design for those languages. Vertical text has been part of print design for quite a while now, and it's about time the web got in on it as well.</aside>
+        </section>
+
+        <section data-background-image="img/print/print-writingmode6.jpg">
+          <aside class="notes">(3/3) But you don't have to miss out on the fun just because you don't design for those languages. Vertical text has been part of print design for quite a while now, and it's about time the web got in on it as well.</aside>
+        </section>
+
+        <section>
+          <h2>Vertical text</h2>
+          <div class="livecode livecode-2p">
+            <div class="result wm-cont1" style="font-size:75%;text-align:left;">
+              <h2 class="vert-rl">Halt and Catch Fire</h2>
+              <p class="vert-lr">“Computers aren't the thing. They're the thing that gets us to the thing.”</p>
+              <p>“How did we all get here today? The choices we made, the sheer force of our will, something like that? Here's another answer... the winds of fate. Random coincidence, some unseen hand just pushing us along. Destiny.”</p>
+              <h3 class="vert-rl rotate">What are you searching for?</h3>
+            </div>
+            <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.wm-cont1 .vert-rl {
+  writing-mode: vertical-rl;
+  color: red;
+}
+
+.wm-cont1 .vert-lr {
+  writing-mode: vertical-lr;
+  color: blue;
+}
+
+.wm-cont1 .rotate {
+  transform: rotate(180deg);
+  color: green;
+}
+
+.wm-cont1 {
+  display: grid;
+  grid-template-columns: 1fr 2fr 5fr 1fr;
+  justify-items: center;
+}</style></div>
+          </div>
+          <aside class="notes">This example demonstrates the <code>writing-mode</code> property's different values. There's <code>vertical-rl</code> in red, where the text runs from right to left. And <code>vertical-lr</code> in blue, where the text runs from left to right. We can also apply a rotate to make the text face the opposite direction, like the green example. But how can we use this in the context of a horizontal writing system?</aside>
+        </section>
+
+        <section>
+          <h2>Vertical headers</h2>
+          <img class="plain" data-src="img/wm-eg.jpg">
+          <aside class="notes">One idea is for headers. It might not be the best idea to layout long chunks of text vertically because that just makes it hard to read. But using vertical text for short titles or headers can break up the monotony of a long page.</aside>
+        </section>
+
+        <section>
+          <h2>Vertical tags</h2>
+          <img class="plain" data-src="img/wm-eg2.jpg">
+          <aside class="notes">Other subtle uses could be things like tags for blog posts, where the information is not critical to the main content, so laying it out vertically doesn't adversely affect the reading experience.</aside>
+        </section>
+
+        <section>
+          <h2>Vertical navigation</h2>
+          <video controls loop>
+            <source data-src="videos/menu.mp4" type="video/mp4" />
+            Sorry, your browser doesn't support embedded videos, 
+            but don't worry, you can <a href="videos/menu.mp4">download it</a>
+            and watch it with your favourite video player!
+          </video>
+          <aside class="notes">
+            <p>Also, depending on the number of links in your navigation menu, perhaps a vertical layout on a narrow screen could be a design option worth considering.</p>
+            <p>Today's CSS really gives us a lot more creative choices as compared to when responsive design first was a thing back in 2010.</p>
+          </aside>
+        </section>
+  
+        <section>
+          <p>insert images for flexbox grid and box alignment</p>
+          <aside class="notes">
+            <p>Alignment along the inline axis was generally well supported from the start, especially for languages that were read from horizontally from top-to-bottom. Moving text or blocks of content horizontally wasn't too complicated, we had <code>text-align</code>, we could use auto-margins to centre blocks.</p>
+            <p>But vertical alignment required a lot of workarounds, a lot of hacks and frustration. Luckily, CSS is not a fixed technology. Changes were introduced, improvements were made, and now we have a suite of tools for two-dimensional alignment and layout.</p>
+            <p>Flexbox, Grid and Box Alignment.</p>
+          </aside>
         </section>
 
         <section>
           <h2>Flexbox</h2>
-          <p>A CSS box model optimized for user interface design</p>
+          <p>Provides “simple and powerful tools for <strong>distributing space</strong> and <strong>aligning content </strong> in ways that web apps and complex web pages often need.”</p>
           <aside class="notes">
-            <p>Layout is a pretty big part of web design. And we now have the tools to build layouts that suit the dynamic nature of the web. Often, with CSS, there are multiple ways to achieve the same effect, however, the amount of effort required depends on whether we chose the right tool for the job.</p>
             <p>Flexbox is short for flexible box, and it was conceived as a powerful tool for the distributing space and aligning content in ways that web apps and complex websites often need. Yes, I quoted from the specification.</p>
-            <p>When people complain that flexbox doesn't make sense, and their items are not sized the way they want, they are fighting against the flexible nature of items in a flex formatting context.</p>
+            <p>When people complain that Flexbox doesn't make sense, and their items are not sized the way they want, they are fighting against the flexible nature of items in a flex formatting context.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Flex shorthand</h2>
+          <table>
+            <tr>
+              <td style="width:13em;"><code>flex: initial</code></td>
+              <td><code>flex: 0 1 auto</code>, cannot grow but can shrink when there isn't enough space</td>
+            </tr>
+            <tr>
+              <td><code>flex: auto</code></td>
+              <td><code>flex: 1 1 auto</code>, can grow and shrink to fit available space</td>
+            </tr>
+            <tr>
+              <td><code>flex: none</code></td>
+              <td><code>flex: 0 0 auto</code>, cannot grow or shrink, AKA inflexible</td>
+            </tr>
+            <tr>
+              <td><code>flex: &lt;positive-number&gt;</code></td>
+              <td><code>flex: &lt;positive-number&gt; 1 0</code>, can grow and shrink, extent of growth depends on flex factor</td>
+            </tr>
+          </table>
+          <aside class="notes">
+            <p>When it comes to flex children, the key property is <code>flex</code>. It is strongly recommended that we use the <code>flex</code> shorthand rather than each of the individual long-hand properties. First value for amount of growth, second value for amount of shrinkage and last value being the starting width before free space is distributed.</p>
+            <p><code>flex</code> comes with some handy keyword values for commonly desired effects, as shown in this table. If we don't set the flex value on a flex child, its default behaviour is cannot grow, will shrink.</p>
           </aside>
         </section>
 
@@ -161,7 +592,7 @@
 }</style></div>
           </div>
           <aside class="notes">
-            <p>I'm going to start with something that is somewhat direction agnostic. For flex layouts, margins are distributed before alignment properties kick in.</p>
+            <p>Because flex formatting contexts can operate in both dimensions, the auto-margins technique makes centring components much less painful. </p>
             <p>Any positive free space will be distributed to auto margins in their respective dimensions. So if I set a <code>margin-left: auto</code>, Boxie ends up all the way on the other end of the container. And if I do a <code>margin-top: auto</code>, Boxie gets sent all the way down.</p>
             <p>If we don't specify a dimension, then any free space will be equally distributed on either side of the flex item. And I love showing this example to people who have just started out with CSS and ran into a wall when it comes to centring items.</p>
             <p>Set a <code>margin: auto</code> and boom, 1-line solution to all your centring problems. Caveat, works best if you have only 1 flex child.</p>
@@ -169,29 +600,374 @@
         </section>
 
         <section>
-          <h2>Grid</h2>
-          <aside class="notes"></aside>
+          <h2>Flex lines</h2>
+          <div class="l-multiple" style="justify-items:center;align-items:center">
+            <figure class="fragment">
+              <img data-src="img/nowrap.svg" alt="Single flex line, nowrap" class="plain" style="height:2em">
+              <figcaption><code>nowrap</code></figcaption>
+            </figure>
+            <figure class="fragment">
+              <img data-src="img/wrap.svg" alt="Multiple flex lines, wrap" class="plain" style="height:8em">
+              <figcaption><code>wrap</code></figcaption>
+            </figure>
+            <figure class="fragment">
+              <img data-src="img/wrap-reverse.svg" alt="Multiple flex lines, wrap-reverse" class="plain" style="height:8em">
+              <figcaption><code>wrap-reverse</code></figcaption>
+            </figure>
+          </div>
+          <aside class="notes">
+              <p>A common issue I hear is that it's difficult to create a grid system with Flexbox. The thing about Flexbox is, even though you can make a grid system with it, it probably isn't the best idea to do so.</p>
+              <p>Flexbox is suited for laying out items in a single dimension. Where there isn't a relationship between the rows and columns. Think of it more like a daisy chain of flex children.</p>
+            </aside>
         </section>
 
         <section>
-          <blockquote>
-            <p>It is futile to argue as to which single leaf, which design of branch, or which attractive flower you like; when you <strong>understand the root</strong>, you understand all its blossoming.</p>
-            <br><small>—Bruce Lee</small>
-          </blockquote>
-          <aside class="notes"></aside>
+          <h2>Flex directions</h2>
+          <div class="livecode livecode-2p">
+            <div class="result directions">
+              <div class="wrapper" style="margin-bottom:1em">
+                <div class="box">1一</div>
+                <div class="box">2二</div>
+                <div class="box">3三</div>
+                <div class="box">4四</div>
+                <div class="box">5五</div>
+                <div class="box">6六</div>
+                <div class="box">7七</div>
+                <div class="box">8八</div>
+                <div class="box">9九</div>
+                <div class="box">10十</div>
+                <div class="box">11十一</div>
+                <div class="box">12十二</div>
+                <div class="box">13十三</div>
+                <div class="box">14十四</div>
+                <div class="box">15十五</div>
+                <div class="box">16十六</div>
+                <div class="box">17十七</div>
+                <div class="box">18十八</div>
+                <div class="box">19十四</div>
+                <div class="box">20二十</div>
+              </div>
+            </div>
+            <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.directions .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  writing-mode: horizontal-tb;
+  flex-direction: row;
+}
+
+.directions .box {
+  height: 3.5em;
+  width: 3.5em;
+  border: 1px solid;
+}</style></div>
+          </div>
         </section>
 
         <section>
-          <h2>What about frameworks?</h2>
-          <aside class="notes"></aside>
+          <h2>Flexbox layouts (1/2)</h2>
+          <div class="livecode livecode-2p">
+            <div class="result flex-cont2" style="text-align:left;">
+              <ul style="list-style:none;margin:0;">
+                <li><img class="plain" data-src="img/demo-1/image1.jpg"></li>
+                <li><img class="plain" data-src="img/demo-1/image2.jpg"></li>
+                <li><img class="plain" data-src="img/demo-1/image3.jpg"></li>
+                <li><img class="plain" data-src="img/demo-1/image4.jpg"></li>
+                <li><img class="plain" data-src="img/demo-1/image5.jpg"></li>
+                <li><img class="plain" data-src="img/demo-1/image6.jpg"></li>
+                <li><img class="plain" data-src="img/demo-1/image7.jpg"></li>
+                <li><img class="plain" data-src="img/demo-1/image8.jpg"></li>
+                <li><img class="plain" data-src="img/demo-1/image9.jpg"></li>
+                <li><img class="plain" data-src="img/demo-1/image10.jpg"></li>
+                <li><img class="plain" data-src="img/demo-1/image11.jpg"></li>
+                <li><img class="plain" data-src="img/demo-1/image12.jpg"></li>
+                <li><img class="plain" data-src="img/demo-1/image13.jpg"></li>
+                <li><img class="plain" data-src="img/demo-1/image14.jpg"></li>
+                <li><img class="plain" data-src="img/demo-1/image15.jpg"></li>
+                <li><img class="plain" data-src="img/demo-1/image16.jpg"></li>
+                <li><img class="plain" data-src="img/demo-1/image17.jpg"></li>
+                <li><img class="plain" data-src="img/demo-1/image18.jpg"></li>
+                <li><img class="plain" data-src="img/demo-1/image19.jpg"></li>
+                <li><img class="plain" data-src="img/demo-1/image20.jpg"></li>
+              </ul>
+            </div>
+            <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.flex-cont2 ul {
+  // display: flex;
+  // flex-wrap: wrap;
+  // justify-content: center;
+  // align-content: center;
+}
+
+.flex-cont2 li {
+  // flex: 1 0 auto;
+  // border: 1px solid;
+}
+
+.flex-cont2 img {
+  // width: 100%;
+  // height: 3em;
+  // object-fit: cover;
+  margin: 0.25em 0;
+}</style></div>
+            </div>
+            <aside class="notes">
+              <p>Here, I have a list of images. Once I apply <code>display: flex</code>, all the items are shrunk and laid out in a single row. If I turn on wrap, they all revert to their original size because now there is no limit to how much space they need to take up, if there is no space, the image will just drop down to the next row, the next flex line.</p>
+              <p>I'll turn on the border so you can see how each flex child behaves. Now instead of the initial behaviour of can shrink don't grow, I'll change it to can grow don't shrink and make the images take up the width of the child container. Now, there are a lot of options we can play with in terms of designing the whole layout.</p>
+              <p>I can do an <code>align-items: center</code> and create this jagged look, which we don't see all that often on the web. Sometimes I find neat grids a bit monotonous. But if I have to, we can do that by standardising the height of the flex children. This makes the aspect ratio screwed up, so a compromise could be cropping off the taller images with the <code>object-fit</code> property.</p>
+            </aside>
+          </section>
+  
+          <section>
+            <h2>Flexbox layouts (2/2)</h2>
+            <div class="livecode livecode-2p">
+              <div class="result flex-cont3">
+                <ul style="list-style:none;margin:0;">
+                  <li><img class="plain" data-src="img/demo-1/image1.jpg"></li>
+                  <li><img class="plain" data-src="img/demo-1/image2.jpg"></li>
+                  <li><img class="plain" data-src="img/demo-1/image3.jpg"></li>
+                  <li><img class="plain" data-src="img/demo-1/image4.jpg"></li>
+                  <li><img class="plain" data-src="img/demo-1/image5.jpg"></li>
+                  <li><img class="plain" data-src="img/demo-1/image6.jpg"></li>
+                  <li><img class="plain" data-src="img/demo-1/image7.jpg"></li>
+                  <li><img class="plain" data-src="img/demo-1/image8.jpg"></li>
+                  <li><img class="plain" data-src="img/demo-1/image9.jpg"></li>
+                  <li><img class="plain" data-src="img/demo-1/image10.jpg"></li>
+                  <li><img class="plain" data-src="img/demo-1/image11.jpg"></li>
+                  <li><img class="plain" data-src="img/demo-1/image12.jpg"></li>
+                  <li><img class="plain" data-src="img/demo-1/image13.jpg"></li>
+                  <li><img class="plain" data-src="img/demo-1/image14.jpg"></li>
+                  <li><img class="plain" data-src="img/demo-1/image15.jpg"></li>
+                  <li><img class="plain" data-src="img/demo-1/image16.jpg"></li>
+                  <li><img class="plain" data-src="img/demo-1/image17.jpg"></li>
+                  <li><img class="plain" data-src="img/demo-1/image18.jpg"></li>
+                  <li><img class="plain" data-src="img/demo-1/image19.jpg"></li>
+                  <li><img class="plain" data-src="img/demo-1/image20.jpg"></li>
+                </ul>
+              </div>
+              <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.flex-cont3 ul {
+  display: flex;
+  flex-wrap: wrap;
+  // flex-direction: column;
+  // height: 100%;
+  // justify-content: center;
+  // align-items: center;
+}
+
+.flex-cont3 li {
+  border: 1px solid;
+  // flex: auto;
+}
+
+.flex-cont3 img {
+  // width: 5em;
+  // height: calc(100% - 0.5em);
+  object-fit: cover;
+  margin: 0.25em 0;
+}</style></div>
+            </div>
+            <aside class="notes">
+              <p>I can also change the direction of the layout by setting <code>flex-direction</code> to <code>column</code> and giving the container a defined height. Now I've got this horizontal scroll going on.</p>
+              <p>And we can play around with the alignment of the items. Now that the flex direction has changed, the block and inline axes has also changed. <code>justify-content</code> shifts along the vertical axis, while <code>align-items</code> shifts along the horizontal axis.</p>
+              <p>Maybe this new-age hipster layout isn't everyone's thing, that's fine. Remove the alignment code, make the flex children totally flexible and images fill up their containers' heights. <code>calc()</code> is an indispensable function I use when creating layouts. Here, <code>calc()</code> let's me account for the margins of each image with respect to their container heights. I can fix the widths of the images to get something like this.</p>
+              <p>And these layouts are a demonstration of what Flexbox can do out-of-the-box. They are not hacks. These are native options that we have when it comes to designing our layouts.</p>
+            </aside>
+          </section>
+  
+          <section>
+            <h2><code>calc()</code> and <code>object-fit</code> browser support</h2>
+            <div class="l-double">
+              <p class="ciu_embed" style="width:100%;" data-feature="object-fit" data-periods="future_1,current,past_1,past_2">
+                <a href="http://caniuse.com/#feat=object-fit"><img class="plain" data-src="img/caniuse-object-fit.jpg"></a>
+              </p>
+              <p class="ciu_embed" style="width:100%;" data-feature="calc" data-periods="future_1,current,past_1,past_2">
+                <a href="http://caniuse.com/#feat=calc"><img class="plain" data-src="img/caniuse-calc.jpg"></a>
+              </p>
+            </div>
+            <aside class="notes">Support for <code>calc()</code> and <code>object-fit</code> looks like this, which is pretty decent. And they will only continue to get better in the near future. Honestly, the evergreen browser model is one of the best things to happen to the web.</aside>
+          </section>
+
+          <section>
+            <h2>CSS Grid</h2>
+            <p >Defines a <strong>two-dimensional</strong> grid-based layout system,<br>optimized for user interface design</p>
+            <aside class="notes"></aside>
+          </section>
+
+          <section data-background-image="img/print/print-grid.jpg">
+            <aside class="notes">(1/3) The grids we usually see on the web are usually regular, x number of columns all the way down, which was pretty much all the web could do without some serious hacks or Javascript manipulation. Irregular grids are way more interesting though.</aside>
+          </section>
+
+          <section data-background-image="img/print/print-grid2.jpg">
+            <aside class="notes">(2/3) The grids we usually see on the web are usually regular, x number of columns all the way down, which was pretty much all the web could do without some serious hacks or Javascript manipulation. Irregular grids are way more interesting though.</aside>
+          </section>
+
+          <section data-background-image="img/print/print-grid3.jpg">
+            <aside class="notes">(3/3) The grids we usually see on the web are usually regular, x number of columns all the way down, which was pretty much all the web could do without some serious hacks or Javascript manipulation. Irregular grids are way more interesting though.</aside>
+          </section>
+
+          <section data-background-image="img/print/print-grid4.jpg">
+            <aside class="notes">With CSS grids, the web can also do irregular grids. What's more, it can do them in accordance with how browsers render stuff, adapting to the viewport as necessary.</aside>
+          </section>
+
+          <section>
+            <h2>Flexible tracks with <code>fr</code></h2>
+            <div class="livecode livecode-2p">
+              <div class="result fr" style="justify-content:center">
+
+              </div>
+              <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.fr {
+
+}</style></div>
+            </div>
+            <aside class="notes">
+              <p>Grid introduces the <code>fr</code> unit, which represents a fraction of the free space in the grid container. Tracks sized using <code>fr</code> will flex depending on how much free space is left over.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Flexible tracks with <code>minmax()</code></h2>
+            <div class="livecode livecode-2p">
+              <div class="result minmax" style="justify-content:center">
+                
+              </div>
+              <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.minmax {
+
+}</style></div>
+            </div>
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
+            <h2>The implicit grid</h2>
+            <div class="livecode livecode-2p">
+              <div class="result implicit" style="justify-content:center">
+                
+              </div>
+              <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.implicit {
+
+}</style></div>
+            </div>
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
+            <h2>The <code>grid-auto-flow</code> property</h2>
+            <p>Adjusting the direction and density of grid items</p>
+            <div class="livecode livecode-2p">
+              <div class="result autoflow" style="justify-content:center">
+                <div class="autoflow__item" style="border:1px solid;">
+                  <p>A</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid;">
+                  <p>B</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid;">
+                  <p>C</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid;">
+                  <p>D</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid;">
+                  <p>E</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid;">
+                  <p>F</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid;">
+                  <p>G</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid;">
+                  <p>H</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid;">
+                  <p>I</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid;">
+                  <p>J</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid;">
+                  <p>K</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid;">
+                  <p>L</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid;">
+                  <p>M</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid;">
+                  <p>N</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid;">
+                  <p>O</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid;">
+                  <p>P</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid;">
+                  <p>Q</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid;">
+                  <p>R</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid;">
+                  <p>S</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid;">
+                  <p>T</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid;">
+                  <p>U</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid;">
+                  <p>V</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid;">
+                  <p>W</p>
+                </div>
+              </div>
+              <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.autoflow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-auto-rows: 120px;
+  grid-auto-flow: row;
+}
+
+.autoflow__item:nth-child(3n) {
+  background-color: #f48136;
+  grid-column-end: span 2;
+}
+
+.autoflow__item:nth-child(2n+3) {
+  background-color: #f9d056;
+  grid-row-end: span 2;
+}
+
+.autoflow__item:nth-child(3n+4) {
+  background-color: #44c185;
+  grid-column-end: span 2;
+}
+
+.autoflow__item {
+  color: #000;
+  background-color: #fff;
+}</style></div>
         </section>
 
         <section>
-          <blockquote>
-            <p>Preformations simply <strong>lack the flexibility</strong> to adapt to the ever changing.</p>
-            <br><small>—Bruce Lee</small>
-          </blockquote>
-          <aside class="notes">If we choose to learn a framework, and learn it well, all we get is the ability to manoeuvre within the bounds of the framework. In this day and age, browsers are constantly being updated with new features and bug fixes. The web is ever changing, at odds with the fixed patterns of frameworks.</aside>
+          <h2>Firefox Grid Inspector (1/2)</h2>
+          <img class="plain" data-src="img/grid-inspector.jpg">
+          <aside class="notes">Firefox has the best Grid Inspector tool in any browser, and the team is constantly working on adding more features to it to make our lives easier when using CSS grid. To toggle it, click on the waffle-like icon next to <code>display:grid</code> on your grid container element. It will then show all the grid lines and you can see where your grid items have been placed on the grid.</aside>
+        </section>
+
+        <section>
+          <h2>Firefox Grid Inspector (2/2)</h2>
+          <video autoplay loop>
+            <source data-src="videos/grid-inspector.mp4" type="video/mp4">
+            Sorry, your browser doesn't support embedded videos, 
+            but don't worry, you can <a href="videos/grid-inspector.mp4">download it</a>
+            and watch it with your favourite video player!
+          </video>
+          <aside class="notes">And if you're using Nightly, you'll have the Layout panel in your DevTools, which gives you the customisation options like displaying grid line numbers and grid areas, as well as setting different colours if you're using multiple grids on the same page.</aside>
         </section>
 
         <section>
@@ -203,6 +979,10 @@
             <p>Bruce Lee had put forth a criticism of martial arts masters who build up an illusion of fixed forms, who attempt to solidify the ever flowing. He called such practitioners insensitised patternised robots who merely perform methodical routines as responses rather than responding to “what is”.</p>
             <p>Perhaps we too, should allow our web designs to respond to “what is”. Perhaps we should be coming up with designs that “listen” to the circumstances of the different browsers that render them.</p>
           </aside>
+        </section>
+
+        <section data-background-video="videos/css-props.mp4" data-background-size="contain" data-background-video-muted>
+          <aside class="notes">Back in 1996, there were around less than 100 properties in the first version of CSS. Today, there are currently 511 distinct CSS properties in the index, each serving a distinct purpose. There are properties for colour, sizing, typography, layout, animation, visual effects, even sound. When we explore the myriad of potential combinations, the possibilities for the web are pretty endless.</aside>
         </section>
 
         <section>
