@@ -100,7 +100,7 @@
           </div>
           <aside class="notes">
             <p>Designing for the web requires an intimate knowledge of the browser that will be rendering the final output. We can't stick our hands in there and change things directly.</p>
-            <p>We have to change the instructions given to the browser, explaining how we would like things to be rendered instead.</p>
+            <p>Instead, we have to modify the instructions we give to the browser, explaining how we would like things to be rendered.</p>
           </aside>
         </section>
 
@@ -115,7 +115,15 @@
         <section>
           <h2>What about frameworks?</h2>
           <img class="plain" data-src="img/frameworks.png" alt="Popular CSS frameworks">
-          <aside class="notes"></aside>
+          <aside class="notes">
+            <p>Bootstrap, which is arguably the most popular front-end framework around, originally started out as a framework to encourage consistency across internal tools within Twitter. When its creators released it as an open source project in 2011, it really took off.</p>
+            <p>It wasn't long before other frameworks started to pop up as well. What frameworks offer are a set of pre-written styles that developers can use to build out apps or sites by applying the relevant CSS classes.</p>
+            <p>Rachel Andrew </p>
+          </aside>
+        </section>
+
+        <section>
+          <img class="plain" data-src="img/framework.jpg" alt="A question: if you have chosen to use a CSS framework (Bootstrap, Foundation etc.) for your project, what were the main reasons for doing so? Rachel Andrew">
         </section>
 
         <section>
@@ -136,9 +144,16 @@
           <img class="plain" data-src="img/browsers.png" alt="Available browsers on the market" style="height:60vh">
           <p>and many more...</p>
           <aside class="notes">
-            <p>People access information on the web predominantly through browsers. And we do have a lot of them. But they are powered largely by four main layout engines, Blink by Google, Gecko by Mozilla, EdgeHTML by Microsoft and Webkit by Apple.</p>
-            <p>With the maturation of web standards, browser behaviour is less unpredictable than before, though each browser still has their quirks. Features aren't all supported at the same time. But you know what? That's perfectly fine. If we accept this as a feature of the web, instead of a bug, we've just opened up a lot more web design possibilities.</p>
+            <p>People access information on the web predominantly through browsers, and boy do we have a lot of them. But they are powered largely by four major layout engines, Blink by Google, Gecko by Mozilla, EdgeHTML by Microsoft and Webkit by Apple.</p>
+            <p>With the maturation of web standards, browser behaviour is less unpredictable than before, though each browser . Features aren't all supported at the same time. But you know what? That's perfectly fine. If we accept this as a feature of the web, instead of a bug, we've just opened up a lot more web design possibilities.</p>
           </aside>
+        </section>
+
+        <section>
+          <blockquote>
+            <p>Yes, it's easier to develop and test in only one browser. I'm sure IT professionals would have loved to only support one kind of machine. But <strong>variety creates opportunity</strong> for us as developers in the long run.</p>
+            <br><small>—Rachel Nabors, The Ecological Impact of Browser Diversity</small>
+          </blockquote>
         </section>
 
         <section>
@@ -150,7 +165,7 @@
         </section>
 
         <section>
-          <pre><code class="css">.selector {
+          <pre style="font-size:100%"><code>.selector {
   /* Styles that are supported in old browsers */
 }
 
@@ -162,7 +177,7 @@
           <aside class="notes">
             <p>And this is how a feature query looks like. It's a conditional that checks if the browser supports a particular property or not. If it doesn't, the entire block within the <code>@supports</code> rule is ignored.</p>
             <p>This means we start off with the basic layout that works everywhere. It could be a float-based layout, or even single column, maybe largely browser default UI elements, that sort of thing. Then we layer on styles based on the features we want to use.</p>
-            <p>By organising our code in this manner, the browsers that do not support feature queries or the specified property still get styled, while those that do get a different look. We're making use of the ‘C’ in CSS. Call it ‘Cascading Web Design’. If this concept ever takes off, remember you heard it here first.</p>
+            <p>By organising our code in this manner, the browsers that do not support feature queries or the specified property still get styled, while those that do get a different look. We're making use of the ‘C’ in CSS.</p>
           </aside>
         </section>
 
@@ -190,7 +205,7 @@
 
         <section data-background-image="img/not-layout.jpg">
           <aside class="notes">
-            <p>Layout is a pretty big part of web design. But when CSS was first introduced, it wasn't meant for doing layout. Fast-forward to today, we are at a point where we can almost match what is possible in print.</p>
+            <p>Even though layout is a pretty big part of web design, it's interesting to note that when CSS was first introduced, it wasn't meant for doing layout. Fast-forward to today, we are at a point where we can almost match what is possible in print.</p>
             <p>However, we need to keep in mind that the web is a different medium from print. Just like there are some things print can do that the web can't, there are numerous things the web can do that print can't either.</p>
             <p>Often, with CSS, there are multiple ways to achieve the same effect, however, the amount of effort required depends on whether we chose the right tool for the job.</p>
           </aside>
@@ -199,7 +214,7 @@
         <section>
           <h2>Transforms</h2>
           <p>Allows us to change the shape and position of the affected content<br>without disrupting the normal document flow</p>
-          <aside class="notes">CSS transforms is one of the tools we can use for layouts. Although we tend to associate transforms with animations, there is also a case to be made for static transforms, especially when it comes to layout design.</aside>
+          <aside class="notes">CSS transforms is one of the tools we can use for laying out content. Although we tend to associate transforms with animations, there is also a case to be made for static transforms, especially when it comes to layout design.</aside>
         </section>
 
         <section data-background-image="img/print/print-transforms4.jpg">
@@ -254,7 +269,7 @@
               but don't worry, you can <a href="videos/transforms2d.mp4">download it</a>
               and watch it with your favourite video player!
             </video>
-            <pre><code>.trf2d-cont {
+            <pre style="font-size:80%"><code>.trf2d-cont {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   grid-template-rows:  repeat(3, 2em) repeat(3, minmax(10vmin, 3em)) 2em 2em 50vh;
@@ -346,7 +361,7 @@
         <section>
           <h2>CSS Shapes</h2>
           <p>Defines properties to control the geometry of an element’s float area</p>
-          <aside class="notes">So the CSS module that let's us do this is called CSS shapes. For now, we can only let text flow around shapes and images with the <code>shape-outside</code> property. When you apply this property to a floated element, text will flow on the opposite side of the float.</aside>
+          <aside class="notes">The CSS module that let's us do this is called CSS shapes. For now, we can only let text flow around shapes and images with the <code>shape-outside</code> property. When you apply this property to a floated element, text will flow on the opposite side of the float.</aside>
         </section>
 
         <section>
@@ -425,16 +440,14 @@
   float: left;
 }</style></div>
           </div>
-          <aside class="notes">
-            <p>Shape from images is what really makes me happy. The image has to have transparency, because the alpha channel is used to compute the shape. Pixels which fall below the <code>shape-image-threshold</code> value are “ignored“ so text just flows into that area instead.</p>
-          </aside>
+          <aside class="notes">My personal favourite is shapes from images. Somehow seeing text flow around the outline of an image makes me happy. The image has to have transparency, because the alpha channel is used to compute the shape. Pixels which fall below the <code>shape-image-threshold</code> value are “ignored“ so text just flows into that area instead.</aside>
         </section>
 
         <section>
           <h2>Writing-mode</h2>
           <p>Defines CSS features to support for various international writing modes</p>
           <aside class="notes">
-            <p>A large swathe of the world use writing systems that flow left-to-right, from top-to-bottom, languages like English and Malay. But writing systems go in all directions. Chinese and Japanese can be written vertically or horizontally. Arabic and Hebrew scripts are written from right-to-left.</p>
+            <p>A large portion of the world use writing systems that flow left-to-right, from top-to-bottom, languages like English and Malay. But writing systems go in all directions. Chinese and Japanese can be written vertically or horizontally. Arabic and Hebrew scripts are written from right-to-left.</p>
             <p>That's why we have the writing-mode property. Because it's the WORLD wide web. But we're all creative people, right? So, yes, the primary use of writing-modes is to correctly present the various writing systems on the web. However, writing mode can also be used for art direction.</p>
           </aside>
         </section>
@@ -467,24 +480,29 @@
           <h2>Vertical text</h2>
           <div class="livecode livecode-2p">
             <div class="result wm-cont1" style="font-size:75%;text-align:left;">
-              <h2 class="vert-rl">Halt and Catch Fire</h2>
+              <h2 class="vert-rl upright">Halt and Catch Fire</h2>
               <p class="vert-lr">“Computers aren't the thing. They're the thing that gets us to the thing.”</p>
               <p>“How did we all get here today? The choices we made, the sheer force of our will, something like that? Here's another answer... the winds of fate. Random coincidence, some unseen hand just pushing us along. Destiny.”</p>
               <h3 class="vert-rl rotate">What are you searching for?</h3>
             </div>
             <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.wm-cont1 .vert-rl {
   writing-mode: vertical-rl;
-  color: red;
+  color: #f48136;
 }
 
 .wm-cont1 .vert-lr {
   writing-mode: vertical-lr;
-  color: blue;
+  color: #f9d056;
 }
 
 .wm-cont1 .rotate {
   transform: rotate(180deg);
-  color: green;
+  color: #44c185;
+}
+
+.wm-cont1 .upright {
+  text-orientation: ;
+  
 }
 
 .wm-cont1 {
@@ -493,11 +511,11 @@
   justify-items: center;
 }</style></div>
           </div>
-          <aside class="notes">This example demonstrates the <code>writing-mode</code> property's different values. There's <code>vertical-rl</code> in red, where the text runs from right to left. And <code>vertical-lr</code> in blue, where the text runs from left to right. We can also apply a rotate to make the text face the opposite direction, like the green example. But how can we use this in the context of a horizontal writing system?</aside>
+          <aside class="notes">This example demonstrates the <code>writing-mode</code> property's different values. There's <code>vertical-rl</code> in orange, where the text runs from right to left. And <code>vertical-lr</code> in yellow, where the text runs from left to right. We can also apply a rotate to make the text face the opposite direction, like the green example. But how can we use this in the context of a horizontal writing system?</aside>
         </section>
 
         <section>
-          <h2> </h2>
+          <h2>Vertical headers</h2>
           <img class="plain" data-src="img/wm-eg.jpg">
           <aside class="notes">One idea is for headers. It might not be the best idea to layout long chunks of text vertically because that just makes it hard to read. But using vertical text for short titles or headers can break up the monotony of a long page.</aside>
         </section>
@@ -505,7 +523,13 @@
         <section>
           <h2>Vertical tags</h2>
           <img class="plain" data-src="img/wm-eg2.jpg">
-          <aside class="notes">Other subtle uses could be things like tags for blog posts, where the information is not critical to the main content, so laying it out vertically doesn't adversely affect the reading experience.</aside>
+          <aside class="notes">There are a number of small components where we can subtly sneak in some vertical text without affecting the users' reading experience. Things like tags on blog posts, or wherever information is not critical to the main content.</aside>
+        </section>
+
+        <section>
+          <h2>Vertical links</h2>
+          <img class="plain" data-src="img/increment.png" alt="Increment navigation and menu">
+          <aside class="notes">Stripe's online publication, Increment, chose to use vertical text on its menu links on landscape view, but once the viewport grows narrow, they morph back to a horizontal layout. That's why we have media queries, no?</aside>
         </section>
 
         <section>
@@ -523,7 +547,7 @@
         </section>
   
         <section>
-          <p>insert images for flexbox grid and box alignment</p>
+            <img class="plain" data-src="img/new-layout.svg" alt="Flexbox, Box alignment & Grid">
           <aside class="notes">
             <p>Alignment along the inline axis was generally well supported from the start, especially for languages that were read from horizontally from top-to-bottom. Moving text or blocks of content horizontally wasn't too complicated, we had <code>text-align</code>, we could use auto-margins to centre blocks.</p>
             <p>But vertical alignment required a lot of workarounds, a lot of hacks and frustration. Luckily, CSS is not a fixed technology. Changes were introduced, improvements were made, and now we have a suite of tools for two-dimensional alignment and layout.</p>
@@ -800,12 +824,14 @@
 
           <section>
             <h2>Flexible tracks with <code>fr</code></h2>
+            <p>Represents a <strong>fraction</strong> of the <strong>free space</strong> in the grid container.</p>
             <div class="livecode livecode-2p">
-              <div class="result fr" style="justify-content:center">
-
+              <div class="result fr" style="font-size:75%;">
+                <div class="fr__item a" style="border:1px solid;padding:1em 0;"><p>Item A</p></div><div class="fr__item b" style="border:1px solid;padding:1em 0;"><p>Item B</p></div><div class="fr__item c" style="border:1px solid;padding:1em 0;"><p>Item C</p></div>
               </div>
               <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.fr {
-
+  display: grid;
+  grid-template-columns: 150px 150px 150px;
 }</style></div>
             </div>
             <aside class="notes">
@@ -815,12 +841,14 @@
 
           <section>
             <h2>Flexible tracks with <code>minmax()</code></h2>
+            <p>Defines a size range for columns or rows in the grid.</p>
             <div class="livecode livecode-2p">
-              <div class="result minmax" style="justify-content:center">
-                
+              <div class="result minmax" style="font-size:75%;">
+                <div class="minmax__item a" style="border:1px solid;padding:1em 0;"><p>Item A</p></div><div class="minmax__item b" style="border:1px solid;padding:1em 0;"><p>Item B</p></div><div class="minmax__item c" style="border:1px solid;padding:1em 0;"><p>Item C</p></div>
               </div>
               <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.minmax {
-
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) 300px 300px;
 }</style></div>
             </div>
             <aside class="notes">
@@ -831,7 +859,8 @@
             <h2>The implicit grid</h2>
             <div class="livecode livecode-2p">
               <div class="result implicit" style="justify-content:center">
-                
+                <div class="implicit__item a" style="border:1px solid;padding:1em 0;"><p>Item A</p></div><div class="implicit__item b" style="border:1px solid;padding:1em 0;"><p>Item B</p></div><div class="implicit__item c" style="border:1px solid;padding:1em 0;"><p>Item C</p></div>
+                <div class="implicit__item a" style="border:1px solid;padding:1em 0;"><p>Item D</p></div><div class="implicit__item b" style="border:1px solid;padding:1em 0;"><p>Item E</p></div><div class="implicit__item c" style="border:1px solid;padding:1em 0;"><p>Item F</p></div>
               </div>
               <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.implicit {
 
@@ -1026,7 +1055,7 @@
     <script src="js/reveal.js"></script>
     <script src="lib/js/caniuse-embed.min.js"></script>
     <script async src="lib/js/ei.js"></script>
-    <script async src="lib/js/widgets.js" charset="utf-8"></script>
+
     <script>
     Reveal.initialize({
       dependencies: [
