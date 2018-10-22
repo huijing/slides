@@ -322,6 +322,9 @@ html {
 .reveal img[src*="svg"] {
   max-height: 75vh; }
 
+.reveal td {
+  vertical-align: middle; }
+
 span.emoji {
   font-family: 'Apple Color Emoji', 'Segoe UI Emoji';
   font-style: normal;

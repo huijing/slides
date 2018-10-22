@@ -46,14 +46,14 @@
               <span style="font-size:calc(1.75em + 3vw);grid-area:e" class="emoji fragment" role="img" tabindex="0" aria-label="fox">&#x1F98A;</span>
             </div>
           </div>
-          <aside class="notes"></aside>
+          <aside class="notes">An initiative by Mozilla that supports technical evangelists in regional communities around the world by providing resources and funding.</aside>
         </section>
 
         <section>
           <img style="max-height:10em;margin-bottom:0.5em" class="plain" data-src="img/love-dev.svg" alt="Nexmo Developer Relations">
           <p><span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span> Developer Advocate <span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span></p>
           <img style="max-height:2.5em;margin-top:1em" class="plain" data-src="img/nexmo.svg" alt="Nexmo">
-          <aside class="notes"></aside>
+          <aside class="notes">Platform which makes it easier for developers to integrate communications into their applications by providing APIs for messaging, voice and authentication.</aside>
         </section>
 
         <section>
@@ -117,13 +117,15 @@
           <img class="plain" data-src="img/frameworks.png" alt="Popular CSS frameworks">
           <aside class="notes">
             <p>Bootstrap, which is arguably the most popular front-end framework around, originally started out as a framework to encourage consistency across internal tools within Twitter. When its creators released it as an open source project in 2011, it really took off.</p>
-            <p>It wasn't long before other frameworks started to pop up as well. What frameworks offer are a set of pre-written styles that developers can use to build out apps or sites by applying the relevant CSS classes.</p>
-            <p>Rachel Andrew </p>
+            <p>It wasn't long before other frameworks started to pop up as well. What frameworks offer are a set of pre-written styles that developers can use to build out apps or sites by applying the relevant CSS classes. Frameworks that provide consistent options for things like layouts, UI elements, interactions and so on.</p>
           </aside>
         </section>
 
         <section>
           <img class="plain" data-src="img/framework.jpg" alt="A question: if you have chosen to use a CSS framework (Bootstrap, Foundation etc.) for your project, what were the main reasons for doing so? Rachel Andrew">
+          <aside class="notes">
+            <p>Consistent, but limited.</p>
+          </aside>
         </section>
 
         <section>
@@ -143,10 +145,7 @@
           <h2>State of Browsers (2018)</h2>
           <img class="plain" data-src="img/browsers.png" alt="Available browsers on the market" style="height:60vh">
           <p>and many more...</p>
-          <aside class="notes">
-            <p>People access information on the web predominantly through browsers, and boy do we have a lot of them. But they are powered largely by four major layout engines, Blink by Google, Gecko by Mozilla, EdgeHTML by Microsoft and Webkit by Apple.</p>
-            <p>With the maturation of web standards, browser behaviour is less unpredictable than before, though each browser . Features aren't all supported at the same time. But you know what? That's perfectly fine. If we accept this as a feature of the web, instead of a bug, we've just opened up a lot more web design possibilities.</p>
-          </aside>
+          <aside class="notes">People access information on the web predominantly through browsers, and boy do we have a lot of them. But they are powered largely by four major layout engines, Blink by Google, Gecko by Mozilla, EdgeHTML by Microsoft and Webkit by Apple.</aside>
         </section>
 
         <section>
@@ -154,6 +153,7 @@
             <p>Yes, it's easier to develop and test in only one browser. I'm sure IT professionals would have loved to only support one kind of machine. But <strong>variety creates opportunity</strong> for us as developers in the long run.</p>
             <br><small>—Rachel Nabors, The Ecological Impact of Browser Diversity</small>
           </blockquote>
+          <aside class="notes">With the maturation of web standards, browser behaviour is less unpredictable than before, though each browser. Features aren't all supported at the same time. But you know what? That's perfectly fine. If we accept this as a feature of the web, instead of a bug, we've just opened up a lot more web design possibilities.</aside>
         </section>
 
         <section>
@@ -188,8 +188,8 @@
             <img style="height:85vh" class="plain" data-src="img/chrome.jpg" alt="Wismut Labs site layout on browsers with Grid and Shapes support">
           </div>
           <aside class="notes">
-
-            
+            <p>This is a website that utilises such an approach. A basic single column layout serves as the baseline experience. For browsers that support particular features, certain components will have an enhanced layout.</p>
+            <p>The browser in the middle has Grid support, but not Shapes, while the browser on the right supports both. All 3 layouts work off the same codebase, and if any browser starts supporting a newer feature, we don't have to go back and change our code.</p>
           </aside>
         </section>
 
@@ -198,16 +198,14 @@
             <p>It is futile to argue as to which single leaf, which design of branch, or which attractive flower you like; when you <strong>understand the root</strong>, you understand all its blossoming.</p>
             <br><small>—Bruce Lee</small>
           </blockquote>
-          <aside class="notes">
-            <p>And yes, this approach does require a level of familiarity with CSS, but it's not rocket science. It boils down to experience, and the willingness to embrace CSS for what it is. With that in mind, let's talk about what we can use for web layouts.</p>
-          </aside>
+          <aside class="notes">Such an approach does require a level of familiarity with CSS, but it's not rocket science. It boils down to experience, and the willingness to embrace CSS for what it is.</aside>
         </section>
 
         <section data-background-image="img/not-layout.jpg">
           <aside class="notes">
             <p>Even though layout is a pretty big part of web design, it's interesting to note that when CSS was first introduced, it wasn't meant for doing layout. Fast-forward to today, we are at a point where we can almost match what is possible in print.</p>
             <p>However, we need to keep in mind that the web is a different medium from print. Just like there are some things print can do that the web can't, there are numerous things the web can do that print can't either.</p>
-            <p>Often, with CSS, there are multiple ways to achieve the same effect, however, the amount of effort required depends on whether we chose the right tool for the job.</p>
+            <p>Often, with CSS, there are multiple ways to achieve the same effect, however, the amount of effort required depends on whether we choose the right tool for the job.</p>
           </aside>
         </section>
 
@@ -429,9 +427,10 @@
         <section>
           <h2>Shape from image</h2>
           <div class="livecode livecode-2p">
-            <div class="result shapes-cont2">
+            <div class="result shapes-cont2" style="text-align:left;font-size:75%">
               <img class="plain" data-src="img/bruce2.png">
-              <p style="margin:0;text-align:left;">Lee Jun-fan (李振藩), known professionally as Bruce Lee, was a Hong Kong and American actor, film director, martial artist, martial arts instructor, philosopher and founder of the martial art Jeet Kune Do. He is widely considered by commentators, critics, media, and other martial artists to be one of the most influential martial artists of all time.</p>
+              <p style="margin-bottom:0.5em">Lee Jun-fan (李振藩), known professionally as Bruce Lee, was a Hong Kong and American actor, film director, martial artist, martial arts instructor, philosopher and founder of the martial art Jeet Kune Do. He is widely considered by commentators, critics, media, and other martial artists to be one of the most influential martial artists of all time.</p>
+              <p>Lee was born in Chinatown, San Francisco, on November 27, 1940, to parents from Hong Kong, and was raised with his family in Kowloon, Hong Kong. He was introduced to the film industry by his father and appeared in several films as a child actor. Lee moved to the United States at the age of 18 to receive his higher education at the University of Washington in Seattle, and it was during this time that he began teaching martial arts.</p>
             </div>
             <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.shapes-cont2 img {
   shape-image-threshold: 0.5;
@@ -447,21 +446,21 @@
           <h2>Writing-mode</h2>
           <p>Defines CSS features to support for various international writing modes</p>
           <aside class="notes">
-            <p>A large portion of the world use writing systems that flow left-to-right, from top-to-bottom, languages like English and Malay. But writing systems go in all directions. Chinese and Japanese can be written vertically or horizontally. Arabic and Hebrew scripts are written from right-to-left.</p>
-            <p>That's why we have the writing-mode property. Because it's the WORLD wide web. But we're all creative people, right? So, yes, the primary use of writing-modes is to correctly present the various writing systems on the web. However, writing mode can also be used for art direction.</p>
+            <p>Another aspect of layout we are close to matching in the digital world is the ability to typeset writing systems other than those which flow horizontally from top-to-bottom. Arabic and Hebrew scripts are read from right-to-left.</p>
+            <p>We also have East Asian scripts like Chinese and Japanese that can be written both horizontally and vertically. And the writing-mode property allows us to cater for vertical writing on the web via CSS.</p>
           </aside>
         </section>
 
         <section data-background-image="img/print/print-writingmode.jpg">
-          <aside class="notes">(1/3) Vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. The inline direction is from top-to-bottom and the text is read from right-to-left.</aside>
+          <aside class="notes">(1/3) Like I mentioned, vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. The inline direction is from top-to-bottom and the text is read from right-to-left.</aside>
         </section>
 
         <section data-background-image="img/print/print-writingmode2.jpg">
-          <aside class="notes">(2/3) Vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. The inline direction is from top-to-bottom and the text is read from right-to-left.</aside>
+          <aside class="notes">(2/3) Like I mentioned, vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. The inline direction is from top-to-bottom and the text is read from right-to-left.</aside>
         </section>
 
         <section data-background-image="img/print/print-writingmode3.jpg">
-          <aside class="notes">(3/3) Vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. The inline direction is from top-to-bottom and the text is read from right-to-left.</aside>
+          <aside class="notes">(3/3) Like I mentioned, vertical writing is traditionally East Asian. For Han characters, which are used in Chinese, Japanese and Korean. The inline direction is from top-to-bottom and the text is read from right-to-left.</aside>
         </section>
 
         <section data-background-image="img/print/print-writingmode4.jpg">
@@ -511,7 +510,10 @@
   justify-items: center;
 }</style></div>
           </div>
-          <aside class="notes">This example demonstrates the <code>writing-mode</code> property's different values. There's <code>vertical-rl</code> in orange, where the text runs from right to left. And <code>vertical-lr</code> in yellow, where the text runs from left to right. We can also apply a rotate to make the text face the opposite direction, like the green example. But how can we use this in the context of a horizontal writing system?</aside>
+          <aside class="notes">
+            <p>This example demonstrates the <code>writing-mode</code> property's different values. There's <code>vertical-rl</code> in orange, where the text runs from right to left. And <code>vertical-lr</code> in yellow, where the text runs from left to right. We can also apply a rotate to make the text face the opposite direction, like the green example.</p>
+            <p>It is also possible to control the orientation of individual characters with the <code>text-orientation</code> property. But how can we use this in the context of a horizontal writing system?</p>
+          </aside>
         </section>
 
         <section>
@@ -547,11 +549,11 @@
         </section>
   
         <section>
-            <img class="plain" data-src="img/new-layout.svg" alt="Flexbox, Box alignment & Grid">
+          <img class="plain" data-src="img/new-layout.svg" alt="Flexbox, Box alignment & Grid">
           <aside class="notes">
+            <p>A major evolution in web layout is the ability to position and align content in both the inline and block directions.</p>
             <p>Alignment along the inline axis was generally well supported from the start, especially for languages that were read from horizontally from top-to-bottom. Moving text or blocks of content horizontally wasn't too complicated, we had <code>text-align</code>, we could use auto-margins to centre blocks.</p>
             <p>But vertical alignment required a lot of workarounds, a lot of hacks and frustration. Luckily, CSS is not a fixed technology. Changes were introduced, improvements were made, and now we have a suite of tools for two-dimensional alignment and layout.</p>
-            <p>Flexbox, Grid and Box Alignment.</p>
           </aside>
         </section>
 
@@ -565,32 +567,7 @@
         </section>
 
         <section>
-          <h2>Flex shorthand</h2>
-          <table>
-            <tr>
-              <td style="width:13em;"><code>flex: initial</code></td>
-              <td><code>flex: 0 1 auto</code>, cannot grow but can shrink when there isn't enough space</td>
-            </tr>
-            <tr>
-              <td><code>flex: auto</code></td>
-              <td><code>flex: 1 1 auto</code>, can grow and shrink to fit available space</td>
-            </tr>
-            <tr>
-              <td><code>flex: none</code></td>
-              <td><code>flex: 0 0 auto</code>, cannot grow or shrink, AKA inflexible</td>
-            </tr>
-            <tr>
-              <td><code>flex: &lt;positive-number&gt;</code></td>
-              <td><code>flex: &lt;positive-number&gt; 1 0</code>, can grow and shrink, extent of growth depends on flex factor</td>
-            </tr>
-          </table>
-          <aside class="notes">
-            <p>When it comes to flex children, the key property is <code>flex</code>. It is strongly recommended that we use the <code>flex</code> shorthand rather than each of the individual long-hand properties. First value for amount of growth, second value for amount of shrinkage and last value being the starting width before free space is distributed.</p>
-            <p><code>flex</code> comes with some handy keyword values for commonly desired effects, as shown in this table. If we don't set the flex value on a flex child, its default behaviour is cannot grow, will shrink.</p>
-          </aside>
-        </section>
-
-        <section>
+          <h2>Auto-margins</h2>
           <div class="livecode livecode-2p">
             <div class="result automargin" style="font-size:75%;">
               <div>
@@ -607,81 +584,39 @@
 }</style></div>
           </div>
           <aside class="notes">
-            <p>Because flex formatting contexts can operate in both dimensions, the auto-margins technique makes centring components much less painful. </p>
+            <p>Because flex formatting contexts can operate in both dimensions, the auto-margins technique makes centring components much less painful.</p>
             <p>Any positive free space will be distributed to auto margins in their respective dimensions. So if I set a <code>margin-left: auto</code>, Boxie ends up all the way on the other end of the container. And if I do a <code>margin-top: auto</code>, Boxie gets sent all the way down.</p>
             <p>If we don't specify a dimension, then any free space will be equally distributed on either side of the flex item. And I love showing this example to people who have just started out with CSS and ran into a wall when it comes to centring items.</p>
-            <p>Set a <code>margin: auto</code> and boom, 1-line solution to all your centring problems. Caveat, works best if you have only 1 flex child.</p>
           </aside>
         </section>
 
         <section>
           <h2>Flex lines</h2>
           <div class="l-multiple" style="justify-items:center;align-items:center">
-            <figure class="fragment">
+            <figure>
               <img data-src="img/nowrap.svg" alt="Single flex line, nowrap" class="plain" style="height:2em">
               <figcaption><code>nowrap</code></figcaption>
             </figure>
-            <figure class="fragment">
+            <figure>
               <img data-src="img/wrap.svg" alt="Multiple flex lines, wrap" class="plain" style="height:8em">
               <figcaption><code>wrap</code></figcaption>
             </figure>
-            <figure class="fragment">
+            <figure>
               <img data-src="img/wrap-reverse.svg" alt="Multiple flex lines, wrap-reverse" class="plain" style="height:8em">
               <figcaption><code>wrap-reverse</code></figcaption>
             </figure>
           </div>
           <aside class="notes">
-              <p>A common issue I hear is that it's difficult to create a grid system with Flexbox. The thing about Flexbox is, even though you can make a grid system with it, it probably isn't the best idea to do so.</p>
-              <p>Flexbox is suited for laying out items in a single dimension. Where there isn't a relationship between the rows and columns. Think of it more like a daisy chain of flex children.</p>
-            </aside>
-        </section>
-
-        <section>
-          <h2>Flex directions</h2>
-          <div class="livecode livecode-2p">
-            <div class="result directions">
-              <div class="wrapper" style="margin-bottom:1em">
-                <div class="box">1一</div>
-                <div class="box">2二</div>
-                <div class="box">3三</div>
-                <div class="box">4四</div>
-                <div class="box">5五</div>
-                <div class="box">6六</div>
-                <div class="box">7七</div>
-                <div class="box">8八</div>
-                <div class="box">9九</div>
-                <div class="box">10十</div>
-                <div class="box">11十一</div>
-                <div class="box">12十二</div>
-                <div class="box">13十三</div>
-                <div class="box">14十四</div>
-                <div class="box">15十五</div>
-                <div class="box">16十六</div>
-                <div class="box">17十七</div>
-                <div class="box">18十八</div>
-                <div class="box">19十四</div>
-                <div class="box">20二十</div>
-              </div>
-            </div>
-            <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.directions .wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  writing-mode: horizontal-tb;
-  flex-direction: row;
-}
-
-.directions .box {
-  height: 3.5em;
-  width: 3.5em;
-  border: 1px solid;
-}</style></div>
-          </div>
+            <p>A common issue I hear is that it's difficult to create a grid system with Flexbox. The thing about Flexbox is, even though you can make a grid system with it, it's not the best tool for building a grid system.</p>
+            <p>Items in a flex formatting context are aware of each other in a single dimension, either vertically or horizontally. When flex items of equal width wrap to the next line, it may seem like we get rows and columns, but there is no relationship between flex items stacked on top of each other.</p>
+            <p>Does that mean you can't use flexbox to layout large numbers of items? Not at all.</p>
+          </aside>
         </section>
 
         <section>
           <h2>Flexbox layouts (1/2)</h2>
           <div class="livecode livecode-2p">
-            <div class="result flex-cont2" style="text-align:left;">
+            <div class="result flex-cont" style="text-align:left;">
               <ul style="list-style:none;margin:0;">
                 <li><img class="plain" data-src="img/demo-1/image1.jpg"></li>
                 <li><img class="plain" data-src="img/demo-1/image2.jpg"></li>
@@ -705,19 +640,18 @@
                 <li><img class="plain" data-src="img/demo-1/image20.jpg"></li>
               </ul>
             </div>
-            <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.flex-cont2 ul {
+            <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.flex-cont ul {
   // display: flex;
   // flex-wrap: wrap;
-  // justify-content: center;
-  // align-content: center;
+  // align-items: center;
 }
 
-.flex-cont2 li {
+.flex-cont li {
   // flex: 1 0 auto;
   // border: 1px solid;
 }
 
-.flex-cont2 img {
+.flex-cont img {
   // width: 100%;
   // height: 3em;
   // object-fit: cover;
@@ -727,14 +661,14 @@
             <aside class="notes">
               <p>Here, I have a list of images. Once I apply <code>display: flex</code>, all the items are shrunk and laid out in a single row. If I turn on wrap, they all revert to their original size because now there is no limit to how much space they need to take up, if there is no space, the image will just drop down to the next row, the next flex line.</p>
               <p>I'll turn on the border so you can see how each flex child behaves. Now instead of the initial behaviour of can shrink don't grow, I'll change it to can grow don't shrink and make the images take up the width of the child container. Now, there are a lot of options we can play with in terms of designing the whole layout.</p>
-              <p>I can do an <code>align-items: center</code> and create this jagged look, which we don't see all that often on the web. Sometimes I find neat grids a bit monotonous. But if I have to, we can do that by standardising the height of the flex children. This makes the aspect ratio screwed up, so a compromise could be cropping off the taller images with the <code>object-fit</code> property.</p>
+              <p>I can do an <code>align-items: center</code> and create this jagged look. But maybe we want it a bit neater, we can do that by standardising the height of the flex children. This makes the aspect ratio screwed up, so a compromise could be cropping off the taller images with the <code>object-fit</code> property.</p>
             </aside>
           </section>
   
           <section>
             <h2>Flexbox layouts (2/2)</h2>
             <div class="livecode livecode-2p">
-              <div class="result flex-cont3">
+              <div class="result flex-cont2">
                 <ul style="list-style:none;margin:0;">
                   <li><img class="plain" data-src="img/demo-1/image1.jpg"></li>
                   <li><img class="plain" data-src="img/demo-1/image2.jpg"></li>
@@ -758,7 +692,7 @@
                   <li><img class="plain" data-src="img/demo-1/image20.jpg"></li>
                 </ul>
               </div>
-              <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.flex-cont3 ul {
+              <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.flex-cont2 ul {
   display: flex;
   flex-wrap: wrap;
   // flex-direction: column;
@@ -767,12 +701,12 @@
   // align-items: center;
 }
 
-.flex-cont3 li {
+.flex-cont2 li {
   border: 1px solid;
   // flex: auto;
 }
 
-.flex-cont3 img {
+.flex-cont2 img {
   // width: 5em;
   // height: calc(100% - 0.5em);
   object-fit: cover;
@@ -782,7 +716,7 @@
             <aside class="notes">
               <p>I can also change the direction of the layout by setting <code>flex-direction</code> to <code>column</code> and giving the container a defined height. Now I've got this horizontal scroll going on.</p>
               <p>And we can play around with the alignment of the items. Now that the flex direction has changed, the block and inline axes has also changed. <code>justify-content</code> shifts along the vertical axis, while <code>align-items</code> shifts along the horizontal axis.</p>
-              <p>Maybe this new-age hipster layout isn't everyone's thing, that's fine. Remove the alignment code, make the flex children totally flexible and images fill up their containers' heights. <code>calc()</code> is an indispensable function I use when creating layouts. Here, <code>calc()</code> let's me account for the margins of each image with respect to their container heights. I can fix the widths of the images to get something like this.</p>
+              <p>But maybe we don't want all those gaps. Remove the alignment code, make the flex children totally flexible and images fill up their containers' heights. Here, <code>calc()</code> lets me account for the margins of each image with respect to their container heights. I can fix the widths of the images to get something like this.</p>
               <p>And these layouts are a demonstration of what Flexbox can do out-of-the-box. They are not hacks. These are native options that we have when it comes to designing our layouts.</p>
             </aside>
           </section>
@@ -797,13 +731,7 @@
                 <a href="http://caniuse.com/#feat=calc"><img class="plain" data-src="img/caniuse-calc.jpg"></a>
               </p>
             </div>
-            <aside class="notes">Support for <code>calc()</code> and <code>object-fit</code> looks like this, which is pretty decent. And they will only continue to get better in the near future. Honestly, the evergreen browser model is one of the best things to happen to the web.</aside>
-          </section>
-
-          <section>
-            <h2>CSS Grid</h2>
-            <p >Defines a <strong>two-dimensional</strong> grid-based layout system,<br>optimized for user interface design</p>
-            <aside class="notes"></aside>
+            <aside class="notes">Support for <code>calc()</code> and <code>object-fit</code> looks like this, which is pretty good. And they will only continue to get better in the near future. Honestly, the evergreen browser model is one of the best things to happen to the web.</aside>
           </section>
 
           <section data-background-image="img/print/print-grid.jpg">
@@ -823,6 +751,12 @@
           </section>
 
           <section>
+            <h2>CSS Grid</h2>
+            <p >Defines a <strong>two-dimensional</strong> grid-based layout system,<br>optimized for user interface design</p>
+            <aside class="notes">When we want to build proper grids with rows and columns, then Grid is the tool we want to reach for. Grid, like flexbox, is also really good at dealing with free space without us having to explicitly account for it.</aside>
+          </section>
+
+          <section>
             <h2>Flexible tracks with <code>fr</code></h2>
             <p>Represents a <strong>fraction</strong> of the <strong>free space</strong> in the grid container.</p>
             <div class="livecode livecode-2p">
@@ -834,9 +768,7 @@
   grid-template-columns: 150px 150px 150px;
 }</style></div>
             </div>
-            <aside class="notes">
-              <p>Grid introduces the <code>fr</code> unit, which represents a fraction of the free space in the grid container. Tracks sized using <code>fr</code> will flex depending on how much free space is left over.</p>
-            </aside>
+            <aside class="notes">Grid introduces the <code>fr</code> unit, which represents a fraction of the free space in the grid container. Tracks sized using <code>fr</code> will adjust depending on how much free space is left over, and fill up the available space accordingly.</aside>
           </section>
 
           <section>
@@ -848,7 +780,7 @@
               </div>
               <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.minmax {
   display: grid;
-  grid-template-columns: minmax(200px, 1fr) 300px 300px;
+  grid-template-columns: minmax(300px, 1fr) 300px 300px;
 }</style></div>
             </div>
             <aside class="notes">
@@ -860,7 +792,7 @@
             <div class="livecode livecode-2p">
               <div class="result implicit" style="justify-content:center">
                 <div class="implicit__item a" style="border:1px solid;padding:1em 0;"><p>Item A</p></div><div class="implicit__item b" style="border:1px solid;padding:1em 0;"><p>Item B</p></div><div class="implicit__item c" style="border:1px solid;padding:1em 0;"><p>Item C</p></div>
-                <div class="implicit__item a" style="border:1px solid;padding:1em 0;"><p>Item D</p></div><div class="implicit__item b" style="border:1px solid;padding:1em 0;"><p>Item E</p></div><div class="implicit__item c" style="border:1px solid;padding:1em 0;"><p>Item F</p></div>
+                <div class="implicit__item d" style="border:1px solid;padding:1em 0;"><p>Item D</p></div><div class="implicit__item e" style="border:1px solid;padding:1em 0;"><p>Item E</p></div><div class="implicit__item f" style="border:1px solid;padding:1em 0;"><p>Item F</p></div>
               </div>
               <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.implicit {
 
@@ -988,6 +920,56 @@
             and watch it with your favourite video player!
           </video>
           <aside class="notes">And if you're using Nightly, you'll have the Layout panel in your DevTools, which gives you the customisation options like displaying grid line numbers and grid areas, as well as setting different colours if you're using multiple grids on the same page.</aside>
+        </section>
+
+        <section>
+          <h2>Box Alignment</h2>
+          <p>To create a cohesive and common box alignment model to share among all of CSS</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <table style="font-size:60%;">
+            <tr style="border-bottom:2px solid;">
+              <th width="19%;">Property</th>
+              <th width="10%;">Axis</th>
+              <th>Aligns</th>
+              <th width="25%;">Applies to<br></th>
+            </tr>
+            <tr>
+              <td><code>justify-content<code><br></td>
+              <td>main/inline</td>
+              <td rowspan="2"><p style="width:65%;display:inline-block;">content within element<br>(effectively adjusts padding)</p><img class="plain" style="max-width:7em;vertical-align:top;" data-src="img/content.svg" alt="Content diagram"></td>
+              <td rowspan="2">block containers, flex containers and grid containers<br></td>
+            </tr>
+            <tr style="border-bottom:2px solid;">
+              <td><code>align-content</code></td>
+              <td>cross/block</td>
+            </tr>
+            <tr>
+              <td><code>justify-self</code></td>
+              <td>inline</td>
+              <td rowspan="2"><p style="width:65%;display:inline-block;">element within parent<br>(effectively adjusts margins)</p><img class="plain" style="max-width:7em;vertical-align:top;" data-src="img/self.svg" alt="Self diagram"></td>
+              <td>block-level boxes, absolutely-positioned boxes and grid items<br></td>
+            </tr>
+            <tr style="border-bottom:2px solid;">
+              <td><code>align-self</code></td>
+              <td>cross/block</td>
+              <td>absolutely-positioned boxes, flex items and grid items<br></td>
+            </tr>
+            <tr>
+              <td><code>justify-items</code></td>
+              <td>inline</td>
+              <td rowspan="2"><p style="width:65%;display:inline-block;">items inside box<br>(controls child items)</p><img class="plain" style="max-width:7em;vertical-align:top;" data-src="img/items.svg" alt="Items diagram"></td>
+              <td>block containers and grid containers<br></td>
+            </tr>
+            <tr style="border-bottom:2px solid;">
+              <td><code>align-items</code></td>
+              <td>cross/block</td>
+              <td>flex-containers and grid-containers<br></td>
+            </tr>
+          </table>
+          <p><small>Source: <a href="https://www.w3.org/TR/css-align-3/#overview">CSS Box Alignment Module Level 3</a></small></p>
         </section>
 
         <section>

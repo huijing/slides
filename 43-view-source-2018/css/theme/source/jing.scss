@@ -90,6 +90,10 @@ html {
   img[src*="svg"] {
     max-height: 75vh;
   }
+
+  td {
+    vertical-align: middle;
+  }
 }
 
 // Accessible emojis ------------------------------
