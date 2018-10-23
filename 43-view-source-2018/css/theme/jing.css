@@ -294,6 +294,10 @@ html {
 .reveal strong {
   color: #44c185; }
 
+.reveal pre {
+  line-height: 1.2;
+  font-size: 80%; }
+
 .reveal code {
   font-family: 'Dank Mono', monospace; }
 
@@ -375,7 +379,8 @@ span[role=img][aria-label]:hover::after {
     background-color: #3f3f3f;
     padding: 0.5em;
     border-radius: 0.25em;
-    overflow-y: scroll; }
+    overflow-y: scroll;
+    font-size: 75%; }
 
 .code-editor {
   display: block;

@@ -58,7 +58,7 @@
 
         <section>
           <h2>Bruce Lee</h2>
-          <div style="display:flex;justify-content:center;">
+          <div style="display:flex;justify-content:center">
             <img class="plain" data-src="img/bruce.png">
             <h2 class="j-vert" style="width:1.414em;font-family:Xingkai TC;font-weight:bold">李小龍</h2>
           </div>
@@ -88,7 +88,7 @@
         </section>
 
         <section>
-          <div style="display:grid;grid-template-columns:50% 50%;">
+          <div style="display:grid;grid-template-columns:50% 50%">
             <figure>
               <div style="font-size:calc(1.75em + 3vw)"><span class="emoji" role="img" tabindex="0" aria-label="open hands">&#x1F450;</span> ➡ <span class="emoji" role="img" tabindex="0" aria-label="sparkles">&#x2728;</span></div>
               <figcaption>Physical media</figcaption>
@@ -211,7 +211,7 @@
 
         <section>
           <h2>Transforms</h2>
-          <p>Allows us to change the shape and position of the affected content<br>without disrupting the normal document flow</p>
+          <p>Allows us to change the <strong>shape</strong> and <strong>position</strong> of the affected content<br>without disrupting the normal document flow</p>
           <aside class="notes">CSS transforms is one of the tools we can use for laying out content. Although we tend to associate transforms with animations, there is also a case to be made for static transforms, especially when it comes to layout design.</aside>
         </section>
 
@@ -261,13 +261,13 @@
         <section>
           <h2>Diagonal text with rotate()</h2>
           <div class="vidcode" style="align-items:center">
-            <video controls loop>
+            <video autoplay loop>
               <source data-src="videos/transforms2d.mp4" type="video/mp4" />
               Sorry, your browser doesn't support embedded videos, 
               but don't worry, you can <a href="videos/transforms2d.mp4">download it</a>
               and watch it with your favourite video player!
             </video>
-            <pre style="font-size:80%"><code>.trf2d-cont {
+            <pre><code>.trf2d-cont {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   grid-template-rows:  repeat(3, 2em) repeat(3, minmax(10vmin, 3em)) 2em 2em 50vh;
@@ -309,7 +309,7 @@
                 <h1>Rethinking Web Design</h1>
               </div>
             </div>
-            <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.trf3d-cont div { 
+            <div class="code"><style class="code-editor" contenteditable="true">.trf3d-cont div { 
   perspective: 45vw;
   perspective-origin: 50% 0%;
 }
@@ -330,10 +330,10 @@
         <section>
           <h2>Transforms browser support</h2>
           <div class="l-double">
-            <p class="ciu_embed" style="width:100%;" data-feature="transforms2d" data-periods="future_1,current,past_1,past_2">
+            <p class="ciu_embed" style="width:100%" data-feature="transforms2d" data-periods="future_1,current,past_1,past_2">
               <a href="http://caniuse.com/#feat=transforms2d"><img class="plain" data-src="img/caniuse-2dtrf.jpg"></a>
             </p>
-            <p class="ciu_embed" style="width:100%;" data-feature="transforms3d" data-periods="future_1,current,past_1,past_2">
+            <p class="ciu_embed" style="width:100%" data-feature="transforms3d" data-periods="future_1,current,past_1,past_2">
               <a href="http://caniuse.com/#feat=transforms3d"><img class="plain" data-src="img/caniuse-3dtrf.jpg"></a>
             </p>
           </div>
@@ -358,36 +358,36 @@
 
         <section>
           <h2>CSS Shapes</h2>
-          <p>Defines properties to control the geometry of an element’s float area</p>
+          <p>Defines properties to control the geometry of an element’s <strong>float area</strong></p>
           <aside class="notes">The CSS module that let's us do this is called CSS shapes. For now, we can only let text flow around shapes and images with the <code>shape-outside</code> property. When you apply this property to a floated element, text will flow on the opposite side of the float.</aside>
         </section>
 
         <section>
           <h2>Basic shapes</h2>
           <div class="livecode livecode-2p">
-            <div class="result shapes-cont1" style="font-size:50%;text-align:left;">
-              <article style="clear:both;min-height:12em;">
+            <div class="result shapes-cont1" style="font-size:50%;text-align:left">
+              <article style="clear:both;min-height:12em">
                 <div class="circle shape"></div>
-                <p style="margin-bottom:1em;">Lollipop marshmallow lemon drops jujubes muffin fruitcake bonbon. Muffin carrot cake bear claw sweet roll tiramisu chocolate jelly beans toffee sweet roll. Biscuit candy sweet sweet powder tart bear claw. Tiramisu jelly beans apple pie donut topping dessert lemon drops gummies halvah.</p>
-                <p style="margin-bottom:1em;">Dessert pie dragée fruitcake chocolate oat cake donut muffin. Chocolate lemon drops cake muffin. Bonbon lemon drops chocolate fruitcake jujubes chupa chups sesame snaps sesame snaps pudding. Pastry chocolate jelly beans cake wafer.</p>
+                <p style="margin-bottom:1em">Lollipop marshmallow lemon drops jujubes muffin fruitcake bonbon. Muffin carrot cake bear claw sweet roll tiramisu chocolate jelly beans toffee sweet roll. Biscuit candy sweet sweet powder tart bear claw. Tiramisu jelly beans apple pie donut topping dessert lemon drops gummies halvah.</p>
+                <p style="margin-bottom:1em">Dessert pie dragée fruitcake chocolate oat cake donut muffin. Chocolate lemon drops cake muffin. Bonbon lemon drops chocolate fruitcake jujubes chupa chups sesame snaps sesame snaps pudding. Pastry chocolate jelly beans cake wafer.</p>
               </article>
-              <article style="clear:both;min-height:12em;">
+              <article style="clear:both;min-height:12em">
                 <div class="ellipse shape"></div>
-                <p style="margin-bottom:1em;">Donut jelly toffee macaroon macaroon. Cookie sesame snaps chupa chups. Lollipop jelly lollipop brownie pastry gummi bears.</p>
-                <p style="margin-bottom:1em;">Gummi bears apple pie chupa chups jelly pie halvah pastry sweet. Cookie dessert sweet roll icing cheesecake macaroon wafer cheesecake. Toffee lemon drops apple pie fruitcake sweet roll chocolate cake jelly bear claw jelly. Donut tiramisu chocolate cake sesame snaps marshmallow tootsie roll candy canes cheesecake cotton candy.</p>
+                <p style="margin-bottom:1em">Donut jelly toffee macaroon macaroon. Cookie sesame snaps chupa chups. Lollipop jelly lollipop brownie pastry gummi bears.</p>
+                <p style="margin-bottom:1em">Gummi bears apple pie chupa chups jelly pie halvah pastry sweet. Cookie dessert sweet roll icing cheesecake macaroon wafer cheesecake. Toffee lemon drops apple pie fruitcake sweet roll chocolate cake jelly bear claw jelly. Donut tiramisu chocolate cake sesame snaps marshmallow tootsie roll candy canes cheesecake cotton candy.</p>
               </article>
-              <article style="clear:both;min-height:12em;">
+              <article style="clear:both;min-height:12em">
                 <div class="inset shape"></div>
-                <p style="margin-bottom:1em;">Cake powder croissant lollipop cotton candy tiramisu lollipop tiramisu. Cookie candy canes gummies jujubes bonbon fruitcake ice cream gingerbread. Marzipan toffee carrot cake marshmallow danish cupcake jelly-o.</p>
-                <p style="margin-bottom:1em;">Halvah brownie lollipop. Chocolate cake marshmallow croissant muffin macaroon pastry. Gummies danish soufflé muffin gingerbread. Lollipop jelly cake croissant sesame snaps macaroon.</p>
+                <p style="margin-bottom:1em">Cake powder croissant lollipop cotton candy tiramisu lollipop tiramisu. Cookie candy canes gummies jujubes bonbon fruitcake ice cream gingerbread. Marzipan toffee carrot cake marshmallow danish cupcake jelly-o.</p>
+                <p style="margin-bottom:1em">Halvah brownie lollipop. Chocolate cake marshmallow croissant muffin macaroon pastry. Gummies danish soufflé muffin gingerbread. Lollipop jelly cake croissant sesame snaps macaroon.</p>
               </article>
               <article>
                 <div class="polygon shape"></div>
-                <p style="margin-bottom:1em;">Biscuit gummies tart gingerbread wafer jujubes sweet roll. Wafer oat cake carrot cake liquorice chocolate bar chocolate cake jelly-o. Pastry donut oat cake. Fruitcake candy apple pie cake tootsie roll cotton candy candy canes. Halvah halvah chocolate jelly-o macaroon.</p>
-                <p style="margin-bottom:1em;">Macaroon dessert sweet roll dragée candy. Sweet cheesecake lemon drops. Sweet tart chocolate cake candy canes powder cotton candy. Apple pie danish chocolate cake danish bonbon. Muffin soufflé topping carrot cake chocolate. Macaroon toffee chupa chups sesame snaps gummi bears.</p>
+                <p style="margin-bottom:1em">Biscuit gummies tart gingerbread wafer jujubes sweet roll. Wafer oat cake carrot cake liquorice chocolate bar chocolate cake jelly-o. Pastry donut oat cake. Fruitcake candy apple pie cake tootsie roll cotton candy candy canes. Halvah halvah chocolate jelly-o macaroon.</p>
+                <p style="margin-bottom:1em">Macaroon dessert sweet roll dragée candy. Sweet cheesecake lemon drops. Sweet tart chocolate cake candy canes powder cotton candy. Apple pie danish chocolate cake danish bonbon. Muffin soufflé topping carrot cake chocolate. Macaroon toffee chupa chups sesame snaps gummi bears.</p>
               </article>
             </div>
-            <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.shapes-cont1 .circle {
+            <div class="code"><style class="code-editor" contenteditable="true">.shapes-cont1 .circle {
   shape-outside: circle();
   float: left;
   border-radius: 50%;
@@ -432,7 +432,7 @@
               <p style="margin-bottom:0.5em">Lee Jun-fan (李振藩), known professionally as Bruce Lee, was a Hong Kong and American actor, film director, martial artist, martial arts instructor, philosopher and founder of the martial art Jeet Kune Do. He is widely considered by commentators, critics, media, and other martial artists to be one of the most influential martial artists of all time.</p>
               <p>Lee was born in Chinatown, San Francisco, on November 27, 1940, to parents from Hong Kong, and was raised with his family in Kowloon, Hong Kong. He was introduced to the film industry by his father and appeared in several films as a child actor. Lee moved to the United States at the age of 18 to receive his higher education at the University of Washington in Seattle, and it was during this time that he began teaching martial arts.</p>
             </div>
-            <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.shapes-cont2 img {
+            <div class="code"><style class="code-editor" contenteditable="true">.shapes-cont2 img {
   shape-image-threshold: 0.5;
   shape-margin: 0.3em;
   shape-outside: url('img/bruce2.png');
@@ -444,7 +444,7 @@
 
         <section>
           <h2>Writing-mode</h2>
-          <p>Defines CSS features to support for various international writing modes</p>
+          <p>Defines CSS features to support for various <strong>international writing modes</strong></p>
           <aside class="notes">
             <p>Another aspect of layout we are close to matching in the digital world is the ability to typeset writing systems other than those which flow horizontally from top-to-bottom. Arabic and Hebrew scripts are read from right-to-left.</p>
             <p>We also have East Asian scripts like Chinese and Japanese that can be written both horizontally and vertically. And the writing-mode property allows us to cater for vertical writing on the web via CSS.</p>
@@ -478,13 +478,13 @@
         <section>
           <h2>Vertical text</h2>
           <div class="livecode livecode-2p">
-            <div class="result wm-cont1" style="font-size:75%;text-align:left;">
+            <div class="result wm-cont1" style="font-size:75%;text-align:left">
               <h2 class="vert-rl upright">Halt and Catch Fire</h2>
               <p class="vert-lr">“Computers aren't the thing. They're the thing that gets us to the thing.”</p>
               <p>“How did we all get here today? The choices we made, the sheer force of our will, something like that? Here's another answer... the winds of fate. Random coincidence, some unseen hand just pushing us along. Destiny.”</p>
               <h3 class="vert-rl rotate">What are you searching for?</h3>
             </div>
-            <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.wm-cont1 .vert-rl {
+            <div class="code"><style class="code-editor" contenteditable="true">.wm-cont1 .vert-rl {
   writing-mode: vertical-rl;
   color: #f48136;
 }
@@ -536,7 +536,7 @@
 
         <section>
           <h2>Vertical navigation</h2>
-          <video controls loop>
+          <video autoplay loop>
             <source data-src="videos/menu.mp4" type="video/mp4" />
             Sorry, your browser doesn't support embedded videos, 
             but don't worry, you can <a href="videos/menu.mp4">download it</a>
@@ -569,12 +569,12 @@
         <section>
           <h2>Auto-margins</h2>
           <div class="livecode livecode-2p">
-            <div class="result automargin" style="font-size:75%;">
+            <div class="result automargin" style="font-size:75%">
               <div>
                 <img class="plain" data-src="img/box.svg" style="width:4em">
               </div>
             </div>
-            <div class="code"><style class="code-editor" contenteditable="true">.automargin {
+            <div class="code" style="font-size:100%"><style class="code-editor" contenteditable="true">.automargin {
   display: flex;
 }
 
@@ -616,8 +616,8 @@
         <section>
           <h2>Flexbox layouts (1/2)</h2>
           <div class="livecode livecode-2p">
-            <div class="result flex-cont" style="text-align:left;">
-              <ul style="list-style:none;margin:0;">
+            <div class="result flex-cont" style="text-align:left">
+              <ul style="list-style:none;margin:0">
                 <li><img class="plain" data-src="img/demo-1/image1.jpg"></li>
                 <li><img class="plain" data-src="img/demo-1/image2.jpg"></li>
                 <li><img class="plain" data-src="img/demo-1/image3.jpg"></li>
@@ -640,7 +640,7 @@
                 <li><img class="plain" data-src="img/demo-1/image20.jpg"></li>
               </ul>
             </div>
-            <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.flex-cont ul {
+            <div class="code"><style class="code-editor" contenteditable="true">.flex-cont ul {
   // display: flex;
   // flex-wrap: wrap;
   // align-items: center;
@@ -669,7 +669,7 @@
             <h2>Flexbox layouts (2/2)</h2>
             <div class="livecode livecode-2p">
               <div class="result flex-cont2">
-                <ul style="list-style:none;margin:0;">
+                <ul style="list-style:none;margin:0">
                   <li><img class="plain" data-src="img/demo-1/image1.jpg"></li>
                   <li><img class="plain" data-src="img/demo-1/image2.jpg"></li>
                   <li><img class="plain" data-src="img/demo-1/image3.jpg"></li>
@@ -692,7 +692,7 @@
                   <li><img class="plain" data-src="img/demo-1/image20.jpg"></li>
                 </ul>
               </div>
-              <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.flex-cont2 ul {
+              <div class="code"><style class="code-editor" contenteditable="true">.flex-cont2 ul {
   display: flex;
   flex-wrap: wrap;
   // flex-direction: column;
@@ -724,10 +724,10 @@
           <section>
             <h2><code>calc()</code> and <code>object-fit</code> browser support</h2>
             <div class="l-double">
-              <p class="ciu_embed" style="width:100%;" data-feature="object-fit" data-periods="future_1,current,past_1,past_2">
+              <p class="ciu_embed" style="width:100%" data-feature="object-fit" data-periods="future_1,current,past_1,past_2">
                 <a href="http://caniuse.com/#feat=object-fit"><img class="plain" data-src="img/caniuse-object-fit.jpg"></a>
               </p>
-              <p class="ciu_embed" style="width:100%;" data-feature="calc" data-periods="future_1,current,past_1,past_2">
+              <p class="ciu_embed" style="width:100%" data-feature="calc" data-periods="future_1,current,past_1,past_2">
                 <a href="http://caniuse.com/#feat=calc"><img class="plain" data-src="img/caniuse-calc.jpg"></a>
               </p>
             </div>
@@ -760,30 +760,140 @@
             <h2>Flexible tracks with <code>fr</code></h2>
             <p>Represents a <strong>fraction</strong> of the <strong>free space</strong> in the grid container.</p>
             <div class="livecode livecode-2p">
-              <div class="result fr" style="font-size:75%;">
-                <div class="fr__item a" style="border:1px solid;padding:1em 0;"><p>Item A</p></div><div class="fr__item b" style="border:1px solid;padding:1em 0;"><p>Item B</p></div><div class="fr__item c" style="border:1px solid;padding:1em 0;"><p>Item C</p></div>
+              <div class="result fr" style="font-size:75%">
+                <div class="fr__item a" style="border:1px solid;padding:1em 0"><p>Item A</p></div><div class="fr__item b" style="border:1px solid;padding:1em 0"><p>Item B</p></div><div class="fr__item c" style="border:1px solid;padding:1em 0"><p>Item C</p></div>
               </div>
-              <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.fr {
+              <div class="code"><style class="code-editor" contenteditable="true">.fr {
   display: grid;
   grid-template-columns: 150px 150px 150px;
 }</style></div>
             </div>
-            <aside class="notes">Grid introduces the <code>fr</code> unit, which represents a fraction of the free space in the grid container. Tracks sized using <code>fr</code> will adjust depending on how much free space is left over, and fill up the available space accordingly.</aside>
+            <aside class="notes">
+              <p>Grid introduces the <code>fr</code> unit, which represents a fraction of the free space in the grid container. Tracks sized using <code>fr</code> will adjust depending on how much free space is left over, and fill up the available space accordingly.</p>
+              <p>A common use case that <code>fr</code> units can solve is for responsive uniform grids that need to adjust to the width of the viewport.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Fluid CSS grid</h2>
+            <pre><code>.container {
+  display: grid;
+  grid-template-columns: repeat(3, 3fr 2fr);
+}</code></pre>
+            <video autoplay loop class="video" style="width:70%">
+              <source data-src="videos/fluid-grid.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/fluid-grid.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <aside class="notes">
+              <p>For layout methods that revolve around the width of the grid item, multiple media queries are necessary because the width of each item has to be explicitly stated depending on the width of the viewport.</p>
+              <p>With the <code>fr</code> unit, we are essentially ceding control of the sizing of each grid item to the browser, allowing the browser to figure out how large each grid item should be based on the parameters we provide through some new functions that CSS grid introduces.</p>
+              <p>Here, I'm telling the browser I want 3 sets of 2 columns in the ratio of 3 to 2. By using the <code>fr</code> unit, all the available space is divided up accordingly. The grid then grows and shrinks together with viewport because it will occupy all the free space available in the container.</p>
+            </aside>
           </section>
 
           <section>
             <h2>Flexible tracks with <code>minmax()</code></h2>
-            <p>Defines a size range for columns or rows in the grid.</p>
+            <p>Defines a <strong>size range</strong> for columns or rows in the grid.</p>
             <div class="livecode livecode-2p">
-              <div class="result minmax" style="font-size:75%;">
-                <div class="minmax__item a" style="border:1px solid;padding:1em 0;"><p>Item A</p></div><div class="minmax__item b" style="border:1px solid;padding:1em 0;"><p>Item B</p></div><div class="minmax__item c" style="border:1px solid;padding:1em 0;"><p>Item C</p></div>
+              <div class="result minmax" style="font-size:75%">
+                <div class="minmax__item a" style="border:1px solid;padding:1em 0"><p>Item A</p></div><div class="minmax__item b" style="border:1px solid;padding:1em 0"><p>Item B</p></div><div class="minmax__item c" style="border:1px solid;padding:1em 0"><p>Item C</p></div>
               </div>
-              <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.minmax {
+              <div class="code"><style class="code-editor" contenteditable="true">.minmax {
   display: grid;
   grid-template-columns: minmax(300px, 1fr) 300px 300px;
 }</style></div>
             </div>
+            <aside class="notes">One of the new functions CSS grid gives us is the <code>minmax()</code> function. And it allows us to do something we never could before, which is the define a range of values. Now I can tell the browser that I want my grid columns or rows to be between a value of x and y, and the browser can figure out exactly what that value should be.</aside>
+          </section>
+
+          <section>
+            <h2>The <code>repeat()</code> function</h2>
+            <p>To specify a large number of columns or rows that follow a similar pattern</p>
+            <div class="livecode livecode-2p">
+              <div class="result repeat" style="font-size:75%">
+                <div class="repeat__item" style="border:1px solid;padding:1em 0"><p>Item</p></div><div class="repeat__item" style="border:1px solid;padding:1em 0"><p>Item</p></div><div class="repeat__item" style="border:1px solid;padding:1em 0"><p>Item</p></div><div class="repeat__item" style="border:1px solid;padding:1em 0"><p>Item</p></div><div class="repeat__item" style="border:1px solid;padding:1em 0"><p>Item</p></div><div class="repeat__item" style="border:1px solid;padding:1em 0"><p>Item</p></div><div class="repeat__item" style="border:1px solid;padding:1em 0"><p>Item</p></div><div class="repeat__item" style="border:1px solid;padding:1em 0"><p>Item</p></div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.repeat {
+  display: grid;
+  grid-template-columns: repeat(4, 75px 120px);
+}</style></div>
+            </div>
+            <aside class="notes">Also, if your design calls for a rather complex and large grid, you probably don't want to type out each track's width by hand. The <code>repeat()</code> function let's us repeat patterns of track sizes so we won't end up with ridiculously long lines of column or row sizes.</aside>
+          </section>
+
+          <section>
+            <h2><code>auto-fill</code> vs. <code>auto-fit</code></h2>
+            <p>Allow browser to determine how many tracks to create depending on track size.</p>
+            <div class="l-double">
+              <div>
+                <img class="plain" data-src="img/auto-fill.png" alt="Auto-fill">
+                <pre><code>repeat(auto-fill, 100px)</code></pre>
+              </div>
+              <div>
+                <img class="plain" data-src="img/auto-fit.png" alt="Auto-fit">
+                <pre><code>repeat(auto-fit, 100px)</code></pre>
+              </div>
+            </div>
+            <p class="fragment"><code>auto-fit</code> collapses empty tracks.</p>
             <aside class="notes">
+              <p>The <code>repeat()</code> function also takes in the keywords of <code>auto-fit</code> and <code>auto-fill</code>, which are very similar.</p>
+              <p>Both these keywords tell the browser to generate the number of tracks required based on the track list specified as the second argument. The minor difference is that for <code>auto-fit</code>, any empty tracks are collapsed.</p>
+              <p>This becomes more evident if you're using a flexible range for track sizing.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>auto-fill</code> versus <code>auto-fit</code></h2>
+            <div class="livecode livecode-2p">
+                <div class="result keyword" style="font-size:75%">
+                  <div class="keyword__item" style="border:1px solid">
+                    <p>A</p>
+                  </div>
+                  <div class="keyword__item" style="border:1px solid">
+                    <p>B</p>
+                  </div>
+                  <div class="keyword__item" style="border:1px solid">
+                    <p>C</p>
+                  </div>
+                  <div class="keyword__item" style="border:1px solid">
+                    <p>D</p>
+                  </div>
+                  <div class="keyword__item" style="border:1px solid">
+                    <p>E</p>
+                  </div>
+                  <div class="keyword__item" style="border:1px solid">
+                    <p>F</p>
+                  </div>
+                </div>
+                <div class="code"><style class="code-editor" contenteditable="true">.keyword {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}</style></div>
+            </div>
+            <aside class="notes">
+              <p>In this example, I have asked the browser to make me columns that are at least 2.5ems wide, but can grow if free space permits. With the keyword set to <code>auto-fill</code>, because the space can contain 8 2.5em columns, even though I didn't have enough grid items to fill up the last 2 columns, the columns are still there.</p>
+              <p>When I change it to <code>auto-fit</code>, the last 2 columns are collapsed and the columns that do contain grid items grow to fill up the empty space.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Responsive grid without media queries</h2>
+              <pre><code>.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+}</code></pre>
+            <video autoplay loop class="video" style="width:70%">
+              <source data-src="videos/responsive-grid.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/responsive-grid.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <aside class="notes">
+              <p>For this example, I'm telling the browser that when the viewport size shrinks, I want to cap the shrink of each column at 10ems but if there's extra space, grow all my columns equally. By using auto-fill (or auto-fit), the browser will calculate how many columns fulfil my requirement. When the viewport size changes, the number of columns will decrease or increase until everything fits.</p>
+              <p>And because the maximum value is a flexible unit, if there is an excess of space, like 6ems worth, all the columns will grow equally to fill up that extra space. And not a single media query needed to be written.</p>
+              <p>You might have noticed that, although I explained each feature individually, they are so much more useful when used in combination. Team sport, remember?</p>
             </aside>
           </section>
 
@@ -791,11 +901,19 @@
             <h2>The implicit grid</h2>
             <div class="livecode livecode-2p">
               <div class="result implicit" style="justify-content:center">
-                <div class="implicit__item a" style="border:1px solid;padding:1em 0;"><p>Item A</p></div><div class="implicit__item b" style="border:1px solid;padding:1em 0;"><p>Item B</p></div><div class="implicit__item c" style="border:1px solid;padding:1em 0;"><p>Item C</p></div>
-                <div class="implicit__item d" style="border:1px solid;padding:1em 0;"><p>Item D</p></div><div class="implicit__item e" style="border:1px solid;padding:1em 0;"><p>Item E</p></div><div class="implicit__item f" style="border:1px solid;padding:1em 0;"><p>Item F</p></div>
+                <div class="implicit__item a" style="border:1px solid"><p>A</p></div><div class="implicit__item b" style="border:1px solid"><p>B</p></div><div class="implicit__item c" style="border:1px solid"><p>C</p></div>
+                <div class="implicit__item d" style="border:1px solid"><p>D</p></div><div class="implicit__item e" style="border:1px solid"><p>E</p></div><div class="implicit__item f" style="border:1px solid"><p>F</p></div>
+                <div class="implicit__item g" style="border:1px solid"><p>G</p></div><div class="implicit__item h" style="border:1px solid"><p>H</p></div><div class="implicit__item i" style="border:1px solid"><p>I</p></div>
+                <div class="implicit__item j" style="border:1px solid"><p>J</p></div><div class="implicit__item k" style="border:1px solid"><p>K</p></div><div class="implicit__item l" style="border:1px solid"><p>L</p></div>
               </div>
-              <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.implicit {
+              <div class="code"><style class="code-editor" contenteditable="true">.implicit {
+  display: grid;
+  grid-template-columns: 200px 200px 200px; /* three columns  */
+  grid-template-rows: 200px 200px; /* two rows  */
+}
 
+.j {
+  grid-column: ;
 }</style></div>
             </div>
             <aside class="notes">
@@ -806,78 +924,78 @@
             <h2>The <code>grid-auto-flow</code> property</h2>
             <p>Adjusting the direction and density of grid items</p>
             <div class="livecode livecode-2p">
-              <div class="result autoflow" style="justify-content:center">
-                <div class="autoflow__item" style="border:1px solid;">
+              <div class="result autoflow">
+                <div class="autoflow__item" style="border:1px solid">
                   <p>A</p>
                 </div>
-                <div class="autoflow__item" style="border:1px solid;">
+                <div class="autoflow__item" style="border:1px solid">
                   <p>B</p>
                 </div>
-                <div class="autoflow__item" style="border:1px solid;">
+                <div class="autoflow__item" style="border:1px solid">
                   <p>C</p>
                 </div>
-                <div class="autoflow__item" style="border:1px solid;">
+                <div class="autoflow__item" style="border:1px solid">
                   <p>D</p>
                 </div>
-                <div class="autoflow__item" style="border:1px solid;">
+                <div class="autoflow__item" style="border:1px solid">
                   <p>E</p>
                 </div>
-                <div class="autoflow__item" style="border:1px solid;">
+                <div class="autoflow__item" style="border:1px solid">
                   <p>F</p>
                 </div>
-                <div class="autoflow__item" style="border:1px solid;">
+                <div class="autoflow__item" style="border:1px solid">
                   <p>G</p>
                 </div>
-                <div class="autoflow__item" style="border:1px solid;">
+                <div class="autoflow__item" style="border:1px solid">
                   <p>H</p>
                 </div>
-                <div class="autoflow__item" style="border:1px solid;">
+                <div class="autoflow__item" style="border:1px solid">
                   <p>I</p>
                 </div>
-                <div class="autoflow__item" style="border:1px solid;">
+                <div class="autoflow__item" style="border:1px solid">
                   <p>J</p>
                 </div>
-                <div class="autoflow__item" style="border:1px solid;">
+                <div class="autoflow__item" style="border:1px solid">
                   <p>K</p>
                 </div>
-                <div class="autoflow__item" style="border:1px solid;">
+                <div class="autoflow__item" style="border:1px solid">
                   <p>L</p>
                 </div>
-                <div class="autoflow__item" style="border:1px solid;">
+                <div class="autoflow__item" style="border:1px solid">
                   <p>M</p>
                 </div>
-                <div class="autoflow__item" style="border:1px solid;">
+                <div class="autoflow__item" style="border:1px solid">
                   <p>N</p>
                 </div>
-                <div class="autoflow__item" style="border:1px solid;">
+                <div class="autoflow__item" style="border:1px solid">
                   <p>O</p>
                 </div>
-                <div class="autoflow__item" style="border:1px solid;">
+                <div class="autoflow__item" style="border:1px solid">
                   <p>P</p>
                 </div>
-                <div class="autoflow__item" style="border:1px solid;">
+                <div class="autoflow__item" style="border:1px solid">
                   <p>Q</p>
                 </div>
-                <div class="autoflow__item" style="border:1px solid;">
+                <div class="autoflow__item" style="border:1px solid">
                   <p>R</p>
                 </div>
-                <div class="autoflow__item" style="border:1px solid;">
+                <div class="autoflow__item" style="border:1px solid">
                   <p>S</p>
                 </div>
-                <div class="autoflow__item" style="border:1px solid;">
+                <div class="autoflow__item" style="border:1px solid">
                   <p>T</p>
                 </div>
-                <div class="autoflow__item" style="border:1px solid;">
+                <div class="autoflow__item" style="border:1px solid">
                   <p>U</p>
                 </div>
-                <div class="autoflow__item" style="border:1px solid;">
+                <div class="autoflow__item" style="border:1px solid">
                   <p>V</p>
                 </div>
-                <div class="autoflow__item" style="border:1px solid;">
+                <div class="autoflow__item" style="border:1px solid">
                   <p>W</p>
                 </div>
               </div>
-              <div class="code" style="font-size:75%"><style class="code-editor" contenteditable="true">.autoflow {
+              <div class="code"><style class="code-editor" contenteditable="true">.autoflow {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   grid-auto-rows: 120px;
@@ -929,30 +1047,30 @@
         </section>
 
         <section>
-          <table style="font-size:60%;">
-            <tr style="border-bottom:2px solid;">
-              <th width="19%;">Property</th>
-              <th width="10%;">Axis</th>
+          <table style="font-size:60%">
+            <tr style="border-bottom:2px solid">
+              <th width="19%">Property</th>
+              <th width="10%">Axis</th>
               <th>Aligns</th>
-              <th width="25%;">Applies to<br></th>
+              <th width="25%">Applies to<br></th>
             </tr>
             <tr>
               <td><code>justify-content<code><br></td>
               <td>main/inline</td>
-              <td rowspan="2"><p style="width:65%;display:inline-block;">content within element<br>(effectively adjusts padding)</p><img class="plain" style="max-width:7em;vertical-align:top;" data-src="img/content.svg" alt="Content diagram"></td>
+              <td rowspan="2"><p style="width:65%;display:inline-block">content within element<br>(effectively adjusts padding)</p><img class="plain" style="max-width:7em;vertical-align:top" data-src="img/content.svg" alt="Content diagram"></td>
               <td rowspan="2">block containers, flex containers and grid containers<br></td>
             </tr>
-            <tr style="border-bottom:2px solid;">
+            <tr style="border-bottom:2px solid">
               <td><code>align-content</code></td>
               <td>cross/block</td>
             </tr>
             <tr>
               <td><code>justify-self</code></td>
               <td>inline</td>
-              <td rowspan="2"><p style="width:65%;display:inline-block;">element within parent<br>(effectively adjusts margins)</p><img class="plain" style="max-width:7em;vertical-align:top;" data-src="img/self.svg" alt="Self diagram"></td>
+              <td rowspan="2"><p style="width:65%;display:inline-block">element within parent<br>(effectively adjusts margins)</p><img class="plain" style="max-width:7em;vertical-align:top" data-src="img/self.svg" alt="Self diagram"></td>
               <td>block-level boxes, absolutely-positioned boxes and grid items<br></td>
             </tr>
-            <tr style="border-bottom:2px solid;">
+            <tr style="border-bottom:2px solid">
               <td><code>align-self</code></td>
               <td>cross/block</td>
               <td>absolutely-positioned boxes, flex items and grid items<br></td>
@@ -960,16 +1078,249 @@
             <tr>
               <td><code>justify-items</code></td>
               <td>inline</td>
-              <td rowspan="2"><p style="width:65%;display:inline-block;">items inside box<br>(controls child items)</p><img class="plain" style="max-width:7em;vertical-align:top;" data-src="img/items.svg" alt="Items diagram"></td>
+              <td rowspan="2"><p style="width:65%;display:inline-block">items inside box<br>(controls child items)</p><img class="plain" style="max-width:7em;vertical-align:top" data-src="img/items.svg" alt="Items diagram"></td>
               <td>block containers and grid containers<br></td>
             </tr>
-            <tr style="border-bottom:2px solid;">
+            <tr style="border-bottom:2px solid">
               <td><code>align-items</code></td>
               <td>cross/block</td>
               <td>flex-containers and grid-containers<br></td>
             </tr>
           </table>
           <p><small>Source: <a href="https://www.w3.org/TR/css-align-3/#overview">CSS Box Alignment Module Level 3</a></small></p>
+        </section>
+
+        <section>
+          <h2><code>justify/align-content</code></h2>
+          <p>content-distribution properties</p>
+          <div class="livecode livecode-2p" style="grid-template-columns:60% calc(40% - 0.5em)">
+            <div class="result gridcontent">
+              <div style="border:1px solid" class="gridcontent_itemA">A</div>
+              <div style="border:1px solid" class="gridcontent_itemB">B</div>
+              <div style="border:1px solid" class="gridcontent_itemC">C</div>
+              <div style="border:1px solid" class="gridcontent_itemD">D</div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.gridcontent {
+  justify-content: normal;
+  align-content: normal;
+
+  display: grid;
+  grid-template-columns: repeat(3, 25%);
+  grid-template-rows: repeat(3, 20%);
+  grid-gap: 1em;
+  grid-template-areas: 
+    "a b b"
+    "a b b"
+    "c c d";
+}
+
+.gridcontent_itemA {
+  grid-area: a;
+}
+
+.gridcontent_itemB {
+  grid-area: b;
+}
+
+.gridcontent_itemC {
+  grid-area: c;
+}
+
+.gridcontent_itemD {
+  grid-area: d;
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>The <code>justify-content</code> and <code>align-content</code> properties are known as <strong>content-distribution properties</strong>. These properties are relevant when the container is larger than the total width or height of the grid rows and columns.</p>
+            <p>As we can see from this example, there is some space to the right and bottom of the grid items. It is possible to set the alignment of the rows and columns with respect to the entire grid container.</p>
+            <p>We can position the grid rows and columns within its container using 3 values, <code>start</code>, <code>center</code> and <code>end</code>. We can also adjust the space between rows and columns with <code>space-around</code>, <code>space-between</code> and <code>space-evenly</code>.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2><code>justify/align-content</code></h2>
+          <p>content-distribution properties</p>
+          <div class="livecode livecode-2p">
+            <div class="result flexcontent">
+              <div class="wrapper" style="font-size:70%">
+                <div class="box">1一</div>
+                <div class="box">2二</div>
+                <div class="box">3三</div>
+                <div class="box">4四</div>
+                <div class="box">5五</div>
+                <div class="box">6六</div>
+                <div class="box">7七</div>
+                <div class="box">8八</div>
+                <div class="box">9九</div>
+                <div class="box">10十</div>
+                <div class="box">11十一</div>
+                <div class="box">12十二</div>
+                <div class="box">13十三</div>
+                <div class="box">14十四</div>
+                <div class="box">15十五</div>
+                <div class="box">16十六</div>
+                <div class="box">17十七</div>
+                <div class="box">18十八</div>
+                <div class="box">19十四</div>
+                <div class="box">20二十</div>
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.flexcontent .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  height: 70vh;
+}
+
+.flexcontent .box {
+  height: 4em;
+  width: 4em;
+  border: 1px solid;
+}</style></div>
+          </div>
+          <aside class="notes">
+   
+          </aside>
+        </section>
+
+        <section>
+          <h2><code>justify/align-self</code></h2>
+          <p>self-alignment properties</p>
+          <div class="livecode livecode-2p">
+            <div class="result gridself">
+              <div style="border:1px solid" class="gridself_itemA">A</div>
+              <div style="border:1px solid" class="gridself_itemB">B</div>
+              <div style="border:1px solid" class="gridself_itemC">C</div>
+              <div style="border:1px solid" class="gridself_itemD">D</div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.gridself_itemA {
+  grid-area: a;
+}
+
+.gridself_itemB {
+  grid-area: b;
+  align-self: start;
+  //justify-self: start;
+}
+
+.gridself_itemC {
+  grid-area: c;
+  align-self: end;
+  //justify-self: end;
+}
+
+.gridself_itemD {
+  grid-area: d;
+  align-self: center;
+  //justify-self: center;
+}
+
+.gridself {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1em;
+  grid-auto-rows: calc(25% - 1em);
+  grid-template-areas: 
+    "a a b b"
+    "a a b b"
+    "c c d d"
+    "c c d d";
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>The <code>justify-self</code> and <code>align-self</code> properties are known as <strong>self-alignment properties</strong>.
+            <p>These properties allow us to control how the content of each grid item is aligned within the grid area it's been allocated to. The default state is <code>stretch</code>, where the content stretches to fill the entire grid area.</p>
+            <p>We can adjust the alignment of content within the grid item with <code>start</code>, <code>center</code> and <code>end</code>. Once we apply any of these values, the grid item shrinks to fit its contents along the respective axis of alignment.</p>
+            <p>The <code>place-self</code> short-hand is also available here.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2><code>justify/align-items</code></h2>
+          <p>defaults for justify/align-self</p>
+          <div class="livecode livecode-2p">
+            <div class="result griditems" style="font-size:75%">
+              <div style="border:1px solid" class="griditems_itemA">A</div>
+              <div style="border:1px solid" class="griditems_itemB">B</div>
+              <div style="border:1px solid" class="griditems_itemC">C</div>
+              <div style="border:1px solid" class="griditems_itemD">D</div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.griditems {
+  justify-items: stretch;
+  align-items: stretch;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1em;
+  grid-auto-rows: calc(25% - 1em);
+  grid-template-areas: 
+    "a a b b"
+    "a a b b"
+    "c c d d"
+    "c c d d";
+}
+
+.griditems_itemA { grid-area: a }
+.griditems_itemB { grid-area: b }
+.griditems_itemC { grid-area: c }
+.griditems_itemD { grid-area: d }</style></div>
+          </div>
+          <aside class="notes">
+            <p>Finally, we have the <code>align-items</code> and <code>justify-items</code> properties, which set the default <code>align-self</code> and <code>justify-self</code> behaviour of all the items within the grid. Similar to flexbox, except that <code>justify-items</code> does not apply to flexbox. And use <code>place-items</code> if you'd very much prefer a single-line declaration.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Aligning along the cross axis</h2>
+          <p><code>align-items</code> sets the default alignment for all flex items along the cross axis of the flex line. Over-ridable by <code>align-self</code>.</p>
+          <div class="livecode livecode-2p">
+            <div class="result flexitems">
+              <div class="wrapper" style="font-size:50%">
+                <div class="box">1一</div>
+                <div class="box">2二</div>
+                <div class="box">3三</div>
+                <div class="box">4四</div>
+                <div class="box">5五</div>
+                <div class="box">6六</div>
+                <div class="box">7七</div>
+                <div class="box">8八</div>
+                <div class="box">9九</div>
+                <div class="box">10十</div>
+                <div class="box">11十一</div>
+                <div class="box">12十二</div>
+                <div class="box">13十三</div>
+                <div class="box">14十四</div>
+                <div class="box">15十五</div>
+                <div class="box">16十六</div>
+                <div class="box">17十七</div>
+                <div class="box">18十八</div>
+                <div class="box">19十四</div>
+                <div class="box">20二十</div>
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.flexitems .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.flexitems .box:nth-child(2n+1) { 
+  padding: 0.5em 1.5em 3em;
+  align-self: ;
+} 
+
+.flexitems .box { border: 1px solid }
+.flexitems .box:nth-child(2n) { padding: 2.5em; } 
+.flexitems .box:nth-child(3n) { padding: 1.5em; }
+.flexitems .box:nth-child(3n+2) { padding: 3.5em 1em; }</style></div>
+          </div>
+          <aside class="notes">
+            <p>So the next thing is to align along the cross axis. Here we have flex children of various different heights so there is space within the flex line for them to be aligned.</p>
+            <p><code>align-items</code> sets the default alignment for all the flex children at once. And the initial value is flex-start, but again, we can do flex-end and center. And we can also stretch out the children to fill up the available space.</p>
+            <p>Another value that can be used is <code>baseline</code>, which aligns the baseline for every flex item so all your text lines up rather neatly.</p>
+            <p>If we want to tweak the positions of individual flex items, then we'll make use of <code>align-self</code> which does the same thing, but for a single flex item.</p>
+          </aside>
         </section>
 
         <section>
@@ -983,13 +1334,13 @@
           </aside>
         </section>
 
-        <section data-background-video="videos/css-props.mp4" data-background-size="contain" data-background-video-muted>
+        <section data-background-video="videos/css-props.mp4" data-background-size="cover" data-background-video-muted>
           <aside class="notes">Back in 1996, there were around less than 100 properties in the first version of CSS. Today, there are currently 511 distinct CSS properties in the index, each serving a distinct purpose. There are properties for colour, sizing, typography, layout, animation, visual effects, even sound. When we explore the myriad of potential combinations, the possibilities for the web are pretty endless.</aside>
         </section>
 
         <section>
           <h2>Really recommended reading</h2>
-          <ul style="column-count:2;font-size:75%;">
+          <ul style="column-count:2;font-size:75%">
             <li><a href="https://medium.freecodecamp.org/its-not-dark-magic-pulling-back-the-curtains-from-your-stylesheets-c8d677fa21b2">CSS Isn’t Black Magic</a></li>
             <li><a href="http://jensimmons.com/post/sep-27-2016/six-layout-myths-busted">Six Layout Myths Busted</a></li>
             <li><a href="https://www.w3.org/Style/CSS/all-properties.en.html">List of CSS properties, both proposed and standard</a></li>

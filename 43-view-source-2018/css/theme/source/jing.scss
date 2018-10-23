@@ -54,6 +54,11 @@ html {
     color: $headingColor;
   }
 
+  pre {
+    line-height: 1.2;
+    font-size: 80%;
+  }
+
   code {
     font-family: 'Dank Mono', monospace;
   }
@@ -159,6 +164,7 @@ span[role=img][aria-label]:hover::after {
     padding: 0.5em;
     border-radius: 0.25em;
     overflow-y: scroll;
+    font-size: 75%;
   }
 }
 
