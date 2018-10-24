@@ -151,17 +151,22 @@
         <section>
           <blockquote>
             <p>Yes, it's easier to develop and test in only one browser. I'm sure IT professionals would have loved to only support one kind of machine. But <strong>variety creates opportunity</strong> for us as developers in the long run.</p>
-            <br><small>—Rachel Nabors, The Ecological Impact of Browser Diversity</small>
+            <br><small>—Rachel Nabors, <a href="https://css-tricks.com/the-ecological-impact-of-browser-diversity/">The Ecological Impact of Browser Diversity</a></small>
           </blockquote>
           <aside class="notes">With the maturation of web standards, browser behaviour is less unpredictable than before, though each browser. Features aren't all supported at the same time. But you know what? That's perfectly fine. If we accept this as a feature of the web, instead of a bug, we've just opened up a lot more web design possibilities.</aside>
         </section>
 
         <section>
           <h2>Feature Queries</h2>
-          <p class="ciu_embed" data-feature="css-featurequeries" data-periods="future_1,current,past_1,past_2">
-            <a href="http://caniuse.com/#feat=css-featurequeries"><img class="plain" data-src="img/caniuse-feature-queries.jpg"></a>
-          </p>
-          <aside class="notes">Feature queries are key to making this approach feasible. And support for it is really good, with coverage in over 90% of browsers, including Opera Mini. The only browsers that don't support it are Internet Explorer and Blackberry Mobile.</aside>
+          <p>To write style sheets that use new features when available but <br><strong>degrade gracefully</strong> when those features are not supported</p>
+          <aside class="notes">Feature queries are key to making this approach feasible. It is essentially CSS feature detection using native CSS.</aside>
+        </section>
+
+        <section>
+          <h2>Browser support</h2>
+          <p class="ciu_embed" data-feature="css-featurequeries" data-periods="future_1,current,past_1,past_2"></p>
+          <!-- <a href="http://caniuse.com/#feat=css-featurequeries"><img class="plain" data-src="img/caniuse-fq.png"></a> -->
+          <aside class="notes">Support for it is really good, with coverage in over 90% of browsers, including Opera Mini. The only browsers that don't support it are Internet Explorer and Blackberry Mobile. And that's actually not too big of an issue.</aside>
         </section>
 
         <section>
@@ -175,9 +180,9 @@
   }
 }</code></pre>
           <aside class="notes">
-            <p>And this is how a feature query looks like. It's a conditional that checks if the browser supports a particular property or not. If it doesn't, the entire block within the <code>@supports</code> rule is ignored.</p>
+            <p>This is how a feature query looks like. It's a conditional that checks if the browser supports a particular property or not. If it doesn't, the entire block within the <code>@supports</code> rule is ignored.</p>
             <p>This means we start off with the basic layout that works everywhere. It could be a float-based layout, or even single column, maybe largely browser default UI elements, that sort of thing. Then we layer on styles based on the features we want to use.</p>
-            <p>By organising our code in this manner, the browsers that do not support feature queries or the specified property still get styled, while those that do get a different look. We're making use of the ‘C’ in CSS.</p>
+            <p>By organising our code in this manner, both browsers that do not support feature queries, or the specified properties will still get styled. Albeit a more basic style. The newer browsers will get enhanced layouts, if they support some or all the newer features within each feature query.</p>
           </aside>
         </section>
 
@@ -288,8 +293,9 @@
 }</code></pre>
           </div>
           <aside class="notes">
-            <p>There was an article titled ‘The Critical Request‘ that was published on CSS Tricks last month. It's a really good article on page performance, but what caught my eye was this beautifully designed header. It was an image on the actual article, but I felt it was something that definitely could be “web-ified”.</p>
-            <p>So on a narrow screen, diagonals may not be a good idea, but once we have enough space, why not? Again, for browsers that don't support Transforms, we can still present a layout that doesn't use those properties with the help of feature queries. Remember, things on the web don't need to look the same all the time.</p>
+            <p>This here was based off the header graphic on a CSS Tricks article called ‘The Critical Request‘. I thought it was beautifully designed, and upon further inspection, realised it was an image. This image can totally be recreated in CSS, allowing it to morph depending on the context it is viewed in.</p>
+            <p>On a narrow screen, it's not that feasible to use diagonals given the limited space, but on a wider layout, it turns out pretty well. For browsers that don't support Transforms, we can still present a layout that doesn't use those properties with the help of feature queries.</p>
+            <p>Things get interesting when we aren't fixated on making things look the same all the time.</p>
           </aside>
         </section>
 
@@ -328,24 +334,22 @@
         </section>
 
         <section>
-          <h2>Transforms browser support</h2>
+          <h2>Browser support</h2>
           <div class="l-double">
-            <p class="ciu_embed" style="width:100%" data-feature="transforms2d" data-periods="future_1,current,past_1,past_2">
-              <a href="http://caniuse.com/#feat=transforms2d"><img class="plain" data-src="img/caniuse-2dtrf.jpg"></a>
-            </p>
-            <p class="ciu_embed" style="width:100%" data-feature="transforms3d" data-periods="future_1,current,past_1,past_2">
-              <a href="http://caniuse.com/#feat=transforms3d"><img class="plain" data-src="img/caniuse-3dtrf.jpg"></a>
-            </p>
+            <p class="ciu_embed" style="width:100%" data-feature="transforms2d" data-periods="future_1,current,past_1,past_2"></p>
+            <p class="ciu_embed" style="width:100%" data-feature="transforms3d" data-periods="future_1,current,past_1,past_2"></p>
+            <!-- <a href="http://caniuse.com/#feat=transforms2d"><img class="plain" data-src="img/caniuse-2dtrf.png"></a>
+            <a href="http://caniuse.com/#feat=transforms3d"><img class="plain" data-src="img/caniuse-3dtrf.png"></a> -->
           </div>
-          <aside class="notes">Support for transforms is really good for both 2D and 3D transforms, but you don't have to use them if they don't fit your project. It's just good to know this option exists, and you can reach for it when the time comes.</aside>
+          <aside class="notes">Support for transforms is really good for both 2D and 3D transforms, but you don't have to use them if they don't fit your project. It's just good to know this option exists, and you can reach for it if you do need it.</aside>
         </section>
 
         <section data-background-image="img/print/print-shapes.jpg">
-          <aside class="notes">Magazine layouts are also chock full of interesting text flow shapes. Maybe we see this a bit more in fashion magazines, but shapes are not exclusive to those publications.</aside>
+          <aside class="notes">Magazine layouts are chock full of interesting text flow shapes. Maybe we see this a bit more in fashion magazines, but shaped text is not exclusive to those publications.</aside>
         </section>
 
         <section data-background-image="img/print/print-shapes3.jpg">
-          <aside class="notes">This one's from Bloomberg Businessweek.</aside>
+          <aside class="notes">Here's one from Bloomberg Businessweek.</aside>
         </section>
 
         <section data-background-image="img/print/print-shapes4.jpg">
@@ -425,6 +429,21 @@
         </section>
 
         <section>
+          <h2>Firefox Shapes Editor</h2>
+          <video autoplay loop>
+            <source data-src="videos/shapes-editor.mp4" type="video/mp4">
+            Sorry, your browser doesn't support embedded videos, 
+            but don't worry, you can <a href="videos/shapes-editor.mp4">download it</a>
+            and watch it with your favourite video player!
+          </video>
+          <p><a href="https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector/How_to/Edit_CSS_shapes">MDN: Edit Shape Paths in CSS</a></p>
+          <aside class="notes">
+            <p>Firefox shipped support for Shapes in 62, and with it comes a nifty Shapes editor, that allows us to see and edit shapes created by clip-path as well as basic shapes from the shape-outside property.</p>
+            <p>If you inspect an element that has clip-path or shapes, you should be able to see an icon next to the shape function to toggle the editor, which you can then manipulate in the browser and see the values update.</p>
+          </aside>
+        </section>
+
+        <section>
           <h2>Shape from image</h2>
           <div class="livecode livecode-2p">
             <div class="result shapes-cont2" style="text-align:left;font-size:75%">
@@ -440,6 +459,14 @@
 }</style></div>
           </div>
           <aside class="notes">My personal favourite is shapes from images. Somehow seeing text flow around the outline of an image makes me happy. The image has to have transparency, because the alpha channel is used to compute the shape. Pixels which fall below the <code>shape-image-threshold</code> value are “ignored“ so text just flows into that area instead.</aside>
+        </section>
+
+        <section>
+          <h2>Browser support</h2>
+          <p class="ciu_embed" data-feature="css-shapes" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
+          <a href="https://wpdev.uservoice.com/forums/257854-microsoft-edge-developer/suggestions/6263716-shapes">Vote for Shapes on WPDev User Voice</a>
+          <!-- <a href="http://caniuse.com/#feat=css-featurequeries"><img class="plain" data-src="img/caniuse-shapes.png"></a> -->
+          <aside class="notes">The only browser hold-out at the moment is Edge, but the property is under consideration, so I encourage all of you to vote for this feature. I myself have tossed in 3 votes for this.</aside>
         </section>
 
         <section>
@@ -494,14 +521,14 @@
   color: #f9d056;
 }
 
+.wm-cont1 .upright {
+  text-orientation: ;
+  font-size: ;
+}
+
 .wm-cont1 .rotate {
   transform: rotate(180deg);
   color: #44c185;
-}
-
-.wm-cont1 .upright {
-  text-orientation: ;
-  
 }
 
 .wm-cont1 {
@@ -585,7 +612,7 @@
           </div>
           <aside class="notes">
             <p>Because flex formatting contexts can operate in both dimensions, the auto-margins technique makes centring components much less painful.</p>
-            <p>Any positive free space will be distributed to auto margins in their respective dimensions. So if I set a <code>margin-left: auto</code>, Boxie ends up all the way on the other end of the container. And if I do a <code>margin-top: auto</code>, Boxie gets sent all the way down.</p>
+            <p>Any positive free space will be distributed to auto margins in their respective dimensions. So if I set a <code>margin-left: auto</code>, Boxie here ends up all the way on the other end of the container. And if I do a <code>margin-top: auto</code>, Boxie gets sent all the way down.</p>
             <p>If we don't specify a dimension, then any free space will be equally distributed on either side of the flex item. And I love showing this example to people who have just started out with CSS and ran into a wall when it comes to centring items.</p>
           </aside>
         </section>
@@ -724,26 +751,24 @@
           <section>
             <h2><code>calc()</code> and <code>object-fit</code> browser support</h2>
             <div class="l-double">
-              <p class="ciu_embed" style="width:100%" data-feature="object-fit" data-periods="future_1,current,past_1,past_2">
-                <a href="http://caniuse.com/#feat=object-fit"><img class="plain" data-src="img/caniuse-object-fit.jpg"></a>
-              </p>
-              <p class="ciu_embed" style="width:100%" data-feature="calc" data-periods="future_1,current,past_1,past_2">
-                <a href="http://caniuse.com/#feat=calc"><img class="plain" data-src="img/caniuse-calc.jpg"></a>
-              </p>
+              <p class="ciu_embed" style="width:100%" data-feature="object-fit" data-periods="future_1,current,past_1,past_2"></p>
+              <p class="ciu_embed" style="width:100%" data-feature="calc" data-periods="future_1,current,past_1,past_2"></p>
+              <!-- <a href="http://caniuse.com/#feat=object-fit"><img class="plain" data-src="img/caniuse-obj.png"></a>
+              <a href="http://caniuse.com/#feat=calc"><img class="plain" data-src="img/caniuse-calc.png"></a> -->
             </div>
-            <aside class="notes">Support for <code>calc()</code> and <code>object-fit</code> looks like this, which is pretty good. And they will only continue to get better in the near future. Honestly, the evergreen browser model is one of the best things to happen to the web.</aside>
+            <aside class="notes">Support for the auxiliary properties, <code>calc()</code> and <code>object-fit</code>, is pretty good. Lots of green. And they will only continue to get better in the near future. Honestly, the evergreen browser model is one of the best things to happen to the web.</aside>
           </section>
 
           <section data-background-image="img/print/print-grid.jpg">
-            <aside class="notes">(1/3) The grids we usually see on the web are usually regular, x number of columns all the way down, which was pretty much all the web could do without some serious hacks or Javascript manipulation. Irregular grids are way more interesting though.</aside>
+            <aside class="notes">(1/3) The grids we usually see on the web are usually regular, x number of equal columns all the way down, which was pretty much all the web could do without some serious hacks or Javascript manipulation. Irregular grids are way more interesting though.</aside>
           </section>
 
           <section data-background-image="img/print/print-grid2.jpg">
-            <aside class="notes">(2/3) The grids we usually see on the web are usually regular, x number of columns all the way down, which was pretty much all the web could do without some serious hacks or Javascript manipulation. Irregular grids are way more interesting though.</aside>
+            <aside class="notes">(2/3) The grids we usually see on the web are usually regular, x number of equal columns all the way down, which was pretty much all the web could do without some serious hacks or Javascript manipulation. Irregular grids are way more interesting though.</aside>
           </section>
 
           <section data-background-image="img/print/print-grid3.jpg">
-            <aside class="notes">(3/3) The grids we usually see on the web are usually regular, x number of columns all the way down, which was pretty much all the web could do without some serious hacks or Javascript manipulation. Irregular grids are way more interesting though.</aside>
+            <aside class="notes">(3/3) The grids we usually see on the web are usually regular, x number of equal columns all the way down, which was pretty much all the web could do without some serious hacks or Javascript manipulation. Irregular grids are way more interesting though.</aside>
           </section>
 
           <section data-background-image="img/print/print-grid4.jpg">
@@ -1091,14 +1116,72 @@
         </section>
 
         <section>
-          <h2><code>justify/align-content</code></h2>
-          <p>content-distribution properties</p>
+          <div class="l-double">
+            <div>
+              <h2>Flexbox</h2>
+              <img class="plain" style="height:4em;display:block;margin:0 auto 0.5em" data-src="img/flexbox.svg" alt="Flexbox">
+              <ul>
+                <li><code>align-content</code></li>
+                <li><code>justify-content</code></li>
+                <li><code>align-items</code></li>
+                <li><code>align-self</code></li>
+              </ul>
+              <p>The <code>justify-items</code>/<code>justify-self</code> properties do <strong>not</strong> apply to flex items</p>
+            </div>
+            <div>
+              <h2>Grid</h2>
+              <img class="plain" style="height:4em;display:block;margin:0 auto 0.5em" data-src="img/grid.svg" alt="Grid">
+              <ul>
+                <li><code>align-content</code></li>
+                <li><code>justify-content</code></li>
+                <li><code>align-items</code></li>
+                <li><code>align-self</code></li>
+                <li><code>justify-items</code></li>
+                <li><code>justify-self</code></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="l-double" style="opacity:0.2">
+            <div>
+              <h2>Flexbox</h2>
+              <img class="plain" style="height:4em;display:block;margin:0 auto 0.5em" data-src="img/flexbox.svg" alt="Flexbox">
+              <ul>
+                <li><code>align-content</code></li>
+                <li><code>justify-content</code></li>
+                <li><code>align-items</code></li>
+                <li><code>align-self</code></li>
+              </ul>
+              <p>The <code>justify-items</code>/<code>justify-self</code> properties do <strong>not</strong> apply to flex items</p>
+            </div>
+            <div>
+              <h2>Grid</h2>
+              <img class="plain" style="height:4em;display:block;margin:0 auto 0.5em" data-src="img/grid.svg" alt="Grid">
+              <ul>
+                <li><code>align-content</code></li>
+                <li><code>justify-content</code></li>
+                <li><code>align-items</code></li>
+                <li><code>align-self</code></li>
+                <li><code>justify-items</code></li>
+                <li><code>justify-self</code></li>
+              </ul>
+            </div>
+          </div>
+          <img class="plain" data-src="img/txt-align-icons.svg" alt="Text align icons" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
+          <p style="position:absolute;top:62.5%;left:50%;transform:translate(-50%,0%)">Justify</p>
+        </section>
+
+        <section>
+          <img class="plain" style="height:3em;position:fixed;top:-5vh;right:0" data-src="img/grid.svg" alt="Grid">
+          <h2><code>justify-content</code> & <code>align-content</code></h2>
           <div class="livecode livecode-2p" style="grid-template-columns:60% calc(40% - 0.5em)">
             <div class="result gridcontent">
-              <div style="border:1px solid" class="gridcontent_itemA">A</div>
-              <div style="border:1px solid" class="gridcontent_itemB">B</div>
-              <div style="border:1px solid" class="gridcontent_itemC">C</div>
-              <div style="border:1px solid" class="gridcontent_itemD">D</div>
+              <div style="border:1px solid" class="box a">A</div>
+              <div style="border:1px solid" class="box b">B</div>
+              <div style="border:1px solid" class="box c">C</div>
+              <div style="border:1px solid" class="box d">D</div>
             </div>
             <div class="code"><style class="code-editor" contenteditable="true">.gridcontent {
   justify-content: normal;
@@ -1114,21 +1197,10 @@
     "c c d";
 }
 
-.gridcontent_itemA {
-  grid-area: a;
-}
-
-.gridcontent_itemB {
-  grid-area: b;
-}
-
-.gridcontent_itemC {
-  grid-area: c;
-}
-
-.gridcontent_itemD {
-  grid-area: d;
-}</style></div>
+.gridcontent .box.a { grid-area: a }
+.gridcontent .box.b { grid-area: b }
+.gridcontent .box.c { grid-area: c }
+.gridcontent .box.d { grid-area: d }</style></div>
           </div>
           <aside class="notes">
             <p>The <code>justify-content</code> and <code>align-content</code> properties are known as <strong>content-distribution properties</strong>. These properties are relevant when the container is larger than the total width or height of the grid rows and columns.</p>
@@ -1137,9 +1209,9 @@
           </aside>
         </section>
 
-        <section>
-          <h2><code>justify/align-content</code></h2>
-          <p>content-distribution properties</p>
+        <section height="100vh">
+          <img class="plain" style="height:3em;position:fixed;top:-5vh;right:0" data-src="img/flexbox.svg" alt="Flexbox">
+          <h2><code>justify-content</code> & <code>align-content</code></h2>
           <div class="livecode livecode-2p">
             <div class="result flexcontent">
               <div class="wrapper" style="font-size:70%">
@@ -1174,8 +1246,8 @@
 }
 
 .flexcontent .box {
-  height: 4em;
-  width: 4em;
+  height: 4.5em;
+  width: 4.5em;
   border: 1px solid;
 }</style></div>
           </div>
@@ -1185,32 +1257,36 @@
         </section>
 
         <section>
-          <h2><code>justify/align-self</code></h2>
-          <p>self-alignment properties</p>
+          <img class="plain" data-src="img/axis-alignment.svg" alt="*-content values">
+        </section>
+
+        <section>
+          <img class="plain" style="height:3em;position:fixed;top:-5vh;right:0" data-src="img/grid.svg" alt="Grid">
+          <h2><code>justify-self</code> & <code>align-self</code></h2>
           <div class="livecode livecode-2p">
             <div class="result gridself">
-              <div style="border:1px solid" class="gridself_itemA">A</div>
-              <div style="border:1px solid" class="gridself_itemB">B</div>
-              <div style="border:1px solid" class="gridself_itemC">C</div>
-              <div style="border:1px solid" class="gridself_itemD">D</div>
+              <div style="border:1px solid" class="box a">A</div>
+              <div style="border:1px solid" class="box b">B</div>
+              <div style="border:1px solid" class="box c">C</div>
+              <div style="border:1px solid" class="box d">D</div>
             </div>
-            <div class="code"><style class="code-editor" contenteditable="true">.gridself_itemA {
+            <div class="code"><style class="code-editor" contenteditable="true">.gridself .box.a {
   grid-area: a;
 }
 
-.gridself_itemB {
+.gridself .box.b {
   grid-area: b;
   align-self: start;
   //justify-self: start;
 }
 
-.gridself_itemC {
+.gridself .box.c {
   grid-area: c;
   align-self: end;
   //justify-self: end;
 }
 
-.gridself_itemD {
+.gridself .box.d {
   grid-area: d;
   align-self: center;
   //justify-self: center;
@@ -1237,18 +1313,18 @@
         </section>
 
         <section>
-          <h2><code>justify/align-items</code></h2>
-          <p>defaults for justify/align-self</p>
+          <img class="plain" style="height:3em;position:fixed;top:-5vh;right:0" data-src="img/grid.svg" alt="Grid">
+          <h2><code>justify-items</code> & <code>align-items</code></h2>
           <div class="livecode livecode-2p">
             <div class="result griditems" style="font-size:75%">
-              <div style="border:1px solid" class="griditems_itemA">A</div>
-              <div style="border:1px solid" class="griditems_itemB">B</div>
-              <div style="border:1px solid" class="griditems_itemC">C</div>
-              <div style="border:1px solid" class="griditems_itemD">D</div>
+              <div style="border:1px solid" class="box a">A</div>
+              <div style="border:1px solid" class="box b">B</div>
+              <div style="border:1px solid" class="box c">C</div>
+              <div style="border:1px solid" class="box d">D</div>
             </div>
             <div class="code"><style class="code-editor" contenteditable="true">.griditems {
-  justify-items: stretch;
-  align-items: stretch;
+  justify-items: legacy;
+  align-items: normal;
 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1261,10 +1337,10 @@
     "c c d d";
 }
 
-.griditems_itemA { grid-area: a }
-.griditems_itemB { grid-area: b }
-.griditems_itemC { grid-area: c }
-.griditems_itemD { grid-area: d }</style></div>
+.griditems .box.a { grid-area: a }
+.griditems .box.b { grid-area: b }
+.griditems .box.c { grid-area: c }
+.griditems .box.d { grid-area: d }</style></div>
           </div>
           <aside class="notes">
             <p>Finally, we have the <code>align-items</code> and <code>justify-items</code> properties, which set the default <code>align-self</code> and <code>justify-self</code> behaviour of all the items within the grid. Similar to flexbox, except that <code>justify-items</code> does not apply to flexbox. And use <code>place-items</code> if you'd very much prefer a single-line declaration.</p>
@@ -1272,8 +1348,8 @@
         </section>
 
         <section>
-          <h2>Aligning along the cross axis</h2>
-          <p><code>align-items</code> sets the default alignment for all flex items along the cross axis of the flex line. Over-ridable by <code>align-self</code>.</p>
+          <img class="plain" style="height:3em;position:fixed;top:-5vh;right:0" data-src="img/flexbox.svg" alt="Flexbox">
+          <h2><code>align-items</code> & <code>align-self</code></h2>
           <div class="livecode livecode-2p">
             <div class="result flexitems">
               <div class="wrapper" style="font-size:50%">
@@ -1302,7 +1378,7 @@
             <div class="code"><style class="code-editor" contenteditable="true">.flexitems .wrapper {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 .flexitems .box:nth-child(2n+1) { 
@@ -1321,6 +1397,10 @@
             <p>Another value that can be used is <code>baseline</code>, which aligns the baseline for every flex item so all your text lines up rather neatly.</p>
             <p>If we want to tweak the positions of individual flex items, then we'll make use of <code>align-self</code> which does the same thing, but for a single flex item.</p>
           </aside>
+        </section>
+
+        <section>
+          <img class="plain" data-src="img/cross-alignment.svg" alt="*-items/self values">
         </section>
 
         <section>
