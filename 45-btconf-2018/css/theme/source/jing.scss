@@ -10,6 +10,7 @@
 // ---------------------------------------------
 
 // Include theme-specific fonts
+@import url('../../lib/font/playbox/playbox.css');
 @import url('../../lib/font/missiongothic/missiongothic.css');
 
 // Theme template ------------------------------
@@ -61,30 +62,26 @@ html {
     line-height: 1.55;
     font-size: 130%;
     position: relative;
+  }
 
-    p::before,
-    p::after {
-      position: absolute;
-      font-size: 2.5em;
-      font-family: Georgia, serif;
-      color: $headingColor;
-    }
-
-    p::before {
-      top: -0.125em;
-      left: -0.5em;
-      content: '\201C';
-    }
-
-    p::after {
-      bottom: 0;
-      right: -0.3em;
-      content: '\201D';
-    }
+  td {
+    vertical-align: middle;
   }
 
   img[src*='svg'] {
     max-height: 75vh;
+  }
+
+  .bomb-txt {
+    font-family: 'Playbox', sans-serif;
+    font-size: calc(10vmax + 3em);
+  }
+
+  .spec {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 9vh;
   }
 }
 
@@ -126,10 +123,27 @@ span[role=img][aria-label]:hover::after {
   margin: 0;
   padding: 0;
 
+  .result {
+    max-height: 100%;
+    overflow-y: scroll;
+    width: 100%;
+    border: 1px dashed $headingColor;
+
+    li {
+      line-height: 0;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
   .code {
     text-align: left;
     width: 100%;
     font-family: 'Dank Mono', monospace;
+    font-size: 75%;
     color: #efdcbc;
     background-color: #3f3f3f;
     padding: 0.5em;
@@ -138,18 +152,34 @@ span[role=img][aria-label]:hover::after {
   }
 }
 
+.livecode-2p {
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 1fr;
+  max-height: 65vh;
+}
+
+.livecode-3p {
+  grid-template-columns: 50% 50%;
+  grid-template-rows: max-content 1fr;
+  grid-template-areas: 'a b'
+                       'a c';
+  max-height: 70vh;
+
+  .markup {
+    grid-area: b;
+  }
+
+  .result {
+    grid-area: a;
+  }
+
+  .code {
+    grid-area: c;
+  }
+}
+
 .code-editor {
   display: block;
   height: 100%;
   white-space: pre-wrap;
-}
-
-.vidcode {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  height: 75vh;
-
-  video {
-    align-self: center;
-  }
 }

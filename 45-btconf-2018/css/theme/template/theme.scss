@@ -157,9 +157,8 @@ body {
 	margin: $blockMargin auto;
 
 	text-align: left;
-	font-size: 0.55em;
+	font-size: 0.75em;
 	font-family: monospace;
-	line-height: 1.2em;
 
 	word-wrap: break-word;
 
@@ -176,6 +175,7 @@ body {
 	padding: 0.5em;
 	overflow: auto;
 	word-wrap: normal;
+	height: 100%;
 }
 
 .reveal table {

@@ -3,6 +3,7 @@
  *
  * Copyright (C) 2018 Chen Hui Jing, https://www.chenhuijing.com/
  */
+@import url("../../lib/font/playbox/playbox.css");
 @import url("../../lib/font/missiongothic/missiongothic.css");
 /*********************************************
  * GLOBAL STYLES
@@ -139,9 +140,8 @@ body {
   width: 90%;
   margin: 20px auto;
   text-align: left;
-  font-size: 0.55em;
+  font-size: 0.75em;
   font-family: monospace;
-  line-height: 1.2em;
   word-wrap: break-word;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3); }
 
@@ -153,7 +153,8 @@ body {
   display: block;
   padding: 0.5em;
   overflow: auto;
-  word-wrap: normal; }
+  word-wrap: normal;
+  height: 100%; }
 
 .reveal table {
   margin: auto;
@@ -301,23 +302,22 @@ html {
   line-height: 1.55;
   font-size: 130%;
   position: relative; }
-  .reveal blockquote p::before,
-  .reveal blockquote p::after {
-    position: absolute;
-    font-size: 2.5em;
-    font-family: Georgia, serif;
-    color: #20bf55; }
-  .reveal blockquote p::before {
-    top: -0.125em;
-    left: -0.5em;
-    content: '\201C'; }
-  .reveal blockquote p::after {
-    bottom: 0;
-    right: -0.3em;
-    content: '\201D'; }
+
+.reveal td {
+  vertical-align: middle; }
 
 .reveal img[src*='svg'] {
   max-height: 75vh; }
+
+.reveal .bomb-txt {
+  font-family: 'Playbox', sans-serif;
+  font-size: calc(10vmax + 3em); }
+
+.reveal .spec {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 9vh; }
 
 span.emoji {
   font-family: 'Apple Color Emoji', 'Segoe UI Emoji';
@@ -351,24 +351,45 @@ span[role=img][aria-label]:hover::after {
   grid-gap: 0.5em;
   margin: 0;
   padding: 0; }
+  .livecode .result {
+    max-height: 100%;
+    overflow-y: scroll;
+    width: 100%;
+    border: 1px dashed #20bf55; }
+    .livecode .result li {
+      line-height: 0; }
+    .livecode .result p {
+      margin: 0;
+      padding: 0; }
   .livecode .code {
     text-align: left;
     width: 100%;
     font-family: 'Dank Mono', monospace;
+    font-size: 75%;
     color: #efdcbc;
     background-color: #3f3f3f;
     padding: 0.5em;
     border-radius: 0.25em;
     overflow-y: scroll; }
 
+.livecode-2p {
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 1fr;
+  max-height: 65vh; }
+
+.livecode-3p {
+  grid-template-columns: 50% 50%;
+  grid-template-rows: max-content 1fr;
+  grid-template-areas: 'a b' 'a c';
+  max-height: 70vh; }
+  .livecode-3p .markup {
+    grid-area: b; }
+  .livecode-3p .result {
+    grid-area: a; }
+  .livecode-3p .code {
+    grid-area: c; }
+
 .code-editor {
   display: block;
   height: 100%;
   white-space: pre-wrap; }
-
-.vidcode {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  height: 75vh; }
-  .vidcode video {
-    align-self: center; }
