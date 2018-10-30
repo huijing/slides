@@ -26,11 +26,11 @@ $heading1TextShadow: $headingTextShadow;
 $heading1Size: 2.827em;
 $heading2Size: 1.999em;
 $heading3Size: 1.414em;
-$heading4Size: 1.000em;
+$heading4Size: 1em;
 
 // Links and actions
 $linkColor: #01baef;
-$linkColorHover: darken( $linkColor, 20% );
+$linkColorHover: darken($linkColor, 20%);
 
 // Text selection
 $selectionBackgroundColor: #757575;
