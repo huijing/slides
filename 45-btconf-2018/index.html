@@ -977,6 +977,15 @@
         </section>
 
         <section>
+          <img class="plain" data-src="img/new-layout.svg" alt="Flexbox, Box alignment & Grid">
+          <aside class="notes">
+            <p>A major evolution in web layout is the ability to position and align content in both the inline and block directions.</p>
+            <p>Alignment along the inline axis was generally well supported from the start, especially for languages that were read horizontally from top-to-bottom. Moving text or blocks of content horizontally wasn't too complicated, we had <code>text-align</code>, we could use auto-margins to centre blocks.</p>
+            <p>But vertical alignment required a lot of workarounds, a lot of hacks and frustration. Luckily, CSS is not a fixed technology. Changes were introduced, improvements were made, and now we have a suite of tools for two-dimensional alignment and layout.</p>
+          </aside>
+        </section>
+
+        <section>
           <a href="https://www.w3.org/TR/css-align-3/#overview"><img data-src="img/spec-boxalignment.svg" alt="CSS Box Alignment Module Level 3" class="plain spec"></a>
           <table style="font-size:70%">
             <tr style="border-bottom:2px solid">
@@ -1027,6 +1036,69 @@
         </section>
 
         <section>
+          <div class="l-double">
+            <div>
+              <h2>Flexbox</h2>
+              <img class="plain" style="height:4em;display:block;margin:0 auto 0.5em" data-src="img/flexbox.svg" alt="Flexbox">
+              <ul>
+                <li><code>align-content</code></li>
+                <li><code>justify-content</code></li>
+                <li><code>align-items</code></li>
+                <li><code>align-self</code></li>
+              </ul>
+              <p>The <code>justify-items</code>/<code>justify-self</code> properties do <strong>not</strong> apply to flex items</p>
+            </div>
+            <div>
+              <h2>Grid</h2>
+              <img class="plain" style="height:4em;display:block;margin:0 auto 0.5em" data-src="img/grid.svg" alt="Grid">
+              <ul>
+                <li><code>align-content</code></li>
+                <li><code>justify-content</code></li>
+                <li><code>align-items</code></li>
+                <li><code>align-self</code></li>
+                <li><code>justify-items</code></li>
+                <li><code>justify-self</code></li>
+              </ul>
+            </div>
+          </div>
+          <aside class="notes">When using Grid, all 6 properties are relevant, however, when using Flexbox, self alignment along the main axis, is not applicable. <code>justify-self</code> and <code>justify-items</code> have no effect in a flex formatting context, because there is more than 1 item in the main axis.</aside>
+        </section>
+
+        <section>
+          <div class="l-double" style="opacity:0.2">
+            <div>
+              <h2>Flexbox</h2>
+              <img class="plain" style="height:4em;display:block;margin:0 auto 0.5em" data-src="img/flexbox.svg" alt="Flexbox">
+              <ul>
+                <li><code>align-content</code></li>
+                <li><code>justify-content</code></li>
+                <li><code>align-items</code></li>
+                <li><code>align-self</code></li>
+              </ul>
+              <p>The <code>justify-items</code>/<code>justify-self</code> properties do <strong>not</strong> apply to flex items</p>
+            </div>
+            <div>
+              <h2>Grid</h2>
+              <img class="plain" style="height:4em;display:block;margin:0 auto 0.5em" data-src="img/grid.svg" alt="Grid">
+              <ul>
+                <li><code>align-content</code></li>
+                <li><code>justify-content</code></li>
+                <li><code>align-items</code></li>
+                <li><code>align-self</code></li>
+                <li><code>justify-items</code></li>
+                <li><code>justify-self</code></li>
+              </ul>
+            </div>
+          </div>
+          <img class="plain" data-src="img/txt-align-icons.svg" alt="Text align icons" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
+          <p style="position:absolute;top:62.5%;left:50%;transform:translate(-50%,0%)">Justify</p>
+          <aside class="notes">
+            <p>I have a trick for remembering which property affects which axis. So are these icons familiar to most of you? These show up in almost any rich-text editors, and we use them to <strong>justify</strong>> text.</p>
+            <p>That is, to move text along its inline axis. Now there are only 2 values for 2 axis, so if justify is along this direction, then align must be for the other direction.</p>
+          </aside>
+        </section>
+
+        <section>
           <a href="https://www.w3.org/TR/css-align-3/#overview"><img data-src="img/spec-boxalignment.svg" alt="CSS Box Alignment Module Level 3" class="plain spec"></a>
           <table style="font-size:75%">
             <tr>
@@ -1068,51 +1140,6 @@
           <aside class="notes">
             <p>The <code>justify-content</code> and <code>align-content</code> properties are known as <strong>content-distribution properties</strong>. And we've already seen them in action in a flex formatting context. This table is a summary of the values we've covered thus far for content distribution.</p>
             <p>How many people have trouble remembering which value affects which axis? Justify versus align? Is there anyone here who has <strong>not</strong> used Microsoft Word or any word processing software before?</p>
-          </aside>
-        </section>
-
-        <section style="position:relative">
-          <a href="https://www.w3.org/TR/css-align-3/#overview"><img data-src="img/spec-boxalignment.svg" alt="CSS Box Alignment Module Level 3" class="plain spec"></a>
-          <table style="font-size:75%;filter:blur(3px);opacity:0.5">
-            <tr>
-              <th>Values</th>
-              <th><code>justify-content</code></th>
-              <th><code>align-content</code></th>
-            </tr>
-            <tr>
-              <td><code>center</code></td>
-              <td style="text-align:center"><img class="plain" style="max-height:2.5em;margin:0" data-src="img/jc-center.png" alt="justify-content:center"></td>
-              <td style="text-align:center"><img class="plain" style="max-height:2.5em;margin:0" data-src="img/ac-center.png" alt="align-content:center"></td>
-            </tr>
-            <tr>
-              <td><code>start</code></td>
-              <td style="text-align:center"><img class="plain" style="max-height:2.5em;margin:0" data-src="img/jc-start.png" alt="justify-content:start"></td>
-              <td style="text-align:center"><img class="plain" style="max-height:2.5em;margin:0" data-src="img/ac-start.png" alt="align-content:start"></td>
-            </tr>
-            <tr>
-              <td><code>end</code></td>
-              <td style="text-align:center"><img class="plain" style="max-height:2.5em;margin:0" data-src="img/jc-end.png" alt="justify-content:end"></td>
-              <td style="text-align:center"><img class="plain" style="max-height:2.5em;margin:0" data-src="img/ac-end.png" alt="align-content:end"></td>
-            </tr>
-            <tr>
-              <td><code>space-around</code></td>
-              <td style="text-align:center"><img class="plain" style="max-height:2.5em;margin:0" data-src="img/jc-sa.png" alt="justify-content:space-around"></td>
-              <td style="text-align:center"><img class="plain" style="max-height:2.5em;margin:0" data-src="img/ac-sa.png" alt="align-content:space-around"></td>
-            </tr>
-            <tr>
-              <td><code>space-between</code></td>
-              <td style="text-align:center"><img class="plain" style="max-height:2.5em;margin:0" data-src="img/jc-sb.png" alt="justify-content:space-between"></td>
-              <td style="text-align:center"><img class="plain" style="max-height:2.5em;margin:0" data-src="img/ac-sb.png" alt="align-content:space-between"></td>
-            </tr>
-            <tr>
-              <td><code>space-evenly</code></td>
-              <td style="text-align:center"><img class="plain" style="max-height:2.5em;margin:0" data-src="img/jc-se.png" alt="justify-content:space-evenly"></td>
-              <td style="text-align:center"><img class="plain" style="max-height:2.5em;margin:0" data-src="img/ac-se.png" alt="align-content:space-evenly"></td>
-            </tr>
-          </table>
-          <img class="plain" data-src="img/txt-align-icons.svg" alt="Text align icons" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
-          <aside class="notes">
-            <p>Here's how I remember them. Almost every word processing interface I've ever used has these 4 icons that lets you justify text, right? Justifying text moves it along the direction of your text, so by process of elimination, align must move it along the only other direction available.</p>
           </aside>
         </section>
 
@@ -1294,7 +1321,7 @@
 
         <section>
           <div class="l-double" style="justify-items:center">
-            <img class="plain" data-src="img/moholy.jpg" alt="Page 126 of Malerei, Fotografie, Film by Moholy-Nagy" style="max-height:75vh">
+            <img class="plain" data-src="img/moholy.jpg" alt="Page 126 of Malerei, Fotografie, Film by Moholy-Nagy" style="max-height:75vh"> 
             <img class="plain fragment " data-src="img/moholy2.jpg" alt="Recreation of page 126 of Malerei, Fotografie, Film with grid and flexbox" style="max-height:75vh">
           </div>
           <p><small>Original image from <a href="http://bibliothequekandinsky.centrepompidou.fr/imagesbk/RLPF727/M5050_X0031_LIV_RLPF0727.pdf">Moholy-Nagy, Malerei, Fotografie, Film</a></small></p>
@@ -1485,6 +1512,8 @@
             <li><a href="https://www.smashingmagazine.com/2017/12/understanding-css-layout-block-formatting-context/">Understanding CSS Layout And The Block Formatting Context</a></li>
             <li><a href="https://www.smashingmagazine.com/2016/11/css-grids-flexbox-box-alignment-new-layout-standard/">The New Layout Standard For The Web: CSS Grid, Flexbox And Box Alignment</a></li>
             <li><a href="https://medium.com/@patrickbrosset/demystifying-css-alignment-2d3ea7a02a36">Demystifying CSS alignment</a></li>
+            <li><a href="https://hacks.mozilla.org/2017/06/new-css-grid-layout-panel-in-firefox-nightly/">Powerful New Additions to the CSS Grid Inspector in Firefox Nightly</a></li>
+            <li><a href="https://www.smashingmagazine.com/2018/10/flexbox-use-cases/">Use cases for Flexbox</a></li>
           </ul>
           <aside class="notes">Here's a list of links and resources.</aside>
         </section>
