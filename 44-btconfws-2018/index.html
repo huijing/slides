@@ -29,8 +29,21 @@
         </section>
 
         <section>
-          <h2 style="margin-bottom:1em;">Evolution of browsers</h2>
+          <h2>Evolution of browsers</h2>
           <img class="plain" data-src="img/browsers.svg" alt="Evolution of browser layout capabilities">
+        </section>
+
+        <section>
+          <h2>Feature queries</h2>
+          <pre style="font-size:100%"><code>.selector {
+  /* Styles that are supported in old browsers */
+}
+
+@supports (property:value) {
+  .selector {
+    /* Styles for browsers that support the specified property */
+  }
+}</code></pre>
         </section>
 
         <section>
