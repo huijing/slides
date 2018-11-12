@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Building layouts with modern CSS</title>
+    <meta name="description" content="2017 was the year of CSS grid, a powerful tool that was developed specially to do layout on the web. It allows us to do many things that we couldn't before, without extreme measures of hackish-ness. It is definitely not hyperbole to say that CSS grid will revolutionise web design moving forward. This workshop will run through what CSS grid is, how it works and what you can do with it.">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/jing.css">
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <img class="plain" style="max-width:5em;margin-bottom:1em" data-src="img/boxmodel.svg" alt="Do you Box Model?">
+          <h1 style="text-transform:uppercase">Building Layouts with Modern CSS</h1>
+          <img class="plain" style="max-width:8em;margin-top:1em" data-src="img/teamweb.svg" alt="#TeamWeb">
+        </section>
+
+        <section>
+          <h2>General agenda</h2>
+          <ul>
+            <li>Introduction and set up</li>
+            <li>Pre-grid techniques and concepts</li>
+            <li>Flexbox basics</li>
+            <li>Real-world application: Image gallery (part 1)</li>
+            <li>Grid basics
+              <ul>
+                <li>Defining a grid</li>
+                <li>Auto-placement</li>
+                <li>Flexible sizing</li>
+                <li>Manual placement</li>
+              </ul>
+            </li>
+            <li>Real-world application: Responsive dashboard</li>
+            <li>Feature queries</li>
+          </ul>
+        </section>
+
+        <section>
+          <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:65vh 10vh 25vh;justify-items:center">
+            <img class="plain" style="grid-row:1/3;grid-column:1/3;max-height:100%" data-src="img/nightly.svg" alt="Firefox Nightly">
+            <img class="plain" style="grid-row:2/4;grid-column:1/2;max-height:100%" data-src="img/editor.svg" alt="Text editor">
+            <img class="plain" style="grid-row:2/4;grid-column:2/3;max-height:100%" data-src="img/paper.svg" alt="Pencil and paper">
+          </div>
+        </section>
+
+        <section>
+          <h2>Evolution of browsers</h2>
+          <img class="plain" data-src="img/browsers.svg" alt="Evolution of browser layout capabilities">
+        </section>
+
+        <section>
+          <h2>Pre-grid techniques</h2>
+          <p data-height="640" data-theme-id="9162" data-slug-hash="KGOmLZ" data-default-tab="html,result" data-user="huijing" data-pen-title="#0: Pre-Grid layout techniques" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/KGOmLZ/">#0: Pre-Grid layout techniques</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+        </section>
+
+        <section>
+          <h2>Flexbox basics</h2>
+          <p data-height="640" data-theme-id="0" data-slug-hash="NEPwoj" data-default-tab="html,result" data-user="huijing" data-pen-title="Flexbox basics" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/NEPwoj/">Flexbox basics</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+        </section>
+
+        <section>
+          <h2>Image gallery</h2>
+          <p data-height="640" data-theme-id="0" data-slug-hash="dQPZmL" data-default-tab="html,result" data-user="huijing" data-pen-title="Image gallery" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/dQPZmL/">Image gallery</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+        </section>
+
+        <section>
+          <h2>Configuration page</h2>
+          <p data-height="640" data-theme-id="0" data-slug-hash="GwgMJx" data-default-tab="html,result" data-user="huijing" data-pen-title="Configuration page" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/GwgMJx/">Configuration page</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+        </section>
+
+        <section>
+          <h2>Defining a grid</h2>
+          <p data-height="640" data-theme-id="0" data-slug-hash="mzKoNj" data-default-tab="html,result" data-user="huijing" data-pen-title="#1: Defining a grid" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/mzKoNj/">#1: Defining a grid</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+        </section>
+
+        <section>
+          <h2>The repeat() function</h2>
+          <p data-height="640" data-theme-id="0" data-slug-hash="XxveJe" data-default-tab="html,result" data-user="huijing" data-pen-title="#2.1: The repeat() function" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/XxveJe/">#2.1: The repeat() function</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+        </section>
+
+        <section>
+          <h2>auto-fill versus auto-fit</h2>
+          <p data-height="640" data-theme-id="0" data-slug-hash="GYVyMX" data-default-tab="html,result" data-user="huijing" data-pen-title="#2.2: auto-fill versus auto-fit" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/GYVyMX/">#2.2: auto-fill versus auto-fit</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+        </section>
+
+        <section>
+          <h2>grid-auto-row and grid-auto-column</h2>
+          <p data-height="640" data-theme-id="0" data-slug-hash="ePqyMz" data-default-tab="html,result" data-user="huijing" data-pen-title="#2.3: grid-auto-row and grid-auto-column" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/ePqyMz/">#2.3: grid-auto-row and grid-auto-column</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+        </section>
+
+        <section>
+          <h2>The grid-auto-flow property</h2>
+          <p data-height="640" data-theme-id="0" data-slug-hash="LgwegQ" data-default-tab="html,result" data-user="huijing" data-pen-title="#2.4: The grid-auto-flow property" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/LgwegQ/">#2.4: The grid-auto-flow property</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+        </section>
+
+        <section>
+          <h2>The fr unit</h2>
+          <p data-height="640" data-theme-id="0" data-slug-hash="WaVdLN" data-default-tab="css,result" data-user="huijing" data-pen-title="#3.1: The fr unit" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/WaVdLN/">#3.1: The fr unit</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+        </section>
+
+        <section>
+          <h2>The minmax() function</h2>
+          <p data-height="640" data-theme-id="0" data-slug-hash="jegYob" data-default-tab="css,result" data-user="huijing" data-pen-title="#3.2: The minmax() function" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/jegYob/">#3.2: The minmax() function</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+        </section>
+
+        <section>
+          <h2>Content-based sizing</h2>
+          <p data-height="640" data-theme-id="0" data-slug-hash="bmXLpd" data-default-tab="html,result" data-user="huijing" data-pen-title="#3.3: Content-based sizing" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/bmXLpd/">#3.3: Content-based sizing</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+        </section>
+
+        <section>
+          <h2>Image gallery (part 2)</h2>
+          <p data-height="640" data-theme-id="0" data-slug-hash="dQPZmL" data-default-tab="html,result" data-user="huijing" data-pen-title="Image gallery" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/dQPZmL/">Image gallery</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+        </section>
+
+        <section>
+          <h2>Line-based placement</h2>
+          <p data-height="640" data-theme-id="0" data-slug-hash="pxMaYp" data-default-tab="css,result" data-user="huijing" data-pen-title="#4.1: Line-based placement" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/pxMaYp/">#4.1: Line-based placement</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+        </section>
+
+        <section>
+          <h2>grid-column and grid-row</h2>
+          <p data-height="640" data-theme-id="0" data-slug-hash="zmgRgM" data-default-tab="css,result" data-user="huijing" data-pen-title="#4.2: grid-column and grid-row" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/zmgRgM/">#4.2: grid-column and grid-row</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+        </section>
+
+        <section>
+          <h2>The span keyword</h2>
+          <p data-height="640" data-theme-id="0" data-slug-hash="NOQYMM" data-default-tab="css,result" data-user="huijing" data-pen-title="#4.3: The span keyword" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/NOQYMM/">#4.3: The span keyword</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+        </section>
+
+        <section>
+          <h2>Using the grid-area shorthand</h2>
+          <p data-height="640" data-theme-id="0" data-slug-hash="vVoRzx" data-default-tab="css,result" data-user="huijing" data-pen-title="#4.4: Using the grid-area shorthand" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/vVoRzx/">#4.4: Using the grid-area shorthand</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+        </section>
+
+        <section>
+          <h2>Naming grid lines</h2>
+          <p data-height="640" data-theme-id="0" data-slug-hash="xyvWBZ" data-default-tab="html,result" data-user="huijing" data-pen-title="#5.1: Naming grid lines" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/xyvWBZ/">#5.1: Naming grid lines</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+        </section>
+
+        <section>
+          <h2>Naming grid areas</h2>
+          <p data-height="640" data-theme-id="0" data-slug-hash="EdqLxP" data-default-tab="css,result" data-user="huijing" data-pen-title="#5.2: Naming grid areas" class="codepen">See the Pen <a href="https://codepen.io/huijin这g/pen/EdqLxP/">#5.2: Naming grid areas</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+        </section>
+
+        <section>
+          <h2>Responsive dashboard</h2>
+          <p data-height="640" data-theme-id="0" data-slug-hash="xQbXKO" data-default-tab="html,result" data-user="huijing" data-pen-title="Responsive dashboard" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/xQbXKO/">Responsive dashboard</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+        </section>
+
+        <section>
+          <h2>Feature queries</h2>
+          <pre style="font-size:100%"><code>.selector {
+  /* Styles that are supported in old browsers */
+}
+
+@supports (property:value) {
+  .selector {
+    /* Styles for browsers that support the specified property */
+  }
+}</code></pre>
+        </section>
+
+        <section>
+          <h2>Musician profile page</h2>
+          <p data-height="640" data-theme-id="0" data-slug-hash="bQNoeO" data-default-tab="css,result" data-user="huijing" data-pen-title="Musician profile page" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/bQNoeO/">Musician profile page</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+        </section>
+
+        <section>
+          <h2>Useful references</h2>
+          <ul style="columns:2;font-size:85%">
+            <li><a href="https://www.w3.org/TR/css-grid-1/">CSS Grid Layout Module Level 1</a></li>
+            <li><a href="https://tympanus.net/codrops/css_reference/grid/">Codrops CSS Grid reference</a></li>
+            <li><a href="https://gridbyexample.com/">Grid by Example</a></li>
+            <li><a href="http://jensimmons.com/post/feb-27-2017/learn-css-grid">Learn CSS Grid</a></li>
+            <li><a href="https://blogs.igalia.com/mrego/2015/02/25/grid-auto-placement-is-ready/">Grid Auto-Placement Is Ready</a></li>
+            <li><a href="https://blogs.igalia.com/svillar/2016/05/10/automatizing-the-grid/">Automatizing the Grid</a></li>
+            <li><a href="https://blogs.igalia.com/mrego/2016/02/01/deep-dive-into-grid-layout-placement/">Deep Dive into Grid Layout Placement</a></li>
+            <li><a href="https://blogs.igalia.com/mrego/2016/05/27/css-grid-layout-and-positioned-items/">CSS Grid Layout and positioned items</a></li>
+            <li><a href="https://blogs.igalia.com/mrego/2018/08/08/css-logical-properties-and-values-in-chromium/">CSS Logical Properties and Values in Chromium and WebKit</a></li>
+            <li><a href="https://blogs.igalia.com/mrego/2018/08/10/changes-on-css-grid-layout-in-percentages-and-indefinite-height/">Changes on CSS Grid Layout in percentages and indefinite height</a></li>
+            <li><a href="https://alistapart.com/article/the-story-of-css-grid-from-its-creators">The Story of CSS Grid, from Its Creators</a></li>
+            <li><a href="https://blogs.igalia.com/mrego/2017/03/16/css-grid-layout-is-here-to-stay/">CSS Grid Layout is Here to Stay</a></li>
+            <li><a href="https://www.smashingmagazine.com/2016/11/css-grids-flexbox-box-alignment-new-layout-standard/">The New Layout Standard For The Web: CSS Grid, Flexbox And Box Alignment</a></li>
+            <li><a href="https://www.smashingmagazine.com/2018/08/flexbox-display-flex-container/">What Happens When You Create A Flexbox Flex Container?</a></li>
+            <li><a href="https://www.smashingmagazine.com/2018/08/flexbox-alignment/">Everything You Need To Know About Alignment In Flexbox</a></li>
+            <li><a href="https://www.smashingmagazine.com/2018/10/flexbox-use-cases/">Use Cases For Flexbox</a></li>
+            <li><a href="https://rachelandrew.co.uk/css/cheatsheets/grid-fallbacks">Grid “fallbacks” and overrides</a></li>
+          </ul>
+        </section>
+
+        <section style="text-align:left">
+          <h1>Thank you!</h1>
+          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle">https://www.chenhuijing.com</a></p>
+          <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle">@huijing</a></p>
+          <p style="text-align:right"><small>Font used is <a href="https://bboxtype.com/typefaces/ABeZeh/">ABeeZee</a>, by <a href="https://bboxtype.com/designers/AnjaMeiners/">Anja Meiners</a></small></p>
+        </section>
+      </div>
+
+      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://www.chenhuijing.com/slides/46-detech-2018</span><span style="text-align:right">@hj_chen</span></footer>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="lib/js/caniuse-embed.min.js"></script>
+    <script async src="lib/js/ei.js"></script>
+
+    <script>
+    Reveal.initialize({
+      dependencies: [
+        { src: 'plugin/markdown/marked.js' },
+        { src: 'plugin/markdown/markdown.js' },
+        { src: 'plugin/notes/notes.js', async: true },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+      ]
+    });
+    </script>
+  </body>
+
+</html>
