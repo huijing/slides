@@ -30,11 +30,53 @@
         </section>
 
         <section>
+          <h1>Link to slides:</h1>
+          <p style="font-size:3em">http://bit.ly/detech-css</p>
+        </section>
+
+        <section data-background-image="img/emoji-bg.png" data-background-repeat="repeat" data-background-size="200px">
+          <div class="l-double" style="align-items:center">
+            <div style="display:flex;flex-direction:column;align-items:center">
+              <img data-src="img/name.svg" alt="Chen Hui Jing" class="plain" style="max-height:25vh">
+              <div>
+                <img data-src="img/avatar.jpg" alt="Jing" style="border-radius:50%;max-height:50vh">
+              </div>
+              <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,3em);grid-template-rows:repeat(3,3em);width:100%;grid-template-areas:'a . b''. c .''d . e';font-size:150%">
+              <span style="font-size:calc(1.75em + 3vw);grid-area:a" class="emoji" role="img" tabindex="0" aria-label="Malaysia">&#x1F1F2;&#x1F1FE;</span>
+              <span style="font-size:calc(1.75em + 3vw);grid-area:b" class="emoji" role="img" tabindex="0" aria-label="basketball">&#x1F3C0;</span>
+              <span style="font-size:calc(1.75em + 3vw);grid-area:c" class="emoji" role="img" tabindex="0" aria-label="woman technologist">&#x1F469;&#x200D;&#x1F4BB;</span>
+              <span style="font-size:calc(1.75em + 3vw);grid-area:d" class="emoji" role="img" tabindex="0" aria-label="memo">&#x1F4DD;</span>
+              <span style="font-size:calc(1.75em + 3vw);grid-area:e" class="emoji" role="img" tabindex="0" aria-label="fox">&#x1F98A;</span>
+            </div>
+          </div>
+          <aside class="notes">TechSpeakers is an initiative by Mozilla to support technical evangelists in regional communities around the world by providing resources and funding.</aside>
+        </section>
+
+        <section>
+          <img class="plain" data-src="img/techspeakers.png" alt="Mozilla TechSpeakers">
+          <p><a href="https://events.mozilla.org/techspeakers">https://events.mozilla.org/techspeakers</a></p>
+        </section>
+
+        <section>
+          <img style="max-height:10em;margin-bottom:0.5em" class="plain" data-src="img/love-dev.svg" alt="Nexmo Developer Relations">
+          <p><span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span> Developer Advocate <span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span></p>
+          <img style="max-height:2.5em;margin-top:1em" class="plain" data-src="img/nexmo.svg" alt="Nexmo">
+          <aside class="notes">Nexmo is a platform which makes it easier for developers to integrate communications into their applications by providing APIs for messaging, voice and authentication.</aside>
+        </section>
+
+        <section>
           <h2>General agenda</h2>
           <ul>
             <li>Introduction and set up</li>
             <li>Pre-grid techniques and concepts</li>
-            <li>Flexbox basics</li>
+            <li>Flexbox basics
+              <ul>
+                <li>Flex syntax</li>
+                <li>Aligning flex items</li>
+              </ul>
+            </li>
             <li>Real-world application: Image gallery (part 1)</li>
             <li>Grid basics
               <ul>
@@ -50,7 +92,7 @@
         </section>
 
         <section>
-          <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:65vh 10vh 25vh;justify-items:center">
+          <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:55vh 10vh 25vh;justify-items:center">
             <img class="plain" style="grid-row:1/3;grid-column:1/3;max-height:100%" data-src="img/nightly.svg" alt="Firefox Nightly">
             <img class="plain" style="grid-row:2/4;grid-column:1/2;max-height:100%" data-src="img/editor.svg" alt="Text editor">
             <img class="plain" style="grid-row:2/4;grid-column:2/3;max-height:100%" data-src="img/paper.svg" alt="Pencil and paper">
@@ -66,12 +108,19 @@
           <h2>Pre-grid techniques</h2>
           <p data-height="640" data-theme-id="9162" data-slug-hash="KGOmLZ" data-default-tab="html,result" data-user="huijing" data-pen-title="#0: Pre-Grid layout techniques" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/KGOmLZ/">#0: Pre-Grid layout techniques</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
           <p><a href="https://codepen.io/huijing/pen/KGOmLZ/">https://codepen.io/huijing/pen/KGOmLZ/</a></p>
+          <aside class="notes">The browser interprets the line breaks and spaces in the HTML as content.</aside>
         </section>
 
         <section>
           <h2>Flexbox basics</h2>
           <p data-height="640" data-theme-id="0" data-slug-hash="NEPwoj" data-default-tab="html,result" data-user="huijing" data-pen-title="Flexbox basics" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/NEPwoj/">Flexbox basics</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
           <p><a href="https://codepen.io/huijing/pen/NEPwoj/">https://codepen.io/huijing/pen/NEPwoj/</a></p>
+          <aside class="notes">The browser interprets the line breaks and spaces in the HTML as content.</aside>
+        </section>
+
+        <section>
+          <h2>The <code>flex</code> syntax</h2>
+          <img class="plain" data-src="img/flex-syntax.png" alt="Flex syntax explained"/>
         </section>
 
         <section>
@@ -95,6 +144,37 @@
             </tr>
           </table>
         </section>
+        
+        <section>
+          <blockquote>
+            <p>Authors are encouraged to control flexibility using the flex shorthand rather than with its longhand properties directly, as the shorthand <em>correctly resets any unspecified components</em> to accommodate common uses.</p>
+            <br><small>—<a href="https://www.w3.org/TR/css-flexbox-1/#flex-property">CSS Flexible Box Layout Module Level 1</a></small>
+          </blockquote>
+        </section>
+
+        <section>
+          <h2>Flex lines</h2>
+          <div class="l-multiple" style="justify-items:center;align-items:center">
+            <figure>
+              <img data-src="img/nowrap.svg" alt="Single flex line, nowrap" class="plain" style="height:2em">
+              <figcaption><code>nowrap</code></figcaption>
+            </figure>
+            <figure>
+              <img data-src="img/wrap.svg" alt="Multiple flex lines, wrap" class="plain" style="height:8em">
+              <figcaption><code>wrap</code></figcaption>
+            </figure>
+            <figure>
+              <img data-src="img/wrap-reverse.svg" alt="Multiple flex lines, wrap-reverse" class="plain" style="height:8em">
+              <figcaption><code>wrap-reverse</code></figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section>
+          <h2>Aligning flex items</h2>
+          <p data-height="640" data-theme-id="0" data-slug-hash="zMNqOo" data-default-tab="html,result" data-user="huijing" data-pen-title="Aligning flex items" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/zMNqOo/">Aligning flex items</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+          <p><a href="https://codepen.io/huijing/pen/zMNqOo/">https://codepen.io/huijing/pen/zMNqOo/</a></p>
+        </section>
 
         <section>
           <h2>Image gallery</h2>
@@ -109,37 +189,37 @@
         </section>
 
         <section>
-          <h2>The repeat() function</h2>
+          <h2>The <code>repeat()</code> function</h2>
           <p data-height="640" data-theme-id="0" data-slug-hash="XxveJe" data-default-tab="html,result" data-user="huijing" data-pen-title="#2.1: The repeat() function" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/XxveJe/">#2.1: The repeat() function</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
           <p><a href="https://codepen.io/huijing/pen/XxveJe/">https://codepen.io/huijing/pen/XxveJe/</a></p>
         </section>
 
         <section>
-          <h2>auto-fill versus auto-fit</h2>
+          <h2><code>auto-fill</code> versus <code>auto-fit</code></h2>
           <p data-height="640" data-theme-id="0" data-slug-hash="GYVyMX" data-default-tab="html,result" data-user="huijing" data-pen-title="#2.2: auto-fill versus auto-fit" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/GYVyMX/">#2.2: auto-fill versus auto-fit</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
           <p><a href="https://codepen.io/huijing/pen/GYVyMX/">https://codepen.io/huijing/pen/GYVyMX/</a></p>
         </section>
 
         <section>
-          <h2>grid-auto-row and grid-auto-column</h2>
+          <h2><code>grid-auto-row</code> and <code>grid-auto-column</code></h2>
           <p data-height="640" data-theme-id="0" data-slug-hash="ePqyMz" data-default-tab="html,result" data-user="huijing" data-pen-title="#2.3: grid-auto-row and grid-auto-column" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/ePqyMz/">#2.3: grid-auto-row and grid-auto-column</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
           <p><a href="https://codepen.io/huijing/pen/ePqyMz/">https://codepen.io/huijing/pen/ePqyMz/</a></p>
         </section>
 
         <section>
-          <h2>The grid-auto-flow property</h2>
+          <h2>The <code>grid-auto-flow</code> property</h2>
           <p data-height="640" data-theme-id="0" data-slug-hash="LgwegQ" data-default-tab="html,result" data-user="huijing" data-pen-title="#2.4: The grid-auto-flow property" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/LgwegQ/">#2.4: The grid-auto-flow property</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
           <p><a href="https://codepen.io/huijing/pen/LgwegQ/">https://codepen.io/huijing/pen/LgwegQ/</a></p>
         </section>
 
         <section>
-          <h2>The fr unit</h2>
+          <h2>The <code>fr</code> unit</h2>
           <p data-height="640" data-theme-id="0" data-slug-hash="WaVdLN" data-default-tab="css,result" data-user="huijing" data-pen-title="#3.1: The fr unit" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/WaVdLN/">#3.1: The fr unit</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
           <p><a href="https://codepen.io/huijing/pen/WaVdLN/">https://codepen.io/huijing/pen/WaVdLN/</a></p>
         </section>
 
         <section>
-          <h2>The minmax() function</h2>
+          <h2>The <code>minmax()</code> function</h2>
           <p data-height="640" data-theme-id="0" data-slug-hash="jegYob" data-default-tab="css,result" data-user="huijing" data-pen-title="#3.2: The minmax() function" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/jegYob/">#3.2: The minmax() function</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
           <p><a href="https://codepen.io/huijing/pen/jegYob/">https://codepen.io/huijing/pen/jegYob/</a></p>
         </section>
@@ -163,19 +243,19 @@
         </section>
 
         <section>
-          <h2>grid-column and grid-row</h2>
+          <h2><code>grid-column</code> and <code>grid-row</code></h2>
           <p data-height="640" data-theme-id="0" data-slug-hash="zmgRgM" data-default-tab="css,result" data-user="huijing" data-pen-title="#4.2: grid-column and grid-row" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/zmgRgM/">#4.2: grid-column and grid-row</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
           <p><a href="https://codepen.io/huijing/pen/zmgRgM/">https://codepen.io/huijing/pen/zmgRgM/</a></p>
         </section>
 
         <section>
-          <h2>The span keyword</h2>
+          <h2>The <code>span</code> keyword</h2>
           <p data-height="640" data-theme-id="0" data-slug-hash="NOQYMM" data-default-tab="css,result" data-user="huijing" data-pen-title="#4.3: The span keyword" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/NOQYMM/">#4.3: The span keyword</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
           <p><a href="https://codepen.io/huijing/pen/NOQYMM/">https://codepen.io/huijing/pen/NOQYMM/</a></p>
         </section>
 
         <section>
-          <h2>Using the grid-area shorthand</h2>
+          <h2>Using the <code>grid-area</code> shorthand</h2>
           <p data-height="640" data-theme-id="0" data-slug-hash="vVoRzx" data-default-tab="css,result" data-user="huijing" data-pen-title="#4.4: Using the grid-area shorthand" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/vVoRzx/">#4.4: Using the grid-area shorthand</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
           <p><a href="https://codepen.io/huijing/pen/vVoRzx/">https://codepen.io/huijing/pen/vVoRzx/</a></p>
         </section>
@@ -212,8 +292,9 @@
         </section>
 
         <section>
-          <h2>Musician profile page</h2>
-          <p data-height="640" data-theme-id="0" data-slug-hash="bQNoeO" data-default-tab="css,result" data-user="huijing" data-pen-title="Musician profile page" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/bQNoeO/">Musician profile page</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+          <h2>Card-based layout</h2>
+          <p data-height="640" data-theme-id="0" data-slug-hash="VVPjBL" data-default-tab="html,result" data-user="huijing" data-pen-title="Card-based layout" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/VVPjBL/">Card-based layout</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+          <p><a href="https://codepen.io/huijing/pen/VVPjBL/">https://codepen.io/huijing/pen/VVPjBL/</a></p>
         </section>
 
         <section>
