@@ -426,8 +426,7 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  -ms-touch-action: none;
-      touch-action: none; }
+  touch-action: none; }
 
 @media only screen and (orientation: landscape) {
   .reveal.ua-iphone {
@@ -951,12 +950,10 @@ body {
   max-height: none;
   top: 0;
   left: 0;
-  -o-object-fit: cover;
-     object-fit: cover; }
+  object-fit: cover; }
 
 .reveal .slide-background[data-background-size="contain"] video {
-  -o-object-fit: contain;
-     object-fit: contain; }
+  object-fit: contain; }
 
 /* Immediate transition style */
 .reveal[data-background-transition=none] > .backgrounds .slide-background,
@@ -1222,7 +1219,6 @@ body {
 
 .reveal .overlay .viewport {
   position: absolute;
-  display: -ms-flexbox;
   display: flex;
   top: 40px;
   right: 0;
