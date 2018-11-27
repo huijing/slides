@@ -61,7 +61,247 @@
         </section>
 
         <section>
-          
+          <figure>
+            <img data-src="img/analyticalengine.jpg" class="plain" alt="Illustration of Analytical Engine">
+            <figcaption>Analytical engine by Charles Babbage</figcaption>
+          </figure>
+        </section>
+
+        <section>
+          <figure>
+            <img data-src="img/z1.jpg" class="plain" alt="Photo of Z1 computer in Konrad Zuse's parents' living room">
+            <figcaption>Z1 by Konrad Zuse</figcaption>
+          </figure>
+        </section>
+
+        <section>
+          <figure>
+            <img data-src="img/turingdiagram.jpg" class="plain" alt="Translation of Turing machine to a state diagram">
+            <figcaption>Turing machine by Alan Turing</figcaption>
+          </figure>
+        </section>
+
+        <section>
+          <figure>
+            <img data-src="img/colossus.jpg" class="plain" alt="Colossus computer">
+            <figcaption>Colossus by Tommy Flowers</figcaption>
+          </figure>
+        </section>
+
+        <section>
+          <figure>
+            <img data-src="img/abc.jpg" class="plain" alt="Atanasoff-Berry Computer">
+            <figcaption>Atanasoff-Berry Computer by John Vincent Atanasoff and Cliff Berry</figcaption>
+          </figure>
+        </section>
+
+        <section>
+          <h2>What do all these early computers have in common?</h2>
+          <p class="fragment" style="font-size:2em">Made in western countries</p>
+        </section>
+
+        <section data-background-image="img/writing-systems.png" data-background-size="95%"></section>
+
+        <section>
+          <h2>Writing directions on the web</h2>
+          <p><a href="http://www.unicode.org/reports/tr9/">Unicode Bidirectional Algorithm</a></p>
+          <p><a href="http://www.unicode.org/reports/tr50/">Unicode Vertical Text Layout</a></p>
+          <p><a href="https://www.w3.org/TR/css-writing-modes-3/">CSS Writing Modes Level 3</a></p>
+        </section>
+
+        <section>
+          <h2>Vertical text</h2>
+          <div class="livecode livecode-2p">
+            <div class="result wm-cont1" style="font-size:75%;text-align:left">
+              <h2 class="vert-rl upright">Halt and Catch Fire</h2>
+              <p class="vert-lr">“Computers aren't the thing. They're the thing that gets us to the thing.”</p>
+              <p>“How did we all get here today? The choices we made, the sheer force of our will, something like that? Here's another answer... the winds of fate. Random coincidence, some unseen hand just pushing us along. Destiny.”</p>
+              <h3 class="vert-rl rotate">What are you searching for?</h3>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.wm-cont1 .vert-rl {
+  writing-mode: vertical-rl;
+  color: #f48136;
+}
+
+.wm-cont1 .vert-lr {
+  writing-mode: vertical-lr;
+  color: #f9d056;
+}
+
+.wm-cont1 .upright {
+  text-orientation: ;
+  font-size: ;
+}
+
+.wm-cont1 .rotate {
+  transform: rotate(180deg);
+  color: #44c185;
+}
+
+.wm-cont1 {
+  display: grid;
+  grid-template-columns: 1fr 2fr 5fr 1fr;
+  justify-items: center;
+}</style></div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Fun with flexbox directions</h2>
+          <div class="livecode livecode-2p">
+            <div class="result directions">
+              <div class="wrapper" style="font-size:60%">
+                <div class="box">1一</div>
+                <div class="box">2二</div>
+                <div class="box">3三</div>
+                <div class="box">4四</div>
+                <div class="box">5五</div>
+                <div class="box">6六</div>
+                <div class="box">7七</div>
+                <div class="box">8八</div>
+                <div class="box">9九</div>
+                <div class="box">10十</div>
+                <div class="box">11十一</div>
+                <div class="box">12十二</div>
+                <div class="box">13十三</div>
+                <div class="box">14十四</div>
+                <div class="box">15十五</div>
+                <div class="box">16十六</div>
+                <div class="box">17十七</div>
+                <div class="box">18十八</div>
+                <div class="box">19十四</div>
+                <div class="box">20二十</div>
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.directions .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  writing-mode: horizontal-tb;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+
+.directions .box {
+  height: 4em;
+  width: 4em;
+  border: 1px solid;
+}</style></div>
+          </div>
+        </section>
+
+        <section>
+          <h2>All the directions</h2>
+          <img data-src="img/combinations.svg" alt="Number of different combinations for flex direction is 64" class="plain" style="max-height:55vh">
+          <aside class="notes">
+            <p>Also wanted to point out that there are right-to-left languages, so just multiply everything by 2, and voila, 64 potential combinations.</p>
+            <p>If you do take the time to try out every combination, don't worry, you won't get 64 different results, because a number of combinations do end up giving you the same end result.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Changing directions with grid</h2>
+          <p>(also density of packing)</p>
+          <div class="livecode livecode-2p">
+            <div class="result autoflow">
+              <div class="autoflow__item" style="border:1px solid">
+                <p>A</p>
+              </div>
+              <div class="autoflow__item" style="border:1px solid">
+                <p>B</p>
+              </div>
+              <div class="autoflow__item" style="border:1px solid">
+                <p>C</p>
+              </div>
+              <div class="autoflow__item" style="border:1px solid">
+                <p>D</p>
+              </div>
+              <div class="autoflow__item" style="border:1px solid">
+                <p>E</p>
+              </div>
+              <div class="autoflow__item" style="border:1px solid">
+                <p>F</p>
+              </div>
+              <div class="autoflow__item" style="border:1px solid">
+                <p>G</p>
+              </div>
+              <div class="autoflow__item" style="border:1px solid">
+                <p>H</p>
+              </div>
+              <div class="autoflow__item" style="border:1px solid">
+                <p>I</p>
+              </div>
+              <div class="autoflow__item" style="border:1px solid">
+                <p>J</p>
+              </div>
+              <div class="autoflow__item" style="border:1px solid">
+                <p>K</p>
+              </div>
+              <div class="autoflow__item" style="border:1px solid">
+                <p>L</p>
+              </div>
+              <div class="autoflow__item" style="border:1px solid">
+                <p>M</p>
+              </div>
+              <div class="autoflow__item" style="border:1px solid">
+                <p>N</p>
+              </div>
+              <div class="autoflow__item" style="border:1px solid">
+                <p>O</p>
+              </div>
+              <div class="autoflow__item" style="border:1px solid">
+                <p>P</p>
+              </div>
+              <div class="autoflow__item" style="border:1px solid">
+                <p>Q</p>
+              </div>
+              <div class="autoflow__item" style="border:1px solid">
+                <p>R</p>
+              </div>
+              <div class="autoflow__item" style="border:1px solid">
+                <p>S</p>
+              </div>
+              <div class="autoflow__item" style="border:1px solid">
+                <p>T</p>
+              </div>
+              <div class="autoflow__item" style="border:1px solid">
+                <p>U</p>
+              </div>
+              <div class="autoflow__item" style="border:1px solid">
+                <p>V</p>
+              </div>
+              <div class="autoflow__item" style="border:1px solid">
+                <p>W</p>
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.autoflow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-auto-rows: 120px;
+  grid-auto-flow: row;
+  
+}
+
+.autoflow__item:nth-child(3n) {
+  background-color: #4abc41;
+  grid-column-end: span 2;
+}
+
+.autoflow__item:nth-child(2n+3) {
+  background-color: #372822;
+  color: #fff;
+  grid-row-end: span 2;
+}
+
+.autoflow__item:nth-child(3n+4) {
+  background-color: #4c83e1;
+  grid-column-end: span 2;
+}
+
+.autoflow__item {
+  color: #000;
+  background-color: #fff;
+}</style></div>
         </section>
 
         <section style="text-align:left">

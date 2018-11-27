@@ -93,6 +93,17 @@ html {
     }
   }
 
+  figure {
+    img {
+      max-height: 75vh;
+    }
+
+    figcaption {
+      font-style: italic;
+      font-size: 75%;
+    }
+  }
+
   img[src*="svg"] {
     max-height: 75vh;
   }

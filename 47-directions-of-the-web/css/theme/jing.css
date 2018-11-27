@@ -324,6 +324,13 @@ html {
     right: -0.3em;
     content: '\201D'; }
 
+.reveal figure img {
+  max-height: 75vh; }
+
+.reveal figure figcaption {
+  font-style: italic;
+  font-size: 75%; }
+
 .reveal img[src*="svg"] {
   max-height: 75vh; }
 
