@@ -58,6 +58,64 @@
           <aside class="notes">Nexmo is a platform which makes it easier for developers to integrate communications into their applications by providing APIs for messaging, voice and authentication.</aside>
         </section>
 
+        <section>
+          <div style="display:flex;align-items:center;justify-content:center;gap:1em">
+            <img style="max-height:10em" class="plain" data-src="img/firefox.svg" alt="Firefox DevTools">
+            <span class="emoji" style="font-size:3.7em" role="img" tabindex="0" aria-label="red heart">&#x2764;&#xFE0F;</span>
+            <img style="max-height:6em" class="plain" data-src="img/html.svg" alt="HTML">
+            <img style="max-height:6em" class="plain" data-src="img/css.svg" alt="CSS">
+          </div>
+          <aside class="notes">The team at Mozilla has been hard at work coming up with a suite of DevTools to make designing with code directly in the browser a much more intuitive experience. Alex will be showing you many more cool features in addition to what I'll be covering in my session.</aside>
+        </section>
+
+        <section>
+          <img src="https://media.giphy.com/media/12NUbkX6p4xOO4/giphy.gif" alt="Magic" class="plain" style="height:80vh">
+          <aside class="notes">First of all, I did not come up with this title, but once I saw it on the eventbrite page, I thought I'd run with it. CSS seems to be a rather polarising technology, some people hate it, some people love it, many people are frustrated with it from time to time. But it's really not magic. Though it does take some time wrap your head around it.</aside>
+        </section>
+
+        <section>
+          <img style="max-height:85vh" class="plain" data-src="img/new-layout.svg" alt="Layout triple team">
+          <aside class="notes">The focus of today's talk will be on layout-related properties, specifically a set of properties I like to talk about as a unit, namely Flexbox, Grid and Box Alignment. Because as useful as CSS properties are on their own, the nature of CSS means that they work much better when used together. CSS is a team sport. And if there's enough time, we'll probably cover Shapes as well.</aside>
+        </section>
+
+        <section>
+          <h2><a href="https://www.chenhuijing.com/demos/layout-triple-team/">Demo time</a></h2>
+          <aside class="notes">I'm going to switch over to a stripped down set of examples to showcase these properties and also make it easier to demonstrate what DevTools can do.</aside>
+        </section>
+
+        <section>
+          <h2>Flex shorthand</h2>
+          <table>
+            <tr>
+              <td style="width:14em"><code>flex: initial</code></td>
+              <td><code>flex: 0 1 auto</code>, cannot grow but can shrink when there isn't enough space</td>
+            </tr>
+            <tr>
+              <td><code>flex: auto</code></td>
+              <td><code>flex: 1 1 auto</code>, can grow and shrink to fit available space</td>
+            </tr>
+            <tr>
+              <td><code>flex: none</code></td>
+              <td><code>flex: 0 0 auto</code>, cannot grow or shrink, AKA inflexible</td>
+            </tr>
+            <tr>
+              <td><code>flex: &lt;positive-number&gt;</code></td>
+              <td><code>flex: &lt;positive-number&gt; 1 0</code>, can grow and shrink, extent of growth depends on flex factor</td>
+            </tr>
+          </table>
+        </section>
+
+        <section>
+          <h2>Useful references</h2>
+          <ul>
+            <li><a href="https://www.smashingmagazine.com/2018/08/flexbox-display-flex-container/">What Happens When You Create A Flexbox Flex Container?</a></li>
+            <li><a href="https://www.w3.org/TR/css-flexbox-1/">CSS Flexible Box Layout Module Level 1</a></li>
+            <li><a href="https://www.w3.org/TR/css-align-3/">CSS Box Alignment Module Level 3</a></li>
+            <li><a href="https://www.w3.org/TR/css-grid-1/">CSS Grid Layout Module Level 1</a></li>
+            <li><a href="https://www.w3.org/TR/css-shapes-1/">CSS Shapes Module Level 1</a></li>
+          </ul>
+        </section>
+
         <section style="text-align:left">
           <h1>Thank you!</h1>
           <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle">https://www.chenhuijing.com</a></p>

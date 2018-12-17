@@ -1,3 +1,3 @@
-# Building layouts with modern CSS
+# CSS wizarding world
 
-At deTECH Conference, 15 November 2018.
+At MozKopdar, 16 December 2018.

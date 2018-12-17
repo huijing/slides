@@ -1,3 +1,3 @@
-# Building layouts with modern CSS
+# Directions of the web
 
-At deTECH Conference, 15 November 2018.
+At Talk.CSS #34, 28 November 2018.
