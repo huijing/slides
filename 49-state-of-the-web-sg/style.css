@@ -1,0 +1,152 @@
+@font-face {
+  font-family: 'Spicy Rice';
+  src: url('fonts/spicyrice-regular-webfont.woff2') format('woff2'),
+       url('fonts/spicyrice-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  text-align: center;
+  overflow: hidden;
+  background-color: #f7e9c1;
+  font-family: 'Spicy Rice', sans-serif;
+  font-size: calc(1em + 1vw);
+}
+
+h1 {
+  font-size: 30vmin;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: calc(1em + 5vw);
+  flex: 100%;
+}
+
+a {
+  color: #4abc41;
+  text-decoration: none;
+  transition: transform 300ms;
+}
+
+a:hover {
+  text-decoration: underline;
+  transform: scale(1.2);
+}
+
+figure img {
+  max-width: 65vw;
+}
+
+ul {
+  text-align: left;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 1s, opacity 0.8s;
+  width: 100%;
+}
+
+.rotate {
+  transform: rotate(-90deg);
+  transform-origin: 0 0;
+  z-index: 0;
+}
+
+[id^="slide"]:target ~ #start {
+  display: none;
+}
+
+[id^="slide"]:target {
+  transform: rotate(0);
+  z-index: 1;
+  height: 100vh;
+}
+
+[id^="slide"]:target ~ [id^="slide"] {
+  opacity: 0;
+  z-index: 0;
+  transform: rotate(90deg);
+}
+
+[class^="o-control"] {
+  font-size: 75%;
+  margin: 0 2em;
+}
+
+.start {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('img/singapore.png') no-repeat center;
+  background-size: contain;
+}
+
+.start a {
+  color: transparent;
+  height: 5em;
+  width: 10em;
+}
+
+.links {
+  font-size: 2em;
+  display: block;
+}
+
+.info {
+  height: 90vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.country > div {
+  flex: calc(100% / 3);
+}
+
+.internet > div {
+  flex: 50%;
+}
+
+.interest {
+  gap: 1em;
+}
+
+.single {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.info-value {
+  font-size: 3em;
+}
+
+.info-label {
+  opacity: 0.5;
+}
