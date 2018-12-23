@@ -1,0 +1,43 @@
+// Base settings for all themes that can optionally be
+// overridden by the super-theme
+
+// Background of the presentation
+$backgroundColor: #fff;
+
+// Primary/body text
+$mainFont: 'Magnetic Pro', 'HeiTi SC', 'Microsoft YaHei', sans-serif;
+$mainFontSize: 2.4em;
+$mainColor: #2f313f;
+
+// Vertical spacing between blocks of text
+$blockMargin: 20px;
+
+// Headings
+$headingMargin: 0 0 $blockMargin 0;
+$headingFont: 'Magnetic Pro Black', 'Arial Black', 'Microsoft YaHei', sans-serif;
+$headingColor: #a50104;
+$headingLineHeight: 1.2;
+$headingLetterSpacing: normal;
+$headingTextTransform: normal;
+$headingTextShadow: none;
+$headingFontWeight: 700;
+$heading1TextShadow: $headingTextShadow;
+
+$heading1Size: 2.827em;
+$heading2Size: 1.999em;
+$heading3Size: 1.414em;
+$heading4Size: 1em;
+
+// Links and actions
+$linkColor: #ffbe3d;
+$linkColorHover: darken($linkColor, 20%);
+
+// Text selection
+$selectionBackgroundColor: #34a44d;
+$selectionColor: #fff;
+
+// Generates the presentation background, can be overridden
+// to return a background image or gradient
+@mixin bodyBackground() {
+  background: $backgroundColor;
+}

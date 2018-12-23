@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'Bellota';
+  src: url('Bellota-Regular.woff2') format('woff2'),
+       url('Bellota-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bellota';
+  src: url('Bellota-Bold.woff2') format('woff2'),
+       url('Bellota-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bellota';
+  src: url('Bellota-Italic.woff2') format('woff2'),
+       url('Bellota-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}

@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>新时代CSS布局</title>
+    <meta name="description" content="">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/jing.css">
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-background-image="img/background.jpg">
+          <h1>新时代 CSS 布局</h1>
+          <p><small><a href="https://www.chenhuijing.com/">陈慧晶 （Chen Hui Jing）</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
+        </section>
+
+        <section data-background-image="img/emoji-bg.png" data-background-repeat="repeat" data-background-size="200px">
+          <div class="l-double" style="align-items:center">
+            <div style="display:flex;flex-direction:column;align-items:center">
+              <img data-src="img/name.svg" alt="Chen Hui Jing" class="plain" style="max-height:25vh">
+              <div>
+                <img data-src="img/avatar.jpg" alt="Jing" style="border-radius:50%;max-height:50vh">
+              </div>
+              <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,3em);grid-template-rows:repeat(3,3em);width:100%;grid-template-areas:'a . b''. c .''d . e';font-size:150%">
+              <span style="font-size:calc(1.75em + 3vw);grid-area:a" class="emoji" role="img" tabindex="0" aria-label="马来西亚">&#x1F1F2;&#x1F1FE;</span>
+              <span style="font-size:calc(1.75em + 3vw);grid-area:b" class="emoji" role="img" tabindex="0" aria-label="篮球">&#x1F3C0;</span>
+              <span style="font-size:calc(1.75em + 3vw);grid-area:c" class="emoji" role="img" tabindex="0" aria-label="女程序员">&#x1F469;&#x200D;&#x1F4BB;</span>
+              <span style="font-size:calc(1.75em + 3vw);grid-area:d" class="emoji" role="img" tabindex="0" aria-label="笔记">&#x1F4DD;</span>
+              <span style="font-size:calc(1.75em + 3vw);grid-area:e" class="emoji" role="img" tabindex="0" aria-label="狐狸">&#x1F98A;</span>
+            </div>
+          </div>
+          <aside class="notes">TechSpeakers is an initiative by Mozilla to support technical evangelists in regional communities around the world by providing resources and funding.</aside>
+        </section>
+
+        <section>
+          <img style="max-height:10em;margin-bottom:0.5em" class="plain" data-src="img/love-dev.svg" alt="Nexmo Developer Relations">
+          <p><span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span> 开发大使 <span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span></p>
+          <img style="max-height:2.5em;margin-top:1em" class="plain" data-src="img/nexmo.svg" alt="Nexmo">
+          <aside class="notes">Nexmo is a platform which makes it easier for developers to integrate communications into their applications by providing APIs for messaging, voice and authentication.</aside>
+        </section>
+
+        <section style="text-align:left">
+          <h1>谢谢!</h1>
+          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle">https://www.chenhuijing.com</a></p>
+          <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle">@huijing</a></p>
+          <p style="text-align:right"><small>拉丁字体是由 <a href="https://www.motyfo.com/">Olivier Gourvat</a> 设计的 <a href="https://www.motyfo.com/portfolio/sans-serif-font-family-magnetic-pro/">Magnetic Pro</a></small></p>
+        </section>
+      </div>
+
+      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://www.chenhuijing.com/slides/50-cssconfcn-2019</span><span style="text-align:right">@hj_chen</span></footer>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="lib/js/caniuse-embed.min.js"></script>
+    <script async src="lib/js/ei.js"></script>
+
+    <script>
+    Reveal.initialize({
+      dependencies: [
+        { src: 'plugin/markdown/marked.js' },
+        { src: 'plugin/markdown/markdown.js' },
+        { src: 'plugin/notes/notes.js', async: true },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+      ]
+    });
+    </script>
+  </body>
+
+</html>
