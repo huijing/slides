@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Signika';
+  src: url('signika-regular.woff2') format('woff2'),
+       url('signika-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Signika';
+  src: url('signika-bold.woff2') format('woff2'),
+       url('signika-bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
