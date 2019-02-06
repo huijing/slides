@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Using Firefox DevTools to understand modern layout techniques</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+  </head>
+
+  <body>
+    <section class="zoom intro" id="slide1">
+      <div class="slide grid-2col">
+        <div class="flex-col">
+          <img src="img/name.svg" alt="Chen Hui Jing" style="max-height:20vh;margin-bottom:1em">
+          <div>
+            <img src="img/avatar.jpg" alt="Jing" style="border-radius:50%;max-height:50vh;border:2px dotted">
+          </div>
+          <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
+        </div>
+        <div class="emoji-grid">
+          <span style="font-size:calc(1.75em + 3vw);grid-area:a" class="emoji" role="img" tabindex="0" aria-label="Malaysia">&#x1F1F2;&#x1F1FE;</span>
+          <span style="font-size:calc(1.75em + 3vw);grid-area:b" class="emoji" role="img" tabindex="0" aria-label="basketball">&#x1F3C0;</span>
+          <span style="font-size:calc(1.75em + 3vw);grid-area:c" class="emoji" role="img" tabindex="0" aria-label="woman technologist">&#x1F469;&#x200D;&#x1F4BB;</span>
+          <span style="font-size:calc(1.75em + 3vw);grid-area:d" class="emoji" role="img" tabindex="0" aria-label="memo">&#x1F4DD;</span>
+          <span style="font-size:calc(1.75em + 3vw);grid-area:e" class="emoji" role="img" tabindex="0" aria-label="fox">&#x1F98A;</span>
+        </div>
+      </div>
+
+      <a class="o-control-next" href="#slide2">Next</a>
+    </section>
+    
+    <section class="zoom" id="slide2">
+      <div class="slide flex-col">
+        <img src="img/love-dev.svg" alt="Nexmo Developer Relations" style="max-height:50vh">
+        <p style="margin:1em 0"><span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span> Developer Advocate <span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span></p>
+        <img src="img/nexmo.svg" alt="Nexmo" style="max-height:15vh">
+      </div>
+      
+      <a class="o-control-back" href="#slide1">Back</a>
+      <a class="o-control-next" href="#slide3">Next</a>
+    </section>
+    
+    <section class="zoom" id="slide3">
+      <div class="slide flex-col">
+        <a href="https://www.chenhuijing.com/demos/layout-triple-team/" rel="noopener noreferrer" target="_blank"><span class="emoji" role="img" tabindex="0" aria-label="rainbow">&#x1F308;</span> Demo time <span class="emoji" role="img" tabindex="0" aria-label="rainbow">&#x1F308;</span></a> 
+      </div>
+      
+      <a class="o-control-back" href="#slide2">Back</a>
+      <a class="o-control-next" href="#slide4">Next</a>
+    </section>
+
+    <section class="zoom" id="slide4">
+      <div class="slide flex-col end">
+        <h2>Thank you!</h2>
+        <p class="link"><img class="icon" src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com">https://www.chenhuijing.com</a></p>
+        <p class="link"><img class="icon" src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen">@hj_chen</a></p>
+        <p class="link"><img class="icon" src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen">@hj_chen</a></p>
+        <p class="link"><img class="icon" src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/">@huijing</a></p>
+        <p style="text-align:right;max-width:65%;margin-left:auto"><small>Font used is <a href="https://www.velvetyne.fr/fonts/compagnon/">Compagnon</a>, by <a href="https://www.leapradine.com/">Juliette Duhéby Léa Pradine</a> and <a href="http://www.valentinpapon.com/">Valentin Papon</a> and <a href="http://chloelozano.fr/">Chloé Lozano</a> and <a href="https://www.velvetyne.fr/authors/sebastien-riollier/">Sébastien Riollier</a></small></p>
+      </div>
+      
+      <a class="o-control-back" href="#slide3">Back</a>
+      <a class="o-control-reset" href="#start">Reset</a>
+    </section>
+
+    <section id="start" class="start">
+      <div class="flex-col slide">
+        <h1 class="title">Using Firefox DevTools to understand modern CSS layouts</h1>
+        <a href="#slide1">Start</a>
+      </div>
+    </section>
+
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js"></script>
+  </body>
+</html>

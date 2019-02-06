@@ -1,0 +1,180 @@
+@font-face {
+  font-family: 'Compagnon';
+  src: url('fonts/compagnon-roman.woff2') format('woff2'),
+       url('fonts/compagnon-roman.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Compagnon';
+  src: url('fonts/compagnon-bold.woff2') format('woff2'),
+       url('fonts/compagnon-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+  font-family: 'Compagnon', sans-serif;
+  font-size: calc(1em + 1vw);
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 0.25em;
+  color: white;
+}
+
+h2 {
+  font-size: 2.5em;
+  margin-bottom: 0.25em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+a {
+  color: #4abc41;
+  text-decoration: none;
+  transition: transform 300ms;
+}
+
+a:hover {
+  text-decoration: underline;
+  transform: scale(1.2);
+}
+
+section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 1s, opacity 0.8s;
+  width: 100%;
+}
+
+.zoom {
+  transform: scale(0);
+  transform-origin: 0 0;
+  z-index: 0;
+}
+
+[id^="slide"]:target ~ #start {
+  display: none;
+}
+
+[id^="slide"]:target {
+  transform: scale(1);
+  z-index: 1;
+  height: 100vh;
+}
+
+[id^="slide"]:target ~ [id^="slide"] {
+  opacity: 0;
+  z-index: 0;
+}
+
+.slide {
+  height: 90vh;
+  padding: 0 1em;
+}
+
+[class^="o-control"] {
+  font-size: 75%;
+  margin: 0 2em;
+}
+
+span.emoji {
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji';
+  font-style: normal;
+  display: inline-flex;
+  justify-content: center;
+}
+
+span[role=img][aria-label],
+span[role=img][aria-label] {
+  position: relative;
+}
+
+span[role=img][aria-label]:focus::after,
+span[role=img][aria-label]:hover::after {
+  font-size: 1rem;
+  position: absolute;
+  line-height: 1.2;
+  content: attr(aria-label);
+  z-index: 1;
+  padding: 0.25em;
+  border: 1px solid;
+  top: 90%;
+}
+
+.start {
+  height: 100%;
+  background: url('img/background.png') no-repeat center;
+  background-size: cover;
+}
+
+.title {
+  padding: 0 0.5em;
+}
+
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items:center;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.emoji-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 3em);
+  grid-template-rows: repeat(3, 3em);
+  width: 100%;
+  grid-template-areas: 'a . b'
+                       '. c .'
+                       'd . e';
+  font-size: 150%;
+}
+
+.intro {
+  background: url('img/emoji-bg.png');
+  background-size: 200px;
+}
+
+.end {
+  text-align: left;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 0.5em;
+  height: 1.5em;
+}
