@@ -64,12 +64,29 @@ a:hover {
   transform: scale(1.2);
 }
 
+img {
+  max-height: 65vmin;
+}
+
 section {
   position: absolute;
   top: 0;
   left: 0;
   transition: transform 1s, opacity 0.8s;
   width: 100%;
+}
+
+table {
+  text-align: left;
+  border-collapse: collapse;
+}
+
+tr {
+  border-bottom: 1px solid;
+}
+
+td {
+  padding: 0.5em;
 }
 
 .zoom {
@@ -140,7 +157,7 @@ span[role=img][aria-label]:hover::after {
 .grid-2col {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items:center;
+  align-items: center;
 }
 
 .flex-col {
@@ -177,4 +194,32 @@ span[role=img][aria-label]:hover::after {
 .icon {
   margin-right: 0.5em;
   height: 1.5em;
+}
+
+.box {
+  height: 4em;
+  width: 6em;
+  border: 1px solid;
+}
+
+@keyframes horizontal {
+  from, to  {
+    transform: translateX(50%);
+    animation-timing-function: ease;
+  }
+  50% {
+    transform: translateX(200%);
+    animation-timing-function: ease;
+  }
+}
+
+@keyframes vertical {
+  from, to  {
+    transform: translate(calc(25vw - 2em), -100%);
+    animation-timing-function: ease;
+  }
+  50% {
+    transform: translate(calc(25vw - 2em), 100%);
+    animation-timing-function: ease;
+  }
 }
