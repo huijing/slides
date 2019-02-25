@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Creating art with CSS</title>
+    <meta name="description" content="Use CSS to create works of art in your browser. Let's take a look at the CSS properties which can help us do that.">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/jing.css">
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Creating art with CSS</h1>
+          <p><small><a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
+        </section>
+
+        <section data-background-image="img/emoji-bg.png" data-background-repeat="repeat" data-background-size="200px">
+          <div class="l-double" style="align-items:center">
+            <div style="display:flex;flex-direction:column;align-items:center">
+              <img data-src="img/name.svg" alt="Chen Hui Jing" class="plain" style="max-height:25vh">
+              <div>
+                <img data-src="img/avatar.jpg" alt="Jing" style="border-radius:50%;max-height:50vh">
+              </div>
+              <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,3em);grid-template-rows:repeat(3,3em);width:100%;grid-template-areas:'a . b''. c .''d . e';font-size:150%">
+              <span style="font-size:calc(1.75em + 3vw);grid-area:a" class="emoji" role="img" tabindex="0" aria-label="Malaysia">&#x1F1F2;&#x1F1FE;</span>
+              <span style="font-size:calc(1.75em + 3vw);grid-area:b" class="emoji" role="img" tabindex="0" aria-label="basketball">&#x1F3C0;</span>
+              <span style="font-size:calc(1.75em + 3vw);grid-area:c" class="emoji" role="img" tabindex="0" aria-label="woman technologist">&#x1F469;&#x200D;&#x1F4BB;</span>
+              <span style="font-size:calc(1.75em + 3vw);grid-area:d" class="emoji" role="img" tabindex="0" aria-label="note">&#x1F4DD;</span>
+              <span style="font-size:calc(1.75em + 3vw);grid-area:e" class="emoji" role="img" tabindex="0" aria-label="fox">&#x1F98A;</span>
+            </div>
+          </div>
+          <aside class="notes">TechSpeakers is an initiative by Mozilla to support technical evangelists in regional communities around the world by providing resources and funding.</aside>
+        </section>
+
+        <section>
+          <img style="max-height:10em;margin-bottom:0.5em" class="plain" data-src="img/love-dev.svg" alt="Nexmo Developer Relations">
+          <p><span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span> Developer Advocate <span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span></p>
+          <img style="max-height:2.5em;margin-top:1em" class="plain" data-src="img/nexmo.svg" alt="Nexmo">
+          <aside class="notes">Nexmo is a platform which makes it easier for developers to integrate communications into their applications by providing APIs for messaging, voice and authentication.</aside>
+        </section>
+
+        <section>
+          <h2>Tycho Album Artwork</h2>
+          <div class="l-double" style="justify-items:center">
+            <div>
+              <div class="o-album c-awake">
+                <div class="o-logo o-logo-basic"></div>
+              </div>
+              <p>Awake (2014)</p>
+            </div>
+            
+            <div>
+              <div class="o-album c-montana">
+                <div class="o-logo o-logo-basic"></div>
+              </div>
+              <p>Montana Single (2014)</p>
+            </div>
+          </div>
+        </section>
+        
+        <section>
+          <h2>Tycho Album Artwork</h2>
+          <div class="l-double" style="justify-items:center">
+            <div>
+              <div class="o-album c-division">
+                <div class="c-division__inner-1">
+                </div>
+                <div class="c-division__inner-2">
+                </div>
+                <div class="o-logo o-logo-alt"></div>
+              </div>
+              <p>First single from Epoch: Division (2016)</p>
+            </div>
+
+            <div>
+              <div class="o-album c-epoch"></div>
+              <p>Epoch (2016)</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <section>
+            <h2>Shapes with CSS (1/3)</h2>
+            <p>This be a circle</p>
+            <div class="circle"></div>
+            <pre><code>.circle {
+  width: 30vmin;
+  height: 30vmin;
+  background: #f2af29;
+  border-radius: 50%; /* This is the key line, right here */
+  margin: 0 auto;
+}</code></pre>
+          </section>
+          <section>
+            <h2>Shapes with CSS (2/3)</h2>
+            <div class="fragment fade-out border-box"></div>
+            <div class="fragment fade-in">
+              <div class="fragment fade-out borders"></div>
+            </div>
+            <div class="fragment">
+              <p>This be a triangle</p>
+              <div class="triangle"></div>
+            </div>
+            <pre class="fragment"><code>.triangle {
+  border-top: 18.75vmin solid transparent;
+  border-bottom: 18.75vmin solid transparent;
+  border-left: 18.75vmin solid #1e292f;
+}</code></pre>
+          </section>
+          <section>
+            <h2>Shapes with CSS (3/3)</h2>
+            <p>This be a trapezium</p>
+            <div class="trapezium"></div>
+            <pre><code>.trapezium {
+  width: 60vmin;
+  height: 30vmin;
+  background: #1e292f;
+  clip-path: polygon(33% 0, 67% 0, 100% 100%, 0% 100%); /* This is the key line, right here */
+}</code></pre>
+            <p class="fragment">Unfortunately, <code>clip-path</code> is NOT supported in Edge or IE 😔</p>
+          </section>
+        </section>
+
+        <section>
+          <h2>Pseudo-elements</h2>
+          <div>
+            <p><code>::before</code> and <code>::after</code></p>
+            <pre><code>.element::before {
+  content: '';
+  display: block;
+  width: 50%;
+  height: 50%;
+}</code></pre>
+          </div>
+          <div class="fragment">
+            <p>Must have the <code>content</code> property to work</p>
+            <p>At least have empty quotes</p>
+            <p>Not visible in the page's source, only in CSS</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Gradients</h2>
+          <p>Can be used in any property that accepts images, e.g. <code>background</code>, <code>list-style-image</code> etc.</p>
+          <pre><code>linear-gradient( [ &lt;angle&gt; | &lt;side-or-corner&gt; ]?, &lt;color-stop-list&gt; )</code></pre>
+          <p>First argument specifies gradient line, defaults to <code>to-bottom</code> if omitted. Can use angle or keyword.</p>
+          <pre><code>&lt;color-stop-list&gt; = &lt;color-stop&gt;#{2,}
+&lt;color-stop&gt; = &lt;color&gt; &lt;length-percentage&gt;?</code></pre>
+          <p>At least 2 values, no maximum limit. Between 2 colour stops, the line's colour is linearly interpolated between the 2 colours.</p>
+          <p>For clean change between 2 colours, have 2 colour stops at the same position, i.e. at least 4 <code>&lt;color-stop&gt;</code> values needed.</p>
+        </section>
+
+        <section>
+          <div class="l-double" style="grid-gap:1em">
+            <div class="gradient1">
+              <pre><code>.element {
+  background-image: linear-gradient(orange, green)
+}</code></pre>
+            </div>
+            
+            <div class="gradient2">
+              <pre><code>.element {
+  background-image: linear-gradient(orange, orange 50%, green 50%, green)
+}</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Box-shadow</h2>
+          <div>
+            <p>Multiple box shadows are a thing</p>
+            <pre class="language-css"><code>box-shadow: [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color];</code></pre>
+            <p>Make use of the offsets for positioning, and the blur radius for sizing</p>
+          </div>
+        </section>
+
+        <section>
+          <div class="box-shadow"></div>
+          <pre><code>.box-shadow {
+  border-radius: 50%;
+  height: 1px;
+  width: 1px;
+  box-shadow: -6em   0 0 0.5em #47473f, -4em   0 0 0.5em #47473f,
+              -2em   0 0 0.5em #47473f,    0   0 0 0.5em #47473f,
+               4em   0 0 0.5em #47473f, -6em 2em 0 0.5em #47473f,
+              -4em 2em 0 0.5em #47473f,    0 2em 0 0.5em #47473f,
+               2em 2em 0 0.5em #47473f,  4em 2em 0 0.5em #47473f,
+               6em 2em 0 0.5em #47473f;
+}</code></pre>
+        </section>
+
+        <section>
+          <h2>Transforms</h2>
+          <p>Do not work on inline elements. Transforms are cumulative and operate from their <code>transform-origin</code>. There are 2d and 3d transforms available.</p>
+          <pre><code>.element {
+  transform-origin: 50% 50% /* Default values if not explicitly set */
+}</code></pre>
+          <p>Transform functions include, <code>rotate()</code>, <code>scale()</code>, <code>translate()</code> and <code>skew()</code>.</p>
+          <div class="l-double">
+            <pre><code>/* If you need multiple transforms, do this */
+.element {
+  transform: translate(-10px, -20px) scale(2) rotate(45deg)
+}</code></pre>
+            <pre><code>/* Do NOT do this */
+.element {
+  transform: translate(-10px, -20px);
+  transform: scale(2);
+  transform: rotate(45deg);
+}</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>Useful links and resources</h2>
+          <ul>
+            <li><a href="https://hacks.mozilla.org/2014/09/single-div-drawings-with-css/">Single Div Drawings with CSS</a></li>
+            <li><a href="https://medium.com/coding-artist/a-beginners-guide-to-pure-css-images-ef9a5d069dd2">A Beginner’s Guide to Pure CSS Images</a></li>
+            <li><a href="https://medium.com/coding-artist/how-creating-css-images-made-me-a-better-developer-25b7a79f1af6">How creating CSS images made me a better developer</a></li>
+            <li><a href="https://blog.prototypr.io/how-i-started-drawing-css-images-3fd878675c89">How I started drawing CSS Images</a></li>
+            <li><a href="https://dev.to/agathacco/how-to-create-pure-css-illustrations-and-animate-them---part-1-1j1k">How to create pure CSS illustrations and animate them - Part 1</a></li>
+            <li><a href="https://dev.to/agathacco/how-to-create-pure-css-illustrations-and-animate-them---part-2-1ao4">How to create pure CSS illustrations and animate them - Part 2</a></li>
+            <li><a href="https://dev.to/agathacco/how-to-create-pure-css-illustrations-and-animate-them---part-3-3e8a">How to create pure CSS illustrations and animate them - Part 3</a></li>
+          </ul>
+        </section>
+
+        <section style="text-align:left">
+          <h1>Thank you!</h1>
+          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle">https://www.chenhuijing.com</a></p>
+          <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle">@huijing</a></p>
+          <p style="text-align:right"><small>Font is <a href="https://www.motyfo.com/portfolio/sans-serif-font-family-magnetic-pro/">Magnetic Pro</a> by <a href="https://www.motyfo.com/">Olivier Gourvat</a></small></p>
+        </section>
+      </div>
+
+      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://www.chenhuijing.com/slides/51-css-art</span><span style="text-align:right">@hj_chen</span></footer>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="lib/js/caniuse-embed.min.js"></script>
+    <script async src="lib/js/ei.js"></script>
+
+    <script>
+    Reveal.initialize({
+      dependencies: [
+        { src: 'plugin/markdown/marked.js' },
+        { src: 'plugin/markdown/markdown.js' },
+        { src: 'plugin/notes/notes.js', async: true },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+      ]
+    });
+    </script>
+  </body>
+
+</html>

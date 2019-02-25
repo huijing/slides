@@ -1,0 +1,296 @@
+/**
+ * Custom theme for Reveal.js presentations.
+ *
+ * Copyright (C) 2018 Chen Hui Jing, https://www.chenhuijing.com/
+ */
+
+// Default mixins and settings -----------------
+@import '../template/mixins';
+@import '../template/settings';
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url('../../lib/font/magnetic-pro/magnetic-pro.css');
+@import url('../../lib/font/magnetic-pro-black/magnetic-pro-black.css');
+
+// Theme template ------------------------------
+@import '../template/theme';
+
+// ---------------------------------------------
+// Customised styles for this presentation
+html {
+  box-sizing: border-box;
+  height: 100%;
+  font-size: 125%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.reveal {
+  .slides section .fragment.fade-out.visible:not(.current-fragment) {
+    display: none;
+  }
+
+  .l-double {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+
+  .j-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1rem;
+  }
+
+  em {
+    color: $headingColor;
+  }
+
+  pre {
+    line-height: 1.2;
+  }
+
+  code {
+    font-family: 'Dank Mono', monospace;
+  }
+}
+
+// Accessible emojis ------------------------------
+span.emoji {
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji';
+  font-style: normal;
+  font-size: 125%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+span[role=img][aria-label],
+span[role=img][aria-label] {
+  position: relative;
+}
+
+span[role=img][aria-label]:focus::after,
+span[role=img][aria-label]:hover::after {
+  font-size: 25%;
+  font-family: $mainFont;
+  font-weight: 400;
+  position: absolute;
+  display: block;
+  line-height: 1.2;
+  content: attr(aria-label);
+  z-index: 1;
+  background: $mainColor;
+  color: $backgroundColor;
+  padding: 0.25em;
+  border: 1px solid $backgroundColor;
+  box-shadow: 2px 2px 4px $mainColor;
+}
+
+// Album art ------------------------------
+.o-album ~ p {
+  font-size: 50%;
+}
+
+.o-album {
+  width: 65vmin;
+  height: 65vmin;
+  position: relative;
+  margin: 0.25em auto;
+}
+
+.o-logo {
+  border-radius: 50%;
+  height: 1px;
+  width: 1px;
+  position: absolute;
+}
+
+.o-logo-basic {
+  bottom: 10%;
+  left: 50%;
+  box-shadow: -6vmin 0 0 0.5vmin #47473f, -4vmin 0 0 0.5vmin #47473f, -2vmin 0 0 0.5vmin #47473f, 0 0 0 0.5vmin #47473f, 4vmin 0 0 0.5vmin #47473f, -6vmin 2vmin 0 0.5vmin #47473f, -4vmin 2vmin 0 0.5vmin #47473f, 0 2vmin 0 0.5vmin #47473f, 2vmin 2vmin 0 0.5vmin #47473f, 4vmin 2vmin 0 0.5vmin #47473f, 6vmin 2vmin 0 0.5vmin #47473f;
+}
+
+.o-logo-alt {
+  right: 15%;
+  bottom: 35%;
+  transform: rotate(-45deg);
+  box-shadow: -6vmin 0 0 0.5vmin #3d90b2, -4vmin 0 0 0.5vmin #3d90b2, -2vmin 0 0 0.5vmin #3d90b2, 0 0 0 0.5vmin #3d90b2, 4vmin 0 0 0.5vmin #3d90b2, -6vmin 2vmin 0 0.5vmin #3d90b2, -4vmin 2vmin 0 0.5vmin #3d90b2, 0 2vmin 0 0.5vmin #3d90b2, 2vmin 2vmin 0 0.5vmin #3d90b2, 4vmin 2vmin 0 0.5vmin #3d90b2, 6vmin 2vmin 0 0.5vmin #3d90b2;
+}
+
+.c-awake {
+  background: #dad9c8;
+}
+
+.c-awake:before {
+  display: block;
+  content: '';
+  width: 50%;
+  height: 50%;
+  background: linear-gradient(to bottom, #d18462 0%, #d18462 14%, #d2796a 15%, #d2796a 28%, #b56863 29%, #b56863 42%, #cf7486 43%, #cf7486 51%, #a9627c 52%, #a9627c 63%, #a16d8d 64%, #a16d8d 73%, #766d86 74%, #766d86 83%, #313d52 84%, #313d52 100%);
+  border-radius: 50%;
+  position: absolute;
+  top: 20%;
+  left: 25%;
+}
+
+.c-montana {
+  background: #dad9c8;
+}
+
+.c-montana:before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 7.5%;
+  width: 85%;
+  height: 50%;
+  clip-path: polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%);
+  background: linear-gradient(63deg, #32404c 0%, #32404c 46%, #746f85 46%, #746f85 50.5%, #9c708c 50.5%, #9c708c 55%, #a4657a 55%, #a4657a 59.5%, #cc7484 59.5%, #cc7484 64%, #b4695e 64%, #b4695e 71%, #ce7966 71%, #ce7966 100%);
+}
+
+.c-division {
+  background: linear-gradient(45deg, #a45044 0%, #a45044 50%, #3d90b2 50%, #3d90b2 100%);
+}
+
+.c-division:before {
+  position: absolute;
+  display: block;
+  height: 40%;
+  width: 40%;
+  content: '';
+  background: #1e292f;
+  border-radius: 50%;
+  right: 8.8%;
+  top: 8.8%;
+}
+
+.c-division:after {
+  position: absolute;
+  display: block;
+  height: 12.2%;
+  width: 12.2%;
+  content: '';
+  background: #1e292f;
+  border-radius: 50%;
+  left: 31.1%;
+  bottom: 31.1%;
+}
+
+div.c-division__inner-1 {
+  border-top: 18.75vmin solid transparent;
+  border-bottom: 18.75vmin solid transparent;
+  border-left: 18.75vmin solid #1e292f;
+}
+
+div.c-division__inner-2 {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-top: 18.75vmin solid transparent;
+  border-bottom: 18.75vmin solid transparent;
+  border-right: 18.75vmin solid #1e292f;
+}
+
+.c-epoch {
+  background: #ab4334;
+}
+
+.c-epoch:before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 31%;
+  left: 42.2%;
+  border-radius: 50%;
+  width: 14.6%;
+  height: 14.6%;
+  background: #e1e2d3;
+}
+
+.c-epoch:after {
+  display: block;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 41.5%;
+  clip-path: polygon(33% 0, 67% 0, 100% 100%, 0% 100%);
+  background: #201f27;
+}
+
+// Shapes with CSS ------------------------------
+div.circle {
+  width: 30vmin;
+  height: 30vmin;
+  background: $linkColor;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+div.triangle {
+  border-top: 15vmin solid transparent;
+  border-bottom: 15vmin solid transparent;
+  border-left: 15vmin solid $linkColor;
+  width: 0;
+  margin: 0 auto;
+}
+
+div.trapezium {
+  width: 60vmin;
+  height: 30vmin;
+  clip-path: polygon(33% 0, 67% 0, 100% 100%, 0% 100%);
+  background: $linkColor;
+  margin: 0 auto;
+}
+
+div.border-box {
+  width: 30vmin;
+  height: 30vmin;
+  border-top: 30px solid green;
+  border-bottom: 30px solid yellow;
+  border-left: 30px solid red;
+  border-right: 30px solid blue;
+  margin: 2em auto;
+}
+
+div.borders {
+  width: 0;
+  height: 0;
+  border-top: 30px solid green;
+  border-bottom: 30px solid yellow;
+  border-left: 30px solid red;
+  border-right: 30px solid blue;
+  margin: 2em auto;
+}
+
+// Gradient ------------------------------
+div.gradient1::before,
+div.gradient2::before {
+  content: '';
+  display: block;
+  height: 50vmin;
+  margin-bottom: 1em;
+}
+
+div.gradient1::before {
+  background-image: linear-gradient(orange, green)
+}
+
+div.gradient2::before {
+  background-image: linear-gradient(orange, orange 50%, green 50%, green)
+}
+// Box-shadow ------------------------------
+div.box-shadow {
+  margin: 0 auto 4em;
+  border-radius: 50%;
+  height: 1px;
+  width: 1px;
+  background-color: currentColor;
+  box-shadow: -6em 0 0 0.5em currentColor, -4em 0 0 0.5em currentColor, -2em 0 0 0.5em currentColor, 0 0 0 0.5em currentColor, 4em 0 0 0.5em currentColor, -6em 2em 0 0.5em currentColor, -4em 2em 0 0.5em currentColor, 0 2em 0 0.5em currentColor, 2em 2em 0 0.5em currentColor, 4em 2em 0 0.5em currentColor, 6em 2em 0 0.5em currentColor;
+}
