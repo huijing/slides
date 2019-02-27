@@ -1,3 +1,3 @@
-# 新时代 CSS 布局
+# Creating art with CSS
 
-*在中国第五届CSS大会的演讲抄本.*
+At Talk.CSS #36, 27 February 2019.
