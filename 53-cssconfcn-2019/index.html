@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>新时代CSS布局</title>
+    <meta name="description" content="CSS布局经常是令前段开发者头痛的一块工作。但是近几年来，浏览器不断提升，开始支持Flexbox，Grid，盒模型对齐等布局功能。这些CSS标准存粹是为了应付网络布局而编写的。在此会与大家分享这些新的CSS属性如何让我们创造更符合浏览器本质的设计。">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/jing.css">
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-background-image="img/background.jpg">
+          <h1>新时代 CSS 布局</h1>
+          <p><small><a href="https://www.chenhuijing.com/">陈慧晶 （Chen Hui Jing）</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
+          <img data-src="img/qrcode.png" class="plain" style="max-height:50vh" alt="幻灯片二维码">
+          <aside class="notes">大家好。很荣幸可以在这里跟大家分享关于CSS布局的一些新进展。这是我第一次用中文做技术演讲，所以如果有哪儿些用词不当的地方，请大家多多包涵。</aside>
+        </section>
+
+        <section data-background-image="img/emoji-bg.png" data-background-repeat="repeat" data-background-size="200px">
+          <div class="l-double" style="align-items:center">
+            <div style="display:flex;flex-direction:column;align-items:center">
+              <img data-src="img/name.svg" alt="Chen Hui Jing" class="plain" style="max-height:25vh">
+              <div>
+                <img data-src="img/avatar.jpg" alt="Jing" style="border-radius:50%;max-height:50vh">
+              </div>
+              <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,3em);grid-template-rows:repeat(3,3em);width:100%;grid-template-areas:'a . b''. c .''d . e';font-size:150%">
+              <span style="font-size:calc(1.75em + 3vw);grid-area:a" class="emoji" role="img" tabindex="0" aria-label="马来西亚">&#x1F1F2;&#x1F1FE;</span>
+              <span style="font-size:calc(1.75em + 3vw);grid-area:b" class="emoji fragment" role="img" tabindex="0" aria-label="篮球">&#x1F3C0;</span>
+              <span style="font-size:calc(1.75em + 3vw);grid-area:c" class="emoji fragment" role="img" tabindex="0" aria-label="女程序员">&#x1F469;&#x200D;&#x1F4BB;</span>
+              <span style="font-size:calc(1.75em + 3vw);grid-area:d" class="emoji fragment" role="img" tabindex="0" aria-label="笔记">&#x1F4DD;</span>
+              <span style="font-size:calc(1.75em + 3vw);grid-area:e" class="emoji fragment" role="img" tabindex="0" aria-label="狐狸">&#x1F98A;</span>
+            </div>
+          </div>
+          <aside class="notes">
+            <p>首先，让我来做个自我介绍。我姓陈，名叫慧晶，来自马来西亚。</p>
+            <p>我曾经当过全职篮球选手，也因此无意间走上网络开发这条路。若你觉得很好奇，篮球怎么会跟网络开发扯上关系，那当会儿可以找我聊聊。</p>
+            <p>从入行到现在，我一直都觉得CSS是一样相当有趣的东西，所以会经常探索新属性或更深入了解现有的属性，并且把学习经验写在博客上。</p>
+            <p>去年也加入了Mozilla技术讲师组，这项倡议主要是要协助科技布道和指导师在世界各地的科技会议推广开源网络科技。Mozilla会给予组员多方面的支持，如演讲培训、技术训练、寻找演讲机会、资金等。</p>
+          </aside>
+        </section>
+
+        <section>
+          <img style="max-height:10em;margin-bottom:0.5em" class="plain" data-src="img/love-dev.svg" alt="Nexmo Developer Relations">
+          <p><span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span> 开发大使 <span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span></p>
+          <img style="max-height:2.5em;margin-top:1em" class="plain" data-src="img/nexmo.svg" alt="Nexmo">
+          <aside class="notes">现在我在Nexmo当开发大使，是开发者关系团队的成员。Nexmo是个通讯API平台，提供信息，语音，认证，音视屏等API，好让开发者轻松把通信功能添加入自己的APP内。</aside>
+        </section>
+
+        <section data-background-image="img/cssconf2016.jpg">
+          <aside class="notes">现在让我们进入正题，也就是新时代CSS布局。想请问在座的朋友们有几位参加过2016年的CSS大会？我当时没在现场，但是因为有 YouTube，有机会在线观赏大漠老师谈CSS Grid Layout的演讲。他介绍了与Grid相关的各种新属性及它们的应用方法。而当时，Grid都还没正式发布呢。</aside>
+        </section>
+
+        <section data-background-image="img/wwwbrowser.png">
+          <aside class="notes">Grid可以算是新时代CSS布局的成员之一吧。网络原本是个以文字为主的媒介。当年蒂姆·伯纳斯-李爵士创建万维网，主要是为了解决CERN面临的资讯管理问题。他提出了运用超文本系统让研究员更轻易的分享及链接研究论文等资讯。为了纪念万维网诞生的30周年纪念，CERN召集</aside>
+        </section>
+
+        <section>
+          <h2>Grid 正式发布日期</h2>
+          <img data-src="img/grid-release.png" class="plain" alt="CSS Grid 正式发布日期">
+          <aside class="notes">Grid正式发布到现在已经有大概两年的时间了，浏览器的支持程度如今也高达88%了。</aside>
+        </section>
+
+        <section>
+          <img data-src="img/new-layout.svg" class="plain" alt="CSS新时代布局三大栋梁">
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>容器–项目的「父子」关系</h2>
+          <img data-src="img/parent-child.svg" class="plain" alt="容器–项目图">
+          <aside class="notes"></aside>
+        </section>
+
+        <section style="text-align:left">
+          <h1>谢谢!</h1>
+          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle">https://www.chenhuijing.com</a></p>
+          <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle">@huijing</a></p>
+          <p style="text-align:right"><small>拉丁字体是由 <a href="https://www.motyfo.com/">Olivier Gourvat</a> 设计的 <a href="https://www.motyfo.com/portfolio/sans-serif-font-family-magnetic-pro/">Magnetic Pro</a></small></p>
+        </section>
+      </div>
+
+      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://www.chenhuijing.com/slides/53-cssconfcn-2019</span><span style="text-align:right">@hj_chen</span></footer>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="lib/js/caniuse-embed.min.js"></script>
+    <script async src="lib/js/ei.js"></script>
+
+    <script>
+    Reveal.initialize({
+      dependencies: [
+        { src: 'plugin/markdown/marked.js' },
+        { src: 'plugin/markdown/markdown.js' },
+        { src: 'plugin/notes/notes.js', async: true },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+      ]
+    });
+    </script>
+  </body>
+
+</html>
