@@ -36,15 +36,15 @@ And when the auto industry started implementing voice commands in vehicles, wome
 
 Training of such software requires large datasets, and developers who build them either record their own voices or voices of other linguistic researches, but sometimes these datasets don’t include diverse speakers.
 
-Mozilla has a Common Voice initiative to help combat this issue. But this is just one example of many in the tech industry where many products inadvertently end up working well only for a small set of people, while the rest have a compromised experience.
+Mozilla has a Common Voice initiative to help combat this issue. But this is just one example among many in the tech industry where products inadvertently end up working well only for a small set of people, while the rest have a compromised experience.
 
 The world is full of diverse cultures and because our cultures are different, we value different things. We cannot wait for organisations and companies, like Mozilla, to cater their products to us, because most of them don’t. Often it is not because they want to ignore us, but because they are not conciously aware of us.
 
-I recently watched a TED talk by Nigerian author Chimamanda Ngozi Adichie, on the danger of a single story. Having just a single story of an entire group of people, an entire nation, is a dangerous thing. By showing a people as one thing, and only one thing, over and over again, and that is what they become.
+I recently watched a TED talk by Nigerian author Chimamanda Ngozi Adichie, on the danger of a single story. Having just a single story of an entire group of people, an entire nation, is a dangerous thing. And I completely agree with her when she said, “by showing a people as one thing, and only one thing, over and over again, and that is what they become.”
 
-We, and I say we, as an Asian person who grew up in an Eastern culture, generally don’t really speak up. Public speaking is challenging for everyone, regardless of where they come from, but I think it’s especially hard for people from Eastern cultures. Often times, I get the feeling of, what I’m doing isn’t that great, or who am I to stand in front of other people are talk about what I do?
+We, and I say we as an Asian person who grew up in an Eastern culture, generally don’t really speak up. Public speaking is challenging for everyone, regardless of where they come from, but I think it’s especially hard for people from Eastern cultures. Often times, I get the feeling of, what I’m doing isn’t that great, or who am I to stand in front of other people, like yourselves, and talk about what I do?
 
-Then you have this small group of young, white men in tech who demand that their voices be heard, they write all kinds of blog posts and articles, speak publicly and loudly about the work they are doing, how awesome they are and so on. And this builds a false impression that this is what the world is like.
+But then you have this small group of young, white men in tech who demand that their voices be heard, they write all kinds of blog posts and articles, speak publicly and loudly about the work they are doing, how awesome they are and so on. And this builds a false impression that this is what the world is like.
 
 It is high time that we start sharing our perspectives, all our different perspectives. Because even though it is not something that most of us are naturally conditioned to do, there is value in contributing our perspectives to the world.
 
@@ -52,11 +52,11 @@ Are there any web developers in the audience today?
 
 Back in 2016, there was a WIRED article titled The Average Webpage Is Now the Size of the Original Doom, which was 2.39mb.
 
-Now internet infrastructure varies widely across the world, but in many developing countries, data infrastructure is lacking and expensive. Even something as benign as forgetting to optimise your website’s images, can add up to a significant portion of an user’s income in Niger or Madagascar, for example.
+Now, internet infrastructure varies widely across the world, but in many developing countries, data infrastructure is lacking and expensive. Even something as benign as forgetting to optimise your website’s images, can add up to a significant portion of an user’s income in Niger or Madagascar, for example.
 
 That’s why it is important for developers from those regions, and every region around the world for that matter, to make their voices heard, and bring a greater awareness of the situations and contexts that we operate in.
 
-Jared mentioned just now how important is was to for conferences to have minimum standards for diversity and inclusion, and that's a step in the right direction in terms of conference organisation. But there's also much work to be done from the side of speakers, and content creators in general.
+Jarod mentioned just now how important is was to for conferences to have minimum standards for diversity and inclusion, and that's a step in the right direction in terms of conference organisation. But there's also much work to be done from the side of speakers, and content creators in general.
 
 This is not something that will change overnight, but we have to start somewhere. Start by contributing to open-source projects, and pointing out if a particular feature or design decision is missing something. Start by writing about your work, your opinions and your stories, to show the rest of the world a different way of working and thinking.
 
