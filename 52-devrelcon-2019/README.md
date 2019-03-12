@@ -38,7 +38,7 @@ Training of such software requires large datasets, and developers who build them
 
 Mozilla has a Common Voice initiative to help combat this issue. But this is just one example among many in the tech industry where products inadvertently end up working well only for a small set of people, while the rest have a compromised experience.
 
-The world is full of diverse cultures and because our cultures are different, we value different things. We cannot wait for organisations and companies, like Mozilla, to cater their products to us, because most of them don’t. Often it is not because they want to ignore us, but because they are not conciously aware of us.
+The world is full of diverse cultures and because our cultures are different, we value different things. We cannot wait for organisations and companies, like Mozilla, to cater their products to us, because most of them don’t. Often it is not because they want to ignore us, but because they are not consciously aware of us.
 
 I recently watched a TED talk by Nigerian author Chimamanda Ngozi Adichie, on the danger of a single story. Having just a single story of an entire group of people, an entire nation, is a dangerous thing. And I completely agree with her when she said, “by showing a people as one thing, and only one thing, over and over again, and that is what they become.”
 
