@@ -22,10 +22,10 @@
     <div class="reveal">
       <div class="slides">
         <section data-background-image="img/background.jpg">
-          <h1>新时代 CSS 布局</h1>
-          <p><small><a href="https://www.chenhuijing.com/">陈慧晶 （Chen Hui Jing）</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
-          <img data-src="img/qrcode.png" class="plain" style="max-height:50vh" alt="幻灯片二维码">
-          <aside class="notes">大家好。很荣幸可以在这里跟大家分享关于CSS布局的一些新进展。这是我第一次用中文做技术演讲，所以如果有哪儿些用词不当的地方，请大家多多包涵。</aside>
+          <h1>新时代CSS布局</h1>
+          <img data-src="img/qr-slides.png" class="plain" style="max-height:40vh" alt="幻灯片二维码">
+          <p><small><a style="color:#a50104" href="https://www.chenhuijing.com/">陈慧晶</a> | <a style="color:#a50104" href="http://twitter.com/hj_chen">@hj_chen</a> | <svg height="1.5em" width="1.5em" viewBox="0 0 512 512"><g fill="#8bc34a"><path d="M512 320c0-70.688-71.648-128-160-128s-160 57.312-160 128 71.648 128 160 128c14.528 0 28.352-2.048 41.76-4.96L480 480l-29.824-59.616C487.552 396.96 512 360.928 512 320z"/><path d="M192 32C85.952 32 0 103.648 0 192c0 50.944 28.736 96.128 73.312 125.376L48 368l68.96-29.536c14.784 5.248 30.144 9.568 46.56 11.584-2.24-9.76-3.52-19.776-3.52-30.048 0-88.224 86.112-160 192-160 9.696 0 19.168.8 28.512 1.952C363.616 87.968 285.696 32 192 32z"/></g><g fill="#fafafa"><circle cx="128" cy="128" r="24"/><circle cx="256" cy="128" r="24"/><circle cx="304" cy="288" r="24"/><circle cx="400" cy="288" r="24"/></g></svg> jing74737871</small></p>
+          <aside class="notes">大家好。很荣幸可以在这里跟大家分享关于CSS布局的一些新进展。这是我第一次用中文做技术演讲，所以如果有哪儿些用词不当的地方或者是一些词汇翻译的很古怪，要事先请大家多多包涵。</aside>
         </section>
 
         <section data-background-image="img/emoji-bg.png" data-background-repeat="repeat" data-background-size="200px">
@@ -35,7 +35,7 @@
               <div>
                 <img data-src="img/avatar.jpg" alt="Jing" style="border-radius:50%;max-height:50vh">
               </div>
-              <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
+              <p>jing74737871</p>
             </div>
             <div style="display:grid;grid-template-columns:repeat(3,3em);grid-template-rows:repeat(3,3em);width:100%;grid-template-areas:'a . b''. c .''d . e';font-size:150%">
               <span style="font-size:calc(1.75em + 3vw);grid-area:a" class="emoji" role="img" tabindex="0" aria-label="马来西亚">&#x1F1F2;&#x1F1FE;</span>
@@ -49,7 +49,7 @@
             <p>首先，让我来做个自我介绍。我姓陈，名叫慧晶，来自马来西亚。</p>
             <p>我曾经当过全职篮球选手，也因此无意间走上网络开发这条路。若你觉得很好奇，篮球怎么会跟网络开发扯上关系，那当会儿可以找我聊聊。</p>
             <p>从入行到现在，我一直都觉得CSS是一样相当有趣的东西，所以会经常探索新属性或更深入了解现有的属性，并且把学习经验写在博客上。</p>
-            <p>去年也加入了Mozilla技术讲师组，这项倡议主要是要协助科技布道和指导师在世界各地的科技会议推广开源网络科技。Mozilla会给予组员多方面的支持，如演讲培训、技术训练、寻找演讲机会、资金等。</p>
+            <p>去年也加入了Mozilla技术讲师组，这项倡议主要是要协助科技布道和指导师在世界各地的技术会议推广开源网络科技。Mozilla会给予组员多方面的支持，如演讲培训、技术训练、寻找演讲机会、资金等。</p>
           </aside>
         </section>
 
@@ -57,32 +57,242 @@
           <img style="max-height:10em;margin-bottom:0.5em" class="plain" data-src="img/love-dev.svg" alt="Nexmo Developer Relations">
           <p><span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span> 开发大使 <span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span></p>
           <img style="max-height:2.5em;margin-top:1em" class="plain" data-src="img/nexmo.svg" alt="Nexmo">
-          <aside class="notes">现在我在Nexmo当开发大使，是开发者关系团队的成员。Nexmo是个通讯API平台，提供信息，语音，认证，音视屏等API，好让开发者轻松把通信功能添加入自己的APP内。</aside>
+          <aside class="notes">现在我在Nexmo担任开发大使，是开发者关系团队的成员。Nexmo是个通讯API平台，提供信息，语音，认证，音视屏等API，好让开发者轻松把通信功能添加入自己的APP内。</aside>
         </section>
 
         <section data-background-image="img/cssconf2016.jpg">
-          <aside class="notes">现在让我们进入正题，也就是新时代CSS布局。想请问在座的朋友们有几位参加过2016年的CSS大会？我当时没在现场，但是因为有 YouTube，有机会在线观赏大漠老师谈CSS Grid Layout的演讲。他介绍了与Grid相关的各种新属性及它们的应用方法。而当时，Grid都还没正式发布呢。</aside>
-        </section>
-
-        <section data-background-image="img/wwwbrowser.png">
-          <aside class="notes">Grid可以算是新时代CSS布局的成员之一吧。网络原本是个以文字为主的媒介。当年蒂姆·伯纳斯-李爵士创建万维网，主要是为了解决CERN面临的资讯管理问题。他提出了运用超文本系统让研究员更轻易的分享及链接研究论文等资讯。为了纪念万维网诞生的30周年纪念，CERN召集</aside>
+          <aside class="notes">
+            <p>那让我们进入正题吧，也就是新时代CSS布局。</p>
+            <p>想请问在座的朋友们有几位参加过2016年的CSS大会？虽然，我当时没出席，但是通过YouTube，有机会在线观赏大漠老师谈CSS Grid Layout的演讲。也很高兴今年有机会现场听他的演讲。</p>
+            <p>当时，他介绍了与Grid相关的各种新属性及它们的应用方法。Grid在那时候都还没正式发布呢。</p>
+            <p>Grid可以算是新时代CSS布局的成员之一吧。</p>
+          </aside>
         </section>
 
         <section>
-          <h2>Grid 正式发布日期</h2>
-          <img data-src="img/grid-release.png" class="plain" alt="CSS Grid 正式发布日期">
-          <aside class="notes">Grid正式发布到现在已经有大概两年的时间了，浏览器的支持程度如今也高达88%了。</aside>
+          <div class="l-double">
+            <h2 style="grid-column:span 2">为什么纵向比横向难排？</h2>
+            <div>
+              <div class="box" style="background-color:green;animation:horizontal 2s infinite"><span style="font-size:calc(1.75em + 3vw)" class="emoji" role="img" tabindex="0" aria-label="person gesturing ok">&#x1F646;</span></div>
+            </div>
+            <div>
+              <div class="box" style="background-color:red;animation:vertical 2s infinite"><span style="font-size:calc(1.75em + 3vw)" class="emoji" role="img" tabindex="0" aria-label="person shrugging">&#x1F937;</span></div>
+            </div>
+          </div>
+          <aside class="notes">不知道观众朋友们是否同意，但是我认为网络开发其中令人头痛的一点就是纵向的布局。原因是网络原本是个以文字为主的媒介。</aside>
+        </section>
+
+        <section data-background-image="img/wwwbrowser.png">
+          <div style="display:flex;flex-direction:column;align-items:center">
+            <p style="padding:0.5em;background:#2f313f;display:inline-block;border-radius:0.25em"><a href="https://worldwideweb.cern.ch/browser/">https://worldwideweb.cern.ch/browser/</a></p>
+            <img data-src="img/qr-www.png" class="plain" style="max-height:40vh" alt="最原始WWW浏览器二维码">
+          </div>
+          <aside class="notes">
+            <p>当年蒂姆·伯纳斯-李爵士创建万维网，主要是为了解决CERN面临的资讯管理问题。他提交了名为「信息管理：提案」的文件，希望可以更轻易的管理和监控实验室研究流程的建议。</p>
+            <p>我也想顺便一提，为了纪念万维网诞生的30周年纪念，CERN召集了一群知名开发者，重建最原始的浏览器。有兴趣的朋友们可以到这个链接在线访问。</p>
+          </aside>
+        </section>
+
+        <section data-background-image="img/browsers.jpg">
+          <aside class="notes">早期的浏览器都注重西文文字的排版，初期的元素包括h1-6的标题元素，p元素，各式的列表元素。CSS在1996年发布时，多数的属性也是为了调整文字的布局而设。</aside>
+        </section>
+
+        <section>
+            <img data-src="img/boxes.svg" style="max-height:25vmin"class="plain" alt="CSS新时代布局三大栋梁">
+            <pre style="box-shadow:none;font-size:0.5em;text-align:center">
+_______________________________________
+|                                       |
+|           margin (transparent)        |
+|   _________________________________   |
+|  |                                 |  |
+|  |        border                   |  |
+|  |   ___________________________   |  |
+|  |  |                           |  |  |
+|  |  |     padding               |  |  |
+|  |  |   _____________________   |  |  |
+|  |  |  |                     |  |  |  |
+|  |  |  |  content            |  |  |  |
+|  |  |  |_____________________|  |  |  |
+|  |  |___________________________|  |  |
+|  |_________________________________|  |
+|_______________________________________|
+
+|    element width    |
+
+|               box width               |</pre>
+          <aside class="notes">但是，CSS也介绍了以盒模型为主的布局方式。其实想一想，网络的所有内容，不都是各式各类的盒子吗？虽然初期的属性有限，但是网络开发者非常有创意，利用浮动、负margin、各式的定位等技巧，来达成心仪的设计。</aside>
         </section>
 
         <section>
           <img data-src="img/new-layout.svg" class="plain" alt="CSS新时代布局三大栋梁">
-          <aside class="notes"></aside>
+          <aside class="notes">直到Flexbox的诞生。Flexbox可以算是有史以来第一个以网络本质为主而编写的CSS标准。连同Box Alignment跟CSS Grid，这三个项目可以称为CSS新时代布局的三大栋梁。</aside>
         </section>
 
         <section>
-          <h2>容器–项目的「父子」关系</h2>
-          <img data-src="img/parent-child.svg" class="plain" alt="容器–项目图">
-          <aside class="notes"></aside>
+          <h2>CSS布局部队</h2>
+          <img data-src="img/team-layout.png" class="plain" alt="CSS布局部队">
+          <p>等属性…</p>
+          <aside class="notes">当然，我们不能忘记CSS里头的其它553个属性。因为CSS是个团队项目。当我们把各属性协调的融合在一起，才能把CSS的威力完全发挥出来。</aside>
+        </section>
+
+        <section data-backgrond-transition="none">
+          <div style="display:grid;grid-template-columns:40% 60%;justify-content:center">
+            <img data-src="img/source.svg" alt="Source document" class="plain" style="max-height:65vh;justify-self:center">
+            <img data-src="img/box-tree.svg" alt="Box tree" class="plain fragment" style="max-height:75vh">
+          </div>
+          <aside class="notes">要揭开CSS布局的生秘面纱，就先熟悉浏览器的渲染过程。渲染引擎会把服务器发送过来的Source文档解析成浏览器能够明白的对象。而在渲染网页之前，浏览器会生成一个渲染树。这个渲染树是个中介性的结构（intermediary structure），是文档各式结构（formatting structure）的表示法。</aside>
+        </section>
+
+        <section data-backgrond-transition="none">
+          <div style="display:grid;grid-template-columns:40% 60%;justify-content:center">
+            <img data-src="img/source.svg" alt="Source document" class="plain" style="max-height:65vh;justify-self:center">
+            <img data-src="img/box-tree-styles.svg" alt="Box tree" class="plain" style="max-height:75vh">
+          </div>
+          <aside class="notes">CSS在解析的过程，会计算出每个元素和文本节点的每个CSS属性值。之前提了一句各式各样的盒子。浏览器就靠Display值来断定要生成哪儿一类的盒子。</aside>
+        </section>
+
+        <section>
+          <h2><ruby><rb>CSS显示模块标准</rb><rt lang="en">CSS Display Module Level 3</ruby></h2>
+          <div class="l-double" style="grid-gap:1em">
+            <div>
+              <h3><ruby><rb>内部显示类型</rb><rt lang="en">Inner display type</ruby></h3>
+              <div class="fragment">
+                <p>元素内部内容的格式化上下文的类型</p>
+                <img data-src="img/inside-display.svg" alt="Inner display type" class="plain" style="max-height:30vh">
+              </div>
+            </div>
+            <div>
+              <h3><ruby><rb>外部显示类型</rb><rt lang="en">Outer display type</ruby></h3>
+              <div class="fragment">
+                <p>元素其在流式布局中的角色</p>
+                <img data-src="img/outside-display.svg" alt="Outer display type" class="plain" style="max-height:35vh">
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            <p>CSS显示模块标准在这二十多年来，经过不少演变。从一开始的基本<code>block</code>、<code>inline</code>和<code>list-item</code>到现在最新标准中一共有十七种属性值。由此可见，CSS是个不断在进展的科技，编辑组（CSS Working Group）也会聆听多方面的反馈来更新标准。</p>
+            <p>Level 3的显示模块标准主要是为了更换及扩展在CSS2里Display值的定义。我在此描述的东西，很有可能还未在浏览器实行，但是我们可以从中事先理解未来CSS的行为。</p>
+            <p>标准提出了两种显示类型，内部及外部。内部显示指的是元素内部内容的格式化上下文的类型，而外部指的是元素自己在流式布局中的角色。</p>
+          </aside>
+        </section>
+
+        <section>
+          <table style="font-size:75%">
+            <thead>
+              <tr style="border-bottom:3px solid black">
+                  <th width="20%"><ruby><rb>简写</rb><rt lang="en">Short <code>display</code></ruby></th>
+                  <th width="30%"><ruby><rb>全称</rb><rt lang="en">Full <code>display</code></ruby></th>
+                  <th><ruby><rb>生成盒子</rb><rt lang="en">Generated box</ruby></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td>none</td>
+                  <td>—</td>
+                  <td>subtree omitted from box tree</td>
+              </tr>
+              <tr>
+                  <td>contents</td>
+                  <td>—</td>
+                  <td>element replaced by content in box tree</td>
+              </tr>
+              <tr>
+                  <td>ruby</td>
+                  <td>inline ruby</td>
+                  <td>inline-level ruby container</td>
+              </tr>
+              <tr>
+                  <td>block ruby</td>
+                  <td>block ruby</td>
+                  <td>block box containing ruby container</td>
+              </tr>
+              <tr>
+                  <td>table</td>
+                  <td>block table</td>
+                  <td>block-level table wrapper box containing table box</td>
+              </tr>
+              <tr>
+                  <td>inline-table</td>
+                  <td>inline table</td>
+                  <td>inline-level table wrapper box containing table box</td>
+              </tr>
+              <tr>
+                  <td>list-item</td>
+                  <td>block flow list-item</td>
+                  <td>block box with additional marker box</td>
+              </tr>
+              <tr>
+                  <td>inline list-item</td>
+                  <td>inline flow list-item</td>
+                  <td>inline box with additional marker box</td>
+              </tr>
+              <tr>
+                  <td>run-in</td>
+                  <td>run-in flow</td>
+                  <td>run-in box (inline box with special box-tree-munging rules) </td>
+              </tr>
+            </tbody>
+          </table>
+          <aside class="notes">This table is directly lifted from the specification, and fills up 2 slides. If you pay attention to the ‘full’ column, notice that the outer display property is either <code>block</code> or <code>inline</code>. I'm glossing over <code>run-in</code> for now because its implementation status has been iffy for a long time.</aside>
+        </section>
+
+        <section>
+          <table style="font-size:75%">
+            <thead>
+              <tr style="border-bottom:3px solid black">
+                  <th width="20%">Short <code>display</code><br></th>
+                  <th width="30%">Full <code>display</code></th>
+                  <th>Generated box</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td>flex</td>
+                  <td>block flex</td>
+                  <td>block-level flex container</td>
+              </tr>
+              <tr>
+                  <td>inline-flex</td>
+                  <td>inline flex</td>
+                  <td>inline-level flex container</td>
+              </tr>
+              <tr>
+                  <td>grid</td>
+                  <td>block grid</td>
+                  <td>block-level grid container</td>
+              </tr>
+              <tr>
+                  <td>inline-grid</td>
+                  <td>inline grid</td>
+                  <td>inline-level grid container</td>
+              </tr>
+              <tr>
+                  <td>block</td>
+                  <td>block flow</td>
+                  <td>block-level block container</td>
+              </tr>
+              <tr>
+                  <td>flow-root</td>
+                  <td>block flow-root</td>
+                  <td>block-level block container that establishes a new block formatting context (BFC)</td>
+              </tr>
+              <tr>
+                  <td>inline</td>
+                  <td>inline flow</td>
+                  <td>inline box</td>
+              </tr>
+              <tr>
+                  <td>inline-block</td>
+                  <td>inline flow-root</td>
+                  <td>inline-level block container</td>
+              </tr>
+            </tbody>
+          </table>
+          <aside class="notes">
+            <p>There's a part of the specification that is relevant for browser vendors, probably not so much for web developers, that explain how certain layout effects require the blockification or inlinification of box types to ensure a box is matched to its context. Don't you love invented words?</p>
+            <p>As far as I know, the multi-value syntax is not supported in any browser, I've only managed to find an entry for it on Firefox's bug tracker, and none from the other browsers but if someone here can verify this for me, I'd appreciate it greatly.</p>
+            <p>Out of this long list of values though, only <code>flow-root</code> is a brand-new value. When a box has its <code>display</code> set to <code>flow-root</code>, it generates a block-level block container that establishes a new block formatting context.</p>
+          </aside>
         </section>
 
         <section style="text-align:left">
@@ -95,7 +305,7 @@
         </section>
       </div>
 
-      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://www.chenhuijing.com/slides/53-cssconfcn-2019</span><span style="text-align:right">@hj_chen</span></footer>
+      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://www.chenhuijing.com/slides/53-cssconfcn-2019</span><span style="text-align:right">@hj_chen | jing74737871</span></footer>
 
     </div>
 

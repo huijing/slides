@@ -42,7 +42,13 @@ html {
 
   .l-double {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50% 50%;
+  }
+
+  .box {
+    height: 4em;
+    width: 6em;
+    border: 1px solid;
   }
 
   .j-icon {
@@ -110,6 +116,11 @@ html {
 
   td {
     vertical-align: middle;
+  }
+
+  ruby {
+    ruby-align: center;
+    ruby-position: under;
   }
 }
 
@@ -205,4 +216,26 @@ span[role=img][aria-label]:hover::after {
   display: block;
   height: 100%;
   white-space: pre-wrap;
+}
+
+@keyframes horizontal {
+  from, to  {
+    transform: translateX(50%);
+    animation-timing-function: ease;
+  }
+  50% {
+    transform: translateX(200%);
+    animation-timing-function: ease;
+  }
+}
+
+@keyframes vertical {
+  from, to  {
+    transform: translate(calc(25vw - 2em), 0%);
+    animation-timing-function: ease;
+  }
+  50% {
+    transform: translate(calc(25vw - 2em), 150%);
+    animation-timing-function: ease;
+  }
 }
