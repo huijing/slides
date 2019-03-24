@@ -290,7 +290,8 @@ html {
 .reveal .box {
   height: 4em;
   width: 6em;
-  border: 1px solid; }
+  background-color: #34a44d;
+  color: #fff; }
 
 .reveal .j-icon {
   display: inline-block;
@@ -339,8 +340,12 @@ html {
 .reveal img[src*="svg"] {
   max-height: 75vh; }
 
-.reveal td {
-  vertical-align: middle; }
+.reveal tbody tr:nth-child(odd) {
+  background-color: mistyrose; }
+
+.reveal table td {
+  vertical-align: middle;
+  border-bottom: 0; }
 
 .reveal ruby {
   ruby-align: center;
@@ -383,8 +388,6 @@ span[role=img][aria-label]:hover::after {
     overflow-y: scroll;
     width: 100%;
     border: 1px dashed #a50104; }
-    .livecode .result li {
-      line-height: 0; }
     .livecode .result p {
       margin: 0;
       padding: 0; }

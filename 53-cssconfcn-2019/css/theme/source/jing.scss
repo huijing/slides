@@ -48,7 +48,8 @@ html {
   .box {
     height: 4em;
     width: 6em;
-    border: 1px solid;
+    background-color: $selectionBackgroundColor;
+    color: $selectionColor;
   }
 
   .j-icon {
@@ -114,8 +115,13 @@ html {
     max-height: 75vh;
   }
 
-  td {
+  tbody tr:nth-child(odd) {
+    background-color: mistyrose;
+  }
+
+  table td {
     vertical-align: middle;
+    border-bottom: 0;
   }
 
   ruby {
@@ -167,10 +173,6 @@ span[role=img][aria-label]:hover::after {
     overflow-y: scroll;
     width: 100%;
     border: 1px dashed $headingColor;
-
-    li {
-      line-height: 0;
-    }
 
     p {
       margin: 0;

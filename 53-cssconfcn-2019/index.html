@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>新时代CSS布局</title>
-    <meta name="description" content="CSS布局经常是令前段开发者头痛的一块工作。但是近几年来，浏览器不断提升，开始支持Flexbox，Grid，盒模型对齐等布局功能。这些CSS标准存粹是为了应付网络布局而编写的。在此会与大家分享这些新的CSS属性如何让我们创造更符合浏览器本质的设计。">
+    <meta name="description" content="CSS布局经常是令前段开发者头痛的一块工作。但是近几年来，浏览器不断提升，开始支持Flexbox，Grid，盒模型对齐等布局功能。这些CSS规范存粹是为了应付网络布局而编写的。在此会与大家分享这些新的CSS属性如何让我们创造更符合浏览器本质的设计。">
 
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/jing.css">
@@ -25,7 +25,7 @@
           <h1>新时代CSS布局</h1>
           <img data-src="img/qr-slides.png" class="plain" style="max-height:40vh" alt="幻灯片二维码">
           <p><small><a style="color:#a50104" href="https://www.chenhuijing.com/">陈慧晶</a> | <a style="color:#a50104" href="http://twitter.com/hj_chen">@hj_chen</a> | <svg height="1.5em" width="1.5em" viewBox="0 0 512 512"><g fill="#8bc34a"><path d="M512 320c0-70.688-71.648-128-160-128s-160 57.312-160 128 71.648 128 160 128c14.528 0 28.352-2.048 41.76-4.96L480 480l-29.824-59.616C487.552 396.96 512 360.928 512 320z"/><path d="M192 32C85.952 32 0 103.648 0 192c0 50.944 28.736 96.128 73.312 125.376L48 368l68.96-29.536c14.784 5.248 30.144 9.568 46.56 11.584-2.24-9.76-3.52-19.776-3.52-30.048 0-88.224 86.112-160 192-160 9.696 0 19.168.8 28.512 1.952C363.616 87.968 285.696 32 192 32z"/></g><g fill="#fafafa"><circle cx="128" cy="128" r="24"/><circle cx="256" cy="128" r="24"/><circle cx="304" cy="288" r="24"/><circle cx="400" cy="288" r="24"/></g></svg> jing74737871</small></p>
-          <aside class="notes">大家好。很荣幸可以在这里跟大家分享关于CSS布局的一些新进展。这是我第一次用中文做技术演讲，所以如果有哪儿些用词不当的地方或者是一些词汇翻译的很古怪，要事先请大家多多包涵。</aside>
+          <aside class="notes">大家好。很开心可以来到这里跟大家分享关于CSS布局的一些新进展。能够与那么多出色的CSS专家同台是我的荣幸。这是我第一次在中国演讲，也是第一次用中文演讲，所以如果有哪儿些用词不当的地方或者是一些词汇翻译的很古怪，要事先请大家多多包涵。</aside>
         </section>
 
         <section data-background-image="img/emoji-bg.png" data-background-repeat="repeat" data-background-size="200px">
@@ -49,7 +49,7 @@
             <p>首先，让我来做个自我介绍。我姓陈，名叫慧晶，来自马来西亚。</p>
             <p>我曾经当过全职篮球选手，也因此无意间走上网络开发这条路。若你觉得很好奇，篮球怎么会跟网络开发扯上关系，那当会儿可以找我聊聊。</p>
             <p>从入行到现在，我一直都觉得CSS是一样相当有趣的东西，所以会经常探索新属性或更深入了解现有的属性，并且把学习经验写在博客上。</p>
-            <p>去年也加入了Mozilla技术讲师组，这项倡议主要是要协助科技布道和指导师在世界各地的技术会议推广开源网络科技。Mozilla会给予组员多方面的支持，如演讲培训、技术训练、寻找演讲机会、资金等。</p>
+            <p>去年也加入了谋智（Mozilla）技术讲师组，这项倡议主要是要协助科技布道和指导师在世界各地的技术会议推广开源网络科技。谋智会给予组员多方面的支持，如演讲培训、技术训练、资金等。</p>
           </aside>
         </section>
 
@@ -57,13 +57,13 @@
           <img style="max-height:10em;margin-bottom:0.5em" class="plain" data-src="img/love-dev.svg" alt="Nexmo Developer Relations">
           <p><span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span> 开发大使 <span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span></p>
           <img style="max-height:2.5em;margin-top:1em" class="plain" data-src="img/nexmo.svg" alt="Nexmo">
-          <aside class="notes">现在我在Nexmo担任开发大使，是开发者关系团队的成员。Nexmo是个通讯API平台，提供信息，语音，认证，音视屏等API，好让开发者轻松把通信功能添加入自己的APP内。</aside>
+          <aside class="notes">现在我在Nexmo担任开发大使，是开发者关系团队的成员。Nexmo是个通讯API平台，提供信息，语音，认证，音视频等API，好让开发者轻松把通信功能添加入自己的APP内。</aside>
         </section>
 
         <section data-background-image="img/cssconf2016.jpg">
           <aside class="notes">
             <p>那让我们进入正题吧，也就是新时代CSS布局。</p>
-            <p>想请问在座的朋友们有几位参加过2016年的CSS大会？虽然，我当时没出席，但是通过YouTube，有机会在线观赏大漠老师谈CSS Grid Layout的演讲。也很高兴今年有机会现场听他的演讲。</p>
+            <p>想请问在座的朋友们有几位参加过2016年的CSS大会？虽然，我当时没在场，但是还好有视频，让我有机会在线观赏大漠老师谈CSS Grid Layout的演讲。也很高兴当会儿有机会在现场听他的演讲。</p>
             <p>当时，他介绍了与Grid相关的各种新属性及它们的应用方法。Grid在那时候都还没正式发布呢。</p>
             <p>Grid可以算是新时代CSS布局的成员之一吧。</p>
           </aside>
@@ -88,13 +88,13 @@
             <img data-src="img/qr-www.png" class="plain" style="max-height:40vh" alt="最原始WWW浏览器二维码">
           </div>
           <aside class="notes">
-            <p>当年蒂姆·伯纳斯-李爵士创建万维网，主要是为了解决CERN面临的资讯管理问题。他提交了名为「信息管理：提案」的文件，希望可以更轻易的管理和监控实验室研究流程的建议。</p>
+            <p>当年蒂姆·伯纳斯-李爵士创建万维网，主要是为了解决CERN面临的资讯管理问题。他提交了名为「信息管理：提案」的文件，希望可以更轻易的管理和监控实验室研究流程的建议。这些文件不是用英文就是用法文写的。</p>
             <p>我也想顺便一提，为了纪念万维网诞生的30周年纪念，CERN召集了一群知名开发者，重建最原始的浏览器。有兴趣的朋友们可以到这个链接在线访问。</p>
           </aside>
         </section>
 
         <section data-background-image="img/browsers.jpg">
-          <aside class="notes">早期的浏览器都注重西文文字的排版，初期的元素包括h1-6的标题元素，p元素，各式的列表元素。CSS在1996年发布时，多数的属性也是为了调整文字的布局而设。</aside>
+          <aside class="notes">早期的浏览器都注重西文文字的排版，重视的是左右的方向。初期的元素包括h1-6的标题元素，p元素，各式的列表元素。CSS在1996年发布时，多数的属性也是为了调整文字的布局而设。</aside>
         </section>
 
         <section>
@@ -125,7 +125,7 @@ _______________________________________
 
         <section>
           <img data-src="img/new-layout.svg" class="plain" alt="CSS新时代布局三大栋梁">
-          <aside class="notes">直到Flexbox的诞生。Flexbox可以算是有史以来第一个以网络本质为主而编写的CSS标准。连同Box Alignment跟CSS Grid，这三个项目可以称为CSS新时代布局的三大栋梁。</aside>
+          <aside class="notes">直到Flexbox的诞生。Flexbox可以算是有史以来第一个以网络本质为主而编写的CSS规范。连同Box Alignment跟CSS Grid，这三个项目可以称为CSS新时代布局的三大栋梁。</aside>
         </section>
 
         <section>
@@ -140,7 +140,7 @@ _______________________________________
             <img data-src="img/source.svg" alt="Source document" class="plain" style="max-height:65vh;justify-self:center">
             <img data-src="img/box-tree.svg" alt="Box tree" class="plain fragment" style="max-height:75vh">
           </div>
-          <aside class="notes">要揭开CSS布局的生秘面纱，就先熟悉浏览器的渲染过程。渲染引擎会把服务器发送过来的Source文档解析成浏览器能够明白的对象。而在渲染网页之前，浏览器会生成一个渲染树。这个渲染树是个中介性的结构（intermediary structure），是文档各式结构（formatting structure）的表示法。</aside>
+          <aside class="notes">如果要揭开CSS布局的生秘面纱，那就必须先熟悉浏览器的渲染过程。渲染引擎会把服务器发送过来的Source文档解析成浏览器能够明白的对象。而在渲染网页之前，浏览器会生成一个渲染树。这个渲染树是个中介性的结构（intermediary structure），是文档各式结构（formatting structure）的表示法。</aside>
         </section>
 
         <section data-backgrond-transition="none">
@@ -148,31 +148,31 @@ _______________________________________
             <img data-src="img/source.svg" alt="Source document" class="plain" style="max-height:65vh;justify-self:center">
             <img data-src="img/box-tree-styles.svg" alt="Box tree" class="plain" style="max-height:75vh">
           </div>
-          <aside class="notes">CSS在解析的过程，会计算出每个元素和文本节点的每个CSS属性值。之前提了一句各式各样的盒子。浏览器就靠Display值来断定要生成哪儿一类的盒子。</aside>
+          <aside class="notes">CSS在解析的过程，会计算出每个元素和文本节点的每个CSS属性值。浏览器就会靠其中的<code>display</code>取值来断定要生成哪儿一类的盒子。</aside>
         </section>
 
         <section>
-          <h2><ruby><rb>CSS显示模块标准</rb><rt lang="en">CSS Display Module Level 3</ruby></h2>
+          <h2><ruby><rb>CSS显示模块</rb><rt lang="en">CSS Display Module Level 3</ruby></h2>
           <div class="l-double" style="grid-gap:1em">
             <div>
               <h3><ruby><rb>内部显示类型</rb><rt lang="en">Inner display type</ruby></h3>
               <div class="fragment">
-                <p>元素内部内容的格式化上下文的类型</p>
+                <p>定义了元素内子元素的布局方式</p>
                 <img data-src="img/inside-display.svg" alt="Inner display type" class="plain" style="max-height:30vh">
               </div>
             </div>
             <div>
               <h3><ruby><rb>外部显示类型</rb><rt lang="en">Outer display type</ruby></h3>
               <div class="fragment">
-                <p>元素其在流式布局中的角色</p>
+                <p>定义了元素怎样参与流式布局的处理</p>
                 <img data-src="img/outside-display.svg" alt="Outer display type" class="plain" style="max-height:35vh">
               </div>
             </div>
           </div>
           <aside class="notes">
-            <p>CSS显示模块标准在这二十多年来，经过不少演变。从一开始的基本<code>block</code>、<code>inline</code>和<code>list-item</code>到现在最新标准中一共有十七种属性值。由此可见，CSS是个不断在进展的科技，编辑组（CSS Working Group）也会聆听多方面的反馈来更新标准。</p>
-            <p>Level 3的显示模块标准主要是为了更换及扩展在CSS2里Display值的定义。我在此描述的东西，很有可能还未在浏览器实行，但是我们可以从中事先理解未来CSS的行为。</p>
-            <p>标准提出了两种显示类型，内部及外部。内部显示指的是元素内部内容的格式化上下文的类型，而外部指的是元素自己在流式布局中的角色。</p>
+            <p>CSS显示模块在这二十多年来，经过不少演变。从一开始的基本<code>block</code>、<code>inline</code>和<code>list-item</code>到现在最新规范中一共有十七种属性值。可见，CSS是个不断在进展的科技，编辑组（CSS Working Group）也会聆听多方面的反馈来更新规范。</p>
+            <p>Level 3的显示模块主要是为了更换及扩展在CSS2里<code>display</code>取值的定义。我在此描述的东西，很有可能还未在浏览器实行，但是我们可以从中事先理解未来CSS的行为。</p>
+            <p>规范提出了两种显示类型，内部及外部。内部显示类型定义了元素内子元素的布局方式，外部显示类型则定义了元素怎样参与流式布局的处理。</p>
           </aside>
         </section>
 
@@ -180,126 +180,489 @@ _______________________________________
           <table style="font-size:75%">
             <thead>
               <tr style="border-bottom:3px solid black">
-                  <th width="20%"><ruby><rb>简写</rb><rt lang="en">Short <code>display</code></ruby></th>
-                  <th width="30%"><ruby><rb>全称</rb><rt lang="en">Full <code>display</code></ruby></th>
-                  <th><ruby><rb>生成盒子</rb><rt lang="en">Generated box</ruby></th>
+                <th width="20%"><ruby><rb>简写</rb><rt lang="en">Short <code>display</code></ruby></th>
+                <th width="30%"><ruby><rb>全称</rb><rt lang="en">Full <code>display</code></ruby></th>
+                <th><ruby><rb>生成盒子</rb><rt lang="en">Generated box</ruby></th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                  <td>none</td>
-                  <td>—</td>
-                  <td>subtree omitted from box tree</td>
+                <td><code>none</code></td>
+                <td><code>—</code></td>
+                <td>subtree omitted from box tree</td>
               </tr>
               <tr>
-                  <td>contents</td>
-                  <td>—</td>
-                  <td>element replaced by content in box tree</td>
+                <td><code>contents</code></td>
+                <td><code>—</code></td>
+                <td>element replaced by content in box tree</td>
+              </tr>
+              
+              <tr>
+                <td><code>table</code></td>
+                <td><code>block table</code></td>
+                <td>block-level table wrapper box containing table box</td>
               </tr>
               <tr>
-                  <td>ruby</td>
-                  <td>inline ruby</td>
-                  <td>inline-level ruby container</td>
+                <td><code>inline-table</code></td>
+                <td><code>inline table</code></td>
+                <td>inline-level table wrapper box containing table box</td>
               </tr>
               <tr>
-                  <td>block ruby</td>
-                  <td>block ruby</td>
-                  <td>block box containing ruby container</td>
+                <td><code>list-item</code></td>
+                <td><code>block flow list-item</code></td>
+                <td>block box with additional marker box</td>
               </tr>
               <tr>
-                  <td>table</td>
-                  <td>block table</td>
-                  <td>block-level table wrapper box containing table box</td>
+                <td><code>inline list-item</code></td>
+                <td><code>inline flow list-item</code></td>
+                <td>inline box with additional marker box</td>
               </tr>
               <tr>
-                  <td>inline-table</td>
-                  <td>inline table</td>
-                  <td>inline-level table wrapper box containing table box</td>
+                <td><code>run-in</code></td>
+                <td><code>run-in flow</code></td>
+                <td>run-in box (inline box with special box-tree-munging rules) </td>
               </tr>
               <tr>
-                  <td>list-item</td>
-                  <td>block flow list-item</td>
-                  <td>block box with additional marker box</td>
+                <td><code>flex</code></td>
+                <td><code>block flex</code></td>
+                <td>block-level flex container</td>
               </tr>
               <tr>
-                  <td>inline list-item</td>
-                  <td>inline flow list-item</td>
-                  <td>inline box with additional marker box</td>
-              </tr>
-              <tr>
-                  <td>run-in</td>
-                  <td>run-in flow</td>
-                  <td>run-in box (inline box with special box-tree-munging rules) </td>
+                <td><code>inline-flex</code></td>
+                <td><code>inline flex</code></td>
+                <td>inline-level flex container</td>
               </tr>
             </tbody>
           </table>
-          <aside class="notes">This table is directly lifted from the specification, and fills up 2 slides. If you pay attention to the ‘full’ column, notice that the outer display property is either <code>block</code> or <code>inline</code>. I'm glossing over <code>run-in</code> for now because its implementation status has been iffy for a long time.</aside>
+          <aside class="notes">这个表是从规范直接抽出来的。它列出之前提到的十七个属性值，也描述这些取值会让浏览器生成什么样的盒子。Level 3规范详细说明了<code>display</code>属性的两类取值，可是到现在依然还没被浏览器广泛支持。即使被广泛支持后，单关键字还是可以继续用。</aside>
         </section>
 
         <section>
           <table style="font-size:75%">
             <thead>
               <tr style="border-bottom:3px solid black">
-                  <th width="20%">Short <code>display</code><br></th>
-                  <th width="30%">Full <code>display</code></th>
-                  <th>Generated box</th>
+                <th width="20%"><ruby><rb>简写</rb><rt lang="en">Short <code>display</code></ruby></th>
+                <th width="30%"><ruby><rb>全称</rb><rt lang="en">Full <code>display</code></ruby></th>
+                <th><ruby><rb>生成盒子</rb><rt lang="en">Generated box</ruby></th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                  <td>flex</td>
-                  <td>block flex</td>
-                  <td>block-level flex container</td>
+                <td><code>ruby</code></td>
+                <td><code>inline ruby</code></td>
+                <td>inline-level ruby container</td>
               </tr>
               <tr>
-                  <td>inline-flex</td>
-                  <td>inline flex</td>
-                  <td>inline-level flex container</td>
+                <td><code>block ruby</code></td>
+                <td><code>block ruby</code></td>
+                <td>block box containing ruby container</td>
               </tr>
               <tr>
-                  <td>grid</td>
-                  <td>block grid</td>
-                  <td>block-level grid container</td>
+                <td><code>grid</code></td>
+                <td><code>block grid</code></td>
+                <td>block-level grid container</td>
               </tr>
               <tr>
-                  <td>inline-grid</td>
-                  <td>inline grid</td>
-                  <td>inline-level grid container</td>
+                <td><code>inline-grid</code></td>
+                <td><code>inline-grid</code></td>
+                <td>inline-level grid container</td>
               </tr>
               <tr>
-                  <td>block</td>
-                  <td>block flow</td>
-                  <td>block-level block container</td>
+                <td><code>block</code></td>
+                <td><code>block flow</code></td>
+                <td>block-level block container</td>
               </tr>
               <tr>
-                  <td>flow-root</td>
-                  <td>block flow-root</td>
-                  <td>block-level block container that establishes a new block formatting context (BFC)</td>
+                <td><code>flow-root</code></td>
+                <td><code>block flow-root</code></td>
+                <td>block-level block container that establishes a new block formatting context (BFC)</td>
               </tr>
               <tr>
-                  <td>inline</td>
-                  <td>inline flow</td>
-                  <td>inline box</td>
+                <td><code>inline</code></td>
+                <td><code>inline flow</code></td>
+                <td>inline box</td>
               </tr>
               <tr>
-                  <td>inline-block</td>
-                  <td>inline flow-root</td>
-                  <td>inline-level block container</td>
+                <td><code>inline-block</code></td>
+                <td><code>inline flow-root</code></td>
+                <td>inline-level block container</td>
               </tr>
             </tbody>
           </table>
           <aside class="notes">
-            <p>There's a part of the specification that is relevant for browser vendors, probably not so much for web developers, that explain how certain layout effects require the blockification or inlinification of box types to ensure a box is matched to its context. Don't you love invented words?</p>
-            <p>As far as I know, the multi-value syntax is not supported in any browser, I've only managed to find an entry for it on Firefox's bug tracker, and none from the other browsers but if someone here can verify this for me, I'd appreciate it greatly.</p>
-            <p>Out of this long list of values though, only <code>flow-root</code> is a brand-new value. When a box has its <code>display</code> set to <code>flow-root</code>, it generates a block-level block container that establishes a new block formatting context.</p>
+            <p>各种属性值生成的盒子会成立不同的格式化上下文（formatting context）。打个比方，这个幻灯片上的词句翻译是用ruby标签来实行的。<code>display:ruby</code>会生成ruby容器盒子，而这种盒子建立的是ruby formatting context。</p>
+            <p>相信大多数的人都有尝试过用Flexbox来布局。可能因为Flexbox的开发过程相当凌乱不堪，属性一而再再而三的修改，网络上Flexbox的教程有时会产生一些误解。最可靠的答案就藏在规范里头。</p>
           </aside>
         </section>
 
+        <section>
+          <h2>Flex简写及关键字</h2>
+          <pre style="width:auto;display:inline-block;margin-bottom:1em"><code>[ <’flex-grow’> <’flex-shrink’>? || <’flex-basis’> ]   </code></pre>
+          <table>
+            <tr>
+              <td style="width:14em"><code>flex: initial</code></td>
+              <td><code>flex: 0 1 auto</code><br>不能生长，但是缺乏空间时可以缩小</td>
+            </tr>
+            <tr>
+              <td><code>flex: auto</code></td>
+              <td><code>flex: 1 1 auto</code><br>依照可用空间平均伸缩</td>
+            </tr>
+            <tr>
+              <td><code>flex: none</code></td>
+              <td><code>flex: 0 0 auto</code><br>完全不伸缩，简直是僵化</td>
+            </tr>
+            <tr>
+              <td><code>flex: &lt;positive-number&gt;</code></td>
+              <td><code>flex: &lt;positive-number&gt; 1 0</code><br>能屈能伸，属性值断定生长的比例</td>
+            </tr>
+          </table>
+          <aside class="notes">
+            
+            <p>规范编辑强调利用简写的<code>flex</code>属性，因为它会正确的重启相关的属性值。而<code>flex</code>简写有几个关键字，是为了应付最常见的用例而设的。</p>
+            <p>当你把<code>display:flex</code>设在一个元素上时，即使你不在子元素设定任何<code>flex</code>值，浏览器自己会套上<code>flex:initial</code>的取值，计算出来变成<code>0 1 auto</code>。</p>
+            <p>如果你想要子元素伸缩自如，那可以设一个<code>flex:auto</code>的取值，让子元素随着容器的空间同一频率伸缩。</p>
+            <p>若你的理想设计内有几个flex项目是必须有固定的尺寸，可以用<code>flex:none</code>让它失去弹性功能，永远都保持自己的尺寸。最后，如果你用单单一个正整数为取值，浏览器就会把这个整数设为flex-grow的取值，而与其的两个取值会重启为1和0。</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>自动margin是你的好友</h2>
+          <div class="livecode livecode-2p">
+            <div class="result automargin" style="font-size:75%">
+              <div>
+                <img class="plain" data-src="img/nexbox.svg" style="width:4em">
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.automargin {
+  display: flex;
+}
+
+.automargin div {
+  
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>话也讲多了，大家应该也闷了。来些show me the code，会有趣一点吧。首先，来个小基本：自动margin。Flex容器内的子元素被浏览器视为flex项目，CSS布局最关键的转折点就在于这个父子关系。</p>
+            <p>在这个简单的例子，容器内置只有一个子元素，而我们可以运用margin来操纵它。</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>自动margin是你的好友</h2>
+          <div class="livecode livecode-2p">
+            <div class="result navbar" style="font-size:75%;display:flex;flex-direction:column;justify-content:center">
+              <ul style="list-style:none;margin:0;background-color:#2f313f;padding:1em 0">
+                <li><a style="padding:1em" href="javascript:void(0)">首页</a></li>
+                <li><a style="padding:1em" href="javascript:void(0)">动态</a></li>
+                <li><a style="padding:1em" href="javascript:void(0)">话题</a></li>
+                <li><a style="padding:1em" href="javascript:void(0)">活动</a></li>
+                <li><a style="padding:1em" href="javascript:void(0)">登录 · 注册</a></li>
+              </ul>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.navbar ul {
+  display: flex;
+}
+
+.navbar li:last-child {
+  
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>网页的页眉经常会有类似这种设计模式。导航栏的几个链接都偏向左边，然后登录注册的链接独自在右边。在页眉设一个<code>display:flex</code>，再用自动margin把最后一个列表项推到右边尾端去。比之前的实行方法方便多了。</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>为什么块格式自动margin不垂直居中元素？</h2>
+          <blockquote>
+            <p>If both margin-left and margin-right are auto, their used values are equal, causing horizontal centring.</p>
+            <br><small>—CSS2 Visual formatting model details: 10.3.3</small>
+          </blockquote>
+          <blockquote>
+            <p>If <code>margin-top</code>, or <code>margin-bottom</code> are <code>auto</code>, their used value is <code>0</code>.</p>
+            <br><small>—CSS2 Visual formatting model details: 10.6.3</small>
+          </blockquote>
+          <aside class="notes">在学习CSS布局时，这个问题我想了很久。最后仔细翻阅规范后才明白，如果元素的高度设为<code>auto</code>，那浏览器计算它的高度时，会考虑到元素内容以及子元素。在那种情况之下，纵向根本没有多余的空间来调整位置。即使元素设了固定的高度，别忘记它跟子元素是互不相关的。所以浏览器没办法计算上下方的margin取值。</aside>
+        </section>
+
+        <section>
+          <h2>容器–项目的「父子」关系</h2>
+          <img data-src="img/parent-child.svg" class="plain" alt="容器–项目图">
+          <aside class="notes">我之前提到的转折点就在这儿。因为flex或grid容器跟子元素的关系，在布局方面是被浏览器受承认的。因此，浏览器才有办法计算出四面的自动margin取值。</aside>
+        </section>
+
+        <section>
+          <h2><ruby><rb>CSS盒式对齐模块</rb><rt lang="en">CSS Box Alignment Level 3</ruby></h2>
+            <div class="l-double">
+              <div>
+                <h3>Flexbox</h3>
+                <img class="plain" style="height:3.5em;display:block;margin:0 auto 0.5em" data-src="img/flexbox.svg" alt="Flexbox">
+                <ul>
+                  <li><code>align-content</code></li>
+                  <li><code>justify-content</code></li>
+                  <li><code>align-items</code></li>
+                  <li><code>align-self</code></li>
+                </ul>
+                <p><code>justify-items</code>/<code>justify-self</code> 在flex项目是<strong>用不上</strong>的。</p>
+              </div>
+              <div>
+                <h3>Grid</h3>
+                <img class="plain" style="height:3.5em;display:block;margin:0 auto 0.5em" data-src="img/grid.svg" alt="Grid">
+                <ul>
+                  <li><code>align-content</code></li>
+                  <li><code>justify-content</code></li>
+                  <li><code>align-items</code></li>
+                  <li><code>align-self</code></li>
+                  <li><code>justify-items</code></li>
+                  <li><code>justify-self</code></li>
+                </ul>
+              </div>
+            </div>
+          <aside class="notes">当然，光靠自动margin是不够的。要更精确的调整子元素的位置，我们可以运用盒式对齐模块（box alignment）提供的属性值。Box alignment的属性一共有六个。在实行flex时，用得上其中四个，实行grid的话，六个属性全部都能用。</aside>
+        </section>
+
+        <section>
+          <img class="plain" style="height:2.5em;position:fixed;top:0;right:0" data-src="img/grid.svg" alt="Grid">
+          <h2><code>justify-content</code> 和 <code>align-content</code></h2>
+          <div class="livecode livecode-2p" style="grid-template-columns:60% calc(40% - 0.5em)">
+            <div class="result gridcontent">
+              <div class="box a">A</div>
+              <div class="box b">B</div>
+              <div class="box c">C</div>
+              <div class="box d">D</div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.gridcontent {
+  justify-content: normal;
+  align-content: normal;
+
+  display: grid;
+  grid-template-columns: repeat(3, 25%);
+  grid-template-rows: repeat(3, 20%);
+  grid-gap: 1em;
+  grid-template-areas: 
+    "a b b"
+    "a b b"
+    "c c d";
+}
+
+.gridcontent .box.a { grid-area: a }
+.gridcontent .box.b { grid-area: b }
+.gridcontent .box.c { grid-area: c }
+.gridcontent .box.d { grid-area: d }</style></div>
+          </div>
+          <aside class="notes">
+            <p>The <code>justify-content</code> and <code>align-content</code> properties are known as <strong>content-distribution properties</strong>. These properties are relevant when the container is larger than the total width or height of the grid rows and columns.</p>
+            <p>As we can see from this example, there is some space to the right and bottom of the grid items. It is possible to set the alignment of the rows and columns with respect to the entire grid container.</p>
+            <p>We can position the grid rows and columns within its container using 3 values, <code>start</code>, <code>center</code> and <code>end</code>. We can also adjust the space between rows and columns with <code>space-around</code>, <code>space-between</code> and <code>space-evenly</code>.</p>
+          </aside>
+        </section>
+
+        <section height="100vh">
+          <img class="plain" style="height:2.5em;position:fixed;top:0;right:0" data-src="img/flexbox.svg" alt="Flexbox">
+          <h2><code>justify-content</code> 和 <code>align-content</code></h2>
+          <div class="livecode livecode-2p">
+            <div class="result flexcontent">
+              <div class="wrapper" style="font-size:70%">
+                <div class="box">1一</div>
+                <div class="box">2二</div>
+                <div class="box">3三</div>
+                <div class="box">4四</div>
+                <div class="box">5五</div>
+                <div class="box">6六</div>
+                <div class="box">7七</div>
+                <div class="box">8八</div>
+                <div class="box">9九</div>
+                <div class="box">10十</div>
+                <div class="box">11十一</div>
+                <div class="box">12十二</div>
+                <div class="box">13十三</div>
+                <div class="box">14十四</div>
+                <div class="box">15十五</div>
+                <div class="box">16十六</div>
+                <div class="box">17十七</div>
+                <div class="box">18十八</div>
+                <div class="box">19十四</div>
+                <div class="box">20二十</div>
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.flexcontent .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  height: 70vh;
+}
+
+.flexcontent .box {
+  height: 3.5em;
+  width: 4.5em;
+  border: 1px solid;
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>For flexbox, <code>justify-content</code> helps distribute free space left over after flexible lengths and auto margins are resolved. If you can see here, the items don't quite fill up to the right edge.</p>
+            <p>The initial value is <code>flex-start</code> but we can position the content with <code>flex-end</code> and <code>center</code>, as well as distribute the space between flex items, using <code>space-around</code>, <code>space-between</code> and <code>space-evenly</code>.</p>
+            <p>And because we have multiple flex lines in this container, <code>align-content</code> can be used to manage space along the cross-axis. The default value for this is <code>stretch</code>, so flex lines in single-line containers stretch to take up all the space.</p>
+            <p>So we can use the same values to pack and align flex lines within the flex container, or distribute space between flex lines.</p>
+          </aside>
+        </section>
+
+        <section>
+          <img class="plain" data-src="img/axis-alignment.svg" alt="*-content values">
+          <aside class="notes">之前在画插图时，有点走火入魔的现象，越画越过瘾。当会儿你们还会看到很多盒子的插图。这个是用来表示<code>justify-content</code>及<code>align-content</code>各个属性值的效果。</aside>
+        </section>
+
+        <section>
+          <img class="plain" style="height:2.5em;position:fixed;top:0;right:0" data-src="img/grid.svg" alt="Grid">
+          <h2><code>justify-self</code> 和 <code>align-self</code></h2>
+          <div class="livecode livecode-2p">
+            <div class="result gridself">
+              <div style="border:1px solid" class="box a">A</div>
+              <div style="border:1px solid" class="box b">B</div>
+              <div style="border:1px solid" class="box c">C</div>
+              <div style="border:1px solid" class="box d">D</div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.gridself .box.a {
+  grid-area: a;
+  padding-top: 0.5em;
+  align-self: ;
+}
+
+.gridself .box.b {
+  grid-area: b;
+  padding: 1em;
+  align-self: start;
+  //justify-self: start;
+}
+
+.gridself .box.c {
+  grid-area: c;
+  align-self: end;
+  //justify-self: end;
+}
+
+.gridself .box.d {
+  grid-area: d;
+  align-self: center;
+  //justify-self: center;
+}
+
+.gridself {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1em;
+  grid-auto-rows: calc(25% - 1em);
+  grid-template-areas: 
+    "a a b b"
+    "a a b b"
+    "c c d d"
+    "c c d d";
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>Grid has both the <code>justify-self</code> and <code>align-self</code> properties. These are self-alignment properties which allow us to control how the content of each grid item is aligned within the grid area it's been allocated to. The default behaviour is <code>stretch</code> for both axes.</p>
+            <p>We can adjust the alignment of content within the grid item with <code>start</code>, <code>center</code>, <code>end</code> or <code>baseline</code>. Once we apply any of these values, the grid item shrinks to fit its contents along the respective axis of alignment.</p>
+          </aside>
+        </section>
+
+        <section>
+          <img class="plain" style="height:2.5em;position:fixed;top:0;right:0" data-src="img/grid.svg" alt="Grid">
+          <h2><code>justify-items</code> 和 <code>align-items</code></h2>
+          <div class="livecode livecode-2p">
+            <div class="result griditems" style="font-size:75%">
+              <div style="border:1px solid" class="box a">A</div>
+              <div style="border:1px solid" class="box b">B</div>
+              <div style="border:1px solid" class="box c">C</div>
+              <div style="border:1px solid" class="box d">D</div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.griditems {
+  justify-items: legacy;
+  align-items: normal;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1em;
+  grid-auto-rows: calc(25% - 1em);
+  grid-template-areas: 
+    "a a b b"
+    "a a b b"
+    "c c d d"
+    "c c d d";
+}
+
+.griditems .box.a { grid-area: a }
+.griditems .box.b { grid-area: b }
+.griditems .box.c { grid-area: c }
+.griditems .box.d { grid-area: d }</style></div>
+          </div>
+          <aside class="notes">The <code>align-items</code> and <code>justify-items</code> properties set the default <code>align-self</code> and <code>justify-self</code> behaviour of all the items within the grid.</aside>
+        </section>
+
+        <section>
+          <img class="plain" style="height:2.5em;position:fixed;top:0;right:0" data-src="img/flexbox.svg" alt="Flexbox">
+          <h2><code>align-items</code> 和 <code>align-self</code></h2>
+          <div class="livecode livecode-2p">
+            <div class="result flexitems">
+              <div class="wrapper" style="font-size:50%">
+                <div class="box">1一</div>
+                <div class="box">2二</div>
+                <div class="box">3三</div>
+                <div class="box">4四</div>
+                <div class="box">5五</div>
+                <div class="box">6六</div>
+                <div class="box">7七</div>
+                <div class="box">8八</div>
+                <div class="box">9九</div>
+                <div class="box">10十</div>
+                <div class="box">11十一</div>
+                <div class="box">12十二</div>
+                <div class="box">13十三</div>
+                <div class="box">14十四</div>
+                <div class="box">15十五</div>
+                <div class="box">16十六</div>
+                <div class="box">17十七</div>
+                <div class="box">18十八</div>
+                <div class="box">19十四</div>
+                <div class="box">20二十</div>
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.flexitems .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.flexitems .box:nth-child(2n+1) { 
+  padding: 0.5em 1.5em 3em;
+  align-self: ;
+} 
+
+.flexitems .box { border: 1px solid }
+.flexitems .box:nth-child(2n) { padding: 2.5em; } 
+.flexitems .box:nth-child(3n) { padding: 1.5em; }
+.flexitems .box:nth-child(3n+2) { padding: 3.5em 1em; }</style></div>
+          </div>
+          <aside class="notes">
+            <p>For flexbox, <code>align-items</code> and <code>align-self</code> handles flex items in the cross axis. Like grid, the initial behaviour is stretch. And we can use <code>start</code>, <code>center</code> and <code>end</code> to move things around.</p>
+            <p>Using <code>baseline</code> aligns the baseline for every flex item so all your text within the flex items line up rather neatly.</p>
+            <p>If we want to tweak the positions of individual flex items, then we'll make use of <code>align-self</code> which does the same thing, but for individual flex items.</p>
+          </aside>
+        </section>
+
+        <section>
+          <img class="plain" data-src="img/cross-alignment.svg" alt="*-items/self values">
+          <aside class="notes">又来一些盒子插图，最后这个baseline取值比较难用插图来呈现，只好这样子啦。没办法，我的创意有限。</aside>
+        </section>
+
+        <section>
+
+        </section>
+         
         <section style="text-align:left">
           <h1>谢谢!</h1>
           <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle">https://www.chenhuijing.com</a></p>
-          <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
-          <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/wechat.png" alt="Wechat"><span style="display:inline-block;vertical-align:middle">jing74737871</span></p>
+          <p><img class="j-icon plain" data-src="img/yuque.png" alt="Yuque"><a href="https://yuque.com/huijing" style="display:inline-block;vertical-align:middle">huijing</a></p>
           <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle">@huijing</a></p>
           <p style="text-align:right"><small>拉丁字体是由 <a href="https://www.motyfo.com/">Olivier Gourvat</a> 设计的 <a href="https://www.motyfo.com/portfolio/sans-serif-font-family-magnetic-pro/">Magnetic Pro</a></small></p>
         </section>
