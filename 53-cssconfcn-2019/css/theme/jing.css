@@ -288,8 +288,6 @@ html {
   grid-template-columns: 50% 50%; }
 
 .reveal .box {
-  height: 4em;
-  width: 6em;
   background-color: #34a44d;
   color: #fff; }
 
