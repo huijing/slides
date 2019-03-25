@@ -63,9 +63,8 @@
         <section data-background-image="img/cssconf2016.jpg">
           <aside class="notes">
             <p>那让我们进入正题吧，也就是新时代CSS布局。</p>
-            <p>想请问在座的朋友们有几位参加过2016年的CSS大会？虽然，我当时没在场，但是还好有视频，让我有机会在线观赏大漠老师谈CSS Grid Layout的演讲。也很高兴当会儿有机会在现场听他的演讲。</p>
-            <p>当时，他介绍了与Grid相关的各种新属性及它们的应用方法。Grid在那时候都还没正式发布呢。</p>
-            <p>Grid可以算是新时代CSS布局的成员之一吧。</p>
+            <p>想请问在座的朋友们有几位参加过2016年的CSS大会？我当时…在家里，没来。但是还好有视频，让我有机会在线观赏大漠老师谈CSS Grid Layout的演讲。也很高兴当会儿有机会在现场听他的演讲。</p>
+            <p>他介绍了与Grid相关的各种新属性及它们的应用方法。Grid在那时候都还没正式发布呢。Grid可以算是新时代CSS布局的成员之一吧。</p>
           </aside>
         </section>
 
@@ -73,13 +72,13 @@
           <div class="l-double">
             <h2 style="grid-column:span 2">为什么纵向比横向难排？</h2>
             <div>
-              <div class="box" style="background-color:green;animation:horizontal 2s infinite"><span style="font-size:calc(1.75em + 3vw)" class="emoji" role="img" tabindex="0" aria-label="person gesturing ok">&#x1F646;</span></div>
+              <div class="box" style="height:4em;width:6em;background-color:green;animation:horizontal 2s infinite"><span style="font-size:calc(1.75em + 3vw)" class="emoji" role="img" tabindex="0" aria-label="person gesturing ok">&#x1F646;</span></div>
             </div>
             <div>
-              <div class="box" style="background-color:red;animation:vertical 2s infinite"><span style="font-size:calc(1.75em + 3vw)" class="emoji" role="img" tabindex="0" aria-label="person shrugging">&#x1F937;</span></div>
+              <div class="box" style="height:4em;width:6em;background-color:red;animation:vertical 2s infinite"><span style="font-size:calc(1.75em + 3vw)" class="emoji" role="img" tabindex="0" aria-label="person shrugging">&#x1F937;</span></div>
             </div>
           </div>
-          <aside class="notes">不知道观众朋友们是否同意，但是我认为网络开发其中令人头痛的一点就是纵向的布局。原因是网络原本是个以文字为主的媒介。</aside>
+          <aside class="notes">不知道观众朋友们是否同意，但是我认为网络开发其中令人头痛的一点就是纵向的布局。经过一番研究，我才发现到原因是网络原本是个以文字为主的媒介。</aside>
         </section>
 
         <section data-background-image="img/wwwbrowser.png">
@@ -120,7 +119,7 @@ _______________________________________
 |    element width    |
 
 |               box width               |</pre>
-          <aside class="notes">但是，CSS也介绍了以盒模型为主的布局方式。其实想一想，网络的所有内容，不都是各式各类的盒子吗？虽然初期的属性有限，但是网络开发者非常有创意，利用浮动、负margin、各式的定位等技巧，来达成心仪的设计。</aside>
+          <aside class="notes">但是，CSS也介绍了以盒模型为主的布局方式。其实想一想，网络的所有内容，不都只是各式各类的盒子吗？虽然初期的属性有限，但是网络开发者非常有创意，利用浮动、负margin、各式的定位等技巧，来达成心仪的设计。</aside>
         </section>
 
         <section>
@@ -132,7 +131,7 @@ _______________________________________
           <h2>CSS布局部队</h2>
           <img data-src="img/team-layout.png" class="plain" alt="CSS布局部队">
           <p>等属性…</p>
-          <aside class="notes">当然，我们不能忘记CSS里头的其它553个属性。因为CSS是个团队项目。当我们把各属性协调的融合在一起，才能把CSS的威力完全发挥出来。</aside>
+          <aside class="notes">当然，我们不能忘记CSS里头的其它553个属性。因为CSS是个团队项目。只有把各属性协调的融合在一起，才能把CSS的威力完全发挥出来。</aside>
         </section>
 
         <section data-backgrond-transition="none">
@@ -420,7 +419,11 @@ _______________________________________
               </ul>
             </div>
           </div>
-          <aside class="notes">当然，光靠自动margin是不够的。要更精确的调整子元素的位置，我们可以运用盒式对齐模块（box alignment）提供的属性值。Box alignment的属性一共有六个。在实行flex时，用得上其中四个，实行grid的话，六个属性全部都能用。</aside>
+          <aside class="notes">
+            <p>当然，光靠自动margin是不够的。要更精确的调整子元素的位置，我们可以运用盒式对齐模块（box alignment）提供的属性值。Flexbox的首个公开工作草案是在2009发布的，而Grid的则是2011发布。</p>
+            <p>当时两个规范设定了两组不同的对齐属性，经过讨论，工作组决定把盒子对齐写成独立的规范，让过去、现在和未来的formatting contexts都统一使用相同的属性。</p>
+            <p>Box alignment的属性一共有六个。在实行flex时，用得上其中四个，实行grid的话，六个属性全部都能用。Box alignment的属性一共有六个。在实行flex时，用得上其中四个，实行grid的话，六个属性全部都能用。</p>
+          </aside>
         </section>
 
         <section>
@@ -645,7 +648,7 @@ _______________________________________
 .flexitems .box:nth-child(3n+2) { padding: 3.5em 1em; }</style></div>
           </div>
           <aside class="notes">
-            <p>用在flexbox时，<code>align-items</code>和<code>align-self</code>指定了项目在交叉轴（cross-axis）上如何对齐。它们的默认值与grid相同，也是<code>stretch</code>。我们可以用<code>start</code>,、<code>center</code>和<code>end</code>来调整所有项目在交叉轴上的位置。</p>
+            <p>用在flexbox时，<code>align-items</code>和<code>align-self</code>指定了项目在交叉轴（cross-axis）上如何对齐。它们的默认值与grid相同，也是<code>stretch</code>。我们可以用<code>start</code>、<code>center</code>和<code>end</code>来调整所有项目在交叉轴上的位置。</p>
             <p><code>baseline</code>这个取值可能比较少见，但是如果你的项目尺寸不一致，导致文本上下不齐，那么就可以利用<code>baseline</code>把文本对齐。</p>
             <p>如果只是想调整其中几个项目的位置，那就用<code>align-self</code>，可以让个别项目有自己的位置。</p>
           </aside>
@@ -728,18 +731,6 @@ _______________________________________
         </section>
 
         <section>
-          <h2><code>fit-content</code>对比<code>minmax()</code></h2>
-          <p><span style="background-color:coral">橙色：<code>fit-content(200px)</code></span>，<span style="background-color:gold">黄色：<code>minmax(200px, 400px)</code></span></p>
-          <video loop controls>
-            <source data-src="videos/minmax-fit.mp4" type="video/mp4">
-            Sorry, your browser doesn't support embedded videos, 
-            but don't worry, you can <a href="videos/minmax-fit.mp4">download it</a>
-            and watch it with your favourite video player!
-          </video>
-          <aside class="notes"></aside>
-        </section>
-        
-        <section>
           <h2><code>max-content</code>对比固定<code>width</code></h2>
           <p><span style="background-color:silver">灰色：<code>max-content</code></span>，<span style="background-color:violet">粉红色：<code>400px</code></span></p>
           <video loop controls>
@@ -748,7 +739,33 @@ _______________________________________
             but don't worry, you can <a href="videos/fixed-max.mp4">download it</a>
             and watch it with your favourite video player!
           </video>
-          <aside class="notes">在这里，橙色是<code>fit-content(200px)</code>，黄色是<code>minmax(200px, 400px)</code>。</aside>
+          <aside class="notes">其实这个例子没什么特别的，因为max-content本身就是个固定取值。用固定取值的存在时，有灵活性的栏就会承担空间调整的责任。</aside>
+        </section>
+
+        <section>
+          <h2><code>fit-content</code>对比<code>minmax()</code></h2>
+          <p><span style="background-color:coral">橙色：<code>fit-content(200px)</code></span>，<span style="background-color:gold">黄色：<code>minmax(200px, 400px)</code></span></p>
+          <video loop controls>
+            <source data-src="videos/minmax-fit.mp4" type="video/mp4">
+            Sorry, your browser doesn't support embedded videos, 
+            but don't worry, you can <a href="videos/minmax-fit.mp4">download it</a>
+            and watch it with your favourite video player!
+          </video>
+          <aside class="notes">
+            <p>这个例子就有趣多了。橙色是<code>fit-content(200px)</code>，黄色是<code>minmax(200px, 400px)</code>。这两个取值的行为是类似的。被传入<code>minmax()</code>函数的第一个引数是最小尺寸局限值，而第二个引数是最大许可尺寸。</p>
+            <p><code>fitcontent()</code>函数也可以当<code>minmax()</code>函数来看待，只是它的最小尺寸局限是<code>min-content</code>，而最大许可尺寸是<code>max-content</code>和引数值当中较小的取值。</p>
+            <p>因此，视口在缩小时，<code>auto</code>和<code>fitcontent()</code>的行为和量变率是相同的。视口变大时，<code>fitcontent()</code>被引数值约束了，长到<code>200px</code>就不能再长了。<code>auto</code>和<code>minmax()</code>会继续伸长，可是<code>auto</code>到了<code>max-content</code>的宽度时，会停下来，让<code>minmax()</code>长到最大许可尺寸后，才继续伸长下去。</p>
+          </aside>
+        </section>
+
+        <section>
+          <video loop autoplay>
+            <source data-src="videos/florence.mp4" type="video/mp4">
+            Sorry, your browser doesn't support embedded videos, 
+            but don't worry, you can <a href="videos/florence.mp4">download it</a>
+            and watch it with your favourite video player!
+          </video>
+          <aside class="notes">这两个网页有些微妙的偏差，在视口偏大及偏小的状况下才会明显。重点是，有了这些新属性值，网络上的编辑设计可以更有艺术指导。Grid的网路线定位应许开发者轻松的实行重叠式的设计。再加上grid轨道灵活的伸缩功能，让我们在实行响应性设计时有更多附有创意的选择。</aside>
         </section>
 
         <section>
@@ -763,19 +780,34 @@ _______________________________________
     /* Styles for browsers that support the specified property */
   }
 }</code></pre>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            <p>Grid正式发布到现在，已经有大概两年的时间，浏览器的支持程度如今也高达88%，可以算是被广泛支持了。但是与其那12%的用户该怎么办呢？其实CSS可以通过feature query做功能检测。它的语法类似media query，只是用的关键字是<code>@supports</code>。</p>
+            <p>我虽然提到grid当例子，但是feature queries可以用在任何一个CSS属性。<code>@supports</code>的支持率高达94%。浏览器不支持它也没关系，因为不认得<code>@supports</code>的浏览器就会忽视整个声明块内的CSS声明。</p>
+            <p>建议把回退样式写在前头，接下来的新属性包含在<code>@supports</code>规则内。运用这种渐进增强的实行方法好处就在于连运用久款浏览器的用户，都可以顺利的观澜你的网页。</p>
+          </aside>
         </section>
 
         <section>
-        <video loop autoplay>
+          <video loop autoplay>
             <source data-src="videos/supports.mp4" type="video/mp4">
             Sorry, your browser doesn't support embedded videos, 
             but don't worry, you can <a href="videos/supports.mp4">download it</a>
             and watch it with your favourite video player!
           </video>
-          <aside class="notes"></aside>
+          <aside class="notes">在这里可以看到用feature queries实行的布局。左上角的浏览器是IE11。由于它不支持@supports，grid布局的声明块完全不影响它。IE11的用户依然可以观澜网页的内容，从中受益。用较新款浏览器的用户则可以享受被提升的布局和功能。</aside>
         </section>
 
+        <section>
+          <h2>参考链接</h2>
+          <ul>
+            <li>https://arstechnica.com/information-technology/2011/10/before-netscape-forgotten-web-browsers-of-the-early-1990s/</li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <aside class="notes"></aside>
+        </section>
+        
         <section style="text-align:left">
           <h1>谢谢!</h1>
           <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle">https://www.chenhuijing.com</a></p>
