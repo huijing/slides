@@ -57,13 +57,13 @@
           <img style="max-height:10em;margin-bottom:0.5em" class="plain" data-src="img/love-dev.svg" alt="Nexmo Developer Relations">
           <p><span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span> 开发大使 <span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span></p>
           <img style="max-height:2.5em;margin-top:1em" class="plain" data-src="img/nexmo.svg" alt="Nexmo">
-          <aside class="notes">现在我在Nexmo担任开发大使，是开发者关系团队的成员。Nexmo是个通讯API平台，提供信息，语音，认证，音视频等API，好让开发者轻松把通信功能添加入自己的APP内。</aside>
+          <aside class="notes">现在我在Nexmo担任开发大使，是开发者关系团队的成员之一。Nexmo是个通讯API平台，提供信息，语音，认证，音视频等API，好让开发者轻松把通信功能添加入自己的APP内。</aside>
         </section>
 
         <section data-background-image="img/cssconf2016.jpg">
           <aside class="notes">
             <p>那让我们进入正题吧，也就是新时代CSS布局。</p>
-            <p>想请问在座的朋友们有几位参加过2016年的CSS大会？我当时…在家里，没来。但是还好有视频，让我有机会在线观赏大漠老师谈CSS Grid Layout的演讲。也很高兴待会儿有机会在现场听他的演讲。</p>
+            <p>想请问在座的朋友们有几位参加过2016年的CSS大会？我当时…在家，没来。但是还好有视频，让我有机会在线观赏大漠老师谈CSS Grid Layout的演讲。也很高兴待会儿有机会在现场聆听他的演讲。</p>
             <p>他介绍了与Grid相关的各种新属性及它们的应用方法。Grid在那时候都还没正式发布呢。Grid可以算是新时代CSS布局的成员之一吧。</p>
           </aside>
         </section>
@@ -93,7 +93,7 @@
         </section>
 
         <section data-background-image="img/browsers.jpg">
-          <aside class="notes">早期的浏览器都注重西文文字的排版，重视的是水平方向。初期的元素包括h1-6的标题元素，p元素，各式的列表元素。CSS在1996年发布时，多数的属性也是为了调整文字的布局而设。</aside>
+          <aside class="notes">早期的浏览器都注重西文文字的排版，重视的是水平方向。初期的元素包括h1-6的标题元素、p元素、各式的列表元素。CSS在1996年发布时，多数的属性也是为了调整文字的布局而设。</aside>
         </section>
 
         <section>
@@ -119,7 +119,7 @@ _______________________________________
 |    element width    |
 
 |               box width               |</pre>
-          <aside class="notes">但是，CSS也介绍了以盒模型为主的布局方式。其实想一想，网络的所有内容，不都只是各式各类的盒子吗？虽然初期的属性有限，但是网络开发者非常有创意，利用浮动、负margin、各式的定位等技巧，来达成心仪的设计。</aside>
+          <aside class="notes">但是，CSS同时也介绍了以盒模型为主的布局方式。其实想一想，网络的所有内容，不都只是各式各类的盒子吗？虽然初期的属性有限，但是网络开发者非常有创意，利用浮动、负margin、各式的定位等技巧，来达成心仪的设计。</aside>
         </section>
 
         <section>
@@ -317,7 +317,7 @@ _______________________________________
           </table>
           <aside class="notes">
             <p>规范编辑强调利用简写的<code>flex</code>属性，因为它会正确的重置相关的属性值。而<code>flex</code>简写有几个关键字，是为了应付最常见的用例而设的。</p>
-            <p>当你把<code>display:flex</code>设在一个元素上时，即使你不在子元素设定任何<code>flex</code>值，浏览器自己会套上<code>flex:initial</code>这个默认值，计算出来变成<code>0 1 auto</code>。</p>
+            <p>当你把<code>display:flex</code>设在一个元素上时，即使你不在子元素设定任何<code>flex</code>取值，浏览器自己会套上<code>flex:initial</code>这个默认值，计算出来变成<code>0 1 auto</code>。</p>
             <p>如果你想要子元素伸缩自如，那可以设一个<code>flex:auto</code>的取值，让子元素随着容器的空间同一频率伸缩。</p>
             <p>若你的理想设计内有几个flex项目是必须有固定的尺寸，可以用<code>flex:none</code>让它失去弹性功能，永远都保持自己的尺寸。最后，如果你用单单一个正整数为取值，浏览器就会把这个整数设为<code>flex-grow</code>的取值，而与其的两个取值会重置为<code>1</code>和<code>0</code>。</p>
           </aside>
@@ -341,7 +341,8 @@ _______________________________________
           </div>
           <aside class="notes">
             <p>话也讲多了，大家应该也闷了。来些show me the code，会有趣一点吧。首先，来个小基本：自动margin。Flex容器内的子元素被浏览器视为flex项目，CSS布局最关键的转折点就在于这个父子关系。</p>
-            <p>在这个简单的例子，容器内置只有一个子元素，而我们可以运用margin来操纵它。</p>
+            <p>在这个简单的例子，容器内置只有一个子元素。我们可以运用margin来操纵它。</p>
+            <p>如果不设定任何方向，盒子就会在容器的正中间。一行搞定水平垂直居中的问题。</p>
           </aside>
         </section>
 
@@ -421,8 +422,8 @@ _______________________________________
           </div>
           <aside class="notes">
             <p>当然，光靠自动margin是不够的。要更精确的调整子元素的位置，我们可以运用盒式对齐模块（box alignment）提供的属性值。Flexbox的首个公开工作草案是在2009发布的，而Grid的则是2011发布。</p>
-            <p>当时两个规范设定了两组不同的对齐属性，经过讨论，工作组决定把盒子对齐写成独立的规范，让过去、现在和未来的formatting contexts都统一使用相同的属性。</p>
-            <p>Box alignment的属性一共有六个。在使用flex时，用得上其中四个，实行grid的话，六个属性全部都能用。</p>
+            <p>当时两个规范设定了两组不同的对齐属性。经过讨论，工作组决定把盒子对齐写成独立的规范，让过去、现在和未来的formatting contexts都统一使用相同的属性。</p>
+            <p>Box alignment的属性一共有六个。在使用flex时，用得上其中四个，使用grid的话，六个属性全部都能用。</p>
           </aside>
         </section>
 
@@ -507,14 +508,14 @@ _______________________________________
           <aside class="notes">
             <p>用在flexbox时，<code>justify-content</code>定义了项目在主轴（main axis）上的对齐方式。项目的尺寸及自动margin调配好之后，剩下来的空间可以用<code>justify-content</code>来分配。如果注意看这个例子，你会注意到右边有些剩余的空间。</p>
             <p>默认值是<code>flex-start</code>。我们可以用<code>flex-end</code>或<code>center</code>移动整组flex项目。而flex项目之间的空间则可以用<code>space-around</code>, <code>space-between</code>和<code>space-evenly</code>来调整。</p>
-            <p>由于项目很多，这个容器出现了多根轴线（flex lines）的现象。在这种状况下，<code>align-content</code>就可以派上用场。因为它是多根轴线的对齐方式。如果轴线只有一条，这个属性是没有效果的。<code>align-content</code>的默认值是<code>stretch</code>，所以当轴线只有一条时，这个单轴线就会伸长，占满整个flex line的空间。</p>
+            <p>由于项目很多，这个容器出现了多根轴线（multiple flex lines）的现象。在这种状况下，<code>align-content</code>就可以派上用场。因为它是多根轴线的对齐方式。如果轴线只有一条，这个属性是没有效果的。<code>align-content</code>的默认值是<code>stretch</code>，所以当轴线只有一条时，这个单轴线就会伸长，占满整个flex line的空间。</p>
             <p>我们可以用之前提到的六个取值来对齐轴线，或则分配轴线之间的空间。</p>
           </aside>
         </section>
 
         <section>
           <img class="plain" data-src="img/axis-alignment.svg" alt="*-content values">
-          <aside class="notes">之前在画插图时，有点走火入魔的现象，越画越过瘾。当会儿你们还会看到很多盒子的插图。这个是用来表示<code>justify-content</code>及<code>align-content</code>各个属性值的效果。</aside>
+          <aside class="notes">之前在画插图时，有点走火入魔的现象，越画越过瘾。待会儿你们还会看到很多盒子的插图。这个是用来表示<code>justify-content</code>及<code>align-content</code>各个属性值的效果。</aside>
         </section>
 
         <section>
@@ -670,7 +671,7 @@ _______________________________________
           </video>
           <aside class="notes">
             <p>现在已经相当普遍的响应式网页设计，主要是依靠百分比来设定元素的尺寸。运用百分比的局限就是每个元素伸缩率是一致的。有时，这会导致开发者为了应付各种viewport尺寸范围，被逼要写数不清的media query。</p>
-            <p>就拿这只小猫当例子，当viewport偏大时，图案就太大，当视屏偏小时，图案又太小。因为图案拥有屏 幕比例（aspect ratio）的元素，跟文本的行级流式显然不同。因为百分比永远都是依赖容器计算的。</p>
+            <p>就拿这只小猫当例子，当viewport偏大时，图案就太大，当viewport偏小时，图案又太小。因为图案是拥有屏幕比例（aspect ratio）的元素，跟文本的行级流式显然不同。但是没办法，因为百分比始终是依赖容器尺寸来计算的。</p>
           </aside>
         </section>
 
@@ -739,7 +740,7 @@ _______________________________________
             but don't worry, you can <a href="videos/fixed-max.mp4">download it</a>
             and watch it with your favourite video player!
           </video>
-          <aside class="notes">其实这个例子没什么特别的，因为max-content本身就是个固定取值。用固定取值的存在时，有灵活性的栏就会承担空间调整的责任。</aside>
+          <aside class="notes">其实这个例子没什么特别的，因为max-content本身就是个固定取值。有固定取值的存在时，有灵活性的栏就会承担空间调整的责任。</aside>
         </section>
 
         <section>
@@ -765,7 +766,7 @@ _______________________________________
             but don't worry, you can <a href="videos/florence.mp4">download it</a>
             and watch it with your favourite video player!
           </video>
-          <aside class="notes">这两个网页有些微妙的偏差，在viewport偏大及偏小的状况下才会明显。重点是，有了这些新属性值，网络上的编辑设计可以更有艺术指导。Grid的网路线定位应许开发者轻松的实行重叠式的设计。再加上grid轨道灵活的伸缩功能，让我们在实行响应性设计时有更多富有创意的选择。</aside>
+          <aside class="notes">这两个网页有些微妙的偏差，在viewport偏大及偏小的状况下才会明显。重点是，有了这些新属性值，网络上的编辑设计可以更有艺术指导。Grid的网路线定位允许开发者轻松的实现重叠式的设计。再加上grid轨道灵活的伸缩功能，让我们在实现响应性设计时，有更多富有创意的选择。</aside>
         </section>
 
         <section>
@@ -783,7 +784,7 @@ _______________________________________
           <aside class="notes">
             <p>Grid正式发布到现在，已经有大概两年的时间，浏览器的支持程度如今也高达88%，可以算是被广泛支持了。但是其它12%的用户该怎么办呢？其实CSS可以通过feature query做功能检测。它的语法类似media query，只是用的关键字是<code>@supports</code>。</p>
             <p>我虽然提到grid当例子，但是feature queries可以用在任何一个CSS属性。<code>@supports</code>的支持率高达94%。浏览器不支持它也没关系，因为不认得<code>@supports</code>的浏览器就会忽视整个声明块内的CSS声明。</p>
-            <p>建议把回退样式写在前头，接下来的新属性包含在<code>@supports</code>规则内。运用这种渐进增强的实行方法好处就在于连运用旧款浏览器的用户，都可以顺利的浏览你的网页。</p>
+            <p>建议把回退样式写在前头，接下来的新属性包含在<code>@supports</code>规则内。运用这种渐进增强的实现方法好处就在于连运用旧款浏览器的用户，都可以顺利的浏览你的网页。</p>
           </aside>
         </section>
 
@@ -794,18 +795,32 @@ _______________________________________
             but don't worry, you can <a href="videos/supports.mp4">download it</a>
             and watch it with your favourite video player!
           </video>
-          <aside class="notes">在这里可以看到用feature queries实行的布局。左上角的浏览器是IE11。由于它不支持@supports，grid布局的声明块完全不影响它。IE11的用户依然可以浏览网页的内容，从中受益。用较新款浏览器的用户则可以享受被提升的布局和功能。</aside>
+          <aside class="notes">
+            <p>在这里可以看到用feature queries实现的布局。左上角的浏览器是IE11。由于它不支持<code>@supports</code>，grid布局的声明块完全不影响它。IE11的用户依然可以浏览网页的内容，从中受益。用较新款浏览器的用户则可以享受被提升的布局和功能。</p>
+            <p>时间也差不多了。最后，即使我刚才所说的一切你都不记得，我要求你们牢牢记住这个问题的答案。</p>
+          </aside>
+        </section>
+
+        <section data-background-video="videos/no.mp4" data-background-video-muted>
+          <aside class="notes">网站需要在每个浏览器都长得一摸一样吗？No。</aside>
         </section>
 
         <section>
           <h2>参考链接</h2>
           <ul>
-            <li>https://arstechnica.com/information-technology/2011/10/before-netscape-forgotten-web-browsers-of-the-early-1990s/</li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li><a href="https://worldwideweb.cern.ch/browser/">WorldWideWeb 浏览器</a></li>
+            <li><a href="https://arstechnica.com/information-technology/2011/10/before-netscape-forgotten-web-browsers-of-the-early-1990s/">Before Netscape: the forgotten Web browsers of the early 1990s</a></li>
+            <li><a href="https://www.w3.org/TR/REC-CSS1-961217">Cascading Style Sheets, level 1 (W3C 推荐标准 17 Dec 1996)</a></li>
+            <li><a href="https://www.w3.org/Style/CSS/all-properties.en.html">CSS属性列表</a></li>
+            <li><a href="https://www.w3.org/TR/css-display-3/">CSS显示模块 Level 3</a></li>
+            <li><a href="https://www.w3.org/TR/css-flexbox-1/">CSS弹性盒式布局模块 Level 1</a></li>
+            <li><a href="https://www.w3.org/TR/CSS2/visudet.html">CSS2.1: 10 视觉格式化模型细节</a></li>
+            <li><a href="https://www.w3.org/TR/css-align-3/">CSS盒式对齐模块 Level 3</a></li>
+            <li><a href="https://www.w3.org/TR/css-sizing-3/">CSS Intrinsic & Extrinsic Sizing Module Level 3</a></li>
+            <li><a href="https://24ways.org/2017/cascading-web-design/">Cascading Web Design with Feature Queries</a></li>
+            <li><a href="https://www.chenhuijing.com/demos/green-tea1/">渐进增强布局</a></li>
           </ul>
-          <aside class="notes"></aside>
+          <aside class="notes">这里有些参考链接，过后会跟大家分享。希望通过这个演讲可以让在座的朋友们有所启发。运用这些新属性去尝试实现通用型的网络设计，创造更符合浏览器本质的网页。</aside>
         </section>
         
         <section style="text-align:left">
@@ -815,6 +830,7 @@ _______________________________________
           <p><img class="j-icon plain" data-src="img/yuque.png" alt="Yuque"><a href="https://yuque.com/huijing" style="display:inline-block;vertical-align:middle">huijing</a></p>
           <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle">@huijing</a></p>
           <p style="text-align:right"><small>拉丁字体是由 <a href="https://www.motyfo.com/">Olivier Gourvat</a> 设计的 <a href="https://www.motyfo.com/portfolio/sans-serif-font-family-magnetic-pro/">Magnetic Pro</a></small></p>
+          <aside class="notes">谢谢大家。</aside>
         </section>
       </div>
 
