@@ -47,7 +47,7 @@
           </div>
           <aside class="notes">
             <p>首先，让我来做个自我介绍。我姓陈，名叫慧晶，来自马来西亚。</p>
-            <p>我曾经当过全职篮球选手，也因此无意间走上网络开发这条路。若你觉得很好奇，篮球怎么会跟网络开发扯上关系，那当会儿可以找我聊聊。</p>
+            <p>我曾经当过全职篮球选手，也因此无意间走上网络开发这条路。若你觉得很好奇，篮球怎么会跟网络开发扯上关系，那待会儿可以找我聊聊。</p>
             <p>从入行到现在，我一直都觉得CSS是一样相当有趣的东西，所以会经常探索新属性或更深入了解现有的属性，并且把学习经验写在博客上。</p>
             <p>去年也加入了谋智（Mozilla）技术讲师组，这项倡议主要是要协助技术布道和指导师在世界各地的技术会议推广开源网络科技。谋智会给予组员多方面的支持，如演讲培训、技术训练、资金等。</p>
           </aside>
@@ -661,6 +661,50 @@ _______________________________________
         </section>
 
         <section>
+          <h2>Grid或者Flexbox?</h2>
+          <h2 class="fragment j-stamp">问错了!</h2>
+          <aside class="notes">有些人会问我，Flexbox和Grid要选谁比较好？我都会回答说，你这问题问错了。因为这不是个二选一的状况，应该是二合一才对。</aside>
+        </section>
+
+        <section>
+          <h2>Flexbox（单维）</h2>
+          <img class="plain" data-src="img/flex-1d.svg" alt="Flexbox的假冒行列">
+          <aside class="notes">Flexbox比较适合单维方向的布局。因为运用Flexbox来实现的行列，即使对齐了，也只是个假象。Flexbox的行跟列是互不相关的。但是在单维布局，它拥有最强的弹性功能。</aside>
+        </section>
+
+        <section>
+          <h2>Grid（二维）</h2>
+          <img class="plain" data-src="img/grid-2d.svg" alt="Grid的真实行列">
+          <aside class="notes">Grid则适合做二维网格布局，因为Grid中的行列才是真实的，是有关系的。你可以像在棋盘上排棋子似的，把Grid项目排成理想的布局。</aside>
+        </section>
+
+        <section>
+          <h2>Grid和Flex合作愉快</h2>
+          <div class="l-double" style="justify-items:center">
+            <img class="plain" data-src="img/moholy.jpg" alt="Page 126 of Malerei, Fotografie, Film by Moholy-Nagy" style="max-height:75vh"> 
+            <img class="plain fragment" data-src="img/moholy2.jpg" alt="Recreation of page 126 of Malerei, Fotografie, Film with grid and flexbox" style="max-height:75vh">
+          </div>
+          <aside class="notes">要实现类似这样的设计，用新时代布局方式是做得到的。要如何实现这种内容不对齐，环绕每个Grid单元厚厚的border？如果单靠Grid，用Box alignment属性，可以吗？</aside>
+        </section>
+
+        <section>
+          <div class="l-double" style="justify-items:stretch">
+            <figure>
+              <img class="plain" style="height:8em" data-src="img/fit.svg" alt="Self-alignment properties">
+              <figcaption>实现失败</figcaption>
+            </figure>
+            <figure class="fragment">
+              <img class="plain" style="height:8em" data-src="img/flex.svg" alt="Display flex on grid items">
+              <figcaption>这样还差不多</figcaption>
+            </figure>
+          </div>
+          <aside class="notes">
+            <p>很可惜，做不到。之前有提过，Grid项目对齐的默认值是<code>stretch</code>。一旦用上任何<code>stretch</code>以外的取值时，项目就会马上缩到内容的尺寸。</p>
+            <p>可是如果我们在Grid项目上设一个<code>display:flex</code>，把它变成Flex容器。那表示Grid项目里面的内容，成为了Flex项目。现在利用Box alignment的各属性调整内容的位置就不会影响到Grid项目的尺寸，border也可以保持在Grid线上了。</p>
+          </aside>
+        </section>
+
+        <section>
           <h2>百分比的局限</h2>
           <p>一致性的伸缩率</p>
           <video autoplay loop>
@@ -797,12 +841,19 @@ _______________________________________
           </video>
           <aside class="notes">
             <p>在这里可以看到用feature queries实现的布局。左上角的浏览器是IE11。由于它不支持<code>@supports</code>，grid布局的声明块完全不影响它。IE11的用户依然可以浏览网页的内容，从中受益。用较新款浏览器的用户则可以享受被提升的布局和功能。</p>
-            <p>时间也差不多了。最后，即使我刚才所说的一切你都不记得，我要求你们牢牢记住这个问题的答案。</p>
+            <p>时间也差不多了。在结束之前我只想说，即使我刚才所说的一切你都不记得，我要求你们牢牢记住这个问题的答案。</p>
           </aside>
         </section>
 
         <section data-background-video="videos/no.mp4" data-background-video-muted>
           <aside class="notes">网站需要在每个浏览器都长得一摸一样吗？No。</aside>
+        </section>
+
+        <section>
+          <h2>致谢</h2>
+          <p>谢谢CSS女神/攀岩高手，皋玮，做我的编辑。</p>
+          <img class="plain" style="max-height:75vh" data-src="img/wei.jpg" alt="CSS女神，皋玮">
+          <aside class="notes">最后，我也要感谢一位跟我一样热爱CSS的好友，皋玮，帮我修正错字连篇的演讲稿。</aside>
         </section>
 
         <section>
