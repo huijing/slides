@@ -76,16 +76,40 @@
 
 38. [Layout the web with CSS grid](https://www.chenhuijing.com/slides/38-ffc-2018)
 
-39. *WIP* [East Asian typography on the web](https://www.chenhuijing.com/slides/39-refresh-2018)
+39. [East Asian typography on the web](https://www.chenhuijing.com/slides/39-refresh-2018)
 
-40. *WIP* [The case for modern CSS](https://www.chenhuijing.com/slides/40-ts-meetup-2018)
+40. [The case for modern CSS](https://www.chenhuijing.com/slides/40-ts-meetup-2018)
 
-41. *WIP* [Rich dynamic design with modern CSS](https://www.chenhuijing.com/slides/41-w3c-workshop-2018)
+41. [Rich dynamic design with modern CSS](https://www.chenhuijing.com/slides/41-w3c-workshop-2018)
 
-42. *WIP* [Typesetting East Asian languages on the web](javascript:void(0))
+42. [Typesetting East Asian languages on the web](https://www.chenhuijing.com/slides/42-css-minsk-js-2018)
 
-43. *WIP* [Be like water: applying Bruce Lee's philosophy to web design](javascript:void(0))
+43. [Be like water: applying Bruce Lee's philosophy to web design](https://www.chenhuijing.com/slides/43-view-source-2018)
 
-44. *WIP* [beyond tellerrand](javascript:void(0))
+44. [Layout the web with CSS grid (and friends)](https://www.chenhuijing.com/slides/44-btconfws-2018)
 
-45. *WIP* [deTECH conference](javascript:void(0))
+45. [Box Alignment](https://www.chenhuijing.com/slides/45-btconfws-2018)
+
+46. [Building layouts with modern CSS](https://www.chenhuijing.com/slides/46-detech-2018)
+
+47. [四面八方 – Directions of the web](https://www.chenhuijing.com/slides/47-directions-of-the-web)
+
+48. [CSS wizarding world](https://www.chenhuijing.com/slides/48-css-wizarding-world)
+
+49. [State Of The Web In Singapore](https://www.chenhuijing.com/slides/49-state-of-the-web-sg)
+
+50. [Using Firefox DevTools to understand modern layout techniques](https://www.chenhuijing.com/slides/50-devtools-for-layouts)
+
+51. [Creating art with CSS](https://www.chenhuijing.com/slides/51-css-art)
+
+52. [The value of sharing our perspectives](https://www.chenhuijing.com/slides/52-devrelcon-2019)
+
+53. [新时代CSS布局](https://www.chenhuijing.com/slides/53-cssconfcn-2019)
+
+54. [网络的四面八方](https://www.chenhuijing.com/slides/54-web-is-not-just-ltr)
+
+55. [Web typography: a non-English perspective](https://www.chenhuijing.com/slides/55-jsheroes-2019)
+
+56. [A deep dive into images on the web](https://www.chenhuijing.com/slides/56-imagecon-2019)
+
+57. [Typesetting for a global web](https://www.chenhuijing.com/slides/57-yglf-2019)
