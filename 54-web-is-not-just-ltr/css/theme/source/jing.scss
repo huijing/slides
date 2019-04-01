@@ -1,0 +1,399 @@
+/**
+ * Custom theme for Reveal.js presentations.
+ *
+ * Copyright (C) 2018 Chen Hui Jing, https://www.chenhuijing.com/
+ */
+
+// Default mixins and settings -----------------
+@import '../template/mixins';
+@import '../template/settings';
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url('../../lib/font/magnetic-pro/magnetic-pro.css');
+@import url('../../lib/font/magnetic-pro-black/magnetic-pro-black.css');
+
+// Theme template ------------------------------
+@import '../template/theme';
+
+// ---------------------------------------------
+// Customised styles for this presentation
+html {
+  box-sizing: border-box;
+  height: 100%;
+  font-size: 125%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.reveal {
+  .l-multiple {
+    display: flex;
+    justify-content: space-around;
+
+    .j-vert {
+      width: 1em;
+    }
+  }
+
+  .l-double {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+
+  .j-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1rem;
+  }
+
+  em {
+    color: $headingColor;
+  }
+
+  pre {
+    line-height: 1.2;
+    font-size: 80%;
+  }
+
+  code {
+    font-family: 'Dank Mono', monospace;
+  }
+
+  blockquote {
+    width: 80%;
+    text-align: left;
+    box-shadow: none;
+    line-height: 1.55;
+    font-size: 130%;
+    position: relative;
+
+    p::before,
+    p::after {
+      position: absolute;
+      font-size: 2.5em;
+      font-family: Georgia, serif;
+      color: $headingColor;
+    }
+
+    p::before {
+      top: -0.125em;
+      left: -0.5em;
+      content: '\201C';
+    }
+
+    p::after {
+      bottom: 0;
+      right: -0.3em;
+      content: '\201D';
+    }
+  }
+
+  figure {
+    img {
+      max-height: 75vh;
+    }
+
+    figcaption {
+      font-style: italic;
+      font-size: 75%;
+    }
+  }
+
+  img[src*="svg"] {
+    max-height: 75vh;
+  }
+
+  td {
+    vertical-align: middle;
+  }
+}
+
+// Accessible emojis ------------------------------
+span.emoji {
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji';
+  font-style: normal;
+  font-size: 125%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+span[role=img][aria-label],
+span[role=img][aria-label] {
+  position: relative;
+}
+
+span[role=img][aria-label]:focus::after,
+span[role=img][aria-label]:hover::after {
+  font-size: 25%;
+  font-family: $mainFont;
+  font-weight: 400;
+  position: absolute;
+  display: block;
+  line-height: 1.2;
+  content: attr(aria-label);
+  z-index: 1;
+  background: $mainColor;
+  color: $backgroundColor;
+  padding: 0.25em;
+  border: 1px solid $backgroundColor;
+  box-shadow: 2px 2px 4px $mainColor;
+}
+
+// Demo-related ------------------------------
+.livecode {
+  display: grid;
+  grid-gap: 0.5em;
+  margin: 0;
+  padding: 0;
+
+  .result {
+    max-height: 100%;
+    overflow-y: scroll;
+    width: 100%;
+    border: 1px dashed $headingColor;
+
+    li {
+      line-height: 0;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .code {
+    text-align: left;
+    width: 100%;
+    font-family: 'Dank Mono', monospace;
+    color: #efdcbc;
+    background-color: #3f3f3f;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    overflow-y: scroll;
+    font-size: 75%;
+  }
+}
+
+.code-editor {
+  display: block;
+  height: 100%;
+  white-space: pre-wrap;
+}
+
+.vidcode {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  height: 75vh;
+
+  video {
+    align-self: center;
+  }
+}
+
+.livecode-2p {
+  grid-template-columns: 65% calc(35% - 0.5em);
+  height: 70vh;
+}
+
+.code-editor {
+  display: block;
+  height: 100%;
+  white-space: pre-wrap;
+}
+
+// Pure CSS Galaxy S5 ------------------------------
+.galaxys5 {
+  display: inline-block;
+  position: relative;
+  box-sizing: content-box !important;
+  padding: 60px 18px;
+  border-radius: 42px;
+  width: 320px;
+  height: 568px;
+  background: #bcbcbc;
+
+  &:before,
+  &:after {
+    width: calc(100% - 52px);
+    content: '';
+    display: block;
+    height: 26px;
+    background: inherit;
+    position: absolute;
+    border-radius: 500px / 40px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &:before {
+    top: -7px;
+  }
+
+  &:after {
+    bottom: -7px;
+  }
+
+  .screen {
+    width: 90%;
+    position: relative;
+    height: 82.5%;
+    top: 8%;
+    z-index: 3;
+    background: white;
+    overflow: hidden;
+    display: block;
+    margin: 0 auto;
+    border-radius: 1px;
+    box-shadow: 0 0 0 2px #444;
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .vert-txt {
+    writing-mode: vertical-rl;
+
+    p {
+      margin-right: 1em;
+    }
+  }
+
+  .middle-bar {
+    width: 3px;
+    height: 4px;
+    top: 0px;
+    left: 90px;
+    background: black;
+    position: absolute;
+  }
+
+  .top-bar {
+    display: block;
+    border-radius: 37px;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    top: 5px;
+    left: 5px;
+    background:
+        radial-gradient(rgba(0, 0, 0, 0.02) 20%, transparent 60%) 0 0,
+        radial-gradient(rgba(0, 0, 0, 0.02) 20%, transparent 60%) 3px 3px;
+    background-color: white;
+    background-size: 4px 4px;
+    background-position: center;
+    z-index: 2;
+    position: absolute;
+
+    &:before,
+    &:after {
+      width: calc(100% - 48px);
+      content: '';
+      display: block;
+      height: 26px;
+      background: inherit;
+      position: absolute;
+      border-radius: 500px / 40px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &:before {
+      top: -7px;
+    }
+
+    &:after {
+      bottom: -7px;
+    }
+  }
+
+  .sleep {
+    width: 3px;
+    position: absolute;
+    left: -3px;
+    top: 100px;
+    height: 100px;
+    background: #cecece;
+    border-radius: 2px 0px 0px 2px;
+  }
+
+  .speaker {
+    width: 68px;
+    height: 8px;
+    position: absolute;
+    top: 20px;
+    display: block;
+    z-index: 3;
+    left: 50%;
+    margin-left: -34px;
+    background-color: #bcbcbc;
+    background-position: top left;
+    border-radius: 4px;
+  }
+
+  .sensor {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 100px;
+    background: #3c3d3d;
+    border-radius: 100%;
+    width: 8px;
+    height: 8px;
+    z-index: 3;
+
+    &:after {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 0px;
+      right: 12px;
+      background: #3c3d3d;
+      border-radius: 100%;
+      width: 8px;
+      height: 8px;
+      z-index: 3;
+    }
+  }
+
+  .camera {
+    display: block;
+    position: absolute;
+    top: 24px;
+    right: 42px;
+    background: black;
+    border-radius: 100%;
+    width: 10px;
+    height: 10px;
+    z-index: 3;
+
+    &:before {
+      width: 4px;
+      height: 4px;
+      background: #3c3d3d;
+      border-radius: 100%;
+      position: absolute;
+      content: '';
+      top: 50%;
+      left: 50%;
+      margin-top: -2px;
+      margin-left: -2px;
+    }
+  }
+
+  .home {
+    position: absolute;
+    z-index: 3;
+    bottom: 17px;
+    left: 50%;
+    width: 70px;
+    height: 20px;
+    background: white;
+    border-radius: 18px;
+    display: block;
+    margin-left: -35px;
+    border: 2px solid black;
+  }
+}
