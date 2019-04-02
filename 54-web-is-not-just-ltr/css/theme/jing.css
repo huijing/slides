@@ -277,6 +277,9 @@ html {
 *::after {
   box-sizing: inherit; }
 
+.reveal .slides section .fragment.fade-out.visible:not(.current-fragment) {
+  display: none; }
+
 .reveal .l-multiple {
   display: flex;
   justify-content: space-around; }
@@ -559,3 +562,35 @@ span[role=img][aria-label]:hover::after {
     display: block;
     margin-left: -35px;
     border: 2px solid black; }
+
+div.triangle {
+  border-top: 15vmin solid transparent;
+  border-bottom: 15vmin solid transparent;
+  border-left: 15vmin solid #00cc00;
+  width: 0;
+  margin: 0 auto; }
+
+div.trapezium {
+  width: 60vmin;
+  height: 30vmin;
+  clip-path: polygon(33% 0, 67% 0, 100% 100%, 0% 100%);
+  background: #00cc00;
+  margin: 0 auto; }
+
+div.border-box {
+  width: 30vmin;
+  height: 30vmin;
+  border-top: 30px solid green;
+  border-bottom: 30px solid yellow;
+  border-left: 30px solid red;
+  border-right: 30px solid blue;
+  margin: 2em auto; }
+
+div.borders {
+  width: 0;
+  height: 0;
+  border-top: 30px solid green;
+  border-bottom: 30px solid yellow;
+  border-left: 30px solid red;
+  border-right: 30px solid blue;
+  margin: 2em auto; }

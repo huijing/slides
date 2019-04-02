@@ -192,11 +192,8 @@
 
         <section>
           <section>
-            <img class="plain" data-src="img/card-transforms.png" alt="CSS transforms trading card">
-            <aside class="notes">
-              <p>While preparing this talk, I got a bit carried away with the sports analogy, and ended up being side-tracked by creating CSS trading cards. Because I have the attention span of a five-year-old.</p>
-              <p>Anyhow, let's start off with something reasonably familiar: CSS transforms. Even though transforms are often used for animations, static transforms can be pretty useful too.</p>
-            </aside>
+            <img class="plain" style="max-height:100vh" data-src="img/card-transforms.png" alt="CSS transforms trading card">
+            <aside class="notes"></aside>
           </section>
 
           <section>
@@ -238,7 +235,23 @@
   </li>
 </ul></code></pre>
             </div>
-            <aside class="notes">Mark-up is very basic. The additional <code>p</code> tag inside the list item is for styling purposes, because I only have two pseudo-elements to play with, and that's not enough for a pure CSS pencil.</aside>
+            <aside class="notes">Mark-up is very basic. The additional <code>p</code> tag inside the list item is for styling purposes, because I only have two pseudo-elements (伪元素) to play with, and that's not enough for a pure CSS pencil.</aside>
+          </section>
+
+          <section>
+            <h2>纯CSS的三角形</h2>
+            <div class="fragment fade-out border-box"></div>
+            <div class="fragment fade-in">
+              <div class="fragment fade-out borders"></div>
+            </div>
+            <div class="fragment">
+              <div class="triangle"></div>
+            </div>
+            <pre class="fragment"><code>.triangle {
+  border-top: 18.75vmin solid transparent;
+  border-bottom: 18.75vmin solid transparent;
+  border-left: 18.75vmin solid #1e292f;
+}</code></pre>
           </section>
 
           <section>
@@ -342,7 +355,7 @@
   transform-origin: 0% 0%;
 }</style></div>
             </div>
-            <aside class="notes">There are four 2D-transform functions available to us, and we'll use the rotate transform to get the pencils vertical. The tricky part about using transforms is that you have to keep in mind the <code>transform-origin</code>, and how the browser deals with transforms to begin with.</aside>
+            <aside class="notes">There are four 2D-transform (二维变形) functions available to us (旋转，缩放，倾斜或平移) and we'll use the rotate transform to get the pencils vertical. The tricky part about using transforms is that you have to keep in mind the <code>transform-origin</code> (变换原点), and how the browser deals with transforms to begin with.</aside>
           </section>
 
           <section>
@@ -368,8 +381,8 @@
 
         <section>
           <section>
-            <img class="plain" data-src="img/card-writingmode.png" alt="Writing mode trading card">
-            <aside class="notes">Well, the outcome of my research into typesetting Chinese vertically on the web led me to discover the existence of the writing modes specification.</aside>
+            <img class="plain" style="max-height:100vh" data-src="img/card-writingmode.png" alt="Writing mode trading card">
+            <aside class="notes"></aside>
           </section>
 
           <section>
@@ -426,8 +439,8 @@
               </figure>
             </div>
             <aside class="notes">
-              <p>Now when we rotate text, it's not only the lines that change direction, because each line contains individual letters or characters. They have an orientation as well.</p>
-              <p>For text-orientation, the initial value is mixed. Browsers are smart enough to tell which languages can be typeset both vertically and horizontally, or in one direction only. So Chinese characters, for example, will always be displayed upright. While horizontal-only languages, will have their characters rotated when vertical.</p> 
+              <p>Now when we rotate text, it's not only the lines that change direction, because each line contains individual letters or characters. They have an orientation (取向) as well.</p>
+              <p>For text-orientation, the initial value is mixed. Browsers are smart enough to tell which languages can be typeset both vertically and horizontally (双向文字), or in one direction only. So Chinese characters, for example, will always be displayed upright (直立). While horizontal-only languages, will have their characters rotated (被旋转) when vertical.</p> 
               <p>The <code>text-orientation</code> property let's you control this, and make all the characters upright or sideways, if you want to.</p>
             </aside>
           </section>
@@ -450,10 +463,18 @@
             </div>
             <a href="https://codepen.io/huijing/pen/bWzMEJ"><small>Codepen example for text-combine-upright</small></a>
             <aside class="notes">
-              <p><code>text-combine-upright</code> is the property that addresses the issue of numerals and abbreviations in vertical text, by allowing us to fit them into the width of one character to be displayed upright.</p>
+              <p><code>text-combine-upright</code> is the property that addresses the issue of numerals and abbreviations in vertical text, by allowing us to fit them into the width of one character (字符) to be displayed upright.</p>
               <p>No browser supports the digits value yet, which allows us to dictate how many digits or letters are acceptable to be squeezed in. The range allowed is between 2 to 4 characters.</p>
-              <p>For now, with the <code>all</code> value, there is no limit, so you use it on a long word like “Beethoven”, and the browser will squish all those letters into that single-character space.</p>
+              <p>For now, with the <code>all</code> value, there is no limit, so you use it on a long word like “Beethoven”, and the browser will squish all those letters into that single-character space (一个字符宽的空间).</p>
             </aside>
+          </section>
+
+          <section>
+            <div class="l-multiple">
+              <div style="margin-bottom:1em;writing-mode:vertical-rl;font-family:'PingFang SC';font-size:175%"><span>古巴<span style="text-combine-upright:all">Cuba</span></span></div>
+              <div class="fragment" style="margin-bottom:1em;writing-mode:vertical-rl;font-family:'PingFang SC';font-size:175%"><span>愛沙尼亞共和國<span style="text-combine-upright:all">Estonia</span></span></div>
+              <div class="fragment" style="margin-bottom:1em;writing-mode:vertical-rl;font-family:'PingFang SC';font-size:175%"><span>列支敦斯登<span style="text-combine-upright:all">Liechtenstein</span></span></div>
+            </div>
           </section>
 
           <section>
@@ -605,8 +626,14 @@
           </section>
 
           <section>
-            <img class="plain" data-src="img/card-logical.png" alt="Logical properties trading card">
+            <img class="plain" style="max-height:100vh" data-src="img/card-logical.png" alt="Logical properties trading card">
             <aside class="notes">Luckily, we have an up-and-coming new player on team layout, CSS Logical Properties. What it does is use logical properties like <code>block-start</code> and <code>block-end</code> or <code>inline-start</code> and <code>inline-end</code>, which are relative to the block flow of the page, and allows the same code to be used regardless of writing mode.</aside>
+          </section>
+
+          <section>
+            <h2>逻辑方向</h2>
+            <img class="plain" data-src="img/logical-directions.png" alt="Logical directions">
+            <aside class="notes">That's why we have a CSS Logical Properties specification. So instead of <code>left</code> or <code>right</code> (物理维度（尺寸）和方向), we use properties like <code>block-start</code> and <code>block-end</code> or <code>inline-start</code> and <code>inline-end</code>. So these directions continue to make sense, even if the writing mode of the document changes.</aside>
           </section>
 
           <section data-background-image="img/logical-properties.jpg">
@@ -621,7 +648,7 @@
 
         <section>
           <section>
-            <img class="plain" data-src="img/card-flexbox.png" alt="Flexbox trading card">
+            <img class="plain" style="max-height:100vh" data-src="img/card-flexbox.png" alt="Flexbox trading card">
             <aside class="notes">Flexbox is definitely an all-star level player on team layout. If you tried to print out the specification, it's about 87 pages long, and there's a good reason for that. Because it defines a new layout mode designed for laying out complex applications and web pages. Probably the first property specifically designed to do layout on the web.</aside>
           </section>
 
@@ -1207,7 +1234,7 @@
 
         <section>
           <section>
-            <img class="plain" data-src="img/card-grid.png" alt="CSS grid trading card">
+            <img class="plain" style="max-height:100vh" data-src="img/card-grid.png" alt="CSS grid trading card">
             <aside class="notes">If Flexbox is an all-star, then Grid is shaping up to be a hall-of-fame level legend. Because Grid lets us do a lot of things that were previously either impossible or highly untenable.</aside>
           </section>
 
@@ -1301,7 +1328,6 @@
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   grid-auto-rows: 120px;
   grid-auto-flow: row;
-  
 }
 
 .autoflow__item:nth-child(3n) {
@@ -1352,8 +1378,8 @@
               </figure>
             </div>
             <aside class="notes">
-              <p>By default, the value of a grid item's alignment is stretch, where it fills up the entire space of the grid cell. Once an alignment is applied to the grid item's contents, it will shrink to fit the content.</p>
-              <p>Making each grid item a flex container allows us to use box alignment properties to adjust the position of the grid item's content while keeping the borders at the edge of the grid cell.</p>
+              <p>很可惜，做不到。之前有提过，Grid项目对齐的默认值是<code>stretch</code>。一旦用上任何<code>stretch</code>以外的取值时，项目就会马上缩到内容的尺寸，而不是占据网格区域的整个空间。</p>
+              <p>可是如果我们在Grid项目上设一个<code>display:flex</code>，把它变成Flex容器。那表示Grid项目里面的内容，成为了Flex项目。现在利用Box alignment的各属性调整内容的位置就不会影响到Grid项目的尺寸，border也可以保持在Grid线上了。</p>
             </aside>
           </section>
 
@@ -1365,7 +1391,7 @@
             </div>
             <p><small>原创：<a href="https://archive.org/details/newpracticaltrea00hayt">Charles Hayter</a></small></p>
             <aside class="notes">
-              <p>Another thing that Grid makes a lot easier is overlap. We could have achieved an overlap effect with absolute positioning, but removing an element from the document flow usually brings about a lot of unwanted consequences.</p>
+              <p>Another thing that Grid makes a lot easier is overlap (重叠式的设计). We could have achieved an overlap effect with absolute positioning, but removing an element from the document flow usually brings about a lot of unwanted consequences (不理想的后果).</p>
               <p>With grid placement, overlap is easily achieved without disrupting the rest of the layout at all. This is from another vintage publication, English painter Charles Hayter's <em>A New Practical Treatise on the Three Primitive Colours</em>.</p>
               <p>Totally doable on the web.</p>
             </aside>
@@ -1382,6 +1408,17 @@
           </section>
 
           <section>
+            <img class="plain" data-src="img/landscape.png" alt="Landscape view" style="max-height:100vh">
+          </section>
+
+          <section>
+            <div class="l-double" style="justify-items:center">
+              <img class="plain" data-src="img/square.png" alt="Square view" style="max-height:100vh">
+              <img class="plain" data-src="img/portrait.png" alt="Portrait view" style="max-height:100vh">
+            </div>
+          </section>
+
+          <section>
             <h2>利用<code>aspect-ratio</code>媒体检测</h2>
             <video loop autoplay>
               <source data-src="videos/braun.mp4" type="video/mp4" />
@@ -1389,6 +1426,7 @@
               but don't worry, you can <a href="videos/braun.mp4">download it</a>
               and watch it with your favourite video player!
             </video>
+            <aside class="notes">纵向，横向，靠比例来断定</aside>
           </section>
 
           <section>
@@ -1398,7 +1436,7 @@
               <img class="plain fragment " data-src="img/tycho2.jpg" alt="Tycho artist profile mockup recreated with CSS" style="max-height:65vh">
             </div>
             <p><small>原创：<a href="https://dribbble.com/shots/3002189-Tycho/">Drew Sullivan</a></small></p>
-            <aside class="notes">Even though the most common media query is width, there are 13 media features that are available for use as conditions, including <code>height</code> and <code>orientation</code>. Somehow we're not seeing them being used very often on the web at the moment.</aside>
+            <aside class="notes"></aside>
           </section>
 
           <section>
@@ -1423,7 +1461,7 @@
 
         <section>
           <section>
-            <img class="plain" data-src="img/card-featurequeries.png" alt="Feature queries trading card">
+            <img class="plain" style="max-height:100vh" data-src="img/card-featurequeries.png" alt="Feature queries trading card">
             <aside class="notes">An often raised concern when it comes to using newer CSS features, especially those for layout, is browser support. Because nobody wants their site to look broken. And here's where feature queries come in.</aside>
           </section>
 
@@ -1431,14 +1469,14 @@
             <h2>支持旧款浏览器</h2>
             <p>利用<code>@supports</code>，本地CSS功能检测</p>
             <pre style="font-size:100%"><code>.selector {
-    /* Styles that are supported in old browsers */
+  /* Styles that are supported in old browsers */
+}
+
+@supports (property:value) {
+  .selector {
+    /* Styles for browsers that support the specified property */
   }
-  
-  @supports (property:value) {
-    .selector {
-      /* Styles for browsers that support the specified property */
-    }
-  }</code></pre>
+}</code></pre>
             <aside class="notes">
               <p>Grid正式发布到现在，已经有大概两年的时间，浏览器的支持程度如今也高达88%，可以算是被广泛支持了。但是其它12%的用户该怎么办呢？其实CSS可以通过feature query做功能检测。它的语法类似media query，只是用的关键字是<code>@supports</code>。</p>
               <p>我虽然提到grid当例子，但是feature queries可以用在任何一个CSS属性。<code>@supports</code>的支持率高达94%。浏览器不支持它也没关系，因为不认得<code>@supports</code>的浏览器就会忽视整个声明块内的CSS声明。</p>
@@ -1491,8 +1529,6 @@
               <p>时间也差不多了。在结束之前我只想说，即使我刚才所说的一切你都不记得，我要求你们牢牢记住这个问题的答案。</p>
             </aside>
           </section>
-
-          
         </section>
 
         <section>
