@@ -277,18 +277,164 @@
             <aside class="notes">
               <p>Of course, not all Latin scripts use the same alphabet. Neither are alphabets restricted to Latin scripts alone. All 26 letters in the English alphabet are fairly vanilla, no diacritics, circumflexes or ligatures. Unlike Romanian or German, for example.</p>
               <p>Relating this back to typography, and the concept of prefabricated letters, when we pick typefaces, be it in the physical or digital world, there may be instances where a particular character's glyph is missing from the typeface.</p>
-              <p>Given this is JSHeroes, and I'm clearly not talking about anything Javascript-related, I will at least keep it to the web, in an attempt to keep things remotely relevant.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>What are glyphs?</h2>
+            <div class="l-multiple">
+              <figure class="fragment">
+                <img class="plain" style="margin:0 0.5em" data-src="img/glyph1.jpg" alt="A metal sort AKA type">
+                <figcaption style="font-style:normal">M</figcaption>
+              </figure>
+              <figure class="fragment">
+                <img class="plain" style="margin:0 0.5em" data-src="img/glyph2.jpg" alt="A bitmap glyph">
+                <figcaption style="font-style:normal">晽</figcaption>
+              </figure>
+              <figure class="fragment">
+                <img class="plain" style="margin:0 0.5em" data-src="img/glyph3.jpg" alt="A vector glyph">
+                <figcaption style="font-style:normal">Ж</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">
+              <p>So what are glyphs then? Let's see some examples.</p>
+              <p>A glyph is the specific shape of a letter or character in a particular font. In the digital world, where everything is data, glyphs can be described as an array of pixels, or collections of vector images or even paths of Bézier curves and straight lines.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>And what about fonts?</h2>
+            <div class="l-double">
+              <img class="plain fragment" data-src="img/analogue-fonts.jpg" alt="Analogue fonts">
+              <img class="plain fragment" data-src="img/digital-fonts.png" alt="Digital fonts">
+            </div>
+            <aside class="notes">
+              <p>The question would be, what are fonts?</p>
+              <p>Fonts can be thought of as collections of glyphs. So in the world of metal typesetting, these are fonts. Some of you may have seen drawers containing individual metal sorts used for letterpress printing.</p>
+              <p>In the digital world, these are fonts, specifically font files. Different font formats store information about the font, like their glyphs, encodings, metadata about the font and so on, differently based on how their specifications were written.</p>
+              <p>Given this is JSHeroes, and I'm clearly not talking about anything Javascript-related, I will at least keep it to the web, in an attempt to make things remotely relevant.</p>
             </aside>
           </section>
         </section>
-
+        
         <section>
-          <section>
-            <h2>Fonts on the web</h2>
+          <section data-background-image="img/website-lang.svg" data-background-size="contain">
+            <h2 style="max-width:80%;margin:0 auto">Distribution of content languages on the web</h2>
+            <p><small>Sources: <a href="https://w3techs.com/technologies/overview/content_language/all">W3Techs</a></small></p>
             <aside class="notes">
-              <p>Of course, not all Latin scripts use the same alphabet. Neither are alphabets restricted to Latin scripts alone. All 26 letters in the English alphabet are fairly vanilla, no diacritics, circumflexes or ligatures. Unlike Romanian or German, for example.</p>
-              <p>Relating this back to typography, and the concept of prefabricated letters, when we pick typefaces, be it in the physical or digital world, there may be instances where a particular character's glyph is missing from the typeface.</p>
-              <p>Given this is JSHeroes, and I'm clearly not talking about anything Javascript-related, I will at least keep it to the web, in an attempt to keep things remotely relevant.</p>
+              <p>Content languages on the web looks like this though. 54% of websites are in English. Can you take a guess how many native English speakers there are in the world today? Around 5%. </p>
+              <p>The distribution of languages is much more spread out in the real world than on the web. With Chinese native speakers topping the charts at around 17%, and Spanish coming in next at around 6.4%.</p>
+            </aside>
+          </section>
+
+          <section>
+            <blockquote>
+              <p>When you lose your language, you lose your soul.</p>
+              <br><small>—Ghil’ad Zuckermann</small>
+            </blockquote>
+            <aside class="notes">
+              <p>Linguist, Ghil’ad Zuckermann, argues that language revival is not only about communication. It's about culture, cultural autonomy, intellectual sovereignty, spirituality, well-being, and the soul.</p>
+              <p>As more and more of our communications move onto the digital realm and into the online world, it is important that we preserve language diversity.</p>
+              <p>It is crucial that a technology meant to be ubiquitous supports the creation of local content across the world. That every writing system in the world can be correctly rendered on the web.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Writing systems on the web</h2>
+            <div style="display:grid;grid-template-columns:repeat(4,25%);grid-template-rows:50% 50%;justify-items:center">
+              <img data-src="img/unicode.svg" class="plain fragment" style="grid-column:1/3;max-height:40vh" alt="Unicode">
+              <img data-src="img/designers.png" class="plain fragment" style="grid-column:3/5;max-height:40vh" alt="Unicode">
+              <img data-src="img/developers.png" class="plain fragment" style="grid-column:2/4" alt="Unicode">
+            </div>
+            <aside class="notes">
+              <p>Let's assume that Unicode supports the requisite characters for a particular language, and that typeface designers have taken the effort to support that language, by designing all the relevant glyphs.</p>
+              <p>How should we, as the people who implement content on the web, make sure that we are doing our part in this effort to make sure languages are presented correctly?</p>
+              <p>We start by understanding more about digital fonts and fonts on the web.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Font formats for web use</h2>
+            <table>
+              <tr>
+                <td>WOFF2 (Web Open Font Format 2)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                  <img class="plain l-logo" data-src="img/mozilla.svg">
+                  <img class="plain l-logo" data-src="img/opera.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>WOFF (Web Open Font Format)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                  <img class="plain l-logo" data-src="img/mozilla.svg">
+                  <img class="plain l-logo" data-src="img/opera.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>OTF (OpenType)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                  <img class="plain l-logo" data-src="img/adobe.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>TTF (TrueType)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                  <img class="plain l-logo" data-src="img/apple.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>EOT (Embedded Open Type)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/microsoft.svg">
+                </td>
+              </tr>
+              <tr>
+                <td>SVG (Scalable Vector Graphics)</td>
+                <td style="line-height:0;">
+                  <img class="plain l-logo" data-src="img/svg.svg">
+                </td>
+              </tr>
+            </table>
+            <aside class="notes">
+              <p>The earliest fonts were pixel-based bitmaps, okay for low-resolution screens, but not for high resolution printing.</p>
+              <p>One of the solutions to this problem came from Adobe founder, John Warnock, who created Postscript in 1985, the very first vector font, and it really took off.</p>
+              <p>TrueType was Apple and Microsoft's answer to Adobe's font monopoly. Microsoft came up with TrueType Open in 1994 and eventually Adobe joined in and together they developed OpenType.</p>
+              <p>Microsoft also came up with EOT or embedded OpenType, and tried to submit this as a W3C recommendation. However, it was rejected in favour of WOFF, or the Web Open Font Format. WOFF2 is an improvement over WOFF with significantly better compression rates.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Fonts on web pages</h2>
+            <div class="l-double">
+              <figure>
+                <img class="plain" data-src="img/css1-font.jpg" alt="Fonts defined in CSS1">
+                <figcaption>Fonts section in CSS1 (17-Dec-1996)</figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/html-font.jpg" alt="Font tag defined in HTML3.2">
+                <figcaption>Font tag in HTML3.2 (14-Jan-1997)</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">
+              <p>Please continue to indulge me in this walk back in time. Back in 1996, when CSS first became a W3C recommendation. There was a font property section defining <code>font-family</code>, <code>font-style</code>, <code>font-variant</code>, <code>font-weight</code> and <code>font-size</code>, plus <code>font</code> as a shorthand.</p>
+              <p>There was also the infamous <code>font</code> tag introduced in HTML3.2, to define the font size, color and face for its content via attributes. This tag is now obsolete and you are advised not to use it.</p>
+              <p>You clearly could specify different font families, but they were limited to system fonts.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Bridging a font reference with font data</h2>
+            <figure>
+              <img class="plain" data-src="img/css2-font.jpg" alt="Webfonts early public working draft">
+              <figcaption>Earliest reference of webfonts I could find (21-Jul-1997)</figcaption>
+            </figure>
+            <aside class="notes">
+              <p>Not long after, there was a working draft which proposed the possibility of loading font data from external sources via a URL. This is the earliest public instance I could find of the <code>@font-face</code> rule.</p>
+              <p>The original 5 font properties are still around and haven't changed all that much, though with the advent of variable fonts, more values are available for use. Much of the latest and greatest can be found in Level 4 of the CSS Fonts specification.</p>
             </aside>
           </section>
           
@@ -420,36 +566,180 @@
                 </g>
               </g>
             </svg>
-            <img style="position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);width:85vh;" class="fragment plain" data-src="img/biang.svg">
             <aside class="notes">
-              <p>The earliest implementation of CSS had a relatively small section on fonts, which covered font properties that could be set via CSS, as well as the font matching algorithm so browsers could determine what fonts to use.</p>
-              <p>The algorithm itself has since been expanded over the last 2 decades but the general guideline to what font is used for a given character in a run of text is as follows:</p>
+              <p>There's an algorithm browsers use to determine which fonts to load and use. And even though it has expanded over the last 2 decades, here's a general idea of what goes on beneath the hood:</p>
               <ul>
                 <li>the User Agent (UA) takes the first family name defined in the <code>font-family</code> property</li>
                 <li>if it's a generic family keyword, the UA will just pick the one it always uses and load that, otherwise it will try to find the family from fonts declared through <code>@font-face</code></li>
-                <li>once matched, the UA will assemble the set of font faces in the family, then pick the appropriate font face based on declared font properties:
-                <ul>
-                  <li>font-stretch</li>
-                  <li>font-style</li>
-                  <li>font-weight</li>
-                  <li>font-size</li>
-                </ul>
+                <li>once matched, the UA will assemble the set of font faces in the family, then pick the appropriate font face based on declared font properties
                 </li>
                 <li>But if no matching face exists, or if the matched face is missing the glyph that needs to be rendered, the next family name is considered, and the UA runs through the steps again</li>
                 <li>Once a font face is matched, the font will be loaded</li>
                 <li>If all the font family names have been run through, and still no font face matches, a system fallback font will be called into play</li>
               </ul>
-              <p>If a character cannot be displayed using any font at all, perhaps the famous, or infamous biang character, you'll end up with a symbol of the missing glyph, or what we endearingly call 豆腐, which personally, I see much less of these days, compared to 10 years ago, thanks to the widespread use of Unicode.</p>
             </aside>
+          </section>
+
+          <section data-background-image="img/toufu.png" data-background-size="cover">
+            <img style="width:85vh" class="plain" data-src="img/biang.svg">
+            <aside class="notes">If a character cannot be displayed using any font at all, perhaps the famous, or infamous biang character, you'll end up with a symbol of the missing glyph, or what we endearingly call 豆腐, which personally, I see much less of these days, compared to a decade ago, thanks to the widespread use of Unicode.</aside>
           </section>
         </section>
 
-        
+        <section>
+          <section>
+            <h2>@font-face rule</h2>
+            <pre style="font-size:50%;"><code>@font-face {
+  font-family: 'Bellato';
+  src: url('Bellota-Regular.woff2') format('woff2'),
+       url('Bellota-Regular.woff') format('woff');
+}</code></pre>
+            <div class="l-double">
+              <p style="width:100%;" class="ciu_embed" data-feature="woff" data-periods="future_1,current,past_1,past_2">
+                <a href="http://caniuse.com/#feat=woff"><img class="plain" data-src="img/caniuse-woff.jpg"></a>
+              </p>
+              <p style="width:100%;" class="ciu_embed" data-feature="woff2" data-periods="future_1,current,past_1,past_2">
+                <a href="http://caniuse.com/#feat=woff2"><img class="plain" data-src="img/caniuse-woff2.jpg"></a>
+              </p>
+            </div>
+            <div class="fragment fade-in" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
+                <img data-src="img/sarmale.png" alt="Sarmale" class="plain fragment fade-out">
+              </div>
+            <aside class="notes">
+              <p>So this is an example of the lovely <code>@font-face</code> rule, and if you've ever tried loading webfonts before, you probably have written something similar. Given the support status these days, it's fairly safe to use just WOFF and WOFF2 at this point.</p>
+              <p>Some fun facts about the <code>@font-face</code> rule. It may have many descriptors but only <code>font-family</code> and <code>src</code>, are mandatory.</p>
+              <p>The <code>font-family</code> descriptor works purely like a label, so we can call the reference the font data via CSS. So maybe you're using Helvetica, you don't have to put “Helvetica” as the descriptor. You could call it “Sarmale” if you wanted.</p>
+              <p>The <code>src</code> descriptor tells the browser where to find the font data, it could be an external URL, or a local font. It also includes an optional format hint. If the browser doesn't support a particular font format stated in that hint, it won't bother looking for the font at all.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Anatomy of an <code style="text-transform:lowercase">@font-face</code> rule</h2>
+            <pre><code>@font-face {
+  font-family: &lt;family-name&gt;;
+  src: [ &lt;url&gt; [format(&lt;string&gt; #)]? | &lt;font-face-name&gt; ] #;
+  font-style: normal | italic | oblique ;
+  font-weight: normal | bold | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
+  font-stretch: normal | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded;
+  unicode-range: &lt;urange&gt; #;
+  font-variant: normal | none | [ &lt;common-lig-values&gt; || &lt;discretionary-lig-values&gt; || &lt;historical-lig-values&gt; || &lt;contextual-alt-values&gt; || stylistic(&lt;feature-value-name&gt;) || historical-forms || styleset(&lt;feature-value-name&gt; #) || character-variant(&lt;feature-value-name&gt; #) || swash(&lt;feature-value-name&gt;) || ornaments(&lt;feature-value-name&gt;) || annotation(&lt;feature-value-name&gt;) || [ small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps ] || &lt;numeric-figure-values&gt; || &lt;numeric-spacing-values&gt; || &lt;numeric-fraction-values&gt; || ordinal || slashed-zero || &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ];
+  font-feature-settings: normal | &lt;feature-tag-value&gt; #;
+}</code></pre>
+            <aside class="notes">
+              <p>Descriptors for style, weight and stretch, are used to match styles to a particular typeface in later CSS declarations.</p>
+              <p>April Fool's Day was a couple weeks ago, and if you're as annoying a person as I am, you could try assigning a black typeface to a font-weight of 100 and proceed to confuse your colleagues who cannot figure out why setting a weight of 100 gives them this massively bold typeface.</p>
+              <p>If office pranks are your thing...I'm just saying. But it's not my fault if you get in trouble.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="l-double" style="justify-items:center">
+              <img data-src="img/devtools-tweet1.png" style="max-height:85vh" alt="Raleway font specimen" class="plain">
+              <img data-src="img/devtools-tweet2.png" style="max-height:85vh" alt="Comfortaa font specimen" class="plain">
+            </div>
+            <a href="https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector/How_to/Edit_fonts">Firefox Font Tools</a>
+            <aside class="notes">
+              <p>At this point, I want to shout-out the Firefox Font Tools and the entire team who works on DevTools. Some time last year, Patrick Brosset, who did a lot of work on the Font Tools, pinged me on Twitter about a feature for detecting missing characters.</p>
+              <p>I'm sure he had been thinking about it for a bit, but it was still an amazing surprise to see that he already had a working prototype the following day. The Fonts panel had been around in Firefox for a long time, possibly since version 24, but over the past 2 years, Firefox has really up-ed their DevTools game.</p>
+              <p>They've got by far the best Grid inspector, a Flexbox inspector, Shapes editor, I could go on. But fonts, right? Version 63 shipped with a suite of font tools including the polished up version of the font highlighter demonstrated in the above tweets.</p>
+            </aside>
+          </section>
+
+          <section>
+            <video loop autoplay>
+              <source data-src="videos/font-highlighter.mp4" type="video/mp4">
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/font-highlighter.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <aside class="notes">This is how it looks in action. Where you can see which fonts are loaded on the page, and which fonts are being loaded for which characters on your page. There's also information about all the fonts on the page in the bottom section there as well, so you can check on your <code>@font-face</code> rule as well.</aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <img data-src="img/raleway.png" alt="Raleway font specimen" class="plain">
+              <img data-src="img/comfortaa.png" alt="Comfortaa font specimen" class="plain">
+            </div>
+            <aside class="notes">
+              <p>This tool comes in very handy for me, especially when I have just a handful of words in a foreign language, and the typeface I'm using does not support that language.</p>
+              <p>For example, this round sans-serif is Raleway, designed by the League of Moveable Type. It's pretty nice, in my opinion, but unfortunately, does not support Cyrillic characters.</p>
+              <p>One of the optional font descriptors is the <code>unicode-range</code> descriptor. According to the spec, it defines the set of Unicode codepoints that may be supported by the font face for which it is declared.</p>
+              <p>So what we can do, is try to find a font that does contain those characters, and somewhat resembles the design of chosen font, then utilise the <code>unicode-range</code> descriptor to create a “composite font”.</p>
+            </aside>
+          </section>
+
+          <section>
+            <pre><code>@font-face {
+  font-family: 'Raleway';
+  src: url('fonts/raleway-regular.woff2') format('woff2'),
+        url('fonts/raleway-regular.woff') format('woff');
+  /* no range specified, defaults to entire range */
+}
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('fonts/comfortaa_regular.woff2') format('woff2'),
+        url('fonts/comfortaa_regular.woff') format('woff');
+  unicode-range: U+0400–U+04FF; /* Unicode range for Cyrillic characters */
+}</code></pre>
+            <aside class="notes">
+              <p>It's called a composite font because it mixes glyphs from different fonts for different scripts.</p>
+              <p>To deal with the fact that <em>Raleway</em> does not support Cyrillic letters, we can use the <code>unicode-range</code> descriptor to tell the browser to load <em>Comfortaa</em>, when it encounters any Cyrillic characters.</p>
+              <p>Remember that for font-face rules, the font-family is simply a label, so what we've done is create a composite font that uses the name <em>Raleway</em>, but in actuality, loads 2 different font files depending on what characters need to be displayed.</p>
+            </aside>
+          </section>
+
+          <section>
+            <video loop autoplay>
+              <source data-src="videos/composite.mp4" type="video/mp4">
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/composite.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <aside class="notes">And the font highlighter reveals what the browser does when it encounters such a scenario. Raleway is the font-family descriptor, but you can see that Firefox has loaded both Raleway and Comfortaa. The font tools also reveals which font format the browser is using as well.</aside>
+          </section>
+
+          <section>
+            <h2>CSS font properties</h2>
+            <table style="font-size: 85%">
+              <tr>
+                <td width="25%"><code>font-size</code></td>
+                <td >Indicates the desired height of the glyphs. Takes absolute or relative values.</td>
+              </tr>
+              <tr>
+                <td><code>font-weight</code></td>
+                <td>Specifies the weight of the glyphs in the font. Can use keywords or numerical values.</td>
+              </tr>
+              <tr>
+                <td><code>font-style</code></td>
+                <td>Allows italic or oblique faces to be selected.</td>
+              </tr>
+              <tr>
+                <td><code>font-stretch</code></td>
+                <td>Selects a normal, condensed or expanded face from a font family. Range spans over 9 keywords.</td>
+              </tr>
+              <tr>
+                <td><code>font-size-adjust</code></td>
+                <td>Adjusts the font-size to preserve the x-height of the first choice font.</td>
+              </tr>
+              <tr>
+                <td><code>font-synthesis</code></td>
+                <td>Controls whether user agents are allowed to synthesize bold or oblique font faces when missing.</td>
+              </tr>
+            </table>
+            <aside class="notes">
+              <p>CSS font properties are our typesetting tools for the web. When you use them in your CSS declarations, imagine that you're running your own printing workshop. And you're telling your apprentice, in this case, the browser, that you need a font which is a particular size, style, weight and so on.</p>
+              <p>Your apprentice then runs off to the back room, where all the fonts are kept, and tries to find the font that best matches your instructions based on their descriptors, which were assigned in the @font-face rule.</p>
+              <p>Let's look at one which isn't that commonly used at the moment, <code>font-synthesis</code>.</p>
+            </aside>
+          </section>
+        </section>
 
         <section>
           <h2>References</h2>
           <ul>
             <li><a href="https://www.worldatlas.com/articles/the-world-s-most-popular-writing-scripts.html">The World's Most Popular Writing Scripts</a></li>
+            <li><a href="http://www.bbc.com/future/story/20190320-the-man-bringing-dead-languages-back-to-life">The man brining dead languages back to life</a></li>
           </ul>
         </section>
 
