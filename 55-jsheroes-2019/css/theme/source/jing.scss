@@ -11,6 +11,7 @@
 
 // Include theme-specific fonts
 @import url('../../lib/font/bellota/bellota.css');
+@import url('../../lib/font/kokoro/kokoro.css');
 
 // Theme template ------------------------------
 @import '../template/theme';
@@ -41,7 +42,7 @@ html {
 
   .l-double {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50% 50%;
   }
 
   .j-icon {
@@ -109,6 +110,14 @@ html {
 
   td {
     vertical-align: middle;
+  }
+
+  table td {
+    border-bottom: 0;
+  }
+
+  tr:nth-child(odd) {
+    background-color: lighten($headingColor, 72%)
   }
 
   .l-logo {
@@ -215,6 +224,26 @@ span[role=img][aria-label]:hover::after {
 .livecode-2p {
   grid-template-columns: 65% calc(35% - 0.5em);
   height: 70vh;
+}
+
+.livecode-3p {
+  grid-template-columns: 50% 50%;
+  grid-template-rows: max-content 1fr;
+  grid-template-areas: 'a b'
+                       'a c';
+  max-height: 70vh;
+
+  .markup {
+    grid-area: b;
+  }
+
+  .result {
+    grid-area: a;
+  }
+
+  .code {
+    grid-area: c;
+  }
 }
 
 .code-editor {
