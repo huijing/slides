@@ -12,12 +12,18 @@
 // Include theme-specific fonts
 @import url('../../lib/font/bellota/bellota.css');
 @import url('../../lib/font/kokoro/kokoro.css');
+@import url('../../lib/font/movement/movement.css');
 
 // Theme template ------------------------------
 @import '../template/theme';
 
 // ---------------------------------------------
 // Customised styles for this presentation
+:root {
+  --spac: 110;
+  --wght: 500;
+}
+
 html {
   box-sizing: border-box;
   height: 100%;
@@ -123,6 +129,24 @@ html {
   .l-logo {
     height: 1em;
     margin: 0 0.25em;
+  }
+
+  .vfonts {
+    font-family: 'Movement';
+    font-variation-settings: "SPAC" var(--spac, 100), "wght" var(--wght, 100);
+    font-size: 4em;
+  }
+
+  .input-spac::after {
+    display: block;
+    counter-reset: space var(--spac);
+    content: counter(space);
+  }
+
+  .input-wght::after {
+    display: block;
+    counter-reset: weight var(--wght);
+    content: counter(weight);
   }
 
   .slides section .fragment.step-fade-in-then-out {

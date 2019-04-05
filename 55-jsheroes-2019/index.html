@@ -785,15 +785,36 @@
           </section>
 
           <section>
+            <h2>Variable fonts</h2>
+            <p class="vfonts">Dragons</p>
+            <div class="l-double" style="justify-items:center;max-width:50%;margin:1em auto">
+              <div style="display:flex;flex-direction:column;width:75%">
+                <input type="range" id="space" name="space"
+                        min="100" max="120">
+                <label  class="input-spac" for="space">Space</label>
+              </div>
+                
+                <div style="display:flex;flex-direction:column;width:75%">
+                <input type="range" id="weight" name="weight" 
+                        min="100" max="900">
+                <label class="input-wght" for="weight">Weight</label>
+              </div>
+            </div>
+            
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
             <h2><code>font-synthesis</code></h2>
-            <div class="l-double" style="grid-template-columns: 58% 42%">
+            <div class="l-double" style="grid-template-columns:58% 42%;margin-bottom:1em">
               <figure>
                 <img class="plain" data-src="img/faux-bold.png" alt="Faux bold effect">
-                <figcaption></figcaption>
+                <figcaption>Faux bold effect</figcaption>
               </figure>
               <figure>
                 <img class="plain" data-src="img/faux-italic.png" alt="Faux italic effect">
-                <figcaption></figcaption>
+                <figcaption>Faux italic effect></figcaption>
               </figure>
             </div>
             <small>Image credit: Piotr Grochowski</small>
@@ -1109,10 +1130,10 @@
             <h2>Not just for East Asian text</h2>
             <div class="livecode livecode-2p">
               <div class="result wm-cont2" style="font-size:75%;text-align:left">
-                <p class="vert-rl upright">Halt and Catch Fire</p>
-                <p class="vert-lr">“Computers aren't the thing. They're the thing that gets us to the thing.”</p>
-                <p>“How did we all get here today? The choices we made, the sheer force of our will, something like that? Here's another answer... the winds of fate. Random coincidence, some unseen hand just pushing us along. Destiny.”</p>
-                <h3 class="vert-rl rotate">What are you searching for?</h3>
+                <h2 class="vert-rl upright">MAGIE</h2>
+                <p class="vert-lr">“Nu pot fi fericiţi decât oamenii care nu gândesc nimic, adică aceia care gândesc numai cât trebuie vieţii.”</p>
+                <p>Din umbra falnicelor bolți<br>Ea pasul și-l îndreaptă<br>Lângă fereastră, unde-n colț<br>Luceafărul așteaptă.<br><br>Privea în zare cum pe mări<br>Răsare și străluce,<br>Pe mișcătoarele cărări<br>Corăbii negre duce.</p>
+                <h3 class="vert-rl rotate">Calul bun se vinde în grajd</h3>
               </div>
               <div class="code"><style class="code-editor" contenteditable="true">.wm-cont2 .vert-rl {
   writing-mode: vertical-rl;
@@ -1120,16 +1141,16 @@
 }
 
 .wm-cont2 .vert-lr {
-  writing-mode: vertical-lr;
+  writing-mode: ;
   color: #fcd116;
 }
 
 .wm-cont2 .upright {
-  text-orientation: upright;
+  text-orientation: ;
 }
 
 .wm-cont2 .rotate {
-  transform: rotate(180deg);
+  transform: rotate(0deg);
   color: #002b7f;
 }
 
@@ -1179,6 +1200,7 @@
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.js"></script>
     <script src="lib/js/caniuse-embed.min.js"></script>
+    <script src="lib/js/custom.js"></script>
     <script async src="lib/js/ei.js"></script>
 
     <script>

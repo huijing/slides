@@ -5,6 +5,7 @@
  */
 @import url("../../lib/font/bellota/bellota.css");
 @import url("../../lib/font/kokoro/kokoro.css");
+@import url("../../lib/font/movement/movement.css");
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -267,6 +268,10 @@ body {
   .backgrounds {
     background-color: #fff; } }
 
+:root {
+  --spac: 110;
+  --wght: 500; }
+
 html {
   box-sizing: border-box;
   height: 100%;
@@ -346,6 +351,21 @@ html {
 .reveal .l-logo {
   height: 1em;
   margin: 0 0.25em; }
+
+.reveal .vfonts {
+  font-family: 'Movement';
+  font-variation-settings: "SPAC" var(--spac, 100), "wght" var(--wght, 100);
+  font-size: 4em; }
+
+.reveal .input-spac::after {
+  display: block;
+  counter-reset: space var(--spac);
+  content: counter(space); }
+
+.reveal .input-wght::after {
+  display: block;
+  counter-reset: weight var(--wght);
+  content: counter(weight); }
 
 .reveal .slides section .fragment.step-fade-in-then-out {
   opacity: 0;
