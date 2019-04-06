@@ -873,7 +873,7 @@
                 <p class="jap" style="font-family:'Kokoro';font-size:1.3em">唖 芦 溢 茨 鰯 嘘 欝 厩 噂</p>
               </div>
               <div class="code"><style class="code-editor" contenteditable="true">.fvea .han {
-  font-variant-east-asian: traditional;
+  font-variant-east-asian: simplified;
 }
 
 .fvea .jap {
@@ -944,6 +944,7 @@
             <div class="livecode livecode-2p">
               <div class="result txt-trans">
                 <p style="margin-bottom:1em">If I want [flowers], I’m going to send them to myself.</p>
+                <p lang="de" style="margin-bottom:1em">Süße Soßen-Klöße genießen maßgeblich gefräßige preußische Nutznießer.</p>
                 <p lang="gr" style="font-family:'Kochin Regular';margin-bottom:1em">Ουδέν κακόν αμιγές καλού.</p>
                 <p lang="jp">ァィゥェ ォヵㇰヶ</p>
               </div>
@@ -951,7 +952,7 @@
   text-transform: normal;
 }</style></div>
             <aside class="notes">
-              <p>Most of the time we use <code>text-transform</code> for case adjustements and capitalisation. But it actually does take into accout numerous language-specific case mapping rules. For example, the German Eszett ß becomes SS in uppercase, or the Greek vowels lose their accent when the entire word is uppercase. Stuff like that.</p>
+              <p>Most of the time we use <code>text-transform</code> for case adjustments and capitalisation. But it actually does take into account numerous language-specific case mapping rules. For example, the German Eszett ß becomes SS in uppercase, or the Greek vowels lose their accent when the entire word is uppercase. Stuff like that.</p>
               <p><code>full-size-kana</code> converts all small Kana characters to their equivalent full-size Kana, mostly used for ruby annotations.</p>
             </aside>
           </section>
@@ -959,7 +960,7 @@
           <section>
             <h2>Line breaks in inline boxes</h2>
             <div class="livecode livecode-3p">
-              <pre class="markup" style="white-space:initial"><code class="html"><p class="line-container">If an element <em>generates zero boxes</em>, was it <strong>really there</strong> at all?</p></code></pre>
+              <pre class="markup" style="white-space:pre-wrap"><code class="html"><p class="line-container">If an element <em>generates zero boxes</em>, was it <strong>really there</strong> at all?</p></code></pre>
               <div class="result linebox">
                 <p class="line-container" style="text-align:left">If an element <em>generates zero boxes</em>, was it <strong>really there</strong> at all?</p>
               </div>
@@ -980,7 +981,7 @@
 }</style></div>
             </div>
             <aside class="notes">
-              <p>This is an example of a block box that contains 5 inline boxes, the block box in this case, being the <code>p</code> element. For now there is enough room so all 5 boxes fit into a single line box. But when there isn't enough room, inline boxes will be broken across line boxes. The break is known as a line break.</p>
+              <p>Here we have 5 inline boxes. For now there is enough room so all 5 boxes fit into a single line box. But when there isn't enough room, inline boxes will be broken across line boxes. The break is known as a line break.</p>
               <p>These particular lines were broken due to content wrapping, hence known as a soft wrap break. If wrapping is enabled, the user agent has to minimise the amount of content overflowing a line by wrapping the line at a soft wrap opportunity if one exists.</p>
               <p>For most writing systems, soft wrap opportunities occur at word boundaries, where spaces or punctuation are used to explicitly separate words.</p>
             </aside>
@@ -1006,7 +1007,40 @@
                 <td>allows the UA to take a break anywhere in otherwise-unbreakable strings that would otherwise overflow</td>
               </tr>
             </table>
+            <p><a href="https://youtu.be/r5PLrAoyhv0">Line breaking</a> by Florian Rivoal @ dotCSS</p>
             <aside class="notes">
+              <p>If you're thinking, breaking lines, how hard can that be? Well, there is a lot of nuance word breaking works differently depending on the language we're typesetting for.</p>
+              <p>For example, English wraps at spaces. But for Japanese or Chinese characters, the break is per character, usually but not always. Becauese line breaks are prohibited before certain punctuation marks. </p>
+              <p>A number of Southeast Asian scripts are written without spaces between words, then text is wrapped at syllable bounderies in addition to word boundaries. We could keep going here.</p>
+              <p>There is interplay between the 4 properties here to provide developers more precise control over line breaking, because some rules take precedence over others if both are present, or some only take affect if <code>white-space</code> allows wrapping, for example.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Hyphenation</h2>
+            <blockquote>
+              <p>If you don't give a lang attribute, you don't get automatic hyphenation.</p>
+              <br><small>—Florian Rivoal</small>
+            </blockquote>
+            <p>Browsers use <strong>language-specific</strong> dictionaries to figure out where the hyphenation points should be.</p>
+            <aside class="notes">I highly recommend watching Florian Rivoal, co-editor of the CSS Text specification, explain all of this in his talk at DotCSS last year. And if you're not sure exactly what's going on, rather confused about all this, setting the <code>lang</code> attribute takes care of some of this stuff for you. Some. Which is better than none.</aside>
+          </section>
+
+          <section>
+            <h2><code>text-align</code> & <code>text-justify</code></h2>
+            <ul>
+              <li>Sets the <code>text-align-all</code> and <code>text-align-last</code> properties</li>
+              <li>Describes how the inline-level content of a block is aligned along the inline axis if the content does not completely fill the line box.</li>
+            </ul>
+            <pre><code>text-align: start | end | left | right | center | justify | match-parent | justify-all</code></pre>
+            <p>Values other than <code>justify-all</code> or <code>match-parent</code> are assigned to <code>text-align-all</code> and reset <code>text-align-last</code> to <code>auto</code>.</p>
+            <hr>
+            <p>Selects the justification method used when a line’s alignment is set to justify</p>
+            <pre><code>text-justify: auto | none | inter-word | inter-character</code></pre>
+            <aside class="notes">
+              <p>Text justification is not a trivial computer science problem. I've seen programming assignments for Markov Chains asking for text justification algorithms. Most of us would have encountered 2 major justification algorithms, whether we know them or not.</p>
+              <p>The Greedy algorithm, which analyses only a single line, and the much more advanced Knuth/Plass algorithm which analyses every line in a paragraph. Design software with advanced typesetting capabilities like InDesign use Knuth/Plass. But browsers, sadly, use the simple one. Probably for performance reasons, maybe? I'm not sure.</p>
+              <p>Although we don't have a robust justification algorithm, Text Level 3 does include the <code>text-justify</code> property to allow some further tweaking of justified text.</p>
             </aside>
           </section>
 
@@ -1022,21 +1056,10 @@
 }</style></div>
             </div>
             <aside class="notes">
-            </aside>
-          </section>
-
-          <section>
-            <h2><code>text-align</code> & <code>text-justify</code></h2>
-            <ul>
-              <li>Sets the <code>text-align-all</code> and <code>text-align-last</code> properties</li>
-              <li>Describes how the inline-level content of a block is aligned along the inline axis if the content does not completely fill the line box.</li>
-            </ul>
-            <pre><code>text-align: start | end | left | right | center | justify | match-parent | justify-all</code></pre>
-            <p>Values other than <code>justify-all</code> or <code>match-parent</code> are assigned to <code>text-align-all</code> and reset <code>text-align-last</code> to <code>auto</code>.</p>
-            <hr>
-            <p>Selects the justification method used when a line’s alignment is set to justify</p>
-            <pre><code>text-justify: auto | none | inter-word | inter-character</code></pre>
-            <aside class="notes">
+              <p>If I search for “text justify web” on Google, the top result is titled <em>Don't use fully justified text alignment on your website</em>, and the next one is <em>Justify text with HTML/CSS? Don't do it!</em>. It seems that justified text has a bad rap on the web.</p>
+              <p>This might be true for Latin-based scripts but not so for Chinese characters, which are also known as square characters. Each character is composed within a uniform square and Chinese texts can be typeset into neat rows and columns. In fact, it is ideal to do so.</p>
+              <p>But when there are both Latin-based alphabets and Chinese characters, it's impossible for everything to line up both vertically and horizontally. The next best thing is to ensure the start and end of every line is aligned well.</p>
+              <p>Once <code>text-align</code> is set to <code>justify</code>, adjustments can be made for spacing at word separators only with <code>inter-word</code> and between adjacent typography character units with <code>inter-character</code>.</p>
             </aside>
           </section>
         </section>
@@ -1045,6 +1068,7 @@
           <section>
             <h2>Vertical text on the web</h2>
             <p>CSS Writing Modes Level 3 defines CSS features to support for various international writing modes, such as <strong>left-to-right</strong> (e.g. Latin or Indic), <strong>right-to-left</strong> (e.g. Hebrew or Arabic), <strong>bidirectional</strong> (e.g. mixed Latin and Arabic) and <strong>vertical</strong> (e.g. Asian scripts).</p>
+            <aside class="notes">Writing systems are also not limited a horizontal, top-to-bottom direction. Traditionally, East Asian languages were all written vertically. Arabic and Hebrew are written from right-to-left.</aside>
           </section>
 
           <section>
@@ -1072,7 +1096,7 @@
               </tr>
             </table>
             <small>Properties marked with * have been deferred to Writing Modes Level 4.</small>
-            <aside class="notes">This is what happens to your text when the different values of writing-mode are applied. The default is horizontal, top-to-bottom. To change the direction to vertical, we use <code>vertical-rl</code> or <code>vertical-lr</code>.</aside>
+            <aside class="notes">The <code>writing-mode</code> property specifically caters for vertical writing on the web. The default is horizontal, top-to-bottom. To change the direction to vertical, we use <code>vertical-rl</code> or <code>vertical-lr</code>. There's a sideways option that's formally been moved to Level 4 but Firefox has it implemented.</aside>
           </section>
 
           <section>
@@ -1093,8 +1117,8 @@
             </div>
             <aside class="notes">
               <p>Now when we rotate text, it's not only the lines that change direction, because each line contains individual letters or characters. They have an orientation as well.</p>
-              <p>For text-orientation, the initial value is mixed. Browsers are smart enough to tell which languages can be typeset both vertically and horizontally, or in one direction only. So Chinese characters, for example, will always be displayed upright. While horizontal-only languages, will have their characters rotated when vertical.</p> 
-              <p>The <code>text-orientation</code> property let's you control this, and make all the characters upright or sideways, if you want to.</p>
+              <p>For text-orientation, the initial value is mixed. Browsers are smart enough to tell which languages can be typeset both vertically and horizontally, or in one direction only. Chinese characters, which are dual-direction, will always be displayed upright. While horizontal-only languages, will have their characters rotated when vertical.</p> 
+              <p>The <code>text-orientation</code> property can be used to make all the characters upright or sideways, depending on what you want.</p>
             </aside>
           </section>
 
@@ -1115,7 +1139,10 @@
               </figure>
             </div>
             <a href="https://codepen.io/huijing/pen/bWzMEJ"><small>Codepen example for text-combine-upright</small></a>
-            <aside class="notes">The last property in this set is the <code>text-combine-upright</code> property, which address the issue of numerals and abbreviations in vertical text. For example, if your text contains dates. This property lets us fit all the digits into the width of one character and display them upright.</aside>
+            <aside class="notes">
+              <p>The last property in this set is the <code>text-combine-upright</code> property, which address the issue of numerals and abbreviations in vertical text. For example, if your text contains dates. This property lets us fit all the digits into the width of one character and display them upright.</p>
+              <p>The last value there, called digits, has yet to be implemented in any browser, but it really makes sense to have some sort of a limit on this.</p>
+            </aside>
           </section>
 
           <section>
@@ -1124,6 +1151,7 @@
               <div class="fragment" style="margin-bottom:1em;writing-mode:vertical-rl;font-family:'PingFang SC';font-size:175%"><span>罗马尼亚<span style="text-combine-upright:all">Romania</span></span></div>
               <div class="fragment" style="margin-bottom:1em;writing-mode:vertical-rl;font-family:'PingFang SC';font-size:175%"><span>列支敦斯登<span style="text-combine-upright:all">Liechtenstein</span></span></div>
             </div>
+            <aside class="notes">I mean, 4 digits is probably the maximum you can push such a tiny space. 7 looks very uncomfortable. 13 is just ridiculous.</aside>
           </section>
 
           <section>
@@ -1160,12 +1188,20 @@
   justify-items: center;
 }</style></div>
             </div>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              <p>Vertical text may be better suited for East Asian languages when it comes to full length body copy, but that doesn't mean other languages can't get in on the fun. We see vertically set text in print all the time.</p>
+              <p>Headers or short runs of text are relatively safe to typeset vertically, and can add some typographic variety to your web layouts. We can also combine <code>writing-mode</code> with transforms or other CSS properties. Lots of possibilities with modern CSS these days.</p>
+            </aside>
           </section>
         </section>
 
         <section data-background-image="img/w3c-i18n.jpg" data-background-size="contain">
-          <aside class="notes"></aside>
+          <aside class="notes">
+            <p>I spoke a bit more about East Asian typography because Chinese is my mother tongue and I am involved with the Chinese Layout Task Force. If you notice, there are also Layout Task Forces for numerous other scripts and this is definitely a step in the right direction when it comes to preserving language diversity on the web.</p>
+            <p>An ideographic language like Chinese was not a good candidate for moveable type printing. The calligraphic style of Arabic writing also resulted in efforts to reduce the number of variations of letters and diacritical marks. Such typographical compromises are akin to having the finest sculptures in the world caked in dirt and mud.</p>
+            <p>I think the digital age presents an opportunity clean off the dirt and mud off scripts that have long had to compromise to “get with the times”. Our digital age is the age of light and electronic signals. There are far fewer limitations as compared to a physical medium like moveable type.</p>
+            <p>If the virtual world is being touted as a realm with limitless possibilities, then it should be reasonable to expect that all our scripts can be restored to their full artistic glory in the digital world.</p>
+          </aside>
         </section>
 
         <section>
@@ -1176,12 +1212,14 @@
             <li><a href="https://www.w3.org/TR/css-fonts-3/">CSS Fonts Module Level 3</a></li>
             <li><a href="https://www.w3.org/TR/css-fonts-4/">CSS Fonts Module Level 4</a></li>
             <li><a href="https://www.w3.org/TR/css-text-3/">CSS Text Module Level 3</a></li>
+            <li><a href="http://w3c.github.io/i18n-drafts/articles/typography/linebreak.en">Approaches to line breaking</a></li>
             <li><a href="http://clagnut.com/blog/2395/">All you need to know about hyphenation in CSS</a></li>
+            <li><a href="https://elliotjaystocks.com/blog/justification-hyphenation">Advanced web typography: Justification & hyphenation</a></li>
+            <li><a href="https://www.w3.org/TR/clreq/">Requirements for Chinese Text Layout</a></li>
+            <li><a href="https://medium.com/@bobtung/best-practice-in-chinese-layout-f933aff1728f">Best Practices for Chinese Layout</a></li>
             <li><a href="https://www.w3.org/International">W3C Internationalisation</a></li>
           </ul>
         </section>
-
-       
 
         <section style="text-align:left">
           <h1>Mulțumesc!</h1>
