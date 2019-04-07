@@ -24,7 +24,7 @@
         <section data-background-image="img/background.jpg">
           <h1>Web typography: a non-English perspective</h1>
           <p><small><a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
-          <aside class="notes">Bună ziua! I'm so happy to be here. It's my first time in Romania and I'm utterly blown away by how beautiful Cluj is. So today, I'm going to talking about web typography, which is fairly common. But I'm also going to be talking a bit about non-English web typography, which might be slightly less common.</aside>
+          <aside class="notes">Bună ziua, dragii mei, sunt Hui Jing. Astăzi voi vorbi despre… no I'm kidding, that's the extent of my Romanian. But today, I am going to talking about web typography, which is fairly common. And I'm also going to be talking a bit about non-English web typography, which might be slightly less common.</aside>
         </section>
 
         <section data-background-image="img/emoji-bg.png" data-background-repeat="repeat" data-background-size="200px">
@@ -100,7 +100,7 @@
           <section data-background-image="img/latin-script-dist.svg" data-background-size="cover">
             <h2 style="background-color:rgba(255,255,255,0.75);display:inline-block;padding:0.25em;border-radius:0.25em">Latin script distribution</h2>
             <aside class="notes">
-              <p>And a distribution that looks like this, where the dark areas represent countries who only use the Latin script, while the lighter areas show countries which use Latin script in addition to others. Even the grey areas have Latin-script alphabets in use as unofficial second languages, or for transliteration purposes.</p>
+              <p>And a geographic distribution that looks like this, where the dark areas represent countries who only use the Latin script, while the lighter areas show countries which use Latin script in addition to others. Even the grey areas have Latin-script alphabets in use as unofficial second languages, or for transliteration purposes.</p>
             </aside>
           </section>
 
@@ -333,7 +333,7 @@
               <br><small>—Ghil’ad Zuckermann</small>
             </blockquote>
             <aside class="notes">
-              <p>Linguist, Ghil’ad Zuckermann, argues that language revival is not only about communication. It's about culture, cultural autonomy, intellectual sovereignty, spirituality, well-being, and the soul.</p>
+              <p>Writing systems are more than just a means of communication, they are also a reflection of a people’s culture, their spirituality, even their soul.</p>
               <p>As more and more of our communications move onto the digital realm and into the online world, it is important that we preserve language diversity.</p>
               <p>It is crucial that a technology meant to be ubiquitous supports the creation of local content across the world. That every writing system in the world can be correctly rendered on the web.</p>
             </aside>
@@ -478,10 +478,7 @@
               </tr>
             </table>
             <p>Level 4 is adding <code>system-ui</code>, <code>emoji</code>, <code>math</code> and <code>fangsong</code></p>
-            <aside class="notes">
-              <p>Generic font families were introduced in CSS2, and left it up to user agents to provide reasonable default choices, which express the characteristics of each family as well as possible.</p>
-              <p>There are currently five generic font families, with four more being defined in Fonts Level 4. The thing about these generic font families is they are notoriously inconsistent, but they were never meant to be consistent in the first place. You'd leave these generic font families to be fallbacks, triggered if somehow all the previously declared fonts failed to load.</p>
-            </aside>
+            <aside class="notes">Generic font families were introduced in CSS2, and left it up to user agents to provide reasonable default choices, which express the characteristics of each family as well as possible. An extremely laissez faire approach, if you ask me.</aside>
           </section>
 
           <section>
@@ -658,7 +655,7 @@
               <p>So this is an example of the lovely <code>@font-face</code> rule, and if you've ever tried loading webfonts before, you probably have written something similar. Given the support status these days, it's fairly safe to use just WOFF and WOFF2 at this point.</p>
               <p>Some fun facts about the <code>@font-face</code> rule. It may have many descriptors but only <code>font-family</code> and <code>src</code>, are mandatory.</p>
               <p>The <code>font-family</code> descriptor works purely like a label, so we can reference the font data via CSS. So maybe you're using Helvetica, you don't have to put “Helvetica” as the descriptor. You could call it “Sarmale” if you wanted.</p>
-              <p>The <code>src</code> descriptor tells the browser where to find the font data, it could be an external URL, or a local font. It also includes an optional format hint. If the browser doesn't support a particular font format stated in that hint, it won't bother looking for the font at all.</p>
+              <p>The <code>src</code> descriptor tells the browser where to find the font data, it could be an external URL, or a local font. The font hint is optional though.</p>
             </aside>
           </section>
 
@@ -676,7 +673,7 @@
 }</code></pre>
             <aside class="notes">
               <p>Descriptors for style, weight and stretch, are used to match styles to a particular typeface in later CSS declarations.</p>
-              <p>April Fool's Day was a couple weeks ago, and if you're as annoying a person as I am, you could swap out the font file for, maybe the italics, and replace it with a massive black font instead. Your teammates will be left utterly perplexed at why all their <code>em</code> elements turned bold.</p>
+              <p>April Fool's Day was a couple weeks ago, and if you're as annoying a person as I am, you could swap some font descriptors around, maybe the italics and bolds. Your teammates will be left utterly perplexed at why all their <code>em</code> elements turned bold.</p>
               <p>I mean, if office pranks are your thing...I'm just saying. But it's not my fault if you get in trouble. #dontgetfired</p>
             </aside>
           </section>
@@ -713,7 +710,6 @@
             <aside class="notes">
               <p>This tool comes in very handy for me, especially when I have just a handful of words in a foreign language, and the typeface I'm using does not support that language.</p>
               <p>For example, this round sans-serif is Raleway, designed by the League of Moveable Type. It's pretty nice, in my opinion, but unfortunately, does not support Cyrillic characters.</p>
-              <p>One of the optional font descriptors is the <code>unicode-range</code> descriptor. According to the spec, it defines the set of Unicode codepoints that may be supported by the font face for which it is declared.</p>
               <p>So what we can do, is try to find a font that does contain those characters, and somewhat resembles the design of chosen font, then utilise the <code>unicode-range</code> descriptor to create a “composite font”.</p>
             </aside>
           </section>
@@ -727,7 +723,7 @@
 }
 
 @font-face {
-  font-family: 'Comfortaa';
+  font-family: 'Raleway';
   src: url('fonts/comfortaa_regular.woff2') format('woff2'),
         url('fonts/comfortaa_regular.woff') format('woff');
   unicode-range: U+0400–U+04FF; /* Unicode range for Cyrillic characters */
@@ -800,9 +796,7 @@
                 <label class="input-wght" for="weight">Weight</label>
               </div>
             </div>
-            
-            <aside class="notes">
-            </aside>
+            <aside class="notes">But there are plenty of additional variation axes for designers to play around with.</aside>
           </section>
 
           <section>
@@ -819,7 +813,7 @@
             </div>
             <small>Image credit: Piotr Grochowski</small>
             <aside class="notes">
-              <p>Now, your smart apprentice can sometimes be too well-meaning. Sometimes the true italic or heavier version of a font does not exist, so the browser will try to create that effect by itself, based on a regular font. The end result doesn't look that great.</p>
+              <p>Sometimes we pick a typeface without realising it only had 1 style, so the browser will try to create bolds or italics by itself, based on the regular font. The end result doesn't look that great.</p>
               <p>Under normal circumstances, Chinese fonts do not have italic variants. We can set the <code>font-synthesis</code> property to a value of <code>none</code>, to tell the browser to just leave the font alone.</p>
             </aside>
           </section>
@@ -857,9 +851,7 @@
               </tr>
             </table>
             <aside class="notes">
-              <p>Font feature properties were introduced in Fonts Level 3. They allow us to utilise a variety of typographic features like swashes, ligatures, old-style numerals and so on.</p>
-              <p>Reading text that is typeset well, through use of features like small caps, italics and proper punctuation, is like listening to a compelling speech.</p>
-              <p>Other features like old style numerals and ligatures help maintain typographic colour and enhance the reading experience, which is necessary to hold your readers' attention.</p>
+              <p>Font feature properties were introduced in Fonts Level 3. They allow us to utilise a variety of typographic features like swashes, ligatures, old-style numerals and so on. These can help maintain typographic colour and enhance the reading experience for your users.</p>
               <p>As long as the font you're using supports these features, we can toggle them with CSS.</p>
             </aside>
           </section>
@@ -902,8 +894,9 @@
             </div>
             <p><small>Example lifted from <a href="https://www.w3.org/TR/css-fonts-4/#propdef-font-language-override">CSS Fonts Module Level 4</a></small></p>
             <aside class="notes">
-              <p>The user agent will use the <code>lang</code> attribute when rendering text but if the font being used lacks support for that language, developers can indicate their preference to use the typographic conventions of a related language that the font actually does support.</p>
-              <p>This example uses Macedonian text. Imagine that the font being used does not support Macedonian characters fully but does so for Serbian characters. By setting <code>font-language-override</code> to <code>SRB</code>, the Macedonian text will be rendered with Serbian typographic conventions instead.</p>
+              <p>The user agent will refer to the <code>lang</code> attribute when rendering text but if the selected font lacks support for that language, we can ask the browser to use the typographic conventions of a related language present in the font instead.</p>
+              <p>Here's the markup for some Macedonian text. Imagine that the font being used does not support Macedonian but has characters for Serbian.</p>
+              <p>By setting <code>font-language-override</code> to <code>SRB</code>, the Macedonian text will be rendered with Serbian typographic conventions instead. But still be recognised as Macedonian.</p>
             </aside>
           </section>
 
@@ -1023,7 +1016,11 @@
               <br><small>—Florian Rivoal</small>
             </blockquote>
             <p>Browsers use <strong>language-specific</strong> dictionaries to figure out where the hyphenation points should be.</p>
-            <aside class="notes">I highly recommend watching Florian Rivoal, co-editor of the CSS Text specification, explain all of this in his talk at DotCSS last year. And if you're not sure exactly what's going on, rather confused about all this, setting the <code>lang</code> attribute takes care of some of this stuff for you. Some. Which is better than none.</aside>
+            <aside class="notes">
+              <p>I highly recommend watching Florian Rivoal, co-editor of the CSS Text specification, explain all of this in his talk at DotCSS last year.</p>
+              <p>And if you're not sure exactly what's going on, rather confused about all this, just setting the <code>lang</code> attribute takes care of some of this stuff for you.</p>
+              <p>Some. Which is better than none.</p>
+            </aside>
           </section>
 
           <section>
@@ -1038,7 +1035,7 @@
             <p>Selects the justification method used when a line’s alignment is set to justify</p>
             <pre><code>text-justify: auto | none | inter-word | inter-character</code></pre>
             <aside class="notes">
-              <p>Text justification is not a trivial computer science problem. I've seen programming assignments for Markov Chains asking for text justification algorithms. Most of us would have encountered 2 major justification algorithms, whether we know them or not.</p>
+              <p>Text justification is not a trivial computer science problem. I've seen programming assignments for Markov Chains asking for text justification algorithms. And whether we realise it or not, most of us would have encountered 2 major justification algorithms.</p>
               <p>The Greedy algorithm, which analyses only a single line, and the much more advanced Knuth/Plass algorithm which analyses every line in a paragraph. Design software with advanced typesetting capabilities like InDesign use Knuth/Plass. But browsers, sadly, use the simple one. Probably for performance reasons, maybe? I'm not sure.</p>
               <p>Although we don't have a robust justification algorithm, Text Level 3 does include the <code>text-justify</code> property to allow some further tweaking of justified text.</p>
             </aside>
@@ -1051,7 +1048,7 @@
                 <p>定义了CSS如何支持各种不同国际化语言的书写模式，例如拉丁（Latin）语系及印度（Indic）语系采用从左到右的书写模式，希尔伯特语（Hebrew）或阿拉伯语（Arabic）采用从右到左的书写模式，一些混合了拉丁语和阿拉伯语的文字可能采用双向书写（bidirectional），而一些东亚文字则需要竖排（从上到下）的书写模式。</p>
               </div>
               <div class="code"><style class="code-editor" contenteditable="true">.txt-algn p {
-  text-align: start;
+  text-align: justify;
   text-justify: auto;
 }</style></div>
             </div>
@@ -1059,7 +1056,7 @@
               <p>If I search for “text justify web” on Google, the top result is titled <em>Don't use fully justified text alignment on your website</em>, and the next one is <em>Justify text with HTML/CSS? Don't do it!</em>. It seems that justified text has a bad rap on the web.</p>
               <p>This might be true for Latin-based scripts but not so for Chinese characters, which are also known as square characters. Each character is composed within a uniform square and Chinese texts can be typeset into neat rows and columns. In fact, it is ideal to do so.</p>
               <p>But when there are both Latin-based alphabets and Chinese characters, it's impossible for everything to line up both vertically and horizontally. The next best thing is to ensure the start and end of every line is aligned well.</p>
-              <p>Once <code>text-align</code> is set to <code>justify</code>, adjustments can be made for spacing at word separators only with <code>inter-word</code> and between adjacent typography character units with <code>inter-character</code>.</p>
+              <p>And we can make adjustments between adjacent typography character units in Chinese texts with <code>inter-character</code>.</p>
             </aside>
           </section>
         </section>
@@ -1068,7 +1065,7 @@
           <section>
             <h2>Vertical text on the web</h2>
             <p>CSS Writing Modes Level 3 defines CSS features to support for various international writing modes, such as <strong>left-to-right</strong> (e.g. Latin or Indic), <strong>right-to-left</strong> (e.g. Hebrew or Arabic), <strong>bidirectional</strong> (e.g. mixed Latin and Arabic) and <strong>vertical</strong> (e.g. Asian scripts).</p>
-            <aside class="notes">Writing systems are also not limited a horizontal, top-to-bottom direction. Traditionally, East Asian languages were all written vertically. Arabic and Hebrew are written from right-to-left.</aside>
+            <aside class="notes">Finally, writing systems are also not limited a horizontal, top-to-bottom direction. Traditionally, East Asian languages were all written vertically. Arabic and Hebrew are written from right-to-left.</aside>
           </section>
 
           <section>
@@ -1116,8 +1113,8 @@
               </figure>
             </div>
             <aside class="notes">
-              <p>Now when we rotate text, it's not only the lines that change direction, because each line contains individual letters or characters. They have an orientation as well.</p>
-              <p>For text-orientation, the initial value is mixed. Browsers are smart enough to tell which languages can be typeset both vertically and horizontally, or in one direction only. Chinese characters, which are dual-direction, will always be displayed upright. While horizontal-only languages, will have their characters rotated when vertical.</p> 
+              <p>Rotating lines of texts also affects the individual characters within the line.</p>
+              <p>So again, the <code>lang</code> attribute is important. Because browsers are smart enough to tell that Chinese characters, which are dual-direction, will always be displayed upright. While horizontal-only languages, will have their characters rotated when vertical.</p> 
               <p>The <code>text-orientation</code> property can be used to make all the characters upright or sideways, depending on what you want.</p>
             </aside>
           </section>
@@ -1163,9 +1160,8 @@
                 <p>Din umbra falnicelor bolți<br>Ea pasul și-l îndreaptă<br>Lângă fereastră, unde-n colț<br>Luceafărul așteaptă.<br><br>Privea în zare cum pe mări<br>Răsare și străluce,<br>Pe mișcătoarele cărări<br>Corăbii negre duce.</p>
                 <h3 class="vert-rl rotate">Calul bun se vinde în grajd</h3>
               </div>
-              <div class="code"><style class="code-editor" contenteditable="true">.wm-cont2 .vert-rl {
-  writing-mode: vertical-rl;
-  color: #ce1126;
+              <div class="code"><style class="code-editor" contenteditable="true">.wm-cont2 .upright {
+  text-orientation: ;
 }
 
 .wm-cont2 .vert-lr {
@@ -1173,13 +1169,14 @@
   color: #fcd116;
 }
 
-.wm-cont2 .upright {
-  text-orientation: ;
-}
-
 .wm-cont2 .rotate {
   transform: rotate(0deg);
   color: #002b7f;
+}
+
+.wm-cont2 .vert-rl {
+  writing-mode: vertical-rl;
+  color: #ce1126;
 }
 
 .wm-cont2 {
