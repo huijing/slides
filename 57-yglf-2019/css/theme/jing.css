@@ -9,8 +9,8 @@
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #001628;
-  background-color: #001628; }
+  background: #000;
+  background-color: #000; }
 
 .reveal {
   font-family: "PT Sans", "HeiTi SC", "Microsoft YaHei", sans-serif;
@@ -19,12 +19,12 @@ body {
   color: #fff; }
 
 ::selection {
-  color: #001628;
+  color: #000;
   background: #f69d9d;
   text-shadow: none; }
 
 ::-moz-selection {
-  color: #001628;
+  color: #000;
   background: #f69d9d;
   text-shadow: none; }
 
@@ -233,7 +233,8 @@ body {
 
 .reveal section img.plain {
   border: 0;
-  box-shadow: none; }
+  box-shadow: none;
+  background: none; }
 
 .reveal a img {
   -webkit-transition: all .15s linear;
@@ -268,7 +269,11 @@ body {
  *********************************************/
 @media print {
   .backgrounds {
-    background-color: #001628; } }
+    background-color: #000; } }
+
+:root {
+  --spac: 110;
+  --wght: 500; }
 
 html {
   box-sizing: border-box;
@@ -307,9 +312,6 @@ html {
   line-height: 1.2;
   font-size: 80%; }
 
-.reveal code {
-  font-family: 'Dank Mono', monospace; }
-
 .reveal blockquote {
   width: 80%;
   text-align: left;
@@ -345,6 +347,54 @@ html {
 .reveal td {
   vertical-align: middle; }
 
+.reveal table td {
+  border-bottom: 0; }
+
+.reveal tr:nth-child(odd) {
+  background-color: #1a1919; }
+
+.reveal .l-logo {
+  height: 1em;
+  margin: 0 0.25em; }
+
+.reveal .vfonts {
+  font-family: 'Movement';
+  font-variation-settings: "SPAC" var(--spac, 100), "wght" var(--wght, 100);
+  font-size: 4em; }
+
+.reveal .input-spac::after {
+  display: block;
+  counter-reset: space var(--spac);
+  content: counter(space); }
+
+.reveal .input-wght::after {
+  display: block;
+  counter-reset: weight var(--wght);
+  content: counter(weight); }
+
+.reveal .slides section .fragment.step-fade-in-then-out {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  right: 0; }
+
+.reveal .slides section .fragment.step-fade-in-then-out.current-fragment {
+  opacity: 1;
+  display: block; }
+
+.reveal [class^="txtbg"] {
+  font-size: 1.999em;
+  display: inline-block;
+  padding: 0.25em;
+  border-radius: 0.25em; }
+
+.reveal .txtbg-light {
+  background-color: rgba(255, 255, 255, 0.75);
+  color: #000; }
+
+.reveal .txtbg-dark {
+  background-color: rgba(0, 0, 0, 0.75); }
+
 span.emoji {
   font-family: 'Apple Color Emoji', 'Segoe UI Emoji';
   font-style: normal;
@@ -367,9 +417,9 @@ span[role=img][aria-label]:hover::after {
   content: attr(aria-label);
   z-index: 1;
   background: #fff;
-  color: #001628;
+  color: #000;
   padding: 0.25em;
-  border: 1px solid #001628;
+  border: 1px solid #000;
   box-shadow: 2px 2px 4px #fff; }
 
 .livecode {
@@ -413,6 +463,18 @@ span[role=img][aria-label]:hover::after {
 .livecode-2p {
   grid-template-columns: 65% calc(35% - 0.5em);
   height: 70vh; }
+
+.livecode-3p {
+  grid-template-columns: 50% 50%;
+  grid-template-rows: max-content 1fr;
+  grid-template-areas: 'a b' 'a c';
+  max-height: 70vh; }
+  .livecode-3p .markup {
+    grid-area: b; }
+  .livecode-3p .result {
+    grid-area: a; }
+  .livecode-3p .code {
+    grid-area: c; }
 
 .code-editor {
   display: block;
