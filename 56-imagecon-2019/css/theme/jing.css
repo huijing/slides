@@ -232,7 +232,8 @@ body {
 
 .reveal section img.plain {
   border: 0;
-  box-shadow: none; }
+  box-shadow: none;
+  background: none; }
 
 .reveal a img {
   -webkit-transition: all .15s linear;
@@ -412,3 +413,21 @@ span[role=img][aria-label]:hover::after {
   display: block;
   height: 100%;
   white-space: pre-wrap; }
+
+h2.flicker {
+  display: inline-block;
+  font-size: 8rem;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 3rem 4.5rem;
+  border: 0.4rem solid rgba(255, 255, 255, 0.85);
+  border-radius: 2rem;
+  text-transform: uppercase;
+  animation: flicker 1.5s infinite alternate; }
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: -0.2rem -0.2rem 1rem rgba(255, 255, 255, 0.5), 0.2rem 0.2rem 1rem rgba(255, 255, 255, 0.5), 0 0 2rem #f40, 0 0 4rem #f40, 0 0 6rem #f40, 0 0 8rem #f40, 0 0 10rem #f40;
+    box-shadow: 0 0 0.5rem rgba(255, 255, 255, 0.5), inset 0 0 0.5rem rgba(255, 255, 255, 0.5), 0 0 2rem #08f, inset 0 0 2rem #08f, 0 0 4rem #08f, inset 0 0 4rem #08f; }
+  20%, 24%, 55% {
+    text-shadow: none;
+    box-shadow: none; } }
