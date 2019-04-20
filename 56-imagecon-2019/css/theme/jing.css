@@ -18,12 +18,12 @@ body {
   color: #060606; }
 
 ::selection {
-  color: #060606;
+  color: #e7dac7;
   background: #445fee;
   text-shadow: none; }
 
 ::-moz-selection {
-  color: #060606;
+  color: #e7dac7;
   background: #445fee;
   text-shadow: none; }
 
@@ -283,12 +283,10 @@ html {
 .reveal .l-multiple {
   display: flex;
   justify-content: space-around; }
-  .reveal .l-multiple .j-vert {
-    width: 1em; }
 
 .reveal .l-double {
   display: grid;
-  grid-template-columns: 1fr 1fr; }
+  grid-template-columns: 50% 50%; }
 
 .reveal .j-icon {
   display: inline-block;
@@ -331,7 +329,6 @@ html {
   max-height: 75vh; }
 
 .reveal figure figcaption {
-  font-style: italic;
   font-size: 75%; }
 
 .reveal img[src*="svg"] {
@@ -339,6 +336,18 @@ html {
 
 .reveal td {
   vertical-align: middle; }
+
+.reveal [class^="txtbg"] {
+  font-size: 1.999em;
+  display: inline-block;
+  padding: 0.25em;
+  border-radius: 0.25em; }
+
+.reveal .txtbg-light {
+  background-color: rgba(255, 255, 255, 0.75); }
+
+.reveal .txtbg-dark {
+  background-color: rgba(0, 0, 0, 0.75); }
 
 span.emoji {
   font-family: 'Apple Color Emoji', 'Segoe UI Emoji';

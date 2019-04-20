@@ -34,15 +34,11 @@ html {
   .l-multiple {
     display: flex;
     justify-content: space-around;
-
-    .j-vert {
-      width: 1em;
-    }
   }
 
   .l-double {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50% 50%;
   }
 
   .j-icon {
@@ -99,7 +95,6 @@ html {
     }
 
     figcaption {
-      font-style: italic;
       font-size: 75%;
     }
   }
@@ -110,6 +105,21 @@ html {
 
   td {
     vertical-align: middle;
+  }
+
+  [class^="txtbg"] {
+    font-size: 1.999em;
+    display: inline-block;
+    padding: 0.25em;
+    border-radius: 0.25em
+  }
+
+  .txtbg-light {
+    background-color: rgba(255,255,255,0.75);
+  }
+
+  .txtbg-dark {
+    background-color: rgba(0,0,0,0.75);
   }
 }
 

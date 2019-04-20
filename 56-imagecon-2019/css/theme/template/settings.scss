@@ -36,7 +36,7 @@ $linkColorHover: darken($linkColor, 20%);
 
 // Text selection
 $selectionBackgroundColor:$linkColor;
-$selectionColor: $mainColor;
+$selectionColor: $backgroundColor;
 
 // Generates the presentation background, can be overridden
 // to return a background image or gradient
