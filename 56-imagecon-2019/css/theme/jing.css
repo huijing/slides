@@ -337,6 +337,12 @@ html {
 .reveal td {
   vertical-align: middle; }
 
+.reveal .png-filters td:nth-child(2) {
+  font-size: 65%; }
+
+.reveal .png-filters td:nth-child(3) {
+  text-align: center; }
+
 .reveal [class^="txtbg"] {
   font-size: 1.999em;
   display: inline-block;

@@ -88,7 +88,7 @@
  
         <section>
           <img class="plain" data-src="img/pixel.svg" alt="Pixel">
-          <aside class="notes">…but really today's story is about this little fella, and what it represents. Meet Pixel. No, not the Google phone, not that Pixel. This pixel has been around far longer than that phone.</aside>
+          <aside class="notes">…but really today's story starts off with this little fella, and what it represents. Meet Pixel. No, not the Google phone, not that Pixel. This pixel has been around far longer than that phone.</aside>
         </section>
 
         <section>
@@ -231,7 +231,7 @@
                 <path id="Vector_6" d="M579 244.623C544.987 244.623 517.415 234.856 517.415 222.811V254.887H517.531C519.406 266.334 546.206 275.415 579 275.415C611.794 275.415 638.594 266.334 640.469 254.887H640.585V222.811C640.585 234.856 613.013 244.623 579 244.623Z" fill="#445FEE"/>
               </g>
             </g>
-            <g class="fragment" id="file-extension">
+            <g id="file-extension">
               <line id="Line_2" x1="1073.11" y1="521.398" x2="1151.4" y2="489.891" stroke="black" stroke-width="4" stroke-linecap="round"/>
               <rect id="Rectangle" x="906" y="471" width="165" height="94" rx="22" stroke="black" stroke-width="4" stroke-linejoin="round"/>
               <text id="File extension" fill="black" xml:space="preserve" style="white-space: pre" font-family="American Typewriter" font-size="64" letter-spacing="0em"><tspan x="1168" y="507.856">File extension</tspan></text>
@@ -252,7 +252,7 @@
             <p>Filename extensions is probably the most popular method used by most operating systems.</p>
             <p>Information about file formats can also be explicitly stored in the file system instead of the file itself as external metadata.</p>
             <p>And files themselves, contain information about their own format, as internal metadata. Such information is usually put at the beginning of the file as a file header, or a magic number if it's only a few bytes long.</p>
-            <p>Image files are a particular type of file format, and their file headers usually contain metadata about itself and its contents. Stuff like image format, resolution, colour space, authoring information, camera model and so on. Broadly speaking, there are 2 kinds of images, raster and vector.</p>
+            <p>Image files are a particular type of file format, so their file headers would contain stuff like the image format, resolution, colour space, authoring information, camera model and so on. Broadly speaking, there are 2 kinds of images, raster and vector.</p>
           </aside>
         </section>
 
@@ -326,7 +326,8 @@
           <p><small>Source: <a href="https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/types-of-bitmaps">Microsoft, Types of Bitmaps</a></small></p>
           <aside class="notes">
             <p>This is an example of a 4-bit BMP image, which means a given pixel can be 1 of 16 colours. Each colour in the table is represented by a 24-bit number, 8 bits each for red, green and blue.</p>
-            <p>Each colour is represented by a hexadecimal number, and we can map each pixel to its corresponding colour value based on the colour table. Such bitmaps are called palette-indexed bitmaps, but some bitmaps can store the colours themselves. The thing is BMP files are usually not compressed, and hence, not great for web use at all.</p>
+            <p>Each colour is represented by a hexadecimal number, and we can map each pixel to its corresponding colour value based on the colour table. Such bitmaps are called palette-indexed bitmaps, but some bitmaps can store the colours themselves.</p>
+            <p>The thing is BMP files are usually not compressed, and hence, not great for web use at all.</p>
           </aside>
         </section>
 
@@ -366,21 +367,255 @@
           <p><small>Motion graphics by <a href="https://www.crystallawvfx.com/">Crystal Law</a></small></p>
           <aside class="notes">
             <p>MacPaint used run-length encoding, which combined repeated data into a shorter single data value and count. This was great for simple black and white pictures, which was pretty much what the MacPaint could achieve. But it couldn't do colour very well.</p>
-            <p>I won't go into details of the actual algorithm, but it encodes the image by creating a dictionary of repeated sequences of colours and could achieve much better compression rates than any prior image format.</p>
+            <p>I won't go into details of the actual LZW algorithm, but it encodes the image by creating a dictionary of repeated sequences of colours and could achieve much better compression rates than any prior image format.</p>
           </aside>
         </section>
 
         <section>
-          <aside class="notes">The first photo of a band on the internet was a promotional shot for Les Horribles Cernettes, a particle physics parody pop ground led by Michele de Gennaro. Proving that scientists do have fun and a sense of humour, as well as </aside>
+          <figure>
+            <img class="plain" style="max-height:75vh" data-src="img/lhc92.jpg" alt="Les Horribles Cernettes">
+            <figcaption>First band photo on the web</figcaption>
+          </figure>
+          <p><small>Source: <a href="https://cernettes.wixsite.com/cernettes/firstphoto">The Cernettes</a></small></p>
+          <aside class="notes">
+            <p>The first photo of a band published on the internet was a promotional shot for Les Horribles Cernettes, a particle physics parody pop group led by Michele de Gennaro. Proving that scientists do have fun, as well as a sense of humour. What format was this photo in? GIF.</p>
+            <p>This was back in 1992 on the World Wide Web browser. So it's definitely no surprise that when Mosaic was released in 1993, it launched with support for 2 image formats, GIF and JPG.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Joint Photographic Experts Group (JPEG)</h2>
+          <img class="plain" data-src="img/jpeg.png" alt="JPEG">
+          <aside class="notes">
+            <p>JPG is both the name of the committee that created the JPG standard, as well as the name of the image compression algorithm itself.</p>
+            <p>I put a note to myself here, that if Dr. Jon Syeners had already covered most of this stuff I'd just skip over it and move on. Should I have been responsible and reached out to check with him? Yes. Did I? Nope.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>JPG compression</h2>
+          <img class="plain" style="max-height:85vh" data-src="img/jpg.png" alt="JPG compression">
+          <p><small>Reference: <a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG works</a></small></p>
+          <aside class="notes">JPG was revolutionary when it was released in 1992. A lot of the information here I learned from Colt McAnlis, who wrote a really in-depth explainer on how JPG works, which you should really check out if you're interested in this.</aside>
+        </section>
+
+        <section>
+          <img class="plain" style="max-height:85vh" data-src="img/jpeg1.png" alt="JPG compression">
+          <p><small>Reference: <a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG works</a></small></p>
+          <aside class="notes">
+            <p>JPG converts from RGB to Y,Cb,Cr colour model, comprising Luminance, Chroma Blue and Chroma Red. This works because we notice luminance more distinctly than chrominance, so we can get away with aggressive changes to the CbCr channels.</p>
+            <p>The Cb/Cr channels don't have as much detail as the Y channel. They contain less information. So what the algorithm does is resize the Cb and CR channels to a fraction of their original size, also known as downsampling. This process is lossy, so we won't be able to recover the exact source colours anymore.</p>
+          </aside>
+        </section>
+
+        <section>
+          <img class="plain" style="max-height:85vh" data-src="img/jpeg2.png" alt="JPG compression">
+          <p><small>Reference: <a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG works</a></small></p>
+          <aside class="notes">
+            <p>The math is centred around the Discrete Consine Transform (DCT), where the idea is that any 8-by-8 block can be represented as a sum of weighted cosine transforms, at various frequencies.</p>
+            <p>After applying the requisite formula and basis functions, we end up with a matrix of 64 coefficients. The uppermost-left coefficient is called DC, while the other 63 are called AC.</p>
+            <p>The data has transformed from a spatial to a frequency domain. After this conversion, the coefficients are now real numbers instead of byte-aligned integer values, causing a bloat from 1 byte to 4 bytes.</p>
+            <p></p>
+          </aside>
+        </section>
+
+        <section>
+          <img class="plain" style="max-height:85vh" data-src="img/jpeg3.png" alt="JPG compression">
+          <p><small>Reference: <a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG works</a></small></p>
+          <aside class="notes">
+            <p>So it is necessary for a quantisation phase. JPG uses a pre-calculated matrix of quantisation factors instead of directly converting the weights-matrix back into a 0 to 255 number space.</p>
+            <p>The final matrix will end up with a large number of entries that are small values or zero, which compresses well. The matrix of quantisation factors are controlled by changing the quality level.</p>
+          </aside>
+        </section>
+
+        <section>
+          <img class="plain" style="max-height:85vh" data-src="img/jpeg4.png" alt="JPG compression">
+          <p><small>Reference: <a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG works</a></small></p>
+          <aside class="notes">By now you might notice that there are a larger number of zeroes toward the bottom right of the matrix, so a Zig-Zag algorithm is applied to create a linear array of values from the block. After such a reordering, further compression with run-length encoding can yield even better results.</aside>
+        </section>
+
+        <section>
+          <img class="plain" style="max-height:85vh" data-src="img/jpg.png" alt="JPG compression">
+          <p><small>Reference: <a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG works</a></small></p>
+          <aside class="notes">
+            <p>The full process of generating a JPG file involves more steps than what I outlined but that was my general understanding of how JPG compression works. Hopefully Dr. Jon Syeners will be able to answer any further questions you might have about it.</p>
+            <p>JPG does extremely well with photographic images and effects like gradients, but not as well with line drawings or graphics with sharp contrast between the pixels. But an interesting feature of JPGs is the option of progressive JPGs.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Progressive JPGs</h2>
+          <figure>
+            <img class="plain" data-src="img/progressive-jpg.jpeg" alt="Timeline of loading progressive jpg">
+            <figcaption>Image source: <a href="https://www.liquidweb.com/kb/what-is-a-progressive-jpeg/">What is a progressive JPEG?</a></figcaption>
+          </figure>
+          <aside class="notes">
+            <p>I learned about how progressive JPGs from Dr Jon Sneyers, in fact, when I read his article called Progressive JPEGs and green Martians. Non-progressive JPGs encode all the coefficients of each 8-by-8 block sequentially.</p>
+            <p>Instead of doing that, we can encode all the DC coefficients first, then some low-frequency AC coefficients, followed by high-frequency AC coefficients at the end.</p>
+            <p>Progressive JPGs require the encoder and decoder to make multiple passes through the image, and a typical progressive JPG has about 10 scans. So as the image gets decoded, you see a blurry image get progressively sharp as the image loads.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>libjpeg-turbo</h2>
+          <figure>
+            <img class="plain" style="max-height:85vh" data-src="img/libjpeg-turbo.png" alt="libjpeg-turbo home page">
+            <figcaption><a href="https://libjpeg-turbo.org/">https://libjpeg-turbo.org/</a></figcaption>
+          </figure>
+          <aside class="notes">
+            <p>libjpeg-turbo is an open source JPG image codec which is used by a large number of applications and operating systems. Chrome has been using it since version 11 and Firefox since version 5.0. Not too sure about WebKit though, they might still be using libjpeg.</p>
+            <p>And I was trying to figure out which image codec browsers used for GIFs when I unearthed the story of how PNG came about. If you already know this story like the back of your hand, please grant me your patience while I summarise what happened.</p>
+            <p>Turns out the LZW compression algorithm was patented by Unisys back in 1985. But when CompuServe used it to power GIF, they were not aware of its patent status. And Unisys didn't make any moves until 1993, when Mosaic came out.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>GIF89a</h2>
+          <div class="l-multiple">
+            <video loop autoplay>
+              <source data-src="videos/beyonce.mp4" type="video/mp4">
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/beyonce.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <video loop autoplay>
+              <source data-src="videos/mind-blown.mp4" type="video/mp4">
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/mind-blown.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <video loop autoplay>
+              <source data-src="videos/shaq.mp4" type="video/mp4">
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/shaq.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+          </div>
+          <aside class="notes">
+            <p>If you squinted hard at my slides when I first mentioned GIFs, you may have noticed the specification said GIF87a. GIF89a was an extension that added features like transparency, and more crucially, the ability to animate the GIF.</p>
+            <p>Animated GIFs have had enormous staying power, seeing as how I've just sent more than handful just earlier today. They had been all the rage on the web once browsers supported them and in 1994, Unisys decided to enforce its patent.</p>
+            <p>By December of 1994, a court agreement between Unisys and CompuServe resulted in the announcement that Unisys would start collecting royalties from all software makes who used the GIF89a format.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Burn All GIFs day</h2>
+          <p>November 5, 1999</p>
+          <figure style="width:40vw;margin:0 auto">
+            <video loop autoplay style="width:100%">
+              <source data-src="videos/burn-all-gifs.mp4" type="video/mp4">
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/burn-all-gifs.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <figcaption><a href="https://burnallgifs.org/archives/">https://burnallgifs.org/archives/</a></figcaption>
+          </figure>
+          <aside class="notes">Outrage ensued. And in stepped The League for Programming Freedom and their idea to burn all GIFs on November 5, 1999. There was also a concrete plan developing on the usenet newsgroup <em>comp.graphics</em> on the possibilities of GIF alternatives.</aside>
+        </section>
+
+        <section>
+          <h2>Portable Network Graphics (PNG)</h2>
+          <figure>
+            <img class="plain" style="max-height:85vh" data-src="img/png-header.png" alt="PNG header">
+            <figcaption>8-byte signature of a PNG file</figcaption>
+          </figure>
+          <aside class="notes">
+            <p>They came up with a little something called Portable Network Graphics, shortened from the proposed PING, for “Ping is not GIF”. Some other suggestions were quite fun, like TNT, for “The New Thing”.</p>
+            <p>Even though PNGs outperformed GIFs in a multitude of ways. It was 100% open-source and patent-free. It could support thousands of colours versus GIFs 256. It handled transparency better.</p>
+            <p>But the designers of PNG made a conscious decision not to provide animation capabilities. And that was pretty much what kept the GIF alive all these years, because there was no viable alternative to animated GIFs.</p>
+            <p>In contrast to JPG, PNG compression is lossless. And it is a 2-part process. Delta encoding is a way of storing or transferring data via differences between sequential data instead of complete files. Diff-ing, essentially.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>PNG filter algorithms</h2>
+          <table class="png-filters">
+            <tr>
+              <td>None</td>
+              <td>—</td>
+              <td>
+                <figure>
+                  <img class="plain" data-src="img/none.png" alt="None">
+                  <figcaption>Zero</figcaption>
+                </figure>
+              </td>
+            </tr>
+            <tr>
+              <td>Sub</td>
+              <td><code>Sub(x) = Raw(x) - Raw(x-bpp)</code></td>
+              <td>
+                <figure>
+                  <img class="plain" data-src="img/sub.png" alt="Sub">
+                  <figcaption>Byte A (to the left)</figcaption>
+                </figure>
+              </td>
+            </tr>
+            <tr>
+              <td>Up</td>
+              <td><code>Up(x) = Raw(x) - Prior(x)</code></td>
+              <td>
+                <figure>
+                  <img class="plain" data-src="img/up.png" alt="Up">
+                  <figcaption>Byte B (above)</figcaption>
+                </figure>
+              </td>
+            </tr>
+            <tr>
+              <td>Average</td>
+              <td><code>Average(x) = Raw(x) - floor((Raw(x-bpp)+Prior(x))/2)</code></td>
+              <td>
+                <figure>
+                  <img class="plain" data-src="img/average.png" alt="Average">
+                  <figcaption>Mean of bytes A and B, rounded down</figcaption>
+                </figure>
+              </td>
+            </tr>
+            <tr>
+              <td>Paeth</td>
+              <td><code>Paeth(x) = Raw(x) - PaethPredictor(Raw(x-bpp), Prior(x), Prior(x-bpp))</code></td>
+              <td>
+                <figure>
+                  <img class="plain" data-src="img/sub.png" alt="Paeth">
+                  <figcaption>A, B, or C, whichever is closest to<br><code>p = A + B − C</code></figcaption>
+                </figure>
+              </td>
+            </tr>
+          </table>
+          <aside class="notes">
+            <p>This is advantageous for compression when the data you're dealing with is linearly correlated, so the differences in values are often repeated, low values. Before compression, filter algorithms are used to prepare the image data for optimal compression.</p>
+            <p>For each scan-line of pixels, the current pixel is encoded in relation to the pixel on its left (A), directly above it (B), and at its top-left (C). These filters are not done per pixel though, but per channel, e.g. all red values, then all blue values, then green.</p>
+            <p>Developers of PNG also came up with some general rules of thumb to select the best filter based on the the type of image being processed.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>DEFLATE compression algorithm</h2>
+          <img class="plain" style="max-height:75vh" data-src="img/deflate.png" alt="DEFLATE compression algorithm specification">
+          <p><small><a href="https://tools.ietf.org/html/rfc1951">DEFLATE Compressed Data Format Specification version 1.3</a></small></p>
+          <aside class="notes">After the filtering is done, the compression takes place, using the DEFLATE algorithm, which is used in gzip compressed files and zip files, in addition to PNG. So again, Colt McAnlis also has an in-depth explainer on how PNG works, but he highlights that the nature of image data brings about some interesting caveats when using DEFLATE.</aside>
+        </section>
+
+        <section>
+          <h2>What a difference 2 pixels can make</h2>
+          <img class="plain" data-src="img/kiwis.jpg" alt="Difference in compression rates of 2 sets of images of kiwis">
+          <p><small>Reference: <a href="https://encode.ru/threads/1725-pngthermal-pseudo-thermal-view-of-PNG-compression-efficiency">pngthermal</a></small></p>
+          <aside class="notes">
+            <p>Specifically, how the exact dimensions of your image could have an impact on how well image compression works. If you look at the illustration, which consists of two nearly identical images, but the one on the right is 2 pixels wider.</p>
+            <p>For the smaller image, the bytes representing the second and third kiwis fell between the LZ match range and are encoded as highly efficient LZ matches, hence the dark blue thermal pattern.</p>
+            <p>But somehow, the extra to columns of pixels in the right image resulted in the bytes for the second and third kiwis to be out of match range, and they are encoded as non-matching.</p>
+          </aside>
         </section>
 
         <section>
           <h2>References</h2>
-          <ul style="column-count:2;font-size:85%">
+          <ul style="column-count:2;font-size:65%">
             <li>Davis, W. (1986). <em>The Origins of Image Making.</em> Current Anthropology, 27(3), 193-215. doi:10.1086/203422</li>
             <li><a href="https://www.popularmechanics.com/technology/a21457/the-gif-is-dead-long-live-the-gif/">The GIF Is Dead. Long Live the GIF.</a></li>
             <li><a href="https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/types-of-bitmaps?view=netframework-4.7.2">Types of Bitmaps</a></li>
-            <li><a href="https://medium.com/@duhroach/how-png-works-f1174e3cc7b7">How PNG Works</a>, <a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG Works</a>, <a href="https://medium.com/@duhroach/reducing-png-file-size-8473480d0476">Reducing PNG file Size</a> & <a href="https://medium.com/@duhroach/reducing-jpg-file-size-e5b27df3257c">Reducing JPG File size</a> by <a href="https://twitter.com/duhroach">Colt McAnlis</a></li>
+            <li><a href="https://hackernoon.com/why-do-we-need-JPG-compression-and-how-its-technically-working-52a3a9ced55d">Why do we need JPG compression and how it's technically working?</a> by <a href="https://techeries.com/about-us/">Steven Hansen</a></li>
+            <li><a href="https://cloudinary.com/blog/progressive_jpegs_and_green_martians">Progressive JPEGs and green Martians</a> by <a href="https://twitter.com/jonsneyers">Jon Syeners</a></li>
+            <li><a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG Works</a>, <a href="https://medium.com/@duhroach/how-png-works-f1174e3cc7b7">How PNG Works</a>, <a href="https://medium.com/@duhroach/reducing-png-file-size-8473480d0476">Reducing PNG file Size</a> & <a href="https://medium.com/@duhroach/reducing-jpg-file-size-e5b27df3257c">Reducing JPG File size</a> by <a href="https://twitter.com/duhroach">Colt McAnlis</a></li>
+            <li><a href="https://groups.google.com/forum/#!msg/comp.graphics/tylpVt2y9s8/eHWKNVLYMREJ">Thoughts on a GIF-replacement file format</a></li>
             <li><a href="https://diveintohtml5.info/past.html">How Did We Get Here?</a> by Mark Pilgrim</li>
             <li><a href="https://kilianvalkhof.com/2008/web/on-rendering-engines-and-graphic-libraries/">On rendering engines and graphic libraries</a> by <a href="https://kilianvalkhof.com/">Kilian Valkhof</a></li>
             <li><a href="https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html">Let's build a browser engine!</a> by <a href="https://limpet.net/mbrubeck/">Matt Brubeck</a></li>

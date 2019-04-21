@@ -107,6 +107,16 @@ html {
     vertical-align: middle;
   }
 
+  .png-filters {
+    td:nth-child(2) {
+      font-size: 65%;
+    }
+
+    td:nth-child(3) {
+      text-align: center;
+    }
+  }
+
   [class^="txtbg"] {
     font-size: 1.999em;
     display: inline-block;
