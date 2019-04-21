@@ -394,13 +394,13 @@
 
         <section>
           <h2>JPG compression</h2>
-          <img class="plain" style="max-height:85vh" data-src="img/jpg.png" alt="JPG compression">
+          <img class="plain" style="max-height:75vh" data-src="img/jpg.png" alt="JPG compression">
           <p><small>Reference: <a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG works</a></small></p>
           <aside class="notes">JPG was revolutionary when it was released in 1992. A lot of the information here I learned from Colt McAnlis, who wrote a really in-depth explainer on how JPG works, which you should really check out if you're interested in this.</aside>
         </section>
 
         <section>
-          <img class="plain" style="max-height:85vh" data-src="img/jpeg1.png" alt="JPG compression">
+          <img class="plain" data-src="img/jpeg1.png" alt="JPG compression">
           <p><small>Reference: <a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG works</a></small></p>
           <aside class="notes">
             <p>JPG converts from RGB to Y,Cb,Cr colour model, comprising Luminance, Chroma Blue and Chroma Red. This works because we notice luminance more distinctly than chrominance, so we can get away with aggressive changes to the CbCr channels.</p>
@@ -409,7 +409,7 @@
         </section>
 
         <section>
-          <img class="plain" style="max-height:85vh" data-src="img/jpeg2.png" alt="JPG compression">
+          <img class="plain" data-src="img/jpeg2.png" alt="JPG compression">
           <p><small>Reference: <a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG works</a></small></p>
           <aside class="notes">
             <p>The math is centred around the Discrete Consine Transform (DCT), where the idea is that any 8-by-8 block can be represented as a sum of weighted cosine transforms, at various frequencies.</p>
@@ -420,7 +420,7 @@
         </section>
 
         <section>
-          <img class="plain" style="max-height:85vh" data-src="img/jpeg3.png" alt="JPG compression">
+          <img class="plain" data-src="img/jpeg3.png" alt="JPG compression">
           <p><small>Reference: <a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG works</a></small></p>
           <aside class="notes">
             <p>So it is necessary for a quantisation phase. JPG uses a pre-calculated matrix of quantisation factors instead of directly converting the weights-matrix back into a 0 to 255 number space.</p>
@@ -429,13 +429,13 @@
         </section>
 
         <section>
-          <img class="plain" style="max-height:85vh" data-src="img/jpeg4.png" alt="JPG compression">
+          <img class="plain" data-src="img/jpeg4.png" alt="JPG compression">
           <p><small>Reference: <a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG works</a></small></p>
           <aside class="notes">By now you might notice that there are a larger number of zeroes toward the bottom right of the matrix, so a Zig-Zag algorithm is applied to create a linear array of values from the block. After such a reordering, further compression with run-length encoding can yield even better results.</aside>
         </section>
 
         <section>
-          <img class="plain" style="max-height:85vh" data-src="img/jpg.png" alt="JPG compression">
+          <img class="plain" style="max-height:75vh" data-src="img/jpg.png" alt="JPG compression">
           <p><small>Reference: <a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG works</a></small></p>
           <aside class="notes">
             <p>The full process of generating a JPG file involves more steps than what I outlined but that was my general understanding of how JPG compression works. Hopefully Dr. Jon Syeners will be able to answer any further questions you might have about it.</p>
@@ -459,7 +459,7 @@
         <section>
           <h2>libjpeg-turbo</h2>
           <figure>
-            <img class="plain" style="max-height:85vh" data-src="img/libjpeg-turbo.png" alt="libjpeg-turbo home page">
+            <img class="plain" style="max-height:70vh" data-src="img/libjpeg-turbo.png" alt="libjpeg-turbo home page">
             <figcaption><a href="https://libjpeg-turbo.org/">https://libjpeg-turbo.org/</a></figcaption>
           </figure>
           <aside class="notes">
@@ -493,8 +493,8 @@
           </div>
           <aside class="notes">
             <p>If you squinted hard at my slides when I first mentioned GIFs, you may have noticed the specification said GIF87a. GIF89a was an extension that added features like transparency, and more crucially, the ability to animate the GIF.</p>
-            <p>Animated GIFs have had enormous staying power, seeing as how I've just sent more than handful just earlier today. They had been all the rage on the web once browsers supported them and in 1994, Unisys decided to enforce its patent.</p>
-            <p>By December of 1994, a court agreement between Unisys and CompuServe resulted in the announcement that Unisys would start collecting royalties from all software makes who used the GIF89a format.</p>
+            <p>Animated GIFs have had enormous staying power, seeing as how I've sent more than handful just earlier today. They had been all the rage on the web the moment browsers started to support them and in 1994, Unisys decided to enforce its patent.</p>
+            <p>By December of 1994, a court agreement between Unisys and CompuServe resulted in the announcement that Unisys would start collecting royalties from all software makers who used the GIF89a format.</p>
           </aside>
         </section>
 
@@ -510,18 +510,18 @@
             </video>
             <figcaption><a href="https://burnallgifs.org/archives/">https://burnallgifs.org/archives/</a></figcaption>
           </figure>
-          <aside class="notes">Outrage ensued. And in stepped The League for Programming Freedom and their idea to burn all GIFs on November 5, 1999. There was also a concrete plan developing on the usenet newsgroup <em>comp.graphics</em> on the possibilities of GIF alternatives.</aside>
+          <aside class="notes">Outrage ensued. And in stepped <em>The League for Programming Freedom</em> and their idea to burn all GIFs on November 5, 1999. There was also a concrete plan developing on the usenet newsgroup <em>comp.graphics</em> on alternatives to the GIF format.</aside>
         </section>
 
         <section>
           <h2>Portable Network Graphics (PNG)</h2>
           <figure>
-            <img class="plain" style="max-height:85vh" data-src="img/png-header.png" alt="PNG header">
+            <img class="plain" data-src="img/png-header.png" alt="PNG header">
             <figcaption>8-byte signature of a PNG file</figcaption>
           </figure>
           <aside class="notes">
             <p>They came up with a little something called Portable Network Graphics, shortened from the proposed PING, for “Ping is not GIF”. Some other suggestions were quite fun, like TNT, for “The New Thing”.</p>
-            <p>Even though PNGs outperformed GIFs in a multitude of ways. It was 100% open-source and patent-free. It could support thousands of colours versus GIFs 256. It handled transparency better.</p>
+            <p>PNGs outperformed GIFs in a multitude of ways. It was 100% open-source and patent-free. It could support thousands of colours versus GIF's 256. It handled transparency better.</p>
             <p>But the designers of PNG made a conscious decision not to provide animation capabilities. And that was pretty much what kept the GIF alive all these years, because there was no viable alternative to animated GIFs.</p>
             <p>In contrast to JPG, PNG compression is lossless. And it is a 2-part process. Delta encoding is a way of storing or transferring data via differences between sequential data instead of complete files. Diff-ing, essentially.</p>
           </aside>
@@ -590,9 +590,14 @@
 
         <section>
           <h2>DEFLATE compression algorithm</h2>
-          <img class="plain" style="max-height:75vh" data-src="img/deflate.png" alt="DEFLATE compression algorithm specification">
-          <p><small><a href="https://tools.ietf.org/html/rfc1951">DEFLATE Compressed Data Format Specification version 1.3</a></small></p>
-          <aside class="notes">After the filtering is done, the compression takes place, using the DEFLATE algorithm, which is used in gzip compressed files and zip files, in addition to PNG. So again, Colt McAnlis also has an in-depth explainer on how PNG works, but he highlights that the nature of image data brings about some interesting caveats when using DEFLATE.</aside>
+          <figure>
+            <img class="plain" style="max-height:70vh" data-src="img/deflate.png" alt="DEFLATE compression algorithm specification">
+            <figcaption><a href="https://tools.ietf.org/html/rfc1951">DEFLATE Compressed Data Format Specification version 1.3</a></figcaption>
+          </figure>
+          <aside class="notes">
+            <p>After the filtering is done, the actual compression takes place, using the DEFLATE algorithm, which is also used in gzip compressed files and zip files.</p>
+            <p>So again, Colt McAnlis also has another in-depth explainer on how PNG works. In it, he highlights that the nature of image data brings about some interesting caveats when using DEFLATE.</p>
+          </aside>
         </section>
 
         <section>
@@ -600,9 +605,59 @@
           <img class="plain" data-src="img/kiwis.jpg" alt="Difference in compression rates of 2 sets of images of kiwis">
           <p><small>Reference: <a href="https://encode.ru/threads/1725-pngthermal-pseudo-thermal-view-of-PNG-compression-efficiency">pngthermal</a></small></p>
           <aside class="notes">
-            <p>Specifically, how the exact dimensions of your image could have an impact on how well image compression works. If you look at the illustration, which consists of two nearly identical images, but the one on the right is 2 pixels wider.</p>
-            <p>For the smaller image, the bytes representing the second and third kiwis fell between the LZ match range and are encoded as highly efficient LZ matches, hence the dark blue thermal pattern.</p>
-            <p>But somehow, the extra to columns of pixels in the right image resulted in the bytes for the second and third kiwis to be out of match range, and they are encoded as non-matching.</p>
+            <p>Specifically, how the exact dimensions of your image could have an impact on how well image compression works. If you look at the illustration, you'll see two nearly identical images of kiwi fruits. Only that the image on the right is 2 pixels wider.</p>
+            <p>For the smaller image, the bytes representing the second and third kiwis fell between the LZ match range and are encoded as highly efficient LZ matches, hence the dark blue thermal pattern. </p>
+            <p>But somehow, the extra 2 columns of pixels in the right image resulted in the bytes for the second and third kiwis to be out of match range, and they are encoded as non-matching. Thus causing the file size to bloat dramatically, doubling in size.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>libpng</h2>
+          <figure>
+            <img class="plain" data-src="img/libpng.png" alt="libpng home page">
+            <figcaption><a href="http://www.libpng.org/pub/png/libpng.html">http://www.libpng.org/pub/png/libpng.html</a></figcaption>
+          </figure>
+          <aside class="notes">
+            <p>libpng is the official PNG reference library, and is what Firefox uses for PNG support. So earlier, I mentioned libjpeg-turbo as a kind of segue into PNGs. But we really ought to talk about these image encoders in relation to browser rendering engines.</p>
+            <p>Now that Edge has moved over to Chromium, and I've got mixed feelings about that, I suppose we can cover just the 2 major browser rendering engines, Blink and Gecko. First of all, I'd like to clarify that I'm NOT a browser engineer, far from it.</p>
+            <p>I know a C++ program when I see one, but that's about it. So not going to be too technical here. And if you ARE a browser engineer, I'd love to pick your brain after this.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>What is a browser engine? <span class="emoji" role="img" tabindex="0" aria-label="thinking face">&#x1F914;</span></h2>
+          <img class="plain" data-src="img/browser-magic.png" alt="The blackbox of browser engines">
+          <p><small>Reference: <a href="https://hacks.mozilla.org/2017/05/quantum-up-close-what-is-a-browser-engine/">Quantum Up Close: What is a browser engine?</a></small></p>
+          <aside class="notes">
+            <p>Potch, Developer Advocate at Mozilla, wrote this awesome article about Project Quantum and browser engines when Firefox 57 was doing its big core engine overhaul back in 2017.</p>
+            <p>Most web developers, myself included, probably see the browser engine as a magic black box that turns the code we write into web sites our users can somehow consume even if they are on a different browser, different device, different time zone.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>What is a browser engine? <span class="emoji" role="img" tabindex="0" aria-label="nerd face">&#x1F913;</span></h2>
+          <img class="plain" style="max-height:70vh" data-src="img/browser-engine.png" alt="Browser engine diagram">
+          <p><small>Reference: <a href="https://hacks.mozilla.org/2017/05/quantum-up-close-what-is-a-browser-engine/">Quantum Up Close: What is a browser engine?</a></small></p>
+          <aside class="notes">
+            <p>Browser engines combine the structure and style of a web page to draw it on the screen, then figure out which parts can be interacted with. As you can see, lots of parsers and dedicated engines to do all that.</p>
+            <p>Today, because we're covering images, we're more concerned with the blue-circled portion about media. And we'll touch upon about how that flows into the rest of the rendering pipe line.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Graphics libraries</h2>
+          <div class="l-double" style="align-items:center">
+            <figure>
+              <img class="plain" data-src="img/skia.svg" alt="skia logo">
+              <figcaption>Skia</figcaption>
+            </figure>
+            <figure>
+              <img class="plain" data-src="img/moz-gfx.png" alt="Mozilla GFX team logo">
+              <figcaption>WebRender</figcaption>
+            </figure>
+          </div>
+          <aside class="notes">
+          
           </aside>
         </section>
 
@@ -616,6 +671,8 @@
             <li><a href="https://cloudinary.com/blog/progressive_jpegs_and_green_martians">Progressive JPEGs and green Martians</a> by <a href="https://twitter.com/jonsneyers">Jon Syeners</a></li>
             <li><a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG Works</a>, <a href="https://medium.com/@duhroach/how-png-works-f1174e3cc7b7">How PNG Works</a>, <a href="https://medium.com/@duhroach/reducing-png-file-size-8473480d0476">Reducing PNG file Size</a> & <a href="https://medium.com/@duhroach/reducing-jpg-file-size-e5b27df3257c">Reducing JPG File size</a> by <a href="https://twitter.com/duhroach">Colt McAnlis</a></li>
             <li><a href="https://groups.google.com/forum/#!msg/comp.graphics/tylpVt2y9s8/eHWKNVLYMREJ">Thoughts on a GIF-replacement file format</a></li>
+            <li><a href="https://hacks.mozilla.org/2017/05/quantum-up-close-what-is-a-browser-engine/">Quantum Up Close: What is a browser engine?</a> by <a href="https://twitter.com/potch">Matt "Potch" Claypotch</a></li>
+
             <li><a href="https://diveintohtml5.info/past.html">How Did We Get Here?</a> by Mark Pilgrim</li>
             <li><a href="https://kilianvalkhof.com/2008/web/on-rendering-engines-and-graphic-libraries/">On rendering engines and graphic libraries</a> by <a href="https://kilianvalkhof.com/">Kilian Valkhof</a></li>
             <li><a href="https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html">Let's build a browser engine!</a> by <a href="https://limpet.net/mbrubeck/">Matt Brubeck</a></li>

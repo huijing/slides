@@ -120,13 +120,13 @@ Turns out the LZW compression algorithm was patented by Unisys back in 1985. But
 
 If you squinted hard at my slides when I first mentioned GIFs, you may have noticed the specification said GIF87a. GIF89a was an extension that added features like transparency, and more crucially, the ability to animate the GIF.
 
-Animated GIFs have had enormous staying power, seeing as how I've just sent more than handful just earlier today. They had been all the rage on the web once browsers supported them and in 1994, Unisys decided to enforce its patent. By December of 1994, a court agreement between Unisys and CompuServe resulted in the announcement that Unisys would start collecting royalties from all software makes who used the GIF89a format.
+Animated GIFs have had enormous staying power, seeing as how I've sent more than handful just earlier today. They had been all the rage on the web the moment browsers started to support them and in 1994, Unisys decided to enforce its patent. By December of 1994, a court agreement between Unisys and CompuServe resulted in the announcement that Unisys would start collecting royalties from all software makers who used the GIF89a format.
 
-Outrage ensued. And in stepped The League for Programming Freedom and their idea to burn all GIFs on November 5, 1999. There was also a concrete plan developing on the usenet newsgroup <em>comp.graphics</em> on the possibilities of GIF alternatives.
+Outrage ensued. And in stepped *The League for Programming Freedom* and their idea to burn all GIFs on November 5, 1999. There was also a concrete plan developing on the usenet newsgroup *comp.graphics* on alternatives to the GIF format.
 
 ## Portable Network Graphics (PNG)
 
-They came up with a little something called Portable Network Graphics, shortened from the proposed PING, for “Ping is not GIF”. Some other suggestions were quite fun, like TNT, for “The New Thing”. Even though PNGs outperformed GIFs in a multitude of ways. It was 100% open-source and patent-free. It could support thousands of colours versus GIFs 256. It handled transparency better.
+They came up with a little something called Portable Network Graphics, shortened from the proposed PING, for “Ping is not GIF”. Some other suggestions were quite fun, like TNT, for “The New Thing”. PNGs outperformed GIFs in a multitude of ways. It was 100% open-source and patent-free. It could support thousands of colours versus GIF's 256. It handled transparency better.
 
 But the designers of PNG made a conscious decision not to provide animation capabilities. And that was pretty much what kept the GIF alive all these years, because there was no viable alternative to animated GIFs.
 
@@ -136,17 +136,26 @@ This is advantageous for compression when the data you're dealing with is linear
 
 For each scan-line of pixels, the current pixel is encoded in relation to the pixel on its left (A), directly above it (B), and at its top-left (C). These filters are not done per pixel though, but per channel, e.g. all red values, then all blue values, then green. Developers of PNG also came up with some general rules of thumb to select the best filter based on the the type of image being processed.
 
-After the filtering is done, the compression takes place, using the DEFLATE algorithm, which is used in gzip compressed files and zip files, in addition to PNG. So again, Colt McAnlis also has an in-depth explainer on how PNG works, but he highlights that the nature of image data brings about some interesting caveats when using DEFLATE.
+After the filtering is done, the actual compression takes place, using the DEFLATE algorithm, which is also used in gzip compressed files and zip files. So again, Colt McAnlis also has another in-depth explainer on how PNG works. In it, he highlights that the nature of image data brings about some interesting caveats when using DEFLATE.
 
-Specifically, how the exact dimensions of your image could have an impact on how well image compression works. If you look at the illustration, which consists of two nearly identical images, but the one on the right is 2 pixels wider.
+Specifically, how the exact dimensions of your image could have an impact on how well image compression works. If you look at the illustration, you'll see two nearly identical images of kiwi fruits. Only that the image on the right is 2 pixels wider.
 
-For the smaller image, the bytes representing the second and third kiwis fell between the LZ match range and are encoded as highly efficient LZ matches, hence the dark blue thermal pattern. But somehow, the extra to columns of pixels in the right image resulted in the bytes for the second and third kiwis to be out of match range, and they are encoded as non-matching.
+For the smaller image, the bytes representing the second and third kiwis fell between the LZ match range and are encoded as highly efficient LZ matches, hence the dark blue thermal pattern. But somehow, the extra 2 columns of pixels in the right image resulted in the bytes for the second and third kiwis to be out of match range, and they are encoded as non-matching. Thus causing the file size to bloat dramatically, doubling in size.
 
 ## Browser rendering engines
 
 libpng is the official PNG reference library, and is what Firefox uses for PNG support. So earlier, I mentioned libjpeg-turbo as a kind of segue into PNGs. But we really ought to talk about these image encoders in relation to browser rendering engines.
 
-Now that Edge has moved over to Chromium, I've got mixed feelings about that, I suppose we can cover the 2 major browser rendering engines, Blink and Gecko. First of all, I am NOT a browser engineer, far from it. I know a C++ 
+Now that Edge has moved over to Chromium, and I've got mixed feelings about that, I suppose we can cover just the 2 major browser rendering engines, Blink and Gecko. First of all, I'd like to clarify that I'm NOT a browser engineer, far from it. I know a C++ program when I see one, but that's about it. So not going to be too technical here. And if you ARE a browser engineer, I'd love to pick your brain after this.
+
+## Browser engines
+
+Potch, Developer Advocate at Mozilla, wrote this awesome article about Project Quantum and browser engines when Firefox 57 was doing its big core engine overhaul back in 2017. Most web developers, myself included, probably see the browser engine as a magic black box that turns the code we write into web sites our users can somehow consume even if they are on a different browser, different device, different time zone.
+
+Browser engines combine the structure and style of a web page to draw it on the screen, then figure out which parts can be interacted with. As you can see, lots of parsers and dedicated engines to do all that. Today, because we're covering images, we're more concerned with the blue-circled portion about media. And we'll touch upon about how that flows into the rest of the rendering pipe line.
+
+
+
 
 resolutions
 
