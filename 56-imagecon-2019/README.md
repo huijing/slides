@@ -34,7 +34,7 @@ Computers have come a long way in a relatively short period of less than a hundr
 
 The binary nature of digital computing, pioneered by Konrad Zuse back in 1941, made it easier to represent data and perform calculations and logical operations, given you only had 2 states to deal with. This also made the machines easier to build and improved reliability.
 
-Electronic displays actually pre-date digital computers, with Cathode Ray Tube (CRT) technology becoming commercially available back in 1922. They worked by firing a beam of electrons onto a phosphor-coated screen. The energy from these electrons gets absorbed by the phosphor atoms, and kicks them up to higher energy levels.
+Electronic displays actually pre-date digital computers, with Cathode Ray Tube (CRT) technology becoming commercially available back in 1922. They worked by firing a beam of electrons onto a phosphor-coated screen. The energy from these electrons gets absorbed by the phosphor atoms on the screen, and kicks them up to higher energy levels.
 
 If you remember some high school physics, you may already know that this high energy state is unsustainable and the phosphor atoms will come back down, releasing the extra energy in the form of light, resulting in a bright spot on the screen.
 
@@ -52,7 +52,9 @@ Filename extensions is probably the most popular method used by most operating s
 
 Image files are a particular type of file format, so their file headers would contain stuff like the image format, resolution, colour space, authoring information, camera model and so on. Broadly speaking, there are 2 kinds of images, raster and vector.
 
-A raster image is also known as a bitmap image, which are comprised of pixels in a grid. And each pixel contains a bit of colour information, a combination of the additive primary colours, red, green and blue. A bitmap is essentially a spatially mapped array of bits. The number of bits per pixel will determine how many unique colours the image can contain, this is also known as colour depth. 
+A raster image is also known as a bitmap image, which are comprised of pixels in a grid. And each pixel contains a bit of colour information, a combination of the additive primary colours, red, green and blue. A bitmap is essentially a spatially mapped array of bits. The number of bits per pixel will determine how many unique colours the image can contain, this is also known as colour depth.
+
+Raster displays store per pixel image data as a bitmap in a region of memory called the frame buffer. So clearly, memory is an integral part of the rendering process. The total amount of memory needed is dependant on the resolution of the output signal and the colour depth. 
 
 ## MacPaint
 
@@ -148,24 +150,22 @@ libpng is the official PNG reference library, and is what Firefox uses for PNG s
 
 Now that Edge has moved over to Chromium, and I've got mixed feelings about that, I suppose we can cover just the 2 major browser rendering engines, Blink and Gecko. First of all, I'd like to clarify that I'm NOT a browser engineer, far from it. I know a C++ program when I see one, but that's about it. So not going to be too technical here. And if you ARE a browser engineer, I'd love to pick your brain after this.
 
-## Browser engines
-
 Potch, Developer Advocate at Mozilla, wrote this awesome article about Project Quantum and browser engines when Firefox 57 was doing its big core engine overhaul back in 2017. Most web developers, myself included, probably see the browser engine as a magic black box that turns the code we write into web sites our users can somehow consume even if they are on a different browser, different device, different time zone.
 
 Browser engines combine the structure and style of a web page to draw it on the screen, then figure out which parts can be interacted with. As you can see, lots of parsers and dedicated engines to do all that. Today, because we're covering images, we're more concerned with the blue-circled portion about media. And we'll touch upon about how that flows into the rest of the rendering pipe line.
 
+Because the displays that we use now are all raster displays, it is necessary for a rasterisation process to occur before graphics can be painted on the screen. For anyone who is not a browser engineer, I highly recommend going through this series of articles on how to build a browser engine by Matt Brubeck. He's a research engineer with Mozilla and works on Servo.
 
 
 
-resolutions
 
-transmission of data formats over the web
 
+formats supported by browsers, bits and bytes into actual images we can see
 browser parsing image data?
 
 streams?
 
 video??
 
-formats supported by browsers, bits and bytes into actual images we can see
+base64 encoding??
 

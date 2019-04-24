@@ -103,6 +103,14 @@ html {
     max-height: 75vh;
   }
 
+  table td {
+    border-bottom: 0;
+  }
+
+  tr:nth-child(odd) {
+    background-color: lighten($headingColor, 72%)
+  }
+
   td {
     vertical-align: middle;
   }
@@ -113,7 +121,12 @@ html {
     }
 
     td:nth-child(3) {
-      text-align: center;
+      font-size: 65%;
+      width: 25%;
+    }
+
+    td:nth-child(4) {
+      width: 30%;
     }
   }
 
@@ -130,6 +143,11 @@ html {
 
   .txtbg-dark {
     background-color: rgba(0,0,0,0.75);
+  }
+
+  .kaomoji {
+    white-space: nowrap;
+    font-family: Arial, sans-serif;
   }
 }
 

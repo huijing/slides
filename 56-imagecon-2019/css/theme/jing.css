@@ -144,7 +144,7 @@ body {
   text-align: left;
   font-size: 0.55em;
   font-family: "Dank Mono", monospace;
-  line-height: 1.2em;
+  line-height: 1.2;
   word-wrap: break-word;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15); }
 
@@ -156,8 +156,8 @@ body {
   display: block;
   padding: 5px;
   overflow: auto;
-  max-height: 400px;
-  word-wrap: normal; }
+  word-wrap: normal;
+  font-size: 85%; }
 
 .reveal table {
   margin: auto;
@@ -334,6 +334,12 @@ html {
 .reveal img[src*="svg"] {
   max-height: 75vh; }
 
+.reveal table td {
+  border-bottom: 0; }
+
+.reveal tr:nth-child(odd) {
+  background-color: #fceeee; }
+
 .reveal td {
   vertical-align: middle; }
 
@@ -341,7 +347,11 @@ html {
   font-size: 65%; }
 
 .reveal .png-filters td:nth-child(3) {
-  text-align: center; }
+  font-size: 65%;
+  width: 25%; }
+
+.reveal .png-filters td:nth-child(4) {
+  width: 30%; }
 
 .reveal [class^="txtbg"] {
   font-size: 1.999em;
@@ -354,6 +364,10 @@ html {
 
 .reveal .txtbg-dark {
   background-color: rgba(0, 0, 0, 0.75); }
+
+.reveal .kaomoji {
+  white-space: nowrap;
+  font-family: Arial, sans-serif; }
 
 span.emoji {
   font-family: 'Apple Color Emoji', 'Segoe UI Emoji';

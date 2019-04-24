@@ -109,7 +109,7 @@
             <figcaption>CRTs sold by Müller-Uri, Source: <a href="https://www.crtsite.com/page3.html">The Cathode Ray Tube site</a></figcaption>
           </figure>
           <aside class="notes">
-            <p>Electronic displays actually pre-date digital computers, with the Cathode Ray Tube (CRT) becoming commercially available back in 1922. They worked by firing a beam of electrons onto a phosphor-coated screen. The energy from these electrons gets absorbed by the phosphor atoms, and kicks them up to higher energy levels.</p>
+            <p>Electronic displays actually pre-date digital computers, with Cathode Ray Tube (CRT) technology becoming commercially available back in 1922. They worked by firing a beam of electrons onto a phosphor-coated screen. The energy from these electrons gets absorbed by the phosphor atoms on the screen, and kicks them up to higher energy levels.</p>
             <p>If you remember some high school physics, you may already know that this high energy state is unsustainable and the phosphor atoms will come back down, releasing the extra energy in the form of light, resulting in a bright spot on the screen.</p>
           </aside>
         </section>
@@ -249,7 +249,7 @@
             </g>
           </svg>  
           <aside class="notes">
-            <p>Filename extensions is probably the most popular method used by most operating systems.</p>
+            <p>Filename extensions are probably the most popular method used by most operating systems.</p>
             <p>Information about file formats can also be explicitly stored in the file system instead of the file itself as external metadata.</p>
             <p>And files themselves, contain information about their own format, as internal metadata. Such information is usually put at the beginning of the file as a file header, or a magic number if it's only a few bytes long.</p>
             <p>Image files are a particular type of file format, so their file headers would contain stuff like the image format, resolution, colour space, authoring information, camera model and so on. Broadly speaking, there are 2 kinds of images, raster and vector.</p>
@@ -284,6 +284,7 @@
           <aside class="notes">
             <p>A raster image is also known as a bitmap image, which are comprised of pixels in a grid. And each pixel contains a bit of colour information, a combination of the additive primary colours, red, green and blue.</p>
             <p>A bitmap is essentially a spatially mapped array of bits. The number of bits per pixel will determine how many unique colours the image can contain, this is also known as colour depth.</p>
+            <p>Raster displays store per pixel image data as a bitmap in a region of memory called the frame buffer. So clearly, memory is an integral part of the rendering process. The total amount of memory needed is dependant on the resolution of the output signal and the colour depth. We will revisit the frame buffer again later on in the talk.</p>
           </aside>
         </section>
 
@@ -325,8 +326,8 @@
           </div>
           <p><small>Source: <a href="https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/types-of-bitmaps">Microsoft, Types of Bitmaps</a></small></p>
           <aside class="notes">
-            <p>This is an example of a 4-bit BMP image, which means a given pixel can be 1 of 16 colours. Each colour in the table is represented by a 24-bit number, 8 bits each for red, green and blue.</p>
-            <p>Each colour is represented by a hexadecimal number, and we can map each pixel to its corresponding colour value based on the colour table. Such bitmaps are called palette-indexed bitmaps, but some bitmaps can store the colours themselves.</p>
+            <p>This is an example of a 4-bit BMP image, which means a given pixel can be 1 of 16 colours. Each colour in the table is represented by a 24-bit hexadecimal number, 8 bits each for red, green and blue.</p>
+            <p>And we can map each pixel to its corresponding colour value based on the colour table. Such bitmaps are called palette-indexed bitmaps, but some bitmaps can store the colours themselves.</p>
             <p>The thing is BMP files are usually not compressed, and hence, not great for web use at all.</p>
           </aside>
         </section>
@@ -388,7 +389,7 @@
           <img class="plain" data-src="img/jpeg.png" alt="JPEG">
           <aside class="notes">
             <p>JPG is both the name of the committee that created the JPG standard, as well as the name of the image compression algorithm itself.</p>
-            <p>I put a note to myself here, that if Dr. Jon Syeners had already covered most of this stuff I'd just skip over it and move on. Should I have been responsible and reached out to check with him? Yes. Did I? Nope.</p>
+            <p>I put a note to myself here, that if Dr. Jon Sneyers had already covered most of this stuff I'd just skip over it and move on. Should I have been responsible and reached out to check with him? Yes. Did I? Nope.</p>
           </aside>
         </section>
 
@@ -403,8 +404,8 @@
           <img class="plain" data-src="img/jpeg1.png" alt="JPG compression">
           <p><small>Reference: <a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG works</a></small></p>
           <aside class="notes">
-            <p>JPG converts from RGB to Y,Cb,Cr colour model, comprising Luminance, Chroma Blue and Chroma Red. This works because we notice luminance more distinctly than chrominance, so we can get away with aggressive changes to the CbCr channels.</p>
-            <p>The Cb/Cr channels don't have as much detail as the Y channel. They contain less information. So what the algorithm does is resize the Cb and CR channels to a fraction of their original size, also known as downsampling. This process is lossy, so we won't be able to recover the exact source colours anymore.</p>
+            <p>JPG converts from RGB to Y,Cb,Cr colour model, comprising Luminance, Chroma Blue and Chroma Red. This works because we notice luminance more distinctly than chrominance, so we can get away with aggressive changes to the Cb/Cr channels.</p>
+            <p>The Cb/Cr channels don't have as much detail as the Y channel. They contain less information. So what the algorithm does is resize the Cb and Cr channels to a fraction of their original size, also known as downsampling. This process is lossy, so we won't be able to recover the exact source colours anymore.</p>
           </aside>
         </section>
 
@@ -413,7 +414,7 @@
           <p><small>Reference: <a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG works</a></small></p>
           <aside class="notes">
             <p>The math is centred around the Discrete Consine Transform (DCT), where the idea is that any 8-by-8 block can be represented as a sum of weighted cosine transforms, at various frequencies.</p>
-            <p>After applying the requisite formula and basis functions, we end up with a matrix of 64 coefficients. The uppermost-left coefficient is called DC, while the other 63 are called AC.</p>
+            <p>After applying the requisite formula and basic functions, we end up with a matrix of 64 coefficients. The uppermost-left coefficient is called DC, while the other 63 are called AC.</p>
             <p>The data has transformed from a spatial to a frequency domain. After this conversion, the coefficients are now real numbers instead of byte-aligned integer values, causing a bloat from 1 byte to 4 bytes.</p>
             <p></p>
           </aside>
@@ -438,7 +439,7 @@
           <img class="plain" style="max-height:75vh" data-src="img/jpg.png" alt="JPG compression">
           <p><small>Reference: <a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG works</a></small></p>
           <aside class="notes">
-            <p>The full process of generating a JPG file involves more steps than what I outlined but that was my general understanding of how JPG compression works. Hopefully Dr. Jon Syeners will be able to answer any further questions you might have about it.</p>
+            <p>The full process of generating a JPG file involves more steps than what I outlined but that was my general understanding of how JPG compression works. Hopefully Dr. Jon Sneyers will be able to answer any further questions you might have about it.</p>
             <p>JPG does extremely well with photographic images and effects like gradients, but not as well with line drawings or graphics with sharp contrast between the pixels. But an interesting feature of JPGs is the option of progressive JPGs.</p>
           </aside>
         </section>
@@ -450,9 +451,113 @@
             <figcaption>Image source: <a href="https://www.liquidweb.com/kb/what-is-a-progressive-jpeg/">What is a progressive JPEG?</a></figcaption>
           </figure>
           <aside class="notes">
-            <p>I learned about how progressive JPGs from Dr Jon Sneyers, in fact, when I read his article called Progressive JPEGs and green Martians. Non-progressive JPGs encode all the coefficients of each 8-by-8 block sequentially.</p>
+            <p>I learned about how progressive JPGs from Dr Sneyers, in fact, when I read his article called Progressive JPEGs and green Martians. Non-progressive JPGs encode all the coefficients of each 8-by-8 block sequentially.</p>
             <p>Instead of doing that, we can encode all the DC coefficients first, then some low-frequency AC coefficients, followed by high-frequency AC coefficients at the end.</p>
             <p>Progressive JPGs require the encoder and decoder to make multiple passes through the image, and a typical progressive JPG has about 10 scans. So as the image gets decoded, you see a blurry image get progressively sharp as the image loads.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>JPG optimisation tips</h2>
+          <ol>
+            <li>Use high quality source material</li>
+            <li>Alignment on the 8x8 pixel grid</li>
+            <li>Reduce contrast and saturation</li>
+            <li>Sepia images</li>
+            <li>Slight blurring</li>
+          </ol>
+          <p><small>Reference: <a href="https://compress-or-die.com/Understanding-JPG/">Finally understanding JPG</a></small></p>
+          <aside class="notes">
+            <p>So based on our newfound understanding of JPG, there are a couple of tips we can apply to reduce the size of our JPG files without significantly compromising quality. These tips are by creator of the Compress-Or-Die image optimisation tool, Christoph Erdmann.</p>
+            <p>Ideally, tip 0 is to use an optimisation tool, preferably one you can automate. But the following are a bit more on the manual side of things.</p>
+            <p>First tip is relatively straightforward. Because JPG is lossy, if your source had already been compressed with lossy algorithms before, the end result isn't going to be as pretty when compared with a lossless source file like a PNG, for example.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>2. Alignment on the 8x8 pixel grid</h2>
+          <div class="l-double" style="justify-items:center">
+            <img class="plain" style="max-height:75vh" data-src="img/jpg-aligned.png" alt="Alignment to 8x8 grid">
+            <img class="plain" style="max-height:75vh" data-src="img/jpg-notaligned.png" alt="Misaligned from grid altogether">
+          </div>
+          <p><small>Reference: <a href="https://compress-or-die.com/Understanding-JPG/">Finally understanding JPG</a></small></p>
+          <aside class="notes">
+            <p>This 2nd tip I found very interesting. It involves aligning the sharp edges of your image to the grid to help the JPG algorithm not take patterns from the DCT patterns table that were intended for flat areas.</p> 
+            <p>The image on the left is aligned on grid, while the one on the right is slightly misaligned. The content is essentially the same. but the file size for the aligned graphic ended up being more than 20% smaller. And you might not be able to see the difference very clearly, but the box edges are sharper for the first image as well.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>3. Reduce contrast and saturation</h2>
+          <img class="plain" style="max-height:75vh" data-src="img/opt-contrast.jpg" alt="LAB colour mode in Affinity Photo">
+          <p><small>Reference: <a href="https://compress-or-die.com/Understanding-JPG/">Finally understanding JPG</a></small></p>
+          <aside class="notes">
+            <p>If you do edit your own images, you might realise that your image editing software does not support Y,Cr,Cb colour model. But most image software support a colour mode called LAB, which stands for lightness, red/green and blue/yellow respectively.</p>
+            <p>Reducing the contrast of an image lowers the differences between data in the lightness channel, while a reduction in saturation corresponds to a contrast change in the colour channels.</p>
+            <p>Of course, the amount of tweaking you want to make to your image depends a lot on the art direction you're going for. It's also good to keep in mind that changes in the lightness channel do have a greater impact than that of the colour channels.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>4. Sepia images</h2>
+          <figure>
+            <img class="plain" style="max-height:60vh" data-src="img/opt-sepia.jpg" alt="Una Kravets at JSConf.Asia 2018">
+            <figcaption><a href="https://www.youtube.com/watch?v=XZmvHVVj0Ns">Una Kravets: CSS Blend Modes, Because…</a></figcaption>
+          </figure>
+          <p><small>Reference: <a href="https://compress-or-die.com/Understanding-JPG/">Finally understanding JPG</a></small></p>
+          <aside class="notes">Another pretty smart trick is to get rid of the colour information altogether, then colourising the image via CSS, with properties like <code>filter</code> or even in combination with blend modes. If blend modes are your thing, you must check out Una Kravet's amazing talk on blend modes, link in the slide.</aside>
+        </section>
+
+        <section>
+          <h2>5. Slight blurring</h2>
+          <div class="l-double" style="justify-items:center">
+            <img class="plain" style="max-height:75vh" data-src="img/opt-blurred.jpg" alt="Non-key areas of image blurred out">
+            <img class="plain" style="max-height:75vh" data-src="img/opt-notblurred.jpg" alt="No blur applied">
+          </div>
+          <p><small>Reference: <a href="https://compress-or-die.com/Understanding-JPG/">Finally understanding JPG</a></small></p>
+          <aside class="notes">
+            <p>You could put in more manual effort and explicitly smooth out the sharp transitions in the colour channels, which will improve savings during the down-sampling phase.</p>
+            <p>Or you could also do what I did and apply a simple Gaussian blur on the parts of your image which aren't pertinent. A lazier way to benefit from some data savings as well.</p>
+            <p>You don't have to apply all of these tips to all your images because it really does depend on the context in which your images are appearing in. But it's good to know what options are available to you.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Speed, Quality, Size</h2>
+          <figure style="width:40vw;margin:0 auto">
+            <video loop autoplay style="width:100%">
+              <source data-src="videos/whack-a-mole.mp4" type="video/mp4">
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/whack-a-mole.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <figcaption>Can't have 'em all</figcaption>
+          </figure>
+          <aside class="notes">
+            <p>Although JPG had some patent issues, it is a standard, and developers are free to attempt improvements on the compression algorithm, and depending on what the end goal is, this may differ between implementations.</p>
+            <p>I mean, you could try to make it faster by reducing the encoding time. You could go for reducing the file size as much as possible. Or you could go for image quality, a bit more tricky but I consider it the “let's see how much visual information you can get away with tossing out“ factor.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>JPG encoders, there are many</h2>
+          <div class="l-multiple" style="align-items:end">
+            <figure>
+              <img class="plain" style="max-width:25vw" data-src="img/libjpeg.svg" alt="libjpeg">
+              <figcaption>libjpeg</figcaption>
+            </figure>
+            <figure>
+              <img class="plain" style="max-width:25vw" data-src="img/mozjpeg.png" alt="mozJPEG">
+              <figcaption>mozJPEG</figcaption>
+            </figure>
+            <figure>
+              <img class="plain" style="min-height:20vh" data-src="img/guetzli.svg" alt="Guetzli">
+              <figcaption>Guetzli</figcaption>
+            </figure>
+          </div>
+          <aside class="notes">
+            <p>libjpeg is the original JPG encoder, written in C and distributed under a custom permissive license. Since then, it has been forked and improved upon with encoders like MozJPEG, which was trying to target images on the web specifically. They do some interesting stuff like trellis quantisation, which I cannot explain but makes the file size smaller at the expense of encoding time.</p>
+            <p>Guetzli is even newer, released by Google with a focus on image quality, but apparently it's really much slower than MozJPEG. Trade-offs, you know?</p>
           </aside>
         </section>
 
@@ -464,7 +569,7 @@
           </figure>
           <aside class="notes">
             <p>libjpeg-turbo is an open source JPG image codec which is used by a large number of applications and operating systems. Chrome has been using it since version 11 and Firefox since version 5.0. Not too sure about WebKit though, they might still be using libjpeg.</p>
-            <p>And I was trying to figure out which image codec browsers used for GIFs when I unearthed the story of how PNG came about. If you already know this story like the back of your hand, please grant me your patience while I summarise what happened.</p>
+            <p>And while I was trying to figure the image encoders used for GIFS, I unearthed the story of how PNG came about. If you already know this story like the back of your hand, please grant me your patience while I summarise what happened.</p>
             <p>Turns out the LZW compression algorithm was patented by Unisys back in 1985. But when CompuServe used it to power GIF, they were not aware of its patent status. And Unisys didn't make any moves until 1993, when Mosaic came out.</p>
           </aside>
         </section>
@@ -533,51 +638,41 @@
             <tr>
               <td>None</td>
               <td>—</td>
+              <td>Zero</td>
               <td>
-                <figure>
-                  <img class="plain" data-src="img/none.png" alt="None">
-                  <figcaption>Zero</figcaption>
-                </figure>
+                <img class="plain" data-src="img/none.png" alt="None">
               </td>
             </tr>
             <tr>
               <td>Sub</td>
               <td><code>Sub(x) = Raw(x) - Raw(x-bpp)</code></td>
+              <td>Byte A (to the left)</td>
               <td>
-                <figure>
-                  <img class="plain" data-src="img/sub.png" alt="Sub">
-                  <figcaption>Byte A (to the left)</figcaption>
-                </figure>
+                <img class="plain" data-src="img/sub.png" alt="Sub">
               </td>
             </tr>
             <tr>
               <td>Up</td>
               <td><code>Up(x) = Raw(x) - Prior(x)</code></td>
+              <td>Byte B (above)</td>
               <td>
-                <figure>
-                  <img class="plain" data-src="img/up.png" alt="Up">
-                  <figcaption>Byte B (above)</figcaption>
-                </figure>
+                <img class="plain" data-src="img/up.png" alt="Up">
               </td>
             </tr>
             <tr>
               <td>Average</td>
               <td><code>Average(x) = Raw(x) - floor((Raw(x-bpp)+Prior(x))/2)</code></td>
+              <td>Mean of bytes A and B, rounded down</td>
               <td>
-                <figure>
-                  <img class="plain" data-src="img/average.png" alt="Average">
-                  <figcaption>Mean of bytes A and B, rounded down</figcaption>
-                </figure>
+                <img class="plain" data-src="img/average.png" alt="Average">
               </td>
             </tr>
             <tr>
               <td>Paeth</td>
               <td><code>Paeth(x) = Raw(x) - PaethPredictor(Raw(x-bpp), Prior(x), Prior(x-bpp))</code></td>
+              <td>A, B, or C, whichever is closest to<br><code>p = A + B − C</code></td>
               <td>
-                <figure>
-                  <img class="plain" data-src="img/sub.png" alt="Paeth">
-                  <figcaption>A, B, or C, whichever is closest to<br><code>p = A + B − C</code></figcaption>
-                </figure>
+                <img class="plain" data-src="img/sub.png" alt="Paeth">
               </td>
             </tr>
           </table>
@@ -612,6 +707,28 @@
         </section>
 
         <section>
+          <h2>Optimising PNG files</h2>
+          <ol>
+            <li>Reduce number of colours</li>
+            <li>Choose the right pixel format</li>
+            <li>Use indexed images, if possible</li>
+            <li>Optimise fully transparent pixels</li>
+          </ol>
+          <p><small>Reference: <a href="https://medium.com/@duhroach/reducing-png-file-size-8473480d0476">Reducing PNG file Size</a></small></p>
+          <aside class="notes">
+            <p>Again, if you can, use a tool. Automate all the things. But if you had to do some manual tweaking, it's possible to reduce the file size of your PNG files by reducing the number of unique colours within the image.</p>
+            <p>Because this impacts the filtering stage, where a lower difference between adjacent pixels will decrease the range of values output from the filtering process. With more duplicate values, DEFLATE can compress better.</p>
+            <p>HOWEVER, this makes it a lossy process, which is why your human eye is absolutely required if you want to take this approach. Our current tools are still unable to discern visual quality at a level acceptable to human perception.</p>
+            <p>Also, if you're not using transparency in your image, then don't bother with RGBA 32 bits per pixel. You could use the 24 bits per pixel truecolour format instead, or even just use a JPG, why not? For greyscale images, 8 bits per pixel will suffice.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>3. Use indexed images, if possible</h2>
+          <p><small>Reference: <a href="https://medium.com/@duhroach/reducing-png-file-size-8473480d0476">Reducing PNG file Size</a></small></p>
+        </section>
+
+        <section>
           <h2>libpng</h2>
           <figure>
             <img class="plain" data-src="img/libpng.png" alt="libpng home page">
@@ -640,25 +757,191 @@
           <p><small>Reference: <a href="https://hacks.mozilla.org/2017/05/quantum-up-close-what-is-a-browser-engine/">Quantum Up Close: What is a browser engine?</a></small></p>
           <aside class="notes">
             <p>Browser engines combine the structure and style of a web page to draw it on the screen, then figure out which parts can be interacted with. As you can see, lots of parsers and dedicated engines to do all that.</p>
-            <p>Today, because we're covering images, we're more concerned with the blue-circled portion about media. And we'll touch upon about how that flows into the rest of the rendering pipe line.</p>
+            <p>What we've covered so far revolved around digging into that blue-circled portion about media, specifically images. In the grand scheme of things, browsers have to take care of a lot, so the image encoding and decoding part of things is often covered by the third party libraries we've talked about.</p>
           </aside>
         </section>
 
         <section>
-          <h2>Graphics libraries</h2>
-          <div class="l-double" style="align-items:center">
+          <h2>Image encoders in browsers</h2>
+          <div class="l-double">
             <figure>
-              <img class="plain" data-src="img/skia.svg" alt="skia logo">
+              <img class="plain" data-src="img/chromium-encoders.png" alt="Chromium GitHub repository">
+              <figcaption>Chromium</figcaption>
+            </figure>
+            <figure>
+              <img class="plain" data-src="img/gecko-encoders.png" alt="Geckto GitHub repository">
+              <figcaption>Gecko</figcaption>
+            </figure>
+          </div>
+          <aside class="notes">Both Chromium and Gecko have their source code available on GitHub, so we can find these image encoders and decoders fairly easily. And the image data part of things is more or less sorted out.</aside>
+        </section>
+
+        <section>
+          <img class="plain" style="max-height:85vh" data-src="img/toy-engine.png" alt="How to build a browser engine series">
+          <p><small>Reference: <a href="https://limpet.net/mbrubeck/2014/11/05/toy-layout-engine-7-painting.html">Let's build a browser engine!</a></small></p>
+          <aside class="notes">
+            <p>Because the displays that we use now are all raster displays, it is necessary for a rasterisation process to occur before graphics can be painted on the screen. For anyone who is not a browser engineer, I highly recommend going through this series of articles on how to build a browser engine by Matt Brubeck. He's a research engineer with Mozilla and works on Servo.</p>
+            <p>Servo is a prototype web browser engine written in Rust by the team at Mozilla. It's essentially a new rendering engine and Mozilla is gradually replacing the old Gecko code, which has been around for a REALLY long time, with the stable parts of Servo. And that project was code-named Project Quantum.</p>
+            <p>The first version of Firefox with a Servo component enabled was 57, back in 2017, and since then, more and more of Servo has been making its way into Firefox.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Rasterisation (1/3)</h2>
+          <p>Simple rasteriser for painting rectangles</p>
+          <pre><code class="rust">pub struct Canvas {
+    pub pixels: Vec&lt;Color&gt;,
+    pub width: usize,
+    pub height: usize,
+}
+
+impl Canvas {
+    /// Create a blank canvas
+    fn new(width: usize, height: usize) -> Canvas {
+        let white = Color { r: 255, g: 255, b: 255, a: 255 };
+        Canvas {
+            pixels: vec![white; width * height],
+            width: width,
+            height: height,
+        }
+    }
+  // …
+}</code></pre>
+          <p><small>Reference: <a href="https://limpet.net/mbrubeck/2014/11/05/toy-layout-engine-7-painting.html">Let's build a browser engine!</a></small></p>
+          <aside class="notes">
+            <p>Matt built his toy browser engine in Rust, and it is open-sourced, available on GitHub. He chose to write his own rasteriser to paint only solid rectangles. I'm not that familiar with Rust, to be honest, but the code is relatively understandable when he explains it in his article.</p>
+            <p>I'm going to skip past the bit before painting where you have to walk through the layout tree to build something called a display list. A display list is a series of graphics commands which define an output image.</p>
+            <p>We skip that and go directly to the painting bit. All the pixels are stored in a Canvas.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Rasterisation (2/3)</h2>
+          <p>Simple rasteriser for painting rectangles</p>
+          <pre><code class="rust">fn paint_item(&mut self, item: &DisplayCommand) {
+    match *item {
+        DisplayCommand::SolidColor(color, rect) => {
+            // Clip the rectangle to the canvas boundaries.
+            let x0 = rect.x.clamp(0.0, self.width as f32) as usize;
+            let y0 = rect.y.clamp(0.0, self.height as f32) as usize;
+            let x1 = (rect.x + rect.width).clamp(0.0, self.width as f32) as usize;
+            let y1 = (rect.y + rect.height).clamp(0.0, self.height as f32) as usize;
+
+            for y in y0 .. y1 {
+                for x in x0 .. x1 {
+                    self.pixels[y * self.width + x] = color;
+                }
+            }
+        }
+    }
+}</code></pre>
+          <p><small>Reference: <a href="https://limpet.net/mbrubeck/2014/11/05/toy-layout-engine-7-painting.html">Let's build a browser engine!</a></small></p>
+          <aside class="notes">Painting a rectangle on the canvas involves looping through the rows and columns of the canvas, and the rasteriser includes this helper method to ensure the loop doesn't go beyond the bounds of the canvas. This particular implementation only works for solid colours, because transparency would require some additional blending.</aside>
+        </section>
+
+        <section>
+          <h2>Rasterisation (3/3)</h2>
+          <p>Simple rasteriser for painting rectangles</p>
+          <pre><code class="rust">/// Paint a tree of LayoutBoxes to an array of pixels.
+pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
+    let display_list = build_display_list(layout_root);
+    let mut canvas = Canvas::new(bounds.width as usize, bounds.height as usize);
+    for item in display_list {
+        canvas.paint_item(&item);
+    }
+    canvas
+}</code></pre>
+          <p><small>Reference: <a href="https://limpet.net/mbrubeck/2014/11/05/toy-layout-engine-7-painting.html">Let's build a browser engine!</a></small></p>
+          <aside class="notes">Finally, we have this <code>paint()</code> function, which builds the display list and rasterises it to a canvas.</aside>
+        </section>
+
+        <section>
+          <blockquote>
+            <p>The graphics backend is an array of bytes and a for loop that goes and says: go from the left edge of the rectangle to the right edge and write the same colour over and over again into this array.</p>
+            <br><small>—Matt Brubeck, Bay Area Rust Meetup (Nov 2014)</small>
+          </blockquote>
+          <span class="kaomoji">¯\_(ツ)_/¯</span>
+          <aside class="notes">Matt had given a short talk at the Bay Area Rust Meetup, where he talked about this project, and gave an excellent answer to the question, so what is your graphics backend?</aside>
+        </section>
+
+        <section>
+          <h2>Graphics libraries</h2>
+          <div class="l-multiple" style="align-items:center">
+            <figure>
+              <img class="plain" style="min-width:15vw" data-src="img/skia.svg" alt="skia logo">
               <figcaption>Skia</figcaption>
             </figure>
             <figure>
-              <img class="plain" data-src="img/moz-gfx.png" alt="Mozilla GFX team logo">
+              <img class="plain" style="max-width:15vw" data-src="img/moz-gfx.png" alt="Mozilla GFX team logo">
               <figcaption>WebRender</figcaption>
+            </figure>
+            <figure>
+              <img class="plain" style="max-width:15vw" data-src="img/macOS.png" alt="Mozilla GFX team logo">
+              <figcaption>Core Graphics</figcaption>
+            </figure>
+            <figure>
+              <img class="plain" data-src="img/cairo.svg" alt="cairo logo">
+              <figcaption>Cairo</figcaption>
+            </figure>
+            <figure>
+              <img class="plain" data-src="img/pango.svg" alt="pango logo">
+              <figcaption>Pango</figcaption>
             </figure>
           </div>
           <aside class="notes">
-          
+            <p>Of course, commercial browsers make use of graphics APIs and libraries to implement rasterisation, because clearly what we expect from the web is much more than just solid coloured rectangles. Browser makers need functions for rendering text, polygons, lines, gradients, curves…you know, all of the things.</p>
+            <p>This is just a small sampling of the more commonly used graphics libraries currently being used to power the popular browser engines. Chrome uses the Skia graphics library almost exclusively for all graphics operations, even text rendering.</p>
+            <p>On Firefox, Skia is being used for canvas, while WebRender is used for everthing else. Safari, which is based on WebKit, apparently used Apple's Core Image libraries, but I'm not sure what they use right this minute.</p>
           </aside>
+        </section>
+
+        <section>
+          <h2>WebRender</h2>
+          <aside class="notes">
+            <p>WebRender, is a 2D renderer for the web. It started as Servo‘s graphics engine, and we are in the process of integrating it in Firefox. The Mozilla Gfx team maintains a blog which provides progress updates as well as useful explainers on what goes on under the hood.</p>
+            <p></p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Skia</h2>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Acknowledgements</h2>
+          <p><span class="emoji" role="img" tabindex="0" aria-label="folded hands">&#x1F64F;</span> Big thank you to these beautiful human beings who answered my noob questions <span class="emoji" role="img" tabindex="0" aria-label="folded hands">&#x1F64F;</span></p>
+          <div class="l-multiple">
+            <figure>
+              <img class="plain" style="border-top-left-radius:84%;border-top-right-radius:94%;border-bottom-left-radius:72%;border-bottom-right-radius:83%;transform:rotate(-5deg)" data-src="img/ben.jpg" alt="Benedikt Meurer">
+              <figcaption><a href="https://twitter.com/bmeurer">@bmeurer</a></figcaption>
+            </figure>
+            <figure>
+              <img class="plain" style="border-top-left-radius:73%;border-top-right-radius:100%;border-bottom-left-radius:100%;border-bottom-right-radius:82%;transform:rotate(-7deg)"data-src="img/dan.jpeg" alt="Dan Callahan">
+              <figcaption><a href="https://twitter.com/callahad">@callahad</a></figcaption>
+            </figure>
+            <figure>
+              <img class="plain" style="border-top-left-radius:95%;border-top-right-radius:70%;border-bottom-left-radius:80%;border-bottom-right-radius:100%;transform:rotate(-2deg)" data-src="img/flaki.jpg" alt="István “Flaki” Szmozsánszky">
+              <figcaption><a href="https://twitter.com/slsoftworks">@slsoftworks</a></figcaption>
+            </figure>
+            <figure>
+              <img class="plain" style="border-top-left-radius:84%;border-top-right-radius:94%;border-bottom-left-radius:72%;border-bottom-right-radius:83%;transform:rotate(5deg)" data-src="img/lin.jpeg" alt="Lin Clark">
+              <figcaption><a href="https://twitter.com/linclark">@linclark</a></figcaption>
+            </figure>
+            <figure>
+              <img class="plain" style="border-top-left-radius:73%;border-top-right-radius:70%;border-bottom-left-radius:80%;border-bottom-right-radius:82%;transform:rotate(-7deg)" data-src="img/martin.jpg" alt="Martin Splitt">
+              <figcaption><a href="https://twitter.com/g33konaut">@g33konaut</a></figcaption>
+            </figure>
+            <figure>
+              <img class="plain" style="border-top-left-radius:88%;border-top-right-radius:92%;border-bottom-left-radius:72%;border-bottom-right-radius:82%;transform:rotate(-2deg);" data-src="img/mathias.jpg" alt="Mathias Bynens">
+              <figcaption><a href="https://twitter.com/mathias">@mathias</a></figcaption>
+            </figure>
+            <figure>
+              <img class="plain" style="border-top-left-radius:88%;border-top-right-radius:92%;border-bottom-left-radius:80%;border-bottom-right-radius:82%;transform:rotate(7deg);" data-src="img/potch.jpg" alt="Matt “Potch” Claypotch">
+              <figcaption><a href="https://twitter.com/potch">@potch</a></figcaption>
+            </figure>
+          </div>
+          <aside class="notes">I am so grateful to these beautiful people who gave me time of day, and either answered my noob questions on browser rendering, or took the effort to point me in the right direction. Even though they're not here right now, I'd like to say a big thank you to all of them.</aside>
         </section>
 
         <section>
@@ -668,18 +951,18 @@
             <li><a href="https://www.popularmechanics.com/technology/a21457/the-gif-is-dead-long-live-the-gif/">The GIF Is Dead. Long Live the GIF.</a></li>
             <li><a href="https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/types-of-bitmaps?view=netframework-4.7.2">Types of Bitmaps</a></li>
             <li><a href="https://hackernoon.com/why-do-we-need-JPG-compression-and-how-its-technically-working-52a3a9ced55d">Why do we need JPG compression and how it's technically working?</a> by <a href="https://techeries.com/about-us/">Steven Hansen</a></li>
-            <li><a href="https://cloudinary.com/blog/progressive_jpegs_and_green_martians">Progressive JPEGs and green Martians</a> by <a href="https://twitter.com/jonsneyers">Jon Syeners</a></li>
-            <li><a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG Works</a>, <a href="https://medium.com/@duhroach/how-png-works-f1174e3cc7b7">How PNG Works</a>, <a href="https://medium.com/@duhroach/reducing-png-file-size-8473480d0476">Reducing PNG file Size</a> & <a href="https://medium.com/@duhroach/reducing-jpg-file-size-e5b27df3257c">Reducing JPG File size</a> by <a href="https://twitter.com/duhroach">Colt McAnlis</a></li>
+            <li><a href="https://cloudinary.com/blog/progressive_jpegs_and_green_martians">Progressive JPEGs and green Martians</a> by <a href="https://twitter.com/jonsneyers">Jon Sneyers</a></li>
+            <li><a href="https://compress-or-die.com/Understanding-JPG/">Finally understanding JPG</a> by <a href="https://twitter.com/McSodbrenner">Christoph Erdmann</a></li>
+            <li><a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG Works</a>, <a href="https://medium.com/@duhroach/how-png-works-f1174e3cc7b7">How PNG Works</a>, <a href="https://medium.com/@duhroach/reducing-png-file-size-8473480d0476">Reducing PNG file Size</a> by <a href="https://twitter.com/duhroach">Colt McAnlis</a></li>
             <li><a href="https://groups.google.com/forum/#!msg/comp.graphics/tylpVt2y9s8/eHWKNVLYMREJ">Thoughts on a GIF-replacement file format</a></li>
             <li><a href="https://hacks.mozilla.org/2017/05/quantum-up-close-what-is-a-browser-engine/">Quantum Up Close: What is a browser engine?</a> by <a href="https://twitter.com/potch">Matt "Potch" Claypotch</a></li>
+            <li><a href="https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html">Let's build a browser engine!</a> by <a href="https://limpet.net/mbrubeck/">Matt Brubeck</a></li>
+            <li><a href="https://kilianvalkhof.com/2008/web/on-rendering-engines-and-graphic-libraries/">On rendering engines and graphic libraries</a> by <a href="https://kilianvalkhof.com/">Kilian Valkhof</a></li>
+            <li><a href="https://software.intel.com/en-us/articles/software-vs-gpu-rasterization-in-chromium">Software vs. GPU rasterization in Chromium*</a></li>
 
             <li><a href="https://diveintohtml5.info/past.html">How Did We Get Here?</a> by Mark Pilgrim</li>
-            <li><a href="https://kilianvalkhof.com/2008/web/on-rendering-engines-and-graphic-libraries/">On rendering engines and graphic libraries</a> by <a href="https://kilianvalkhof.com/">Kilian Valkhof</a></li>
-            <li><a href="https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html">Let's build a browser engine!</a> by <a href="https://limpet.net/mbrubeck/">Matt Brubeck</a></li>
-            <li>Wiggins, R. H., Davidson, H. C., Harnsberger, H. R., Lauman, J. R., & Goede, P. A. (2001). <em>Image File Formats: Past, Present, and Future.</em> RadioGraphics, 21(3), 789-798. doi:10.1148/radiographics.21.3.g01ma25789</li>
-            <li>Cromey, D. W. (2012). <em>Digital Images Are Data: And Should Be Treated as Such.</em> Methods in Molecular Biology Cell Imaging Techniques, 1-27. doi:10.1007/978-1-62703-056-4_1</li>
-            <li><a href="https://ciechanow.ski/color-spaces/">Color Spaces</a> by <a href="https://ciechanow.ski/">Bartosz Ciechanowski</a></li>
           </ul>
+          <aside class="notes">And I also read a lot more than is on here, but I'm only including those that are actually referenced in the talk. If all this is as fascinating to you as it is to me, come chat! I'll share my longer list of resources with you too.</aside>
         </section>
 
         <section style="text-align:left">

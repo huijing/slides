@@ -163,7 +163,7 @@ body {
 	text-align: left;
 	font-size: 0.55em;
 	font-family: $codeFont;
-	line-height: 1.2em;
+	line-height: 1.2;
 
 	word-wrap: break-word;
 
@@ -179,8 +179,8 @@ body {
 	display: block;
 	padding: 5px;
 	overflow: auto;
-	max-height: 400px;
 	word-wrap: normal;
+	font-size: 85%;
 }
 
 .reveal table {
