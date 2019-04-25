@@ -103,12 +103,13 @@ html {
     max-height: 75vh;
   }
 
-  table td {
+  table td,
+  table th {
     border-bottom: 0;
   }
 
   tr:nth-child(odd) {
-    background-color: lighten($headingColor, 72%)
+    background-color: lighten($backgroundColor, 7%)
   }
 
   td {

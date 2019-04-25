@@ -34,7 +34,8 @@
         <section data-background-image="img/page-weight.svg" data-background-size="contain">
           <aside class="notes">
             <p>You may not be able to discern the exact numbers from this chart but know that as page weight has steadily crept up over the years, images on average make up more than 60% of that page weight.</p>
-            <p>Image sizes matter, because sending smaller images of comparable quality to your users over the interwebs is not only the smart thing to do, it's the right thing to do. But images are not all equal, some image formats are better suited for certain purposes over others. JPGs for photographs, choose PNGs over GIFs, don't use BMPs or TIFFs at all. I know all this. But for quite a while, I didn't know why, and it gnawed at me enough that one day I decided to find out.</p>
+            <p>Image sizes matter, because sending smaller images of comparable quality to your users over the interwebs is not only the smart thing to do, it's the right thing to do. But images are not all created equal, some image formats are better suited for certain purposes over others.</p>
+            <p>JPGs for photographs, choose PNGs over GIFs, don't use BMPs or TIFFs at all. I know all this. But for quite a while, I didn't know why, and it gnawed at me enough that one day I decided to find out.</p>
           </aside>
         </section>
 
@@ -284,7 +285,7 @@
           <aside class="notes">
             <p>A raster image is also known as a bitmap image, which are comprised of pixels in a grid. And each pixel contains a bit of colour information, a combination of the additive primary colours, red, green and blue.</p>
             <p>A bitmap is essentially a spatially mapped array of bits. The number of bits per pixel will determine how many unique colours the image can contain, this is also known as colour depth.</p>
-            <p>Raster displays store per pixel image data as a bitmap in a region of memory called the frame buffer. So clearly, memory is an integral part of the rendering process. The total amount of memory needed is dependant on the resolution of the output signal and the colour depth. We will revisit the frame buffer again later on in the talk.</p>
+            <p>Raster displays store per pixel image data as a bitmap in a region of memory called the frame buffer. So clearly, memory is an integral part of the rendering process. The total amount of memory needed is dependant on the resolution of the output signal and the colour depth.</p>
           </aside>
         </section>
 
@@ -294,7 +295,11 @@
             <img class="plain" data-src="img/macpaint.png" alt="Screenshot I of MacPaint">
             <img class="plain" data-src="img/woodcut.png" alt="Screenshot II of MacPaint">
           </div>
-          <aside class="notes">Before computers became a consumer product, each model pretty much had its own suite of software and file formats which weren't all that interoperable. But when the Macintosh came out in 1984, the MacPaint application introduced a well-defined and well-documented file format for saving image files created with it. And what's most notable about it is that other applications could use the image files it generated.</aside>
+          <aside class="notes">
+            <p>Before computers became a consumer product, each model pretty much had its own suite of software and file formats which weren't all that interoperable.</p>
+            <p>But when the Macintosh came out in 1984, the MacPaint application introduced a well-defined and well-documented file format for saving image files created with it.</p>
+            <p>And what's most notable about it is that other applications could use the image files it generated.</p>
+          </aside>
         </section>
 
         <section>
@@ -309,7 +314,10 @@
               <figcaption>Paintbrush for Windows 3.1</figcaption>
             </figure>
           </div>
-          <aside class="notes">On the Windows side of things, we had BMP, which was released in 1987. As a kid who grew up with Microsoft, shout-out MS-DOS 6.0, I would say this was the first image format I ever encountered. I never had a Mac, so I never used MacPaint, it was MS Paint (back when it was known as Paintbrush) for me, all day, every day.</aside>
+          <aside class="notes">
+            <p>On the Windows side of things, we had BMP, which was released in 1987. As a kid who grew up with Microsoft, shout-out MS-DOS 6.0, I would say this was the first image format I ever encountered.</p>
+            <p>I never had a Mac, so I never used MacPaint, it was MS Paint (back when it was known as Paintbrush) for me, all day, every day.</p>
+          </aside>
         </section>
 
         <section>
@@ -346,7 +354,7 @@
         <section>
           <h2>Compression algorithms</h2>
           <div class="l-double" style="align-items:center">
-            <figure class="fragment">
+            <figure>
               <video loop autoplay>
                 <source data-src="videos/run-length.mp4" type="video/mp4">
                 Sorry, your browser doesn't support embedded videos, 
@@ -726,6 +734,17 @@
         <section>
           <h2>3. Use indexed images, if possible</h2>
           <p><small>Reference: <a href="https://medium.com/@duhroach/reducing-png-file-size-8473480d0476">Reducing PNG file Size</a></small></p>
+          <aside class="notes">
+            <p>Photoshop has this <em>Save for web</em> feature where you can set your image format to PNG8, thereby generating a reduced palette of colours from your source image.</p>
+            <p>We are increasing the odds that adjacent pixels are pointing to the same colour, resulting in even more duplicate values at the end of the filtering process.</p>
+            <p>It might be worth it to just do an inventory of your images to see if you can get away with this conversion at scale.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>4. Optimise fully transparent pixels</h2>
+          <p><small>Reference: <a href="https://medium.com/@duhroach/reducing-png-file-size-8473480d0476">Reducing PNG file Size</a></small></p>
+          <aside class="notes"></aside>
         </section>
 
         <section>
@@ -736,7 +755,7 @@
           </figure>
           <aside class="notes">
             <p>libpng is the official PNG reference library, and is what Firefox uses for PNG support. So earlier, I mentioned libjpeg-turbo as a kind of segue into PNGs. But we really ought to talk about these image encoders in relation to browser rendering engines.</p>
-            <p>Now that Edge has moved over to Chromium, and I've got mixed feelings about that, I suppose we can cover just the 2 major browser rendering engines, Blink and Gecko. First of all, I'd like to clarify that I'm NOT a browser engineer, far from it.</p>
+            <p>Now that Edge has moved over to Chromium, and I've got mixed feelings about that, I'll mainly be referencing the 2 major browser rendering engines, Blink and Gecko. First of all, I'd like to clarify that I'm NOT a browser engineer, far from it.</p>
             <p>I know a C++ program when I see one, but that's about it. So not going to be too technical here. And if you ARE a browser engineer, I'd love to pick your brain after this.</p>
           </aside>
         </section>
@@ -747,7 +766,7 @@
           <p><small>Reference: <a href="https://hacks.mozilla.org/2017/05/quantum-up-close-what-is-a-browser-engine/">Quantum Up Close: What is a browser engine?</a></small></p>
           <aside class="notes">
             <p>Potch, Developer Advocate at Mozilla, wrote this awesome article about Project Quantum and browser engines when Firefox 57 was doing its big core engine overhaul back in 2017.</p>
-            <p>Most web developers, myself included, probably see the browser engine as a magic black box that turns the code we write into web sites our users can somehow consume even if they are on a different browser, different device, different time zone.</p>
+            <p>Most web developers, myself included, probably see the browser engine as a magical black box that turns the code we write into web sites our users can somehow consume even if they are on a different browser, different device, different time zone.</p>
           </aside>
         </section>
 
@@ -757,7 +776,8 @@
           <p><small>Reference: <a href="https://hacks.mozilla.org/2017/05/quantum-up-close-what-is-a-browser-engine/">Quantum Up Close: What is a browser engine?</a></small></p>
           <aside class="notes">
             <p>Browser engines combine the structure and style of a web page to draw it on the screen, then figure out which parts can be interacted with. As you can see, lots of parsers and dedicated engines to do all that.</p>
-            <p>What we've covered so far revolved around digging into that blue-circled portion about media, specifically images. In the grand scheme of things, browsers have to take care of a lot, so the image encoding and decoding part of things is often covered by the third party libraries we've talked about.</p>
+            <p>Today I was planning to cover 2 small parts of that diagram. So far we've touched on the blue-circled portion about media, specifically images. In the grand scheme of things, browsers have to take care of a lot.</p>
+            <p>So the image encoding and decoding part of things is generally taken care of by third party libraries, some of which we've already talked about.</p>
           </aside>
         </section>
 
@@ -773,14 +793,32 @@
               <figcaption>Gecko</figcaption>
             </figure>
           </div>
-          <aside class="notes">Both Chromium and Gecko have their source code available on GitHub, so we can find these image encoders and decoders fairly easily. And the image data part of things is more or less sorted out.</aside>
+          <aside class="notes">
+            <p>Both Chromium and Gecko have their source code available on GitHub, so we can find these image encoders and decoders fairly easily. Okay, enough about image data already.</p>
+            <p>I now want to move further down the pipeline to when that image data, together with pixel data from other sources get painted onto the screen. Because that part is extremely fascinating.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Browser rendering pipeline</h2>
+          <p><small>Reference: <a href="https://mozillagfx.wordpress.com/2017/09/21/introduction-to-webrender-part-1-browsers-today/">Introduction to WebRender – Part 1 – Browsers today</a></small></p>
+          <aside class="notes">
+            <p>I had a lot of help from Nicolas Silva, who leads the Firefox GFX team, who explained a lot of this stuff to me. Although each browser engine does things slightly differently, the general idea behind the rendering pipeline involves:</p>
+            <ul>
+              <li>layout computation into a frame tree</li>
+              <li>generation of drawing commands called a display list</li>
+              <li>painting of parts of the display list into layers</li>
+              <li>and finally, combining those layers into one final image through compositing</li>
+            </ul>
+            <p>Because the displays that we use now are all raster displays, it is necessary for a rasterisation process to occur before graphics can be displayed on the screen. Decoded images are generally already in a raster format, but vector graphics or fonts need to be expressed as pixels as well.</p>
+          </aside>
         </section>
 
         <section>
           <img class="plain" style="max-height:85vh" data-src="img/toy-engine.png" alt="How to build a browser engine series">
           <p><small>Reference: <a href="https://limpet.net/mbrubeck/2014/11/05/toy-layout-engine-7-painting.html">Let's build a browser engine!</a></small></p>
           <aside class="notes">
-            <p>Because the displays that we use now are all raster displays, it is necessary for a rasterisation process to occur before graphics can be painted on the screen. For anyone who is not a browser engineer, I highly recommend going through this series of articles on how to build a browser engine by Matt Brubeck. He's a research engineer with Mozilla and works on Servo.</p>
+            <p>For anyone who is not a browser engineer, I highly recommend going through this series of articles on how to build a browser engine by Matt Brubeck. He's a research engineer with Mozilla and works on Servo.</p>
             <p>Servo is a prototype web browser engine written in Rust by the team at Mozilla. It's essentially a new rendering engine and Mozilla is gradually replacing the old Gecko code, which has been around for a REALLY long time, with the stable parts of Servo. And that project was code-named Project Quantum.</p>
             <p>The first version of Firefox with a Servo component enabled was 57, back in 2017, and since then, more and more of Servo has been making its way into Firefox.</p>
           </aside>
@@ -810,8 +848,7 @@ impl Canvas {
           <p><small>Reference: <a href="https://limpet.net/mbrubeck/2014/11/05/toy-layout-engine-7-painting.html">Let's build a browser engine!</a></small></p>
           <aside class="notes">
             <p>Matt built his toy browser engine in Rust, and it is open-sourced, available on GitHub. He chose to write his own rasteriser to paint only solid rectangles. I'm not that familiar with Rust, to be honest, but the code is relatively understandable when he explains it in his article.</p>
-            <p>I'm going to skip past the bit before painting where you have to walk through the layout tree to build something called a display list. A display list is a series of graphics commands which define an output image.</p>
-            <p>We skip that and go directly to the painting bit. All the pixels are stored in a Canvas.</p>
+            <p>And we're only going to look at the painting portion of the project. Here, we can see that all the pixels are stored in a Canvas.</p>
           </aside>
         </section>
 
@@ -836,7 +873,7 @@ impl Canvas {
     }
 }</code></pre>
           <p><small>Reference: <a href="https://limpet.net/mbrubeck/2014/11/05/toy-layout-engine-7-painting.html">Let's build a browser engine!</a></small></p>
-          <aside class="notes">Painting a rectangle on the canvas involves looping through the rows and columns of the canvas, and the rasteriser includes this helper method to ensure the loop doesn't go beyond the bounds of the canvas. This particular implementation only works for solid colours, because transparency would require some additional blending.</aside>
+          <aside class="notes">Painting a rectangle on the canvas involves looping through the rows and columns of the canvas. This rasteriser includes a helper method to ensure the loop doesn't go beyond the bounds of the canvas. This particular implementation only works for solid colours, because transparency would require some additional blending.</aside>
         </section>
 
         <section>
@@ -891,21 +928,49 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
           <aside class="notes">
             <p>Of course, commercial browsers make use of graphics APIs and libraries to implement rasterisation, because clearly what we expect from the web is much more than just solid coloured rectangles. Browser makers need functions for rendering text, polygons, lines, gradients, curves…you know, all of the things.</p>
             <p>This is just a small sampling of the more commonly used graphics libraries currently being used to power the popular browser engines. Chrome uses the Skia graphics library almost exclusively for all graphics operations, even text rendering.</p>
-            <p>On Firefox, Skia is being used for canvas, while WebRender is used for everthing else. Safari, which is based on WebKit, apparently used Apple's Core Image libraries, but I'm not sure what they use right this minute.</p>
+            <p>Firefox, with their big engine overhaul will use Skia for canvas, and WebRender for everything else. Safari, which is based on WebKit, apparently used Apple's Core Image libraries, but I'm not sure what they use right this minute.</p>
           </aside>
         </section>
 
         <section>
-          <h2>WebRender</h2>
+          <h2>Painting</h2>
+          <p><small>Reference: <a href="https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/">The whole web at maximum FPS: How WebRender gets rid of jank</a></small></p>
           <aside class="notes">
-            <p>WebRender, is a 2D renderer for the web. It started as Servo‘s graphics engine, and we are in the process of integrating it in Firefox. The Mozilla Gfx team maintains a blog which provides progress updates as well as useful explainers on what goes on under the hood.</p>
+            <p>The concept of painting still remains the same though, with displays accessing the frame buffer for colour information, in the RGBA format, on every pixel that needs to be displayed onto the screen. A frame is considered rendered when all the pixels have been filled in by the renderer.</p>
+            <p>This process is constantly being repeated every time something on the page changes. But most of the time, only a part of the screen is changing. Browsers will figure out what changed and only update those relevant pixels. This is called invalidation.</p>
+            <p>Invalidation techniques could only get browsers so far, and worked better for small changes. But sweeping changes across the screen required something more.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Compositing</h2>
+          <p><small>Reference: <a href="https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/">The whole web at maximum FPS: How WebRender gets rid of jank</a></small></p>
+          <aside class="notes">
+            <p>Browser engineers came up with the idea of having layers. Then, the browser would only have to repaint the layer which changed, or sometimes, simply rearrange the layers, as is the case when you're trying to scroll a web page.</p>
+            <p>For this, the compositing process starts with source bitmaps, and a target bitmap which ends up displayed on the screen. The compositor copies the background to the destination bitmap, figures out which portion of the scrollable content needs to be visible, then copies that portion over to the destination.</p>
+            <p>Less paint, more speed.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2></h2>
+          <aside class="notes">
+            <p>Firefox's current rendering pipeline is split between rasterisation, or painting, and compositing. Painting is done either by Direct2D or Skia, depending on the platform the browser is running on. Compositing is run with either OpenGL, Direct3D 11 or a software implementation, again depending on the platform.</p>
             <p></p>
           </aside>
         </section>
 
         <section>
-          <h2>Skia</h2>
-          <aside class="notes"></aside>
+          <h2>WebRender</h2>
+          <figure>
+            <img class="plain" data-src="img/webrender.png" alt="Drawing of a jet engine labeled with the different Project Quantum projects">
+            <figcaption><a href="https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/">The whole web at maximum FPS: How WebRender gets rid of jank</a> by Lin Clark</figcaption>
+          </figure>
+          <aside class="notes">
+            <p>WebRender, is a 2D renderer for the web. It started as Servo‘s graphics engine, and the team at Mozilla are in the process of integrating it into Firefox. If I had more time, I would talk about WebRender a bit more, because of its unique approach.</p>
+            <p>WebRender removes the separation between painting and compositing, and instead makes use of the GPU's exceptional parallel processing power to handle paint and composite in a single step.</p>
+            <p>Lin Clark, who writes the best technical articles, has a very detailed and easy-to-read article on MozHacks on how WebRender works. The Mozilla Gfx team also maintains a blog with project updates and explainers on what goes on under the hood.</p>
+          </aside>
         </section>
 
         <section>
@@ -937,6 +1002,10 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
               <figcaption><a href="https://twitter.com/mathias">@mathias</a></figcaption>
             </figure>
             <figure>
+              <img class="plain" style="border-top-left-radius:74%;border-top-right-radius:94%;border-bottom-left-radius:85%;border-bottom-right-radius:83%;transform:rotate(5deg)" data-src="img/nical.jpg" alt="Nicolas Silva">
+              <figcaption><a href="https://twitter.com/nicalsilva">@nicalsilva</a></figcaption>
+            </figure>
+            <figure>
               <img class="plain" style="border-top-left-radius:88%;border-top-right-radius:92%;border-bottom-left-radius:80%;border-bottom-right-radius:82%;transform:rotate(7deg);" data-src="img/potch.jpg" alt="Matt “Potch” Claypotch">
               <figcaption><a href="https://twitter.com/potch">@potch</a></figcaption>
             </figure>
@@ -946,7 +1015,7 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
 
         <section>
           <h2>References</h2>
-          <ul style="column-count:2;font-size:65%">
+          <ul style="column-count:2;font-size:75%">
             <li>Davis, W. (1986). <em>The Origins of Image Making.</em> Current Anthropology, 27(3), 193-215. doi:10.1086/203422</li>
             <li><a href="https://www.popularmechanics.com/technology/a21457/the-gif-is-dead-long-live-the-gif/">The GIF Is Dead. Long Live the GIF.</a></li>
             <li><a href="https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/types-of-bitmaps?view=netframework-4.7.2">Types of Bitmaps</a></li>
@@ -958,11 +1027,20 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
             <li><a href="https://hacks.mozilla.org/2017/05/quantum-up-close-what-is-a-browser-engine/">Quantum Up Close: What is a browser engine?</a> by <a href="https://twitter.com/potch">Matt "Potch" Claypotch</a></li>
             <li><a href="https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html">Let's build a browser engine!</a> by <a href="https://limpet.net/mbrubeck/">Matt Brubeck</a></li>
             <li><a href="https://kilianvalkhof.com/2008/web/on-rendering-engines-and-graphic-libraries/">On rendering engines and graphic libraries</a> by <a href="https://kilianvalkhof.com/">Kilian Valkhof</a></li>
-            <li><a href="https://software.intel.com/en-us/articles/software-vs-gpu-rasterization-in-chromium">Software vs. GPU rasterization in Chromium*</a></li>
-
-            <li><a href="https://diveintohtml5.info/past.html">How Did We Get Here?</a> by Mark Pilgrim</li>
+            <li><a href="https://nical.github.io/posts/rust-2d-graphics-01.html">Following up on the 2d graphics in Rust discussion</a> by <a href="">Nicolas Silva</a></li>
+            <li><a href="https://mozillagfx.wordpress.com/2017/09/21/introduction-to-webrender-part-1-browsers-today/">Introduction to WebRender – Part 1 – Browsers today</a> by <a href="">Nicolas Silva</a></li>
+            <li><a href="https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/">The whole web at maximum FPS: How WebRender gets rid of jank</a> by <a href="">Lin Clark</a></li>
           </ul>
           <aside class="notes">And I also read a lot more than is on here, but I'm only including those that are actually referenced in the talk. If all this is as fascinating to you as it is to me, come chat! I'll share my longer list of resources with you too.</aside>
+        </section>
+
+        <section>
+          <p>This talk is dedicated to browser engineers everywhere.</p>
+          <p>I owe my career to you.</p>
+          <aside class="notes">
+            <p>I love the web. Truly. And I know that it takes many different groups of people contributing in their own way, that makes the web what it is. But today, I want to show my appreciation for browser engineers. Some of them have made this their full time careers, others have done so as OSS contributors on their own time.</p>
+            <p>Even though browsers are not the only way to access information on the web, they are the predominant medium at the moment. So thank you, browser engineers everywhere, for striving to make the web experience smoother, faster and more accessible for all of us.</p>
+          </aside>
         </section>
 
         <section style="text-align:left">
