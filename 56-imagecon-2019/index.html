@@ -801,8 +801,8 @@
           <p><small>Reference: <a href="https://hacks.mozilla.org/2017/05/quantum-up-close-what-is-a-browser-engine/">Quantum Up Close: What is a browser engine?</a></small></p>
           <aside class="notes">
             <p>Browser engines combine the structure and style of a web page to draw it on the screen, then figure out which parts can be interacted with. As you can see, lots of parsers and dedicated engines to do all of that work.</p>
-            <p>Today, I was planning to cover 2 portions of this diagram. So far we've touched on the blue-circled portion about media, specifically images. In the grand scheme of things, browsers have to take care of a lot.</p>
-            <p>So the image encoding and decoding part of things is generally taken care of by third party libraries, some of which we've already talked about.</p>
+            <p>Today, I was planning to cover 2 portions of this diagram. So far we've touched on the blue-circled portion about media, specifically images.</p>
+            <p>Considering how much the browser has to do, it makes sense that the image encoding and decoding part of things is generally taken care of by third party libraries, some of which we've already talked about.</p>
           </aside>
         </section>
 
@@ -819,13 +819,62 @@
             </figure>
           </div>
           <aside class="notes">
-            <p>Both Chromium and Gecko have their source code available on GitHub, so we can dig in and find the encoders they're using. Okay, enough about image data already.</p>
+            <p>Both Chromium and Gecko have their source code available on GitHub, so we can dig in and find the encoders they're using. Okay, we've covered a lot about image data already.</p>
             <p>I now want to move further down the pipeline to when that image data, together with pixel data from other sources, gets painted onto the screen. Because that part is extremely fascinating.</p>
           </aside>
         </section>
 
         <section>
           <h2>Browser rendering pipeline</h2>
+          <img class="plain" data-src="img/pipeline1.png" alt="Geckto GitHub repository">
+          <p><small>Reference: <a href="https://mozillagfx.wordpress.com/2017/09/21/introduction-to-webrender-part-1-browsers-today/">Introduction to WebRender – Part 1 – Browsers today</a></small></p>
+          <aside class="notes">
+            <p>Nicolas Silva, who leads the Firefox GFX team, was a great help as he explained a lot of this stuff to me. Although each browser engine does things slightly differently, the general idea behind a modern rendering pipeline involves:</p>
+            <ul>
+              <li>layout computation into a frame tree</li>
+              <li>generation of drawing commands called a display list</li>
+              <li>the painting of portions of that display list into layers</li>
+              <li>and finally, combining those layers into one final image through compositing</li>
+            </ul>
+            <p>Because the displays that we use now are all raster displays, it is necessary for a rasterisation process to occur before graphics can be displayed on the screen. Decoded images are generally already in a raster format, but vector graphics or fonts need to be expressed as pixels as well.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Browser rendering pipeline</h2>
+          <img class="plain" data-src="img/pipeline2.png" alt="Geckto GitHub repository">
+          <p><small>Reference: <a href="https://mozillagfx.wordpress.com/2017/09/21/introduction-to-webrender-part-1-browsers-today/">Introduction to WebRender – Part 1 – Browsers today</a></small></p>
+          <aside class="notes">
+            <p>Nicolas Silva, who leads the Firefox GFX team, was a great help as he explained a lot of this stuff to me. Although each browser engine does things slightly differently, the general idea behind a modern rendering pipeline involves:</p>
+            <ul>
+              <li>layout computation into a frame tree</li>
+              <li>generation of drawing commands called a display list</li>
+              <li>the painting of portions of that display list into layers</li>
+              <li>and finally, combining those layers into one final image through compositing</li>
+            </ul>
+            <p>Because the displays that we use now are all raster displays, it is necessary for a rasterisation process to occur before graphics can be displayed on the screen. Decoded images are generally already in a raster format, but vector graphics or fonts need to be expressed as pixels as well.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Browser rendering pipeline</h2>
+          <img class="plain" data-src="img/pipeline3.png" alt="Geckto GitHub repository">
+          <p><small>Reference: <a href="https://mozillagfx.wordpress.com/2017/09/21/introduction-to-webrender-part-1-browsers-today/">Introduction to WebRender – Part 1 – Browsers today</a></small></p>
+          <aside class="notes">
+            <p>Nicolas Silva, who leads the Firefox GFX team, was a great help as he explained a lot of this stuff to me. Although each browser engine does things slightly differently, the general idea behind a modern rendering pipeline involves:</p>
+            <ul>
+              <li>layout computation into a frame tree</li>
+              <li>generation of drawing commands called a display list</li>
+              <li>the painting of portions of that display list into layers</li>
+              <li>and finally, combining those layers into one final image through compositing</li>
+            </ul>
+            <p>Because the displays that we use now are all raster displays, it is necessary for a rasterisation process to occur before graphics can be displayed on the screen. Decoded images are generally already in a raster format, but vector graphics or fonts need to be expressed as pixels as well.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Browser rendering pipeline</h2>
+          <img class="plain" data-src="img/pipeline4.png" alt="Geckto GitHub repository">
           <p><small>Reference: <a href="https://mozillagfx.wordpress.com/2017/09/21/introduction-to-webrender-part-1-browsers-today/">Introduction to WebRender – Part 1 – Browsers today</a></small></p>
           <aside class="notes">
             <p>Nicolas Silva, who leads the Firefox GFX team, was a great help as he explained a lot of this stuff to me. Although each browser engine does things slightly differently, the general idea behind a modern rendering pipeline involves:</p>
@@ -958,7 +1007,7 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
           </div>
           <aside class="notes">
             <p>Of course, commercial browsers make use of graphics APIs and libraries to implement rasterisation, because clearly what we expect from the web is much more than just solid coloured rectangles. Browser makers need functions for rendering text, polygons, lines, gradients, curves…you know, all of the things.</p>
-            <p>This is a list of the more commonly used graphics libraries currently being used to power the popular browser engines. Chrome uses the Skia graphics library almost exclusively for all graphics operations, even text rendering.</p>
+            <p>This is a list of common graphics libraries currently being used to power the popular browser engines. Chrome uses the Skia graphics library almost exclusively for all graphics operations, even text rendering.</p>
             <p>Firefox, with their big engine overhaul will eventually use Skia for canvas, and WebRender for everything else. Safari, which is based on WebKit, apparently used Apple's Core Image libraries, but I'm not sure what they use right this minute.</p>
           </aside>
         </section>
@@ -979,12 +1028,13 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
           <aside class="notes">
             <p>Browser engineers then came up with the idea of having layers. With layers, the browser would only have to repaint the layer which changed, or sometimes, simply rearrange the layers, as is the case when you're trying to scroll a web page.</p>
             <p>For scrolling, the compositing process starts with source bitmaps, and a target bitmap which is what ends up displayed on the screen. The compositor will copy the layers that remain unchanged, like the background, to the destination bitmap.
-            <p>After that, it will figure out which portion of the scrollable content needs to be visible, then copies those bits over to the destination as well. So that's all taken care of at the compositing stage.</p>
+            <p>After that, it will figure out which portion of the scrollable content needs to be visible, then copies those bits over to the destination as well. All this is being taken care of during the compositing stage.</p>
           </aside>
         </section>
 
         <section>
-          <h2>Making use of the GPU</h2>
+          <h2>Making use of the GPU (1/2)</h2>
+          
           <aside class="notes">
             <p>It used to be that all the work on the rendering pipeline was done by the CPU, on the main thread. But the CPU has a task list from here to moon and back, it's a very busy piece of hardware.</p>
             <p>Graphics Processing Units or GPUs used to be the domain of the video games industry, but are now pretty much a general purpose technology and an integral part of computer architecture. GPUs have exceptional parallel processing capabilities, and are really good at rendering frames fast.</p>
@@ -993,10 +1043,30 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
         </section>
 
         <section>
-          <h2></h2>
+          <h2>Making use of the GPU (2/2)</h2>
+          <p><small>Reference: <a href="https://mozillagfx.wordpress.com/2013/07/22/hardware-acceleration-and-compositing/">Hardware acceleration and compositing</a></small></p>
+          <aside class="notes">
+            <p>For our current browser landscape, paint and composite are relatively separate processes in all the major browsers. And browser engineers are trying to move both of them off the main thread.</p>
+            <p>As it turns out, it's much easier to move compositing to the GPU because GPUs are great at blitting quads. Blitting being the process of combining several bitmaps into one with a boolean function.</p>
+            <p>Paint, on the other hand, is trickier to move, because the GPU is not necessarily good at painting all the things. It's really fast for blitting surfaces, but not for drawing bezier curves and shapes, for example. Text rendering isn't that great on GPU either.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>GPU rasterisation in Chromium</h2>
+          <p><small>Reference: <a href="https://software.intel.com/en-us/articles/software-vs-gpu-rasterization-in-chromium">Software vs. GPU rasterization in Chromium</a></small></p>
+          <aside class="notes">
+            <p>The Chromium Project has extremely good documentation and detailed design docs which outline exactly what goes on under the hood with Blink and cc, the Chrome compositor. </p>
+            <p>In Chromium, the page is divided up into tiles of 256x256 pixels for more efficient rasterisation. Paint commands which don't impact certain tiles get ignored and only the tiles which need to be updated get rasterised again.</p>
+            <p>The old way of rasterising a tile makes use of the Skia library, which uses a scanline algorithm to create a bitmap that is sent to the GPU to be drawn on screen. The new method is also executed by Skia, but with a GPU backend called Ganesh. And it's faster because there is no copying involved.</p>
+            <p>But the challenge of having the GPU rasterise small, complicated shapes like fonts is not trivial at all, especially for the CJK languages with thousands of glyphs. So both the CPU and GPU will still have their roles to play in the rasterisation process.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Rendering pipeline on Firefox</h2>
           <aside class="notes">
             <p>Firefox's current rendering pipeline is split between rasterisation, or painting, and compositing. Painting is done either by Direct2D or Skia, depending on the platform the browser is running on. Compositing is run with either OpenGL, Direct3D 11 or a software implementation, again depending on the platform.</p>
-            <p>Chromium uses the Skia graphics library for rasterisation. </p>
           </aside>
         </section>
 
@@ -1056,7 +1126,7 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
 
         <section>
           <h2>References</h2>
-          <ul style="column-count:2;font-size:75%">
+          <ul style="column-count:2;font-size:75%;break-inside:avoid-column">
             <li>Davis, W. (1986). <em>The Origins of Image Making.</em> Current Anthropology, 27(3), 193-215. doi:10.1086/203422</li>
             <li><a href="https://www.popularmechanics.com/technology/a21457/the-gif-is-dead-long-live-the-gif/">The GIF Is Dead. Long Live the GIF.</a></li>
             <li><a href="https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/types-of-bitmaps?view=netframework-4.7.2">Types of Bitmaps</a></li>
@@ -1071,6 +1141,7 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
             <li><a href="https://nical.github.io/posts/rust-2d-graphics-01.html">Following up on the 2d graphics in Rust discussion</a> by <a href="">Nicolas Silva</a></li>
             <li><a href="https://mozillagfx.wordpress.com/2017/09/21/introduction-to-webrender-part-1-browsers-today/">Introduction to WebRender – Part 1 – Browsers today</a> by <a href="">Nicolas Silva</a></li>
             <li><a href="https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/">The whole web at maximum FPS: How WebRender gets rid of jank</a> by <a href="">Lin Clark</a></li>
+            <li><a href="https://software.intel.com/en-us/articles/software-vs-gpu-rasterization-in-chromium">Software vs. GPU rasterization in Chromium*</a> by <a href="http://mkollaro.github.io/">Martina Kollarova</a></li>
           </ul>
           <aside class="notes">And I also read a lot more than is on here, but I'm only including those that are actually referenced in the talk. If all this is as fascinating to you as it is to me, come chat! I'll share my longer list of resources with you too.</aside>
         </section>
