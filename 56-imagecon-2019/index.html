@@ -826,7 +826,7 @@
 
         <section>
           <h2>Browser rendering pipeline</h2>
-          <img class="plain" data-src="img/pipeline1.png" alt="Geckto GitHub repository">
+          <img class="plain" data-src="img/pipeline1.png" alt="Layout computation to frame tree">
           <p><small>Reference: <a href="https://mozillagfx.wordpress.com/2017/09/21/introduction-to-webrender-part-1-browsers-today/">Introduction to WebRender – Part 1 – Browsers today</a></small></p>
           <aside class="notes">
             <p>Nicolas Silva, who leads the Firefox GFX team, was a great help as he explained a lot of this stuff to me. Although each browser engine does things slightly differently, the general idea behind a modern rendering pipeline involves:</p>
@@ -842,7 +842,7 @@
 
         <section>
           <h2>Browser rendering pipeline</h2>
-          <img class="plain" data-src="img/pipeline2.png" alt="Geckto GitHub repository">
+          <img class="plain" data-src="img/pipeline2.png" alt="Generation of display list">
           <p><small>Reference: <a href="https://mozillagfx.wordpress.com/2017/09/21/introduction-to-webrender-part-1-browsers-today/">Introduction to WebRender – Part 1 – Browsers today</a></small></p>
           <aside class="notes">
             <p>Nicolas Silva, who leads the Firefox GFX team, was a great help as he explained a lot of this stuff to me. Although each browser engine does things slightly differently, the general idea behind a modern rendering pipeline involves:</p>
@@ -858,7 +858,7 @@
 
         <section>
           <h2>Browser rendering pipeline</h2>
-          <img class="plain" data-src="img/pipeline3.png" alt="Geckto GitHub repository">
+          <img class="plain" data-src="img/pipeline3.png" alt="Painting display list to layers">
           <p><small>Reference: <a href="https://mozillagfx.wordpress.com/2017/09/21/introduction-to-webrender-part-1-browsers-today/">Introduction to WebRender – Part 1 – Browsers today</a></small></p>
           <aside class="notes">
             <p>Nicolas Silva, who leads the Firefox GFX team, was a great help as he explained a lot of this stuff to me. Although each browser engine does things slightly differently, the general idea behind a modern rendering pipeline involves:</p>
@@ -874,7 +874,7 @@
 
         <section>
           <h2>Browser rendering pipeline</h2>
-          <img class="plain" data-src="img/pipeline4.png" alt="Geckto GitHub repository">
+          <img class="plain" data-src="img/pipeline4.png" alt="Layers composited into final image">
           <p><small>Reference: <a href="https://mozillagfx.wordpress.com/2017/09/21/introduction-to-webrender-part-1-browsers-today/">Introduction to WebRender – Part 1 – Browsers today</a></small></p>
           <aside class="notes">
             <p>Nicolas Silva, who leads the Firefox GFX team, was a great help as he explained a lot of this stuff to me. Although each browser engine does things slightly differently, the general idea behind a modern rendering pipeline involves:</p>
@@ -1014,6 +1014,7 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
 
         <section>
           <h2>Painting</h2>
+          <img class="plain" data-src="img/paint.png" alt="Mapping of colour information from frame buffer to bitmap">
           <p><small>Reference: <a href="https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/">The whole web at maximum FPS: How WebRender gets rid of jank</a></small></p>
           <aside class="notes">
             <p>The concept of painting still remains the same though, with displays accessing the frame buffer for information on every pixel that needs to be displayed onto the screen in RGBA format. A frame is considered rendered when all the pixels have been filled in by the renderer.</p>
@@ -1024,6 +1025,7 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
 
         <section>
           <h2>Compositing</h2>
+          <img class="plain" data-src="img/composite.png" alt="Compositing process for scrolling a web page">
           <p><small>Reference: <a href="https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/">The whole web at maximum FPS: How WebRender gets rid of jank</a></small></p>
           <aside class="notes">
             <p>Browser engineers then came up with the idea of having layers. With layers, the browser would only have to repaint the layer which changed, or sometimes, simply rearrange the layers, as is the case when you're trying to scroll a web page.</p>
@@ -1034,7 +1036,7 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
 
         <section>
           <h2>Making use of the GPU (1/2)</h2>
-          
+          <img class="plain" style="max-height:70vh" data-src="img/cores.png" alt="CPU cores versus GPU cores">
           <aside class="notes">
             <p>It used to be that all the work on the rendering pipeline was done by the CPU, on the main thread. But the CPU has a task list from here to moon and back, it's a very busy piece of hardware.</p>
             <p>Graphics Processing Units or GPUs used to be the domain of the video games industry, but are now pretty much a general purpose technology and an integral part of computer architecture. GPUs have exceptional parallel processing capabilities, and are really good at rendering frames fast.</p>
@@ -1044,6 +1046,12 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
 
         <section>
           <h2>Making use of the GPU (2/2)</h2>
+          <video loop autoplay>
+            <source data-src="videos/parallel.mp4" type="video/mp4">
+            Sorry, your browser doesn't support embedded videos, 
+            but don't worry, you can <a href="videos/parallel.mp4">download it</a>
+            and watch it with your favourite video player!
+          </video>
           <p><small>Reference: <a href="https://mozillagfx.wordpress.com/2013/07/22/hardware-acceleration-and-compositing/">Hardware acceleration and compositing</a></small></p>
           <aside class="notes">
             <p>For our current browser landscape, paint and composite are relatively separate processes in all the major browsers. And browser engineers are trying to move both of them off the main thread.</p>
@@ -1054,6 +1062,12 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
 
         <section>
           <h2>GPU rasterisation in Chromium</h2>
+          <video loop autoplay>
+            <source data-src="videos/chromium.mp4" type="video/mp4">
+            Sorry, your browser doesn't support embedded videos, 
+            but don't worry, you can <a href="videos/chromium.mp4">download it</a>
+            and watch it with your favourite video player!
+          </video>
           <p><small>Reference: <a href="https://software.intel.com/en-us/articles/software-vs-gpu-rasterization-in-chromium">Software vs. GPU rasterization in Chromium</a></small></p>
           <aside class="notes">
             <p>The Chromium Project has extremely good documentation and detailed design docs which outline exactly what goes on under the hood with Blink and cc, the Chrome compositor. </p>
@@ -1067,6 +1081,8 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
           <h2>Rendering pipeline on Firefox</h2>
           <aside class="notes">
             <p>Firefox's current rendering pipeline is split between rasterisation, or painting, and compositing. Painting is done either by Direct2D or Skia, depending on the platform the browser is running on. Compositing is run with either OpenGL, Direct3D 11 or a software implementation, again depending on the platform.</p>
+            <p>Browser rendering engines were designed at a time when GPUs were not commonplace outside gaming machines, and CPUs didn't have as many cores as they do now. Websites also weren't that complicated at the time.</p>
+            <p>Browser engines were improved upon their existing implementation as computer hardware evolved, and separating paint and compositing is part of that improvement.</p>
           </aside>
         </section>
 
@@ -1077,8 +1093,8 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
             <figcaption><a href="https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/">The whole web at maximum FPS: How WebRender gets rid of jank</a> by Lin Clark</figcaption>
           </figure>
           <aside class="notes">
-            <p>WebRender, is a 2D renderer for the web. It started as Servo‘s graphics engine, and the team at Mozilla are in the process of integrating it into Firefox. If I had more time, I would talk about WebRender a bit more, because of its unique approach.</p>
-            <p>WebRender removes the separation between painting and compositing, and instead makes use of the GPU's exceptional parallel processing power to handle paint and composite in a single step.</p>
+            <p>This is why WebRender is so interesting. It is a 2D renderer for the web, which started out as Servo‘s graphics engine.WebRender removes the separation between painting and compositing, and instead makes use of the GPU's exceptional parallel processing power to handle paint and composite in a single step.</p>
+            <p></p>
             <p>Lin Clark, who writes the best technical articles, has a very detailed and easy-to-read article on MozHacks on how WebRender works and that was the basis for a lot of the stuff I talked about earlier. 
             <p>I think the developments happening around WebRender are really cool and if you would like follow along as well, the Mozilla Gfx team also maintains a blog with project updates and explainers on what goes on under the hood.</p>
           </aside>
