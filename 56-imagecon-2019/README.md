@@ -186,6 +186,8 @@ For the smaller image, the bytes representing the second and third kiwis fell be
 
 But somehow, the extra 2 columns of pixels in the right image resulted in the bytes for the second and third kiwis to be out of match range, and they are encoded as non-matching. Thus causing the file size to bloat dramatically, doubling in size.
 
+PNGs are a regularly-used format on the web, so let's go through some tips to keep their file sizes down as well.
+
 ## Optimising PNG images
 
 Again, if you can, use a tool. Automate all the things. But if you had to do some manual tweaking, it's possible to reduce the file size of your PNG files by reducing the number of unique colours within the image.
@@ -196,44 +198,116 @@ HOWEVER, this makes it a lossy process, which is why your human eye is absolutel
 
 Also, if you're not using transparency in your image, then don't bother with RGBA 32 bits per pixel. You could use the 24 bits per pixel truecolour format instead, or even just use a JPG, why not? For greyscale images, 8 bits per pixel will suffice.
 
-Photoshop has this *Save for web* feature where you can set your image format to PNG8, thereby generating a reduced palette of colours from your source image. We are increasing the odds that adjacent pixels are pointing to the same colour, resulting in even more duplicate values at the end of the filtering process. It might be worth it to just do an inventory of your images to see if you can get away with this conversion at scale.
+If your image is neither a photograph nor contains lots of gradients, you could consider changing its colour mode to indexed. This will generate a reduced palette of colours from your source image.
+
+What we're doing here is increasing the odds that adjacent pixels are pointing to the same colour, resulting in even more duplicate values at the end of the filtering process. More duplicate values, better compression, smaller file size.
+
+Given the amount of possible savings, it might be worth it to just do an inventory of your images to see if you can get away with this conversion at scale.
+
+Say you need to crop out large swathes of background out of a logo image or something. You could try assigning transparency to selected colour values in the indexed-colour table.
+
+Then, when the image is decoded in memory, the transparency will be set accordingly, but you can only do this with images in indexed mode. If you are using full RGB, make sure the bits of the image which will end up being alpha-ed out are of a single colour.
+
+If you leave the parts of the image under the mask as is, even though your users won't see those pixels, they will definitely feel them. Because those pixels still get processed during encoding.
 
 libpng is the official PNG reference library, and is what Firefox uses for PNG support. So earlier, I mentioned libjpeg-turbo as a kind of segue into PNGs. But we really ought to talk about these image encoders in relation to browser rendering engines.
 
 ## Browser rendering engines
 
-Now that Edge has moved over to Chromium, and I've got mixed feelings about that, I'll mainly be referencing the 2 major browser rendering engines, Blink and Gecko. First of all, I'd like to clarify that I'm NOT a browser engineer, far from it. I know a C++ program when I see one, but that's about it. So not going to be too technical here. And if you ARE a browser engineer, I'd love to pick your brain after this.
+First of all, I'd like to clarify that I'm NOT a browser engineer, far from it. I know a C++ program when I see one, but that's about it. So not going to be too technical here. And if you ARE a browser engineer, I'd love to pick your brain after this.
 
-Potch, Developer Advocate at Mozilla, wrote this awesome article about Project Quantum and browser engines when Firefox 57 was doing its big core engine overhaul back in 2017.
+Potch, Developer Advocate at Mozilla, wrote this awesome article about Project Quantum and browser engines when Firefox was doing its big core engine overhaul back in 2017.
 
 Most web developers, myself included, probably see the browser engine as a magical black box that turns the code we write into web sites our users can somehow consume even if they are on a different browser, different device, different time zone.
 
-Browser engines combine the structure and style of a web page to draw it on the screen, then figure out which parts can be interacted with. As you can see, lots of parsers and dedicated engines to do all that.
+Browser engines combine the structure and style of a web page to draw it on the screen, then figure out which parts can be interacted with. As you can see, lots of parsers and dedicated engines to do all of that work.
 
-Today I was planning to cover 2 small parts of that diagram. So far we've touched on the blue-circled portion about media, specifically images. In the grand scheme of things, browsers have to take care of a lot. So the image encoding and decoding part of things is generally taken care of by third party libraries, some of which we've already talked about.
+Today, I was planning to cover 2 portions of this diagram. So far we've touched on the blue-circled portion about media, specifically images. Considering how much the browser has to do, it makes sense that the image encoding and decoding part of things is generally taken care of by third party libraries, some of which we've already talked about.
 
-Both Chromium and Gecko have their source code available on GitHub, so we can find these image encoders and decoders fairly easily. Okay, enough about image data already. I now want to move further down the pipeline to when that image data, together with pixel data from other sources get painted onto the screen. Because that part is extremely fascinating.
+Both Chromium and Gecko have their source code available on GitHub, so we can dig in and find the encoders they're using. Okay, we've covered a lot about image data already. I now want to move further down the pipeline to when that image data, together with pixel data from other sources, gets painted onto the screen. Because that part is extremely fascinating.
 
-Although each browser engine does things slightly differently, the general idea behind the rendering pipeline involves layout computation into a frame tree, generation of drawing commands called a display list, painting of parts of the display list into layers, and finally, combining those layers into one final image through compositing.
+Nicolas Silva, who leads the Firefox GFX team, was a great help as he explained a lot of this stuff to me. Although each browser engine does things slightly differently, the general idea behind the rendering pipeline involves layout computation into a frame tree, generation of drawing commands called a display list, painting of parts of the display list into layers, and finally, combining those layers into one final image through compositing.
 
 Because the displays that we use now are all raster displays, it is necessary for a rasterisation process to occur before graphics can be displayed on the screen. Decoded images are generally already in a raster format, but vector graphics or fonts need to be expressed as pixels as well.
 
-This is a process that is constantly being repeated every time something on the page changes. But most of the time, only a part of the screen is changing. Browsers will figure out what changed and only update those relevant pixels. This is called invalidation.
+For anyone who is not a browser engineer, I highly recommend going through this series of articles on how to build a browser engine by Matt Brubeck. He's a research engineer with Mozilla and works on Servo.
 
-For anyone who is not a browser engineer, I highly recommend going through this series of articles on how to build a browser engine by Matt Brubeck. He's a research engineer with Mozilla and works on Servo. Servo is a prototype web browser engine written in Rust by the team at Mozilla. It's essentially a new rendering engine and Mozilla is gradually replacing the old Gecko code, which has been around for a REALLY long time, with the stable parts of Servo. And that project was code-named Project Quantum.
+Servo is a prototype web browser engine written in Rust by the team at Mozilla. It's essentially a new rendering engine and Mozilla is gradually replacing the old Gecko code, which has been around for a REALLY long time, with the stable parts of Servo. And that's what Project Quantum is all about.
 
 The first version of Firefox with a Servo component enabled was 57, back in 2017, and since then, more and more of Servo has been making its way into Firefox.
 
 ## Toy browser engine rasteriser
 
-Matt built his toy browser engine in Rust, and it is open-sourced, available on GitHub. He chose to write his own rasteriser to paint only solid rectangles. I'm not that familiar with Rust, to be honest, but the code is relatively understandable when he explains it in his article.
+Matt built his toy browser engine in Rust, and it is open-sourced, available on GitHub. He chose to write his own rasteriser, which only paints solid rectangles. But from this, we can sort of see how browser engines paint image data from memory onto the screen.
 
-Painting a rectangle on the canvas involves looping through the rows and columns of the canvas. This rasteriser includes a helper method to ensure the loop doesn't go beyond the bounds of the canvas. This particular implementation only works for solid colours, because transparency would require some additional blending. Finally, we have this `paint()` function, which builds the display list and rasterises it to a canvas.
+I'm not that familiar with Rust, to be honest, but the code is relatively understandable when he explains it in his article. And we're only going to be looking at the paint portion of this toy browser engine. Here, we can see that all the pixels will be stored in a Canvas.
+
+Painting a rectangle on the canvas involves looping through the rows and columns of the canvas. This here is a helper method to ensure the loop doesn't go beyond the bounds of the canvas. Finally, we have the actual paint() function, which builds the display list (actual function not included here) then paints the data to the canvas, pixel by pixel, line by line until the entire canvas is filled up.
+
+Like I mentioned, this particular implementation only supports solid colours. Because doing something like transparency would require additional blending to calculate the pixel colour values.
 
 Matt had given a short talk at the Bay Area Rust Meetup, where he talked about this project, and gave an excellent answer to the question, so what is your graphics backend?
 
+It's an array. It's an array, AND a for-loop.
+
+## On graphics libraries
+
 Of course, commercial browsers make use of graphics APIs and libraries to implement rasterisation, because clearly what we expect from the web is much more than just solid coloured rectangles. Browser makers need functions for rendering text, polygons, lines, gradients, curves…you know, all of the things.
 
-This is just a small sampling of the more commonly used graphics libraries currently being used to power the popular browser engines. Chrome uses the Skia graphics library almost exclusively for all graphics operations, even text rendering.
+This is a list of common graphics libraries currently being used to power the popular browser engines. Chrome uses the Skia graphics library almost exclusively for all graphics operations, even text rendering.
 
-Firefox, with their big engine overhaul will use Skia for canvas, and WebRender for everything else. Safari, which is based on WebKit, apparently used Apple's Core Image libraries, but I'm not sure what they use right this minute.
+Firefox, with their big engine overhaul will eventually use Skia for canvas, and WebRender for everything else. Safari, which is based on WebKit, apparently used Apple's Core Image libraries, but I'm not sure what they use right this minute.
+
+## Browser rendering pipeline
+
+The concept of painting still remains the same though, with displays accessing the frame buffer for information on every pixel that needs to be displayed onto the screen in RGBA format. A frame is considered rendered when all the pixels have been filled in by the renderer.
+
+This process is constantly being repeated every time something on the page changes. But most of the time, only a part of the screen is changing. Browsers will figure out what changed and only update those relevant pixels. This is called invalidation.
+
+Invalidation as an optimisation technique has been around since the early browsers, but they could only get us so far. Though invalidation techniques work well for small changes, like a blinking caret on an input field, sweeping changes affecting most of the screen required something more.
+
+Browser engineers then came up with the idea of having layers. With layers, the browser would only have to repaint the layer which changed, or sometimes, simply rearrange the layers, as is the case when you're trying to scroll a web page.
+
+For scrolling, the compositing process starts with source bitmaps, and a target bitmap which is what ends up displayed on the screen. The compositor will copy the layers that remain unchanged, like the background, to the destination bitmap. After that, it will figure out which portion of the scrollable content needs to be visible, then copies those bits over to the destination as well. All this is being taken care of during the compositing stage.
+
+## On GPUs
+
+It used to be that all the work on the rendering pipeline was done by the CPU, on the main thread. But the CPU has a task list from here to moon and back, it's a very busy piece of hardware.
+
+Graphics Processing Units or GPUs used to be the domain of the video games industry, but are now pretty much a general purpose technology and an integral part of computer architecture. GPUs have exceptional parallel processing capabilities, and are really good at rendering frames fast.
+
+So the next thing browser engineers did was to move rendering tasks to the GPU. For our current browser landscape, paint and composite are relatively separate processes in all the major browsers. And browser engineers are trying to move both of them off the main thread.
+
+As it turns out, it's much easier to move compositing to the GPU because GPUs are great at blitting quads. Blitting being the process of combining several bitmaps into one with a boolean function. Paint, on the other hand, is trickier to move, because the GPU is not necessarily good at painting all the things. It's really fast for blitting surfaces, but not for drawing bezier curves and shapes, for example. Text rendering isn't that great on GPU either.
+
+## On Chromium
+
+The Chromium Project has extremely good documentation and detailed design docs which outline exactly what goes on under the hood with Blink and cc, the Chrome compositor.
+
+In Chromium, the page is divided up into tiles of 256x256 pixels for more efficient rasterisation. Paint commands which don't impact certain tiles get ignored and only the tiles which need to be updated get rasterised again.
+
+The old way of rasterising a tile makes use of the Skia library, which uses a scanline algorithm to create a bitmap that is sent to the GPU to be drawn on screen. The new method is also executed by Skia, but with a GPU backend called Ganesh. And it's faster because there is no copying involved.
+
+But the challenge of having the GPU rasterise small, complicated shapes like fonts is not trivial at all, especially for the CJK languages with thousands of glyphs. So both the CPU and GPU will still have their roles to play in the rasterisation process.
+
+## On Firefox
+
+Firefox's current rendering pipeline is split between rasterisation, or painting, and compositing. Painting is done either by Direct2D or Skia, depending on the platform the browser is running on. Compositing is run with either OpenGL, Direct3D 11 or a software implementation, again depending on the platform.
+
+Browser rendering engines were designed at a time when GPUs were not commonplace outside gaming machines, and CPUs didn't have as many cores as they do now. Websites also weren't that complicated at the time. Browser engines were improved upon their existing implementation as computer hardware evolved, and separating paint and compositing is part of that improvement.
+
+This is why WebRender is so interesting. It is a 2D renderer for the web, which started out as Servo‘s graphics engine. WebRender removes the separation between painting and compositing, and instead makes use of the GPU's exceptional parallel processing power to handle painting and compositing in a single step through various techniques that make use of the display list.
+
+Lin Clark, who writes the best technical articles, has a very in-depth and easy-to-read article on MozHacks on all the details of how WebRender works. And that was the basis for a lot of the stuff I mentioned. I think the developments happening around WebRender are really cool and if you would like follow along as well, the Mozilla Gfx team also maintains a blog with project updates and explainers on what goes on under the hood.
+
+## Wrapping up
+
+I am so grateful to these beautiful people who gave me time of day, and either answered my noob questions on browser rendering, or took the effort to point me in the right direction. Even though they're not here right now, I'd like to say a big thank you to all of them.
+
+And I also read a lot more than is on here, but I'm only including those links that are actually referenced in the talk. If all this is as fascinating to you as it is to me, come chat! I'll share my longer list of resources with you too.
+
+I love the web. Truly. And I know that it takes many different groups of people contributing in their own way, that makes the web what it is. But today, I want to show my appreciation for browser engineers. Some of them have made this their full time careers, others have done so as OSS contributors on their own time.
+
+Even though browsers are not the only way to access information on the web, they are the predominant medium at the moment. So thank you, browser engineers everywhere, for striving to make the web experience smoother, faster and more accessible for all of us.
+
+Thank you all for your attention.
