@@ -242,7 +242,7 @@ Matt built his toy browser engine in Rust, and it is open-sourced, available on 
 
 I'm not that familiar with Rust, to be honest, but the code is relatively understandable when he explains it in his article. And we're only going to be looking at the paint portion of this toy browser engine. Here, we can see that all the pixels will be stored in a Canvas.
 
-Painting a rectangle on the canvas involves looping through the rows and columns of the canvas. This here is a helper method to ensure the loop doesn't go beyond the bounds of the canvas. Finally, we have the actual paint() function, which builds the display list (actual function not included here) then paints the data to the canvas, pixel by pixel, line by line until the entire canvas is filled up.
+Painting a rectangle on the canvas involves looping through the rows and columns of the canvas. This here is a helper method to ensure the loop doesn't go beyond the bounds of the canvas. Finally, we have the actual `paint()` function, which builds the display list (actual function not included here) then paints the data to the canvas, pixel by pixel, line by line until the entire canvas is filled up.
 
 Like I mentioned, this particular implementation only supports solid colours. Because doing something like transparency would require additional blending to calculate the pixel colour values.
 
@@ -256,7 +256,9 @@ Of course, commercial browsers make use of graphics APIs and libraries to implem
 
 This is a list of common graphics libraries currently being used to power the popular browser engines. Chrome uses the Skia graphics library almost exclusively for all graphics operations, even text rendering.
 
-Firefox, with their big engine overhaul will eventually use Skia for canvas, and WebRender for everything else. Safari, which is based on WebKit, apparently used Apple's Core Image libraries, but I'm not sure what they use right this minute.
+Firefox used to use CoreGraphics and Cairo but eventually simplified the number of backends they ran on. And after the smoke clears on their big engine overhaul, Firefox will eventually use Skia for canvas, and WebRender for everything else.
+
+Safari, which is based on WebKit, apparently used Apple's Core Image libraries, but I'm not sure what they use right this minute.
 
 ## Browser rendering pipeline
 
@@ -268,7 +270,9 @@ Invalidation as an optimisation technique has been around since the early browse
 
 Browser engineers then came up with the idea of having layers. With layers, the browser would only have to repaint the layer which changed, or sometimes, simply rearrange the layers, as is the case when you're trying to scroll a web page.
 
-For scrolling, the compositing process starts with source bitmaps, and a target bitmap which is what ends up displayed on the screen. The compositor will copy the layers that remain unchanged, like the background, to the destination bitmap. After that, it will figure out which portion of the scrollable content needs to be visible, then copies those bits over to the destination as well. All this is being taken care of during the compositing stage.
+For scrolling, the compositing process starts with source bitmaps, and a target bitmap which is what ends up displayed on the screen. The compositor will copy the layers that remain unchanged, like the background, to the destination bitmap. After that, it will figure out which portion of the scrollable content needs to be visible, then copies those bits over to the destination as well. 
+
+The compositor is also responsible for applying the necessary transformations, depending on the layer's CSS transform properties, to each compositing layer's bitmap before compositing it. Having layers means that when the browser invalidates a layer, only the contents of that layer need to be repainted, then recomposited.
 
 ## On GPUs
 
@@ -282,32 +286,34 @@ As it turns out, it's much easier to move compositing to the GPU because GPUs ar
 
 ## On Chromium
 
-The Chromium Project has extremely good documentation and detailed design docs which outline exactly what goes on under the hood with Blink and cc, the Chrome compositor.
+The Chromium Project has very detailed design documentation which outline exactly what goes on under the hood with Blink and cc, the Chrome compositor.
 
-In Chromium, the page is divided up into tiles of 256x256 pixels for more efficient rasterisation. Paint commands which don't impact certain tiles get ignored and only the tiles which need to be updated get rasterised again.
+In Chromium, the page is divided up into tiles of 256 by 256 pixels for more efficient rasterisation. Paint commands which don't impact certain tiles get ignored and only the tiles which need to be updated get rasterised again.
 
 The old way of rasterising a tile makes use of the Skia library, which uses a scanline algorithm to create a bitmap that is sent to the GPU to be drawn on screen. The new method is also executed by Skia, but with a GPU backend called Ganesh. And it's faster because there is no copying involved.
 
-But the challenge of having the GPU rasterise small, complicated shapes like fonts is not trivial at all, especially for the CJK languages with thousands of glyphs. So both the CPU and GPU will still have their roles to play in the rasterisation process.
+But the challenge of having the GPU rasterise small, complicated shapes like fonts is not trivial at all, especially for the CJK languages with thousands of glyphs. So it seems like both the CPU and GPU will still have their roles to play in the rasterisation process.
 
 ## On Firefox
 
-Firefox's current rendering pipeline is split between rasterisation, or painting, and compositing. Painting is done either by Direct2D or Skia, depending on the platform the browser is running on. Compositing is run with either OpenGL, Direct3D 11 or a software implementation, again depending on the platform.
+Browser rendering engines were designed at a time when GPUs were not commonplace outside gaming machines, and CPUs didn't have as many cores as they do now. Websites also weren't that complicated at the time. Historically, 2D graphics APIs such as cairo and skia have focused on the 2D rendering side of things. But the web platform evolved and we started to do things like animations and perspective transformations in the browser.
 
-Browser rendering engines were designed at a time when GPUs were not commonplace outside gaming machines, and CPUs didn't have as many cores as they do now. Websites also weren't that complicated at the time. Browser engines were improved upon their existing implementation as computer hardware evolved, and separating paint and compositing is part of that improvement.
+To offer first-class support for these capabilities, browsers added them at the compositor level, simply because it was hard or inadequate to do so within cairo or such graphics APIs. So essentially, browser engines were improved upon based on their existing implementation as computer hardware evolved. Developments such as separating paint and compositing were part of that improvement.
 
 This is why WebRender is so interesting. It is a 2D renderer for the web, which started out as Servo‘s graphics engine. WebRender removes the separation between painting and compositing, and instead makes use of the GPU's exceptional parallel processing power to handle painting and compositing in a single step through various techniques that make use of the display list.
 
-Lin Clark, who writes the best technical articles, has a very in-depth and easy-to-read article on MozHacks on all the details of how WebRender works. And that was the basis for a lot of the stuff I mentioned. I think the developments happening around WebRender are really cool and if you would like follow along as well, the Mozilla Gfx team also maintains a blog with project updates and explainers on what goes on under the hood.
+And because WebRender was written from scratch for the needs of modern web specifications, functionalities like animation and 3D was built directly into it at the same level as the 2D rendering primitives. Lin Clark, who writes the best technical articles, has a very in-depth and easy-to-read article on MozHacks on all the details of how WebRender works. And that was the basis for a lot of the stuff I mentioned. 
+
+I think the developments happening around WebRender are really cool and if you would like follow along as well, the Mozilla Gfx team also maintains a blog with project updates and explainers on what goes on under the hood.
 
 ## Wrapping up
 
 I am so grateful to these beautiful people who gave me time of day, and either answered my noob questions on browser rendering, or took the effort to point me in the right direction. Even though they're not here right now, I'd like to say a big thank you to all of them.
 
-And I also read a lot more than is on here, but I'm only including those links that are actually referenced in the talk. If all this is as fascinating to you as it is to me, come chat! I'll share my longer list of resources with you too.
+And I also read a lot more than is on here, but this list only contains links to what I actually reference in my talk. If all this is as fascinating to you as it is to me, come chat! I'll share my longer list of resources with you as well.
 
 I love the web. Truly. And I know that it takes many different groups of people contributing in their own way, that makes the web what it is. But today, I want to show my appreciation for browser engineers. Some of them have made this their full time careers, others have done so as OSS contributors on their own time.
 
 Even though browsers are not the only way to access information on the web, they are the predominant medium at the moment. So thank you, browser engineers everywhere, for striving to make the web experience smoother, faster and more accessible for all of us.
 
-Thank you all for your attention.
+And thank you for your attention.

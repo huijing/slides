@@ -1008,7 +1008,8 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
           <aside class="notes">
             <p>Of course, commercial browsers make use of graphics APIs and libraries to implement rasterisation, because clearly what we expect from the web is much more than just solid coloured rectangles. Browser makers need functions for rendering text, polygons, lines, gradients, curves…you know, all of the things.</p>
             <p>This is a list of common graphics libraries currently being used to power the popular browser engines. Chrome uses the Skia graphics library almost exclusively for all graphics operations, even text rendering.</p>
-            <p>Firefox, with their big engine overhaul will eventually use Skia for canvas, and WebRender for everything else. Safari, which is based on WebKit, apparently used Apple's Core Image libraries, but I'm not sure what they use right this minute.</p>
+            <p>Firefox used to use CoreGraphics and Cairo but eventually simplified the number of backends they ran on. And after the smoke clears on their big engine overhaul, Firefox will eventually use Skia for canvas, and WebRender for everything else.</p>
+            <p>Safari, which is based on WebKit, apparently used Apple's Core Image libraries, but I'm not sure what they use right this minute.</p>
           </aside>
         </section>
 
@@ -1024,13 +1025,23 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
         </section>
 
         <section>
-          <h2>Compositing</h2>
-          <img class="plain" data-src="img/composite.png" alt="Compositing process for scrolling a web page">
+          <h2>Compositing (1/2)</h2>
+          <img class="plain" style="max-height:80vh" data-src="img/composite.png" alt="Compositing process for scrolling a web page">
           <p><small>Reference: <a href="https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/">The whole web at maximum FPS: How WebRender gets rid of jank</a></small></p>
           <aside class="notes">
             <p>Browser engineers then came up with the idea of having layers. With layers, the browser would only have to repaint the layer which changed, or sometimes, simply rearrange the layers, as is the case when you're trying to scroll a web page.</p>
             <p>For scrolling, the compositing process starts with source bitmaps, and a target bitmap which is what ends up displayed on the screen. The compositor will copy the layers that remain unchanged, like the background, to the destination bitmap.
-            <p>After that, it will figure out which portion of the scrollable content needs to be visible, then copies those bits over to the destination as well. All this is being taken care of during the compositing stage.</p>
+            <p>After that, it will figure out which portion of the scrollable content needs to be visible, then copies those bits over to the destination as well.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Compositing (2/2)</h2>
+          <img class="plain" style="max-height:80vh" data-src="img/recomposite.png" alt="Figure showing only layers with changes get invalidated">
+          <p><small>Reference: <a href="https://www.chromium.org/developers/design-documents/gpu-accelerated-compositing-in-chrome"> GPU Accelerated Compositing in Chrome</a></small></p>
+          <aside class="notes">
+            <p>The compositor is also responsible for applying the necessary transformations, depending on the layer's CSS transform properties, to each compositing layer's bitmap before compositing it.</p>
+            <p>Having layers means that when the browser invalidates a layer, only the contents of that layer need to be repainted, then recomposited.</p>
           </aside>
         </section>
 
@@ -1070,28 +1081,29 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
           </video>
           <p><small>Reference: <a href="https://software.intel.com/en-us/articles/software-vs-gpu-rasterization-in-chromium">Software vs. GPU rasterization in Chromium</a></small></p>
           <aside class="notes">
-            <p>The Chromium Project has extremely good documentation and detailed design docs which outline exactly what goes on under the hood with Blink and cc, the Chrome compositor. </p>
-            <p>In Chromium, the page is divided up into tiles of 256x256 pixels for more efficient rasterisation. Paint commands which don't impact certain tiles get ignored and only the tiles which need to be updated get rasterised again.</p>
+            <p>The Chromium Project has very detailed design documentation which outline exactly what goes on under the hood with Blink and cc, the Chrome compositor.</p>
+            <p>In Chromium, the page is divided up into tiles of 256 by 256 pixels for more efficient rasterisation. Paint commands which don't impact certain tiles get ignored and only the tiles which need to be updated get rasterised again.</p>
             <p>The old way of rasterising a tile makes use of the Skia library, which uses a scanline algorithm to create a bitmap that is sent to the GPU to be drawn on screen. The new method is also executed by Skia, but with a GPU backend called Ganesh. And it's faster because there is no copying involved.</p>
-            <p>But the challenge of having the GPU rasterise small, complicated shapes like fonts is not trivial at all, especially for the CJK languages with thousands of glyphs. So both the CPU and GPU will still have their roles to play in the rasterisation process.</p>
+            <p>But the challenge of having the GPU rasterise small, complicated shapes like fonts is not trivial at all, especially for the CJK languages with thousands of glyphs. So it seems like both the CPU and GPU will still have their roles to play in the rasterisation process.</p>
           </aside>
         </section>
 
         <section>
-          <h2>Rendering pipeline on Firefox</h2>
+          <h2>If you could have a do-over…</h2>
           <figure>
-            <img class="plain" data-src="img/evolution.svg" alt="Seedling growing into a flower">
+            <img class="plain" data-src="img/evolution.png" alt="Seedling growing into a flower">
             <figcaption>What if we actually need a butterfly instead?</figcaption>
           </figure>
           <aside class="notes">
-            <p>Firefox's current rendering pipeline is split between rasterisation, or painting, and compositing. Painting is done either by Direct2D or Skia, depending on the platform the browser is running on. Compositing is run with either OpenGL, Direct3D 11 or a software implementation, again depending on the platform.</p>
             <p>Browser rendering engines were designed at a time when GPUs were not commonplace outside gaming machines, and CPUs didn't have as many cores as they do now. Websites also weren't that complicated at the time.</p>
-            <p>Browser engines were improved upon their existing implementation as computer hardware evolved, and separating paint and compositing is part of that improvement.</p>
+            <p>Historically, 2D graphics APIs such as cairo and skia have focused on the 2D rendering side of things. But the web platform evolved and we started to do things like animations and perspective transformations in the browser.</p>
+            <p>To offer first-class support for these capabilities, browsers added them at the compositor level, simply because it was hard or inadequate to do so within cairo or such graphics APIs.</p>
+            <p>So essentially, browser engines were improved upon based on their <strong>existing</strong> implementation as computer hardware evolved. Developments such as separating paint and compositing were part of that improvement.</p>
           </aside>
         </section>
 
         <section>
-          <h2>WebRender</h2>
+          <h2>WebRender (1/2)</h2>
           <figure>
             <img class="plain" data-src="img/webrender.png" alt="Drawing of a jet engine labeled with the different Project Quantum projects">
             <figcaption><a href="https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/">The whole web at maximum FPS: How WebRender gets rid of jank</a> by Lin Clark</figcaption>
@@ -1099,6 +1111,23 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
           <aside class="notes">
             <p>This is why WebRender is so interesting. It is a 2D renderer for the web, which started out as Servo‘s graphics engine.</p>
             <p>WebRender removes the separation between painting and compositing, and instead makes use of the GPU's exceptional parallel processing power to handle painting and compositing in a single step through various techniques that make use of the display list.</p>
+            <p>And because WebRender was written from scratch for the needs of modern web specifications, functionalities like animation and 3D was built directly into it at the same level as the 2D rendering primitives.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>WebRender (2/2)</h2>
+          <div class="l-double">
+            <figure>
+              <img class="plain" data-src="img/mozhacks.png" alt="Lin Clark's article on MozHacks">
+              <figcaption><a href="https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/">https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/</a></figcaption>
+            </figure>
+            <figure>
+                <img class="plain" data-src="img/gfx-blog.png" alt="Home page of the Mozilla Gfx blog">
+              <figcaption><a href="https://mozillagfx.wordpress.com/">https://mozillagfx.wordpress.com/</a></figcaption>
+            </figure>
+          </div>
+          <aside class="notes">
             <p>Lin Clark, who writes the best technical articles, has a very in-depth and easy-to-read article on MozHacks on all the details of how WebRender works. And that was the basis for a lot of the stuff I mentioned.</p>
             <p>I think the developments happening around WebRender are really cool and if you would like follow along as well, the Mozilla Gfx team also maintains a blog with project updates and explainers on what goes on under the hood.</p>
           </aside>
@@ -1162,8 +1191,9 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
             <li><a href="https://mozillagfx.wordpress.com/2017/09/21/introduction-to-webrender-part-1-browsers-today/">Introduction to WebRender – Part 1 – Browsers today</a> by <a href="">Nicolas Silva</a></li>
             <li><a href="https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/">The whole web at maximum FPS: How WebRender gets rid of jank</a> by <a href="">Lin Clark</a></li>
             <li><a href="https://software.intel.com/en-us/articles/software-vs-gpu-rasterization-in-chromium">Software vs. GPU rasterization in Chromium*</a> by <a href="http://mkollaro.github.io/">Martina Kollarova</a></li>
+            <li><a href="https://www.chromium.org/developers/design-documents/gpu-accelerated-compositing-in-chrome"> GPU Accelerated Compositing in Chrome</a> by Tom Wiltzius, Vangelis Kokkevis & the Chrome Graphics team</li>
           </ul>
-          <aside class="notes">And I also read a lot more than is on here, but I'm only including those links that are actually referenced in the talk. If all this is as fascinating to you as it is to me, come chat! I'll share my longer list of resources with you too.</aside>
+          <aside class="notes">And I also read a lot more than is on here, but this list only contains links to what I actually reference in my talk. If all this is as fascinating to you as it is to me, come chat! I'll share my longer list of resources with you as well.</aside>
         </section>
 
         <section>
