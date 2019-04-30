@@ -533,7 +533,7 @@
 
         <section>
           <h2>Speed, Quality, Size</h2>
-          <figure style="width:40vw;margin:0 auto">
+          <figure style="width:60vw;margin:0 auto">
             <video loop autoplay style="width:100%">
               <source data-src="videos/whack-a-mole.mp4" type="video/mp4">
               Sorry, your browser doesn't support embedded videos, 
@@ -788,7 +788,7 @@
         <section>
           <h2>What is a browser engine? <span class="emoji" role="img" tabindex="0" aria-label="thinking face">&#x1F914;</span></h2>
           <img class="plain" data-src="img/browser-magic.png" alt="The blackbox of browser engines">
-          <p><small>Reference: <a href="https://hacks.mozilla.org/2017/05/quantum-up-close-what-is-a-browser-engine/">Quantum Up Close: What is a browser engine?</a></small></p>
+          <p><small>Source: <a href="https://hacks.mozilla.org/2017/05/quantum-up-close-what-is-a-browser-engine/">Quantum Up Close: What is a browser engine?</a></small></p>
           <aside class="notes">
             <p>Potch, Developer Advocate at Mozilla, wrote this awesome article about Project Quantum and browser engines when Firefox was doing its big core engine overhaul back in 2017.</p>
             <p>Most web developers, myself included, probably see the browser engine as a magical black box that turns the code we write into web sites our users can somehow consume even if they are on a different browser, different device, different time zone.</p>
@@ -798,7 +798,7 @@
         <section>
           <h2>What is a browser engine? <span class="emoji" role="img" tabindex="0" aria-label="nerd face">&#x1F913;</span></h2>
           <img class="plain" style="max-height:70vh" data-src="img/browser-engine.png" alt="Browser engine diagram">
-          <p><small>Reference: <a href="https://hacks.mozilla.org/2017/05/quantum-up-close-what-is-a-browser-engine/">Quantum Up Close: What is a browser engine?</a></small></p>
+          <p><small>Source: <a href="https://hacks.mozilla.org/2017/05/quantum-up-close-what-is-a-browser-engine/">Quantum Up Close: What is a browser engine?</a></small></p>
           <aside class="notes">
             <p>Browser engines combine the structure and style of a web page to draw it on the screen, then figure out which parts can be interacted with. As you can see, lots of parsers and dedicated engines to do all of that work.</p>
             <p>Today, I was planning to cover 2 portions of this diagram. So far we've touched on the blue-circled portion about media, specifically images.</p>
@@ -919,7 +919,7 @@ impl Canvas {
     }
   // …
 }</code></pre>
-          <p><small>Reference: <a href="https://limpet.net/mbrubeck/2014/11/05/toy-layout-engine-7-painting.html">Let's build a browser engine!</a></small></p>
+          <p><small>Source: <a href="https://limpet.net/mbrubeck/2014/11/05/toy-layout-engine-7-painting.html">Let's build a browser engine!</a></small></p>
           <aside class="notes">
             <p>Matt built his toy browser engine in Rust, and it is open-sourced, available on GitHub. He chose to write his own rasteriser, which only paints solid rectangles. But from this, we can sort of see how browser engines paint image data from memory onto the screen.</p>
             <p>I'm not that familiar with Rust, to be honest, but the code is relatively understandable when he explains it in his article. And we're only going to be looking at the paint portion of this toy browser engine. Here, we can see that all the pixels will be stored in a Canvas.</p>
@@ -946,7 +946,7 @@ impl Canvas {
         }
     }
 }</code></pre>
-          <p><small>Reference: <a href="https://limpet.net/mbrubeck/2014/11/05/toy-layout-engine-7-painting.html">Let's build a browser engine!</a></small></p>
+          <p><small>Source: <a href="https://limpet.net/mbrubeck/2014/11/05/toy-layout-engine-7-painting.html">Let's build a browser engine!</a></small></p>
           <aside class="notes">Painting a rectangle on the canvas involves looping through the rows and columns of the canvas. This here is a helper method to ensure the loop doesn't go beyond the bounds of the canvas.</aside>
         </section>
 
@@ -962,7 +962,7 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
     }
     canvas
 }</code></pre>
-          <p><small>Reference: <a href="https://limpet.net/mbrubeck/2014/11/05/toy-layout-engine-7-painting.html">Let's build a browser engine!</a></small></p>
+          <p><small>Source: <a href="https://limpet.net/mbrubeck/2014/11/05/toy-layout-engine-7-painting.html">Let's build a browser engine!</a></small></p>
           <aside class="notes">
             <p>Finally, we have the actual <code>paint()</code> function, which builds the display list (actual function not included here) then paints the data to the canvas, pixel by pixel, line by line until the entire canvas is filled up.</p>
             <p>Like I mentioned, this particular implementation only supports solid colours. Because doing something like transparency would require additional blending to calculate the pixel colour values.</p>
