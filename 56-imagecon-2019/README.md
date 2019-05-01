@@ -12,7 +12,7 @@ But images are not all creates equal, some image formats are better suited for c
 
 My name is Hui Jing, you can also call me Jing. This is me in emojis, make what you will of them. The fox is not that obvious, but I use it to indicate that I'm a Mozilla Techspeaker, which is an initiative by Mozilla to support technical evangelists in regional communities around the world by providing resources and funding.
 
-I also have a day job as a Developer Advocate with Nexmo. Nexmo being a platform that provides APIs for messenging, voice and authentication so developers can easily integrate communications into their applications.
+I also have a day job as a Developer Advocate with Nexmo. Nexmo being a platform that provides APIs for messaging, voice and authentication so developers can easily integrate communications into their applications.
 
 ## On the origins of imagemaking
 
@@ -30,9 +30,7 @@ The digital age is one of light and electronic signals. Perhaps it may be more a
 
 Meet Pixel. No, not the Google phone, not that Pixel. This pixel has been around far longer than that phone. Pixel is a pretty well-defined character, multiple definitions if you look around, but the most common one calls a pixel the smallest unit of an image which can be displayed on a digital display device, the basic logical unit for representing digital graphics.
 
-Computers have come a long way in a relatively short period of less than a hundred years. The earliest of them having displays that were more indicators of device health rather than program output. But those panels of light bulbs, which allowed engineers to monitor the internal state of their machine, came to be known as a *monitor*.
-
-The binary nature of digital computing, pioneered by Konrad Zuse back in 1941, made it easier to represent data and perform calculations and logical operations, given you only had 2 states to deal with. This also made the machines easier to build and improved reliability.
+Computers have come a long way in a relatively short period of less than a hundred years. The earliest of them having displays that were more indicators of device health rather than program output. But those panels of light bulbs, which allowed engineers to monitor the internal state of their machine, came to be known as *monitors*.
 
 Electronic displays actually pre-date digital computers, with Cathode Ray Tube (CRT) technology becoming commercially available back in 1922. They worked by firing a beam of electrons onto a phosphor-coated screen. The energy from these electrons gets absorbed by the phosphor atoms on the screen, and kicks them up to higher energy levels.
 
@@ -80,9 +78,7 @@ MacPaint used run-length encoding, which combined repeated data into a shorter s
 
 I won't go into details of the actual LZW algorithm, but it encodes the image by creating a dictionary of repeated sequences of colours and could achieve much better compression rates than any prior image format.
 
-The first photo of a band published on the internet was a promotional shot for Les Horribles Cernettes, a particle physics parody pop group led by Michele de Gennaro. Proving that scientists do have fun, as well as a sense of humour. What format was this photo in? GIF.
-
-This was back in 1992 on the World Wide Web browser. So it's definitely no surprise that when Mosaic was released in 1993, it launched with support for 2 image formats, GIF and JPEG.
+The first photo of a band published on the internet was a promotional shot for Les Horribles Cernettes, a particle physics parody pop group at CERN. And what format was this photo in? GIF. This was back in 1992 on the World Wide Web browser. So it's definitely no surprise that when Mosaic was released in 1993, it launched with support for 2 image formats, GIF and JPEG.
 
 ## Joint Photographic Experts Group (JPEG)
 
