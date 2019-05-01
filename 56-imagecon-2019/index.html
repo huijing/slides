@@ -398,7 +398,7 @@
           <img class="plain" data-src="img/jpeg.png" alt="JPEG">
           <aside class="notes">
             <p>JPG is both the name of the committee that created the JPG standard, as well as the name of the image compression algorithm itself.</p>
-            <p>I put a note to myself here, that if Dr. Jon Sneyers had already covered most of this stuff I'd just skip over it and move on. Should I have been responsible and reached out to check with him? Yes. Did I? Nope.</p>
+            <p>Jon, who is coming up immediately after, is a member of the committee and will tell you more about it and what they do. We swapped slots because I'm talking about the past and present while he will be covering what's to come in the future.</p>
           </aside>
         </section>
 
@@ -406,7 +406,10 @@
           <h2>JPG compression</h2>
           <img class="plain" style="max-height:75vh" data-src="img/jpg.png" alt="JPG compression">
           <p><small>Reference: <a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG works</a></small></p>
-          <aside class="notes">JPG was revolutionary when it was released in 1992. A lot of the information here I learned from Colt McAnlis, who wrote a really in-depth explainer on how JPG works, which you should really check out if you're interested in this.</aside>
+          <aside class="notes">
+            <p>JPG was revolutionary when it was released in 1992. A lot of the information here I learned from Colt McAnlis, who wrote a really in-depth explainer on how JPG works, which you should really check out if you're interested in this.</p>
+            <p>Also, Jon will be touching on this again later, so I'm not too worried if this all flies over your head this time around.</p>
+          </aside>
         </section>
 
         <section>
@@ -448,7 +451,7 @@
           <img class="plain" style="max-height:75vh" data-src="img/jpg.png" alt="JPG compression">
           <p><small>Reference: <a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG works</a></small></p>
           <aside class="notes">
-            <p>The full process of generating a JPG file involves more steps than what I outlined but that was my general understanding of how JPG compression works. Hopefully Dr. Jon Sneyers will be able to answer any further questions you might have about it.</p>
+            <p>The full process of generating a JPG file involves more steps than what I outlined but that was my general understanding of how JPG compression works. If you have any further questions about JPG, Jon is the most qualified person to answer them.</p>
             <p>JPG does extremely well with photographic images and effects like gradients, but not as well with line drawings or graphics with sharp contrast between the pixels. But an interesting feature of JPGs is the option of progressive JPGs.</p>
           </aside>
         </section>
@@ -460,7 +463,7 @@
             <figcaption>Image source: <a href="https://www.liquidweb.com/kb/what-is-a-progressive-jpeg/">What is a progressive JPEG?</a></figcaption>
           </figure>
           <aside class="notes">
-            <p>I learned about how progressive JPGs from Dr Sneyers, in fact, when I read his article called Progressive JPEGs and green Martians. Non-progressive JPGs encode all the coefficients of each 8-by-8 block sequentially.</p>
+            <p>I learned about how progressive JPGs from Jon, in fact, when I read his article called Progressive JPEGs and green Martians. Non-progressive JPGs encode all the coefficients of each 8-by-8 block sequentially.</p>
             <p>Instead of doing that, we can encode all the DC coefficients first, then some low-frequency AC coefficients, followed by high-frequency AC coefficients at the end.</p>
             <p>Progressive JPGs require the encoder and decoder to make multiple passes through the image, and a typical progressive JPG has about 10 scans. So as the image gets decoded, you see a blurry image get progressively sharp as the image loads.</p>
           </aside>
@@ -1120,11 +1123,11 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
           <h2>WebRender (2/2)</h2>
           <div class="l-double">
             <figure>
-              <img class="plain" data-src="img/mozhacks.png" alt="Lin Clark's article on MozHacks">
+              <img class="plain" style="max-height:65vh" data-src="img/mozhacks.png" alt="Lin Clark's article on MozHacks">
               <figcaption><a href="https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/">https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/</a></figcaption>
             </figure>
             <figure>
-                <img class="plain" data-src="img/gfx-blog.png" alt="Home page of the Mozilla Gfx blog">
+                <img class="plain" style="max-height:65vh" data-src="img/gfx-blog.png" alt="Home page of the Mozilla Gfx blog">
               <figcaption><a href="https://mozillagfx.wordpress.com/">https://mozillagfx.wordpress.com/</a></figcaption>
             </figure>
           </div>

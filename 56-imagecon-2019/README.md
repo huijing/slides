@@ -84,9 +84,9 @@ The first photo of a band published on the internet was a promotional shot for L
 
 JPEG is both the name of the committee that created the JPEG standard, as well as the name of the image compression algorithm itself. 
 
-I put a note to myself here, that if Dr. Jon Sneyers had already covered most of this stuff I'd just skip over it and move on. Should I have been responsible and reached out to check with him? Yes. Did I? Nope.
+Jon, who is coming up immediately after, is a member of the committee and will tell you more about it and what they do. We swapped slots because I'm talking about the past and present while he will be covering what's to come in the future.
 
-JPEG was revolutionary when it was released in 1992. A lot of the information here I learned from Colt McAnlis, who wrote a really in-depth explainer on how JPG works, which you should really check out if you're interested in this.
+JPEG was revolutionary when it was released in 1992. A lot of the information here I learned from Colt McAnlis, who wrote a really in-depth explainer on how JPG works, which you should really check out if you're interested in this. Also, Jon will be touching on this again later, so I'm not too worried if this all flies over your head this time around.
 
 JPG converts from RGB to Y,Cb,Cr colour model, comprising Luminance, Chroma Blue and Chroma Red. This works because we notice luminance more distinctly than chrominance, so we can get away with aggressive changes to the Cb/Cr channels.
 
@@ -100,13 +100,13 @@ So it is necessary for a quantisation phase. JPG uses a pre-calculated matrix of
 
 By now you might notice that there are a larger number of zeroes toward the bottom right of the matrix, so a Zig-Zag algorithm is applied to create a linear array of values from the block. After such a reordering, further compression with run-length encoding can yield even better results.
 
-The full process of generating a JPG file involves more steps than what I outlined but that was my general understanding of how JPG compression works. Hopefully Dr. Jon Sneyers will be able to answer any further questions you might have about it.
+The full process of generating a JPG file involves more steps than what I outlined but that was my general understanding of how JPG compression works. If you have any further questions about JPG, Jon is the most qualified person to answer them.
 
 JPG does extremely well with photographic images and effects like gradients, but not as well with line drawings or graphics with sharp contrast between the pixels. But an interesting feature of JPGs is the option of progressive JPGs.
 
 ## Progressive JPGs
 
-I learned about how progressive JPGs from Dr Jon Sneyers, in fact, when I read his article called Progressive JPEGs and green Martians. Non-progressive JPGs encode all the coefficients of each 8-by-8 block sequentially. Instead of doing that, we can encode all the DC coefficients first, then some low-frequency AC coefficients, followed by high-frequency AC coefficients at the end.
+I learned about how progressive JPGs from Jon, in fact, when I read his article called Progressive JPEGs and green Martians. Non-progressive JPGs encode all the coefficients of each 8-by-8 block sequentially. Instead of doing that, we can encode all the DC coefficients first, then some low-frequency AC coefficients, followed by high-frequency AC coefficients at the end.
 
 Progressive JPGs require the encoder and decoder to make multiple passes through the image, and a typical progressive JPG has about 10 scans. So as the image gets decoded, you see a blurry image get progressively sharp as the image loads.
 
