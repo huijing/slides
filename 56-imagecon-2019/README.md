@@ -84,9 +84,9 @@ The first photo of a band published on the internet was a promotional shot for L
 
 JPEG is both the name of the committee that created the JPEG standard, as well as the name of the image compression algorithm itself. 
 
-Jon, who is coming up immediately after, is a member of the committee and will tell you more about it and what they do. We swapped slots because I'm talking about the past and present while he will be covering what's to come in the future.
+Jon, who is coming up immediately after this, is a member of that committee and will tell you more about it and what they do. We swapped slots because I'm talking about the past and present while he will be covering what we have now and what's to come in the future.
 
-JPEG was revolutionary when it was released in 1992. A lot of the information here I learned from Colt McAnlis, who wrote a really in-depth explainer on how JPG works, which you should really check out if you're interested in this. Also, Jon will be touching on this again later, so I'm not too worried if this all flies over your head this time around.
+JPEG was revolutionary when it was released in 1992. A lot of the information here I learned from Colt McAnlis, who wrote a really in-depth explainer on how JPG works, which you should really check out if you're interested in this.
 
 JPG converts from RGB to Y,Cb,Cr colour model, comprising Luminance, Chroma Blue and Chroma Red. This works because we notice luminance more distinctly than chrominance, so we can get away with aggressive changes to the Cb/Cr channels.
 
