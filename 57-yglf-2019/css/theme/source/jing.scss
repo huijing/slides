@@ -11,6 +11,7 @@
 
 // Include theme-specific fonts
 @import url('../../lib/font/movement/movement.css');
+@import url('../../lib/font/kokoro/kokoro.css');
 @import url('../../lib/font/pt-sans/pt-sans.css');
 
 // Theme template ------------------------------
@@ -124,7 +125,7 @@ html {
   }
 
   tr:nth-child(odd) {
-    background-color: lighten($backgroundColor, 10%)
+    background-color: lighten($backgroundColor, 20%)
   }
 
   .l-logo {
@@ -170,12 +171,12 @@ html {
   }
 
   .txtbg-light {
-    background-color: rgba(255,255,255,0.75);
+    background-color: rgba(255, 255, 255, 0.75);
     color: #000;
   }
 
   .txtbg-dark {
-    background-color: rgba(0,0,0,0.75);
+    background-color: rgba(0, 0, 0, 0.5);
   }
 }
 

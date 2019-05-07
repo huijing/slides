@@ -18,13 +18,40 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
-	</head>
+  </head>
+
 	<body>
 		<div class="reveal">
       <div class="slides">
         <section data-background-image="img/background.jpg">
-          <h1 class="title">Typesetting for a global web</h1>
+          <h1>Typesetting for a global web</h1>
           <p><small><a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
+          <aside class="notes">
+            <p>Labas rytas. Kaip sekasi? I hope everyone is having a great morning here at YGLF.</p>
+            <p>I have this indescribable joy simply being here in Lithuania. Because long before all this web stuff happened, ever since I was 7 years old, Basketball was everything to me. So we're going to watch something.</p>
+          </aside>
+        </section>
+
+        <section data-background-video="videos/2000.mov">
+          <aside class="notes">
+            <p>The 2000 Sydney Olympics were broadcast live back then. I was 13 years old. That was the first time I saw the Lithuanian team play. I didn't know much about Lithuania before that Olympics, but as the tournament went on, it was obvious they were an excellent team.</p>
+            <p>That clip was from the semi-finals between Lithuania and the United States. And I think most people thought the Americans would cruise to the finals. Lithuania was down 12 points during half-time. But they came out scorching hot in the 2nd half and tied the game with 15.30 to go.</p>
+            <p>As the Lithuanians matched the Americans point for point, it seemed like the improbable could happen. That Lithuania would knock off the high and mighty Americans on one of the world's biggest stages.</p>
+            <p>My heart just sank when that last shot by Šarūnas Jasikevičius came up short. But Lithuanian basketball had left an impression on me for life. When 2004 rolled around, Šarūnas didn't miss.</p>
+          </aside>
+        </section>
+
+        <section data-background-video="videos/2004.mov">
+          <aside class="notes">
+            <p>As team Lithuania walked off the court their heads held high, it felt as if they had won the gold already.</p>
+            <p>So yes, Lithuania always had a special place in my heart. But I never imagined I would find myself here in Vilnius, after my basketball career was over, about to open You Gotta Love Frontend with a talk about web typography.</p>
+          </aside>
+        </section>
+
+        <section data-background-image="img/background.jpg">
+          <h2>Typesetting for a global web</h2>
+          <img data-src="img/yglf.svg" alt="YGLF Vilnius" class="plain" style="max-height:50vh">
+          <aside class="notes">Web typography is a topic that has been covered quite extensively by numerous amazing speakers, so what I'd like to bring to the table today is some additional perspective about non-English typography as well. Hence the title of <em>Typesetting for a global web</em>.</aside>
         </section>
 
         <section data-background-image="img/emoji-bg.png" data-background-repeat="repeat" data-background-size="200px">
@@ -44,14 +71,14 @@
               <span style="font-size:calc(1.75em + 3vw);grid-area:e" class="emoji" role="img" tabindex="0" aria-label="fox">&#x1F98A;</span>
             </div>
           </div>
-          <aside class="notes">TechSpeakers is an initiative by Mozilla to support technical evangelists in regional communities around the world by providing resources and funding.</aside>
+          <aside class="notes">My name is Hui Jing, you can also call me Jing. And these are the emojis that describe me. It is probably not obvious what the fox is for, but I use it to indicate that I'm a Mozilla Techspeaker, which is an initiative by Mozilla to support technical evangelists in regional communities around the world by providing resources and funding.</aside>
         </section>
 
         <section>
           <img style="max-height:10em;margin-bottom:0.5em" class="plain" data-src="img/love-dev.svg" alt="Nexmo Developer Relations">
           <p><span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span> Developer Advocate <span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span></p>
           <img style="max-height:2.5em;margin-top:1em" class="plain" data-src="img/nexmo.svg" alt="Nexmo">
-          <aside class="notes">Nexmo is a platform which makes it easier for developers to integrate communications into their applications by providing APIs for messaging, voice and authentication.</aside>
+          <aside class="notes">I also have a day job as a Developer Advocate with Nexmo. Nexmo being a platform that provides APIs for messaging, voice and authentication so developers can easily integrate communications into their applications.</aside>
         </section>
 
         <section>
@@ -100,7 +127,7 @@
           <section data-background-image="img/latin-script-dist.svg" data-background-size="cover">
             <h2 class="txtbg-dark">Latin script distribution</h2>
             <aside class="notes">
-              <p>And a geographic distribution that looks like this, where the dark areas represent countries who only use the Latin script, while the lighter areas show countries which use Latin script in addition to others. Even the grey areas have Latin-script alphabets in use as unofficial second languages, or for transliteration purposes.</p>
+              <p>And a geographic distribution that looks like this, where the bright yellow areas represent countries who only use the Latin script, while the pale yellow areas show countries which use Latin script in addition to others. Even the grey areas have Latin-script alphabets in use as unofficial second languages, or for transliteration purposes.</p>
             </aside>
           </section>
 
@@ -109,50 +136,50 @@
               <table class="tb-letters" style="font-size:70%" lang="ro">
                 <tr>
                   <td>A, a</td>
-                  <td>Ă, ă</td>
-                  <td>Â, â</td>
+                  <td>Ą, ą</td>
                   <td>B, b</td>
                   <td>C, c</td>
+                  <td>Č, č</td>
                   <td>D, d</td>
                 </tr>
                 <tr>
                   <td>E, e</td>
+                  <td>Ę, ę</td>
+                  <td>Ė, ė</td>
                   <td>F, f</td>
                   <td>G, g</td>
                   <td>H, h</td>
-                  <td>I, i</td>
-                  <td>Î, î</td>
                 </tr>
                 <tr>
+                  <td>I, i</td>
+                  <td>Į, į</td>
+                  <td>Y, y</td>
                   <td>J, j</td>
                   <td>K, k</td>
                   <td>L, l</td>
+                </tr>
+                <tr>
                   <td>M, m</td>
                   <td>N, n</td>
                   <td>O, o</td>
-                </tr>
-                <tr>
                   <td>P, p</td>
-                  <td>Q, q</td>
                   <td>R, r</td>
                   <td>S, s</td>
-                  <td>Ș, ș</td>
-                  <td>T, t</td>
                 </tr>
                 <tr>
-                  <td>Ț, ț</td>
+                  <td>Š, š</td>
+                  <td>T, t</td>
                   <td>U, u</td>
+                  <td>Ų, ų</td>
+                  <td>Ū, ū</td>
                   <td>V, v</td>
-                  <td>W, w</td>
-                  <td>X, x</td>
-                  <td>Y, y</td>
                 </tr>
                 <tr>
                   <td>Z, z</td>
+                  <td>Ž, ž</td>
                   <td></td>
                   <td></td>
-                  <td></td>
-                  <td colspan="2" lang="en">Romanian (31)</td>
+                  <td colspan="2" lang="en">Lithuanian (32)</td>
                 </tr>
               </table>
           
@@ -194,7 +221,7 @@
                   <td>ض</td>
                   <td>ظ</td>
                   <td>غ</td>
-                  <td colspan="2" style="font-family:Bellota;font-size:70%" lang="en">Arabic (28)</td>
+                  <td colspan="2" style="font-family:PT Sans;font-size:70%" lang="en">Arabic (28)</td>
                 </tr>
               </table>
           
@@ -228,7 +255,7 @@
                   <td>ר</td>
                   <td>ש</td>
                   <td>ת</td>
-                  <td colspan="2" style="font-family:Bellota;font-size:70%" lang="en">Hebrew (22)</td>
+                  <td colspan="2" style="font-family:PT Sans;font-size:70%" lang="en">Hebrew (22)</td>
                 </tr>
               </table>
           
@@ -275,7 +302,7 @@
               </table>
             </div>
             <aside class="notes">
-              <p>Of course, not all Latin scripts use the same alphabet. Neither are alphabets restricted to Latin scripts alone. All 26 letters in the English alphabet are fairly vanilla, no diacritics, circumflexes or ligatures. Unlike Romanian or German, for example.</p>
+              <p>Of course, not all Latin scripts use the same alphabet. Neither are alphabets restricted to Latin scripts alone. All 26 letters in the English alphabet are fairly vanilla, no diacritics, circumflexes or ligatures. Unlike Lithuanian or Latvian, for example.</p>
               <p>Relating this back to typography, and the concept of prefabricated letters, when we pick typefaces, be it in the physical or digital world, there may be instances where a particular character's glyph is missing from the typeface.</p>
             </aside>
           </section>
@@ -285,15 +312,15 @@
             <div class="l-multiple">
               <figure class="fragment">
                 <img class="plain" style="margin:0 0.5em" data-src="img/glyph1.jpg" alt="A metal sort AKA type">
-                <figcaption style="font-style:normal">M</figcaption>
+                <figcaption style="font-style:normal">Ê</figcaption>
               </figure>
               <figure class="fragment">
                 <img class="plain" style="margin:0 0.5em" data-src="img/glyph2.jpg" alt="A bitmap glyph">
-                <figcaption style="font-style:normal">晽</figcaption>
+                <figcaption style="font-style:normal">玮</figcaption>
               </figure>
               <figure class="fragment">
                 <img class="plain" style="margin:0 0.5em" data-src="img/glyph3.jpg" alt="A vector glyph">
-                <figcaption style="font-style:normal">Ж</figcaption>
+                <figcaption style="font-style:normal">Д</figcaption>
               </figure>
             </div>
             <aside class="notes">
@@ -1147,24 +1174,27 @@
           <section>
             <div class="l-multiple">
               <div style="margin-bottom:1em;writing-mode:vertical-rl;font-family:'PingFang SC';font-size:175%"><span>古巴<span style="text-combine-upright:all">Cuba</span></span></div>
-              <div class="fragment" style="margin-bottom:1em;writing-mode:vertical-rl;font-family:'PingFang SC';font-size:175%"><span>罗马尼亚<span style="text-combine-upright:all">Romania</span></span></div>
+              <div class="fragment" style="margin-bottom:1em;writing-mode:vertical-rl;font-family:'PingFang SC';font-size:175%"><span>立陶宛<span style="text-combine-upright:all">Lithuania</span></span></div>
               <div class="fragment" style="margin-bottom:1em;writing-mode:vertical-rl;font-family:'PingFang SC';font-size:175%"><span>列支敦斯登<span style="text-combine-upright:all">Liechtenstein</span></span></div>
             </div>
-            <aside class="notes">I mean, 4 digits is probably the maximum you can push such a tiny space. 7 looks very uncomfortable. 13 is just ridiculous.</aside>
+            <aside class="notes">I mean, 4 digits is probably the maximum you can push such a tiny space. 9 looks very uncomfortable. 13 is just ridiculous.</aside>
           </section>
 
           <section>
             <h2>Not just for East Asian text</h2>
             <div class="livecode livecode-2p">
               <div class="result wm-cont2" style="font-size:75%;text-align:left">
-                <h2 class="vert-rl upright">MAGIE</h2>
-                <p class="vert-lr">“Nu pot fi fericiţi decât oamenii care nu gândesc nimic, adică aceia care gândesc numai cât trebuie vieţii.”</p>
-                <p>Din umbra falnicelor bolți<br>Ea pasul și-l îndreaptă<br>Lângă fereastră, unde-n colț<br>Luceafărul așteaptă.<br><br>Privea în zare cum pe mări<br>Răsare și străluce,<br>Pe mișcătoarele cărări<br>Corăbii negre duce.</p>
-                <h3 class="vert-rl rotate">Calul bun se vinde în grajd</h3>
+                <h2 class="vert-rl upright">MAGIJA</h2>
+                <p class="vert-lr">“…lietuvių tauta privalo būti išsaugota, nes joje slypi raktas visoms mįslėms – ne tik filologijos, bet ir istorijos — įminti”</p>
+                <div>
+                  <p style="margin-bottom:1em">Kaip ąžuol's drūt's prie Nemunėlio<br>Lietuvis nieko neatbos!<br>Kaip eglė ten prie Šešupėlės<br>Ir vėtroj, ir žiemą žaliuos!</p>
+                  <p>Lietuviais esame mes gimę,<br>Lietuviais norime ir būt!<br>Tą garbę gavome užgimę,<br>Jai ir neturim leist pražūt!</p>
+                </div>
+                <p class="vert-rl rotate" style="font-weight:bold;font-size:1.414em">Ką darai, daryk gerai!</p>
               </div>
               <div class="code"><style class="code-editor" contenteditable="true">.wm-cont2 .vert-rl {
   writing-mode: vertical-rl;
-  color: #ce1126;
+  color: #fdffba;
 }
 
 .wm-cont2 .upright {
@@ -1173,12 +1203,12 @@
 
 .wm-cont2 .vert-lr {
   writing-mode: ;
-  color: #fcd116;
+  color: #f69d9d;
 }
 
 .wm-cont2 .rotate {
   transform: rotate(0deg);
-  color: #002b7f;
+  color: #c0ffc2;
 }
 
 .wm-cont2 {
@@ -1213,7 +1243,7 @@
         </section>
       </div>
 
-      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://www.chenhuijing.com/slides/56-yglf-2019</span><span style="text-align:right">@hj_chen</span></footer>
+      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://www.chenhuijing.com/slides/57-yglf-2019</span><span style="text-align:right">@hj_chen</span></footer>
 
     </div>
 

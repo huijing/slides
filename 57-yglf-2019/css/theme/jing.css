@@ -4,6 +4,7 @@
  * Copyright (C) 2019 Chen Hui Jing, https://www.chenhuijing.com/
  */
 @import url("../../lib/font/movement/movement.css");
+@import url("../../lib/font/kokoro/kokoro.css");
 @import url("../../lib/font/pt-sans/pt-sans.css");
 /*********************************************
  * GLOBAL STYLES
@@ -13,7 +14,7 @@ body {
   background-color: #000; }
 
 .reveal {
-  font-family: "PT Sans", "HeiTi SC", "Microsoft YaHei", sans-serif;
+  font-family: "PT Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 2.4em;
   font-weight: normal;
   color: #fff; }
@@ -157,7 +158,6 @@ body {
   display: block;
   padding: 5px;
   overflow: auto;
-  max-height: 400px;
   word-wrap: normal; }
 
 .reveal table {
@@ -351,7 +351,7 @@ html {
   border-bottom: 0; }
 
 .reveal tr:nth-child(odd) {
-  background-color: #1a1919; }
+  background-color: #333333; }
 
 .reveal .l-logo {
   height: 1em;
@@ -393,7 +393,7 @@ html {
   color: #000; }
 
 .reveal .txtbg-dark {
-  background-color: rgba(0, 0, 0, 0.75); }
+  background-color: rgba(0, 0, 0, 0.5); }
 
 span.emoji {
   font-family: 'Apple Color Emoji', 'Segoe UI Emoji';
@@ -409,7 +409,7 @@ span[role=img][aria-label] {
 span[role=img][aria-label]:focus::after,
 span[role=img][aria-label]:hover::after {
   font-size: 25%;
-  font-family: "PT Sans", "HeiTi SC", "Microsoft YaHei", sans-serif;
+  font-family: "PT Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-weight: 400;
   position: absolute;
   display: block;
