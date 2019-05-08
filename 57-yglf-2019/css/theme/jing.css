@@ -313,12 +313,14 @@ html {
   font-size: 80%; }
 
 .reveal blockquote {
-  width: 80%;
+  max-width: 75%;
+  width: auto;
   text-align: left;
   box-shadow: none;
   line-height: 1.55;
   font-size: 130%;
-  position: relative; }
+  position: relative;
+  background-color: transparent; }
   .reveal blockquote p::before,
   .reveal blockquote p::after {
     position: absolute;
@@ -371,6 +373,15 @@ html {
   display: block;
   counter-reset: weight var(--wght);
   content: counter(weight); }
+
+.reveal input[type="range"] {
+  background-color: #000; }
+
+.reveal input[type="range"]::-moz-range-progress {
+  background-color: #fdffba; }
+
+.reveal input[type="range"]::-moz-range-track {
+  background-color: #444; }
 
 .reveal .slides section .fragment.step-fade-in-then-out {
   opacity: 0;

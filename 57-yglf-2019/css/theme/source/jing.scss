@@ -73,12 +73,14 @@ html {
   }
 
   blockquote {
-    width: 80%;
+    max-width: 75%;
+    width: auto;
     text-align: left;
     box-shadow: none;
     line-height: 1.55;
     font-size: 130%;
     position: relative;
+    background-color: transparent;
 
     p::before,
     p::after {
@@ -149,6 +151,18 @@ html {
     display: block;
     counter-reset: weight var(--wght);
     content: counter(weight);
+  }
+
+  input[type="range"] {
+    background-color: $backgroundColor;
+  }
+
+  input[type="range"]::-moz-range-progress {
+    background-color: $headingColor; 
+  }
+
+  input[type="range"]::-moz-range-track {  
+    background-color: #444;
   }
 
   .slides section .fragment.step-fade-in-then-out {
