@@ -305,6 +305,9 @@ html {
   font-variation-settings: "SPAC" 120;
   text-transform: uppercase; }
 
+.reveal strong {
+  color: #fdffba; }
+
 .reveal em {
   color: #fdffba; }
 

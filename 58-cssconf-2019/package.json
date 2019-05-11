@@ -1,0 +1,31 @@
+{
+  "name": "blank-html5",
+  "version": "1.0.0",
+  "description": "Blank HTML5 template for experiments",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chen Hui Jing <kakyou_tensai@yahoo.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/register": "^7.4.4",
+    "browser-sync": "^2.26.5",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-sass": "^4.0.2",
+    "node-sass": "^4.12.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huijing/blank-html5.git"
+  }
+}

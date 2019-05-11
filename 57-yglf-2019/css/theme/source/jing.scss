@@ -63,6 +63,10 @@ html {
     text-transform: uppercase;
   }
 
+  strong{
+    color: $headingColor;
+  }
+
   em {
     color: $headingColor;
   }

@@ -1,0 +1,255 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Using DevTools to understand modern CSS layouts</title>
+  <meta name="description" content="Flexbox, Grid and Box Alignment are the cornerstones of modern CSS layouts. They introduce behaviours that might seem confusing if you don’t completely understand how the browser inteprets the CSS values you assign, e.g. sizing with Flexbox, or the various options for sizing tracks in Grid. Firefox DevTools provides features that can help us visualise how elements are being sized as the viewport size changes.">
+  <meta name="author" content="Chen Hui Jing">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <h2>CSS sizing: content-based units</h2>
+  <div class="box cs-min">This is a <code>div</code> sized with <code>min-content</code>.</div>
+  <div class="box cs-max">This is a <code>div</code> sized with <code>max-content</code>.</div>
+  <div class="box cs-fit">This is a <code>div</code> sized with <code>fit-content(200px)</code>.</div>
+
+  <p>Support for these content-based units is most comprehensive in the grid formatting context, so this example should showcase the respective values correctly in a browser that supports Grid.</p>
+  
+  <div class="cs-grid">
+    <p class="box">This is a <code>p</code> element sized with <code>min-content</code>.</p>
+    <p class="box">This is a <code>p</code> element sized with <code>max-content</code>.</p>
+    <p class="box">This is a <code>p</code> element sized with <code>fit-content(300px)</code>.</p>
+  </div>
+
+  <hr>
+
+  <h2>Flexbox basics</h2>
+  <div class="flex-basic">
+    <div class="box">Word</div>
+    <div class="box">This is a sentence.</div>
+    <div class="box">A rather short sentence.</div>
+  </div>
+  
+  <div class="flex-basic">
+    <div class="box">Word</div>
+    <div class="box">This is a sentence.</div>
+    <div class="box">For the purposes of this example, we need a paragraph. She must have hidden the plans in the escape pod.</div>
+  </div>
+
+  <hr>
+
+  <h2>Free space distribution</h2>
+  <div class="flex-auto">
+    <div class="box">Give me 1 unit of free space.</div>
+    <div class="box">Give me 2 units of free space.</div>
+    <div class="box">I'm fine, no extra space for me.</div>
+  </div>
+
+  <div class="flex-zero">
+    <div class="box">Give me 1 unit of free space.</div>
+    <div class="box">Give me 2 units of free space.</div>
+    <div class="box">I'm fine, no extra space for me.</div>
+  </div>
+
+  <hr>
+
+  <h2>Aligning flex items</h2>
+
+  <div class="flex-alignment">
+    <div class="box">1一</div>
+    <div class="box">2二</div>
+    <div class="box">3三</div>
+    <div class="box">4四</div>
+    <div class="box">5五</div>
+    <div class="box">6六</div>
+    <div class="box">7七</div>
+    <div class="box">8八</div>
+    <div class="box">9九</div>
+    <div class="box">10十</div>
+    <div class="box">11十一</div>
+    <div class="box">12十二</div>
+    <div class="box">13十三</div>
+    <div class="box">14十四</div>
+    <div class="box">15十五</div>
+    <div class="box">16十六</div>
+    <div class="box">17十七</div>
+    <div class="box">18十八</div>
+    <div class="box">19十九</div>
+    <div class="box">20二十</div>
+  </div>
+
+  <hr>
+
+  <h2>Flexbox use-cases</h2>
+
+  <h3>Auto-margins</h3>
+  <div class="flex-uc1">
+    <img src="img/box.svg" alt="Boxie the Box">
+  </div>
+
+  <h3>Navigation bar</h3>
+  <div class="flex-uc2">
+    <img src="img/box.svg" alt="Boxie the Box">
+    <a href="javascript:void(0)">Item 1</a>
+    <a href="javascript:void(0)">Item 2</a>
+    <a href="javascript:void(0)">Item 3</a>
+    <a href="javascript:void(0)">End link</a>
+  </div>
+
+  <h3>Card-style layout</h3>
+  <div class="flex-uc3">
+    <div class="card">
+      <img src="img/box.svg" alt="Boxie the Box">
+      <h4>Cards are popular?</h4>
+      <p>I mean, cards are cool. Sort of. But boxes are the coolest of all.</p>
+    </div>
+
+    <div class="card">
+      <img src="img/box.svg" alt="Boxie the Box">
+      <h4>Boxes more popular than cards</h4>
+      <p>Just look at that adorable face. Cards got nothing on that.</p>
+    </div>
+
+    <div class="card">
+      <img src="img/box.svg" alt="Boxie the Box">
+      <h4>Boxes versus Cards</h4>
+      <p>Look, coming up with non Lorem Ipsum takes brain power, of which I am lacking.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <h2>Grid basics</h2>
+  <div class="grid1">
+    <div class="box">Item A</div>
+    <div class="box">Item B</div>
+    <div class="box">Item C</div>
+    <div class="box">Item D</div>
+    <div class="box">Item E</div>
+    <div class="box">Item F</div>
+  </div>
+
+  <hr>
+
+  <h2>Grid auto-sizing</h2>
+  <div class="grid2">
+    <div class="box">Item A</div>
+    <div class="box">Item B</div>
+    <div class="box">Item C</div>
+    <div class="box">Item D</div>
+    <div class="box">Item E</div>
+    <div class="box">Item F</div>
+  </div>
+
+  <hr>
+
+  <h2>Flexible sizing</h2>
+  <div class="grid3a">
+    <div class="box fr">Do we still like boxes?</div>
+    <div class="box fr">Do we still like boxes?</div>
+    <div class="box fr">Do we still like boxes?</div>
+  </div>
+
+  <div class="grid3b">
+    <div class="box auto">Do we still like boxes?</div>
+    <div class="box auto">Do we still like boxes?</div>
+    <div class="box auto">Do we still like boxes?</div>
+  </div>
+
+  <div class="grid3c">
+    <div class="box auto">Do we still like boxes?</div>
+    <div class="box fr">Do we still like boxes?</div>
+    <div class="box auto">Do we still like boxes?</div>
+  </div>
+
+  <div class="grid3d">
+    <div class="box fr">Do we still like boxes?</div>
+    <div class="box auto">Do we still like boxes?</div>
+    <div class="box fr">Do we still like boxes?</div>
+  </div>
+
+  <div class="grid3e">
+    <div class="box fr">Do we still like boxes?</div>
+    <div class="box auto">Do we still like boxes?</div>
+    <div class="box fit">Do we still like boxes?</div>
+  </div>
+
+  <div class="grid3f">
+    <div class="box fit">Do we still like boxes?</div>
+    <div class="box auto">Do we still like boxes?</div>
+    <div class="box minmax">Do we still like boxes?</div>
+  </div>
+
+  <div class="grid3g">
+    <div class="box fr">Do we still like boxes?</div>
+    <div class="box auto">Do we still like boxes?</div>
+    <div class="box minmax">Do we still like boxes?</div>
+  </div>
+
+  <div class="grid3h">
+    <div class="box fit">Do we still like boxes?</div>
+    <div class="box minmax">Do we still like boxes?</div>
+    <div class="box fixed">Do we still like boxes?</div>
+  </div>
+
+  <div class="grid3i">
+    <div class="box fit">Do we still like boxes?</div>
+    <div class="box max">Do we still like boxes?</div>
+    <div class="box auto">Do we still like boxes?</div>
+  </div>
+
+  <hr>
+
+  <h2>Line-based placement</h2>
+  <div class="grid4">
+    <div class="box">
+      <p class="emoji">🍏</p>
+    </div>
+    <div class="box">
+      <p class="emoji">🍊</p>
+    </div>
+    <div class="box">
+      <p class="emoji">🥥</p>
+    </div>
+    <div class="box">
+      <p class="emoji">🥑</p>
+    </div>
+    <div class="box">
+      <p class="emoji">🍇</p>
+    </div>
+    <div class="box">
+      <p class="emoji">🍌</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <h2>Naming grid areas</h2>
+  <div class="grid5">
+    <div class="box">Item A</div>
+    <div class="box">Item B</div>
+    <div class="box">Item C</div>
+  </div>
+
+  <hr>
+
+  <h2>Aligning grid items</h2>
+  <div class="grid6">
+    <div class="box">A</div>
+    <div class="box">B</div>
+    <div class="box">C</div>
+    <div class="box">D</div>
+  </div>
+</body>
+
+</html>
