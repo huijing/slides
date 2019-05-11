@@ -700,7 +700,7 @@
 }</code></pre>
             <aside class="notes">
               <p>Most of the time, system fonts will support an extended character set covering a majority of languages. But with our new-found knowledge of how browsers figure out which font to use, I think it has become clearer why we have font stacks.</p>
-              <p>The order of the declared fonts do matter, as the browser goes through them from left to right. For a run of text, if the browser encounters a character the first font doesn't support, it will run by the algorithm for the next font on the list and so on.</p>
+              <p>The order of the declared fonts does matter, as the browser goes through them from left to right. For a run of text, if the browser encounters a character the first font doesn't support, it will run by the algorithm for the next font on the list and so on.</p>
               <p>Ideally, your font stack should be made up of fonts that share similar characteristics, so it is not <strong>that</strong> obvious a fallback has been invoked for a particular missing glyph. Go for similar visual style, x-heights and stroke weights.</p>
             </aside>
           </section>
@@ -917,7 +917,7 @@
             <aside class="notes">
               <p>Such developments are extremely significant, especially for the CJK languages, CJK referring to Chinese, Korean and Japanese. Basically, these are languages which utilise Han characters, a writing system that contains upwards of tens of thousands of glyphs.</p>
               <p>Currently, websites in those languages almost always use system fonts because a typical CJK font can go up to around 16mb. Font services like Monotype and Typekit offer the option of dynamic subsetting, where font files are served with only the glyphs needed on each page.</p>
-              <p>However, these solutions had limitations, like losing OpenType features during subsetting, as well as caching issues, given you're requesting new font files for every page.</p>
+              <p>However, these solutions have limitations, like losing OpenType features during subsetting, as well as caching issues, given you're requesting new font files for every page.</p>
             </aside>
           </section>
 
@@ -1100,7 +1100,7 @@
             </ul>
             <aside class="notes">
               <p>Earlier, when I talked about all the different font formats, I mentioned that Apple and Microsoft worked to improve the original implementation of TrueType. OpenType and Apple Advanced Typography are what we term modern font technologies, and they can contain a lot more glyphs that previous font formats.</p>
-              <p>OpenType fonts can include an expanded character set and layout features, which gives us much broader linguistic support and more precise typographic control. They can also make multilingual typography easier by allowing multiple planugage character sets in a single font.</p>
+              <p>OpenType fonts can include an expanded character set and layout features, which gives us much broader linguistic support and more precise typographic control. They can also make multilingual typography easier by allowing multiple language character sets in a single font.</p>
           </section>
 
           <section>
@@ -1401,7 +1401,7 @@
             </div>
             <aside class="notes">
               <p>Rotating lines of texts also affects the individual characters within the line.</p>
-              <p>So again, the <code>lang</code> attribute is important. Because browsers are smart enough to tell that Chinese characters, which are dual-direction, will always be displayed upright. While horizontal-only languages, will have their characters rotated when vertical.</p> 
+              <p>Browsers are smart enough to tell that Chinese characters, which are dual-direction, will always be displayed upright. While horizontal-only languages, will have their characters rotated when vertical.</p> 
               <p>The <code>text-orientation</code> property can be used to make all the characters upright or sideways, depending on what you want.</p>
             </aside>
           </section>
