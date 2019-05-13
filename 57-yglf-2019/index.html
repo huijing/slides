@@ -425,7 +425,7 @@
               <figcaption>Type 1 font program</figcaption>
             </figure>
             <aside class="notes">
-              <p>One of the solutions to this problem came from Adobe founder, John Warnock. He had founded Adobe Systems in December 1982, together with Charles Geschke. Together with Doug Brotz, Ed Taft and Bill Paxton, they created a page description language called PostScript, which went to market in 1984.</p>
+              <p>One of the solutions to this problem came from Adobe founder, John Warnock. He had founded Adobe Systems in December 1982, with Charles Geschke. Together with Doug Brotz, Ed Taft and Bill Paxton, they created a page description language called PostScript, which went to market in 1984.</p>
               <p>PostScript was great for printing, but it also handled fonts very well. An issue with fonts at the time was that they did not scale linearly at small sizes. Glyphs would get distorted during scaling, but PostScript handled this by providing additional metadata as font hints.</p>
               <p>This was highly secret technology and the hinted fonts were compressed and encrypted into what Adobe called a Type 1 font, which only stored outline information. The first vector font format, and it did really well.</p>
             </aside>
@@ -1136,10 +1136,10 @@
               </tr>
             </table>
             <aside class="notes">
-              <p>Font feature properties were introduced in Fonts Level 3. They give us access to a variety of typographic features like swashes, ligatures, old-style numerals and so on, if the font we're using contains these features.</p>
+              <p>Font feature properties were introduced in CSS Fonts Level 3. They give us access to a variety of typographic features like swashes, ligatures, old-style numerals and so on, if the font we're using contains these features. Which means we can toggle them via CSS.</p>
               <p>And if you're wondering, what's the point of having these so-called typographic features anyway? Aren't letters just letters?</p>
               <p>They are part and parcel of good typography, which is necessary to hold your reader's attention. The written word is a transference of speech, which is heard, into something visual, to be seen. Good speakers will vary their cadence, use gestures, emphasise certain words.</p>
-              <p>Typographic features like small caps, correct use of italics and punctuation do the same for text. Other features like old style numerals and ligatures help maintain typographic colour, to make reading more comfortable.</p>
+              <p>Typographic features like small caps, correct use of italics and punctuation do the same for text. Other features like old style numerals and ligatures help maintain typographic colour, to make the reading experience more comfortable.</p>
             </aside>
           </section>
 
@@ -1289,9 +1289,9 @@
             </table>
             <p><a href="https://youtu.be/r5PLrAoyhv0">Line breaking</a> by Florian Rivoal @ dotCSS</p>
             <aside class="notes">
-              <p>If you're thinking, breaking lines, how hard can that be? Well, there is a lot of nuance word breaking works differently depending on the language we're typesetting for.</p>
+              <p>If you're thinking, breaking lines, how hard can that be? Well, there is a lot of nuance because word breaking works differently depending on the language we're typesetting for.</p>
               <p>For example, English wraps at spaces. But for Japanese or Chinese characters, the break is per character, usually but not always. Becauese line breaks are prohibited before certain punctuation marks. </p>
-              <p>A number of Southeast Asian scripts are written without spaces between words, then text is wrapped at syllable bounderies in addition to word boundaries. We could keep going here.</p>
+              <p>A number of Southeast Asian scripts are written without spaces between words, then text is wrapped at syllable boundaries in addition to word boundaries. We could keep going here.</p>
               <p>There is interplay between the 4 properties here to provide developers more precise control over line breaking, because some rules take precedence over others if both are present, or some only take affect if <code>white-space</code> allows wrapping, for example.</p>
             </aside>
           </section>
@@ -1324,7 +1324,7 @@
             <aside class="notes">
               <p>Text justification is not a trivial computer science problem. I've seen programming assignments for Markov Chains asking for text justification algorithms. And whether we realise it or not, most of us would have encountered 2 major justification algorithms.</p>
               <p>The Greedy algorithm, which analyses only a single line, and the much more advanced Knuth/Plass algorithm which analyses every line in a paragraph. Design software with advanced typesetting capabilities like InDesign use Knuth/Plass. But browsers, sadly, use the simple one. Probably for performance reasons, maybe? I'm not sure.</p>
-              <p>Although we don't have a robust justification algorithm, Text Level 3 does include the <code>text-justify</code> property to allow some further tweaking of justified text.</p>
+              <p>Although we don't have a robust justification algorithm, CSS Text Level 3 does include the <code>text-justify</code> property to allow some further tweaking of justified text.</p>
             </aside>
           </section>
 
