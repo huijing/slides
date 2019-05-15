@@ -343,7 +343,7 @@
             <aside class="notes">
               <p>And the next question would be, what about fonts?</p>
               <p>Fonts can be thought of as collections of glyphs. So in the world of metal typesetting, these are fonts. Some of you may have seen drawers containing individual metal sorts used for letterpress printing.</p>
-              <p>In the digital world, these are fonts, specifically font files. All digital files are simply long lists of numbers stored at binary on a storage device. And file formats are what allows us to read and understand the data these numbers represent.</p>
+              <p>In the digital world, these are fonts, specifically font files. All digital files are simply long lists of numbers stored as binary on a storage device. And file formats are what allows us to read and understand the data these numbers represent.</p>
               <p>Different font formats store information about the font, like their glyphs, encodings, metadata about the font and so on, differently based on how their specifications were written.</p>
             </aside>
           </section>
@@ -352,7 +352,7 @@
             <h2 style="max-width:80%;margin:0 auto">Distribution of content languages on the web</h2>
             <p><small>Sources: <a href="https://w3techs.com/technologies/overview/content_language/all">W3Techs</a></small></p>
             <aside class="notes">
-              <p>This is supposed to be a talk about <strong>web</strong> typography so let's take a closer look at content on the web. 54% of websites are in English. Can you take a guess how many native English speakers there are in the world today? Around 5%.</p>
+              <p>This is supposed to be a talk about <strong>web</strong> typography so let's take a closer look at content on the web. 54% of websites are in English. Can you take a guess how many native English speakers there are in the world today? As a percentage of the world population? Around 5%.</p>
               <p>The distribution of languages is much more spread out in the real world than on the web. With Chinese native speakers topping the charts at around 17%, and Spanish coming in next at around 6.4%.</p>
               <p>Languages are extremely important and emblematic of a people's identity. I think Lithuania is one of the best proof points for this statement.</p>
             </aside>
@@ -427,7 +427,7 @@
             <aside class="notes">
               <p>One of the solutions to this problem came from Adobe founder, John Warnock. He had founded Adobe Systems in December 1982, with Charles Geschke. Together with Doug Brotz, Ed Taft and Bill Paxton, they created a page description language called PostScript, which went to market in 1984.</p>
               <p>PostScript was great for printing, but it also handled fonts very well. An issue with fonts at the time was that they did not scale linearly at small sizes. Glyphs would get distorted during scaling, but PostScript handled this by providing additional metadata as font hints.</p>
-              <p>This was highly secret technology and the hinted fonts were compressed and encrypted into what Adobe called a Type 1 font, which only stored outline information. The first vector font format, and it did really well.</p>
+              <p>This was highly secret technology and the hinted fonts were compressed and encrypted into what Adobe called a Type 1 font, which only stored outline information. The first vector font format, and it did really well on the market.</p>
             </aside>
           </section>
 
@@ -479,7 +479,7 @@
             </table>
             <aside class="notes">
               <p>TrueType was Apple and Microsoft's answer to Adobe's font monopoly. Both companies then worked separately to improve TrueType, especially with regards to fonts for East Asian writing systems.</p>
-              <p>Apple came up with TrueType GX, later renamed Apple Advanced Typography. Microsoft came up with TrueType Open in 1994 and eventually Adobe joined in and together they developed OpenType.</p>
+              <p>Apple came up with TrueType GX, later renamed Apple Advanced Typography. Microsoft came up with TrueType Open in 1994 and eventually Adobe joined in the effort and together they developed OpenType.</p>
               <p>Microsoft also came up with EOT or embedded OpenType, and tried to submit this as a W3C recommendation. However, it was rejected in favour of WOFF, or the Web Open Font Format.</p>
               <p>WOFF is a font packaging format designed to provide lightweight, easy-to-implement compression of font data. Any properly licensed TrueType/OpenType/Open Font Format can be packaged in WOFF for web use. WOFF2 is an improvement over WOFF with significantly better compression rates.</p>
             </aside>
@@ -676,12 +676,11 @@
             <aside class="notes">
               <p>There's an algorithm browsers use to determine which fonts to load and use. And even though it has expanded over the last 2 decades, here's a general idea of what goes on beneath the hood:</p>
               <ul>
-                <li>the User Agent (UA) takes the first family name defined in the <code>font-family</code> property</li>
-                <li>if it's a generic family keyword, the UA will just pick the one it always uses and load that, otherwise it will try to find the family from fonts declared through <code>@font-face</code></li>
-                <li>once matched, the UA will assemble the set of font faces in the family, then pick the appropriate font face based on declared font properties
-                </li>
-                <li>But if no matching face exists, or if the matched face is missing the glyph that needs to be rendered, the next family name is considered, and the UA runs through the steps again</li>
-                <li>Once a font face is matched, the font will be loaded</li>
+                <li>the User Agent (UA) takes the first family name defined in the <code>font-family</code> property (⏬)</li>
+                <li>if it's a generic family keyword, the UA will just pick the one it always uses and load that, otherwise it will try to find the family from fonts declared through <code>@font-face</code> (⏬)</li>
+                <li>once matched, the UA will assemble the set of font faces in the family, then pick the appropriate font face based on declared font properties</li>
+                <li>But if no matching face exists, or if the matched face is missing the glyph that needs to be rendered, the next family name is considered, and the UA runs through the steps again< (⏬)</li>
+                <li>Once a font face is matched (⏬), the font will be loaded (⏬)</li>
                 <li>If all the font family names have been run through, and still no font face matches, a system fallback font will be called into play</li>
               </ul>
             </aside>
@@ -711,13 +710,17 @@
               <img data-src="img/subset-fail.png" style="max-height:75vh" alt="Subsetting gone wrong on Medium for letters beyond the basic Latin set" class="plain">
               <img data-src="img/subset-fail2.jpg" style="max-height:75vh" alt="Subsetting gone wrong on Medium for Lithuanian characters" class="plain">
             </div>
-            <aside class="notes">Otherwise you may end up with this tragic situation that happens on a relatively popular blogging site, *cough* Medium. Like my friend, Vadim, replied on my Twitter thread, it's not lethal, but it sure is ugly.</aside>
+            <aside class="notes">
+              <p>Otherwise you may end up with this tragic situation that happens on a relatively popular blogging site, *cough* Medium.</p>
+              <p>Like my friend, Vadim, replied on my Twitter thread, it's not lethal, but it sure is ugly.</p>
+            </aside>
           </section>
 
           <section data-background-image="img/toufu.png" data-background-size="cover">
             <img style="width:85vh" class="plain" data-src="img/biang.svg">
             <aside class="notes">
-              <p>If a character cannot be displayed using any font at all, for example, this particularly infamous biang character, you'll end up with a symbol of the missing glyph, or what we endearingly call 豆腐. Personally, I see much less of these blank rectangles, compared to a decade ago, thanks to the widespread use of Unicode.</p>
+              <p>If a character cannot be displayed using any font at all, for example, this particularly infamous Chinese character, biang, you'll end up with a symbol of the missing glyph, or what we endearingly call tofu characters.</p>
+              <p> Sometimes you'll see the corresponding character code in a rectangle, or simple a blank rectangle. Personally, I see much less of these, compared to a decade ago, thanks to the widespread use of Unicode.</p>
               <p>You know where we see tofu characters these days? When the newest emojis are released, and the software you're using, *cough* Slack, hasn't updated to support them yet.</p>
             </aside>
           </section>
@@ -762,10 +765,14 @@
   font-variant: normal | none | [ &lt;common-lig-values&gt; || &lt;discretionary-lig-values&gt; || &lt;historical-lig-values&gt; || &lt;contextual-alt-values&gt; || stylistic(&lt;feature-value-name&gt;) || historical-forms || styleset(&lt;feature-value-name&gt; #) || character-variant(&lt;feature-value-name&gt; #) || swash(&lt;feature-value-name&gt;) || ornaments(&lt;feature-value-name&gt;) || annotation(&lt;feature-value-name&gt;) || [ small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps ] || &lt;numeric-figure-values&gt; || &lt;numeric-spacing-values&gt; || &lt;numeric-fraction-values&gt; || ordinal || slashed-zero || &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ];
   font-feature-settings: normal | &lt;feature-tag-value&gt; #;
 }</code></pre>
+            <aside class="notes">This is the full set of possible descriptors you could include in your @font-face rule. Descriptors for style, weight and stretch, are used to match styles to a particular typeface in later CSS declarations.</aside>
+          </section>
+
+          <section data-background-image="img/prank.jpg">
             <aside class="notes">
-              <p>Descriptors for style, weight and stretch, are used to match styles to a particular typeface in later CSS declarations.</p>
-              <p>If you're really bored at work one day, and you're as annoying a person as I am, you could swap some font descriptors around, maybe the italics and bolds. Your teammates will be left wondering why all their <code>em</code> elements turned bold. And they might not figure it out, because the change is sort of subtle.</p>
-              <p>I mean, if office pranks are your thing...I'm just saying. But if you do get in trouble, I had nothing to do with it. #dontgetfired</p>
+              <p>If you're really bored at work one day, and you're as annoying a person as I am, you could swap some font descriptor values around, maybe the italics and bolds. Your teammates will be left wondering why all their <code>em</code> elements turned bold.</p>
+              <p>And they might not figure it out for a while, because the change is sort of subtle.</p>
+              <p>I mean, if office pranks are your thing…I'm just saying. But if you do get in trouble, I had nothing to do with it. #dontgetfired</p>
             </aside>
           </section>
 
@@ -790,7 +797,7 @@
               and watch it with your favourite video player!
             </video>
             <small style="display:block">Slides for <a href="https://speak.wgao19.cc/slides/1904-mixed-and-blended/#/9/3"><em>This world mixed and blended</em></a> by <a href="https://wgao19.cc/">Gao Wei</a>.</small>
-            <aside class="notes">This is how it looks in action. Where you can see which fonts are loaded on the page, and which fonts are being loaded for which characters on your page. There's also information about all the fonts on the page in the bottom section there as well, so you can check on your <code>@font-face</code> rule as well.</aside>
+            <aside class="notes">This is how it looks in action. Where you can see which fonts are loaded on the page, and which fonts are being loaded for which characters on your page. There's also information about all the fonts on the page in the bottom section there as well, so you can check your <code>@font-face</code> rules for any potential shenanigans.</aside>
           </section>
 
           <section>
@@ -833,7 +840,7 @@
               but don't worry, you can <a href="videos/composite.mp4">download it</a>
               and watch it with your favourite video player!
             </video>
-            <aside class="notes">And the font highlighter reveals what the browser does when it encounters such a scenario. Raleway is the font-family descriptor, but you can see that Firefox has loaded both Raleway and Comfortaa. The font tools also reveals which font format the browser is using as well.</aside>
+            <aside class="notes">And the font highlighter reveals what the browser does when it encounters such a scenario. Raleway is the font-family descriptor, but you can see that Firefox has loaded both Raleway and Comfortaa. The font tools can also tell you which font format the browser loaded for a particular run of text.</aside>
           </section>
 
           <section>
@@ -928,7 +935,7 @@
               <br><small>—Jason Pamental on <a href="https://us6.campaign-archive.com/?u=0019faab58713ad49bce9acc3&id=cc4e19f0f6">Web Fonts & Typography News #11</a></small>
             </blockquote>
             <aside class="notes">
-              <p>But we could potentially be seeing some breakthroughs in the near future. Currently, there is an industry wide collaboration between Adobe, Apple, Google, Monotype and Mozilla plus a number of type foundries and software vendors, to solve the issues I just described.</p>
+              <p>But we could potentially be seeing some breakthroughs in the near future. Currently, there is an industry wide collaboration between Adobe, Apple, Google, Monotype and Mozilla plus a number of type foundries and software vendors, to resolve the issues I just described.</p>
               <p>In order to tackle the limitations of current font subsetting strategies, this webfont performance super collab is working on a solution that allows the subsetting of a font request to only what's required on a page, but progressively add on to that original font request for subsequent pages.</p>
             </aside>
           </section>
@@ -944,7 +951,7 @@
             <p><small><a href="https://fonts.gstatic.com/experimental/incxfer_demo">Google Fonts’ Incremental Transfer Demo</a></small></p>
             <aside class="notes">
              <p>We can see a prototype of this concept in action on the incremental transfer demo by the Google Fonts team. As I keep adding text from various different scripts, no less, you can see the vast difference between what we do today, and what could be possible in the future.</p>
-             <p>The savings are quite significant, and much closer to the optimal subset than our current implementation which sends everything over the wire.</p>
+             <p>The savings are quite significant, and much closer to the optimal subset than our current implementation, which sends everything over the wire.</p>
             </aside>
           </section>
 
