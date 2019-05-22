@@ -7,7 +7,15 @@
     - Because conceptually, these are properties which were crafted specially for building layouts on the web
     - Different from prior techniques, which were more clever uses of properties not meant for layouts
 
+- 
+
 - Flexbox, where nobody knows the exact size of anything
     - Optimised for distributing space and aligning content in ways that web apps and complex web pages need
     - The first layout technique that introduces the concept of a parent-child relationship
-    - `display` property set on the parent element to cre
+    - `display` property set on the parent element to create flex formatting context
+
+- Grid, where we finally have real rows and columns
+    - All prior grid layouts did not establish a relationship between rows and columns
+    - Faux grids created by forcibly sizing the items to stack up neatly
+    - Allows us to size the grid, then place items within designated grid cells
+
