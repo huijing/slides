@@ -1,0 +1,264 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Can your site work on IE3?</title>
+    <meta name="description" content="A hare-brained scheme borne from a mutual love for retro computing between myself and my good friend, Kheng Meng. He provides the hardware, I provide the software. Shenanigans ensued.">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/jing.css">
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Can your site work on IE3?</h1>
+					<div class="l-multiple">
+						<img class="plain" data-src="img/image1.jpg" alt="(top) Photo of Windows 3.1 running on a Thinkpad 390e, (bottom) Photo of CD-ROM drive on a Thinkpad 390e">
+						<img class="plain" data-src="img/image2.jpg" alt="Startup screen for Windows 3.11 for Workgroups">
+						<img class="plain" data-src="img/image3.jpg" alt="Internet Explorer 3 with Google.com loaded">
+					</div>
+					<div class="l-multiple" style="justify-content: space-between">
+						<p>Talk.CSS #39 (22 May 2019)</p>
+						<p style="text-align:right">By:<br>Chen Hui Jing @hj_chen<br>Yeo Kheng Meng @yeokm1</p>
+					</div>
+				</section>
+
+				<section>
+					<h2>Agenda</h2>
+					<ol>
+						<li>Background</li>
+						<li>Quick Live Demo</li>
+						<li>How I got DOS 6.22, Win3.1 and networking to work</li>
+						<li>Live coding/debugging</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>Motivation</h2>
+					<div class="l-double">
+						<ul>
+							<li>Hack && Tell Singapore - March 2019</li>
+						</ul>
+						<img class="plain" data-src="img/image4.jpg" alt="Screenshot of conversation between Hui Jing and Kheng Meng where it was mentioned that IE5 is too advanced for this experiment">
+					</div>
+				</section>
+
+				<section>
+					<h2>Team 486 at Super Silly Hackathon (Dec 2017)</h2>
+					<div class="l-multiple">
+						<img class="plain" data-src="img/image5.jpg" alt="Team 486, comprising of Kheng Meng and Hui Jing at the 2017 edition of Super Silly Hackathon">
+						<img class="plain" data-src="img/image6.jpg" alt="Screenshot of the desktop where output from the 486 PC was piped onto a Mac, notes on the 486 PC and photo of the internals of the 486">
+					</div>
+					<ul>
+						<li>Huijing and I</li>
+						<li>486 PC + Damn Small Linux + Web Page Hosting + Playing Music</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>What is Internet Explorer 3 (IE3)?</h2>
+					<div class="l-double">
+						<img class="plain" data-src="img/image7.jpg" alt="Internet Explorer 3 with Google.com loaded">
+						<ul>
+							<li>First released in 1996</li>
+							<li>Final Update (1998): 3.03 SP1, 3.03.3006</li>
+							<li>Supported OSes:
+								<ul>
+									<li>Windows 3.1, 95, NT3.x, NT 4.0</li>
+									<li>System 7</li>
+									<li>Mac OS 8</li>
+								</ul>
+							</li>
+							<li>First browser to support CSS</li>
+							<li><a href="https://www.w3.org/Style/CSS/msie/">https://www.w3.org/Style/CSS/msie/</a></li>
+						</ul>
+					</div>
+					
+				</section>
+
+				<section>
+					<h2>So what is Windows 3.1x?</h2>
+					<div class="l-double" style="justify-items:center;margin-bottom:1em">
+						<img class="plain" style="max-height:65vh" data-src="img/image8.jpg" alt="Startup screen for Windows 3.11 for Workgroups">
+						<img class="plain" style="max-height:65vh" data-src="img/image9.jpg" alt="(top) Photo of Windows 3.1 running on a Thinkpad 390e, (bottom) Photo of CD-ROM drive on a Thinkpad 390e">
+					</div>
+					<ul>
+						<li>Windows 3.1x is a series of 16-bit operating systems by Microsoft
+						<li>Windows 3.1 was released on April 6, 1992</li>
+						<li>Windows for Workgroups 3.11 was released on August 11, 1993</li>
+						<li>WFW first to have inbuilt networking facilities</li>
+						<li>All Windows 3.1x versions requires ≥MS-DOS 3.1 to be installed first</li>
+						<li><a href="https://en.wikipedia.org/wiki/Windows_3.1x">https://en.wikipedia.org/wiki/Windows_3.1x</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Microsoft Timeline of DOS/Windows</h2>
+					<img class="plain" style="max-height:70vh" data-src="img/image10.jpg" alt="Timeline of Microsoft's Operating Systems from 1985 till 2016">
+					<ul>
+						<li>New Technology (NT) multi-user OS
+						<li>DOS-based and Windows 9x single-user OS</li>
+						<li>PC-DOS (IBM Personal Computer Disk Operating System)</li>
+						<li>MS-DOS (Microsoft Disk Operating System)</li>
+						<li class="small">Source 1: <a href="https://en.wikipedia.org/wiki/Timeline_of_Microsoft_Windows">https://en.wikipedia.org/wiki/Timeline_of_Microsoft_Windows</a></li>
+						<li class="small">Source 2: <a href="https://en.wikipedia.org/wiki/Timeline_of_DOS_operating_systems">https://en.wikipedia.org/wiki/Timeline_of_DOS_operating_systems</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2 style="text-align:center">Quick demo</h2>
+				</section>
+
+				<section>
+					<h2>IBM Thinkpad 390e</h2>
+					<div class="l-double">
+						<ul>
+							<li>Released in 1999 with Windows 98</li>
+							<li>Win3.1 drivers provided by IBM</li>
+							<li>Specifications
+								<ul>
+									<li><strong>Intel Mobile Pentium II 300Mhz</strong></li>
+									<li>Intel 440BX chipset</li>
+									<li>NeoMagic Media256AV 2.5MB VRAM</li>
+									<li><strong>384MB SDRAM</strong></li>
+									<li>ESS Solo-1 Audio</li>
+									<li>13.1” 1024×768</li>
+									<li><strong>PATA hard drive (I used an CF card with CF-PATA converter)</strong></li>
+									<li><strong>CDROM + Floppy combo</strong></li>
+									<li>Serial, Parallel, PS/2, USB 1.0, IrDA</li>
+									<li><strong>2x Cardbus slots</strong></li>
+								</ul>
+							</li>
+							<li>No Ethernet</li>
+							<li>4.5cm thickness</li>
+							<li>3.4kg weight</li>
+							<li>US$2700 (1999) = US$4100 (2018) = SG$5600 (2018)</li>
+						</ul>
+						<div>
+							<img class="plain" data-src="img/image11.jpg" alt="(top left) Screenshot of Windows Setup options on Windows 3.1, (bottom left) View of IBM Thinkpad 390e's CD-ROM drive, (right) Screenshot of Windows 3.1 main desktop">
+							<img class="plain" style="max-height:50vh" data-src="img/image12.jpg" alt="Photo of relevant connectors and peripherals for IBM Thinkpad 390e">
+						</div>
+					</div>
+					
+				</section>
+
+				<section>
+					<h2>Installing DOS 6.22 and Win 3.1</h2>
+					<div class="l-double" style="justify-items:center;margin-bottom:1em">
+						<img class="plain" style="max-height:50vh" data-src="img/image13.jpg" alt="Photo of Imation external floppy drive">
+						<img class="plain" style="max-height:50vh" data-src="img/image14.jpg" alt="Photo of Windows 3.1 and DOS 6.22 installation floppy disks">
+					</div>
+					<ul>
+						<li>4x DOS 6.22 diskettes</li>
+						<li>8x WFW 3.11 diskettes</li>
+						<li>Mac OS X El Capitan onwards does not support USB Floppy drives</li>
+						<li>Download links:
+							<ul>
+								<li><a href="https://winworldpc.com/product/ms-dos/622">https://winworldpc.com/product/ms-dos/622</a></li>
+								<li><a href="https://winworldpc.com/product/windows-3/wfw-311">https://winworldpc.com/product/windows-3/wfw-311</a></li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>CONFIG.SYS and AUTOEXEC.BAT</h2>
+					<div class="l-double">
+						<ul>
+							<li>Important DOS configuration files</li>
+							<li>CONFIG.SYS
+								<ul>
+									<li>Loads drivers on startup</li>
+									<li>HIMEM.SYS: Extended Memory Manager</li>
+									<li>DOS=HIGH: Load DOS to HMA to save conventional memory</li>
+									<li>CDROMDRV.SYS: Toshiba CD driver</li>
+									<li>POWER.EXE: Sends x86 HALT instruction to save CPU power when idle</li>
+								</ul>
+							</li>
+							<li>AUTOEXEC.BAT
+								<ul>
+									<li>Stands for AUTOmatic EXECution</li>
+									<li>Batch file that starts at end of DOS boot process</li>
+									<li>SMARTDRV.EXE: Disk caching</li>
+									<li>MSCDEX.EXE: Assign CD drive letter to driver</li>
+									<li>DOSKEY.COM: Terminal history, auto-completion</li>
+									<li>CTMOUSE: Modern DOS mouse driver for PS/2 mouse</li>
+								</ul>
+							</li>
+						</ul>
+						<img class="plain" style="max-height:65vh;place-self:end center" data-src="img/image15.jpg" alt="Diagram providing a graphical explanation of how DOS is loaded to HMA">
+					</div>
+					
+				</section>
+
+				<section>
+					<h2>Network Connection Attempt 1</h2>
+					<div class="l-double">
+						<ul>
+							<li>PCMCIA/Cardbus network adapter</li>
+							<li>Xircom Realport Cardbus Ethernet 10/100</li>
+							<li>IBM’s Cardbus slot DOS drivers DID NOT WORK!!!</li>
+						</ul>
+						<img class="plain" style="max-height:75vh" data-src="img/image16.jpg" alt="Xircom Realport Cardbus Ehternet 10/100 installed in Thinkpad 390e">
+					</div>
+				</section>
+
+				<section>
+					<h2>Network Connection Attempt 2</h2>
+					<div class="l-double">
+						<ul>
+							<li>Parallel Port network adapter
+								<ul>
+									<li>XircomPocketEthernetPE3-10BT</li>
+									<li>10Mbps</li>
+									<li>Powered by PS/2 passthrough cable</li>
+								</ul>
+							</li>
+							<li>Wifi-Ethernet Bridge
+								<ul>
+									<li>TP-Link TL-WR702N</li>
+									<li>100Mbps</li>
+									<li>802.11n</li>
+								</ul>
+							</li>
+							<li>DNS needs manual configuration</li>
+						</ul>
+						<div>
+							<img class="plain" style="max-height:45vh" data-src="img/image17.jpg" alt="XircomPocketEthernetPE3-10BT">
+							<img class="plain" style="max-height:45vh" data-src="img/image18.jpg" alt="TP-Link TL-WR702N as a Wifi-Ethernet bridge">
+						</div>
+					</div>
+        </section>
+        
+        <section>
+          <p>Fun fact, the presentation was done on the Windows 3.1 machine with Powerpoint 4. Because we could.</p>
+        </section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>

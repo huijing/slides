@@ -1,0 +1,49 @@
+/**
+ * Custom theme for Reveal.js presentations.
+ *
+ * Copyright (C) 2018 Chen Hui Jing, https://www.chenhuijing.com/
+ */
+
+// Default mixins and settings -----------------
+@import '../template/mixins';
+@import '../template/settings';
+// ---------------------------------------------
+
+// Theme template ------------------------------
+@import '../template/theme';
+
+// ---------------------------------------------
+// Customised styles for this presentation
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.reveal {
+  h1,
+  h2 {
+    text-align: left;
+  }
+
+  .l-multiple {
+    display: flex;
+    justify-content: space-around;
+    gap: 1em;
+    align-items: center;
+  }
+
+  .l-double {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .small {
+    font-size: 65%;
+  }
+}
