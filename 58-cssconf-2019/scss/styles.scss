@@ -41,6 +41,15 @@ img[src$=".svg"] {
   border: 1px solid;
 }
 
+.content {
+  display: flex;
+  justify-content: space-between;
+
+  > * {
+    flex: none;
+  }
+}
+
 .cs-min {
   width: min-content;
   margin-bottom: 1em;

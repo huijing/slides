@@ -34,6 +34,18 @@ img[src$=".svg"] {
 .box {
   border: 1px solid; }
 
+.content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+  .content > * {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none; }
+
 .cs-min {
   width: -webkit-min-content;
   width: -moz-min-content;
