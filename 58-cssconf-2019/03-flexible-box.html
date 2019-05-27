@@ -1,0 +1,117 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Flexible box layout model</title>
+  <meta name="description" content="">
+  <meta name="author" content="Chen Hui Jing">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <h1>Flexible box layout model</h1>
+  <h2>Flexbox basics</h2>
+  <div class="flex-basic">
+    <div class="box">Word</div>
+    <div class="box">This is a sentence.</div>
+    <div class="box">A rather short sentence.</div>
+  </div>
+  
+  <div class="flex-basic">
+    <div class="box">Word</div>
+    <div class="box">This is a sentence.</div>
+    <div class="box">For the purposes of this example, we need a paragraph. She must have hidden the plans in the escape pod.</div>
+  </div>
+
+  <hr>
+
+  <h2>Free space distribution</h2>
+  <div class="flex-auto">
+    <div class="box">Give me 1 unit of free space.</div>
+    <div class="box">Give me 2 units of free space.</div>
+    <div class="box">I'm fine, no extra space for me.</div>
+  </div>
+
+  <div class="flex-zero">
+    <div class="box">Give me 1 unit of free space.</div>
+    <div class="box">Give me 2 units of free space.</div>
+    <div class="box">I'm fine, no extra space for me.</div>
+  </div>
+
+  <hr>
+
+  <h2>Aligning flex items</h2>
+
+  <div class="flex-alignment">
+    <div class="box">1一</div>
+    <div class="box">2二</div>
+    <div class="box">3三</div>
+    <div class="box">4四</div>
+    <div class="box">5五</div>
+    <div class="box">6六</div>
+    <div class="box">7七</div>
+    <div class="box">8八</div>
+    <div class="box">9九</div>
+    <div class="box">10十</div>
+    <div class="box">11十一</div>
+    <div class="box">12十二</div>
+    <div class="box">13十三</div>
+    <div class="box">14十四</div>
+    <div class="box">15十五</div>
+    <div class="box">16十六</div>
+    <div class="box">17十七</div>
+    <div class="box">18十八</div>
+    <div class="box">19十九</div>
+    <div class="box">20二十</div>
+  </div>
+
+  <hr>
+
+  <h2>Flexbox use-cases</h2>
+
+  <h3>Auto-margins</h3>
+  <div class="flex-uc1">
+    <img src="img/box.svg" alt="Boxie the Box">
+  </div>
+
+  <h3>Navigation bar</h3>
+  <div class="flex-uc2">
+    <img src="img/box.svg" alt="Boxie the Box">
+    <a href="javascript:void(0)">Item 1</a>
+    <a href="javascript:void(0)">Item 2</a>
+    <a href="javascript:void(0)">Item 3</a>
+    <a href="javascript:void(0)">End link</a>
+  </div>
+
+  <h3>Card-style layout</h3>
+  <div class="flex-uc3">
+    <div class="card">
+      <img src="img/box.svg" alt="Boxie the Box">
+      <h4>Cards are popular?</h4>
+      <p>I mean, cards are cool. Sort of. But boxes are the coolest of all.</p>
+    </div>
+
+    <div class="card">
+      <img src="img/box.svg" alt="Boxie the Box">
+      <h4>Boxes more popular than cards</h4>
+      <p>Just look at that adorable face. Cards got nothing on that.</p>
+    </div>
+
+    <div class="card">
+      <img src="img/box.svg" alt="Boxie the Box">
+      <h4>Boxes versus Cards</h4>
+      <p>Look, coming up with non Lorem Ipsum takes brain power, of which I am lacking.</p>
+    </div>
+  </div>
+</body>
+
+</html>

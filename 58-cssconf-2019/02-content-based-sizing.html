@@ -1,0 +1,45 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Content-based sizing</title>
+  <meta name="description" content="">
+  <meta name="author" content="Chen Hui Jing">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <h1>CSS sizing: content-based units</h1>
+  <div class="content">
+    <div class="box cs-min">This is a <code>div</code> sized with <code>min-content</code>.</div>
+    <div class="box cs-min" lang="zh-hans">这个段落是呢么长在一行写不行</div>
+    <div class="box cs-min" lang="th">นี่คือประโยคภาษาไทย</div>
+  </div>
+
+  <div class="content">
+    <div class="box cs-max">This is a <code>div</code> sized with <code>max-content</code>.</div>
+    <div class="box cs-max" lang="zh-hans">这个段落是呢么长在一行写不行</div>
+    <div class="box cs-max" lang="th">นี่คือประโยคภาษาไทย</div>
+  </div>
+  
+  <div class="box cs-fit">This is a <code>div</code> sized with <code>fit-content(300px)</code>.</div>
+
+  <p>Support for these content-based units is most comprehensive in the grid formatting context, so this example should showcase the respective values correctly in a browser that supports Grid.</p>
+  
+  <div class="cs-grid">
+    <p class="box">This is a <code>p</code> element sized with <code>min-content</code>.</p>
+    <p class="box">This is a <code>p</code> element sized with <code>max-content</code>.</p>
+    <p class="box">This is a <code>p</code> element sized with <code>fit-content(300px)</code>.</p>
+  </div>
+</body>
+
+</html>

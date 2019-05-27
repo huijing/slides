@@ -4,15 +4,15 @@
 
 Hello, Berlin! It's such an incredible privilege to be here at the 10th anniversary of CSSConf EU. I was here for the very first time, in Berlin, at CSSConf and JSConf, last year. It was one of the most amazing experiences of my life, so thank you to the organisers for bringing me out again.
 
-I'm going to do something I've never done before at a conference, and that is to give a talk without slides. I know loads of amazing folks have done this before, but I'm not one of them, I've always had slides, so fingers crossed on how this will turn out.
+I'm going to do something I've never done before at a conference, and that is to give a talk without slides. I know loads of amazing folks have done this before. Clearly, I'm not one of them, I've always had slides, so fingers crossed on how this will all turn out.
 
 Basically, what happened was that late last year, my good friend, fellow Mozilla Techspeaker and Nexmo DevRel colleague, Alex, was giving a talk on DevTools at a meetup. So, he was like, do you wanna come? I was like, yeah. And, he was like, do you wanna speak? And, I was like, no?
 
-But eventually we settled on him ceding all the CSS bits to me, while he talks about all the cool Javascript-y stuff, and because there was no time I just built a web page and talked through DevTools using that. At the end of it, he was like, that would make an interesting talk. And so, here I am. If this goes south, it's on him. Nah, I'm kidding, it's all on me.
+But eventually we settled on him ceding all the CSS bits to me, while he talked about all the cool Javascript-y stuff, and because there was no time I just built a web page and talked through DevTools using that. At the end of it, he was like, that would make an interesting talk. And so, here I am. If this goes south, it's on him. Nah, I'm kidding, it's all on me.
 
 ## On how cool DevTools console can be
 
-Although I learnt lots of cool things from Alex, the one thing that stood out to me was that the DevTools console can totally be styled up. But just like support of CSS on actual web pages differ between browsers, that is also the case of CSS support in the console.
+Although I learnt a lot of cool things about DevTools from Alex, the one thing that stood out to me was that the DevTools console can totally be styled up. But just like support of CSS on actual web pages differ between browsers, that is also the case of CSS support in the console.
 
 Case in point, this glorious CSS-only talk title in the console. This is what it looks like in Chrome. And what it looks like the Safari. Looks way better in Firefox, but that's just my opinion. So my name is Hui Jing, and I'm a Developer Advocate at Nexmo. If you've never heard of us, we've also got a booth and many friendly faces here, so do come over and say hi.
 
