@@ -32,7 +32,8 @@ const style3 = [
   'text-align:center',
   'padding: 1em',
   'line-height:1.4',
-  'writing-mode: vertical-lr'
+  'writing-mode: vertical-lr',
+  'font-family: "Apple Color Emoji", "Segoe UI Emoji"'
 ].join(';')
 
 const style4 = [
@@ -48,7 +49,7 @@ const style4 = [
 
 const message1 = 'Using DevTools to understand modern CSS layouts'
 const message2 = 'Chen Hui Jing, Developer Advocate @ Nexmo'
-const message3 = '🇲🇾🏀🖌👟💻🎙🦊✒️👾🚲🏳️‍🌈🥑'
+const message3 = '🇲🇾👾🏀🚲🖌👟💻🖋🎙🦊🥑🧗‍♀️🏳️‍🌈'
 const message4 = 'Look ma, vertical writing'
 
 console.log('%c%s', style1, message1)
