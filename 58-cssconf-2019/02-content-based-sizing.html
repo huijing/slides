@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  <h1>CSS sizing: content-based units</h1>
+  <h1>Content-based sizing, letting the browser do more</h1>
   <div class="content">
     <div class="box cs-min">This is a <code>div</code> sized with <code>min-content</code>.</div>
     <div class="box cs-min" lang="zh-hans">这个段落是呢么长在一行写不行</div>
@@ -39,6 +39,18 @@
     <p class="box">This is a <code>p</code> element sized with <code>min-content</code>.</p>
     <p class="box">This is a <code>p</code> element sized with <code>max-content</code>.</p>
     <p class="box">This is a <code>p</code> element sized with <code>fit-content(300px)</code>.</p>
+  </div>
+
+  <div class="cs-grid">
+    <p class="box">这个段落是呢么长，在一行写不行。最好用三行写。</p>
+    <p class="box">这个段落是呢么长，在一行写不行。最好用三行写。</p>
+    <p class="box">这个段落是呢么长，在一行写不行。最好用三行写。</p>
+  </div>
+
+  <div class="cs-grid">
+    <p class="box">สมาคมกีฬาบาสเกตบอลแห่งประเทศไทย</p>
+    <p class="box">สมาคมกีฬาบาสเกตบอลแห่งประเทศไทย</p>
+    <p class="box">สมาคมกีฬาบาสเกตบอลแห่งประเทศไทย</p>
   </div>
 
   <hr>

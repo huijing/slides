@@ -45,36 +45,86 @@ These days, we have a much more robust toolset for doing layouts on the web.
 ## Content-based sizing, letting the browser do more
   
 - the concept of automatic sizing has always existed
-- https://motherfuckingwebsite.com/, web was responsive until we broke it
-- browsers have always managed to figure out how much space content should take up without us having to explicitly declare those values
+- browsers have always managed to figure out how much space content should take up without any intervention from us
 - content would reflow without overlapping
 - covered in CSS Intrinsic & Extrinsic Sizing Module Level 3
 - more precise terminology to allow authors to assign automatic widths to their elements
-- `width` and `height` now take 3 additional keyword values, `min-content`, `max-content` and `fit-content`, same goes for the min and max size properties
-- `min-content` is the smallest size a box could take that doesn't lead to overflow
-- this occurs when all the soft wrap opportunities have been taken
+- `width` and `height` now take 3 additional keyword values, `min-content`, `max-content` and `fit-content`
+- `min-content` is the smallest size a box could take that doesn't lead to overflow, so inline content will break multiple lines
 - line breaking is a lot more complicated than most people give it credit for, because there is a lot of nuance depending on the language being used
 - for a lot of languages, line breaks occur at word boundaries, where spaces or punctuation are used to explicitly separate words
-- for Chinese or Japanese though, the break is per character, usually but not always, because line-breaks are prohibited before certain punctuation marks
-- if there's a comma, it will not break to be alone when the width is `min-content`, and a slight difference between the proper full-width comma and regular comma
+- the browser won't break words though, so the word `content` plus the full stop is treated as a single entity
+- and that ends up being the width of the first box
+- for Chinese or Japanese though, the break is per character, usually but not always, because there are rules about certain characters that are not allowed to start or end a line
+- East Asian scripts also use full-width punctuation, so with a full-width comma, this box is now 2 characters wide
 - `max-content` is a box's ideal size in a given axis when given infinite available space
-- this is the narrowest inline size it can take while fitting around all its contents
+- content will take up as much space as required to lay itself out on 1 line
 - some Southeast-Asian scripts, like Thai, are written without spaces between words, so text is wrapped at syllable boundaries in addition to word boundaries
 - the word “ประโยค” (prayokh) is the longest in this sentence, and if you don't read Thai, you probably wouldn't be able to tell where the break would happen
+- `fit-content` unfortunately is not a supported value at this point but all 3 keywords are supported when used in the context of a grid formatting layout
+- `fit-content` is not a fixed value like the previous 2 keywords, it is a range between the `min-content` size and the `max-content` size or length-percentage defined in the function, whichever is smaller
+- if you look at the Chinese and Thai examples, which have exactly the same content, their smallest size is `min-content`, while their largest size ends up being `300px`
+- if I change the cap value to something larger than `max-content`, then `max-content` becomes the largest size
 
 ## Flexbox, where nobody knows the exact size of anything
 
-- Covered in CSS Flexible Box Layout Module Level 1
-- Optimised for distributing space and aligning content in ways that web apps and complex web pages need
-- The first layout technique that introduces the concept of a parent-child relationship
-- `display` property set on the parent element to create flex formatting context
+- it's been almost a decade since Flexbox was first proposed as a working draft
+- designed as a box model optimised for distributing space and aligning content in ways that web apps and complex web pages need
+- the first layout technique that introduces the concept of a parent-child relationship
+- once you turn a box into a flex container, you don't need to do anything to its children, they automatically become flex items
+- children can be laid out in any direction, and either grow to fill unused space or shrink to avoid overflowing the parent
+- Firefox is the only browser with a Flexbox inspector, locate it at the *Layout* tab, possible to change colour of overlay
+- will tell you the flex direction, and the wrap status
+- look at flexbox keywords and their resultant computed values, the specification recommends you use the keywords because they cover the most common use cases
+- the `flex` shorthand covers `flex-grow`, `flex-shrink` and `flex-basis` in that order
+- item will grow and shrink based on the amount of space available, amount of free space you allocate it, and amount of content the item contains
+- for example, say you put a fixed value of `100px` as the `flex-basis`, it's not surprising that some people expect to see a box of `100px`, because we're used to being in control of our sizing instructions
+- `flex-basis` is the starting point from which the size of the box is calculated, key here is **starting point**, odds are the final size will **not** be `100px`
+- it appears that the browser allocates space based on content, but let's break down what's actually happening
+    - reminder: browser will not break words
+    - first example, I have 2 sets of 3 columns of content, first 2 columns are exactly the same, second set has a longer paragraph
+    - both only have `display: flex` set on the parent element and nothing on the children
+    - this means all children have the values of `1 1 auto` *resize until enough room for all content*
+    - when specified on a flex item, the `auto` keyword retrieves the value of the main size property as the used `flex-basis`. If that value is itself `auto`, then the used value is `content`
+    - `auto` will use content size, then explicit width, then explicit `flex-basis` value as the starting point
+    - a `flex-shrink` value of `1` means all the items will shrink at the same rate if there isn't enough space for all the content to be a single line
+    - first column can't shrink any more, but second and third start shrinking at the same time, then second column hits `min-content` and only the third column continues to shrink until `min-content`
+    - eventually both sets of content's first and second column are the same width at `min-content`
+- a key takeaway is understanding the difference between having a `flex-basis` of `auto` versus a `flex-basis` of `0`
+    - again, I have 2 sets of 3 items, but this time, exactly the same content, allowed to both grow and shrink
+    - the first item gets 1 unit of free space, second item gets 2, and third gets none
+    - difference is first set uses `auto` as the `flex-basis`, which means the starting width for each item is the width of its content
+    - whatever is left over after the widths of these 3 pieces of content gets distributed in a 1:2 ratio between item 1 and 2
+    - inspector shows you that item 1 grew by x, and item 2 grew by 2x, and also shows you the starting width
+    - the second set has `flex-basis` set to `0`, that means there is no starting width for each item
+    - the free space available is equivalent to the total width of the container minus the `min-content` width of the third item, because again, the browser doesn't break words so that's as small as it can go
+    - then that free space is divided between item 1 and 2 in the ratio of 1:2 as well
+- flexbox also makes it easy to change the flow direction of flex items
+    - main-axis is direction which flex items are laid out, and cross axis is perpendicular to the main axis
+    - children can be laid out in any direction, so this is controlled by the `flex-direction` property
+    - the default value is `row`, but you can append in a `-reverse` to make it go backwards
+    - or maybe you'd like to go vertical, then you'd use `column` instead, but then you'll need a `max-height`, otherwise the items just keep going
+    - so 4 directions of item flow are possible
+    - and you can see how the flex line is running, items are laid out along a single continuous flex line whose direction we can change
+    - for now, the direction goes this way, then folds around and continues 
+    - keep in mind that making the visual order differ from the source order has accessibility implications if your users need to interact with the items
+- aligning items with the box alignment properties is also a big plus
+    - items are stretched along the cross axis to the full height of the flex line once you apply `display: flex`
     
 ## Grid, where we finally have real rows and columns
+
 - All prior grid layouts did not establish a relationship between rows and columns
 - Faux grids created by forcibly sizing the items to stack up neatly
 - Allows us to size the grid, then place items within designated grid cells
 - Rachel will be covering everything about sub-grid which is in level 2 of the specification
 - Devtools will also be updated with support for subgrid
 - Covered in CSS Grid Layout Module Level 1
+
+- Basic inspection
+- Multiple grid overlays, nested grid
+- Auto-sizing, fit versus fill
+- Flexible values, relative strength of space allocation
+- Item placement, area names
+- Alignment of grid items
 
 

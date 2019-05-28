@@ -18,7 +18,36 @@
 </head>
 
 <body>
-  <h1>Flexible box layout model</h1>
+  <h1>Flexbox, where nobody knows the exact size of anything</h1>
+  <h2>Flex keywords</h2>
+
+  <h3><code>initial</code>, <code>none</code>, <code>auto</code>, <code>&lt;positive integer&gt;</code></h3>
+
+  <code>flex-wrap: nowrap</code>
+  <div class="flex-keyword nowrap">
+    <img class="kw-item" src="img/1x1.png" alt="1x1 Lego brick">
+    <img class="kw-item" src="img/2x2.png" alt="2x2 Lego brick">
+    <img class="kw-item" src="img/1x4.png" alt="1x4 Lego brick">
+    <img class="kw-item" src="img/1x2.png" alt="1x2 Lego brick">
+    <img class="kw-item" src="img/1x1.png" alt="1x1 Lego brick">
+    <img class="kw-item" src="img/1x4.png" alt="1x4 Lego brick">
+    <img class="kw-item" src="img/2x2.png" alt="2x2 Lego brick">
+    <img class="kw-item" src="img/1x2.png" alt="1x2 Lego brick">
+  </div>
+
+  <code>flex-wrap: wrap</code>
+  <div class="flex-keyword wrap">
+    <img class="kw-item" src="img/1x1.png" alt="1x1 Lego brick">
+    <img class="kw-item" src="img/2x2.png" alt="2x2 Lego brick">
+    <img class="kw-item" src="img/1x4.png" alt="1x4 Lego brick">
+    <img class="kw-item" src="img/1x2.png" alt="1x2 Lego brick">
+    <img class="kw-item" src="img/1x1.png" alt="1x1 Lego brick">
+    <img class="kw-item" src="img/1x4.png" alt="1x4 Lego brick">
+    <img class="kw-item" src="img/2x2.png" alt="2x2 Lego brick">
+    <img class="kw-item" src="img/1x2.png" alt="1x2 Lego brick">
+  </div>
+
+  <hr>
   <h2>Flexbox basics</h2>
   <div class="flex-basic">
     <div class="box">Word</div>
@@ -112,6 +141,27 @@
       <p>Look, coming up with non Lorem Ipsum takes brain power, of which I am lacking.</p>
     </div>
   </div>
+
+  <script>
+    const style = [
+      'color: black',
+      'font-size: calc(0.75em + 1vw)',
+      'background: white',
+      'display: block',
+      'padding: 0.25em',
+      'line-height: 1.4'
+    ].join(';')
+    const values = "[ <‘flex-grow’> <‘flex-shrink’>? || <‘flex-basis’> ]"
+    const initial = "flex: initial -> 0 1 auto"
+    const none = "flex: none -> 0 0 auto"
+    const auto = "flex: auto -> 1 1 auto"
+    const integer = "flex: <positive-number> -> <positive-number> 1 0"
+    console.log('%c%s', style, values)
+    console.log('%c%s', style, initial)
+    console.log('%c%s', style, none)
+    console.log('%c%s', style, auto)
+    console.log('%c%s', style, integer)
+  </script>
 </body>
 
 </html>
