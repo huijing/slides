@@ -1,18 +1,20 @@
 # Using DevTools to understand modern CSS layouts
 
-*Presented at CSSConf EU 2019*
+*Presented at Pixel Pioneers 2019*
 
-Hello, Berlin! It's such an incredible privilege to be here at the 10th anniversary of CSSConf EU. I was here for the very first time, in Berlin, at CSSConf and JSConf, last year. It was one of the most amazing experiences of my life, so thank you to the organisers for bringing me out again.
+Hello, everyone! This is my first time ever in Bristol
 
 I'm going to do something I've never done before at a conference, and that is to give a talk without slides. I know loads of amazing folks have done this before. Clearly, I'm not one of them, I've always had slides, so fingers crossed on how this will all turn out.
 
+Basically, what happened was that late last year, my good friend, fellow Mozilla Techspeaker and Nexmo DevRel colleague, Alex, was giving a talk on DevTools at a meetup. So, he was like, do you wanna come? I was like, yeah. And, he was like, do you wanna speak? And, I was like, no?
+
+But eventually we settled on him ceding all the CSS bits to me, while he talked about all the cool Javascript-y stuff, and because there was no time I just built a web page and talked through DevTools using that. At the end of it, he was like, that would make an interesting talk. And so, here I am. If this goes south, it's on him. Nah, I'm kidding, it's all on me.
+
 ## On how cool DevTools console can be
 
-I discovered from a colleague of mine, Alex Lakatos, that the DevTools console can totally be styled up. But just like support of CSS on actual web pages differs between browsers, this is also the case for CSS support in the console.
+I learnt a lot of cool things about DevTools from Alex, and the one thing that stood out to me most was that the DevTools console can totally be styled up. But just like support of CSS on actual web pages differs between browsers, this is also the case of CSS support in the console.
 
 Case in point, this glorious CSS-only talk title in the console. This is what it looks like in Chrome. And what it looks like the Safari. Looks way better in Firefox, but that's just my opinion. So my name is Hui Jing, and I'm a Developer Advocate at Nexmo.
-
-If you've never heard of us, well, Alex built the coffee ordering app you've been using. My colleague, Garann will also be speaking at JSConf. We do communications APIs so do come say hi if you've got a minute.
 
 I also love emojis, and these pretty much some up who I am as a person. If you're curious about any of them, you can ask me about them later. Finally, more proof that Firefox supports the most CSS properties in the console. I mean, come on, it's vertical writing in your console. I love it.
 
@@ -20,9 +22,15 @@ I also love emojis, and these pretty much some up who I am as a person. If you'r
 
 When I started building stuff on the web, I quickly realised that aligning stuff horizontally was way more straightforward than aligning stuff vertically. So I started thinking about why that was.
 
-Historically, web technologies started out from text document beginnings. And a lot of the initial HTML tags and CSS properties focused mainly on text formatting for languages that were laid out horizontally top-to-bottom.
+Historically, web technologies started out from text document beginnings. Which makes sense since Sir Tim Berners-Lee’s original proposal was to tackle the problem of sharing information about accelerators and experiments at CERN.
 
-And ever since designers and developers realised the web could be used for more than just academic paper format layouts, they have been complaining about how hard it is to do layout on the web. And I don’t blame them. For a long time, it was hard to layout anything resembling the gorgeous designs our print counterparts could achieve on posters and in magazines.
+Information that was predominantly text-based, and given that the official languages at CERN were English and French, these texts were naturally laid out in a horizontal top-to-bottom direction. And if you dig a little deeper, you might notice that the earliest features of HTML revolved around the formatting of text documents, offering headings, paragraphs, even multiple types of lists.
+
+When CSS first came about, again, focus was around text formatting. The `:first-letter` pseudo-element, now known as `:intial-letter`, had been proposed from the beginning. Of course, writing a feature into the specification and having it implemented in browsers are 2 separate things, and for this particular feature, it took a decade for it to be first seen in browsers.
+
+My point is, from the moment designers and developers realised the web could be used for more than just academic paper format layouts, they have been complaining about how hard it is to do layout on the web.
+
+And I don’t blame them. For a long time, it was hard to layout anything resembling the gorgeous designs our print counterparts could achieve on posters and in magazines.
 
 Today my main goal is to share with everyone what I learned about modern CSS layouts while I was building them and inspecting them with DevTools throughout the process. I do hope that there will at least be one thing that you find useful out of all this.
 

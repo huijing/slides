@@ -9,8 +9,8 @@
   "author": "Chen Hui Jing <kakyou_tensai@yahoo.com>",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.4.4",
-    "@babel/preset-env": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
     "@babel/register": "^7.4.4",
     "browser-sync": "^2.26.5",
     "gulp": "^4.0.2",

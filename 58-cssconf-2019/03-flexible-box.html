@@ -151,16 +151,60 @@
       'padding: 0.25em',
       'line-height: 1.4'
     ].join(';')
+    const style2 = [
+      'color: black',
+      'font-size: calc(0.75em + 1vw)',
+      'background: lemonchiffon',
+      'display: block',
+      'padding: 0.25em',
+      'line-height: 1.4'
+    ].join(';')
+    const style3a = [
+      'color: black',
+      'font-size: calc(0.75em + 1vw)',
+      'background: lightcyan',
+      'display: block',
+      'padding: 0.25em',
+      'line-height: 1.4'
+    ].join(';')
+    const style3b = [
+      'color: black',
+      'font-size: calc(0.75em + 1vw)',
+      'background: lightcyan',
+      'display: block',
+      'padding: 0.25em',
+      'line-height: 1.4',
+      'writing-mode: vertical-lr'
+    ].join(';')
+    const style4 = [
+      'color: black',
+      'font-size: calc(0.75em + 1vw)',
+      'background: mistyrose',
+      'display: block',
+      'padding: 0.25em',
+      'line-height: 1.4'
+    ].join(';')
+  
     const values = "[ <‘flex-grow’> <‘flex-shrink’>? || <‘flex-basis’> ]"
     const initial = "flex: initial -> 0 1 auto"
     const none = "flex: none -> 0 0 auto"
     const auto = "flex: auto -> 1 1 auto"
     const integer = "flex: <positive-number> -> <positive-number> 1 0"
+    const main = "------ main axis ------>"
+    const cross = "--- cross axis --->"
+    const mainAlign = "Main axis alignment: justify-content"
+    const crossAlign = "Cross axis alignment: align-self & align-items"
+    const packLines = "Packing flex lines: align-self"
     console.log('%c%s', style, values)
-    console.log('%c%s', style, initial)
-    console.log('%c%s', style, none)
-    console.log('%c%s', style, auto)
-    console.log('%c%s', style, integer)
+    console.log('%c%s', style2, initial)
+    console.log('%c%s', style2, none)
+    console.log('%c%s', style2, auto)
+    console.log('%c%s', style2, integer)
+    console.log('%c%s', style3a, main)
+    console.log('%c%s', style3b, cross)
+    console.log('%c%s', style4, mainAlign)
+    console.log('%c%s', style4, crossAlign)
+    console.log('%c%s', style4, packLines)
   </script>
 </body>
 
