@@ -4,13 +4,9 @@
 
 Hello, Berlin! It's such an incredible privilege to be here at the 10th anniversary of CSSConf EU. I was here for the very first time, in Berlin, at CSSConf and JSConf, last year. It was one of the most amazing experiences of my life, so thank you to the organisers for bringing me out again.
 
-I'm going to do something I've never done before at a conference, and that is to give a talk without slides. I know loads of amazing folks have done this before. Clearly, I'm not one of them, I've always had slides, so fingers crossed on how this will all turn out.
-
 ## On how cool DevTools console can be
 
-I discovered from a colleague of mine, Alex Lakatos, that the DevTools console can totally be styled up. But just like support of CSS on actual web pages differs between browsers, this is also the case for CSS support in the console.
-
-Case in point, this glorious CSS-only talk title in the console. This is what it looks like in Chrome. And what it looks like the Safari. Looks way better in Firefox, but that's just my opinion. So my name is Hui Jing, and I'm a Developer Advocate at Nexmo.
+I discovered from a colleague of mine, Alex Lakatos, that the DevTools console can totally be styled up. Case in point, this glorious CSS-only talk title in the console. So my name is Hui Jing, and I'm a Developer Advocate at Nexmo.
 
 If you've never heard of us, well, Alex built the coffee ordering app you've been using. My colleague, Garann will also be speaking at JSConf. We do communications APIs so do come say hi if you've got a minute.
 
@@ -20,11 +16,7 @@ I also love emojis, and these pretty much some up who I am as a person. If you'r
 
 When I started building stuff on the web, I quickly realised that aligning stuff horizontally was way more straightforward than aligning stuff vertically. So I started thinking about why that was.
 
-Historically, web technologies started out from text document beginnings. And a lot of the initial HTML tags and CSS properties focused mainly on text formatting for languages that were laid out horizontally top-to-bottom.
-
-And ever since designers and developers realised the web could be used for more than just academic paper format layouts, they have been complaining about how hard it is to do layout on the web. And I don’t blame them. For a long time, it was hard to layout anything resembling the gorgeous designs our print counterparts could achieve on posters and in magazines.
-
-Today my main goal is to share with everyone what I learned about modern CSS layouts while I was building them and inspecting them with DevTools throughout the process. I do hope that there will at least be one thing that you find useful out of all this.
+Historically, web technologies started out from text document beginnings. And a lot of the initial HTML tags and CSS properties focused mainly on text formatting for languages that were laid out horizontally top-to-bottom. So boxes on the web behaved similarly, but that was clearly insufficient for what most designers and developers had in mind doing layout on the web.
 
 ## On modern CSS layouts
 
@@ -40,7 +32,6 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - browsers have always managed to figure out how much space content should take up without any intervention from us
 - content would reflow without overlapping
 - covered in CSS Intrinsic & Extrinsic Sizing Module Level 3
-- more precise terminology to allow authors to assign automatic widths to their elements
 - `width` and `height` now take 3 additional keyword values, `min-content`, `max-content` and `fit-content`
 - `min-content` is the smallest size a box could take that doesn't lead to overflow, so inline content will break multiple lines
 - line breaking is a lot more complicated than most people give it credit for, because there is a lot of nuance depending on the language being used
@@ -60,21 +51,11 @@ These days, we have a much more robust toolset for doing layouts on the web.
 
 ## Flexbox, where nobody knows the exact size of anything
 
-- it's been almost a decade since Flexbox was first proposed as a working draft
-- designed as a box model optimised for distributing space and aligning content in ways that web apps and complex web pages need
-- the first layout technique that introduces the concept of a parent-child relationship
-- once you turn a box into a flex container, you don't need to do anything to its children, they automatically become flex items
-- children can be laid out in any direction, and either grow to fill unused space or shrink to avoid overflowing the parent
 - Firefox is the only browser with a Flexbox inspector, locate it at the *Layout* tab, possible to change colour of overlay
 - overlay shows you outlines of each flex item, and the free space available as a texture
 - will tell you the flex direction, and the wrap status
-- look at flexbox keywords and their resultant computed values, the specification recommends you use the keywords because they cover the most common use cases
-- the `flex` shorthand covers `flex-grow`, `flex-shrink` and `flex-basis` in that order
-- if we don't declare anything on the flex children, the browser assigns them a default value of `initial` (navigate to computed styles and search for flex), which resolves to `0 1 auto`
-- if we use the keyword `none`, it resolves to `0 0 auto`, which makes the item completely inflexible, and keeps their original dimensions
-- for the keyword `auto`, the browser resolves that to `1 1 auto`, meaning items grow and shrink according to space, and if things wrap down to the next line, they kind of blow up
-- the last keyword is a single positive integer, which resolves to the `flex-grow` value, while the other 2 remain `1` and `0` respectively
-- we will talk more about the distinction between having a `flex-basis` of `auto` versus `0` soon
+- more importantly, it tells you what the browser does when it grows or shrinks the flex item
+- one thing to note is that the specification recommends you use the keywords because they cover the most common use cases, they are `initial`, `none`. `auto` and any `<positive integer>` *show where to see computed values*
 - so sizing of flex items depend on the amount of space available, the amount of free space you allocate it, and the amount of content the item contains
 - things get easier once you have a clearer understanding of `flex-basis`
 - if I put a fixed value of `100px` as the `flex-basis`, it's not surprising that some people expect to see a box of `100px`, because we're used to being in control of our sizing instructions
