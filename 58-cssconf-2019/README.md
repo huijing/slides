@@ -121,8 +121,14 @@ These days, we have a much more robust toolset for doing layouts on the web.
     - if there is more space in the flex container than the total height of all the flex lines, you'll end up with these gaps
     - `align-content` lets you pack your items together and align the whole block of items within the container
 - auto margins are your friend
-    - 
-    
+    - unlike in the current implementation of the block formatting context, using `margin: auto` will centre an item right in the middle of the container, allocating available free space equally around all the flex item
+    - if I add a second item, you'll see it too has equal amounts of free space for top and bottom, as well as left and right
+    - when you need to centre 1 item in the middle of its parent, instead of using the box alignment properties, you could just slap on a `margin: auto` on the flex child, just saying
+    - one thing to note is that if free space is distributed to auto margins, the alignment properties will have no effect in that dimension because the margins will have stolen all the free space left over after flexing
+    - a relatively common use-case is when you need 1 item in your navigation alone on the right, auto-margins make things really easy
+- feel free to change the flex direction when necessary
+    - yes, the default is row, but sometimes using `column` can solve the use case of making all your cards the same height, for example
+
 ## Grid, where we finally have real rows and columns
 
 - All prior grid layouts did not establish a relationship between rows and columns
