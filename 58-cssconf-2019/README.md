@@ -20,17 +20,17 @@ I also love emojis, and these pretty much some up who I am as a person. If you'r
 
 ## Why was it harder to align vertically than horizontally?
 
-When I started building stuff on the web, I soon realised that aligning stuff horizontally was way more straightforward than aligning stuff vertically. So I started thinking about why that is.
+When I started building stuff on the web, I quickly realised that aligning stuff horizontally was way more straightforward than aligning stuff vertically. So I started thinking about why that was.
 
 Historically, web technologies started out from text document beginnings. Which makes sense since Sir Tim Berners-Lee’s original proposal was to tackle the problem of sharing information about accelerators and experiments at CERN.
 
-Information that was predominantly text-based, and given that the official languages at CERN were English and French, these texts were often laid out in a horizontal top-to-bottom direction. And if you dig a little deeper, you might notice that the earliest features of HTML revolved around the formatting of text documents, offering headings, paragraphs, even multiple types of lists.
+Information that was predominantly text-based, and given that the official languages at CERN were English and French, these texts were naturally laid out in a horizontal top-to-bottom direction. And if you dig a little deeper, you might notice that the earliest features of HTML revolved around the formatting of text documents, offering headings, paragraphs, even multiple types of lists.
 
 When CSS first came about, again, focus was around text formatting. The `:first-letter` pseudo-element, now known as `:intial-letter`, had been proposed from the beginning. Of course, writing a feature into the specification and having it implemented in browsers are 2 separate things, and for this particular feature, it took a decade for it to be first seen in browsers.
 
 My point is, from the moment designers and developers realised the web could be used for more than just academic paper format layouts, they have been complaining about how hard it is to do layout on the web.
 
-And I don’t blame them. For a long time, it was hard to layout anything resembling the gorgeous graphic designs we saw on print magazines and posters.
+And I don’t blame them. For a long time, it was hard to layout anything resembling the gorgeous designs our print counterparts could achieve on posters and in magazines.
 
 Today my main goal is to share with everyone what I learned about modern CSS layouts while I was building them and inspecting them with DevTools throughout the process. I do hope that there will at least be one thing that you find useful out of all this.
 
@@ -38,7 +38,7 @@ Today my main goal is to share with everyone what I learned about modern CSS lay
 
 When I refer to modern CSS layouts, I'm talking about layouts built with Flexbox, Grid and Box alignment properties. Because conceptually, these are properties which were crafted specially for building layouts on the web.
 
-They are different from prior techniques, like HTML tables for layout, or floats, which were more clever uses of properties whose intended use was not layouts in the first place. But resourceful developers found plenty of workarounds and hacks to work with whatever features were available.
+They are different from prior techniques, like HTML tables for layout, or floats, which were more clever uses of properties whose intended purpose was not for layout to begin with. But resourceful developers, like yourselves, found plenty of workarounds and hacks to work with whatever features were available.
 
 These days, we have a much more robust toolset for doing layouts on the web.
 
@@ -64,7 +64,7 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - `fit-content` unfortunately is not a supported value at this point but all 3 keywords are supported when used in the context of a grid formatting layout
 - `fit-content` is not a fixed value like the previous 2 keywords, it is a range between the `min-content` size and the `max-content` size or length-percentage defined in the function, whichever is smaller
 - if you look at the Chinese and Thai examples, which have exactly the same content, their smallest size is `min-content`, while their largest size ends up being `300px`
-- if I change the cap value to something larger than `max-content`, then `max-content` becomes the largest size
+- if I change the cap value to something larger than `max-content`, like `500px`, then `max-content` becomes the largest size
 
 ## Flexbox, where nobody knows the exact size of anything
 
@@ -77,17 +77,23 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - will tell you the flex direction, and the wrap status
 - look at flexbox keywords and their resultant computed values, the specification recommends you use the keywords because they cover the most common use cases
 - the `flex` shorthand covers `flex-grow`, `flex-shrink` and `flex-basis` in that order
-- item will grow and shrink based on the amount of space available, amount of free space you allocate it, and amount of content the item contains
-- for example, say you put a fixed value of `100px` as the `flex-basis`, it's not surprising that some people expect to see a box of `100px`, because we're used to being in control of our sizing instructions
-- `flex-basis` is the starting point from which the size of the box is calculated, key here is **starting point**, odds are the final size will **not** be `100px`
-- it appears that the browser allocates space based on content, but let's break down what's actually happening
+- if we don't declare anything on the flex children, the browser assigns them a default value of `initial` (navigate to computed styles and search for flex), which resolves to `0 1 auto`
+- if we use the keyword `none`, it resolves to `0 0 auto`, which makes the item completely inflexible, and keeps their original dimensions
+- for the keyword `auto`, the browser resolves that to `1 1 auto`, meaning items grow and shrink according to space, and if things wrap down to the next line, they kind of blow up
+- the last keyword is a single positive integer, which resolves to the `flex-grow` value, while the other 2 remain `1` and `0` respectively
+- we will talk more about the distinction between having a `flex-basis` of `auto` versus `0` soon
+- so sizing of flex items depend on the amount of space available, the amount of free space you allocate it, and the amount of content the item contains
+- things get easier once you have a clearer understanding of `flex-basis`
+- if I put a fixed value of `100px` as the `flex-basis`, it's not surprising that some people expect to see a box of `100px`, because we're used to being in control of our sizing instructions
+- but `flex-basis` is actually the starting point from which the size of the box is calculated, key here is **starting point**, odds are the final size will **not** be `100px`
+- so if we look at this next example, it appears that the browser allocates space based on content, but let's break down what's actually happening
     - reminder: browser will not break words
-    - first example, I have 2 sets of 3 columns of content, first 2 columns are exactly the same, second set has a longer paragraph
+    - so we've got 2 flex containers with 3 flex items each, first 2 items have the same content, much longer content for the second container's last item
     - both only have `display: flex` set on the parent element and nothing on the children
-    - this means all children have the values of `1 1 auto` *resize until enough room for all content*
+    - this means all children have the values of `0 1 auto`, meaning the items won't grow beyond actual widths *resize until enough room for all content*
+    - a `flex-shrink` value of `1` means all the items will shrink at the same rate if there isn't enough space for all the content to be a single line
     - when specified on a flex item, the `auto` keyword retrieves the value of the main size property as the used `flex-basis`. If that value is itself `auto`, then the used value is `content`
     - `auto` will use content size, then explicit width, then explicit `flex-basis` value as the starting point
-    - a `flex-shrink` value of `1` means all the items will shrink at the same rate if there isn't enough space for all the content to be a single line
     - first column can't shrink any more, but second and third start shrinking at the same time, then second column hits `min-content` and only the third column continues to shrink until `min-content`
     - eventually both sets of content's first and second column are the same width at `min-content`
 - a key takeaway is understanding the difference between having a `flex-basis` of `auto` versus a `flex-basis` of `0`
