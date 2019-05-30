@@ -64,18 +64,18 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - the exact algorithm is sort of complicated but is outlined in the specification if you're interested
 - things get clearer once you have a better understanding of `flex-basis`
 - if I put a fixed value of `100px` as the `flex-basis`, it's not surprising that some people expect to see a box of `100px`, because we're used to being in control of our sizing instructions
-- but `flex-basis` is actually the starting point from which the size of the box is calculated, key here is **starting point**, odds are the final size will **not** be `100px`
+- but `flex-basis` is actually the starting point from which the size of the box is calculated, key here is **starting point**, because if flex items are allowed to grow, odds are the final size will **not** be `100px`
 
 - so if we look at this next example, it appears that the browser allocates space based on content, but let's break down what's actually happening
     - reminder: browser will not break words
     - so we've got 2 flex containers with 3 flex items each, first 2 items have the same content, much longer content for the second container's last item
     - both only have `display: flex` set on the parent element and nothing on the children
-    - this means all children have the values of `0 1 auto`, meaning the items won't grow beyond actual widths *(resize until enough room for all content)*
+    - this means all children have the values of `0 1 auto`, meaning the items won't grow beyond their starting widths *(resize until enough room for all content)*
     - a `flex-shrink` value of `1` means all the items will shrink at the same rate if there isn't enough space for all the content to be a single line
     - a flex basis of `auto` resolves to `content`, which is an automatic size based on the content within the flex item, typically equivalent to `max-content` width 
     - when there is no explicit width set on a flex item, i.e. its value is `auto`, and the `flex-basis` is also `auto`, the browser will use content size as the starting point
-    - if there is an explicit width set *(set width to 200px)*, then that becomes the starting point of size calculation
-    - when there is an explicit `flex-basis` value, even if there is a width on the flex item, the `flex-basis` value trumps it and that value becomes the starting point
+    - if there is an explicit width set *(set width to 200px)*, then that becomes the starting point of size calculation, and because the `flex-grow` factor is `0`, this item ends up being `200px`
+    - when there is an explicit `flex-basis` value, even if there is a width on the flex item, the `flex-basis` value trumps it and that value becomes the starting point, and this item ends up being `300px`
     - first column can't shrink any more, but second and third start shrinking at the same time, then second column hits `min-content` and only the third column continues to shrink until `min-content`
     - eventually both sets of content's first and second column are the same width at `min-content`
 
