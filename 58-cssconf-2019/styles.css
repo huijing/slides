@@ -181,7 +181,6 @@ img[src$=".svg"] {
   border: 1px dashed;
   margin-bottom: 1em; }
   .flex-uc1 img {
-    margin: auto;
     height: 5em; }
 
 .flex-uc2 {
@@ -195,8 +194,6 @@ img[src$=".svg"] {
   gap: 1em; }
   .flex-uc2 img {
     height: 3em; }
-  .flex-uc2 a:last-child {
-    margin-left: auto; }
 
 .flex-uc3 {
   display: -webkit-box;
@@ -213,9 +210,17 @@ img[src$=".svg"] {
         -ms-flex-direction: column;
             flex-direction: column;
     width: 12em;
-    padding: 1em;
     -webkit-box-shadow: 2px 2px 8px grey;
             box-shadow: 2px 2px 8px grey; }
+    .flex-uc3 .card div {
+      padding: 1em; }
+    .flex-uc3 .card img {
+      margin: auto;
+      margin-bottom: 0.5em; }
+    .flex-uc3 .card button {
+      border: none;
+      font-size: inherit;
+      padding: 0.25em; }
 
 .grid1 {
   display: grid;

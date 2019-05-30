@@ -179,7 +179,7 @@ img[src$=".svg"] {
   margin-bottom: 1em;
 
   img {
-    margin: auto;
+    // margin: auto;
     height: 5em;
   }
 }
@@ -195,7 +195,7 @@ img[src$=".svg"] {
   }
 
   a:last-child {
-    margin-left: auto;
+    // margin-left: auto;
   }
 }
 
@@ -208,8 +208,23 @@ img[src$=".svg"] {
     display: flex;
     flex-direction: column;
     width: 12em;
-    padding: 1em;
     box-shadow: 2px 2px 8px grey;
+
+    div {
+      // flex: 1;
+      padding: 1em;
+    }
+
+    img {
+      margin: auto;
+      margin-bottom: 0.5em;
+    }
+
+    button {
+      border: none;
+      font-size: inherit;
+      padding: 0.25em;
+    }
   }
 }
 

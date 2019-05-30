@@ -84,11 +84,15 @@ These days, we have a much more robust toolset for doing layouts on the web.
     - the items are allowed to both grow and shrink, but each item in the set has a different `flex-grow` factor
     - `flex-shrink` is `1` for all the items to make things easier to observe
     - the key difference between both sets is that the first set uses `auto` as the `flex-basis`, which means the starting width for each item is the width of its content
-    - whatever is left over after the widths of these 3 pieces of content gets distributed in a 1:2 ratio between item 1 and 2
-    - inspector shows you that item 1 grew by x, and item 2 grew by 2x, and also shows you the starting width
+    - the available free space is the total width of the container minus the widths of the content within the 3 flex items
+    - that free space is distributed between items 1 and 2 in the ratio of 1:2, respectively
+    - inspector shows you that item 1 grew by x, and item 2 grew by 2x, and also shows you the starting width of each item
     - the second set has `flex-basis` set to `0`, that means there is no starting width for each item
     - the free space available is equivalent to the total width of the container minus the `min-content` width of the third item, because again, the browser doesn't break words so that's as small as it can go
     - then that free space is divided between item 1 and 2 in the ratio of 1:2 as well
+    - the second item's size is exactly double that of the first item, but this is not the case when `flex-basis` is set to `auto`, because content widths are a factor in that scenario
+
+[17 min]
 
 - aligning items with the box alignment properties is also a big plus
     - the flex inspector allows us to visualise free space is distributed for all the different values *activate flexbox inspector*
@@ -101,7 +105,9 @@ These days, we have a much more robust toolset for doing layouts on the web.
     - `space-around`, `space-between` and `space-evenly` are distribution keywords, which disperse extra space between the flex children
     - items are stretched along the cross axis to the full height of the flex line once you apply `display: flex`
     - once the `align-self` or `align-items` property is applied though, the items revert to their original heights
-    - if there is more space in the flex container than the total height of all the flex lines, you'll end up with these gaps
+    - an interesting value for `align-items` is `baseline`, which is useful when you have text within flex items of varying sizes and positions
+    - `baseline` lines them all up, and if the text within each item is related, makes it easier to comprehend
+    - if there is more space in the flex container than the total height of all the flex lines, you'll end up with these gaps, that maybe you don't want
     - `align-content` lets you pack your items together and align the whole block of items within the container
 
 - auto margins are your friend
@@ -140,18 +146,18 @@ These days, we have a much more robust toolset for doing layouts on the web.
     - when there isn't enough space, we've already mentioned that `fr` sized columns are the first to lose size
     - but after that, you'll notice that `fit-content()` and `auto` shrink at the same rate
     - if you look at the second set, `minmax()`, being a range as well, is also shrinking, albeit at a slightly smaller rate of change, **but** all 3 end up hitting their minimum size *at the same time*
-    - this is also the case when `auto` and `minmax()` are shrinking together, as well as when `fit-content()` and `minmax()` are shrinking at the same time
-    - but when there is lots of space, `fit-content()` gets capped at its `max-content` width, while `auto` and `minmax()` continue to grow
+    - this is also the case when `auto` and `minmax()` are shrinking together *(refer to third set)*, as well as when `fit-content()` and `minmax()` *(refer to fourth set)* are shrinking at the same time
+    - *(refer to second set)* in a growth scenario, where there is lots of space, `fit-content()` gets capped at its `max-content` width, while `auto` and `minmax()` continue to grow
     - once `auto` hits `max-content` size though, it pauses growing while `minmax()` continues to absorb the free space until it hits the upper limit of `400px`, after which `auto` takes over the rest of the free space
-    - `fr` just takes over everything though, just keep that in mind
+    - conversely, `fr` just takes over everything when there's lots of space
 
-- *(show Florence)* more options for editorial design that adapts well to more viewport sizes
-    - grid allows us to do things like overlap so much easier than before
+- *(show Florence)* with such variable sizing, we have more options for editorial designs that adapt well to a greater range of viewport sizes
     - *hide float (on top right corner) and trigger overlay*
+    - grid also allows us to do things like overlap so much easier than before
 
 ## Wrapping up
 
-I'm really excited for this to become mainstream and to have more designers and developers start considering the possibilities in their designs. So if any of you are still on the fence when it comes to trying out these newer CSS layout properties…
+I'm really excited for all this to become mainstream and to have more designers and developers start considering the possibilities in their designs. So if any of you are still on the fence when it comes to trying out these newer CSS layout properties…
 
 *trigger GIF and credit text (on bottom right corner)*
 
