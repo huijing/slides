@@ -59,7 +59,7 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - will tell you the flex direction, and the wrap status
 - more importantly, it tells you what the browser does when it grows or shrinks the flex item
 
-- one thing to note is that the specification recommends you use the keywords because they cover the most common use cases, they are `initial`, `none`. `auto` and any `<positive integer>` *show where to see computed values*
+- one thing to note is that the specification recommends you use the keywords because they cover the most common use cases, they are `initial`, `none`. `auto` and any `<positive integer>` *(show where to see computed values)*
 - sizing of flex items depends on a number of factors, like the amount of free space available, the amount of content in the flex item and the starting width of the flex item
 - the exact algorithm is sort of complicated but is outlined in the specification if you're interested
 - things get clearer once you have a better understanding of `flex-basis`
@@ -70,11 +70,11 @@ These days, we have a much more robust toolset for doing layouts on the web.
     - reminder: browser will not break words
     - so we've got 2 flex containers with 3 flex items each, first 2 items have the same content, much longer content for the second container's last item
     - both only have `display: flex` set on the parent element and nothing on the children
-    - this means all children have the values of `0 1 auto`, meaning the items won't grow beyond actual widths *resize until enough room for all content*
+    - this means all children have the values of `0 1 auto`, meaning the items won't grow beyond actual widths *(resize until enough room for all content)*
     - a `flex-shrink` value of `1` means all the items will shrink at the same rate if there isn't enough space for all the content to be a single line
     - a flex basis of `auto` resolves to `content`, which is an automatic size based on the content within the flex item, typically equivalent to `max-content` width 
     - when there is no explicit width set on a flex item, i.e. its value is `auto`, and the `flex-basis` is also `auto`, the browser will use content size as the starting point
-    - if there is an explicit width set *set width to 200px*, then that becomes the starting point of size calculation
+    - if there is an explicit width set *(set width to 200px)*, then that becomes the starting point of size calculation
     - when there is an explicit `flex-basis` value, even if there is a width on the flex item, the `flex-basis` value trumps it and that value becomes the starting point
     - first column can't shrink any more, but second and third start shrinking at the same time, then second column hits `min-content` and only the third column continues to shrink until `min-content`
     - eventually both sets of content's first and second column are the same width at `min-content`
@@ -116,7 +116,7 @@ These days, we have a much more robust toolset for doing layouts on the web.
 ## Flexible sizing, responsive design powered up
 
 - flexible sizing is also a big thing when it comes to grid and is a pretty interesting aspect of building modern CSS layouts
-- previously we've always used relative units like percentages, or the newer viewport units, but the issue with those is that they make all your elements change in size at the **same** rate *show cat example*
+- previously we've always used relative units like percentages, or the newer viewport units, but the issue with those is that they make all your elements change in size at the **same** rate *(show cat example)*
 - grid introduces the `fr` unit, as well as the `minmax()` function, and together with other intrinsic sizing values like `fit-content()` and `auto`, we now can have variable rates of change
 
 - all these sizing units are fully supported in a grid formatting context, and are applied with the `grid-template-columns` property
@@ -144,7 +144,7 @@ These days, we have a much more robust toolset for doing layouts on the web.
     - once `auto` hits `max-content` size though, it pauses growing while `minmax()` continues to absorb the free space until it hits the upper limit of `400px`, after which `auto` takes over the rest of the free space
     - `fr` just takes over everything though, just keep that in mind
 
-- *show Florence* more options for editorial design that adapts well to more viewport sizes
+- *(show Florence)* more options for editorial design that adapts well to more viewport sizes
     - grid allows us to do things like overlap so much easier than before
     - *hide float (on top right corner) and trigger overlay*
 
