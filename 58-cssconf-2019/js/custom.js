@@ -7,7 +7,7 @@ const style1 = [
   'line-height:1.4',
   'text-align: center',
   'font-weight: bold',
-  'font-size: calc(1.75em + 1.5vw)',
+  'font-size: calc(1.5em + 1.5vw)',
   'padding-top: 2em'
 ].join(';')
 

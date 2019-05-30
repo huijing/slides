@@ -79,10 +79,11 @@ These days, we have a much more robust toolset for doing layouts on the web.
     - first column can't shrink any more, but second and third start shrinking at the same time, then second column hits `min-content` and only the third column continues to shrink until `min-content`
     - eventually both sets of content's first and second column are the same width at `min-content`
 
-- a key takeaway is understanding the difference between having a `flex-basis` of `auto` versus a `flex-basis` of `0`
-    - again, I have 2 sets of 3 items, but this time, exactly the same content, allowed to both grow and shrink
-    - the first item gets 1 unit of free space, second item gets 2, and third gets none
-    - difference is first set uses `auto` as the `flex-basis`, which means the starting width for each item is the width of its content
+- the next bit I want to cover is understanding the difference between having a `flex-basis` of `auto` versus a `flex-basis` of `0`
+    - again, I have 2 sets of 3 items, but this time, with exactly the same content
+    - the items are allowed to both grow and shrink, but each item in the set has a different `flex-grow` factor
+    - `flex-shrink` is `1` for all the items to make things easier to observe
+    - the key difference between both sets is that the first set uses `auto` as the `flex-basis`, which means the starting width for each item is the width of its content
     - whatever is left over after the widths of these 3 pieces of content gets distributed in a 1:2 ratio between item 1 and 2
     - inspector shows you that item 1 grew by x, and item 2 grew by 2x, and also shows you the starting width
     - the second set has `flex-basis` set to `0`, that means there is no starting width for each item
