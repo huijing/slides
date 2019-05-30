@@ -60,8 +60,9 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - more importantly, it tells you what the browser does when it grows or shrinks the flex item
 
 - one thing to note is that the specification recommends you use the keywords because they cover the most common use cases, they are `initial`, `none`. `auto` and any `<positive integer>` *show where to see computed values*
-- sizing of flex items depend on the amount of space available, the amount of free space you allocate it, and the amount of content the item contains
-- things get easier once you have a clearer understanding of `flex-basis`
+- sizing of flex items depends on a number of factors, like the amount of free space available, the amount of content in the flex item and the starting width of the flex item
+- the exact algorithm is sort of complicated but is outlined in the specification if you're interested
+- things get clearer once you have a better understanding of `flex-basis`
 - if I put a fixed value of `100px` as the `flex-basis`, it's not surprising that some people expect to see a box of `100px`, because we're used to being in control of our sizing instructions
 - but `flex-basis` is actually the starting point from which the size of the box is calculated, key here is **starting point**, odds are the final size will **not** be `100px`
 
@@ -71,8 +72,10 @@ These days, we have a much more robust toolset for doing layouts on the web.
     - both only have `display: flex` set on the parent element and nothing on the children
     - this means all children have the values of `0 1 auto`, meaning the items won't grow beyond actual widths *resize until enough room for all content*
     - a `flex-shrink` value of `1` means all the items will shrink at the same rate if there isn't enough space for all the content to be a single line
-    - a flex basis to `auto` will be resolved to `content`, which is an automatic size based on the flex item's content, typically equivalent to `max-content` 
-    - `auto` will use content size, then explicit width, then explicit `flex-basis` value as the starting point
+    - a flex basis of `auto` resolves to `content`, which is an automatic size based on the content within the flex item, typically equivalent to `max-content` width 
+    - when there is no explicit width set on a flex item, i.e. its value is `auto`, and the `flex-basis` is also `auto`, the browser will use content size as the starting point
+    - if there is an explicit width set *set width to 200px*, then that becomes the starting point of size calculation
+    - when there is an explicit `flex-basis` value, even if there is a width on the flex item, the `flex-basis` value trumps it and that value becomes the starting point
     - first column can't shrink any more, but second and third start shrinking at the same time, then second column hits `min-content` and only the third column continues to shrink until `min-content`
     - eventually both sets of content's first and second column are the same width at `min-content`
 
