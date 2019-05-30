@@ -237,10 +237,8 @@ img[src$=".svg"] {
     background-color: gold; }
   [class^='grid3'] .fit {
     background-color: coral; }
-  [class^='grid3'] .fixed {
-    background-color: violet; }
   [class^='grid3'] .max {
-    background-color: silver; }
+    background-color: violet; }
 
 .grid3a {
   grid-template-columns: 1fr 2fr 1fr; }
@@ -258,17 +256,14 @@ img[src$=".svg"] {
   grid-template-columns: 1fr auto fit-content(200px); }
 
 .grid3f {
-  grid-template-columns: fit-content(200px) auto minmax(200px, 400px); }
+  grid-template-columns: minmax(200px, 400px) auto fit-content(200px); }
 
 .grid3g {
   grid-template-columns: 1fr auto minmax(200px, 400px); }
 
 .grid3h {
-  grid-template-columns: fit-content(200px) minmax(200px, 400px) 400px; }
-
-.grid3i {
-  grid-template-columns: fit-content(200px) -webkit-max-content auto;
-  grid-template-columns: fit-content(200px) max-content auto; }
+  grid-template-columns: fit-content(200px) minmax(200px, 400px) -webkit-max-content;
+  grid-template-columns: fit-content(200px) minmax(200px, 400px) max-content; }
 
 .grid4 {
   display: grid;
@@ -341,3 +336,39 @@ img[src$=".svg"] {
     grid-area: c; }
   .grid6 .box:nth-child(4) {
     grid-area: d; }
+
+input[type=checkbox] ~ label {
+  position: fixed;
+  bottom: 0;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  background-color: #42355e;
+  -webkit-transition: background-color 0.3s ease-out;
+  -o-transition: background-color 0.3s ease-out;
+  transition: background-color 0.3s ease-out;
+  mix-blend-mode: color;
+  opacity: 0.3;
+  z-index: 1;
+  cursor: pointer; }
+
+input[type=checkbox]:checked + label {
+  background-color: darkgreen; }
+
+input[type=checkbox],
+input[type=checkbox]:first-of-type:checked ~ h1,
+input[type=checkbox]:first-of-type:checked ~ h2,
+input[type=checkbox]:nth-of-type(2):checked ~ .fra,
+input[type=checkbox]:nth-of-type(3):checked ~ .fmm {
+  position: absolute;
+  opacity: 0;
+  z-index: -1; }
+
+input[type=checkbox]:first-of-type ~ label {
+  left: 0; }
+
+input[type=checkbox]:nth-of-type(2) ~ label {
+  left: 2.5em; }
+
+input[type=checkbox]:nth-of-type(3) ~ label {
+  left: 5em; }

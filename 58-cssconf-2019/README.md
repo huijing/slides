@@ -32,6 +32,7 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - browsers have always managed to figure out how much space content should take up without any intervention from us
 - content would reflow without overlapping
 - covered in CSS Intrinsic & Extrinsic Sizing Module Level 3
+
 - `width` and `height` now take 3 additional keyword values, `min-content`, `max-content` and `fit-content`
 - `min-content` is the smallest size a box could take that doesn't lead to overflow, so inline content will break multiple lines
 - line breaking is a lot more complicated than most people give it credit for, because there is a lot of nuance depending on the language being used
@@ -40,10 +41,12 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - and that ends up being the width of the first box
 - for Chinese or Japanese though, the break is per character, usually but not always, because there are rules about certain characters that are not allowed to start or end a line
 - East Asian scripts also use full-width punctuation, so with a full-width comma, this box is now 2 characters wide
+- some Southeast-Asian scripts, like Thai, are written without spaces between words, so text is wrapped at syllable boundaries in addition to word boundaries
+
 - `max-content` is a box's ideal size in a given axis when given infinite available space
 - content will take up as much space as required to lay itself out on 1 line
-- some Southeast-Asian scripts, like Thai, are written without spaces between words, so text is wrapped at syllable boundaries in addition to word boundaries
 - the word “ประโยค” (prayokh) is the longest in this sentence, and if you don't read Thai, you probably wouldn't be able to tell where the break would happen
+
 - `fit-content` unfortunately is not a supported value at this point but all 3 keywords are supported when used in the context of a grid formatting layout
 - `fit-content` is not a fixed value like the previous 2 keywords, it is a range between the `min-content` size and the `max-content` size or length-percentage defined in the function, whichever is smaller
 - if you look at the Chinese and Thai examples, which have exactly the same content, their smallest size is `min-content`, while their largest size ends up being `300px`
@@ -55,11 +58,13 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - overlay shows you outlines of each flex item, and the free space available as a texture
 - will tell you the flex direction, and the wrap status
 - more importantly, it tells you what the browser does when it grows or shrinks the flex item
+
 - one thing to note is that the specification recommends you use the keywords because they cover the most common use cases, they are `initial`, `none`. `auto` and any `<positive integer>` *show where to see computed values*
 - so sizing of flex items depend on the amount of space available, the amount of free space you allocate it, and the amount of content the item contains
 - things get easier once you have a clearer understanding of `flex-basis`
 - if I put a fixed value of `100px` as the `flex-basis`, it's not surprising that some people expect to see a box of `100px`, because we're used to being in control of our sizing instructions
 - but `flex-basis` is actually the starting point from which the size of the box is calculated, key here is **starting point**, odds are the final size will **not** be `100px`
+
 - so if we look at this next example, it appears that the browser allocates space based on content, but let's break down what's actually happening
     - reminder: browser will not break words
     - so we've got 2 flex containers with 3 flex items each, first 2 items have the same content, much longer content for the second container's last item
@@ -70,6 +75,7 @@ These days, we have a much more robust toolset for doing layouts on the web.
     - `auto` will use content size, then explicit width, then explicit `flex-basis` value as the starting point
     - first column can't shrink any more, but second and third start shrinking at the same time, then second column hits `min-content` and only the third column continues to shrink until `min-content`
     - eventually both sets of content's first and second column are the same width at `min-content`
+
 - a key takeaway is understanding the difference between having a `flex-basis` of `auto` versus a `flex-basis` of `0`
     - again, I have 2 sets of 3 items, but this time, exactly the same content, allowed to both grow and shrink
     - the first item gets 1 unit of free space, second item gets 2, and third gets none
@@ -79,15 +85,7 @@ These days, we have a much more robust toolset for doing layouts on the web.
     - the second set has `flex-basis` set to `0`, that means there is no starting width for each item
     - the free space available is equivalent to the total width of the container minus the `min-content` width of the third item, because again, the browser doesn't break words so that's as small as it can go
     - then that free space is divided between item 1 and 2 in the ratio of 1:2 as well
-- flexbox also makes it easy to change the flow direction of flex items
-    - main-axis is direction which flex items are laid out, and cross axis is perpendicular to the main axis
-    - children can be laid out in any direction, so this is controlled by the `flex-direction` property
-    - the default value is `row`, but you can append in a `-reverse` to make it go backwards
-    - or maybe you'd like to go vertical, then you'd use `column` instead, but then you'll need a `max-height`, otherwise the items just keep going
-    - so 4 directions of item flow are possible
-    - and you can see how the flex line is running, items are laid out along a single continuous flex line whose direction we can change
-    - for now, the direction goes this way, then folds around and continues 
-    - keep in mind that making the visual order differ from the source order has accessibility implications if your users need to interact with the items
+
 - aligning items with the box alignment properties is also a big plus
     - the flex inspector allows us to visualise free space is distributed for all the different values *activate flexbox inspector*
     - box alignment properties are meant to be used across layout models, although for now, they can only be used with flex and grid
@@ -101,29 +99,45 @@ These days, we have a much more robust toolset for doing layouts on the web.
     - once the `align-self` or `align-items` property is applied though, the items revert to their original heights
     - if there is more space in the flex container than the total height of all the flex lines, you'll end up with these gaps
     - `align-content` lets you pack your items together and align the whole block of items within the container
+
 - auto margins are your friend
     - unlike in the current implementation of the block formatting context, using `margin: auto` will centre an item right in the middle of the container, allocating available free space equally around all the flex item
     - if I add a second item, you'll see it too has equal amounts of free space for top and bottom, as well as left and right
     - when you need to centre 1 item in the middle of its parent, instead of using the box alignment properties, you could just slap on a `margin: auto` on the flex child, just saying
     - one thing to note is that if free space is distributed to auto margins, the alignment properties will have no effect in that dimension because the margins will have stolen all the free space left over after flexing
     - a relatively common use-case is when you need 1 item in your navigation alone on the right, auto-margins make things really easy
+
 - feel free to change the flex direction when necessary
-    - yes, the default is row, but sometimes using `column` can solve the use case of making all your cards the same height, for example
+    - if you need a card layout with content that needs to be aligned to the bottom of the card, using `flex-direction` column, and making the main content grow with `flex: 1`, for example, is a 2-line solution
 
-## Grid, where we finally have real rows and columns
+## Flexible sizing, responsive design powered up
 
-- All prior grid layouts did not establish a relationship between rows and columns
-- Faux grids created by forcibly sizing the items to stack up neatly
-- Allows us to size the grid, then place items within designated grid cells
-- Rachel will be covering everything about sub-grid which is in level 2 of the specification
-- Devtools will also be updated with support for subgrid
-- Covered in CSS Grid Layout Module Level 1
+- flexible sizing is also a big thing when it comes to grid and is a pretty interesting aspect of building modern CSS layouts
+- previously we've always used relative units like percentages, or the newer viewport units, but the issue with those is that they make all your elements change in size at the **same** rate *show cat example*
+- grid introduces the `fr` unit, as well as the `minmax()` function, and together with other intrinsic sizing values like `fit-content()` and `auto`, we now can have variable rates of change
 
-- Basic inspection
-- Multiple grid overlays, nested grid
-- Auto-sizing, fit versus fill
-- Flexible values, relative strength of space allocation
-- Item placement, area names
-- Alignment of grid items
+- all these sizing units are fully supported in a grid formatting context, and are applied with the `grid-template-columns` property
+- whether you're just starting out with grid, or already using it in production, Firefox's grid inspector is still the best tool available at the moment
+- toggle the overlay by clicking the waffle icon in *Rules*, the grid tag on the *Inspector*, or select your grid of choice from the *Layout* panel
+- now supports multiple grid overlays
 
+- warning, lots of browser resizing coming up
+- `fr` units versus `auto`
+    - let's compare the difference between `fr`, in green, and `auto`, in blue
+    - `fr` represents a fraction of leftover space in the grid container, so whenever there is extra space it will always go to an `fr` sized column
+    - but it is also the first to be taken away when there isn't enough space
+    - `auto` will take up as much space as necessary without breaking lines, like `max-content` but not as rigid
+    - and if there is space not taken up by `fr`, `auto` columns will absorb that free space
+    - when there isn't enough space, `auto` will keep the `max-content` width until `fr` has given up all its free space before shrinking itself
 
+- `fit-content()` versus `minmax()`
+    - `fit-content()` and `minmax()` behave quite similarly, they are both a range of values with a minimum and maximum limit
+    - `minmax()` takes 2 arguments, the first one being the minimum size and the second one being the maximum, and we've already covered how `fit-content()` works earlier
+    - when there isn't enough space, we've already mentioned that `fr` sized columns are the first to lose size
+    - but after that, you'll notice that `fit-content()` and `auto` shrink at the same rate
+    - if you look at the second set, `minmax()`, being a range as well, is also shrinking, albeit at a slightly smaller rate of change, **but** all 3 end up hitting their minimum size *at the same time*
+    - this is also the case when `auto` and `minmax()` are shrinking together, as well as when `fit-content()` and `minmax()` are shrinking at the same time
+    - but when there is lots of space, `fit-content()` gets capped at its `max-content` width, while `auto` and `minmax()` continue to grow
+    - once `auto` hits `max-content` size though, it pauses growing while `minmax()` continues to absorb the free space until it hits the upper limit of `400px`, after which `auto` takes over the rest of the free space
+
+- more options for editorial design that adapts well to more viewport sizes

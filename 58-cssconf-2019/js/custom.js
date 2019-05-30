@@ -7,7 +7,7 @@ const style1 = [
   'line-height:1.4',
   'text-align: center',
   'font-weight: bold',
-  'font-size: calc(1.5em + 1.5vw)',
+  'font-size: calc(1.75em + 1.5vw)',
   'padding-top: 2em'
 ].join(';')
 
@@ -17,7 +17,7 @@ const style2 = [
   'background-color: #fff',
   'background-position: 0 0, 55px 55px',
   'color: black',
-  'font-size: calc(0.75em + 1.5vw)',
+  'font-size: calc(1em + 1.5vw)',
   'display: block',
   'text-align:center',
   'padding: 1em',
@@ -30,7 +30,7 @@ const style3 = [
   'background-color: #fff',
   'background-position: 0 0, 55px 55px',
   'color: black',
-  'font-size: calc(1.25em + 2vw)',
+  'font-size: calc(1.5em + 2.5vw)',
   'display: block',
   'text-align:center',
   'padding: 0.5em',
