@@ -39,11 +39,6 @@
     justify-content: center;
   }
 
-  video {
-    max-height: 100%;
-    margin-left: 1em;
-  }
-
   .links {
     display: flex;
     flex-direction: column;
@@ -87,6 +82,46 @@
     height: 10vh;
     width: 10vh;
   }
+
+  .video {
+    position: relative;
+    text-align: right;
+  }
+
+  video {
+    max-height: 100%;
+  }
+
+  input[type=checkbox] ~ label {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 3em;
+    height: 3em;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  .credit {
+    font-size: 2em;
+    text-shadow: 2px 2px 4px darkgreen;
+    color: white;
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 65%;
+    right: 0;
+    display: none;
+  }
+
+  input[type=checkbox]:checked ~ .credit {
+    display: block;
+  }
   </style>
 
   <!--[if lt IE 9]>
@@ -106,12 +141,17 @@
         <a href="06-florence.html"><span class="emoji" role="img" tabindex="0" aria-label="musical notes">&#x1F3B6;</span></a>
       </div>
     </div>
-    <video loop>
-      <source src="videos/cat.mp4" type="video/mp4">
-      Sorry, your browser doesn't support embedded videos, 
-      but don't worry, you can <a href="videos/cat.mp4">download it</a>
-      and watch it with your favourite video player!
-    </video>
+    <div class="video">
+      <video loop>
+        <source src="videos/cat.mp4" type="video/mp4">
+        Sorry, your browser doesn't support embedded videos, 
+        but don't worry, you can <a href="videos/cat.mp4">download it</a>
+        and watch it with your favourite video player!
+      </video>
+      <input type="checkbox" id="credit">
+      <label for="credit"></label>
+      <p class="credit">Thank you to @wgao19 for sharing this GIF with me…</p>
+    </div>
   </main>
   <script src="scripts.js"></script>
 </body>

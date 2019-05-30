@@ -60,7 +60,7 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - more importantly, it tells you what the browser does when it grows or shrinks the flex item
 
 - one thing to note is that the specification recommends you use the keywords because they cover the most common use cases, they are `initial`, `none`. `auto` and any `<positive integer>` *show where to see computed values*
-- so sizing of flex items depend on the amount of space available, the amount of free space you allocate it, and the amount of content the item contains
+- sizing of flex items depend on the amount of space available, the amount of free space you allocate it, and the amount of content the item contains
 - things get easier once you have a clearer understanding of `flex-basis`
 - if I put a fixed value of `100px` as the `flex-basis`, it's not surprising that some people expect to see a box of `100px`, because we're used to being in control of our sizing instructions
 - but `flex-basis` is actually the starting point from which the size of the box is calculated, key here is **starting point**, odds are the final size will **not** be `100px`
@@ -71,7 +71,7 @@ These days, we have a much more robust toolset for doing layouts on the web.
     - both only have `display: flex` set on the parent element and nothing on the children
     - this means all children have the values of `0 1 auto`, meaning the items won't grow beyond actual widths *resize until enough room for all content*
     - a `flex-shrink` value of `1` means all the items will shrink at the same rate if there isn't enough space for all the content to be a single line
-    - by setting the flex basis to `auto`, the browser resolves this to `content`, which is an automatic size based on the flex item's content, typically equivalent to `max-content` 
+    - a flex basis to `auto` will be resolved to `content`, which is an automatic size based on the flex item's content, typically equivalent to `max-content` 
     - `auto` will use content size, then explicit width, then explicit `flex-basis` value as the starting point
     - first column can't shrink any more, but second and third start shrinking at the same time, then second column hits `min-content` and only the third column continues to shrink until `min-content`
     - eventually both sets of content's first and second column are the same width at `min-content`
@@ -127,7 +127,7 @@ These days, we have a much more robust toolset for doing layouts on the web.
     - `fr` represents a fraction of leftover space in the grid container, so whenever there is extra space it will always go to an `fr` sized column
     - but it is also the first to be taken away when there isn't enough space
     - `auto` will take up as much space as necessary without breaking lines, like `max-content` but not as rigid
-    - and if there is space not taken up by `fr`, `auto` columns will absorb that free space
+    - without the presence of `fr`, any `auto` sized columns will absorb that free space
     - when there isn't enough space, `auto` will keep the `max-content` width until `fr` has given up all its free space before shrinking itself
 
 - `fit-content()` versus `minmax()`
@@ -139,5 +139,16 @@ These days, we have a much more robust toolset for doing layouts on the web.
     - this is also the case when `auto` and `minmax()` are shrinking together, as well as when `fit-content()` and `minmax()` are shrinking at the same time
     - but when there is lots of space, `fit-content()` gets capped at its `max-content` width, while `auto` and `minmax()` continue to grow
     - once `auto` hits `max-content` size though, it pauses growing while `minmax()` continues to absorb the free space until it hits the upper limit of `400px`, after which `auto` takes over the rest of the free space
+    - `fr` just takes over everything though, just keep that in mind
 
-- more options for editorial design that adapts well to more viewport sizes
+- *show Florence* more options for editorial design that adapts well to more viewport sizes
+    - grid allows us to do things like overlap so much easier than before
+    - *hide float (on top right corner) and trigger overlay*
+
+## Wrapping up
+
+I'm really excited for this to become mainstream and to have more designers and developers start considering the possibilities in their designs. So if any of you are still on the fence when it comes to trying out these newer CSS layout properties…
+
+*trigger GIF and credit text (on bottom right corner)*
+
+Thank you all for your attention.

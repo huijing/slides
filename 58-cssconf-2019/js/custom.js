@@ -51,10 +51,12 @@ const style4 = [
 
 const message1 = 'Using DevTools to understand modern CSS layouts'
 const message2 = 'Chen Hui Jing, Developer Advocate @ Nexmo'
-const message3 = '🇲🇾👾🏀🚲🖌👟💻✒️🎙🦊🥑🧗‍♀️🏳️‍🌈'
-const message4 = 'Look ma, vertical writing'
+const message3 = '@hj_chen'
+const message4 = '🇲🇾👾🏀🚲🖌👟💻✒️🎙🦊🥑🧗‍♀️🏳️‍🌈'
+const message5 = 'Look ma, vertical writing'
 
 console.log('%c%s', style1, message1)
 console.log('%c%s', style2, message2)
-console.log('%c%s', style3, message3)
-console.log('%c%s', style4, message4)
+console.log('%c%s', style2, message3)
+console.log('%c%s', style3, message4)
+console.log('%c%s', style4, message5)

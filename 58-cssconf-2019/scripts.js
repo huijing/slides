@@ -6,9 +6,11 @@ var style3 = ['background-image: radial-gradient(closest-side, transparent 0%, t
 var style4 = ['color: black', 'font-size: calc(0.75em + 1.5vw)', 'background: white', 'display: block', 'text-align:center', 'padding: 1em', 'line-height:1.4', 'writing-mode: vertical-lr'].join(';');
 var message1 = 'Using DevTools to understand modern CSS layouts';
 var message2 = 'Chen Hui Jing, Developer Advocate @ Nexmo';
-var message3 = '🇲🇾👾🏀🚲🖌👟💻✒️🎙🦊🥑🧗‍♀️🏳️‍🌈';
-var message4 = 'Look ma, vertical writing';
+var message3 = '@hj_chen';
+var message4 = '🇲🇾👾🏀🚲🖌👟💻✒️🎙🦊🥑🧗‍♀️🏳️‍🌈';
+var message5 = 'Look ma, vertical writing';
 console.log('%c%s', style1, message1);
 console.log('%c%s', style2, message2);
-console.log('%c%s', style3, message3);
-console.log('%c%s', style4, message4);
+console.log('%c%s', style2, message3);
+console.log('%c%s', style3, message4);
+console.log('%c%s', style4, message5);
