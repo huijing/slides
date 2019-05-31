@@ -66,60 +66,68 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - if I put a fixed value of `100px` as the `flex-basis`, it's not surprising that some people expect to see a box of `100px`, because we're used to being in control of our sizing instructions
 - but `flex-basis` is actually the starting point from which the size of the box is calculated, key here is **starting point**, because if flex items are allowed to grow, odds are the final size will **not** be `100px`
 
+---
+
 - so if we look at this next example, it appears that the browser allocates space based on content, but let's break down what's actually happening
-    - reminder: browser will not break words
-    - so we've got 2 flex containers with 3 flex items each, first 2 items have the same content, much longer content for the second container's last item
-    - both only have `display: flex` set on the parent element and nothing on the children
-    - this means all children have the values of `0 1 auto`, meaning the items won't grow beyond their starting widths *(resize until enough room for all content)*
-    - a `flex-shrink` value of `1` means all the items will shrink at the same rate if there isn't enough space for all the content to be a single line
-    - a flex basis of `auto` resolves to `content`, which is an automatic size based on the content within the flex item, typically equivalent to `max-content` width 
-    - when there is no explicit width set on a flex item, i.e. its value is `auto`, and the `flex-basis` is also `auto`, the browser will use content size as the starting point
-    - if there is an explicit width set *(set width to 200px)*, then that becomes the starting point of size calculation, and because the `flex-grow` factor is `0`, this item ends up being `200px`
-    - when there is an explicit `flex-basis` value, even if there is a width on the flex item, the `flex-basis` value trumps it and that value becomes the starting point, and this item ends up being `300px`
-    - first column can't shrink any more, but second and third start shrinking at the same time, then second column hits `min-content` and only the third column continues to shrink until `min-content`
-    - eventually both sets of content's first and second column are the same width at `min-content`
+- reminder: browser will not break words
+- so we've got 2 flex containers with 3 flex items each, first 2 items have the same content, much longer content for the second container's last item
+- both only have `display: flex` set on the parent element and nothing on the children
+- this means all children have the values of `0 1 auto`, meaning the items won't grow beyond their starting widths *(resize until enough room for all content)*
+- a `flex-shrink` value of `1` means all the items will shrink at the same rate if there isn't enough space for all the content to be a single line
+- a flex basis of `auto` resolves to `content`, which is an automatic size based on the content within the flex item, typically equivalent to `max-content` width 
+- when there is no explicit width set on a flex item, i.e. its value is `auto`, and the `flex-basis` is also `auto`, the browser will use content size as the starting point
+- if there is an explicit width set *(set width to 200px)*, then that becomes the starting point of size calculation, and because the `flex-grow` factor is `0`, this item ends up being `200px`
+- when there is an explicit `flex-basis` value, even if there is a width on the flex item, the `flex-basis` value trumps it and that value becomes the starting point, and this item ends up being `300px`
+- first column can't shrink any more, but second and third start shrinking at the same time, then second column hits `min-content` and only the third column continues to shrink until `min-content`
+- eventually both sets of content's first and second column are the same width at `min-content`
+
+---
 
 - the next bit I want to cover is understanding the difference between having a `flex-basis` of `auto` versus a `flex-basis` of `0`
-    - again, I have 2 sets of 3 items, but this time, with exactly the same content
-    - the items are allowed to both grow and shrink, but each item in the set has a different `flex-grow` factor
-    - `flex-shrink` is `1` for all the items to make things easier to observe
-    - the key difference between both sets is that the first set uses `auto` as the `flex-basis`, which means the starting width for each item is the width of its content
-    - the available free space is the total width of the container minus the widths of the content within the 3 flex items
-    - that free space is distributed between items 1 and 2 in the ratio of 1:2, respectively
-    - inspector shows you that item 1 grew by x, and item 2 grew by 2x, and also shows you the starting width of each item
-    - the second set has `flex-basis` set to `0`, that means there is no starting width for each item
-    - the free space available is equivalent to the total width of the container minus the `min-content` width of the third item, because again, the browser doesn't break words so that's as small as it can go
-    - then that free space is divided between item 1 and 2 in the ratio of 1:2 as well
-    - the second item's size is exactly double that of the first item, but this is not the case when `flex-basis` is set to `auto`, because content widths are a factor in that scenario
+- again, I have 2 sets of 3 items, but this time, with exactly the same content
+- the items are allowed to both grow and shrink, but each item in the set has a different `flex-grow` factor
+- `flex-shrink` is `1` for all the items to make things easier to observe
+- the key difference between both sets is that the first set uses `auto` as the `flex-basis`, which means the starting width for each item is the width of its content
+- the available free space is the total width of the container minus the widths of the content within the 3 flex items
+- that free space is distributed between items 1 and 2 in the ratio of 1:2, respectively
+- inspector shows you that item 1 grew by x, and item 2 grew by 2x, and also shows you the starting width of each item
+- the second set has `flex-basis` set to `0`, that means there is no starting width for each item
+- the free space available is equivalent to the total width of the container minus the `min-content` width of the third item, because again, the browser doesn't break words so that's as small as it can go
+- then that free space is divided between item 1 and 2 in the ratio of 1:2 as well
+- the second item's size is exactly double that of the first item, but this is not the case when `flex-basis` is set to `auto`, because content widths are a factor in that scenario
 
 [17 min]
 
 - aligning items with the box alignment properties is also a big plus
-    - the flex inspector allows us to visualise free space is distributed for all the different values *activate flexbox inspector*
-    - box alignment properties are meant to be used across layout models, although for now, they can only be used with flex and grid
-    - my trick for remembering which properties apply to which axis is that I associate the term “justify” with text processing software's justification options, so in my mind, justify affects the direction text flows
-    - because there are only 2 directions, “align” must be for the other direction
-    - when using flexbox, we have access to 4 of the 6 available properties, `justify-items` and `justify-self` do not apply here because they are meant to justify a box within its containing block along the main axis, but there is more than 1 item in the main axis
-    - `justify-content` lets us adjust flex items along the main axis
-    - `start`, `center` and `end` are positional keywords, which adjust the flex children's absolute position within the flex container
-    - `space-around`, `space-between` and `space-evenly` are distribution keywords, which disperse extra space between the flex children
-    - items are stretched along the cross axis to the full height of the flex line once you apply `display: flex`
-    - once the `align-self` or `align-items` property is applied though, the items revert to their original heights
-    - an interesting value for `align-items` is `baseline`, which is useful when you have text within flex items of varying sizes and positions
-    - `baseline` lines them all up, and if the text within each item is related, makes it easier to comprehend
-    - if there is more space in the flex container than the total height of all the flex lines, you'll end up with these gaps, that maybe you don't want
-    - `align-content` lets you pack your items together and align the whole block of items within the container
+- the flex inspector allows us to visualise free space is distributed for all the different values *activate flexbox inspector*
+- box alignment properties are meant to be used across layout models, although for now, they can only be used with flex and grid
+- my trick for remembering which properties apply to which axis is that I associate the term “justify” with text processing software's justification options, so in my mind, justify affects the direction text flows
+- because there are only 2 directions, “align” must be for the other direction
+- when using flexbox, we have access to 4 of the 6 available properties, `justify-items` and `justify-self` do not apply here because they are meant to justify a box within its containing block along the main axis, but there is more than 1 item in the main axis
+- `justify-content` lets us adjust flex items along the main axis
+- `start`, `center` and `end` are positional keywords, which adjust the flex children's absolute position within the flex container
+- `space-around`, `space-between` and `space-evenly` are distribution keywords, which disperse extra space between the flex children
+- items are stretched along the cross axis to the full height of the flex line once you apply `display: flex`
+- once the `align-self` or `align-items` property is applied though, the items revert to their original heights
+- an interesting value for `align-items` is `baseline`, which is useful when you have text within flex items of varying sizes and positions
+- `baseline` lines them all up, and if the text within each item is related, makes it easier to comprehend
+- if there is more space in the flex container than the total height of all the flex lines, you'll end up with these gaps, that maybe you don't want
+- `align-content` lets you pack your items together and align the whole block of items within the container
+
+---
 
 - auto margins are your friend
-    - unlike in the current implementation of the block formatting context, using `margin: auto` will centre an item right in the middle of the container, allocating available free space equally around all the flex item
-    - if I add a second item, you'll see it too has equal amounts of free space for top and bottom, as well as left and right
-    - when you need to centre 1 item in the middle of its parent, instead of using the box alignment properties, you could just slap on a `margin: auto` on the flex child, just saying
-    - one thing to note is that if free space is distributed to auto margins, the alignment properties will have no effect in that dimension because the margins will have stolen all the free space left over after flexing
-    - a relatively common use-case is when you need 1 item in your navigation alone on the right, auto-margins make things really easy
+- unlike in the current implementation of the block formatting context, using `margin: auto` will centre an item right in the middle of the container, allocating available free space equally around all the flex item
+- if I add a second item, you'll see it too has equal amounts of free space for top and bottom, as well as left and right
+- when you need to centre 1 item in the middle of its parent, instead of using the box alignment properties, you could just slap on a `margin: auto` on the flex child, just saying
+- one thing to note is that if free space is distributed to auto margins, the alignment properties will have no effect in that dimension because the margins will have stolen all the free space left over after flexing
+- a relatively common use-case is when you need 1 item in your navigation alone on the right, auto-margins make things really easy
+
+---
 
 - feel free to change the flex direction when necessary
-    - if you need a card layout with content that needs to be aligned to the bottom of the card, using `flex-direction` column, and making the main content grow with `flex: 1`, for example, is a 2-line solution
-    - or even better, as Rachel covered this morning, use subgrid
+- if you need a card layout with content that needs to be aligned to the bottom of the card, using `flex-direction` column, and making the main content grow with `flex: 1`, for example, is a 2-line solution
+- or even better, as Rachel covered this morning, use subgrid
 
 ## Flexible sizing, responsive design powered up
 
@@ -133,28 +141,35 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - now supports multiple grid overlays
 
 - warning, lots of browser resizing coming up
+
+---
+
 - `fr` units versus `auto`
-    - let's compare the difference between `fr`, in green, and `auto`, in blue
-    - `fr` represents a fraction of leftover space in the grid container, so whenever there is extra space it will always go to an `fr` sized column
-    - but it is also the first to be taken away when there isn't enough space
-    - `auto` will take up as much space as necessary without breaking lines, like `max-content` but not as rigid
-    - without the presence of `fr`, any `auto` sized columns will absorb that free space
-    - when there isn't enough space, `auto` will keep the `max-content` width until `fr` has given up all its free space before shrinking itself
+- let's compare the difference between `fr`, in green, and `auto`, in blue
+- `fr` represents a fraction of leftover space in the grid container, so whenever there is extra space it will always go to an `fr` sized column
+- but it is also the first to be taken away when there isn't enough space
+- `auto` will take up as much space as necessary without breaking lines, like `max-content` but not as rigid
+- without the presence of `fr`, any `auto` sized columns will absorb that free space
+- when there isn't enough space, `auto` will keep the `max-content` width until `fr` has given up all its free space before shrinking itself
+
+---
 
 - `fit-content()` versus `minmax()`
-    - `fit-content()` and `minmax()` behave quite similarly, they are both a range of values with a minimum and maximum limit
-    - `minmax()` takes 2 arguments, the first one being the minimum size and the second one being the maximum, and we've already covered how `fit-content()` works earlier
-    - when there isn't enough space, we've already mentioned that `fr` sized columns are the first to lose size
-    - but after that, you'll notice that `fit-content()` and `auto` shrink at the same rate
-    - if you look at the second set, `minmax()`, being a range as well, is also shrinking, albeit at a slightly smaller rate of change, **but** all 3 end up hitting their minimum size *at the same time*
-    - this is also the case when `auto` and `minmax()` are shrinking together *(refer to third set)*, as well as when `fit-content()` and `minmax()` *(refer to fourth set)* are shrinking at the same time
-    - *(refer to second set)* in a growth scenario, where there is lots of space, `fit-content()` gets capped at its `max-content` width, while `auto` and `minmax()` continue to grow
-    - once `auto` hits `max-content` size though, it pauses growing while `minmax()` continues to absorb the free space until it hits the upper limit of `400px`, after which `auto` takes over the rest of the free space
-    - conversely, `fr` just takes over everything when there's lots of space
+- `fit-content()` and `minmax()` behave quite similarly, they are both a range of values with a minimum and maximum limit
+- `minmax()` takes 2 arguments, the first one being the minimum size and the second one being the maximum, and we've already covered how `fit-content()` works earlier
+- when there isn't enough space, we've already mentioned that `fr` sized columns are the first to lose size
+- but after that, you'll notice that `fit-content()` and `auto` shrink at the same rate
+- if you look at the second set, `minmax()`, being a range as well, is also shrinking, albeit at a slightly smaller rate of change, **but** all 3 end up hitting their minimum size *at the same time*
+- this is also the case when `auto` and `minmax()` are shrinking together *(refer to third set)*, as well as when `fit-content()` and `minmax()` *(refer to fourth set)* are shrinking at the same time
+- *(refer to second set)* in a growth scenario, where there is lots of space, `fit-content()` gets capped at its `max-content` width, while `auto` and `minmax()` continue to grow
+- once `auto` hits `max-content` size though, it pauses growing while `minmax()` continues to absorb the free space until it hits the upper limit of `400px`, after which `auto` takes over the rest of the free space
+- conversely, `fr` just takes over everything when there's lots of space
+
+---
 
 - *(show Florence)* with such variable sizing, we have more options for editorial designs that adapt well to a greater range of viewport sizes
-    - *hide float (on top right corner) and trigger overlay*
-    - grid also allows us to do things like overlap so much easier than before
+- *hide float (on top right corner) and trigger overlay*
+- grid also allows us to do things like overlap so much easier than before
 
 ## Wrapping up
 

@@ -30,7 +30,7 @@ const style3 = [
   'background-color: #fff',
   'background-position: 0 0, 55px 55px',
   'color: black',
-  'font-size: calc(1.5em + 2.5vw)',
+  'font-size: calc(1.25em + 2vw)',
   'display: block',
   'text-align:center',
   'padding: 0.5em',
