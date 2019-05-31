@@ -8,7 +8,7 @@ Hello, Berlin! It's such an incredible privilege to be here at the 10th annivers
 
 I discovered from a colleague of mine, Alex Lakatos, that the DevTools console can totally be styled up. Case in point, this glorious CSS-only talk title in the console. So my name is Hui Jing, and I'm a Developer Advocate at Nexmo.
 
-If you've never heard of us, well, Alex built the coffee ordering app you've been using. My colleague, Garann will also be speaking at JSConf. We do communications APIs so do come say hi if you've got a minute.
+If you've never heard of us, well, Alex built the coffee ordering app which some of you will be using for JSConf tomorrow. My colleague, Garann will also be speaking at JSConf. We do communications APIs so do come say hi if you've got a minute.
 
 I also love emojis, and these pretty much some up who I am as a person. If you're curious about any of them, you can ask me about them later. Finally, more proof that Firefox supports the most CSS properties in the console. I mean, come on, it's vertical writing in your console. I love it.
 
