@@ -56,7 +56,7 @@ const message4 = '🇲🇾👾🏀🚲🖌👟💻✒️🎙🦊🥑🧗‍♀�
 const message5 = 'Look ma, vertical writing'
 
 console.log('%c%s', style1, message1)
-console.log('%c%s', style2, message2)
 console.log('%c%s', style2, message3)
+console.log('%c%s', style2, message2)
 console.log('%c%s', style3, message4)
 console.log('%c%s', style4, message5)

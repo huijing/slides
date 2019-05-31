@@ -388,3 +388,13 @@ input[type=checkbox]:nth-of-type(2) ~ label {
 input[type=checkbox]:nth-of-type(3) ~ label {
   left: 5em;
 }
+
+.twitter {
+  position: fixed;
+  top: 0.5em;
+  right: 0.5em;
+  color: darkgreen;
+  writing-mode: vertical-rl;
+  mix-blend-mode: difference;
+  opacity: 0.6;
+}

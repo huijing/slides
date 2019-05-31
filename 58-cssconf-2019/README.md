@@ -119,6 +119,7 @@ These days, we have a much more robust toolset for doing layouts on the web.
 
 - feel free to change the flex direction when necessary
     - if you need a card layout with content that needs to be aligned to the bottom of the card, using `flex-direction` column, and making the main content grow with `flex: 1`, for example, is a 2-line solution
+    - or even better, as Rachel covered this morning, use subgrid
 
 ## Flexible sizing, responsive design powered up
 
@@ -127,7 +128,7 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - grid introduces the `fr` unit, as well as the `minmax()` function, and together with other intrinsic sizing values like `fit-content()` and `auto`, we now can have variable rates of change
 
 - all these sizing units are fully supported in a grid formatting context, and are applied with the `grid-template-columns` property
-- whether you're just starting out with grid, or already using it in production, Firefox's grid inspector is still the best tool available at the moment
+- and to reiterate Rachel's point this morning, whether you're just starting out with grid, or already using it in production, Firefox's grid inspector is still the best tool available at the moment
 - toggle the overlay by clicking the waffle icon in *Rules*, the grid tag on the *Inspector*, or select your grid of choice from the *Layout* panel
 - now supports multiple grid overlays
 
