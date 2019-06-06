@@ -38,6 +38,8 @@ They are different from prior techniques, like HTML tables for layout, or floats
 
 These days, we have a much more robust toolset for doing layouts on the web.
 
+[4:50]
+
 ## Content-based sizing, letting the browser decide
   
 - the concept of automatic sizing has always existed
@@ -70,6 +72,8 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - `fit-content` is not a fixed value like the previous 2 keywords, it is a range between the `min-content` size and the `max-content` size or length-percentage defined in the function, whichever is smaller
 - if you look at the Chinese and Thai examples, which have exactly the same content, their smallest size is `min-content`, while their largest size ends up being `300px`
 - if I change the cap value to something larger than `max-content`, like `500px`, then `max-content` becomes the largest size
+
+[10:30]
 
 ## Flexbox, where nobody knows the exact size of anything
 
@@ -150,6 +154,8 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - if you need a card layout with content that needs to be aligned to the bottom of the card, using `flex-direction` column, and making the main content grow with `flex: 1`, for example, is a 2-line solution
 - or even better, as Rachel will cover in-depth later this afternoon, use subgrid for this use-case
 
+[31.00]
+
 ## Flexible sizing, responsive design powered up
 
 - *ask about people using Grid*
@@ -185,11 +191,12 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - `minmax()` takes 2 arguments, the first one being the minimum size and the second one being the maximum, and we've already covered how `fit-content()` works earlier
 - when there isn't enough space, we've already mentioned that `fr` sized columns are the first to lose size
 - but after that, you'll notice that `fit-content()` and `auto` shrink at the same rate
-- if you look at the second set, `minmax()`, being a range as well, is also shrinking, albeit at a slightly smaller rate of change, **but** all 3 end up hitting their minimum size *at the same time*
-- this is also the case when `auto` and `minmax()` are shrinking together *(refer to third set)*, as well as when `fit-content()` and `minmax()` *(refer to fourth set)* are shrinking at the same time
+- if you look at the second set, with `minmax()`, `auto` and `fit-content`, things get a bit interesting because *when* the column grows or shrinks is different
+- `auto` starts off with all the free space when there's plenty of it, then gives it up as space gets taken away
+- once `auto` hits `max-content` size, it stops shrinking and space gets taken away from `minmax()` instead
+- however, at some point, all 3 columns start to shrink again, exactly when I can't say, **but** that point allows all 3 to end up hitting their minimum size *at the same time*
 - *(refer to second set)* in a growth scenario, where there is lots of space, `fit-content()` gets capped at its `max-content` width, while `auto` and `minmax()` continue to grow
 - once `auto` hits `max-content` size though, it pauses growing while `minmax()` continues to absorb the free space until it hits the upper limit of `400px`, after which `auto` takes over the rest of the free space
-- conversely, `fr` just takes over everything when there's lots of space
 
 ---
 
