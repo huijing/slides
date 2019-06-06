@@ -2,9 +2,9 @@
 
 *Presented at Pixel Pioneers 2019*
 
-Hello, everyone! This is a first time ever in Bristol. I've barely been here for 5 days but this place has already grown on me. So thank you, Oliver for the opportunity to be here.
+Hello, everyone! This is my first time ever in Bristol. I've barely been here for 5 days but this place has already grown on me. So thank you, Oliver for the opportunity to be here.
 
-I usually use slides for my talks, often as a means to supplement the ideas I'm trying to put forth. But there will be no slides in this talk. Instead, I'll be using DevTools to illustrate the points I'm trying to make. How this talk came about was sort of accidental, to be honest.
+I normally use slides for my talks, often as a means to supplement the ideas I'm trying to put forth. But there will be no slides in this talk. Instead, I'll be using DevTools to illustrate the points I'm trying to make. How this talk came about was sort of accidental, to be honest.
 
 Basically, what happened was that late last year, my good friend, fellow Mozilla Techspeaker and Nexmo DevRel colleague, Alex, was giving a talk on DevTools at a meetup. So, he was like, do you wanna come? I was like, yeah. And, he was like, do you wanna speak? And, I was like, no?
 
@@ -12,9 +12,11 @@ But eventually we settled on him ceding all the CSS bits to me, while he talked 
 
 ## On how cool DevTools console can be
 
-I learnt a lot of cool things about DevTools from Alex, and the one thing that stood out to me most was that the DevTools console can totally be styled up. But just like support of CSS on actual web pages differs between browsers, this is also the case of CSS support in the console.
+I learnt a lot of cool things about DevTools from Alex, and the one thing that stood out to me most was that the DevTools console can totally be styled up with CSS. But just like support of CSS on actual web pages differs between browsers, this is also the case of CSS support in the console.
 
-Case in point, this fancy CSS-only talk title in the console. This is what it looks like in Chrome. And what it looks like the Safari. Looks way better in Firefox, but that's just my opinion. So my name is Hui Jing, and I'm a Developer Advocate at Nexmo.
+Case in point, this fancy CSS-only talk title in the console. This is what it looks like in Chrome. And what it looks like the Safari. Looks way better in Firefox, but that's just my opinion. 
+
+So my name is Hui Jing, and I'm a Developer Advocate at Nexmo. Nexmo is a platform which provides APIs for messaging, voice, authentication and video to make it easier for developers to integrate communications into their own applications. I've got plenty of stickers as well, so come find me after this if stickers are your thing.
 
 I also love emojis, and these pretty much some up who I am as a person. If you're curious about any of them, you can ask me about them later. Finally, more proof that Firefox supports the most CSS properties in the console. I mean, come on, it's vertical writing in your console. I love it.
 
