@@ -8,13 +8,13 @@ I usually use slides for my talks, often as a means to supplement the ideas I'm 
 
 Basically, what happened was that late last year, my good friend, fellow Mozilla Techspeaker and Nexmo DevRel colleague, Alex, was giving a talk on DevTools at a meetup. So, he was like, do you wanna come? I was like, yeah. And, he was like, do you wanna speak? And, I was like, no?
 
-But eventually we settled on him ceding all the CSS bits to me, while he talked about all the cool Javascript-y stuff, and because there was no time I just built a web page and talked through DevTools using that. At the end of it, he was like, that would make an interesting talk. And so, here I am. If this goes south, it's on him. Nah, I'm kidding, it's all on me.
+But eventually we settled on him ceding all the CSS bits to me, while he talked about all the cool Javascript-y stuff, and because there was no time I just built a web page and talked through DevTools using that. At the end of it, he was like, that would make an interesting talk. And so, here we are.
 
 ## On how cool DevTools console can be
 
 I learnt a lot of cool things about DevTools from Alex, and the one thing that stood out to me most was that the DevTools console can totally be styled up. But just like support of CSS on actual web pages differs between browsers, this is also the case of CSS support in the console.
 
-Case in point, this glorious CSS-only talk title in the console. This is what it looks like in Chrome. And what it looks like the Safari. Looks way better in Firefox, but that's just my opinion. So my name is Hui Jing, and I'm a Developer Advocate at Nexmo.
+Case in point, this fancy CSS-only talk title in the console. This is what it looks like in Chrome. And what it looks like the Safari. Looks way better in Firefox, but that's just my opinion. So my name is Hui Jing, and I'm a Developer Advocate at Nexmo.
 
 I also love emojis, and these pretty much some up who I am as a person. If you're curious about any of them, you can ask me about them later. Finally, more proof that Firefox supports the most CSS properties in the console. I mean, come on, it's vertical writing in your console. I love it.
 
@@ -24,7 +24,9 @@ When I started building stuff on the web, I quickly realised that aligning stuff
 
 Historically, web technologies started out from text document beginnings. And a lot of the initial HTML tags and CSS properties focused mainly on text formatting for languages that were laid out horizontally top-to-bottom.
 
-And boxes on the web behaved similarly, but that was clearly insufficient for what most designers and developers had in mind when it came to creating layouts for the web.
+Boxes on the web behaved similarly, but ever since designers and developers realised the web could be used for more than just academic paper style layouts, they have been complaining about how hard it is to do layout on the web.
+
+And I don’t blame them. For a long time, it was hard to layout anything resembling the gorgeous designs our print counterparts could achieve on posters and in magazines. But I think things are changing for the better.
 
 ## On modern CSS layouts
 
@@ -122,8 +124,8 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - because there are only 2 directions, “align” must be for the other direction
 - when using flexbox, we have access to 4 of the 6 available properties, `justify-items` and `justify-self` do not apply here because they are meant to justify a box within its containing block along the main axis, but there is more than 1 item in the main axis
 - `justify-content` lets us adjust flex items along the main axis
-- `start`, `center` and `end` are positional keywords, which adjust the flex children's absolute position within the flex container
-- `space-around`, `space-between` and `space-evenly` are distribution keywords, which disperse extra space between the flex children
+- `start`, `center` and `end` are **positional** keywords, which adjust the flex children's absolute position within the flex container
+- `space-around`, `space-between` and `space-evenly` are **distribution** keywords, which disperse extra space between the flex children
 - items are stretched along the cross axis to the full height of the flex line once you apply `display: flex`
 - once the `align-self` or `align-items` property is applied though, the items revert to their original heights
 - an interesting value for `align-items` is `baseline`, which is useful when you have text within flex items of varying sizes and positions
@@ -144,24 +146,48 @@ These days, we have a much more robust toolset for doing layouts on the web.
 
 - feel free to change the flex direction when necessary
 - if you need a card layout with content that needs to be aligned to the bottom of the card, using `flex-direction` column, and making the main content grow with `flex: 1`, for example, is a 2-line solution
-- or even better, as Rachel will cover later this afternoon, use subgrid
+- or even better, as Rachel will cover in-depth later this afternoon, use subgrid for this use-case
 
 ## Grid, where we finally have real rows and columns
 
-- Developers have been building grid-like layouts long before CSS grid was released
-- But all prior grid layouts did not establish a relationship between rows and columns
-- Faux grids created by forcibly sizing the items to stack up neatly
-- Grid allows us to size the grid, then place items within designated grid cells
-- Rachel will be covering everything about sub-grid which is in level 2 of the specification
-- Devtools will also be updated with support for subgrid
+- *ask about people using Grid*
+- whether you're just starting out with grid, or already using it in production, Firefox's grid inspector is still the best tool available at the moment
+- toggle the overlay by clicking the grid tag on the *Inspector*, the waffle icon in *Rules*, or select your grid of choice from the *Layout* panel
+- like the Flexbox inspector, you can change the colour of the overlay
+- particularly helpful because Firefox now supports multiple grid overlays
+- great if you are using nested grids or have more than 1 grid on the same page
+- extending grid lines infinitely becomes quite helpful if you want to check on the alignment of multiple grids *(toggle grid1 and grid4)*
 
-- Firefox has the most robust Grid inspector tool at the moment
-- You can toggle the overlay by clicking the waffle icon in the *Rules* tab, the grid tag in the Inspector, or select which grid you want from the *Layout* tab
-- Multiple grid overlays are supported, which is great if you are using nested grids or have more than 1 grid on the same page
-- Auto-sizing, fit versus fill
-- Flexible values, relative strength of space allocation
-- Item placement, area names
-- Alignment of grid items
+---
+
+- additional options include displaying line numbers and grid area names
+- using `grid-template-areas` to name grid areas is structurally similar to what we see rendered on the page
+- each line surrounded with quotes represents a grid row, every value in the line makes up the grid column
+- every line must have the same number of columns otherwise the whole thing is moot
+- change your layout without having to touch the code for the grid items, only the grid areas *(change grid area of banana)*
+- *(Switch to Braun poster example)*
+- using named grid areas can make it easier to adjust the positions of certain elements when the viewport size changes *(proceed to resize browser and hit 3 layouts)*
+- non-rectangular or disconnected regions may be permitted in future, but for now, just rectangles, no tetris shapes or that sort of thing
+
+---
+
+- like Flexbox, alignment properties are applicable to Grid, and we have all 6 values at our disposal
+- for Grid, we can use `justify-items` and `justify-self` to adjust content within its grid cell along the inline axis *(do start, center, end)*
+- another category of alignment properties that I didn't mention earlier, are **overflow** alignment keywords
+- sometimes there will be situations where the total size of the grid items is larger than the grid container, causing overflow
+- for example, in this case, if the `justify-content` value is set to `end`, you will end up with data loss, because it's impossible to scroll to the overflowed content
+- `unsafe` will honour the specified alignment even if this scenario occurs, while `safe` will change the alignment to one that avoids data loss
+
+---
+
+- if you noticed, for both Flexbox and Grid, the moment an alignment property was set on an item, it shrinks to fit its contents along the respective axis of alignment
+- so if we have a design like this, *(switch to Malerei, Fotografie, Film)*, with borders that are along the grid lines, but content that is smaller than the cell, you will need to use both Flexbox and Grid
+- *(target arrow)* if we remove `display: flex` on this grid cell and convert the code to use box alignment properties on grid, you will see what I mean
+- *(deactivate flex, add align-self: center)*, the grid cell shrinks to fit, and the border shrinks with it
+- so it's not about Flexbox OR Grid, it's about Flexbox AND Grid, really
+
+---
+
 
 
 ## Flexible sizing, responsive design powered up
@@ -169,14 +195,7 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - flexible sizing is also a big thing when it comes to grid and is a pretty interesting aspect of building modern CSS layouts
 - previously we've always used relative units like percentages, or the newer viewport units, but the issue with those is that they make all your elements change in size at the **same** rate *(show cat example)*
 - grid introduces the `fr` unit, as well as the `minmax()` function, and together with other intrinsic sizing values like `fit-content()` and `auto`, we now can have variable rates of change
-
----
-
 - all these sizing units are fully supported in a grid formatting context, and are applied with the `grid-template-columns` property
-- and to reiterate Rachel's point this morning, whether you're just starting out with grid, or already using it in production, Firefox's grid inspector is still the best tool available at the moment
-- toggle the overlay by clicking the waffle icon in *Rules*, the grid tag on the *Inspector*, or select your grid of choice from the *Layout* panel
-- now supports multiple grid overlays
-
 - warning, lots of browser resizing coming up
 
 ---

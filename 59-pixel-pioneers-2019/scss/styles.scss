@@ -21,6 +21,11 @@ body {
 
 div {
   box-sizing: border-box;
+
+  code {
+    font-size-adjust: 0.6;
+    color: darkgreen;
+  }
 }
 
 h1,
@@ -40,6 +45,16 @@ img {
 
 img[src$=".svg"] {
   max-height: 8em;
+}
+
+.twitter {
+  position: fixed;
+  top: 0.5em;
+  right: 0.5em;
+  color: darkgreen;
+  writing-mode: vertical-rl;
+  mix-blend-mode: luminosity;
+  opacity: 0.6;
 }
 
 .box {
@@ -223,85 +238,11 @@ img[src$=".svg"] {
 
 .grid1 {
   display: grid;
-  grid-template-columns: 5em 5em 5em;
-  grid-template-rows: 5em 5em;
+  grid-template-columns: 18vmin 18vmin 18vmin;
+  grid-template-rows: 18vmin 18vmin;
 }
 
 .grid2 {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(6em, 1fr));
-}
-
-[class^='grid3'] {
-  display: inline-grid;
-  width: calc(100% - 3em);
-
-  div { padding: 0.5em 0 }
-  .fr { background-color: limegreen }
-  .auto { background-color: skyblue }
-  .minmax { background-color: gold }
-  .fit { background-color: coral }
-  .max { background-color: violet }
-}
-
-.grid-wrap {
-  margin-bottom: 2.5em;
-}
-
-.grid-label {
-  display: inline-block;
-  width: max-content;
-  margin-right: 0.25em;
-  font-family: monospace;
-  font-size: 2em;
-}
-
-.grid3a { grid-template-columns: 1fr 2fr 1fr }
-.grid3b { grid-template-columns: auto auto auto }
-.grid3c { grid-template-columns: auto 1fr auto }
-.grid3d { grid-template-columns: 1fr auto 1fr }
-.grid3e { grid-template-columns: 1fr auto fit-content(200px) }
-.grid3f { grid-template-columns: minmax(200px, 400px) auto fit-content(200px) }
-.grid3g { grid-template-columns: 1fr auto minmax(200px, 400px) }
-.grid3h { grid-template-columns: fit-content(200px) minmax(200px, 400px) max-content }
-
-.grid4 {
-  display: grid;
-  grid-template-columns: repeat(3, 20vmin);
-  grid-template-rows: repeat(3, 20vmin);
-  background-color: #eee;
-  background-image: linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black),
-  linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black);
-}
-
-.board {
-  background-size: 40vmin 40vmin;
-  background-position: 0 0, 20vmin 20vmin;
-  width: 60vmin;
-  height: 60vmin;
-}
-
-.emoji {
-  font-size: 8vmin;
-  font-family: "Emoji";
-  margin: auto;
-}
-
-.grid4__item:first-child {
-  grid-row: 3;
-}
-
-.grid4__item:nth-child(2) {
-  grid-row: 2;
-  grid-column: 2;
-}
-
-.grid4__item:nth-child(3) {
-  grid-row: 3;
-  grid-column: 3;
-}
-
-.grid5 {
   display: grid;
   grid-template-columns: repeat(6, 9vmin);
   grid-template-rows: repeat(6, 9vmin);
@@ -317,11 +258,12 @@ img[src$=".svg"] {
   .box:nth-child(3) { grid-area: cherry }
 }
 
-.grid6 {
-  height: 60vmin;
-  width: 60vmin;
+.grid3 {
+  height: 40vmin;
+  border: 1px dotted;
+  overflow: auto;
   display: grid;
-  grid-template-columns: repeat(4, 10vmin);
+  grid-template-columns: repeat(4, 20vmin);
   grid-gap: 1em;
   grid-auto-rows: 10vmin;
   grid-template-areas: 
@@ -329,10 +271,6 @@ img[src$=".svg"] {
     "a a b b"
     "c c d d"
     "c c d d";
-  justify-content: normal;
-  align-content: normal;
-  justify-items: normal;
-  align-items: normal;
   
   .box:first-child {
     font-size: 2em;
@@ -355,10 +293,51 @@ img[src$=".svg"] {
   }
 }
 
-.grid7 {
+.grid4 {
   display: grid;
-  background-color: #eee;
-  background-image: linear-gradient(45deg, #d18b47 25%, transparent 25%, transparent 75%, #d18b47 75%, #d18b47), linear-gradient(45deg, #d18b47 25%, transparent 25%, transparent 75%, #d18b47 75%, #d18b47);
+  grid-template-columns: repeat(auto-fill, minmax(6em, 1fr));
+}
+
+.grid5 {
+  display: grid;
+  grid-template-columns: repeat(3, 20vmin);
+  grid-template-rows: repeat(3, 20vmin);
+  background-color: aliceblue;
+  background-image: linear-gradient(45deg, cornflowerblue 25%, transparent 25%, transparent 75%, cornflowerblue 75%, cornflowerblue),
+  linear-gradient(45deg, cornflowerblue 25%, transparent 25%, transparent 75%, cornflowerblue 75%, cornflowerblue);
+}
+
+.board {
+  background-size: 40vmin 40vmin;
+  background-position: 0 0, 20vmin 20vmin;
+  width: 60vmin;
+  height: 60vmin;
+}
+
+.emoji {
+  font-size: 8vmin;
+  font-family: "Emoji";
+  margin: auto;
+}
+
+.grid5__item:first-child {
+  grid-row: 3;
+}
+
+.grid5__item:nth-child(2) {
+  grid-row: 2;
+  grid-column: 2;
+}
+
+.grid5__item:nth-child(3) {
+  grid-row: 3;
+  grid-column: 3;
+}
+
+.grid6 {
+  display: grid;
+  background-color: seashell;
+  background-image: linear-gradient(45deg, sandybrown 25%, transparent 25%, transparent 75%, sandybrown 75%, sandybrown), linear-gradient(45deg, sandybrown 25%, transparent 25%, transparent 75%, sandybrown 75%, sandybrown);
   animation: move 10s infinite ease;
 
   div {
@@ -391,6 +370,39 @@ img[src$=".svg"] {
     grid-template-rows: 20vmin 1fr;
   }
 }
+
+[class^='grid7'] {
+  display: inline-grid;
+  width: calc(100% - 2.1em);
+
+  div { padding: 0.5em 0 }
+  .fr { background-color: limegreen }
+  .auto { background-color: skyblue }
+  .minmax { background-color: gold }
+  .fit { background-color: coral }
+  .max { background-color: violet }
+}
+
+.grid-wrap {
+  margin-bottom: 2.5em;
+}
+
+.grid-label {
+  display: inline-block;
+  width: max-content;
+  margin-right: 0.25em;
+  font-family: monospace;
+  font-size: 1.5em;
+}
+
+.grid7a { grid-template-columns: 1fr 2fr 1fr }
+.grid7b { grid-template-columns: auto auto auto }
+.grid7c { grid-template-columns: auto 1fr auto }
+.grid7d { grid-template-columns: 1fr auto 1fr }
+.grid7e { grid-template-columns: 1fr auto fit-content(200px) }
+.grid7f { grid-template-columns: minmax(200px, 400px) auto fit-content(200px) }
+.grid7g { grid-template-columns: 1fr auto minmax(200px, 400px) }
+.grid7h { grid-template-columns: fit-content(200px) minmax(200px, 400px) max-content }
 
 input[type=checkbox] ~ label {
   position: fixed;
@@ -430,14 +442,4 @@ input[type=checkbox]:nth-of-type(2) ~ label {
 
 input[type=checkbox]:nth-of-type(3) ~ label {
   left: 5em;
-}
-
-.twitter {
-  position: fixed;
-  top: 0.5em;
-  right: 0.5em;
-  color: darkgreen;
-  writing-mode: vertical-rl;
-  mix-blend-mode: luminosity;
-  opacity: 0.6;
 }
