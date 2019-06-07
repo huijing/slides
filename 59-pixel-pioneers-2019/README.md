@@ -210,37 +210,4 @@ I'm really excited for all this to become mainstream and to have more designers 
 
 *trigger GIF and credit text (on bottom right corner)*
 
-Thank you all for your attention.
-
----
-
-*Stuff that got cut*
-
-## Grid, where we finally have real rows and columns
-
-- additional options include displaying line numbers and grid area names
-- using `grid-template-areas` to name grid areas is structurally similar to what we see rendered on the page
-- each line surrounded with quotes represents a grid row, every value in the line makes up the grid column
-- every line must have the same number of columns otherwise the whole thing is moot
-- change your layout without having to touch the code for the grid items, only the grid areas *(change grid area of banana)*
-- *(Switch to Braun poster example)*
-- using named grid areas can make it easier to adjust the positions of certain elements when the viewport size changes *(proceed to resize browser and hit 3 layouts)*
-- non-rectangular or disconnected regions may be permitted in future, but for now, just rectangles, no tetris shapes or that sort of thing
-
----
-
-- like Flexbox, alignment properties are applicable to Grid, and we have all 6 values at our disposal
-- for Grid, we can use `justify-items` and `justify-self` to adjust content within its grid cell along the inline axis *(do start, center, end)*
-- another category of alignment properties that I didn't mention earlier, are **overflow** alignment keywords
-- sometimes there will be situations where the total size of the grid items is larger than the grid container, causing overflow
-- for example, in this case, if the `justify-content` value is set to `end`, you will end up with data loss, because it's impossible to scroll to the overflowed content
-- `unsafe` will honour the specified alignment even if this scenario occurs, while `safe` will change the alignment to one that avoids data loss
-
----
-
-- if you noticed, for both Flexbox and Grid, the moment an alignment property was set on an item, it shrinks to fit its contents along the respective axis of alignment
-- so if we have a design like this, *(switch to Malerei, Fotografie, Film)*, with borders that are along the grid lines, but content that is smaller than the cell, you will need to use both Flexbox and Grid
-- *(target arrow)* if we remove `display: flex` on this grid cell and convert the code to use box alignment properties on grid, you will see what I mean
-- *(deactivate flex, add align-self: center)*, the grid cell shrinks to fit, and the border shrinks with it
-- so it's not about Flexbox OR Grid, it's about Flexbox AND Grid, really
-
+Thank you.
