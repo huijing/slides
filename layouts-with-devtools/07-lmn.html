@@ -1,0 +1,395 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Alignment with Grid and Flex</title>
+  <meta name="description" content="">
+  <meta name="author" content="Chen Hui Jing">
+
+  <style>
+  @font-face {
+    font-family: 'Arimo';
+    src: url('fonts/arimo-regular.woff2') format('woff2'),
+         url('fonts/arimo-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Sorts Mill Goudy';
+    src: url('fonts/goudystm.woff2') format('woff2'),
+         url('fonts/goudystm.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Titillium Web';
+    src: url('fonts/titillium-bold.woff2') format('woff2'),
+         url('fonts/titillium-bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  :root {
+    font-size: 12px;
+  }
+
+  @media (min-width: 700px) and (max-width: 960px) {
+    :root {
+      font-size: calc( 12px + (6) * ( (100vw - 700px) / 260));
+    }
+  }
+
+  @media (min-width: 960px) {
+    :root {
+      font-size: 18px;
+    }
+  }
+
+  html {
+    box-sizing: border-box;
+    height: 100%;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Arimo', sans-serif;
+    background-image: radial-gradient(#e1e1d5, #ded6c2);
+    line-height: 1.1;
+    min-width: 60em;
+    margin-top: 2em;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 200%;
+  }
+
+  .font-smg {
+    font-family: 'Sorts Mill Goudy', serif;
+  }
+
+  .font-ttw {
+    font-family: 'Titillium Web', sans-serif;
+  }
+
+  .font-ttw.vert {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    font-size: 200%;
+    letter-spacing: 0.75ch;
+  }
+  
+  .font-ttw.large {
+    font-size: 400%;
+    margin: 0 auto;
+    width: 1ch;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .gear {
+    height: 5em;
+    width: 5em;
+    background-color: #000;
+    border-radius: 50%;
+    position: relative;
+  }
+
+  .gear::before,
+  .gear::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    content: '';
+  }
+  
+  .gear::before {
+    height: 3em;
+    width: 1em;
+    box-shadow: 0em -3em 0em 0em #000, 0em 3em 0 0em #000;
+  }
+  
+  .gear::after {
+    height: 1em;
+    width: 3em;
+    box-shadow: 3em 0 0em 0em #000, -3em 0 0 0em #000;
+  }
+
+  .inner-gear {
+    height: 2em;
+    width: 2em;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #e1e1d5;
+  }
+
+  .inner-gear::before,
+  .inner-gear::after {
+    position: absolute;
+    display: block;
+    content: '';
+  }
+  
+  .inner-gear::before {
+    height: 3em;
+    width: 1em;
+    box-shadow: 0em -3em 0em 0em #000, 0em 3em 0 0em #000;
+    transform: rotate(45deg);
+    transform-origin: 75% 75%;
+  }
+  
+  .inner-gear::after {
+    height: 1em;
+    width: 3em;
+    box-shadow: 3em 0 0em 0em #000, -3em 0 0 0em #000;
+    transform: rotate(45deg);
+    transform-origin: 25% 75%;
+  }
+
+  .arrow {
+    display: inline-block;
+    width: 0.5em;
+    height: 65%;
+    background-color: #000;
+    position: relative;
+    margin-bottom: 2.5em;
+  }
+
+  .arrow::after {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -1em;
+    border-style: solid;
+    border-width: 1em 1em 0 1em;
+    border-color: #000 transparent transparent transparent;
+  }
+
+  .box {
+    height: calc(9vw - 2vmin);
+    width: calc(100% + 0.5vmin);
+    margin: 1em -0.25vmin 0 -0.25vmin;
+    background-color: #000;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 30% 9% 9% 9% 9% 9%;
+    justify-content: center;
+    padding: 5vmin;
+  }
+
+  .grid__item:nth-child(1) {
+    grid-column: span 3;
+    justify-self: end;
+    border-right: 1em solid;
+    padding: 1em;
+    text-align: justify;
+    text-align-last: justify;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .grid__item:nth-child(1) .content {
+    max-width: 12em;
+    letter-spacing: 1px;
+  }
+    
+  .grid__item:nth-child(1) p:last-of-type {
+    margin-bottom: 1em;
+  }
+
+  .grid__item:nth-child(2) {
+    grid-column: 4 / span 3;
+    align-self: end;
+    font-size: 200%;
+    padding: 0.25em;
+  }
+
+  .grid__item:nth-child(3) {
+    grid-column: 1 / span 3;
+    border-top: 1em solid;
+    border-bottom: 1em solid;
+    padding: 1em 2em;
+    letter-spacing: 1px;
+    text-align: justify;
+  }
+
+  .grid__item:nth-child(3) p:first-child {
+    margin-bottom: 1em;
+  }
+
+  .grid__item:nth-child(4) {
+    grid-column: 4 / span 3;
+    border-top: 1em solid;
+    border-bottom: 1em solid;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .grid__item:nth-child(5) {
+    grid-row: 3 / 5;
+    border-right: 1em solid;
+    padding: 1em;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+
+  .grid__item:nth-child(5) img {
+    width: 100%;
+    max-width: 20em;
+  }
+
+  .grid__item:nth-child(6) {
+    writing-mode: vertical-rl;
+    border-right: 1em solid;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .grid__item:nth-child(7) {
+    padding: 0.5em 0.25em;
+    font-size: 85%;
+    border-right: 1em solid;
+  }
+
+  .grid__item:nth-child(8) {
+    border-left: 0.5em solid;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .grid__item:nth-child(9) {
+    letter-spacing: 1px;
+    padding: 0.5em 0.25em;
+    border-right: 1em solid;
+  }
+
+  .grid__item:nth-child(10) {
+    grid-row: 3 / 5;
+    grid-column: 6;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .grid__item:nth-child(11) {
+    grid-column: 2 / 4;
+    letter-spacing: 1px;
+    padding: 0.5em;
+    border-top: 1em solid;
+    border-right: 1em solid;
+  }
+
+  .grid__item:nth-child(12) {
+    border-top: 1em solid;
+    border-right: 1em solid;
+  }
+
+  .grid__item:nth-child(13) {
+    border-top: 1em solid;
+    border-right: 1em solid;
+  }
+
+  .twitter {
+    position: fixed;
+    top: 0.5em;
+    right: 0.5em;
+    color: darkgreen;
+    writing-mode: vertical-rl;
+    mix-blend-mode: difference;
+    opacity: 0.6;
+    margin: 0;
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <h1 class="font-ttw">Malerei, Fotografie, Film (pg. 126)</h1>
+  <div class="example-wrapper">
+    <div class="grid">
+      <div class="grid__item">
+        <div class="content">
+          <p>Tiefe Fliegeraufnahme über einem Platz mit</p>
+          <p class="font-ttw large">8</p>
+          <p>Straßenöffnungen.</p>
+          <img src="img/tempo.jpg">
+        </div>
+      </div>
+      <div class="grid__item font-ttw">
+        <p>TEMPO-o-</p>
+      </div>
+      <div class="grid__item">
+        <p>Die Fahrzeuge: elektrische Straßenbahn, Autos, Last&shy;wagen, Fahrräder, Droschken, Autobus, Cyklonette. Motor&shy;räder fahren in raschem Tempo vom Mittelpunkt aus&shy;wärts, dann plötzlich alle umgekehrt; in der Mitte treffen sie sich. Die Mitte öffnet sich, ALLES sinkt tief, tief, tief—</p>
+        <p>ein Funkturm.</p>
+      </div>
+      <div class="grid__item">
+        <div class="gear"><div class="inner-gear"></div></div>
+      </div>
+      <div class="grid__item">
+        <img src="img/tempo2.jpg">
+      </div>
+      <div class="grid__item">
+        <div class="arrow"></div>
+      </div>
+      <div class="grid__item font-smg">
+        <p>(Der Appa&shy;rat wird rasch um&shy;gekippt; Idas Gefühl eines Tief&shy;stürzens entsteht.)</p>
+        <div class="box"></div>
+      </div>
+      <div class="grid__item font-ttw vert">
+        <p>TEMPO</p>
+      </div>
+      <div class="grid__item">
+        <p>Unter&shy;grund&shy;bahn. Kabel. Kanale.</p>
+      </div>
+      <div class="grid__item font-ttw vert">
+        <p>TEMPO-o-O</p>
+      </div>
+      <div class="grid__item">
+        <p>Unter den Straßen&shy;zügen die ausgebau&shy;ten Kloaken. Lichtglanz auf dem Wasserspiegel.</p>
+      </div>
+      <div class="grid__item"></div>
+      <div class="grid__item"></div>
+    </div>
+  </div>
+</body>
+
+</html>
