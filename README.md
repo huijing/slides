@@ -113,3 +113,9 @@
 56. [A deep dive into images on the web](https://www.chenhuijing.com/slides/56-imagecon-2019)
 
 57. [Typesetting for a global web](https://www.chenhuijing.com/slides/57-yglf-2019)
+
+58. [Using DevTools to understand modern CSS layouts](https://www.chenhuijing.com/slides/58-cssconf-2019)
+
+59. [Using DevTools to understand modern CSS layouts](https://www.chenhuijing.com/slides/59-pixel-pioneers-2019)
+
+60. [Can your site work on IE3?](https://www.chenhuijing.com/slides/60-ie3-challenge)
