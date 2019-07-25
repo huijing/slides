@@ -34,15 +34,11 @@ html {
   .l-multiple {
     display: flex;
     justify-content: space-around;
-
-    .j-vert {
-      width: 1em;
-    }
   }
 
   .l-double {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50% 50%;
   }
 
   .j-icon {
@@ -170,13 +166,38 @@ span[role=img][aria-label]:hover::after {
   .code {
     text-align: left;
     width: 100%;
-    font-family: 'Dank Mono', monospace;
+    font-family: monospace;
     color: #efdcbc;
     background-color: #3f3f3f;
+    font-size: 85%;
     padding: 0.5em;
     border-radius: 0.25em;
     overflow-y: scroll;
-    font-size: 75%;
+  }
+}
+
+.livecode-2p {
+  grid-template-columns: 65% calc(35% - 0.5em);
+  height: 60vh;
+}
+
+.livecode-3p {
+  max-height: 75vh;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr 1fr;
+  grid-template-areas: 'a b'
+                       'a c';
+
+  .markup {
+    grid-area: a;
+  }
+
+  .result {
+    grid-area: b;
+  }
+
+  .code {
+    grid-area: c;
   }
 }
 
@@ -194,15 +215,4 @@ span[role=img][aria-label]:hover::after {
   video {
     align-self: center;
   }
-}
-
-.livecode-2p {
-  grid-template-columns: 65% calc(35% - 0.5em);
-  height: 70vh;
-}
-
-.code-editor {
-  display: block;
-  height: 100%;
-  white-space: pre-wrap;
 }

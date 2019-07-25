@@ -164,6 +164,8 @@ body {
 	font-size: 0.55em;
 	font-family: $codeFont;
 	line-height: 1.2em;
+	overflow-y: scroll;
+	max-height: 100%;
 
 	word-wrap: break-word;
 
@@ -177,9 +179,9 @@ body {
 
 .reveal pre code {
 	display: block;
-	padding: 5px;
+	padding: 0.25em 0.5em;
+	border-radius: 4px;
 	overflow: auto;
-	max-height: 400px;
 	word-wrap: normal;
 }
 

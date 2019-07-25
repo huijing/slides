@@ -1,64 +1,1384 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<title>Frontend Crash Course: CSS</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Frontend Crash Course: CSS</title>
     <meta name="description" content="The CSS portion of the Frontend Crash Course workshop, hosted by Alex and Hui Jing at DevRelWeek Amsterdam 2019.">
 
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/jing.css">
-		<link rel="stylesheet" href="lib/css/monokai.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/jing.css">
+    <link rel="stylesheet" href="lib/css/monokai.css">
 
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
           <h1>Frontend Crash Course: CSS</h1>
-					<p><small><a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
-					<img class="plain" data-src="img/nexbox.svg" alt="Boxies on Nexmo">
-				</section>
+          <p><small><a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
+          <img style="max-height:50vh" class="plain" data-src="img/nexbox.svg" alt="Boxies on Nexmo">
+        </section>
 
-				<section>
-					<h2>Specificity</h2>
-				</section>
+        <section>
+          <h2 style="display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,25vh);max-width:11em;margin:auto">
+            <span style="grid-column:span 2">Cascading</span>
+            <span style="grid-row:2;grid-column:2 / span 2">Style</span>
+            <span style="grid-row:3;grid-column:3 / span 2">Sheets</span>
+          </h2>
+        </section>
 
-				<section>
-					<h2>Layout</h2>
-				</section>
+        <section>
+          <h2>Structure of a CSS rule</h2>
+          <pre><code class="css">selector {
+  property1: value;
+  property2: value;
+  property3: value;
+}</code></pre>
+          <ul>
+            <li>The <strong>selector</strong> identifies which HTML elements the rule will be applied to</li>
+            <li>The <strong>curly braces</strong> contain the property-value pairs, separated with semi-colons</li>
+            <li>The <strong>properties</strong> define the style of the selected element</li>
+            <li>The <strong>values</strong> are dependent on the property, and indicate the value of the properties to be set</li>
+          </ul>
+        </section>
 
-				<section>
-					<h2>Cool stuff & pretty things</h2>
-				</section>
+        <section>
+          <section>
+            <h2>CSS Selectors</h2>
+            <ul>
+              <li>Type selector</li>
+              <li>Attribute selectors</li>
+              <li>Pseudo-classes</li>
+              <li>Pseudo-elements</li>
+              <li>Class selectors</li>
+              <li>ID selectors</li>
+              <li>Combinators</li>
+            </ul>
+          </section>
 
-				<section>
-					<h2>Specifications</h2>
-				</section>
-			</div>
+          <section>
+            <h2>Type selector</h2>
+            <p>Matches all the <strong>elements</strong> of that type on the page</p>
+            <div class="l-multiple" style="gap:0.5em">
+              <pre><code>main {
+  /* some properties */
+}</code></pre>
+            <pre><code>div {
+  /* some properties */
+}</code></pre>
+            <pre><code>p {
+  /* some properties */
+}</code></pre>
+            </div>
+          </section>
 
-			<footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://www.chenhuijing.com/slides/61-css-crash-course</span><span style="text-align:right">@hj_chen</span></footer>
-		</div>
+          <section>
+            <h2>Attribute selectors</h2>
+            <h3><code>&lt;attr&gt;</code></h3>
+            <p>Targets elements that contain the <code>&lt;attr&gt;</code> attribute, regardless of its value.</p>
+            <pre><code><div data-colour="green"></div>
+<div data-colour="blue"></div>
+<div data-colour="yellow"></div></code></pre>
+          <pre><code>[data-colour] { 
+/* some properties */ 
+}</code></pre>
+          </section>
 
-		<script src="js/reveal.js"></script>
+          <section>
+            <div class="l-double">
+              <div>
+                <h3><code>&lt;attr&gt;=&lt;val&gt;</code></h3>
+                <p style="text-align:left">Targets elements where the <code>&lt;attr&gt;</code>’s value is exactly <code>&lt;val&gt;</code>.</p>
+                <pre><code><div data-colour="green"></div></code></pre>
+                <pre><code>[data-colour="green"] { 
+/* some properties */ 
+}</code></pre>
+              </div>
+              <div>
+                <h3><code>&lt;attr&gt;~=&lt;val&gt;</code></h3>
+                <p style="text-align:left">Targets elements with the <code>&lt;attr&gt;</code> attribute whose value is a list of white space separated words, one of which must be <code>&lt;val&gt;</code>. <code>&lt;val&gt;</code> itself cannot contain white space, and neither can it be an empty string.</p>
+                <pre><code><div data-colour="green yellow blue"></div></code></pre>
+                <pre><code>[data-colour~="green"] { 
+  /* some properties */ 
+}</code></pre>
+              </div>
+            </div>
+          </section>
 
-		<script>
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true }
-				]
-			});
-		</script>
-	</body>
+        <section>
+            <div class="l-double">
+              <div>
+                <h3><code>&lt;attr&gt;|=&lt;val&gt;</code></h3>
+                <p style="text-align:left">Targets elements with the <code>&lt;attr&gt;</code> attribute whose value is exactly <code>&lt;val&gt;</code> or starts with <code>&lt;val&gt;</code> immediately followed by a “-”.<br>Primary use-case being for language subcode matching, like “en”, “en-US” and “en-UK”.</p>
+                <pre><code><div data-colour="green-table"></div>
+<div data-colour="green-chair"></div>
+<div data-colour="green-bottle"></div></code></pre>
+                <pre><code>[data-colour|="green"] { 
+  /* some properties */ 
+}</code></pre>
+              </div>
+              <div>
+                <h3><code>&lt;attr&gt;^=&lt;val&gt;</code></h3>
+                <p style="text-align:left">A substring matching selector. Targets elements with the <code>&lt;attr&gt;</code> attribute whose value starts with <code>&lt;val&gt;</code>.<br><code>&lt;val&gt;</code> cannot be an empty string.</p>
+                <pre><code><div data-colour="greenish-yellow"></div>
+<div data-colour="greengoblin"></div></code></pre>
+                <pre><code>[data-colour^="green"] { 
+  /* some properties */ 
+}</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <div>
+                <h3><code>&lt;attr&gt;$=&lt;val&gt;</code></h3>
+                <p style="text-align:left">A substring matching selector. Targets elements with the <code>&lt;attr&gt;</code> attribute whose value ends with <code>&lt;val&gt;</code>.<br><code>&lt;val&gt;</code> cannot be an empty string.</p>
+                <pre><code><div data-colour="yellowish-green"></div>
+<div data-colour="seagreen"></div></code></pre>
+                <pre><code>[data-colour$="green"] { 
+  /* some properties */ 
+}</code></pre>
+              </div>
+              <div>
+                <h3><code>&lt;attr&gt;*=&lt;val&gt;</code></h3>
+                <p style="text-align:left">A substring matching selector. Targets elements with the <code>&lt;attr&gt;</code> attribute whose value contains an instance of <code>&lt;val&gt;</code>.<br><code>&lt;val&gt;</code> cannot be an empty string.</p>
+                <pre><code><div data-colour="goblingreenish"></div></code></pre>
+                <pre><code>[data-colour*="green"] { 
+  /* some properties */ 
+}</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Pseudo-classes</h2>
+            <div class="l-multiple" style="font-size:70%;text-align:left">
+              <div>
+                <h3>Structural pseudo-classes</h3>
+                <ul style="margin-bottom:1em">
+                  <li><code>:root</code></li>
+                  <li><code>:nth-child(n)</code></li>
+                  <li><code>:nth-last-child(n)</code></li>
+                  <li><code>:nth-of-type(n)</code></li>
+                  <li><code>:nth-last-of-type(n)</code></li>
+                  <li><code>:first-child</code></li>
+                  <li><code>:last-child</code></li>
+                  <li><code>:first-of-type</code></li>
+                  <li><code>:last-of-type</code></li>
+                  <li><code>:only-child</code></li>
+                  <li><code>:only-of-type</code></li>
+                  <li><code>:empty</code></li>
+                </ul>
+              </div>
+              <div>
+                <h3>Link pseudo-classes</h3>
+                <ul style="margin-bottom:1em">
+                  <li><code>:link</code></li>
+                  <li><code>:visited</code></li>
+                </ul>
+                <h3>User action pseudo-classes</h3>
+                <ul style="margin-bottom:1em">
+                  <li><code>:active</code></li>
+                  <li><code>:hover</code></li>
+                  <li><code>:focus</code></li>
+                </ul>
+                <h3>UI element pseudo-classes</h3>
+                <ul style="margin-bottom:1em">
+                  <li><code>:enabled</code></li>
+                  <li><code>:disabled</code></li>
+                  <li><code>:checked</code></li>
+                </ul>
+              </div>
+              <div>
+                <h3>Negation pseudo-class</h3>
+                <ul style="margin-bottom:1em">
+                  <li><code>:not(selector)</code></li>
+                </ul>
+                <h3>Language pseudo-class</h3>
+                <ul style="margin-bottom:1em">
+                  <li><code>:lang(zh)</code></li>
+                </ul>
+                <h3>Target pseudo-class</h3>
+                <ul style="margin-bottom:1em">
+                  <li><code>:target</code></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Pseudo-elements</h2>
+            <p><code>::first-line</code>, <code>::first-letter</code>, <code>::before</code>, <code>::after</code></p>
+            <div class="livecode livecode-2p">
+              <div class="result pseudoelem" style="text-align:initial">
+                <p>Do something to the first letter, or first line. Just the first though. Not the others. Leave them lines alone.</p>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.pseudoelem p::first-line {
+
+}
+
+.pseudoelem p::first-letter {
+
+}
+
+.pseudoelem p::before {
+
+}
+
+.pseudoelem p::after {
+
+}</style></div>
+            </div>
+          </section>
+          
+          <section>
+            <h2>Class selector</h2>
+            <p>Matches all the elements with the specified class attribute</p>
+            <div class="l-double">
+              <pre><code>&lt;div class="example"&gt;
+  // some random markup
+&lt;/div&gt;</code></pre>
+              <pre><code>.example {
+  /* some properties */ 
+}</code></pre>
+            </div>
+          </section>
+
+          <section>
+            <h2>ID selector</h2>
+            <p>Matches matches the element with the specified id attribute</p>
+            <div class="l-double">
+              <pre><code>&lt;div id="example"&gt;
+  // some random markup
+&lt;/div&gt;</code></pre>
+              <pre><code>#example {
+  /* some properties */ 
+}</code></pre>
+            </div>
+          </section>
+
+          <section>
+            <h2>Combinators</h2>
+            <div class="l-double">
+              <div>
+                <h3>Descendant</h3>
+                <p>Can be any level of descendant, multiple nesting</p>
+                <pre><code><div>
+  <p>This is a &lt;p&gt; element in a &lt;div&gt; element. <strong>And this is a &lt;strong&gt; element</strong> within a &lt;p&gt; within a &lt;div&gt;.</p>
+</div></code></pre>
+                <pre><code>div span { 
+  /* some properties */ 
+}</code></pre>
+              </div>
+              <div>
+                <h3>Child</h3>
+                <p>Immediate child element only</p>
+                <pre><code><div>
+  <p>This is &lt;p&gt; element is a direct child of the &lt;div&gt; element.</p>
+</div></code></pre>
+                <pre><code>div > p { 
+  /* some properties */ 
+}</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <div>
+                <h3>Next sibling</h3>
+                <p>Same parent, immediately following</p>
+                <pre><code><p>This is a &lt;p&gt; element.</p>
+<ul>
+  <li>This is a list item</li>
+  <li>This is a list item</li>
+</ul></code></pre>
+             <pre><code>p + ul { 
+  /* some properties */ 
+}</code></pre>
+            </div>
+            <div>
+              <h3>Subsequent sibling</h3>
+              <p>Same parent, can be anywhere following</p>
+              <pre><code><p>This is a &lt;p&gt; element.</p>
+<p>This is another &lt;p&gt; element.</p>
+<ul>
+  <li>This is a list item</li>
+  <li>This is a list item</li>
+</ul></code></pre>
+              <pre><code>p ~ ul { 
+  /* some properties */ 
+}</code></pre>
+            </div>
+          </section>
+
+          <section>
+            <h2>Who wins?</h2>
+            <ol>
+              <li class="fragment">Importance</li>
+              <li class="fragment">Specificity</li>
+              <li class="fragment">Source order</li>
+            </ol>
+          </section>
+
+          <section>
+            <h2><code>!important</code></h2>
+            <p>Don't use it if you can help it.</p>
+            <div class="livecode livecode-2p">
+              <div class="result important" style="text-align:initial">
+                <p style="margin-bottom:1em" class="cookie" id="butterscotch">This paragraph has a class of cookie and an id of butterscotch.</p>
+                <p style="margin-bottom:1em" class="cookie">This paragraph has a class of cookie.</p>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.important #butterscotch {
+  background-color: crimson;
+  color: whitesmoke;
+  border: 0.25em inset teal;
+}
+
+.important .cookie {
+  background-color: mediumslateblue;
+  color: lavender;
+  border: none;
+}
+
+.important p {
+  background-color: greenyellow:
+  color: saddlebrown;
+}</style></div>
+            </div>
+          </section>
+
+          <section>
+            <h2>CSS Specificity</h2>
+            <div class="l-multiple" style="gap:1em">
+              <div style="flex:1 1 0">
+                <div style="font-size:175%;border:3px solid;padding:0.75em 0">0-∞</div>
+                <p>Inline styles</p>
+              </div>
+              <div style="flex:1 1 0">
+                <div style="font-size:175%;border:3px solid;padding:0.75em 0">0-∞</div>
+                <p>IDs</p>
+              </div>
+              <div style="flex:1 1 0">
+                <div style="font-size:175%;border:3px solid;padding:0.75em 0">0-∞</div>
+                <p>Classes, attributes and pseudo-classes</p>
+              </div>
+              <div style="flex:1 1 0">
+                <div style="font-size:175%;border:3px solid;padding:0.75em 0">0-∞</div>
+                <p>Elements and pseudo-elements</p>
+              </div>
+            </div>
+
+            <div class="l-multiple">
+              <div style="flex:1 1 0">
+                <pre><code>ul {
+// CSS properties
+}</code></pre>
+                <p>0, 0, 0, 1</p>
+              </div>
+              <div style="flex:1 1 0">
+                <pre><code>.class-1 .class-2 p {
+// CSS properties
+}</code></pre>
+                <p>0, 0, 2, 1</p>
+              </div>
+              <div style="flex:1 1 0">
+                <pre><code>#id-1 .class-3 div {
+// CSS properties
+}</code></pre>
+                <p>0, 1, 1, 1</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Source order</h2>
+            <p>The tie-breaker for equal specificity values</p>
+            <div class="livecode livecode-2p">
+              <div class="result sourceorder" style="text-align:initial">
+                <p style="margin-bottom:1em" class="cookie">This paragraph has a class of cookie and an id of butterscotch.</p>
+                <p style="margin-bottom:1em" class="cookie">This paragraph has a class of cookie.</p>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.sourceorder .cookie.cookie {
+  background-color: crimson;
+  color: whitesmoke;
+  border: 0.25em inset teal;
+}
+
+.sourceorder .cookie:first-child {
+  background-color: mediumslateblue;
+  color: lavender;
+  border: none;
+}</style></div>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <h2>General guidelines for writing CSS</h2>
+          <ul>
+            <li>Declare your styles from lowest specificity then move up</li>
+            <li>Keep your specificity as low as possible</li>
+            <li>Name your classes sensibly</li>
+            <li>Never style IDs</li>
+            <li>Don't write inline styles</li>
+          </ul>
+        </section>
+
+        <section>
+          <section>
+            <h2>Layout</h2>
+            <img class="plain" data-src="img/new-layout.svg" alt="Flexbox, Grid and Box Alignment">
+          </section>
+
+          <section>
+            <h2>Flexbox support</h2>
+            <p>98.68% of internet users are using a browser that supports Flexbox</p>
+            <p class="ciu_embed" data-feature="flexbox" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+              <a href="http://caniuse.com/#feat=flexbox">
+                <picture>
+                  <source type="image/webp" srcset="https://res.cloudinary.com/ireaderinokun/image/upload/v1563943706/caniuse-embed/flexbox-2019-7-24.webp">
+                  <source type="image/png" srcset="https://res.cloudinary.com/ireaderinokun/image/upload/v1563943706/caniuse-embed/flexbox-2019-7-24.png">
+                  <source type="image/jpeg" srcset="https://res.cloudinary.com/ireaderinokun/image/upload/v1563943706/caniuse-embed/flexbox-2019-7-24.jpg">
+                  <img src="https://res.cloudinary.com/ireaderinokun/image/upload/v1563943706/caniuse-embed/flexbox-2019-7-24.png" alt="Data on support for the flexbox feature across the major browsers from caniuse.com">
+                </picture>
+              </a>
+            </p>
+          </section>
+
+          <section>
+            <h2>Grid support</h2>
+            <p>93.26% of internet users are using a browser that supports Grid</p>
+            <p class="ciu_embed" data-feature="css-grid" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+              <a href="http://caniuse.com/#feat=css-grid">
+                <picture>
+                  <source type="image/webp" srcset="https://res.cloudinary.com/ireaderinokun/image/upload/v1563890632/caniuse-embed/css-grid-2019-7-23.webp">
+                  <source type="image/png" srcset="https://res.cloudinary.com/ireaderinokun/image/upload/v1563890632/caniuse-embed/css-grid-2019-7-23.png">
+                  <source type="image/jpeg" srcset="https://res.cloudinary.com/ireaderinokun/image/upload/v1563890632/caniuse-embed/css-grid-2019-7-23.jpg">
+                  <img src="https://res.cloudinary.com/ireaderinokun/image/upload/v1563890632/caniuse-embed/css-grid-2019-7-23.png" alt="Data on support for the css-grid feature across the major browsers from caniuse.com">
+                </picture>
+              </a>
+            </p>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <div>
+                <h2>Flexbox</h2>
+                <p>For single dimension components</p>
+                <div style="display:grid;grid-template-columns:2fr 1fr;align-items:center">
+                  <img class="plain" data-src="img/1d.svg" alt="Single dimension component (horizontal)">
+                  <img class="plain" data-src="img/1d2.svg" alt="Single dimension component (vertical)">
+                </div>
+              </div>
+              <div>
+                <h2>Grid</h2>
+                <p>For two-dimensional layouts</p>
+                <img class="plain" data-src="img/2d.svg" alt="Two-dimensional layout">
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Container-child relationship</h2>
+            <svg width="50%" viewBox="0 0 564 324"><g fill="none" fill-rule="evenodd" transform="translate(5.07 -3)"><rect width="558.051" height="273.508" x="-2.5" y="50.5" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="bevel" rx="3"/><rect width="252.547" height="145.828" x="56.727" y="139.039" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="bevel" rx="3"/><text fill="#000" font-size="50%"><tspan x=".132" y="37">Flex/Grid container</tspan></text><text fill="#000" font-size="50%"><tspan x="59.627" y="125.539">Flex/Grid item</tspan></text></g></svg>
+          </section>
+
+          <section>
+            <h2>Flex shorthand</h2>
+            <table>
+              <tr>
+                <td style="width:14em"><code>flex: initial</code></td>
+                <td><code>flex: 0 1 auto</code>, cannot grow but can shrink when there isn't enough space</td>
+              </tr>
+              <tr>
+                <td><code>flex: auto</code></td>
+                <td><code>flex: 1 1 auto</code>, can grow and shrink to fit available space</td>
+              </tr>
+              <tr>
+                <td><code>flex: none</code></td>
+                <td><code>flex: 0 0 auto</code>, cannot grow or shrink, AKA inflexible</td>
+              </tr>
+              <tr>
+                <td><code>flex: &lt;positive-number&gt;</code></td>
+                <td><code>flex: &lt;positive-number&gt; 1 0</code>, can grow and shrink, extent of growth depends on flex factor</td>
+              </tr>
+            </table>
+          </section>
+
+          <section>
+            <h2>Flexbox use-cases</h2>
+            <p>Centre stuff in their parent container</p>
+            <div class="livecode livecode-2p">
+              <div class="result automargin">
+                <div>
+                  <img class="plain" data-src="img/nexbox.svg" style="width:4em">
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.automargin {
+  display: flex;
+}
+
+.automargin div {
+  
+}</style></div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Flexbox use-cases</h2>
+            <p>When you need 1 thing by itself on the opposite side</p>
+            <div class="livecode livecode-2p">
+              <div class="result navbar" style="font-size:75%">
+                <ul style="list-style:none;margin:0;background-color:#2f313f;padding:1em 0">
+                  <li><a style="padding:1em;line-height:initial" href="javascript:void(0)">Home</a></li>
+                  <li><a style="padding:1em;line-height:initial" href="javascript:void(0)">News</a></li>
+                  <li><a style="padding:1em;line-height:initial" href="javascript:void(0)">Events</a></li>
+                  <li><a style="padding:1em;line-height:initial" href="javascript:void(0)">Login</a></li>
+                </ul>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.navbar ul {
+  display: flex;
+}
+
+.navbar li:last-child {
+  
+}</style></div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Flexbox use-cases</h2>
+            <p>To stick the header and footer at the top and bottom</p>
+            <div class="livecode livecode-2p">
+              <div class="result flex1" style="font-size:75%">
+                <div class="header" style="background-color:#ff8200">Header</div>
+                <div class="main" style="background-color:#f0537a">Main</div>
+                <div class="footer" style="background-color:#0077c8">Footer</div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.flex1 {
+  display: flex;
+  
+}
+
+.flex1 .main {
+   
+}</style></div>
+            </div>
+          </section>
+
+          <section>
+            <h2>CSS grid basics</h2>
+            <div class="l-double">
+              <div class="fragment" style="width:100%;">
+                <p>Define your grid.</p>
+                <img class="plain" style="max-height:50vh;" data-src="img/define-grid.svg" alt="Define a grid">
+              </div>
+              <div class="fragment" style="width:100%;">
+                <p>Place items in the grid.</p>
+                <img class="plain" style="max-height:50vh;" data-src="img/place-items.svg" alt="Place items in the grid">
+            </div>
+          </section>
+
+          <section>
+            <h2>Defining a grid</h2>
+            <div class="livecode livecode-3p">
+              <pre class="markup"><code class="html">&lt;div class="grid1"&gt;
+  &lt;div class="grid1__item"&gt;
+    &lt;p&gt;Item A&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="grid1__item"&gt;
+    &lt;p&gt;Item B&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="grid1__item"&gt;
+    &lt;p&gt;Item C&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="grid1__item"&gt;
+    &lt;p&gt;Item D&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="grid1__item"&gt;
+    &lt;p&gt;Item E&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="grid1__item"&gt;
+    &lt;p&gt;Item F&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <div class="result grid1" style="font-size:75%;">
+              <div class="grid1__item" style="border:1px solid;"><p>Item A</p></div><div class="grid1__item" style="border:1px solid;"><p>Item B</p></div><div class="grid1__item" style="border:1px solid;"><p>Item C</p></div><div class="grid1__item" style="border:1px solid;"><p>Item D</p></div><div class="grid1__item" style="border:1px solid;"><p>Item E</p></div><div class="grid1__item" style="border:1px solid;"><p>Item F</p></div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.grid1 {
+  display: grid;
+
+
+
+}</style></div>
+            </div>
+          </section>
+  
+          <section>
+            <h2>The <code>fr</code> unit</h2>
+            <p>Represents a <strong>fraction</strong> of the <strong>free space</strong> in the grid container.</p>
+            <div class="livecode livecode-2p">
+              <div class="result grid4" style="font-size:75%;">
+                <div class="grid4__item a" style="border:1px solid;padding:1em 0;"><p>Item A</p></div><div class="grid4__item b" style="border:1px solid;padding:1em 0;"><p>Item B</p></div><div class="grid4__item c" style="border:1px solid;padding:1em 0;"><p>Item C</p></div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.grid4 {
+  display: grid;
+  grid-template-columns: 150px 1fr 2fr;
+}</style></div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Fluid CSS grid</h2>
+            <pre style="font-size:65%;"><code class="css">.container {
+  display: grid;
+  grid-template-columns: repeat(3, 3fr 2fr);
+}</code></pre>
+            <video autoplay loop class="video" style="width:70%;">
+              <source data-src="videos/fluid-grid.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/fluid-grid.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+          </section>
+
+          <section>
+            <h2>The <code>minmax()</code> function</h2>
+            <p>Defines a size range for columns or rows in the grid.</p>
+            <div class="livecode livecode-2p">
+              <div class="result grid5" style="font-size:75%;">
+                <div class="grid5__item a" style="border:1px solid;padding:1em 0;"><p>Item A</p></div><div class="grid5__item b" style="border:1px solid;padding:1em 0;"><p>Item B</p></div><div class="grid5__item c" style="border:1px solid;padding:1em 0;"><p>Item C</p></div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.grid5 {
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) 300px 300px;
+}</style></div>
+            </div>
+          </section>
+
+          <section>
+            <h2>The <code>repeat()</code> function</h2>
+            <p>To specify a large number of columns or rows that follow a similar pattern</p>
+            <div class="livecode livecode-2p">
+              <div class="result grid6" style="font-size:75%;">
+                <div class="grid6__item" style="border:1px solid;padding:1em 0;"><p>Item</p></div><div class="grid6__item" style="border:1px solid;padding:1em 0;"><p>Item</p></div><div class="grid6__item" style="border:1px solid;padding:1em 0;"><p>Item</p></div><div class="grid6__item" style="border:1px solid;padding:1em 0;"><p>Item</p></div><div class="grid6__item" style="border:1px solid;padding:1em 0;"><p>Item</p></div><div class="grid6__item" style="border:1px solid;padding:1em 0;"><p>Item</p></div><div class="grid6__item" style="border:1px solid;padding:1em 0;"><p>Item</p></div><div class="grid6__item" style="border:1px solid;padding:1em 0;"><p>Item</p></div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.grid6 {
+  display: grid;
+  grid-template-columns: repeat(4, 90px 140px);
+}</style></div>
+            </div>
+          </section>
+
+          <section>
+            <h2><code>auto-fill</code> vs. <code>auto-fit</code></h2>
+            <p>Allow browser to determine how many tracks to create depending on track size.</p>
+            <div class="l-double">
+              <div>
+                <img class="plain" data-src="img/auto-fill.png" alt="Auto-fill">
+                <pre style="font-size:65%;"><code class="css">repeat(auto-fill, 100px);</code></pre>
+              </div>
+              <div>
+                <img class="plain" data-src="img/auto-fit.png" alt="Auto-fit">
+                <pre style="font-size:65%;"><code class="css">repeat(auto-fit, 100px);</code></pre>
+              </div>
+            </div>
+            <p class="fragment"><code>auto-fit</code> collapses empty tracks.</p>
+          </section>
+
+          <section>
+            <h2><code>auto-fill</code> versus <code>auto-fit</code></h2>
+            <div class="livecode livecode-2p">
+              <div class="result keyword" style="font-size:75%;">
+                <div class="keyword__item" style="border:1px solid;">
+                  <p>A</p>
+                </div>
+                <div class="keyword__item" style="border:1px solid;">
+                  <p>B</p>
+                </div>
+                <div class="keyword__item" style="border:1px solid;">
+                  <p>C</p>
+                </div>
+                <div class="keyword__item" style="border:1px solid;">
+                  <p>D</p>
+                </div>
+                <div class="keyword__item" style="border:1px solid;">
+                  <p>E</p>
+                </div>
+                <div class="keyword__item" style="border:1px solid;">
+                  <p>F</p>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.keyword {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}</style></div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Responsive grid without media queries</h2>
+            <pre style="font-size:65%;"><code class="css" style="font-size: 90%;">.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+}</code></pre>
+            <video autoplay loop class="video" style="width:70%;">
+              <source data-src="videos/responsive-grid.mp4" type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/responsive-grid.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+          </section>
+
+          <section>
+            <h2>Explicit Grid and Implicit Grid</h2>
+            <div class="l-double" style="align-items:center">
+              <img class="plain" data-src="img/implicit-grid.svg" alt="Implicit grid">
+              <div>
+                <pre style="font-size:75%"><code class="css">.grid-container {
+  display: grid;
+  grid-template-columns: 150px 150px 150px; /* three columns  */
+  grid-template-rows: 150px 150px; /* two rows  */
+}
+
+.item {
+  grid-column: 5 / 6; /* grid-column-start: 5; grid-column-end: 6;  */
+  grid-row:  2 / 3; /* grid-row-start: 2; grid-row-end: 3;  */
+}</code></pre>
+                <p style="text-align:left;margin-left:1em;">The browser will create an implicit grid to hold items placed outside the grid.</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>The <code>grid-auto-flow</code> property</h2>
+            <p>Adjusting the direction and density of grid items</p>
+            <div class="livecode livecode-2p">
+              <div class="result autoflow">
+                <div class="autoflow__item" style="border:1px solid">
+                  <p>A</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid">
+                  <p>B</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid">
+                  <p>C</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid">
+                  <p>D</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid">
+                  <p>E</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid">
+                  <p>F</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid">
+                  <p>G</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid">
+                  <p>H</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid">
+                  <p>I</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid">
+                  <p>J</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid">
+                  <p>K</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid">
+                  <p>L</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid">
+                  <p>M</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid">
+                  <p>N</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid">
+                  <p>O</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid">
+                  <p>P</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid">
+                  <p>Q</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid">
+                  <p>R</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid">
+                  <p>S</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid">
+                  <p>T</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid">
+                  <p>U</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid">
+                  <p>V</p>
+                </div>
+                <div class="autoflow__item" style="border:1px solid">
+                  <p>W</p>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.autoflow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-auto-rows: 120px;
+  grid-auto-flow: row;
+}
+
+.autoflow__item:nth-child(3n) {
+  background-color: #ff8200;
+  grid-column-end: span 2;
+}
+
+.autoflow__item:nth-child(2n+3) {
+  background-color: #0077c8;
+  color: #fff;
+grid-row-end: span 2;
+}
+
+.autoflow__item:nth-child(3n+4) {
+  background-color: #f0537a;
+  grid-column-end: span 2;
+}
+
+.autoflow__item {
+  color: #000;
+  background-color: #fff;
+}</style></div>
+          </section>
+
+          <section>
+            <h2>Box Alignment</h2>
+            <p>To create a cohesive and common box alignment model to share among all of CSS</p>
+            <aside class="notes">With so many different layout models, it makes sense to have a unified method for aligning items amongst them all, and this is outlined in the box alignment specification. At the heart of it, the web is made up of boxes nested in other boxes.</aside>
+          </section>
+
+          <section>
+            <table style="font-size:60%">
+              <tr style="border-bottom:2px solid">
+                <th width="19%">Property</th>
+                <th width="10%">Axis</th>
+                <th>Aligns</th>
+                <th width="25%">Applies to<br></th>
+              </tr>
+              <tr>
+                <td><code>justify-content<code><br></td>
+                <td>main/inline</td>
+                <td rowspan="2"><p style="width:65%;display:inline-block">content within element<br>(effectively adjusts padding)</p><img class="plain" style="max-width:7em;vertical-align:top" data-src="img/content.svg" alt="Content diagram"></td>
+                <td rowspan="2">block containers, flex containers and grid containers<br></td>
+              </tr>
+              <tr style="border-bottom:2px solid">
+                <td><code>align-content</code></td>
+                <td>cross/block</td>
+              </tr>
+              <tr>
+                <td><code>justify-self</code></td>
+                <td>inline</td>
+                <td rowspan="2"><p style="width:65%;display:inline-block">element within parent<br>(effectively adjusts margins)</p><img class="plain" style="max-width:7em;vertical-align:top" data-src="img/self.svg" alt="Self diagram"></td>
+                <td>block-level boxes, absolutely-positioned boxes and grid items<br></td>
+              </tr>
+              <tr style="border-bottom:2px solid">
+                <td><code>align-self</code></td>
+                <td>cross/block</td>
+                <td>absolutely-positioned boxes, flex items and grid items<br></td>
+              </tr>
+              <tr>
+                <td><code>justify-items</code></td>
+                <td>inline</td>
+                <td rowspan="2"><p style="width:65%;display:inline-block">items inside box<br>(controls child items)</p><img class="plain" style="max-width:7em;vertical-align:top" data-src="img/items.svg" alt="Items diagram"></td>
+                <td>block containers and grid containers<br></td>
+              </tr>
+              <tr style="border-bottom:2px solid">
+                <td><code>align-items</code></td>
+                <td>cross/block</td>
+                <td>flex-containers and grid-containers<br></td>
+              </tr>
+            </table>
+            <p><small>Source: <a href="https://www.w3.org/TR/css-align-3/#overview">CSS Box Alignment Module Level 3</a></small></p>
+            <aside class="notes">We've got 6 properties to manage the alignment of said boxes. Currently, these properties only apply to flex and grid formatting contexts, but eventually they will be extended to the block formatting context as well.</aside>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <div>
+                <h2>Flexbox</h2>
+                <img class="plain" style="height:4em;display:block;margin:0 auto 0.5em" data-src="img/flexbox.svg" alt="Flexbox">
+                <ul>
+                  <li><code>align-content</code></li>
+                  <li><code>justify-content</code></li>
+                  <li><code>align-items</code></li>
+                  <li><code>align-self</code></li>
+                </ul>
+                <p>The <code>justify-items</code>/<code>justify-self</code> properties do <strong>not</strong> apply to flex items</p>
+              </div>
+              <div>
+                <h2>Grid</h2>
+                <img class="plain" style="height:4em;display:block;margin:0 auto 0.5em" data-src="img/grid.svg" alt="Grid">
+                <ul>
+                  <li><code>align-content</code></li>
+                  <li><code>justify-content</code></li>
+                  <li><code>align-items</code></li>
+                  <li><code>align-self</code></li>
+                  <li><code>justify-items</code></li>
+                  <li><code>justify-self</code></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div class="l-double" style="opacity:0.2">
+              <div>
+                <h2>Flexbox</h2>
+                <img class="plain" style="height:4em;display:block;margin:0 auto 0.5em" data-src="img/flexbox.svg" alt="Flexbox">
+                <ul>
+                  <li><code>align-content</code></li>
+                  <li><code>justify-content</code></li>
+                  <li><code>align-items</code></li>
+                  <li><code>align-self</code></li>
+                </ul>
+                <p>The <code>justify-items</code>/<code>justify-self</code> properties do <strong>not</strong> apply to flex items</p>
+              </div>
+              <div>
+                <h2>Grid</h2>
+                <img class="plain" style="height:4em;display:block;margin:0 auto 0.5em" data-src="img/grid.svg" alt="Grid">
+                <ul>
+                  <li><code>align-content</code></li>
+                  <li><code>justify-content</code></li>
+                  <li><code>align-items</code></li>
+                  <li><code>align-self</code></li>
+                  <li><code>justify-items</code></li>
+                  <li><code>justify-self</code></li>
+                </ul>
+              </div>
+            </div>
+            <img class="plain" data-src="img/txt-align-icons.svg" alt="Text align icons" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
+            <p style="position:absolute;top:62.5%;left:50%;transform:translate(-50%,0%)">Justify</p>
+            <aside class="notes">
+              <p>I have a trick for remembering which property affects which axis. So are these icons familiar to most of you? These show up in almost any rich-text editors, and we use them to <strong>justify</strong>> text.</p>
+              <p>That is, to move text along its inline axis. Now there are only 2 values for 2 axis, so if justify is along this direction, then align must be for the other direction.</p>
+            </aside>
+          </section>
+
+          <section>
+            <img class="plain" style="height:3em;position:fixed;top:-5vh;right:0" data-src="img/grid.svg" alt="Grid">
+            <h2><code>justify-content</code> & <code>align-content</code></h2>
+            <div class="livecode livecode-2p" style="grid-template-columns:60% calc(40% - 0.5em)">
+              <div class="result gridcontent">
+                <div style="border:1px solid" class="box a">A</div>
+                <div style="border:1px solid" class="box b">B</div>
+                <div style="border:1px solid" class="box c">C</div>
+                <div style="border:1px solid" class="box d">D</div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.gridcontent {
+  justify-content: normal;
+  align-content: normal;
+
+  display: grid;
+  grid-template-columns: repeat(3, 25%);
+  grid-template-rows: repeat(3, 20%);
+  grid-gap: 1em;
+  grid-template-areas: 
+    "a b b"
+    "a b b"
+    "c c d";
+}
+
+.gridcontent .box.a { grid-area: a }
+.gridcontent .box.b { grid-area: b }
+.gridcontent .box.c { grid-area: c }
+.gridcontent .box.d { grid-area: d }</style></div>
+            </div>
+          </section>
+
+          <section height="100vh">
+            <img class="plain" style="height:3em;position:fixed;top:-5vh;right:0" data-src="img/flexbox.svg" alt="Flexbox">
+            <h2><code>justify-content</code> & <code>align-content</code></h2>
+            <div class="livecode livecode-2p">
+              <div class="result flexcontent">
+                <div class="wrapper" style="font-size:70%">
+                  <div class="box">1一</div>
+                  <div class="box">2二</div>
+                  <div class="box">3三</div>
+                  <div class="box">4四</div>
+                  <div class="box">5五</div>
+                  <div class="box">6六</div>
+                  <div class="box">7七</div>
+                  <div class="box">8八</div>
+                  <div class="box">9九</div>
+                  <div class="box">10十</div>
+                  <div class="box">11十一</div>
+                  <div class="box">12十二</div>
+                  <div class="box">13十三</div>
+                  <div class="box">14十四</div>
+                  <div class="box">15十五</div>
+                  <div class="box">16十六</div>
+                  <div class="box">17十七</div>
+                  <div class="box">18十八</div>
+                  <div class="box">19十四</div>
+                  <div class="box">20二十</div>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.flexcontent .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  height: 70vh;
+}
+
+.flexcontent .box {
+  height: 3.5em;
+  width: 4.5em;
+  border: 1px solid;
+}</style></div>
+            </div>
+          </section>
+
+          <section>
+            <img class="plain" data-src="img/axis-alignment.svg" alt="*-content values">
+          </section>
+
+          <section>
+            <img class="plain" style="height:3em;position:fixed;top:-5vh;right:0" data-src="img/grid.svg" alt="Grid">
+            <h2><code>justify-self</code> & <code>align-self</code></h2>
+            <div class="livecode livecode-2p">
+              <div class="result gridself">
+                <div style="border:1px solid" class="box a">A</div>
+                <div style="border:1px solid" class="box b">B</div>
+                <div style="border:1px solid" class="box c">C</div>
+                <div style="border:1px solid" class="box d">D</div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.gridself .box.a {
+  grid-area: a;
+  padding-top: 0.5em;
+  align-self: ;
+}
+
+.gridself .box.b {
+  grid-area: b;
+  padding: 1em;
+  align-self: start;
+  //justify-self: start;
+}
+
+.gridself .box.c {
+  grid-area: c;
+  align-self: end;
+  //justify-self: end;
+}
+
+.gridself .box.d {
+  grid-area: d;
+  align-self: center;
+  //justify-self: center;
+}
+
+.gridself {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1em;
+  grid-auto-rows: calc(25% - 1em);
+  grid-template-areas: 
+    "a a b b"
+    "a a b b"
+    "c c d d"
+    "c c d d";
+}</style></div>
+            </div>
+          </section>
+
+          <section>
+            <img class="plain" style="height:3em;position:fixed;top:-5vh;right:0" data-src="img/grid.svg" alt="Grid">
+            <h2><code>justify-items</code> & <code>align-items</code></h2>
+            <div class="livecode livecode-2p">
+              <div class="result griditems" style="font-size:75%">
+                <div style="border:1px solid" class="box a">A</div>
+                <div style="border:1px solid" class="box b">B</div>
+                <div style="border:1px solid" class="box c">C</div>
+                <div style="border:1px solid" class="box d">D</div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.griditems {
+  justify-items: legacy;
+  align-items: normal;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1em;
+  grid-auto-rows: calc(25% - 1em);
+  grid-template-areas: 
+    "a a b b"
+    "a a b b"
+    "c c d d"
+    "c c d d";
+}
+
+.griditems .box.a { grid-area: a }
+.griditems .box.b { grid-area: b }
+.griditems .box.c { grid-area: c }
+.griditems .box.d { grid-area: d }</style></div>
+            </div>
+          </section>
+
+          <section>
+            <img class="plain" style="height:3em;position:fixed;top:-5vh;right:0" data-src="img/flexbox.svg" alt="Flexbox">
+            <h2><code>align-items</code> & <code>align-self</code></h2>
+            <div class="livecode livecode-2p">
+              <div class="result flexitems">
+                <div class="wrapper" style="font-size:50%">
+                  <div class="box">1一</div>
+                  <div class="box">2二</div>
+                  <div class="box">3三</div>
+                  <div class="box">4四</div>
+                  <div class="box">5五</div>
+                  <div class="box">6六</div>
+                  <div class="box">7七</div>
+                  <div class="box">8八</div>
+                  <div class="box">9九</div>
+                  <div class="box">10十</div>
+                  <div class="box">11十一</div>
+                  <div class="box">12十二</div>
+                  <div class="box">13十三</div>
+                  <div class="box">14十四</div>
+                  <div class="box">15十五</div>
+                  <div class="box">16十六</div>
+                  <div class="box">17十七</div>
+                  <div class="box">18十八</div>
+                  <div class="box">19十四</div>
+                  <div class="box">20二十</div>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.flexitems .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.flexitems .box:nth-child(2n+1) { 
+  padding: 0.5em 1.5em 3em;
+  align-self: ;
+} 
+
+.flexitems .box { border: 1px solid }
+.flexitems .box:nth-child(2n) { padding: 2.5em; } 
+.flexitems .box:nth-child(3n) { padding: 1.5em; }
+.flexitems .box:nth-child(3n+2) { padding: 3.5em 1em; }</style></div>
+            </div>
+          </section>
+
+          <section>
+            <img class="plain" data-src="img/cross-alignment.svg" alt="*-items/self values">
+          </section>
+
+          <section>
+            <h2>Let's build a thing</h2>
+            <a href="https://glitch.com/edit/#!/csscc-layout">Demo</a>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Cool stuff & pretty things</h2>
+            <p>If time permits…</p>
+          </section>
+
+          <section>
+            <h2>CSS transforms</h2>
+            <p>Allows us to change the <strong>shape</strong> and <strong>position</strong> of the affected content<br>without disrupting the normal document flow</p>
+          </section>
+
+          <section>
+            <h2>2D transform functions</h2>
+            <table>
+              <tr>
+                <td style="width:19em"><code>rotate( &lt;angle&gt; )</code></td>
+                <td>Performs a 2D rotation by the angle specified around the element's origin</td>
+              </tr>
+              <tr>
+                <td><code>translate( &lt;translation-value&gt; [, &lt;translation-value&gt; ]? )</code></td>
+                <td>Performs a 2D translation in the specified X and Y directions</td>
+              </tr>
+              <tr>
+                <td><code>skew( &lt;angle&gt; [, &lt;angle&gt; ]? )</code></td>
+                <td>Performs a 2D skew by the angles specified</td>
+              </tr>
+              <tr>
+                <td><code>scale( &lt;number&gt; [, &lt;number&gt; ]? )</code></td>
+                <td>Performs a 2D scale operation by the scaling vector specified</td>
+              </tr>
+            </table>
+            <aside class="notes">If you're familiar with image editing software like Photoshop, you'll find that a lot of image manipulation techniques can now be done in CSS as well. These are the four basic transformations for the 2D space. And you can also use them for 3D transforms.</aside>
+          </section>
+
+          <section>
+            <h2>Diagonal text with rotate()</h2>
+            <div class="vidcode" style="align-items:center">
+              <video autoplay loop>
+                <source data-src="videos/transforms2d.mp4" type="video/mp4" />
+                Sorry, your browser doesn't support embedded videos, 
+                but don't worry, you can <a href="videos/transforms2d.mp4">download it</a>
+                and watch it with your favourite video player!
+              </video>
+              <pre><code>.trf2d-cont {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows:  repeat(3, 2em) repeat(3, minmax(10vmin, 3em)) 2em 2em 50vh;
+  grid-gap: 0.125em;
+  position: relative;
+}
+
+@media screen and (min-width: 480px) {
+  .trf2d-cont {
+    transform: rotate(-30deg) translateX(5vh);
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .trf2d-cont {
+    transform: rotate(-30deg) translateY(-15vh);
+  }
+}</code></pre>
+            </div>
+          </section>
+
+          <section>
+            <h2>Perspective text</h2>
+            <div class="livecode livecode-2p">
+              <div class="result trf3d-cont">
+                <div>
+                  <h1>Rethinking Web Design</h1>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.trf3d-cont div { 
+  perspective: 45vw;
+  perspective-origin: 50% 0%;
+}
+
+.trf3d-cont h1 { 
+  transform: rotateY(-45deg);
+  background-color: #0077c8;
+  color: #191919;
+  padding: 0.25em 1em;
+}</style></div>
+            </div>
+          </section>
+
+          <section>
+            <div class="l-double">
+              <div>
+                <h2>CSS transitions</h2>
+                <p>Lets you <strong>create gradual transitions</strong> between the values of specific CSS properties</p>
+              </div>
+              <div>
+                <h2>CSS animations</h2>
+                <p>Lets you <strong>animate the values</strong> of CSS properties over time, using keyframes</p>
+              </div>
+            </div>
+            <p><em>Note: not all CSS properties are animatable</em></p>
+          </section>
+
+          <section>
+            <h2>Transition properties</h2>
+            <p><code>transition</code> is a shorthand property, covers the following (values are initial default values):</p>
+            <ul>
+              <li><code>transition-delay: 0s</code></li>
+              <li><code>transition-duration: 0s</code></li>
+              <li><code>transition-property: all</code></li>
+              <li><code>transition-timing-function: ease</code></li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Animation properties</h2>
+            <p><code>animation</code> is a shorthand property, covers the following (values are initial default values):</p>
+            <ul>
+              <li><code>animation-name: none</code></li>
+              <li><code>animation-duration: 0s</code></li>
+              <li><code>animation-timing-function: ease</code></li>
+              <li><code>animation-delay: 0s</code></li>
+              <li><code>animation-iteration-count: 1</code></li>
+              <li><code>animation-direction: normal</code></li>
+              <li><code>animation-fill-mode: none</code></li>
+              <li><code>animation-play-state: running</code></li>
+            </ul>
+            <p>Specified as one or more single animations, separated by commas.</p>
+          </section>
+
+          <section>
+            <h2>Fool's mate</h2>
+            <p class="codepen" data-height="600" data-theme-id="9162" data-default-tab="result" data-user="huijing" data-slug-hash="LoPEYV" style="height: 473px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="CSS Fool's Mate">
+              <span>See the Pen <a href="https://codepen.io/huijing/pen/LoPEYV/">
+              CSS Fool's Mate</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>)
+              on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+          </section>
+
+          <section>
+            <h2>Magical kittencorn</h2>
+            <p class="codepen" data-height="600" data-theme-id="9162" data-default-tab="html,result" data-user="huijing" data-slug-hash="YmXBwb" style="height: 348px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Magical kittencorn">
+              <span>See the Pen <a href="https://codepen.io/huijing/pen/YmXBwb/">
+              Magical kittencorn</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>)
+              on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+          </section>
+        </section>
+
+        <section>
+          <h2>Specifications</h2>
+          <p>Read them first, tutorials later.</p>
+          <a href="https://www.w3.org/Style/CSS/specs.en.html">CSS spec­i­fi­ca­tions: https://www.w3.org/Style/CSS/specs.en.html</a>
+        </section>
+
+        <section>
+          <h2>MDN web docs</h2>
+          <p>Go-to resource for all things web development.</p>
+          <a href="https://developer.mozilla.org/en-US/">MDN web docs: https://developer.mozilla.org/en-US/</a>
+        </section>
+
+        <section style="text-align:left">
+          <h1>Thank you!</h1>
+          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle">https://www.chenhuijing.com</a></p>
+          <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle">@huijing</a></p>
+          <p style="text-align:right"><small>Font is <a href="https://www.motyfo.com/fonts-library/magnetic-pro/">Magnetic Pro</a> by <a href="https://www.motyfo.com/">Olivier Gourvat</a></small></p>
+        </section>
+      </div>
+
+      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://www.chenhuijing.com/slides/61-css-crash-course</span><span style="text-align:right">@hj_chen</span></footer>
+    </div>
+
+    <script src="js/reveal.js"></script>
+    <script src="lib/js/caniuse-embed.min.js"></script>
+    <script src="lib/js/ei.js"></script>
+
+    <script>
+      Reveal.initialize({
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
 </html>
