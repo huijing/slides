@@ -1,3 +1,3 @@
 # Frontend Crash Course: CSS
 
-At Nexmo DevRelWeek, 24 July 2019.
+At Nexmo DevRelWeek, 25 July 2019.
