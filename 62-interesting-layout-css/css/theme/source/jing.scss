@@ -1,7 +1,7 @@
 /**
  * Custom theme for Reveal.js presentations.
  *
- * Copyright (C) 2018 Chen Hui Jing, https://www.chenhuijing.com/
+ * Copyright (C) 2019 Chen Hui Jing, https://www.chenhuijing.com/
  */
 
 // Default mixins and settings -----------------
@@ -42,7 +42,7 @@ html {
 
   .l-double {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50% 50%;
   }
 
   .j-icon {
@@ -205,4 +205,45 @@ span[role=img][aria-label]:hover::after {
   display: block;
   height: 100%;
   white-space: pre-wrap;
+}
+
+// Intro grid ------------------------------
+.intro-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(12, 2em);
+  grid-template-rows: repeat(11, 2em);
+  grid-template-areas: '. . . . a . . b . . . .'
+                       '. m . . . . . . . c . .'
+                       '. . . . . . . . . . . .'
+                       'l . . . . . . . . . . d'
+                       '. . . . . . . . . . . .'
+                       'k . . . . . . . . . . e'
+                       '. . . . . . . . . . . .'
+                       'j . . . . . . . . . . .'
+                       '. . . . . . . . . . f .'
+                       '. . i . . . . . g . . .'
+                       '. . . . . h . . . . . .';
+
+  span {
+    font-size: 1.5em;
+  }
+}
+
+.intro-grid span:first-child { grid-area: a; }
+.intro-grid span:nth-child(2) { grid-area: b; }
+.intro-grid span:nth-child(3) { grid-area: c; }
+.intro-grid span:nth-child(4) { grid-area: d; }
+.intro-grid span:nth-child(5) { grid-area: e; }
+.intro-grid span:nth-child(6) { grid-area: f; }
+.intro-grid span:nth-child(7) { grid-area: g; }
+.intro-grid span:nth-child(8) { grid-area: h; }
+.intro-grid span:nth-child(9) { grid-area: i; }
+.intro-grid span:nth-child(10) { grid-area: j; }
+.intro-grid span:nth-child(11) { grid-area: k; }
+.intro-grid span:nth-child(12) { grid-area: l; }
+.intro-grid span:nth-child(13) { grid-area: m; }
+.intro-grid div {
+  grid-row: 2 / -3;
+  grid-column: 1 / -1;
 }
