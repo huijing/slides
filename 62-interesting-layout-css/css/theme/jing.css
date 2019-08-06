@@ -126,7 +126,6 @@ body {
   width: 70%;
   margin: 20px auto;
   padding: 5px;
-  font-style: italic;
   background: rgba(255, 255, 255, 0.05);
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2); }
 
@@ -143,7 +142,6 @@ body {
   width: 90%;
   margin: 20px auto;
   text-align: left;
-  font-size: 0.55em;
   font-family: "Dank Mono", monospace;
   line-height: 1.2em;
   word-wrap: break-word;
@@ -157,7 +155,6 @@ body {
   display: block;
   padding: 5px;
   overflow: auto;
-  max-height: 400px;
   word-wrap: normal; }
 
 .reveal table {
@@ -295,15 +292,27 @@ html {
   vertical-align: middle;
   margin-right: 1rem; }
 
+.reveal strong {
+  color: #22509e; }
+
 .reveal em {
   color: #22509e; }
 
 .reveal pre {
-  line-height: 1.2;
-  font-size: 80%; }
+  line-height: 1.2; }
 
 .reveal code {
   font-family: 'Dank Mono', monospace; }
+
+.reveal code.alt {
+  background-color: #eee;
+  color: #199ff2;
+  padding: .25em;
+  display: inline-block;
+  border-radius: .25em; }
+
+.reveal pre code {
+  height: 100%; }
 
 .reveal blockquote {
   width: 80%;
@@ -323,9 +332,18 @@ html {
     left: -0.5em;
     content: '\201C'; }
   .reveal blockquote p::after {
-    bottom: 0;
-    right: -0.3em;
+    bottom: -0.5em;
+    right: -0.4em;
     content: '\201D'; }
+
+.reveal ul,
+.reveal ol {
+  max-width: 75%; }
+
+.reveal video {
+  display: block;
+  width: 50%;
+  margin: 0 auto 1em; }
 
 .reveal figure img {
   max-height: 75vh; }
@@ -372,6 +390,8 @@ span[role=img][aria-label]:hover::after {
   grid-gap: 0.5em;
   margin: 0;
   padding: 0; }
+  .livecode .markup {
+    font-size: 85%; }
   .livecode .result {
     max-height: 100%;
     overflow-y: scroll;
@@ -385,29 +405,27 @@ span[role=img][aria-label]:hover::after {
   .livecode .code {
     text-align: left;
     width: 100%;
-    font-family: 'Dank Mono', monospace;
+    font-family: monospace;
     color: #efdcbc;
     background-color: #3f3f3f;
     padding: 0.5em;
     border-radius: 0.25em;
-    overflow-y: scroll;
-    font-size: 75%; }
-
-.code-editor {
-  display: block;
-  height: 100%;
-  white-space: pre-wrap; }
-
-.vidcode {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  height: 75vh; }
-  .vidcode video {
-    align-self: center; }
+    overflow-y: scroll; }
 
 .livecode-2p {
-  grid-template-columns: 65% calc(35% - 0.5em);
-  height: 70vh; }
+  grid-template-columns: 50% 50%;
+  height: 60vh; }
+
+.livecode-3p {
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 'a b' 'a c'; }
+  .livecode-3p .markup {
+    grid-area: b; }
+  .livecode-3p .result {
+    grid-area: a; }
+  .livecode-3p .code {
+    grid-area: c; }
 
 .code-editor {
   display: block;

@@ -51,17 +51,32 @@ html {
     margin-right: 1rem;
   }
 
+  strong {
+    color: $headingColor;
+  }
+
   em {
     color: $headingColor;
   }
 
   pre {
     line-height: 1.2;
-    font-size: 80%;
   }
 
   code {
     font-family: 'Dank Mono', monospace;
+  }
+
+  code.alt {
+    background-color: #eee;
+    color: #199ff2;
+    padding: .25em;
+    display: inline-block;
+    border-radius: .25em;
+  }
+
+  pre code {
+    height: 100%;
   }
 
   blockquote {
@@ -87,10 +102,21 @@ html {
     }
 
     p::after {
-      bottom: 0;
-      right: -0.3em;
+      bottom: -0.5em;
+      right: -0.4em;
       content: '\201D';
     }
+  }
+
+  ul,
+  ol {
+    max-width: 75%;
+  }
+
+  video {
+    display: block;
+    width: 50%;
+    margin: 0 auto 1em;
   }
 
   figure {
@@ -151,6 +177,10 @@ span[role=img][aria-label]:hover::after {
   margin: 0;
   padding: 0;
 
+  .markup {
+    font-size: 85%;
+  }
+
   .result {
     max-height: 100%;
     overflow-y: scroll;
@@ -170,35 +200,37 @@ span[role=img][aria-label]:hover::after {
   .code {
     text-align: left;
     width: 100%;
-    font-family: 'Dank Mono', monospace;
+    font-family: monospace;
     color: #efdcbc;
     background-color: #3f3f3f;
     padding: 0.5em;
     border-radius: 0.25em;
     overflow-y: scroll;
-    font-size: 75%;
-  }
-}
-
-.code-editor {
-  display: block;
-  height: 100%;
-  white-space: pre-wrap;
-}
-
-.vidcode {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  height: 75vh;
-
-  video {
-    align-self: center;
   }
 }
 
 .livecode-2p {
-  grid-template-columns: 65% calc(35% - 0.5em);
-  height: 70vh;
+  grid-template-columns: 50% 50%;
+  height: 60vh;
+}
+
+.livecode-3p {
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 'a b'
+                       'a c';
+
+  .markup {
+    grid-area: b;
+  }
+
+  .result {
+    grid-area: a;
+  }
+
+  .code {
+    grid-area: c;
+  }
 }
 
 .code-editor {

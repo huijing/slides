@@ -62,7 +62,7 @@
         </section>
 
         <section>
-          <h2>SingaporeCSS</h2>
+          <h2><span class="emoji" role="img" tabindex="0" aria-label="Singapore">&#x1F1F8;&#x1F1EC;</span> SingaporeCSS <span class="emoji" role="img" tabindex="0" aria-label="Singapore">&#x1F1F8;&#x1F1EC;</span></h2>
           <img style="max-height:75vh" class="plain" data-src="img/pirate-ship.png" alt="SingaporeCSS organisers on a pirate ship">
           <div>
             <p><a href="https://singaporecss.github.io">https://singaporecss.github.io</a></p>
@@ -71,7 +71,320 @@
         </section>
 
         <section>
+          <section>
+            <h2>Initial value of <code>display</code> for all elements is <code>inline</code></h2>
+            <p class="fragment">Then how come <code>&lt;div&gt;</code>s, paragraphs, lists and the like are <code>&lt;display: block&gt;</code>?</p>
+          </section>
 
+          <section>
+            <p>Because browser default stylesheets.</p>
+            <video autoplay loop class="video">
+              <source data-src="videos/mindblown.mp4" type="video/mp4" />
+                Sorry, your browser doesn't support embedded videos, 
+                but don't worry, you can <a href="videos/mindblown.mp4">download it</a>
+                and watch it with your favourite video player!
+            </video>
+            <ul>
+              <li>Firefox stylesheet: <code>resource://gre-resources/html.css</code></li>
+              <li>Link to <a href="https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css">Chromium stylesheet</a></li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Inline-level element behaviour</h2>
+            <ul>
+              <li><code>inline</code>, <code>inline-table</code>, <code>inline-table</code>, <code>inline-flex</code>, <code>inline-grid</code></li>
+              <li class="fragment"><code>width</code> and <code>height</code> property does not apply</li>
+              <li class="fragment">height of content is based on font size</li>
+              <li class="fragment"><code>vertical-align</code> property only applies to inline-level and table-cell elements</li>
+              <li class="fragment">Only margins, borders and paddings along the inline axis have any visible effect on an inline box</li>
+            </ul>
+          </section>
+
+          <section>
+            <div class="livecode livecode-3p" style="max-height:100vh">
+              <pre class="markup" style="white-space:initial"><code class="html"><p class="line-container">If an element <em>generates zero boxes</em>, was it <strong>really there</strong> at all?</p></code></pre>
+              <div class="result linebox">
+                <p class="line-container">If an element <em>generates zero boxes</em>, was it <strong>really there</strong> at all?</p>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.linebox p.line-container {
+  font-size: 50%;
+  margin: 1em;
+}
+
+.linebox .line-container em {
+  
+  
+}
+
+.linebox .line-container strong {
+  
+  
+  
+}</style></div>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Block formatting contexts</h2>
+            <p>The context that <strong>block-level</strong> boxes participate in</p>
+            <div class="fragment">
+              <p>Boxes are laid out one after another, in the block flow direction, from the start of the containing block</p>
+              <img data-src="img/bfc.svg" alt="Block formatting context" class="plain" style="max-height:30vh">
+            </div>
+            <p class="fragment">Margins along the <em>block flow direction</em> between <strong>adjacent block-level</strong> boxes in the <strong>same</strong> block formatting context collapse</p>
+          </section>
+
+          <section>
+            <h2>What establishes new block formatting contexts?</h2>
+            <ul>
+              <li class="fragment">Floats</li>
+              <li class="fragment">Absolutely positioned elements</li>
+              <li class="fragment">Block containers that are <strong>not</strong> block boxes</li>
+              <li class="fragment">Block boxes with <code>overflow</code> <strong>other than</strong> <code>visible</code></li>
+              <li class="fragment">Boxes with <code>display</code> set to <code>flow-root</code></li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>We need a new BFC because...?</h2>
+            <p>1. Prevent collapsing margins</p>
+            <div class="livecode livecode-3p" style="height:85vh">
+              <pre class="markup"><code class="html"><p>This is a line of text in a p tag.</p>
+<div class="block-wrapper">
+  <div class="box1">I'm a box with margins.</div>
+  <div class="box2">I'm another box with margins.</div>
+</div></code></pre>
+              <div class="result collapse">
+                <p style="margin-bottom:0.5em">This is a line of text in a p tag.</p>
+                <div class="block-wrapper" style="background-color:pink">
+                  <div class="box1" style="background-color:salmon">I'm a box with margins.</div>
+                  <div class="box2" style="background-color:forestgreen;color:white">I'm another box with margins.</div>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.collapse .block-wrapper {
+  
+}
+
+.collapse .box1 {
+  margin: 0.5em;
+}
+
+.collapse .box2 {
+  margin: 0.5em;
+  
+}</style></div>
+            </div>
+          </section>
+  
+          <section>
+            <p>2. Stop text from flowing around the float</p>
+            <div class="livecode livecode-3p" style="height:90vh">
+              <pre class="markup"><code class="html"><div class="block-wrapper">
+  <div class="box1">I'm a floated box!</div>
+  <p class="box2">This is just a bunch of text that is going on and on so it's long enough to wrap around the float, line boxes yo!</p>
+</div></code></pre>
+              <div class="result stop-flow">
+                <div class="block-wrapper" style="background-color:pink">
+                  <div class="box1" style="background-color:salmon">I'm a floated box!</div>
+                  <p class="box2" style="background-color:forestgreen;color:white">This is just a bunch of text that is going on and on so it's long enough to wrap around the float, line boxes yo!</p>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.stop-flow .box1 {
+  float: left;
+}
+
+.stop-flow .box2 {
+  
+}</style></div>
+          </div>
+          </section>
+  
+          <section>
+            <p>3. Contains floats</p>
+            <div class="livecode livecode-3p" style="height:90vh">
+              <pre class="markup"><code class="html"><div class="block-wrapper">
+  <p class="box1">Floaty! ^_^</p>
+  <p class="box2">Floaty too! :)</p>
+</div></code></pre>
+              <div class="result contain">
+                <div class="block-wrapper" style="background-color:pink">
+                  <p class="box1" style="background-color:salmon">Floaty! ^_^</p>
+                  <p class="box2" style="background-color:forestgreen;color:white">Floaty too! :)</p>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.contain .block-wrapper {
+  border: 3px solid indigo;
+  
+}
+
+.contain .box1 {
+  float: left;
+}
+
+.contain .box2 {
+  float: left;
+}</style></div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Let's talk about margin collapsing</h2>
+            <p>1. Between adjacent siblings</p>
+          </section>
+
+          <section>
+            <p>2. Between empty boxes</p>
+          </section>
+
+          <section>
+            <p>3. Parent and first / last child element</p>
+          </section>
+
+          <section>
+            <h2>We can stop margins from collapsing by…?</h2>
+            <p>1. Add something in between the elements</p>
+          </section>
+
+          <section>
+            <p>2. Add border to the parent element</p>
+          </section>
+
+          <section>
+            <p>3. Create a new BFC</p>
+            <p>Refer to section on <a href="#/6/1">block formatting contexts</a> <span class="emoji" role="img" tabindex="0" aria-label="pointing down">&#x261D;&#xFE0F;</span></p>
+          </section>
+
+          <section>
+            <a href="https://www.smashingmagazine.com/2019/07/margins-in-css/">Everything You Need To Know About CSS Margins</a>
+          </section>
+        </section>
+
+        <section>
+          <h2>Grid gaps</h2>
+          <p>May cause overflow if you're not careful</p>
+          <div class="livecode livecode-2p" style="height:85vh">
+            <div class="result gridgap">
+              <div class="grid" style="height: 50vh">
+                <div class="grid__item" style="border:3px solid">1</div>
+                <div class="grid__item" style="border:3px solid">2</div>
+                <div class="grid__item" style="border:3px solid">3</div>
+                <div class="grid__item" style="border:3px solid">4</div>
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.gridgap .grid {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  
+}</style></div>
+        </section>
+
+        <section>
+          <h2>Flexbox and padding</h2>
+          <p><code>padding</code> at flex end side of overflow scroll container not applied</p>
+          <div class="livecode livecode-2p" style="height:85vh">
+            <div class="result flexpad">
+              <div class="flex">
+                <div class="flex__item">
+                  <img style="margin:0;max-height:initial;max-width:initial" class="plain" data-src="img/rabbits.jpg" alt="2 rabbits taking a nap">
+                </div>
+                <div class="flex__item">
+                  <img style="margin:0;max-height:initial;max-width:initial" class="plain" data-src="img/rabbits.jpg" alt="2 rabbits taking a nap">
+                </div>
+                <div class="flex__item">
+                  <img style="margin:0;max-height:initial;max-width:initial" class="plain" data-src="img/rabbits.jpg" alt="2 rabbits taking a nap">
+                </div>
+                <div class="flex__item">
+                  <img style="margin:0;max-height:initial;max-width:initial" class="plain" data-src="img/rabbits.jpg" alt="2 rabbits taking a nap">
+                </div>
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.flexpad .flex {
+  display: flex;
+  overflow-x: scroll;
+  
+}
+
+.flexpad .flex__item {
+  flex: 1 0 auto;
+}
+
+.flexpad .flex::after {
+  
+  
+}</style></div>
+        </section>
+
+        <section>
+          <h2>Use the flex shorthand</h2>
+          <blockquote>
+            <p>Authors are encouraged to control flexibility using the flex shorthand rather than with its longhand properties directly, as the shorthand <strong>correctly resets</strong> any unspecified components to accommodate common uses.</p>
+          </blockquote>
+        </section>
+
+        <section>
+          <section>
+            <h2>About shorthands…</h2>
+            <p>The <code>border</code> shorthand</p>
+            <ul>
+              <li class="fragment">Sets the same width, colour and style for all four borders of a box</li>
+              <li class="fragment">Unlike <code>margin</code> and <code>padding</code> shorthands, it <strong>cannot</strong> set different values on the four borders</li>
+              <li class="fragment">Also resets <code>border-image</code> to initial value</li>
+            </ul>
+            <blockquote class="fragment">
+              <p>It is therefore recommended that authors use the border shorthand, rather than other shorthands or the individual properties, to <strong>override any border settings earlier</strong> in the cascade.</p>
+            </blockquote>
+          </section>
+
+          <section>
+            <p>The <code>background</code> shorthand</p>
+            <code class="alt">&lt;bg-layer&gt;#, &lt;final-bg-layer&gt;</code>
+            <div class="fragment" style="margin-bottom:1em">
+              <p>where</p>
+              <code class="alt">&lt;bg-layer&gt; = &lt;bg-image&gt; || &lt;bg-position&gt; [ / &lt;bg-size&gt; ]? || &lt;repeat-style&gt; || &lt;attachment&gt; || &lt;box&gt; || &lt;box&gt;</code>
+              <code class="alt">&lt;final-bg-layer&gt; = &lt;'background-color'&gt; || &lt;bg-image&gt; || &lt;bg-position&gt; [ / &lt;bg-size&gt; ]? || &lt;repeat-style&gt; || &lt;attachment&gt; || &lt;box&gt; || &lt;box&gt;</code>
+            </div>
+            <ul class="fragment">
+              <li>at least 1 value must occur, the rest is pretty much up to you</li>
+              <li>for <code>&lt;position&gt;</code>, can optionally include <code>&lt;bg-size&gt;</code></li>
+              <li>entire set for <code>&lt;bg-layer&gt;</code> can occur multiple times, comma-separated</li>
+              <li>only <code>&lt;final-bg-layer&gt;</code> can have <code>&lt;'background-color'&gt;</code></li>
+            </ul>
+          </section> 
+
+          <section>
+            <blockquote>
+              <p>Given a valid declaration, for each layer the shorthand first sets the corresponding layer of each of <code>background-image</code>, <code>background-position</code>, <code>background-size</code>, <code>background-repeat</code>, <code>background-origin</code>, <code>background-clip</code> and <code>background-attachment</code> to that property’s initial value, <strong>then assigns any explicit values</strong> specified for this layer in the declaration. Finally <code>background-color</code> is set to the specified color, if any, else set to its initial value. </p>
+            </blockquote>
+          </section>
+
+          <section>
+            <p>The <code>animation</code> shorthand</p>
+            <code class="alt">&lt;single-animation&gt;#</code>
+            <div class="fragment" style="margin-bottom:1em">
+              <p>where</p>
+              <code class="alt">&lt;single-animation&gt; = &lt;time&gt; || &lt;easing-function&gt; || &lt;time&gt; || &lt;single-animation-iteration-count&gt; || &lt;single-animation-direction&gt; || &lt;single-animation-fill-mode&gt; || &lt;single-animation-play-state&gt; || [ none | &lt;keyframes-name&gt; ]</code>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Segue: reading CSS specifications</h2>
+          </section>
+
+          <section>
+            <h2>CSS property syntax</h2>
+            <p>Loosely based on the <a href="http://www.self.gutenberg.org/articles/eng/Backus-Naur_form">Backus-Naur Form (BNF)</a> notation</p>
+            <p class="fragment">A sandwich consists of a <em>lower slice of bread</em>, <em>mustard</em> or <em>mayonnaise</em>; optional <em>lettuce</em>, an optional slice of <em>tomato</em>; two to four slices of either <em>bologna</em>, <em>salami</em>, or <em>ham</em> (in any combination); one or more slices of <em>cheese</em>, and a <em>top slice of bread</em>.</p>
+            <code class="fragment alt">sandwich ::= lower_slice [ mustard | mayonnaise ] lettuce? tomato? [ bologna | salami | ham ]{2,4} cheese+ top_slice</code>
+            <p class="fragment"><small><em>Analogy from <a href="https://alistapart.com/article/readspec">How to Read W3C Specs</a>.</em></small></p>
+            <p class="fragment"><a href="https://www.chenhuijing.com/slides/15-css-syntax/#/">Slides</a> | <a href="https://www.chenhuijing.com/css-property-syntax/">Cheatsheet</a></p>
+          </section>
         </section>
 
         <section style="text-align:left">
