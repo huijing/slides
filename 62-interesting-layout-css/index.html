@@ -58,7 +58,7 @@
           <img style="max-height:10em;margin-bottom:0.5em" class="plain" data-src="img/love-dev.svg" alt="Nexmo Developer Relations">
           <p><span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span> Developer Advocate <span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span></p>
           <img style="max-height:2.5em;margin-top:1em" class="plain" data-src="img/nexmo.svg" alt="Nexmo">
-          <aside class="notes">I also have a day job as a Developer Advocate with Nexmo. Nexmo being a platform that provides APIs for messaging, voice and authentication so developers can easily integrate communications into their applications.</aside>
+          <p><a href="https://www.nexmoconvo.com/registration-au">http://bit.ly/convo-melb</a></p>
         </section>
 
         <section>
@@ -235,23 +235,94 @@
           <section>
             <h2>Let's talk about margin collapsing</h2>
             <p>1. Between adjacent siblings</p>
+            <div class="livecode livecode-2p" style="height:85vh">
+              <div class="result siblings" style="background-color:pink">
+                <div style="background-color:salmon" class="brother">Brother</div>
+                <div style="background-color:forestgreen;color:white" class="sister">Sister</div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.siblings {
+  writing-mode: horizontal-tb;
+}
+
+.siblings .brother {
+  margin-bottom: 1em;
+}
+
+.siblings .sister {
+  margin-top: 1em;
+}</style></div>
           </section>
 
           <section>
             <p>2. Between empty boxes</p>
+            <div class="livecode livecode-2p" style="height:85vh">
+              <div class="result empty" style="background-color:pink">
+                <div style="background-color:salmon" class="full">Got stuff</div>
+                <div class="nothing"></div>
+                <div style="background-color:forestgreen;color:white" class="full">Not empty</div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.empty {
+  writing-mode: horizontal-tb;
+}
+              
+.empty .nothing {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}</style></div>
           </section>
 
           <section>
             <p>3. Parent and first / last child element</p>
+            <div class="livecode livecode-2p" style="height:85vh">
+              <div class="result family">
+                <div style="background-color:pink" class="parent">
+                  <p style="margin-bottom:1em">This is the parent element</p>
+                  <div style="background-color:salmon" class="child">This is a child element</div>
+                  <div style="background-color:forestgreen" class="child">This is a child element</div>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.family .parent {
+  writing-mode: horizontal-tb;
+}
+              
+.family .child {
+  margin-bottom: 1em;
+}</style></div>
           </section>
 
           <section>
             <h2>We can stop margins from collapsing by…?</h2>
             <p>1. Add something in between the elements</p>
+            <div class="livecode livecode-2p" style="height:85vh">
+              <div style="background-color:pink" class="result fixcollapse">
+                <div style="background-color:salmon" class="full">Got stuff</div>
+                <div class="nothing"></div>
+                <div style="background-color:forestgreen;color:white" class="full">Not empty</div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.fixcollapse .nothing {
+  margin-bottom: 1em;
+  margin-top: 1em;
+  
+}</style></div>
           </section>
 
           <section>
             <p>2. Add border to the parent element</p>
+            <div class="livecode livecode-2p" style="height:85vh">
+              <div class="result fixcollapse">
+                <div style="background-color:pink" class="parent">
+                  <p style="margin-bottom:1em">This is the parent element</p>
+                  <div style="background-color:salmon" class="child">This is a child element</div>
+                  <div style="background-color:forestgreen" class="child">This is a child element</div>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.fixcollapse .parent {
+  
+}
+
+.fixcollapse .child {
+  margin-bottom: 1em;
+}</style></div>
           </section>
 
           <section>
@@ -260,7 +331,13 @@
           </section>
 
           <section>
-            <a href="https://www.smashingmagazine.com/2019/07/margins-in-css/">Everything You Need To Know About CSS Margins</a>
+            <p>
+              <span class="emoji" role="img" tabindex="0" aria-label="nerd face">&#x1F913;</span>
+              <a href="https://www.smashingmagazine.com/2019/07/margins-in-css/">Everything You Need To Know About CSS Margins</a>
+              <span class="emoji" role="img" tabindex="0" aria-label="nerd face">&#x1F913;</span>
+            </p>
+            <img data-src="img/margins-article.png" alt="QR code for Smashing article on margins" class="plain" style="max-height:75vh">
+            <p>https://www.smashingmagazine.com/2019/07/margins-in-css/</p>
           </section>
         </section>
 
