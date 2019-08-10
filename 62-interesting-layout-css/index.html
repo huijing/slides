@@ -26,7 +26,7 @@
           <h1>Interesting things I learnt about layout</h1>
           <h3>(and general CSS…)</h3>
           <p><small><a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
-          <img class="plain" style="height:35vh" data-src="img/boxmodel.svg" alt="Do you Box Model?">
+          <img class="plain" style="height:25vh" data-src="img/boxmodel.svg" alt="Do you Box Model?">
         </section>
 
         <section>
@@ -63,7 +63,7 @@
 
         <section>
           <h2><span class="emoji" role="img" tabindex="0" aria-label="Singapore">&#x1F1F8;&#x1F1EC;</span> SingaporeCSS <span class="emoji" role="img" tabindex="0" aria-label="Singapore">&#x1F1F8;&#x1F1EC;</span></h2>
-          <img style="max-height:75vh" class="plain" data-src="img/pirate-ship.png" alt="SingaporeCSS organisers on a pirate ship">
+          <img style="max-height:55vh" class="plain" data-src="img/pirate-ship.png" alt="SingaporeCSS organisers on a pirate ship">
           <div>
             <p><a href="https://singaporecss.github.io">https://singaporecss.github.io</a></p>
             <p><a href="https://twitter.com/SingaporeCSS">@SingaporeCSS</a> | <a href="https://twitter.com/hj_chen">@hj_chen</a> | <a href="https://twitter.com/wgao19">@wgao19</a></p>
@@ -95,7 +95,7 @@
           <section>
             <h2>Inline-level element behaviour</h2>
             <ul>
-              <li><code>inline</code>, <code>inline-table</code>, <code>inline-table</code>, <code>inline-flex</code>, <code>inline-grid</code></li>
+              <li><code>inline</code>, <code>inline-table</code>, <code>inline-block</code>, <code>inline-flex</code>, <code>inline-grid</code></li>
               <li class="fragment"><code>width</code> and <code>height</code> property does not apply</li>
               <li class="fragment">height of content is based on font size</li>
               <li class="fragment"><code>vertical-align</code> property only applies to inline-level and table-cell elements</li>
@@ -104,7 +104,7 @@
           </section>
 
           <section>
-            <div class="livecode livecode-3p" style="max-height:100vh">
+            <div class="livecode livecode-3p" style="max-height:80vh">
               <pre class="markup" style="white-space:initial"><code class="html"><p class="line-container">If an element <em>generates zero boxes</em>, was it <strong>really there</strong> at all?</p></code></pre>
               <div class="result linebox">
                 <p class="line-container">If an element <em>generates zero boxes</em>, was it <strong>really there</strong> at all?</p>
@@ -115,14 +115,14 @@
 }
 
 .linebox .line-container em {
-  
-  
+  //background-color: forestgreen;
+  //padding: 0.5em;
 }
 
 .linebox .line-container strong {
-  
-  
-  
+  //background-color: rebeccapurple;
+  //padding: 0.5em;
+  //mix-blend-mode: difference
 }</style></div>
             </div>
           </section>
@@ -153,7 +153,7 @@
           <section>
             <h2>We need a new BFC because...?</h2>
             <p>1. Prevent collapsing margins</p>
-            <div class="livecode livecode-3p" style="height:85vh">
+            <div class="livecode livecode-3p" style="height:65vh">
               <pre class="markup"><code class="html"><p>This is a line of text in a p tag.</p>
 <div class="block-wrapper">
   <div class="box1">I'm a box with margins.</div>
@@ -167,7 +167,7 @@
                 </div>
               </div>
               <div class="code"><style class="code-editor" contenteditable="true">.collapse .block-wrapper {
-  
+  //overflow: hidden;
 }
 
 .collapse .box1 {
@@ -176,14 +176,14 @@
 
 .collapse .box2 {
   margin: 0.5em;
-  
+  //display: inline-block;
 }</style></div>
             </div>
           </section>
   
           <section>
             <p>2. Stop text from flowing around the float</p>
-            <div class="livecode livecode-3p" style="height:90vh">
+            <div class="livecode livecode-3p" style="height:80vh">
               <pre class="markup"><code class="html"><div class="block-wrapper">
   <div class="box1">I'm a floated box!</div>
   <p class="box2">This is just a bunch of text that is going on and on so it's long enough to wrap around the float, line boxes yo!</p>
@@ -199,14 +199,14 @@
 }
 
 .stop-flow .box2 {
-  
+  //overflow: auto;
 }</style></div>
           </div>
           </section>
   
           <section>
             <p>3. Contains floats</p>
-            <div class="livecode livecode-3p" style="height:90vh">
+            <div class="livecode livecode-3p" style="height:80vh">
               <pre class="markup"><code class="html"><div class="block-wrapper">
   <p class="box1">Floaty! ^_^</p>
   <p class="box2">Floaty too! :)</p>
@@ -219,7 +219,7 @@
               </div>
               <div class="code"><style class="code-editor" contenteditable="true">.contain .block-wrapper {
   border: 3px solid indigo;
-  
+  //display: flow-root;
 }
 
 .contain .box1 {
@@ -235,7 +235,7 @@
           <section>
             <h2>Let's talk about margin collapsing</h2>
             <p>1. Between adjacent siblings</p>
-            <div class="livecode livecode-2p" style="height:85vh">
+            <div class="livecode livecode-2p" style="height:65vh">
               <div class="result siblings" style="background-color:pink">
                 <div style="background-color:salmon" class="brother">Brother</div>
                 <div style="background-color:forestgreen;color:white" class="sister">Sister</div>
@@ -255,7 +255,7 @@
 
           <section>
             <p>2. Between empty boxes</p>
-            <div class="livecode livecode-2p" style="height:85vh">
+            <div class="livecode livecode-2p" style="height:80vh">
               <div class="result empty" style="background-color:pink">
                 <div style="background-color:salmon" class="full">Got stuff</div>
                 <div class="nothing"></div>
@@ -273,7 +273,7 @@
 
           <section>
             <p>3. Parent and first / last child element</p>
-            <div class="livecode livecode-2p" style="height:85vh">
+            <div class="livecode livecode-2p" style="height:80vh">
               <div class="result family">
                 <div style="background-color:pink" class="parent">
                   <p style="margin-bottom:1em">This is the parent element</p>
@@ -291,9 +291,9 @@
           </section>
 
           <section>
-            <h2>We can stop margins from collapsing by…?</h2>
-            <p>1. Add something in between the elements</p>
-            <div class="livecode livecode-2p" style="height:85vh">
+            <h2>We prevent margin collapse by…?</h2>
+            <p>1. Adding something in between the elements</p>
+            <div class="livecode livecode-2p" style="height:65vh">
               <div style="background-color:pink" class="result fixcollapse">
                 <div style="background-color:salmon" class="full">Got stuff</div>
                 <div class="nothing"></div>
@@ -302,13 +302,14 @@
               <div class="code"><style class="code-editor" contenteditable="true">.fixcollapse .nothing {
   margin-bottom: 1em;
   margin-top: 1em;
-  
+  //border: 1px solid;
+  //padding: 1px;
 }</style></div>
           </section>
 
           <section>
             <p>2. Add border to the parent element</p>
-            <div class="livecode livecode-2p" style="height:85vh">
+            <div class="livecode livecode-2p" style="height:80vh">
               <div class="result fixcollapse">
                 <div style="background-color:pink" class="parent">
                   <p style="margin-bottom:1em">This is the parent element</p>
@@ -317,7 +318,7 @@
                 </div>
               </div>
               <div class="code"><style class="code-editor" contenteditable="true">.fixcollapse .parent {
-  
+  //border: 3px solid;
 }
 
 .fixcollapse .child {
@@ -336,7 +337,7 @@
               <a href="https://www.smashingmagazine.com/2019/07/margins-in-css/">Everything You Need To Know About CSS Margins</a>
               <span class="emoji" role="img" tabindex="0" aria-label="nerd face">&#x1F913;</span>
             </p>
-            <img data-src="img/margins-article.png" alt="QR code for Smashing article on margins" class="plain" style="max-height:75vh">
+            <img data-src="img/margins-article.png" alt="QR code for Smashing article on margins" class="plain" style="max-height:50vh">
             <p>https://www.smashingmagazine.com/2019/07/margins-in-css/</p>
           </section>
         </section>
@@ -344,7 +345,7 @@
         <section>
           <h2>Grid gaps</h2>
           <p>May cause overflow if you're not careful</p>
-          <div class="livecode livecode-2p" style="height:85vh">
+          <div class="livecode livecode-2p" style="height:65vh">
             <div class="result gridgap">
               <div class="grid" style="height: 50vh">
                 <div class="grid__item" style="border:3px solid">1</div>
@@ -361,9 +362,9 @@
         </section>
 
         <section>
-          <h2>Flexbox and padding</h2>
-          <p><code>padding</code> at flex end side of overflow scroll container not applied</p>
-          <div class="livecode livecode-2p" style="height:85vh">
+          <h2>Overscroll and padding</h2>
+          <p><code>padding</code> at end side of overflow scroll container not applied</p>
+          <div class="livecode livecode-2p" style="height:65vh">
             <div class="result flexpad">
               <div class="flex">
                 <div class="flex__item">
@@ -383,7 +384,7 @@
             <div class="code"><style class="code-editor" contenteditable="true">.flexpad .flex {
   display: flex;
   overflow-x: scroll;
-  
+  padding: 1em;
 }
 
 .flexpad .flex__item {
@@ -391,8 +392,8 @@
 }
 
 .flexpad .flex::after {
-  
-  
+  //content: '';
+  //padding-right: 1em;  
 }</style></div>
         </section>
 
@@ -447,11 +448,21 @@
               <code class="alt">&lt;single-animation&gt; = &lt;time&gt; || &lt;easing-function&gt; || &lt;time&gt; || &lt;single-animation-iteration-count&gt; || &lt;single-animation-direction&gt; || &lt;single-animation-fill-mode&gt; || &lt;single-animation-play-state&gt; || [ none | &lt;keyframes-name&gt; ]</code>
             </div>
           </section>
+
+          <section>
+            <h2>Don't forget about the cascade</h2>
+            <p></p>
+            <p class="codepen" data-height="600" data-theme-id="9162" data-default-tab="css,result" data-user="huijing" data-slug-hash="YmXBwb" style="height: 600px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Magical kittencorn">
+              <span>See the Pen <a href="https://codepen.io/huijing/pen/YmXBwb/">
+              Magical kittencorn</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>)
+              on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+          </section>
         </section>
 
         <section>
           <section>
-            <h2>Segue: reading CSS specifications</h2>
+            <h2>Also, reading CSS specifications</h2>
           </section>
 
           <section>
@@ -478,6 +489,7 @@
     </div>
 
     <script src="js/reveal.js"></script>
+    <script src="lib/js/ei.js"></script>
 
     <script>
       Reveal.initialize({
