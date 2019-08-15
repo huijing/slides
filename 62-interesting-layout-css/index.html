@@ -441,22 +441,55 @@
           </section>
 
           <section>
+            <p>
+              <span class="emoji" role="img" tabindex="0" aria-label="nerd face">&#x1F913;</span>
+              <a href="https://csswizardry.com/2016/12/css-shorthand-syntax-considered-an-anti-pattern/">CSS Shorthand Syntax Considered an Anti-Pattern</a>
+              <span class="emoji" role="img" tabindex="0" aria-label="nerd face">&#x1F913;</span>
+            </p>
+            <img data-src="img/shorthands-article.png" alt="QR code for Harry's article on CSS shorthands" class="plain" style="max-height:50vh">
+            <p>https://csswizardry.com/2016/12/css-shorthand-syntax-considered-an-anti-pattern/</p>
+          </section>
+
+          <section>
             <p>The <code>animation</code> shorthand</p>
             <code class="alt">&lt;single-animation&gt;#</code>
             <div class="fragment" style="margin-bottom:1em">
               <p>where</p>
               <code class="alt">&lt;single-animation&gt; = &lt;time&gt; || &lt;easing-function&gt; || &lt;time&gt; || &lt;single-animation-iteration-count&gt; || &lt;single-animation-direction&gt; || &lt;single-animation-fill-mode&gt; || &lt;single-animation-play-state&gt; || [ none | &lt;keyframes-name&gt; ]</code>
             </div>
+            <p class="fragment">The order of values within each animation definition is important: the first value that can be parsed as a <code>&lt;time&gt;</code> is assigned to the <code>animation-duration</code>, and the second one is assigned to <code>animation-delay</code>.</p>
           </section>
 
           <section>
-            <h2>Don't forget about the cascade</h2>
-            <p></p>
-            <p class="codepen" data-height="600" data-theme-id="9162" data-default-tab="css,result" data-user="huijing" data-slug-hash="YmXBwb" style="height: 600px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Magical kittencorn">
-              <span>See the Pen <a href="https://codepen.io/huijing/pen/YmXBwb/">
-              Magical kittencorn</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>)
-              on <a href="https://codepen.io">CodePen</a>.</span>
-            </p>
+            <h2>Understanding the cascade</h2>
+            <div class="livecode livecode-2p" style="height:65vh">
+              <div class="result magic">
+                <div id="magic">
+                  <svg class="kittencorn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 415 352" fill="none"><path class="rainbow" stroke="#000" stroke-width="5" d="M123.877 230.922c3.406 2.175 6.516 6.728 8.244 12.418 1.715 5.643 1.948 12.021.031 17.572-1.888 5.468-5.891 10.25-12.963 12.885-7.165 2.669-17.684 3.205-32.61-.401-29.756-7.188-54.915-26.626-69.709-46.127-7.404-9.76-12.078-19.362-13.534-27.273-1.455-7.906.345-13.544 5.04-16.585 2.651-1.719 4.958-2.45 7.019-2.553 2.056-.102 4.063.411 6.135 1.492 4.28 2.234 8.493 6.679 13.401 12.284.685.781 1.38 1.583 2.088 2.399 9.146 10.54 20.398 23.508 37.356 27.282 17.484 3.891 28.625 4.625 36.201 4.894 1.074.038 2.056.066 2.962.093 2.338.068 4.167.121 5.751.285 2.118.219 3.459.614 4.588 1.335z"/><path class="rainbow" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-width="5" d="M151.901 58.517S86.599 28.76 71.819 42.603c-14.78 13.845 9.153 90.422 9.153 90.422s11.039-23.8 29.824-42.843c18.785-19.043 41.105-31.665 41.105-31.665z" clip-rule="evenodd"/><path fill="#000" fill-rule="evenodd" d="M138 67.311S93.39 46.981 83.292 56.44c-10.097 9.458 6.253 61.771 6.253 61.771s7.54-16.259 20.374-29.268C122.752 75.933 138 67.31 138 67.31z" clip-rule="evenodd"/><path class="rainbow" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-width="5" d="M327 58.517s65.302-29.758 80.082-15.914c14.78 13.845-9.152 90.422-9.152 90.422s-11.039-23.8-29.824-42.843C349.32 71.139 327 58.517 327 58.517z" clip-rule="evenodd"/><path fill="#000" fill-rule="evenodd" d="M340.451 67.311s44.611-20.33 54.707-10.871c10.097 9.458-6.252 61.771-6.252 61.771s-7.541-16.259-20.374-29.268c-12.833-13.01-28.081-21.632-28.081-21.632z" clip-rule="evenodd"/><path class="rainbow" fill-rule="evenodd" stroke="#000" stroke-width="5" d="M239.5 319c95.269 0 172.5-30.225 172.5-112.067C412 125.091 364.154 43 239.5 43S67 125.091 67 206.933 144.231 319 239.5 319z" clip-rule="evenodd"/><path fill="#fff" fill-rule="evenodd" d="M269.421 85.475s-17.077-79.652-29.71-79.652C227.077 5.823 210 85.474 210 85.474s13.603 10.033 29.711 10.033c16.107 0 29.71-10.032 29.71-10.032z" clip-rule="evenodd"/><path stroke="#1CAFEF" stroke-linecap="round" stroke-width="5" d="M220.57 43.788s10.301 9.215 18.976 12.264c8.675 3.05 23.971 4.846 23.971 4.846M227.126 24.256s7.002 7.088 13.172 9.746c6.17 2.658 16.23 2.453 16.23 2.453"/><path stroke="#000" stroke-linecap="square" stroke-width="5" d="M269.421 85.475l1.484 2.012 1.299-.959-.338-1.578-2.445.525zm0 0l1.483 2.012-.002.002-.004.003-.012.008-.039.029-.136.097c-.116.083-.284.2-.5.347a49.67 49.67 0 0 1-1.856 1.198 64.981 64.981 0 0 1-6.698 3.588c-5.598 2.593-13.398 5.248-21.946 5.248-8.549 0-16.349-2.655-21.947-5.248a64.981 64.981 0 0 1-6.698-3.588 49.67 49.67 0 0 1-1.856-1.198 32.2 32.2 0 0 1-.5-.347l-.136-.097-.039-.029-.012-.008-.004-.003-.002-.002L210 85.475m59.421 0c2.445-.525 2.445-.525 2.444-.526v-.003l-.003-.011-.009-.045-.038-.174-.147-.672a648.068 648.068 0 0 0-2.682-11.6c-1.804-7.49-4.344-17.49-7.284-27.5-2.933-9.987-6.291-20.077-9.742-27.706-1.719-3.8-3.515-7.114-5.364-9.517-1.725-2.242-4.031-4.398-6.885-4.398-2.855 0-5.16 2.156-6.886 4.398-1.849 2.403-3.645 5.717-5.364 9.517-3.451 7.629-6.809 17.719-9.742 27.706-2.94 10.01-5.48 20.01-7.284 27.5a662.824 662.824 0 0 0-2.682 11.6l-.147.672-.037.174-.01.044-.003.012v.003l2.444.526m0 0l-2.444-.525-.339 1.578 1.299.959L210 85.475z"/><path class="rainbow" stroke="#000" stroke-width="5" d="M112.172 294.814c.162-.44.936-1.327 3.831-1.852 2.712-.491 6.499-.505 11.099-.061 9.159.885 20.929 3.525 32.386 7.041 11.461 3.517 22.442 7.861 30.052 12.086 3.835 2.128 6.632 4.129 8.23 5.859 1.691 1.831 1.355 2.513 1.273 2.66-3.557 6.449-6.703 10.517-10.829 13.38-4.148 2.877-9.531 4.708-17.896 6.183-16.152 2.848-28.509-1.923-48.52-10.911-6.312-2.835-9.911-7.947-11.371-14.096-1.477-6.22-.747-13.496 1.745-20.289zM366.828 294.814c-.162-.44-.936-1.327-3.831-1.852-2.712-.491-6.499-.505-11.099-.061-9.159.885-20.929 3.525-32.386 7.041-11.461 3.517-22.442 7.861-30.052 12.086-3.835 2.128-6.632 4.129-8.23 5.859-1.691 1.831-1.355 2.513-1.273 2.66 3.557 6.449 6.703 10.517 10.829 13.38 4.148 2.877 9.531 4.708 17.896 6.183 16.152 2.848 28.509-1.923 48.52-10.911 6.312-2.835 9.911-7.947 11.371-14.096 1.477-6.22.747-13.496-1.745-20.289z"/><path fill="#000" fill-rule="evenodd" d="M142.729 141.367l52.56 22.575s-6.123 54.384-47.317 41.688c-23.433-7.223-5.243-64.263-5.243-64.263z" clip-rule="evenodd"/><path stroke="#000" stroke-linecap="round" stroke-width="5" d="M139.5 140.45l56 24"/><path fill="#fff" fill-rule="evenodd" d="M180 181.95c2.761 0 5-4.03 5-9 0-4.971-2.239-9-5-9s-5 4.029-5 9c0 4.97 2.239 9 5 9z" clip-rule="evenodd"/><path fill="#000" fill-rule="evenodd" d="M336.271 141.367l-52.56 22.575s6.123 54.384 47.317 41.688c23.433-7.223 5.243-64.263 5.243-64.263z" clip-rule="evenodd"/><path stroke="#000" stroke-linecap="round" stroke-width="5" d="M339.5 140.45l-56 24"/><path fill="#fff" fill-rule="evenodd" d="M332 181.95c-2.761 0-5-4.03-5-9 0-4.971 2.239-9 5-9s5 4.029 5 9c0 4.97-2.239 9-5 9z" clip-rule="evenodd"/><path fill="#000" fill-rule="evenodd" d="M231.498 213.403c2.378-2.079 13.645-1.791 16.729 0 3.084 1.791-3.754 9.199-8.09 9.199-4.335 0-11.017-7.119-8.639-9.199z" clip-rule="evenodd"/><path stroke="#000" stroke-linecap="round" stroke-width="5" d="M247.756 262.45s-5.481-13.5-7.878-13.5c-2.398 0-7.878 13.5-7.878 13.5"/></svg>
+                  <p class="magic">Magic</p>
+                  <svg class="sparkle" viewBox="0.0 0.0 50.0 50.0" fill="none" stroke="none" stroke-linecap="square" stroke-miterlimit="10"><clipPath id="p.0"><path d="m0 0l50.0 0l0 50.0l-50.0 0l0 -50.0z" clip-rule="nonzero"></path></clipPath><g clip-path="url(#p.0)"><path fill-opacity="0.0" d="m0 0l50.0 0l0 50.0l-50.0 0z" fill-rule="nonzero"></path><path fill="#fff" d="m0.62204725 25.0l20.068499 -4.323374l4.309454 -20.13332l4.309454 20.13332l20.068499 4.323374l-20.068499 4.323374l-4.309454 20.133318l-4.309454 -20.133318z" fill-rule="nonzero"></path><path stroke-width="1.0" stroke-linejoin="round" stroke-linecap="butt" d="m0.62204725 25.0l20.068499 -4.323374l4.309454 -20.13332l4.309454 20.13332l20.068499 4.323374l-20.068499 4.323374l-4.309454 20.133318l-4.309454 -20.133318z" fill-rule="nonzero"></path></g></svg>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.animate p {
+  animation: type 1s linear;
+  animation-delay: 1.9s;
+  animation-fill-mode: forwards;
+  
+}
+
+.animate .sparkle {
+  animation: sparkle 2s;
+  animation-delay: 3.3s;
+  animation-fill-mode: forwards;
+  
+}
+
+.animate .kittencorn { animation: spin 2s }
+
+.animate .rainbow {
+  animation: rainbow 2s;
+  animation-fill-mode: forwards;
+}</style></div>
           </section>
         </section>
 
@@ -468,6 +501,17 @@
           <section>
             <h2>CSS property syntax</h2>
             <p>Loosely based on the <a href="http://www.self.gutenberg.org/articles/eng/Backus-Naur_form">Backus-Naur Form (BNF)</a> notation</p>
+            <ul>
+              <li class="fragment">Introduced by <strong>John Backus</strong> and <strong>Peter Naur</strong></li>
+              <li class="fragment">A context-free notation method to describe the syntax of a language.</li>
+              <li class="fragment">The CSS property value syntax is loosely based on BNF notation.</li>
+            </ul>
+            <code class="fragment alt">&lt;symbol&gt; ::= __expression__</code>
+            <p class="fragment">The stuff on the left can be replaced by the stuff on the right.</p>
+          </section>
+  
+          <section>
+            <h2>A BNF Sandwich <span class="emoji" role="img" tabindex="0" aria-label="burger">&#x1F354;</span></h2>
             <p class="fragment">A sandwich consists of a <em>lower slice of bread</em>, <em>mustard</em> or <em>mayonnaise</em>; optional <em>lettuce</em>, an optional slice of <em>tomato</em>; two to four slices of either <em>bologna</em>, <em>salami</em>, or <em>ham</em> (in any combination); one or more slices of <em>cheese</em>, and a <em>top slice of bread</em>.</p>
             <code class="fragment alt">sandwich ::= lower_slice [ mustard | mayonnaise ] lettuce? tomato? [ bologna | salami | ham ]{2,4} cheese+ top_slice</code>
             <p class="fragment"><small><em>Analogy from <a href="https://alistapart.com/article/readspec">How to Read W3C Specs</a>.</em></small></p>
@@ -490,6 +534,7 @@
 
     <script src="js/reveal.js"></script>
     <script src="lib/js/ei.js"></script>
+    <script src="lib/js/custom.js"></script>
 
     <script>
       Reveal.initialize({

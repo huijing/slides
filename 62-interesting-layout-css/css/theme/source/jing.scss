@@ -111,6 +111,7 @@ html {
   ul,
   ol {
     max-width: 75%;
+    margin-bottom: 1em;
   }
 
   video {
@@ -237,6 +238,82 @@ span[role=img][aria-label]:hover::after {
   display: block;
   height: 100%;
   white-space: pre-wrap;
+}
+
+.magic {
+  div {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    gap: 1em;
+    align-items: center;
+    margin: auto;
+    position: relative;
+    justify-content: center;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  .kittencorn {
+    height: 50vmin;
+  }
+  
+  .rainbow {
+    fill: #a3e048;
+  }
+  
+  p {
+    font-size: calc(1em + 3vmin);
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    text-transform: uppercase;
+    overflow: hidden;
+    height: 0;
+  }
+  
+  .sparkle {
+    position: absolute;
+    opacity: 0;
+    top: 25%;
+    right: 40%;
+    height: 1em;
+  }
+}
+
+@keyframes type { 
+  0% { height: 0 }
+  100% { height: 100% }
+}
+
+@keyframes rainbow { 
+  0% { fill: #a3e048 }
+  14.3% { fill: #f7d038 }
+  28.6% { fill: #eb7532 }
+  42.9% { fill: #e6261f } 
+  57.2% { fill: #49da9a }
+  71.5% { fill: #34bbe6 }
+  85.8% { fill: #4355db }
+  100% { fill: #d23be7 }
+}
+
+@keyframes spin { 
+  100% { 
+    transform: rotate(720deg);
+  } 
+}
+
+@keyframes sparkle {
+  0%   {
+    opacity: 0;
+    transform: rotate(0deg) scale(0);
+  }
+  50%  {
+    opacity: 1;
+    transform: rotate(360deg) scale(1.3);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(720deg) scale(0);
+  }
 }
 
 // Intro grid ------------------------------
