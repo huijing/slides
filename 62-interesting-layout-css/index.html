@@ -398,10 +398,34 @@
         </section>
 
         <section>
-          <h2>Use the flex shorthand</h2>
-          <blockquote>
-            <p>Authors are encouraged to control flexibility using the flex shorthand rather than with its longhand properties directly, as the shorthand <strong>correctly resets</strong> any unspecified components to accommodate common uses.</p>
-          </blockquote>
+          <section>
+            <h2>Use the flex shorthand</h2>
+            <blockquote>
+              <p>Authors are encouraged to control flexibility using the flex shorthand rather than with its longhand properties directly, as the shorthand <strong>correctly resets</strong> any unspecified components to accommodate common uses.</p>
+            </blockquote>
+          </section>
+
+          <section>
+            <h2>Flex keywords</h2>
+            <table>
+              <tr>
+                <td style="width:14em"><code>flex: initial</code></td>
+                <td><code>flex: 0 1 auto</code>, cannot grow but can shrink when there isn't enough space</td>
+              </tr>
+              <tr>
+                <td><code>flex: auto</code></td>
+                <td><code>flex: 1 1 auto</code>, can grow and shrink to fit available space</td>
+              </tr>
+              <tr>
+                <td><code>flex: none</code></td>
+                <td><code>flex: 0 0 auto</code>, cannot grow or shrink, AKA inflexible</td>
+              </tr>
+              <tr>
+                <td><code>flex: &lt;positive-number&gt;</code></td>
+                <td><code>flex: &lt;positive-number&gt; 1 0</code>, can grow and shrink, extent of growth depends on flex factor</td>
+              </tr>
+            </table>
+          </section>
         </section>
 
         <section>
