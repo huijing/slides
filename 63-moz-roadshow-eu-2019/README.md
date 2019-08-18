@@ -1,24 +1,12 @@
-# Using DevTools to understand modern CSS layouts
+# Understanding modern CSS layouts with Firefox DevTools
 
 ## On how cool DevTools console can be
 
-I learnt a lot of cool things about DevTools from Alex, and the one thing that stood out to me most was that the DevTools console can totally be styled up with CSS. But just like support of CSS on actual web pages differs between browsers, this is also the case of CSS support in the console.
+I learned a lot about the DevTools from my good friend and fellow speaker, Alex Lakatos. One of the things that stood out to me most was that the DevTools console can totally be styled up with CSS. But just like support of CSS on actual web pages differs between browsers, this is also the case of CSS support in the console.
 
 Case in point, this fancy CSS-only talk title in the console. This is what it looks like in Chrome. And what it looks like the Safari. Looks way better in Firefox, but that's just my opinion. 
 
-So my name is Hui Jing, and I'm a Developer Advocate at Nexmo. Nexmo is a platform which provides APIs for messaging, voice, authentication and video to make it easier for developers to integrate communications into their own applications. I've got plenty of stickers as well, so come find me after this if stickers are your thing.
-
 I also love emojis, and these pretty much some up who I am as a person. If you're curious about any of them, you can ask me about them later. Finally, more proof that Firefox supports the most CSS properties in the console. I mean, come on, it's vertical writing in your console. I love it.
-
-## Why was it harder to align vertically than horizontally?
-
-When I started building stuff on the web, I quickly realised that aligning stuff horizontally was way more straightforward than aligning stuff vertically. So I started thinking about why that was.
-
-Historically, web technologies started out from text document beginnings. And a lot of the initial HTML tags and CSS properties focused mainly on text formatting for languages that were laid out horizontally top-to-bottom.
-
-Boxes on the web behaved similarly, but ever since designers and developers realised the web could be used for more than just academic paper style layouts, they have been complaining about how hard it is to do layout on the web.
-
-And I don’t blame them. For a long time, it was hard to layout anything resembling the gorgeous designs our print counterparts could achieve on posters and in magazines. But I think things are changing for the better.
 
 ## On modern CSS layouts
 
@@ -61,86 +49,17 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - if you look at the Chinese and Thai examples, which have exactly the same content, their smallest size is `min-content`, while their largest size ends up being `300px`
 - if I change the cap value to something larger than `max-content`, like `500px`, then `max-content` becomes the largest size
 
-## Flexbox, where nobody knows the exact size of anything
-
-- Firefox is the only browser with a Flexbox inspector, locate it at the *Layout* tab, possible to change colour of overlay
-- overlay shows you outlines of each flex item, and the free space available as a texture
-- will tell you the flex direction, and the wrap status
-- more importantly, it tells you what the browser does when it grows or shrinks the flex item
-
 ---
-
-- one thing to note is that the specification recommends you use the keywords because they cover the most common use cases, they are `initial`, `none`. `auto` and any `<positive integer>` *(show where to see computed values)*
-- sizing of flex items depends on a number of factors, like the amount of free space available, the amount of content in the flex item and the starting width of the flex item
-- the exact algorithm is sort of complicated but is outlined in the specification if you're interested
-- things get clearer once you have a better understanding of `flex-basis`
-- if I put a fixed value of `100px` as the `flex-basis`, it's not surprising that some people expect to see a box of `100px`, because we're used to being in control of our sizing instructions
-- but `flex-basis` is actually the starting point from which the size of the box is calculated, key here is **starting point**, because if flex items are allowed to grow, odds are the final size will **not** be `100px`
-
----
-
-- so if we look at this next example, it appears that the browser allocates space based on content, but let's break down what's actually happening
-- reminder: browser will not break words
-- so we've got 2 flex containers with 3 flex items each, first 2 items have the same content, much longer content for the second container's last item
-- both only have `display: flex` set on the parent element and nothing on the children
-- this means all children have the values of `0 1 auto`, meaning the items won't grow beyond their starting widths *(resize until enough room for all content)*
-- a `flex-shrink` value of `1` means all the items will shrink at the same rate if there isn't enough space for all the content to be a single line
-- a flex basis of `auto` resolves to `content`, which is an automatic size based on the content within the flex item, typically equivalent to `max-content` width 
-- when there is no explicit width set on a flex item, i.e. its value is `auto`, and the `flex-basis` is also `auto`, the browser will use content size as the starting point
-- if there is an explicit width set *(set width to 200px)*, then that becomes the starting point of size calculation, and because the `flex-grow` factor is `0`, this item ends up being `200px`
-- when there is an explicit `flex-basis` value, even if there is a width on the flex item, the `flex-basis` value trumps it and that value becomes the starting point, and this item ends up being `300px`
-- first column can't shrink any more, but second and third start shrinking at the same time, then second column hits `min-content` and only the third column continues to shrink until `min-content`
-- eventually both sets of content's first and second column are the same width at `min-content`
-
----
-
-- the next bit I want to cover is understanding the difference between having a `flex-basis` of `auto` versus a `flex-basis` of `0`
-- again, I have 2 sets of 3 items, but this time, with exactly the same content
-- the items are allowed to both grow and shrink, but each item in the set has a different `flex-grow` factor
-- `flex-shrink` is `1` for all the items to make things easier to observe
-- the key difference between both sets is that the first set uses `auto` as the `flex-basis`, which means the starting width for each item is the width of its content
-- the available free space is the total width of the container minus the widths of the content within the 3 flex items
-- that free space is distributed between items 1 and 2 in the ratio of 1:2, respectively
-- inspector shows you that item 1 grew by x, and item 2 grew by 2x, and also shows you the starting width of each item
-- the second set has `flex-basis` set to `0`, that means there is no starting width for each item
-- the free space available is equivalent to the total width of the container minus the `min-content` width of the third item, because again, the browser doesn't break words so that's as small as it can go
-- then that free space is divided between item 1 and 2 in the ratio of 1:2 as well
-- the second item's size is exactly double that of the first item, but this is not the case when `flex-basis` is set to `auto`, because content widths are a factor in that scenario
-
----
-
-- aligning items with the box alignment properties is also a big plus
-- the flex inspector allows us to visualise free space is distributed for all the different values *activate flexbox inspector*
-- box alignment properties are meant to be used across layout models, although for now, they can only be used with flex and grid
-- my trick for remembering which properties apply to which axis is that I associate the term “justify” with text processing software's justification options, so in my mind, justify affects the direction text flows
-- because there are only 2 directions, “align” must be for the other direction
-- when using flexbox, we have access to 4 of the 6 available properties, `justify-items` and `justify-self` do not apply here because they are meant to justify a box within its containing block along the main axis, but there is more than 1 item in the main axis
-- `justify-content` lets us adjust flex items along the main axis
-- `start`, `center` and `end` are **positional** keywords, which adjust the flex children's absolute position within the flex container
-- `space-around`, `space-between` and `space-evenly` are **distribution** keywords, which disperse extra space between the flex children
-- items are stretched along the cross axis to the full height of the flex line once you apply `display: flex`
-- once the `align-self` or `align-items` property is applied though, the items revert to their original heights
-- an interesting value for `align-items` is `baseline`, which is useful when you have text within flex items of varying sizes and positions
-- `baseline` lines them all up, and if the text within each item is related, makes it easier to comprehend
-- if there is more space in the flex container than the total height of all the flex lines, you'll end up with these gaps, that maybe you don't want
-- `align-content` lets you pack your items together and align the whole block of items within the container
-
----
-
-- auto margins are your friend
-- unlike in the current implementation of the block formatting context, using `margin: auto` will centre an item right in the middle of the container, allocating available free space equally around all the flex item
-- if I add a second item, you'll see it too has equal amounts of free space for top and bottom, as well as left and right
-- when you need to centre 1 item in the middle of its parent, instead of using the box alignment properties, you could just slap on a `margin: auto` on the flex child, just saying
-- one thing to note is that if free space is distributed to auto margins, the alignment properties will have no effect in that dimension because the margins will have stolen all the free space left over after flexing
-- a relatively common use-case is when you need 1 item in your navigation alone on the right, auto-margins make things really easy
-
----
-
-- feel free to change the flex direction when necessary
-- if you need a card layout with content that needs to be aligned to the bottom of the card, using `flex-direction` column, and making the main content grow with `flex: 1`, for example, is a 2-line solution
 
 ## Grid, where we finally have real rows and columns
 
+- *ask about people using Grid*
+- whether you're just starting out with grid, or already using it in production, Firefox's grid inspector is still the best tool available at the moment
+- toggle the overlay by clicking the grid tag on the *Inspector*, the waffle icon in *Rules*, or select your grid of choice from the *Layout* panel
+- like the Flexbox inspector, you can change the colour of the overlay
+- particularly helpful because Firefox now supports multiple grid overlays
+- great if you are using nested grids or have more than 1 grid on the same page
+- extending grid lines infinitely becomes quite helpful if you want to check on the alignment of multiple grids *(toggle grid1 and grid4)*
 - additional options include displaying line numbers and grid area names
 - using `grid-template-areas` to name grid areas is structurally similar to what we see rendered on the page
 - each line surrounded with quotes represents a grid row, every value in the line makes up the grid column
@@ -168,16 +87,6 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - so it's not about Flexbox OR Grid, it's about Flexbox AND Grid, really
 
 ## Flexible sizing, responsive design powered up
-
-- *ask about people using Grid*
-- whether you're just starting out with grid, or already using it in production, Firefox's grid inspector is still the best tool available at the moment
-- toggle the overlay by clicking the grid tag on the *Inspector*, the waffle icon in *Rules*, or select your grid of choice from the *Layout* panel
-- like the Flexbox inspector, you can change the colour of the overlay
-- particularly helpful because Firefox now supports multiple grid overlays
-- great if you are using nested grids or have more than 1 grid on the same page
-- extending grid lines infinitely becomes quite helpful if you want to check on the alignment of multiple grids *(toggle grid1 and grid4)*
-
----
 
 - flexible sizing is also a big thing when it comes to grid and is a pretty interesting aspect of building modern CSS layouts
 - previously we've always used relative units like percentages, or the newer viewport units, but the issue with those is that they make all your elements change in size at the **same** rate *(show cat example)*
@@ -217,8 +126,6 @@ These days, we have a much more robust toolset for doing layouts on the web.
 
 ## Wrapping up
 
-I'm really excited for all this to become mainstream and to have more designers and developers start considering the possibilities in their designs. So if any of you are still on the fence when it comes to trying out these newer CSS layout properties…
-
-*trigger GIF and credit text (on bottom right corner)*
+I'm really excited for all this to become mainstream and to have more designers and developers start considering the possibilities in their designs.
 
 Thank you all for your attention.

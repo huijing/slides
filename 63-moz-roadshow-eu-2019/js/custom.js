@@ -1,7 +1,7 @@
 const style1 = [
-  'background: radial-gradient(circle at right, rgba(255, 255, 255, 0) 2rem, rgba(242, 242, 176, 0.75) 2rem, rgba(242, 242, 176, 0.75) 3rem, rgba(255, 255, 255, 0) 3rem) 0 0, radial-gradient(circle at left, rgba(255, 255, 255, 0) 2rem, rgba(242, 242, 176, 0.75) 2rem, rgba(242, 242, 176, 0.75) 3rem, rgba(255, 255, 255, 0) 3rem) 0 5rem, radial-gradient(circle at right, rgba(255, 255, 255, 0) 2rem, rgba(186, 229, 213, 0.75) 2rem, rgba(186, 229, 213, 0.75) 3rem, rgba(255, 255, 255, 0) 3rem) 2.6rem 0, radial-gradient(circle at left, rgba(255, 255, 255, 0) 2rem, rgba(186, 229, 213, 0.75) 2rem, rgba(186, 229, 213, 0.75) 3rem, rgba(255, 255, 255, 0) 3rem) 2.6rem 5rem, radial-gradient(circle at right, rgba(255, 255, 255, 0) 2rem, rgba(215, 172, 212, 0.75) 2rem, rgba(215, 172, 212, 0.75) 3rem, rgba(255, 255, 255, 0) 3rem) 5.2rem 0, radial-gradient(circle at left, rgba(255, 255, 255, 0) 2rem, rgba(215, 172, 212, 0.75) 2rem, rgba(215, 172, 212, 0.75) 3rem, rgba(255, 255, 255, 0) 3rem) 5.2rem 5rem, radial-gradient(circle at right, rgba(255, 255, 255, 0) 2rem, rgba(238, 194, 194, 0.75) 2rem, rgba(238, 194, 194, 0.75) 3rem, rgba(255, 255, 255, 0) 3rem) 7.8rem 0, radial-gradient(circle at left, rgba(255, 255, 255, 0) 2rem, rgba(238, 194, 194, 0.75) 2rem, rgba(238, 194, 194, 0.75) 3rem, rgba(255, 255, 255, 0) 3rem) 7.8rem 5rem',
-  'background-size: 10rem 10rem',
-  'background-color: rgba(154, 155, 148, 0.75)',
+  'background: radial-gradient(circle, rgba(48, 230, 11, 0.4) 0.75rem, rgba(255, 255, 255, 0) 0.75rem, rgba(255, 255, 255, 0) 1.5rem, rgba(255, 148, 0, 0.2) 1.5rem, rgba(255, 148, 0, 0.2) 1.8rem, rgba(255, 255, 255, 0) 1.8rem) 0 0, radial-gradient(circle, rgba(255, 148, 0, 0.4) 0.75rem, rgba(255, 255, 255, 0) 0.75rem, rgba(255, 255, 255, 0) 1.5rem, rgba(48, 230, 11, 0.2) 1.5rem, rgba(48, 230, 11, 0.2) 1.8rem, rgba(255, 255, 255, 0) 1.8rem) 3rem 3rem, radial-gradient(circle, rgba(48, 230, 11, 0.2) 0.375rem, rgba(255, 255, 255, 0) 0.375rem) 3rem 0, radial-gradient(circle, rgba(255, 148, 0, 0.2) 0.3rem, rgba(255, 255, 255, 0) 0.3rem) 0 3rem',
+  'background-size: 6rem 6rem',
+  'background-color: #f9f9fa',
   'background-repeat: repeat',
   'display: block',
   'height: 50vh',
@@ -15,8 +15,10 @@ const style1 = [
 ].join(';')
 
 const style2 = [
-  'background-color: hsla(107, 100%, 95%, 1)',
-  'background-image: repeating-linear-gradient(45deg, transparent 5px, hsla(132, 62%, 30%, 0.2) 5px, hsla(132, 62%, 30%, 0.2) 10px, hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, 0.2) 35px, hsla(5, 53%, 63%, 0.2) 40px, hsla(132, 62%, 30%, 0.2) 40px, hsla(132, 62%, 30%, 0.2) 50px, hsla(132, 62%, 30%, 0) 50px, hsla(132, 62%, 30%, 0) 60px, hsla(5, 53%, 63%, 0.2) 60px, hsla(5, 53%, 63%, 0.2) 70px, hsla(35, 91%, 65%, 0.2) 70px, hsla(35, 91%, 65%, 0.2) 80px, hsla(35, 91%, 65%, 0) 80px, hsla(35, 91%, 65%, 0) 90px, hsla(5, 53%, 63%, 0.2) 90px, hsla(5, 53%, 63%, 0.2) 110px, hsla(5, 53%, 63%, 0) 110px, hsla(5, 53%, 63%, 0) 120px, hsla(132, 62%, 30%, 0.2) 120px, hsla(132, 62%, 30%, 0.2) 140px), repeating-linear-gradient(135deg, transparent 5px, hsla(132, 62%, 30%, 0.2) 5px, hsla(132, 62%, 30%, 0.2) 10px, hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, 0.2) 35px, hsla(5, 53%, 63%, 0.2) 40px, hsla(132, 62%, 30%, 0.2) 40px, hsla(132, 62%, 30%, 0.2) 50px, hsla(132, 62%, 30%, 0) 50px, hsla(132, 62%, 30%, 0) 60px, hsla(5, 53%, 63%, 0.2) 60px, hsla(5, 53%, 63%, 0.2) 70px, hsla(35, 91%, 65%, 0.2) 70px, hsla(35, 91%, 65%, 0.2) 80px, hsla(35, 91%, 65%, 0) 80px, hsla(35, 91%, 65%, 0) 90px, hsla(5, 53%, 63%, 0.2) 90px, hsla(5, 53%, 63%, 0.2) 110px, hsla(5, 53%, 63%, 0) 110px, hsla(5, 53%, 63%, 0) 140px, hsla(132, 62%, 30%, 0.2) 140px, hsla(132, 62%, 30%, 0.2) 160px)',
+  'background-color: rgba(148, 0, 255, 0.15)',
+  'background-image: radial-gradient(closest-side, transparent 98%, rgba(255, 255, 255, 0.7) 99%), radial-gradient(closest-side, transparent 98%, rgba(255, 255, 255, 0.7) 99%)',
+  'background-size: 3em 3em',
+  'background-position: 0 0, 1.5em 1.5em',
   'color: black',
   'font-size: calc(1em + 1.5vw)',
   'display: block',
@@ -26,8 +28,8 @@ const style2 = [
 ].join(';')
 
 const style3 = [
-  'background-color: hsla(107, 100%, 95%, 1)',
-  'background-image: repeating-linear-gradient(45deg, transparent 5px, hsla(132, 62%, 11%, 0.2) 5px, hsla(132, 62%, 11%, 0.2) 10px, hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, 0.2) 35px, hsla(5, 53%, 63%, 0.2) 40px, hsla(132, 62%, 11%, 0.2) 40px, hsla(132, 62%, 11%, 0.2) 50px, hsla(132, 62%, 11%, 0) 50px, hsla(132, 62%, 11%, 0) 60px, hsla(5, 53%, 63%, 0.2) 60px, hsla(5, 53%, 63%, 0.2) 70px, hsla(35, 91%, 65%, 0.2) 70px, hsla(35, 91%, 65%, 0.2) 80px, hsla(35, 91%, 65%, 0) 80px, hsla(35, 91%, 65%, 0) 90px, hsla(5, 53%, 63%, 0.2) 90px, hsla(5, 53%, 63%, 0.2) 110px, hsla(5, 53%, 63%, 0) 110px, hsla(5, 53%, 63%, 0) 120px, hsla(132, 62%, 11%, 0.2) 120px, hsla(132, 62%, 11%, 0.2) 140px), repeating-linear-gradient(135deg, transparent 5px, hsla(132, 62%, 11%, 0.2) 5px, hsla(132, 62%, 11%, 0.2) 10px, hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, 0.2) 35px, hsla(5, 53%, 63%, 0.2) 40px, hsla(132, 62%, 11%, 0.2) 40px, hsla(132, 62%, 11%, 0.2) 50px, hsla(132, 62%, 11%, 0) 50px, hsla(132, 62%, 11%, 0) 60px, hsla(5, 53%, 63%, 0.2) 60px, hsla(5, 53%, 63%, 0.2) 70px, hsla(35, 91%, 65%, 0.2) 70px, hsla(35, 91%, 65%, 0.2) 80px, hsla(35, 91%, 65%, 0) 80px, hsla(35, 91%, 65%, 0) 90px, hsla(5, 53%, 63%, 0.2) 90px, hsla(5, 53%, 63%, 0.2) 110px, hsla(5, 53%, 63%, 0) 110px, hsla(5, 53%, 63%, 0) 140px, hsla(132, 62%, 11%, 0.2) 140px, hsla(132, 62%, 11%, 0.2) 160px)',
+  'background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(255, 228, 225, 0.4) 0, rgba(255, 228, 225, 0.1) 2rem, transparent 0, transparent 1rem, rgba(255, 228, 225, 0.3) 0, rgba(255, 228, 225, 0.2) 4rem, transparent 0, transparent 1rem, rgba(255, 255, 255, 0.6) 0, rgba(255, 255, 255, 0.2) 2rem), repeating-linear-gradient(45deg, transparent, transparent 1rem, rgba(255, 228, 225, 0.4) 0, rgba(255, 228, 225, 0.1) 2rem, transparent 0, transparent 1rem, rgba(255, 228, 225, 0.3) 0, rgba(255, 228, 225, 0.2) 4rem, transparent 0, transparent 1rem, rgba(255, 255, 255, 0.4) 0, rgba(255, 255, 255, 0.1) 2rem), #fff',
+  'background-blend-mode: multiply',
   'color: black',
   'font-size: calc(1.25em + 2vw)',
   'display: block',
