@@ -2,7 +2,7 @@
 
 ## On how cool DevTools console can be
 
-I learned a lot about the DevTools from my good friend and fellow speaker, Alex Lakatos. One of the things that stood out to me most was that the DevTools console can totally be styled up with CSS. But just like support of CSS on actual web pages differs between browsers, this is also the case of CSS support in the console.
+I learned a lot about the DevTools from my good friend and fellow TechSpeaker, Alex Lakatos. One of the things that stood out to me most was that the DevTools console can totally be styled up with CSS. But just like support of CSS on actual web pages differs between browsers, this is also the case of CSS support in the console.
 
 Case in point, this fancy CSS-only talk title in the console. This is what it looks like in Chrome. And what it looks like the Safari. Looks way better in Firefox, but that's just my opinion. 
 
@@ -51,6 +51,72 @@ These days, we have a much more robust toolset for doing layouts on the web.
 
 ---
 
+## Flexbox, where nobody knows the size of anything
+
+- Firefox is the only browser with a Flexbox inspector, locate it at the *Layout* tab, possible to change colour of overlay
+- overlay shows you outlines of each flex item, and the free space available as a texture
+- will tell you the flex direction, and the wrap status
+- more importantly, it tells you what the browser does when it grows or shrinks the flex item
+
+---
+
+- one thing to note is that the specification recommends you use the keywords because they cover the most common use cases, they are `initial`, `none`. `auto` and any `<positive integer>` *(show where to see computed values)*
+- sizing of flex items depends on a number of factors, like the amount of free space available, the amount of content in the flex item and the starting width of the flex item
+- the exact algorithm is sort of complicated but is outlined in the specification if you're interested
+- things get clearer once you have a better understanding of `flex-basis`
+- if I put a fixed value of `100px` as the `flex-basis`, it's not surprising that some people expect to see a box of `100px`, because we're used to being in control of our sizing instructions
+- but `flex-basis` is actually the starting point from which the size of the box is calculated, key here is **starting point**, because if flex items are allowed to grow, odds are the final size will **not** be `100px`
+
+---
+
+- so if we look at this next example, it appears that the browser allocates space based on content, but let's break down what's actually happening
+- reminder: browser will not break words
+- so we've got 2 flex containers with 3 flex items each, first 2 items have the same content, much longer content for the second container's last item
+- both only have `display: flex` set on the parent element and nothing on the children
+- this means all children have the values of `0 1 auto`, meaning the items won't grow beyond their starting widths *(resize until enough room for all content)*
+- a `flex-shrink` value of `1` means all the items will shrink at the same rate if there isn't enough space for all the content to be a single line
+- a flex basis of `auto` resolves to `content`, which is an automatic size based on the content within the flex item, typically equivalent to `max-content` width 
+- when there is no explicit width set on a flex item, i.e. its value is `auto`, and the `flex-basis` is also `auto`, the browser will use content size as the starting point
+- if there is an explicit width set *(set width to 200px)*, then that becomes the starting point of size calculation, and because the `flex-grow` factor is `0`, this item ends up being `200px`
+- when there is an explicit `flex-basis` value, even if there is a width on the flex item, the `flex-basis` value trumps it and that value becomes the starting point, and this item ends up being `300px`
+- first column can't shrink any more, but second and third start shrinking at the same time, then second column hits `min-content` and only the third column continues to shrink until `min-content`
+- eventually both sets of content's first and second column are the same width at `min-content`
+
+---
+
+- the next bit I want to cover is understanding the difference between having a `flex-basis` of `auto` versus a `flex-basis` of `0`
+- again, I have 2 sets of 3 items, but this time, with exactly the same content
+- the items are allowed to both grow and shrink, but each item in the set has a different `flex-grow` factor
+- `flex-shrink` is `1` for all the items to make things easier to observe
+- the key difference between both sets is that the first set uses `auto` as the `flex-basis`, which means the starting width for each item is the width of its content
+- the available free space is the total width of the container minus the widths of the content within the 3 flex items
+- that free space is distributed between items 1 and 2 in the ratio of 1:2, respectively
+- inspector shows you that item 1 grew by x, and item 2 grew by 2x, and also shows you the starting width of each item
+- the second set has `flex-basis` set to `0`, that means there is no starting width for each item
+- the free space available is equivalent to the total width of the container minus the `min-content` width of the third item, because again, the browser doesn't break words so that's as small as it can go
+- then that free space is divided between item 1 and 2 in the ratio of 1:2 as well
+- the second item's size is exactly double that of the first item, but this is not the case when `flex-basis` is set to `auto`, because content widths are a factor in that scenario
+
+---
+
+- aligning items with the box alignment properties is also a big plus
+- the flex inspector allows us to visualise free space is distributed for all the different values *activate flexbox inspector*
+- box alignment properties are meant to be used across layout models, although for now, they can only be used with flex and grid
+- my trick for remembering which properties apply to which axis is that I associate the term “justify” with text processing software's justification options, so in my mind, justify affects the direction text flows
+- because there are only 2 directions, “align” must be for the other direction
+- when using flexbox, we have access to 4 of the 6 available properties, `justify-items` and `justify-self` do not apply here because they are meant to justify a box within its containing block along the main axis, but there is more than 1 item in the main axis
+- `justify-content` lets us adjust flex items along the main axis
+- `start`, `center` and `end` are **positional** keywords, which adjust the flex children's absolute position within the flex container
+- `space-around`, `space-between` and `space-evenly` are **distribution** keywords, which disperse extra space between the flex children
+- items are stretched along the cross axis to the full height of the flex line once you apply `display: flex`
+- once the `align-self` or `align-items` property is applied though, the items revert to their original heights
+- an interesting value for `align-items` is `baseline`, which is useful when you have text within flex items of varying sizes and positions
+- `baseline` lines them all up, and if the text within each item is related, makes it easier to comprehend
+- if there is more space in the flex container than the total height of all the flex lines, you'll end up with these gaps, that maybe you don't want
+- `align-content` lets you pack your items together and align the whole block of items within the container
+
+---
+
 ## Grid, where we finally have real rows and columns
 
 - *ask about people using Grid*
@@ -61,13 +127,27 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - great if you are using nested grids or have more than 1 grid on the same page
 - extending grid lines infinitely becomes quite helpful if you want to check on the alignment of multiple grids *(toggle grid1 and grid4)*
 - additional options include displaying line numbers and grid area names
+
+---
+
+- most basic usage of laying out items with grid is setting the track sizes of your rows and columns
+- the browser will automatically place items into the grid using a very well thought through algorithm, which is defined in the specifications
+- but things being placed one after another is behaviour most of us are fairly familiar with already
+- what's special about grid is how simple it is to manually place items in both dimensions
+- since my favourite analogy for this is placing pieces on a chessboard, that's what this is
+- this is a simple 3x3 grid, with 3 grid items
+- the property which controls their position will be `grid-row` and `grid-column`
+- for every    
+
+---
+
 - using `grid-template-areas` to name grid areas is structurally similar to what we see rendered on the page
 - each line surrounded with quotes represents a grid row, every value in the line makes up the grid column
 - every line must have the same number of columns otherwise the whole thing is moot
 - change your layout without having to touch the code for the grid items, only the grid areas *(change grid area of banana)*
 - *(Switch to Braun poster example)*
 - using named grid areas can make it easier to adjust the positions of certain elements when the viewport size changes *(proceed to resize browser and hit 3 layouts)*
-- non-rectangular or disconnected regions may be permitted in future, but for now, just rectangles, no tetris shapes or that sort of thing
+- non-rectangular or disconnected regions may be permitted in future, but for now, just rectangles, no Tetris shapes or that sort of thing
 
 ---
 
@@ -85,6 +165,11 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - *(target arrow)* if we remove `display: flex` on this grid cell and convert the code to use box alignment properties on grid, you will see what I mean
 - *(deactivate flex, add align-self: center)*, the grid cell shrinks to fit, and the border shrinks with it
 - so it's not about Flexbox OR Grid, it's about Flexbox AND Grid, really
+
+---
+
+- for the keyword values of `auto-fit` and `auto-fill`, the inspector also makes it much easier to understand
+-  
 
 ## Flexible sizing, responsive design powered up
 

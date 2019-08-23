@@ -31,6 +31,7 @@
 
   body {
     height: 100%;
+    min-width: 25em;
   }
 
   main {
@@ -41,6 +42,13 @@
     margin: auto;
     width: min-content;
     justify-content: center;
+  }
+
+  h1 {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    margin-block-start: 0.5em;
+    font-size: calc(1em + 3vmin);
   }
 
   .links {
@@ -71,9 +79,9 @@
 
   .big {
     font-family: 'Gilbert';
-    font-size: 12vmin;
-    height: 19vmin;
-    width: 19vmin;
+    font-size: 10vmin;
+    height: 16vmin;
+    width: 16vmin;
   }
 
   .small {
@@ -83,20 +91,21 @@
   }
 
   .small a {
-    font-size: 4.5vmin;
-    height: 9vmin;
-    width: 9vmin;
+    font-size: 4vmin;
+    height: 7.5vmin;
+    width: 7.5vmin;
   }
 
   .video {
+    display: flex;
     text-align: center;
-    height: 78vmin;
-    margin-bottom: 2vmin;
-    overflow: hidden;
+    height: 75vmin;
+    max-width: 100%;
   }
 
   video {
-    height: 100%;
+    width: max-content;
+    min-width: 15em;
   }
   </style>
 
@@ -107,7 +116,9 @@
 
 <body class="index">
   <main>
+    
     <div class="video">
+      <h1>Mozilla Developer Roadshow 2019</h1>
       <video loop>
         <source src="videos/cat.mp4" type="video/mp4">
         Sorry, your browser doesn't support embedded videos, 
@@ -117,15 +128,16 @@
     </div>
     <div class="links">
       <a class="big" href="01-content-based-sizing.html"><span>01</span></a>
-      <a class="big" href="02-grid.html"><span>02</span></a>
+      <a class="big" href="02-flexible-box.html"><span>02</span></a>
+      <a class="big" href="03-grid.html"><span>03</span></a>
       <div class="small">
-        <a href="04-braun.html"><span class="emoji" role="img" tabindex="0" aria-label="control knobs">&#x1F39B;&#xFE0F;</span></a>
-        <a href="05-lmn.html"><span class="emoji" role="img" tabindex="0" aria-label="camera">&#x1F4F7;</span></a>
+        <a href="05-braun.html"><span class="emoji" role="img" tabindex="0" aria-label="control knobs">&#x1F39B;&#xFE0F;</span></a>
+        <a href="06-lmn.html"><span class="emoji" role="img" tabindex="0" aria-label="camera">&#x1F4F7;</span></a>
       </div>
-      <a class="big" href="03-flexible-sizing.html"><span>03</span></a>
+      <a class="big" href="04-flexible-sizing.html"><span>04</span></a>
       <div class="small">
-        <a href="06-cat.html"><span class="emoji" role="img" tabindex="0" aria-label="cat">&#x1F431;</span></a>
-        <a href="07-florence.html"><span class="emoji" role="img" tabindex="0" aria-label="musical notes">&#x1F3B6;</span></a>
+        <a href="07-cat.html"><span class="emoji" role="img" tabindex="0" aria-label="cat">&#x1F431;</span></a>
+        <a href="08-florence.html"><span class="emoji" role="img" tabindex="0" aria-label="musical notes">&#x1F3B6;</span></a>
       </div>
     </div>
   </main>
