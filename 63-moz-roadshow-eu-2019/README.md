@@ -1,12 +1,16 @@
 # Understanding modern CSS layouts with Firefox DevTools
 
+Hello, everyone! I'm really glad to be here in Nuremburg with all of you this evening. It's my first time here, the weather is much nicer than back home, to be honest. Thank you all for turning out to this first stop on the Mozilla Developer Roadshow.
+
+I'll be sharing with you some of my favourite things about the Firefox DevTools and how they've helped me better understand some of the powerful, new CSS layout techniques. So let's get started.
+
 ## On how cool DevTools console can be
 
-I learned a lot about the DevTools from my good friend and fellow TechSpeaker, Alex Lakatos. One of the things that stood out to me most was that the DevTools console can totally be styled up with CSS. But just like support of CSS on actual web pages differs between browsers, this is also the case of CSS support in the console.
+I learned a lot about the DevTools from my good friend and fellow TechSpeaker, Alex Lakatos. One of the things that stood out to me most was that CSS applies to the DevTools console, just like a web page. Maybe too much like a web page. 
 
-Case in point, this fancy CSS-only talk title in the console. This is what it looks like in Chrome. And what it looks like the Safari. Looks way better in Firefox, but that's just my opinion. 
+Because, like support of CSS on actual web pages differs between browsers, this is also the case of CSS support in the console. So I've made this fancy CSS-only talk title in the console. This is what it looks like in Chrome. And what it looks like the Safari. Looks way better in Firefox, but that's just my opinion. 
 
-I also love emojis, and these pretty much some up who I am as a person. If you're curious about any of them, you can ask me about them later. Finally, more proof that Firefox supports the most CSS properties in the console. I mean, come on, it's vertical writing in your console. I love it.
+I also love emojis, and these pretty much some up who I am as a person. If you're curious about any of them, you can ask me about them later. Finally, I wanted to make a point that Firefox supports the most CSS properties in the console. The ability to do vertical writing easily is one of my favourite things about the web. So I love this.
 
 ## On modern CSS layouts
 
@@ -15,6 +19,8 @@ When I refer to modern CSS layouts, I'm talking about layouts built with Flexbox
 They are different from prior techniques, like HTML tables for layout, or floats, which were more clever uses of properties whose intended purpose was not for layout to begin with. But resourceful developers, like yourselves, found plenty of workarounds and hacks to work with whatever features were available.
 
 These days, we have a much more robust toolset for doing layouts on the web.
+
+[2.30]
 
 ## Content-based sizing, letting the browser decide
   
@@ -102,18 +108,21 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - aligning items with the box alignment properties is also a big plus
 - the flex inspector allows us to visualise free space is distributed for all the different values *activate flexbox inspector*
 - box alignment properties are meant to be used across layout models, although for now, they can only be used with flex and grid
-- my trick for remembering which properties apply to which axis is that I associate the term “justify” with text processing software's justification options, so in my mind, justify affects the direction text flows
-- because there are only 2 directions, “align” must be for the other direction
 - when using flexbox, we have access to 4 of the 6 available properties, `justify-items` and `justify-self` do not apply here because they are meant to justify a box within its containing block along the main axis, but there is more than 1 item in the main axis
-- `justify-content` lets us adjust flex items along the main axis
+- `justify-content` lets us adjust flex items along the **main axis**
 - `start`, `center` and `end` are **positional** keywords, which adjust the flex children's absolute position within the flex container
 - `space-around`, `space-between` and `space-evenly` are **distribution** keywords, which disperse extra space between the flex children
+- if we change the `flex-direction` to `column`, `justify-content` still adjusts the flex items along the **main axis** *remember to also add a height less than viewport height*
+- it's just that the main axis is now flowing from top to bottom, so the flex items move along this direction instead
+
+---
+
 - items are stretched along the cross axis to the full height of the flex line once you apply `display: flex`
 - once the `align-self` or `align-items` property is applied though, the items revert to their original heights
 - an interesting value for `align-items` is `baseline`, which is useful when you have text within flex items of varying sizes and positions
 - `baseline` lines them all up, and if the text within each item is related, makes it easier to comprehend
 - if there is more space in the flex container than the total height of all the flex lines, you'll end up with these gaps, that maybe you don't want
-- `align-content` lets you pack your items together and align the whole block of items within the container
+- lastly, `align-content` lets you pack your items together and align the whole block of items within the container
 
 ---
 
@@ -136,8 +145,8 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - what's special about grid is how simple it is to manually place items in both dimensions
 - since my favourite analogy for this is placing pieces on a chessboard, that's what this is
 - this is a simple 3x3 grid, with 3 grid items
-- the property which controls their position will be `grid-row` and `grid-column`
-- for every    
+- the properties which control their position will be `grid-row` and `grid-column`
+- so here is where the ability to see the line numbers comes in very handy, especially if you have more complex layouts involving lots of columns
 
 ---
 
@@ -168,8 +177,23 @@ These days, we have a much more robust toolset for doing layouts on the web.
 
 ---
 
-- for the keyword values of `auto-fit` and `auto-fill`, the inspector also makes it much easier to understand
--  
+- for the keyword values of `auto-fit` and `auto-fill`, the inspector also makes it much easier to understand what they actually do
+- they are used in the context of the `repeat()` function and make use of the fact that the browser knows how large its own viewport is and hence, is best positioned to generate the perfect number of grid tracks to fill up that space
+- the example here asks the browser to generate as many columns with a minimum width of 6ems that can fit into the available space
+- this example only has 5 grid items though, so when the viewport is much larger than 30ems, we can see the difference between the 2 values
+- with `auto-fill`, empty tracks still take up space on the grid
+- with `auto-fit` though, these empty tracks are collapsed and the grid items grow, because of the max value of `1fr`, and fill up the empty space instead
+
+---
+
+- relatively new feature that Firefox started supporting since version 66 is the ability to animate grid columns and rows
+- this was always written into the specification but it took some time for implementation
+- previously only animation of the `gap` property had been supported
+- intuitively, some of us might picture the grid items moving across tracks when animated but that's not the case at all
+- inspecting with DevTools will show exactly what the browser is animating *trigger grid overlay for grid5.board*
+- this example consists of a grid container with 1 grid item
+- the CSS animation keyframes are interpolating between the different values of `grid-template-columns` and `grid-template-rows`
+- the grid item's alignment has been set to the bottom-right corner of the grid cell it was placed in
 
 ## Flexible sizing, responsive design powered up
 
