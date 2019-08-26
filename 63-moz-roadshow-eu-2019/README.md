@@ -55,7 +55,7 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - if you look at the Chinese and Thai examples, which have exactly the same content, their smallest size is `min-content`, while their largest size ends up being `300px`
 - if I change the cap value to something larger than `max-content`, like `500px`, then `max-content` becomes the largest size
 
----
+[6.50]
 
 ## Flexbox, where nobody knows the size of anything
 
@@ -106,13 +106,13 @@ These days, we have a much more robust toolset for doing layouts on the web.
 ---
 
 - aligning items with the box alignment properties is also a big plus
-- the flex inspector allows us to visualise free space is distributed for all the different values *activate flexbox inspector*
+- the flex inspector allows us to visualise free space is distributed for all the different values *(activate flexbox inspector)*
 - box alignment properties are meant to be used across layout models, although for now, they can only be used with flex and grid
 - when using flexbox, we have access to 4 of the 6 available properties, `justify-items` and `justify-self` do not apply here because they are meant to justify a box within its containing block along the main axis, but there is more than 1 item in the main axis
 - `justify-content` lets us adjust flex items along the **main axis**
 - `start`, `center` and `end` are **positional** keywords, which adjust the flex children's absolute position within the flex container
 - `space-around`, `space-between` and `space-evenly` are **distribution** keywords, which disperse extra space between the flex children
-- if we change the `flex-direction` to `column`, `justify-content` still adjusts the flex items along the **main axis** *remember to also add a height less than viewport height*
+- if we change the `flex-direction` to `column`, `justify-content` still adjusts the flex items along the **main axis** *(remember to also add a height less than viewport height)*
 - it's just that the main axis is now flowing from top to bottom, so the flex items move along this direction instead
 
 ---
@@ -128,7 +128,7 @@ These days, we have a much more robust toolset for doing layouts on the web.
 
 ## Grid, where we finally have real rows and columns
 
-- *ask about people using Grid*
+- *(ask about people using Grid)*
 - whether you're just starting out with grid, or already using it in production, Firefox's grid inspector is still the best tool available at the moment
 - toggle the overlay by clicking the grid tag on the *Inspector*, the waffle icon in *Rules*, or select your grid of choice from the *Layout* panel
 - like the Flexbox inspector, you can change the colour of the overlay
@@ -140,7 +140,7 @@ These days, we have a much more robust toolset for doing layouts on the web.
 ---
 
 - most basic usage of laying out items with grid is setting the track sizes of your rows and columns
-- the browser will automatically place items into the grid using a very well thought through algorithm, which is defined in the specifications
+- the browser will automatically place items into the grid using a very well thought through algorithm, which is defined in the specification
 - but things being placed one after another is behaviour most of us are fairly familiar with already
 - what's special about grid is how simple it is to manually place items in both dimensions
 - since my favourite analogy for this is placing pieces on a chessboard, that's what this is
@@ -190,7 +190,7 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - this was always written into the specification but it took some time for implementation
 - previously only animation of the `gap` property had been supported
 - intuitively, some of us might picture the grid items moving across tracks when animated but that's not the case at all
-- inspecting with DevTools will show exactly what the browser is animating *trigger grid overlay for grid5.board*
+- inspecting with DevTools will show exactly what the browser is animating *(trigger grid overlay for grid5.board)*
 - this example consists of a grid container with 1 grid item
 - the CSS animation keyframes are interpolating between the different values of `grid-template-columns` and `grid-template-rows`
 - the grid item's alignment has been set to the bottom-right corner of the grid cell it was placed in
