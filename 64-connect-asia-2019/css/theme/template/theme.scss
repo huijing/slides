@@ -162,18 +162,17 @@ body {
   line-height: 1.2em;
 
   word-wrap: break-word;
-
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .reveal code {
   font-family: $codeFont;
   text-transform: none;
+  border-radius: 4px;
 }
 
 .reveal pre code {
   display: block;
-  padding: 5px;
+  padding: 0.25em 0.5em;
   overflow: auto;
   word-wrap: normal;
 }

@@ -31,6 +31,10 @@ html {
 }
 
 .reveal {
+  .slides section .fragment.fade-out.visible:not(.current-fragment) {
+    display: none;
+  }
+
   .l-multiple {
     display: flex;
     justify-content: space-around;
@@ -68,11 +72,11 @@ html {
   }
 
   code.alt {
-    background-color: #eee;
-    color: #199ff2;
-    padding: .25em;
+    background: #fefbec;
+    color: #6e6b5e;
+    padding: 0 0.1em;
     display: inline-block;
-    border-radius: .25em;
+    border-radius: .125em;
   }
 
   pre code {
@@ -278,4 +282,75 @@ span[role=img][aria-label]:hover::after {
 .intro-grid div {
   grid-row: 2 / -3;
   grid-column: 1 / -1;
+}
+
+// Shapes with CSS ------------------------------
+div.circle {
+  width: 30vmin;
+  height: 30vmin;
+  background: $linkColor;
+  border-radius: 50%;
+  margin: 0 auto 1em;
+}
+
+div.triangle {
+  border-top: 15vmin solid transparent;
+  border-bottom: 15vmin solid transparent;
+  border-left: 15vmin solid $linkColor;
+  width: 0;
+  margin: 0 auto 1em;
+}
+
+div.trapezium {
+  width: 60vmin;
+  height: 30vmin;
+  clip-path: polygon(33% 0, 67% 0, 100% 100%, 0% 100%);
+  background: $linkColor;
+  margin: 0 auto 1em;
+}
+
+div.border-box {
+  width: 30vmin;
+  height: 30vmin;
+  border-top: 30px solid green;
+  border-bottom: 30px solid yellow;
+  border-left: 30px solid red;
+  border-right: 30px solid blue;
+  margin: 2em auto;
+}
+
+div.borders {
+  width: 0;
+  height: 0;
+  border-top: 30px solid green;
+  border-bottom: 30px solid yellow;
+  border-left: 30px solid red;
+  border-right: 30px solid blue;
+  margin: 2em auto;
+}
+
+// Gradient ------------------------------
+div.gradient1::before,
+div.gradient2::before {
+  content: '';
+  display: block;
+  height: 50vmin;
+  margin-bottom: 1em;
+}
+
+div.gradient1::before {
+  background-image: linear-gradient(orange, green)
+}
+
+div.gradient2::before {
+  background-image: linear-gradient(orange, orange 50%, green 50%, green)
+}
+// Box-shadow ------------------------------
+div.box-shadow {
+  margin: 0 auto 4em;
+  border-radius: 50%;
+  height: 1px;
+  width: 1px;
+  background-color: currentColor;
+  box-shadow: -6em 0 0 0.5em currentColor, -4em 0 0 0.5em currentColor, -2em 0 0 0.5em currentColor, 0 0 0 0.5em currentColor, 4em 0 0 0.5em currentColor, -6em 2em 0 0.5em currentColor, -4em 2em 0 0.5em currentColor, 0 2em 0 0.5em currentColor, 2em 2em 0 0.5em currentColor, 4em 2em 0 0.5em currentColor, 6em 2em 0 0.5em currentColor;
 }
