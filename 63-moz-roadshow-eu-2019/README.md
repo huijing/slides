@@ -200,6 +200,4 @@ Because of time constraints, I didn't get the chance to cover things like subgri
 
 These new layout techniques allow designers and developers to spend less time wrangling their code and focus their efforts on the actual design of more innovative and adaptive layouts that work well across as many devices and browsers as possible.
 
-So I hope that all of you are inspired to start considering these possibilities in your designs and projects as well.
-
-Thank you all for your attention.
+And I want to end off by saying, if you've been on the fence about trying out these new features because they seem complicated and hard, just go for it.
