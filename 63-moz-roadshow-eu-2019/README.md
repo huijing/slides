@@ -12,7 +12,7 @@ Because, like support of CSS on actual web pages differs between browsers, this 
 
 I also love emojis, and these pretty much some up who I am as a person. If you're curious about any of them, you can ask me about them later. Finally, I wanted to make a point that Firefox supports the most CSS properties in the console. The ability to do vertical writing easily is one of my favourite things about the web. So I love this.
 
-[2.30]
+[1.45]
 
 ## Content-based sizing, letting the browser decide
   
@@ -44,8 +44,12 @@ I also love emojis, and these pretty much some up who I am as a person. If you'r
 
 - `fit-content` unfortunately is not a supported value at this point but all 3 keywords are supported when used in the context of a grid formatting layout
 - `fit-content` is not a fixed value like the previous 2 keywords, it is a range between the `min-content` size and the `max-content` size or length-percentage defined in the function, whichever is smaller
-- if you look at the Chinese and Thai examples, which have exactly the same content, their smallest size is `min-content`, while their largest size ends up being `300px`
-- if I change the cap value to something larger than `max-content`, like `500px`, then `max-content` becomes the largest size
+- The Chinese and Thai examples have exactly the same content in all 3 columns, and are sized `min-content`, `max-content` and `fit-content(300px)` respectively
+- when the space is limited, the third column shrinks until `min-content` width
+- when there's lots of space, its largest size ends up being `300px` because that's the value in the function *(can highlight item to show widths)*
+- if I change the cap value to something larger than `max-content`, like `500px`, then `max-content` becomes the maximum size
+
+[6.20]
 
 ## Flexbox, where nobody knows the size of anything
 
@@ -109,11 +113,14 @@ I also love emojis, and these pretty much some up who I am as a person. If you'r
 - items are stretched along the cross axis to the full height of the flex line once you apply `display: flex`
 - once the `align-self` or `align-items` property is applied though, the items revert to their original heights
 - an interesting value for `align-items` is `baseline`, which is useful when you have text within flex items of varying sizes and positions
-- `baseline` lines them all up, and if the text within each item is related, makes it easier to comprehend
-- if there is more space in the flex container than the total height of all the flex lines, you'll end up with these gaps, that maybe you don't want
-- lastly, `align-content` lets you pack your items together and align the whole block of items within the container
+- `baseline` lines them all up, so if the text within each item is related, it becomes much easier to read
 
 ---
+
+- if there is more space in the flex container than the total height of all the flex lines *(set container height to more than 75vh)*, you'll end up with these gaps, that maybe you don't want
+- Using `align-content` lets you pack your items together and align the whole block of items within the container
+
+[18.35]
 
 ## Grid, where we finally have real rows and columns
 
@@ -144,16 +151,18 @@ I also love emojis, and these pretty much some up who I am as a person. If you'r
 - every line must have the same number of columns otherwise the whole thing is moot
 - change your layout without having to touch the code for the grid items, only the grid areas *(change grid area of banana)*
 - *(Switch to Braun poster example)*
-- using named grid areas can make it easier to adjust the positions of certain elements when the viewport size changes *(proceed to resize browser and hit 3 layouts)*
+- here I've named the key areas of the grid to match what content is in it, like *title*, *text*, and so on
+- when the viewport size changes, I adjust the positions of the elements by touching the CSS for only the grid container *(proceed to resize browser and hit 3 layouts)*
+- you can see how the grid area names, and hence the grid item assigned to it, have been tweaked
 - non-rectangular or disconnected regions may be permitted in future, but for now, just rectangles, no Tetris shapes or that sort of thing
 
 ---
 
-- like Flexbox, alignment properties are applicable to Grid, and we have all 6 values at our disposal
+- like Flexbox, Grid can also use the box alignment properties
 - for Grid, we can use `justify-items` and `justify-self` to adjust content within its grid cell along the inline axis *(do start, center, end)*
 - another category of alignment properties that I didn't mention earlier, are **overflow** alignment keywords
 - sometimes there will be situations where the total size of the grid items is larger than the grid container, causing overflow
-- for example, in this case, if the `justify-content` value is set to `end`, you will end up with data loss, because it's impossible to scroll to the overflowed content
+- for example, in this case, if the `align-content` value is set to `end`, you will end up with data loss, because it's impossible to scroll to the overflowed content
 - `unsafe` will honour the specified alignment even if this scenario occurs, while `safe` will change the alignment to one that avoids data loss
 
 ---
