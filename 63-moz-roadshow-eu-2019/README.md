@@ -2,23 +2,15 @@
 
 Hello, everyone! I'm really glad to be here in Nuremburg with all of you this evening. It's my first time here, the weather is much nicer than back home, to be honest. Thank you all for turning out to this first stop on the Mozilla Developer Roadshow.
 
-I'll be sharing with you some of my favourite things about the Firefox DevTools and how they've helped me better understand some of the powerful, new CSS layout techniques. So let's get started.
+I'll be sharing with you some of my favourite things about the Firefox DevTools and how they've helped me better understand some of the powerful, new CSS features and layout techniques. So let's get started.
 
 ## On how cool DevTools console can be
 
-I learned a lot about the DevTools from my good friend and fellow TechSpeaker, Alex Lakatos. One of the things that stood out to me most was that CSS applies to the DevTools console, just like a web page. Maybe too much like a web page. 
+We typically think of DevTools as something we use for debugging, but it can be more than just that. I only realised late last year that CSS applies to the DevTools console, just like a web page. Maybe too much like a web page. 
 
 Because, like support of CSS on actual web pages differs between browsers, this is also the case of CSS support in the console. So I've made this fancy CSS-only talk title in the console. This is what it looks like in Chrome. And what it looks like the Safari. Looks way better in Firefox, but that's just my opinion. 
 
 I also love emojis, and these pretty much some up who I am as a person. If you're curious about any of them, you can ask me about them later. Finally, I wanted to make a point that Firefox supports the most CSS properties in the console. The ability to do vertical writing easily is one of my favourite things about the web. So I love this.
-
-## On modern CSS layouts
-
-When I refer to modern CSS layouts, I'm talking about layouts built with Flexbox, Grid and Box alignment properties. Because conceptually, these are properties which were crafted specially for building layouts on the web.
-
-They are different from prior techniques, like HTML tables for layout, or floats, which were more clever uses of properties whose intended purpose was not for layout to begin with. But resourceful developers, like yourselves, found plenty of workarounds and hacks to work with whatever features were available.
-
-These days, we have a much more robust toolset for doing layouts on the web.
 
 [2.30]
 
@@ -55,8 +47,6 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - if you look at the Chinese and Thai examples, which have exactly the same content, their smallest size is `min-content`, while their largest size ends up being `300px`
 - if I change the cap value to something larger than `max-content`, like `500px`, then `max-content` becomes the largest size
 
-[6.50]
-
 ## Flexbox, where nobody knows the size of anything
 
 - Firefox is the only browser with a Flexbox inspector, locate it at the *Layout* tab, possible to change colour of overlay
@@ -69,13 +59,12 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - one thing to note is that the specification recommends you use the keywords because they cover the most common use cases, they are `initial`, `none`. `auto` and any `<positive integer>` *(show where to see computed values)*
 - sizing of flex items depends on a number of factors, like the amount of free space available, the amount of content in the flex item and the starting width of the flex item
 - the exact algorithm is sort of complicated but is outlined in the specification if you're interested
-- things get clearer once you have a better understanding of `flex-basis`
-- if I put a fixed value of `100px` as the `flex-basis`, it's not surprising that some people expect to see a box of `100px`, because we're used to being in control of our sizing instructions
-- but `flex-basis` is actually the starting point from which the size of the box is calculated, key here is **starting point**, because if flex items are allowed to grow, odds are the final size will **not** be `100px`
+- the key to figuring out flexfox is understanding how the `flex-basis` property works
+- say I put a fixed value of `100px` as the `flex-basis` of a flex item, intuitively, many people expect to see a box of width `100px`, because we're used to being in control of our sizing instructions
+- but `flex-basis` is actually the starting point from which the size of the box is calculated, key here is **starting point**, because if flex items are allowed to grow or shrink, odds are the final size will **not** be `100px`
 
 ---
 
-- so if we look at this next example, it appears that the browser allocates space based on content, but let's break down what's actually happening
 - so we've got 2 flex containers with 3 flex items each, first 2 items have the same content, much longer content for the second container's last item
 - both only have `display: flex` set on the parent element and nothing on the children
 - this means all children have the values of `0 1 auto`, meaning the items won't grow beyond their starting widths *(resize until enough room for all content)*
@@ -108,8 +97,7 @@ These days, we have a much more robust toolset for doing layouts on the web.
 - aligning items with the box alignment properties is also a big plus
 - the flex inspector allows us to visualise free space is distributed for all the different values *(activate flexbox inspector)*
 - box alignment properties are meant to be used across layout models, although for now, they can only be used with flex and grid
-- when using flexbox, we have access to 4 of the 6 available properties, `justify-items` and `justify-self` do not apply here because they are meant to justify a box within its containing block along the main axis, but there is more than 1 item in the main axis
-- `justify-content` lets us adjust flex items along the **main axis**
+- `justify-content` lets us adjust flex items along the **main axis**, which is the direction flex items are laid out
 - `start`, `center` and `end` are **positional** keywords, which adjust the flex children's absolute position within the flex container
 - `space-around`, `space-between` and `space-evenly` are **distribution** keywords, which disperse extra space between the flex children
 - if we change the `flex-direction` to `column`, `justify-content` still adjusts the flex items along the **main axis** *(remember to also add a height less than viewport height)*
@@ -117,6 +105,7 @@ These days, we have a much more robust toolset for doing layouts on the web.
 
 ---
 
+- the cross axis is perpendicular to the main axis
 - items are stretched along the cross axis to the full height of the flex line once you apply `display: flex`
 - once the `align-self` or `align-items` property is applied though, the items revert to their original heights
 - an interesting value for `align-items` is `baseline`, which is useful when you have text within flex items of varying sizes and positions
