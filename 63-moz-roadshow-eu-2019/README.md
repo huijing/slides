@@ -169,7 +169,7 @@ I also love emojis, and these pretty much some up who I am as a person. If you'r
 
 - if you noticed, for both Flexbox and Grid, the moment an alignment property was set on an item, it shrinks to fit its contents along the respective axis of alignment
 - so if we have a design like this, *(switch to Malerei, Fotografie, Film)*, with borders that are along the grid lines, but content that is smaller than the cell, you will need to use both Flexbox and Grid
-- *(target arrow)* if we remove `display: flex` on this grid cell and convert the code to use box alignment properties on grid, you will see what I mean
+- *(target arrow)* if we remove `display: flex` on this grid cell and convert the code to use box alignment properties on the grid item, you will see what I mean
 - *(deactivate flex, add align-self: center)*, the grid cell shrinks to fit, and the border shrinks with it
 - so it's not about Flexbox OR Grid, it's about Flexbox AND Grid, really
 
@@ -178,9 +178,10 @@ I also love emojis, and these pretty much some up who I am as a person. If you'r
 - for the keyword values of `auto-fit` and `auto-fill`, the inspector also makes it much easier to understand what they actually do
 - they are used in the context of the `repeat()` function and make use of the fact that the browser knows how large its own viewport is and hence, is best positioned to generate the perfect number of grid tracks to fill up that space
 - the example here asks the browser to generate as many columns with a minimum width of 6ems that can fit into the available space
-- this example only has 5 grid items though, so when the viewport is much larger than 30ems, we can see the difference between the 2 values
+- there are only has 5 grid items though, so when the viewport is much larger than 30ems, we can see the difference between the 2 values
 - with `auto-fill`, empty tracks still take up space on the grid
 - with `auto-fit` though, these empty tracks are collapsed and the grid items grow, because of the max value of `1fr`, and fill up the empty space instead
+- so depending on what design you have in mind, you've got options
 
 ---
 
