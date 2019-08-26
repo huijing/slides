@@ -76,11 +76,11 @@ These days, we have a much more robust toolset for doing layouts on the web.
 ---
 
 - so if we look at this next example, it appears that the browser allocates space based on content, but let's break down what's actually happening
-- reminder: browser will not break words
 - so we've got 2 flex containers with 3 flex items each, first 2 items have the same content, much longer content for the second container's last item
 - both only have `display: flex` set on the parent element and nothing on the children
 - this means all children have the values of `0 1 auto`, meaning the items won't grow beyond their starting widths *(resize until enough room for all content)*
 - a `flex-shrink` value of `1` means all the items will shrink at the same rate if there isn't enough space for all the content to be a single line
+- this is why the the second flex item in the second container takes up less space at this point, because it started shrinking first
 - a flex basis of `auto` resolves to `content`, which is an automatic size based on the content within the flex item, typically equivalent to `max-content` width 
 - when there is no explicit width set on a flex item, i.e. its value is `auto`, and the `flex-basis` is also `auto`, the browser will use content size as the starting point *(make sure to show flex item diagram in Layout panel)*
 - if there is an explicit width set *(set width to 200px)*, then that becomes the starting point of size calculation, and because the `flex-grow` factor is `0`, this item ends up being `200px`
