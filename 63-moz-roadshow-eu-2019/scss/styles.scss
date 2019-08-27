@@ -187,41 +187,47 @@ img[src$=".svg"] {
 
 .grid1 {
   display: grid;
-  grid-template-columns: repeat(3, 20vmin);
-  grid-template-rows: repeat(3, 20vmin);
+  grid-template-columns: 5em 5em 5em;
+  grid-template-rows: 5em 5em;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(3, 15vmin);
+  grid-template-rows: repeat(3, 15vmin);
   background-color: aliceblue;
   background-image: linear-gradient(45deg, cornflowerblue 25%, transparent 25%, transparent 75%, cornflowerblue 75%, cornflowerblue),
   linear-gradient(45deg, cornflowerblue 25%, transparent 25%, transparent 75%, cornflowerblue 75%, cornflowerblue);
 }
 
 .board {
-  background-size: 40vmin 40vmin;
-  background-position: 0 0, 20vmin 20vmin;
-  width: 60vmin;
-  height: 60vmin;
+  background-size: 30vmin 30vmin;
+  background-position: 0 0, 15vmin 15vmin;
+  width: 45vmin;
+  height: 45vmin;
 }
 
 .emoji {
-  font-size: 8vmin;
+  font-size: 6vmin;
   font-family: "Emoji";
   margin: auto;
 }
 
-.grid1__item:first-child {
+.grid2__item:first-child {
   grid-row: 3;
 }
 
-.grid1__item:nth-child(2) {
+.grid2__item:nth-child(2) {
   grid-row: 2;
   grid-column: 2;
 }
 
-.grid1__item:nth-child(3) {
+.grid2__item:nth-child(3) {
   grid-row: 3;
   grid-column: 3;
 }
 
-.grid2 {
+.grid3 {
   display: grid;
   grid-template-columns: repeat(6, 9vmin);
   grid-template-rows: repeat(6, 9vmin);
@@ -237,7 +243,7 @@ img[src$=".svg"] {
   .box:nth-child(3) { grid-area: cherry }
 }
 
-.grid3 {
+.grid4 {
   height: 40vmin;
   border: 1px dotted;
   overflow: auto;
@@ -272,20 +278,20 @@ img[src$=".svg"] {
   }
 }
 
-.grid4 {
+.grid5 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(6em, 1fr));
 }
 
-.grid5 {
+.grid6 {
   display: grid;
   background-color: seashell;
   background-image: linear-gradient(45deg, sandybrown 25%, transparent 25%, transparent 75%, sandybrown 75%, sandybrown), linear-gradient(45deg, sandybrown 25%, transparent 25%, transparent 75%, sandybrown 75%, sandybrown);
   animation: move 10s infinite ease;
 
   div {
-    height: 20vmin;
-    width: 20vmin;
+    height: 15vmin;
+    width: 15vmin;
     display: flex;
     place-self: end;
   }
@@ -293,28 +299,28 @@ img[src$=".svg"] {
 
 @keyframes move {
   0% {
-    grid-template-columns: 20vmin 1fr;
-    grid-template-rows: 20vmin 1fr;
+    grid-template-columns: 15vmin 1fr;
+    grid-template-rows: 15vmin 1fr;
   }
   25% {
-    grid-template-columns: 60vmin 1fr;
-    grid-template-rows: 20vmin 1fr;
+    grid-template-columns: 45vmin 1fr;
+    grid-template-rows: 15vmin 1fr;
   }
   50% {
-    grid-template-columns: 60vmin 1fr;
-    grid-template-rows: 60vmin 1fr;
+    grid-template-columns: 45vmin 1fr;
+    grid-template-rows: 45vmin 1fr;
   }
   75% {
-    grid-template-columns: 20vmin 1fr;
-    grid-template-rows: 60vmin 1fr;
+    grid-template-columns: 15vmin 1fr;
+    grid-template-rows: 45vmin 1fr;
   }
    100% {
-    grid-template-columns: 20vmin 1fr;
-    grid-template-rows: 20vmin 1fr;
+    grid-template-columns: 15vmin 1fr;
+    grid-template-rows: 15vmin 1fr;
   }
 }
 
-[class^='grid6'] {
+[class^='grid7'] {
   display: inline-grid;
   width: calc(100% - 2.1em);
 
@@ -338,14 +344,14 @@ img[src$=".svg"] {
   font-size: 1.5em;
 }
 
-.grid6a { grid-template-columns: 1fr 2fr 1fr }
-.grid6b { grid-template-columns: auto auto auto }
-.grid6c { grid-template-columns: auto 1fr auto }
-.grid6d { grid-template-columns: 1fr auto 1fr }
-.grid6e { grid-template-columns: 1fr auto fit-content(200px) }
-.grid6f { grid-template-columns: minmax(200px, 400px) auto fit-content(200px) }
-.grid6g { grid-template-columns: 1fr auto minmax(200px, 400px) }
-.grid6h { grid-template-columns: fit-content(200px) minmax(200px, 400px) max-content }
+.grid7a { grid-template-columns: 1fr 2fr 1fr }
+.grid7b { grid-template-columns: auto auto auto }
+.grid7c { grid-template-columns: auto 1fr auto }
+.grid7d { grid-template-columns: 1fr auto 1fr }
+.grid7e { grid-template-columns: 1fr auto fit-content(200px) }
+.grid7f { grid-template-columns: minmax(200px, 400px) auto fit-content(200px) }
+.grid7g { grid-template-columns: 1fr auto minmax(200px, 400px) }
+.grid7h { grid-template-columns: fit-content(200px) minmax(200px, 400px) max-content }
 
 input[type=checkbox] ~ label {
   position: fixed;
