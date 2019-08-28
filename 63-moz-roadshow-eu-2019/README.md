@@ -9,7 +9,7 @@ Topics covered (depending on time):
 
 Event website: [https://mozilla-tito-devr.netlify.com/](https://mozilla-tito-devr.netlify.com/)
 
-*This is a general transcript plus notes of the talk*
+*This is a sort-of transcript plus my notes for the talk*
 
 Hello everyone! And thank you all for coming out this evening. We're going to have a packed line-up of talks so I'm going to get straight into things. I'm going to be sharing with you some of my favourite things about the Firefox DevTools and how they've helped me better understand some of the powerful, new CSS features and layout techniques.
 
@@ -27,7 +27,7 @@ We'll be covering what I consider the 3 cornerstones of modern CSS layouts, Flex
 - one thing to note is that the specification recommends you use the keywords because they cover the most common use cases, they are `initial`, `none`. `auto` and any `<positive integer>` *(show where to see computed values)*
 - sizing of flex items depends on a number of factors, like the amount of free space available, the amount of content in the flex item and the starting width of the flex item
 - the exact algorithm is sort of complicated but is outlined in the specification if you're interested
-- the key to figuring out flexfox is understanding how the `flex-basis` property works
+- the key to figuring out flexbox is understanding how the `flex-basis` property works
 - say I put a fixed value of `100px` as the `flex-basis` of a flex item, intuitively, many people expect to see a box of width `100px`, because we're used to being in control of our sizing instructions
 - but `flex-basis` is actually the starting point from which the size of the box is calculated, key here is **starting point**, because if flex items are allowed to grow or shrink, odds are the final size will **not** be `100px`
 
