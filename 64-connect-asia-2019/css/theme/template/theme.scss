@@ -168,6 +168,7 @@ body {
   font-family: $codeFont;
   text-transform: none;
   border-radius: 4px;
+  max-height: 45vh;
 }
 
 .reveal pre code {

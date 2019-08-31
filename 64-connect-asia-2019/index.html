@@ -25,7 +25,7 @@
         <section>
           <h1>Creating art with CSS</h1>
           <p><small><a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
-          <aside class="notes">Hello everyone. I feel very grateful for the opportunity to address a room full of technical women, so thank you to the organisers for putting me on this stage. Today, I'll be talking about creating art with CSS.</aside>
+          <aside class="notes">Hello everyone. It's not often that I get the chance to address a room full of women in tech, so thank you to the organisers for putting me on this stage. Today, I'll be talking about creating art with CSS.</aside>
         </section>
 
         <section>
@@ -51,14 +51,14 @@
               <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
             </div>
           </div>
-          <aside class="notes">My name is Hui Jing, and these are the emojis that pretty much describe who I am as a person. Feel free to interpret them however you like.</aside>
+          <aside class="notes">My name is Hui Jing, and these are the emojis that pretty much describe who I am as a person. Feel free to interpret them however you like. If any of them don't make sense to you, you can always ask me about them later.</aside>
         </section>
 
         <section>
-          <img style="max-height:10em;margin-bottom:0.5em" class="plain" data-src="img/love-dev.svg" alt="Nexmo Developer Relations">
+          <img style="max-height:7.5em;margin-bottom:0.5em" class="plain" data-src="img/love-dev.svg" alt="Nexmo Developer Relations">
           <p><span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span> Developer Advocate <span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span></p>
           <img style="max-height:2.5em;margin-top:1em" class="plain" data-src="img/nexmo.svg" alt="Nexmo">
-          <aside class="notes">I'm currently a Developer Advocate at Nexmo, which is a company that does communication APIs for messaging, voice, verification among many others.</aside>
+          <aside class="notes">I also have a day job, because gainful employment is a kind of a good look. Currently, I'm with Nexmo as a Developer Advocate. Nexmo being a company that does communication APIs for messaging, voice, verification among many others.</aside>
         </section>
 
         <section>
@@ -88,140 +88,386 @@
             <aside class="notes">This is the definition of “Art” from the 1913 edition of Webster's dictionary. The <em>application of skill</em> to the <em>production of the beautiful</em>. Art in and of itself is subjective, and hence there is not a single universal definition, but I think this one is pretty good.</aside>
           </section>
 
-          <section>
-            <aside class="notes">
-              <p>I think most of us went through some basic drawing and art lessons in school. I can confirm this for people in my generation who went to school in Singapore or Malaysia. Now, I don't know what you actually learnt, but I got some basic knowledge about colours and shapes.</p>
-              <p>But I'm a terrible student, so when I was told to do art, I didn't want to. When I was not supposed to be drawing, that's all I did. What I figured out was that drawing was a lot about observing and breaking down what I saw into simpler and simpler shapes.</p>
-            </aside>
+          <section data-background-image="img/art-supplies.jpg">
+            <aside class="notes">I think most of us went through some basic drawing and art lessons in school. I can confirm this for people in my generation who went to school in Singapore or Malaysia. Nowadays, I don't know what the kids are learning, nor do I know what you actually learnt, but I got some basic knowledge about colours and shapes.</aside>
           </section>
 
-          <section>
+          <section data-background-image="img/doodles.jpg">
             <aside class="notes">
-              <p></p>
+              <p>I'm also a terrible student, in that, when I was told to do art, I didn't want to. When I was not supposed to be drawing, that's all I did. This is the kind of nonsense I did in class. So now you know why I'm not in teaching. Karma is real, my friends.</p>
+              <p>But what I figured out from all that doodling is that capturing something in the real world onto a piece of paper is a mainly about observing and breaking down what I see into simpler and simpler shapes.</p>
             </aside>
           </section>
         </section>
 
         <section>
           <section>
-            <h2>Shapes with CSS (1/3)</h2>
-            <p>This be a circle</p>
+            <h2>Basic shapes with CSS</h2>
+            <ul>
+              <li><code>width</code> & <code>height</code></li>
+              <li><code>border-radius</code></li>
+              <li><code>border</code></li>
+            </ul>
+            <aside class="notes">
+              <p>So let's talk about shapes. Let's talk about how to create basic shapes with CSS.</p>
+              <p>CSS stands for cascading stylesheets, which is a declarative method of telling the browser how you want elements on your page to look like. I'll be honest, I prepared this talk not sure what the audience mix would be like, but even if the code doesn't make sense to you, don't worry about it.</p>
+              <p>I think the point of attending a conference is to get inspired, to learn about what new things exist today, or maybe an overview of how they are used. But you would really learn that thing, that technology, when you go home tonight and try it out yourself.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Rectangles</h2>
+            <div style="height:30vmin;width:60vmin;background-color:#bababa;margin:0 auto 1em"></div>
+            <pre><code>.rectangle {
+  width: 60vmin;
+  height: 30vmin;
+  background: #bababa;
+}</code></pre>
+            <aside class="notes">
+              <p>This is a rectangle. A rectangle is a quadrilateral with 4 right angles, AKA an equilateral quadrilateral. Sometimes also called an oblong. Or you can say a parallelogram containing a right angle. Think about it, you cannot have a parallelogram with only 1 right angle. If 1 is a right angle, all will be right angles.</p>
+              <p>Anyway, we can also call this shape a box. And the web is made of boxes. Boxes lined up next to each other, stacked on top of one another. Boxes nested within other boxes.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>The box model</h2>
+            <img class="plain" data-src="img/box-model.svg" alt="Diagram of the box model">
+            <aside class="notes">Anything and everything rendered by the browser follows this box model. All the shapes we'll be talking about today are modifications onto this most basic box. The borders of a box are exceptionally versatile and one of the key properties for creating CSS art.</aside>
+          </section>
+
+          <section>
+            <h2>The <code>border-radius</code> property</h2>
+            <img class="plain" data-src="img/circle.svg" alt="Diagram of how border-radius is used to create a circle">
+            <aside class="notes">
+              <p>Circles are another basic shape, and they make use of a property known as <code>border-radius</code>. The value itself represents the radius of the circle at the corner of the box which affects how large the round corner is going to be.</p>
+              <p>If you can see here, by setting the <code>border-radius</code> to 50% of the width and height of a square box, we can get a perfect circle.</p>
+            </aside>
+          </section>
+  
+          <section>
+            <h2>Circles</h2>
             <div class="circle"></div>
             <pre><code>.circle {
   width: 30vmin;
   height: 30vmin;
-  background: #f2af29;
+  background: #bababa;
   border-radius: 50%; /* This is the key line, right here */
-  margin: 0 auto;
 }</code></pre>
+            <aside class="notes">The CSS for making is circle is not too complicated, but there is a lot more to the <code>border-radius</code> property.</aside>
           </section>
+
           <section>
-            <h2>Shapes with CSS (2/3)</h2>
-            <div class="fragment fade-out border-box"></div>
-            <div class="fragment fade-in">
-              <div class="fragment fade-out borders"></div>
+            <div class="l-double">
+              <figure style="margin-bottom:1em">
+                <img class="plain" style="max-height:35vh;margin:0" data-src="img/1-value.svg" alt="Diagram of the box model">
+                <figcaption>
+                  <p style="margin:0">1-value syntax</p>
+                  <code>border-radius: 1em</code>
+                </figcaption>
+              </figure>
+              <figure style="margin-bottom:1em">
+                <img class="plain" style="max-height:35vh;margin:0" data-src="img/2-values.svg" alt="Diagram of the box model">
+                <figcaption>
+                  <p style="margin:0">2-value syntax</p>
+                  <code>border-radius: 1em 2em</code>
+                </figcaption>
+              </figure>
+              <figure style="margin-bottom:1em">
+                <img class="plain" style="max-height:35vh;margin:0" data-src="img/3-values.svg" alt="Diagram of the box model">
+                <figcaption>
+                  <p style="margin:0">3-value syntax</p>
+                  <code>border-radius: 1em 2em 3em</code>
+                </figcaption>
+              </figure>
+              <figure style="margin-bottom:1em">
+                <img class="plain" style="max-height:35vh;margin:0" data-src="img/4-values.svg" alt="Diagram of the box model">
+                <figcaption>
+                  <p style="margin:0">4-value syntax</p>
+                  <code>border-radius: 1em 2em 3em 4em</code>
+                </figcaption>
+              </figure>
             </div>
-            <div class="fragment">
-              <p>This be a triangle</p>
-              <div class="triangle"></div>
+            <aside class="notes">
+              <p>There are many CSS properties in existence, and some of them are shorthand properties, which allow us to set the values of multiple other CSS properties simultaneously. This is applicable to common properties acting on the same theme, like <code>border-radius</code>.</p>
+              <p>A box has 4 corners, so the <code>border-radius</code> property takes anything from 1 to 4 values. And the order in which these values are applied to the box is a clockwise direction starting from the top left corner.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Semi-circles</h2>
+            <div class="semicircles">
+              <div class="semicircle-top"></div>
+              <div class="semicircle-left"></div>
+              <div class="semicircle-bottom"></div>
+              <div class="semicircle-right"></div>
             </div>
-            <pre class="fragment"><code>.triangle {
-  border-top: 18.75vmin solid transparent;
-  border-bottom: 18.75vmin solid transparent;
-  border-left: 18.75vmin solid #1e292f;
+            <pre><code>.semicircle-top {
+  width: 30vmin;
+  height: 15vmin;
+  border-radius: 15vmin 15vmin 0 0;
+}
+
+.semicircle-left {
+  height: 30vmin;
+  width: 15vmin;
+  border-radius: 15vmin 0 0 15vmin;
+}
+
+.semicircle-bottom {
+  width: 30vmin;
+  height: 15vmin;
+  border-radius: 0 0 15vmin 15vmin;
+}
+
+.semicircle-right {
+  height: 30vmin;
+  width: 15vmin;
+  border-radius: 0 15vmin 15vmin 0;
 }</code></pre>
+            <aside class="notes">To make a semi-circle, we would want to chop a circle in half. Since we made a circle by carving off the sharp corners of a square box, half of that we are only carving 2 corners off a rectangle whose width is double the height or vice versa.</aside>
           </section>
+
           <section>
-            <h2>Shapes with CSS (3/3)</h2>
-            <p>This be a trapezium</p>
-            <div class="trapezium"></div>
+            <h2>Quarter-circles</h2>
+            <div class="quartercircles">
+              <div class="quartercircle-nw"></div>
+              <div class="quartercircle-ne"></div>
+              <div class="quartercircle-se"></div>
+              <div class="quartercircle-sw"></div>
+            </div>
+            <pre><code>.quartercircle-nw {
+  height: 15vmin;
+  width: 15vmin;
+  border-radius: 100% 0 0 0;
+}
+
+.quartercircle-ne {
+  height: 15vmin;
+  width: 15vmin;
+  border-radius: 0 100% 0 0;
+}
+
+.quartercircle-se {
+  height: 15vmin;
+  width: 15vmin;
+  border-radius: 0 0 100% 0;
+}
+
+.quartercircle-sw {
+  height: 15vmin;
+  width: 15vmin;
+  border-radius: 0 0 0 100%;
+}</code></pre>
+            <aside class="notes">And if we want a quarter-circle, the <code>border-radius</code> of any one of the corners has to expand to 100% of the width of the box to achieve this desired effect.</aside>
+          </section>
+
+          <section>
+            <h2>Triangles</h2>
+            <div style="display:flex;justify-content:space-around;align-items:center">
+              <div class="border-box"></div>
+              <div class="borders-small fragment"></div>
+              <div class="borders fragment"></div>
+            </div>
+            <aside class="notes">
+              <p>Moving onto another basic shape: triangles. Pure CSS triangles are made with borders. Often, we use borders that are relatively thin, and hence most people never notice what happens when borders meet at a corner.</p>
+              <p>Turns out, they meet diagonally. We can work with that. What if we have a box of just borders and no actual height and width?</p>
+              <p>This means that the thicker the width of the border, the larger the triangles created.</p>
+            </aside>
+          </section>
+
+          <section>
+            <p>Transparent is a colour in CSS.</p>
+            <img class="plain" data-src="img/border-colour.svg" alt="Diagram explaning how CSS triangles can be made with border">
+            <aside class="notes">Most of the time, we don't want all 4 triangles at the same time. So we make the other 3 invisible by setting a border colour of <code>transparent</code> on the sides we don't want.</aside>
+          </section>
+
+          <section>
+            <h2>Isosceles Triangles</h2>
+            <div class="triangles">
+              <div class="triangle-top"></div>
+              <div class="triangle-right"></div>
+              <div class="triangle-bottom"></div>
+              <div class="triangle-left"></div>
+            </div>
+            <pre><code>.triangle-top {
+  border-right: 15vmin solid transparent;
+  border-bottom: 15vmin solid #bababa;
+  border-left: 15vmin solid transparent;
+}
+
+.triangle-right {
+  border-top: 15vmin solid transparent;
+  border-bottom: 15vmin solid transparent;
+  border-left: 15vmin solid #bababa;
+}
+
+.triangle-bottom {
+  border-top: 15vmin solid #bababa;
+  border-right: 15vmin solid transparent;
+  border-left: 15vmin solid transparent;
+}
+
+.triangle-left {
+  border-top: 15vmin solid transparent;
+  border-bottom: 15vmin solid transparent;
+  border-right: 15vmin solid #bababa;
+}</code></pre>
+            <aside class="notes">So this is the technique for creating isosceles triangles, pointing in each of the 4 directions.</aside>
+          </section>
+
+          <section>
+            <h2>Right-angled Triangles</h2>
+            <div class="livecode livecode-2p" style="height:65vh">
+              <div class="result triangles">
+                <div style="display:flex;justify-content:space-around;align-items:center;width:100%">
+                  <div class="triangle-nw"></div>
+                  <div class="triangle-ne"></div>
+                  <div class="triangle-se"></div>
+                  <div class="triangle-sw"></div>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.triangles .triangle-nw {
+  border-right: 15vmin solid transparent;
+  border-top: 15vmin solid #bababa;
+  
+  
+}
+
+.triangles .triangle-ne {
+  border-left: 15vmin solid transparent;
+  border-top: 15vmin solid #bababa;
+}
+
+.triangles .triangle-se {
+  border-left: 15vmin solid transparent;
+  border-bottom: 15vmin solid #bababa;
+}
+
+.triangles .triangle-sw {
+  border-right: 15vmin solid transparent;
+  border-bottom: 15vmin solid #bababa;
+}</style></div>
+            <aside class="notes">
+              <p>Right-angled triangles are kind of interesting as well, but still operate on the same principles. It's about hiding the sections of the border that you don't want.</p>
+              <p>Some of you who are more mathematically inclined may have already realised that with some trigonometry, adjusting the widths of 1 border can give you a specific scalene triangle as well. And you thought high school math wasn't relevant in CSS.</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Complex shapes with CSS</h2>
+            <ul>
+              <li><code>clip-path</code></li>
+              <li><code>border-radius</code></li>
+              <li><code>transform</code></li>
+            </ul>
+            <aside class="notes">Rectangles, circles and triangles are great, but sometimes you need more complex shapes or more nuanced curves. And we have CSS properties to do that as well.</aside>
+          </section>
+
+          <section>
+            <h2>Polygons</h2>
+            <div style="display:flex;justify-content:space-around;align-items:center">
+              <div class="trapezium"></div>
+              <div class="rabbet"></div>
+              <div class="star"></div>
+            </div>
             <pre><code>.trapezium {
   width: 60vmin;
   height: 30vmin;
-  background: #1e292f;
-  clip-path: polygon(33% 0, 67% 0, 100% 100%, 0% 100%); /* This is the key line, right here */
+  background: #bababa;
+  clip-path: polygon(33% 0, 67% 0, 100% 100%, 0% 100%);
+}
+
+.rabbet {
+  width: 30vmin;
+  height: 30vmin;
+  background: #bababa;
+  clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%);
+}
+
+.star {
+  width: 45vmin;
+  height: 45vmin;
+  background: #bababa;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
 }</code></pre>
-            <p class="fragment">Note that <code class="alt">clip-path</code> is NOT supported in Edge or IE 😔</p>
+            <aside class="notes">
+              <p>A relatively newer CSS property called <code>clip-path</code> lets us make more complex shapes by creating a clipping region which defines which parts of the box is visible. You could use basic shape functions like <code>circle()</code> and <code>ellipse()</code>. Or you could define a more custom shape with the <code>polygon()</code> function.</p>
+              <p>Each point is on the shape is defined by 2 values, like x and y coordinates on a cartesian plane. And you can define as many points as you like.</p>
+            </aside>
           </section>
-        </section>
 
-        <section>
-          <h2>Pseudo-elements</h2>
-          <div>
-            <p><code class="alt">::before</code> and <code class="alt">::after</code></p>
-            <pre><code>.element::before {
-  content: '';
-  display: block;
-  width: 50%;
-  height: 50%;
-}</code></pre>
-          </div>
-          <div class="fragment">
-            <p>Must have the <code class="alt">content</code> property to work</p>
-            <p>At least have empty quotes</p>
-            <p>Not visible in the page's source, only in CSS</p>
-          </div>
-        </section>
+          <section data-background-video="videos/clip-path.mp4" data-background-video-loop>
+            <aside class="notes">There are tools that can make this point plotting much easier. If you use Firefox, this is built into the DevTools already. You can toggle this particular tool by clicking on that little icon next to your function and handles will appear on your shape. You can drag those handles to adjust the shape and then copy the result into your code.</aside>
+          </section>
 
-        <section>
-          <h2>Gradients</h2>
-          <p>Can be used in any property that accepts images, e.g. <code class="alt">background</code>, <code class="alt">list-style-image</code> etc.</p>
-          <pre><code>linear-gradient( [ &lt;angle&gt; | &lt;side-or-corner&gt; ]?, &lt;color-stop-list&gt; )</code></pre>
-          <p>First argument specifies gradient line, defaults to <code class="alt">to-bottom</code> if omitted. Can use angle or keyword.</p>
-          <pre><code>&lt;color-stop-list&gt; = &lt;color-stop&gt;#{2,}
-&lt;color-stop&gt; = &lt;color&gt; &lt;length-percentage&gt;?</code></pre>
-          <p>At least 2 values, no maximum limit. Between 2 colour stops, the line's colour is linearly interpolated between the 2 colours.</p>
-          <p>For clean change between 2 colours, have 2 colour stops at the same position, i.e. at least 4 <code class="alt">&lt;color-stop&gt;</code> values needed.</p>
-        </section>
-
-        <section>
-          <div class="l-double" style="grid-gap:1em;grid-template-columns:calc(50% - 0.5em) calc(50% - 0.5em)">
-            <div class="gradient1">
-              <pre><code>.element {
-  background-image: linear-gradient(orange, green)
-}</code></pre>
-            </div>
+          <section>
+            <h2>Irregular shapes</h2>
+            <img class="plain" data-src="img/border-radius.svg" alt="Diagram explaning how border radius works">
+            <aside class="notes">
+              <p>My earlier explanation of <code>border-radius</code> was incomplete. The rounded corner does not necessarily have to be an uniform circle. You can very much define an ellipse by providing different values for the 2 dimensions.</p>
+              <p>The 2 values are delimited by a slash, and the first value specifies the horizontal value, while the second value specifies the vertical value.</p>
+            </aside>
+          </section>
             
-            <div class="gradient2">
-              <pre><code>.element {
-  background-image: linear-gradient(orange, orange 50%, green 50%, green)
-}</code></pre>
+          <section>
+            <h2>Irregular shapes</h2>
+            <div class="diff-borders" style="display:flex;justify-content:space-around;align-items:center;margin-bottom:1em">
+              <div></div>
+              <div></div>
+              <div></div>
             </div>
-          </div>
-        </section>
+            <pre><code>div:first-child {
+  width: 45vmin;
+  height: 45vmin;
+  background: $linkColor;
+  border-radius: 100% 0% 60% 40% / 60% 0% 100% 40%;
+}
 
-        <section>
-          <h2>Box-shadow</h2>
-          <div>
-            <p>Multiple box shadows are a thing</p>
-            <pre class="language-css"><code>box-shadow: [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color];</code></pre>
-            <p>Make use of the offsets for positioning, and the blur radius for sizing</p>
-          </div>
-        </section>
+div:nth-child(2) {
+  width: 45vmin;
+  height: 45vmin;
+  background: $linkColor;
+  border-radius: 84% 16% 74% 26% / 30% 33% 67% 70%;
+}
 
-        <section>
-          <div class="box-shadow"></div>
-          <pre><code>.box-shadow {
-  border-radius: 50%;
-  height: 1px;
-  width: 1px;
-  box-shadow: -6em   0 0 0.5em #47473f, -4em   0 0 0.5em #47473f,
-              -2em   0 0 0.5em #47473f,    0   0 0 0.5em #47473f,
-                4em   0 0 0.5em #47473f, -6em 2em 0 0.5em #47473f,
-              -4em 2em 0 0.5em #47473f,    0 2em 0 0.5em #47473f,
-                2em 2em 0 0.5em #47473f,  4em 2em 0 0.5em #47473f,
-                6em 2em 0 0.5em #47473f;
+div:nth-child(3) {
+  width: 45vmin;
+  height: 45vmin;
+  background: $linkColor;
+  border-radius: 37% 63% 21% 79% / 64% 79% 21% 36%;
 }</code></pre>
-        </section>
+            <aside class="notes">This opens up many possibilities for irregular shapes. Your <code>border-radius</code> could potentially have up to 8 values. But the order remains the same, for example, the first corner for top-left, has a horizontal radius value of 100%, and a vertical radius value of 60%.</aside>
+          </section>
 
-        <section>
+          <section>
+            <img class="plain" style="max-height:85vh;display:block;margin:0 auto 1em" data-src="img/br-generator.jpg" alt="Fancy border-radius generator">
+            <a href="https://9elements.github.io/fancy-border-radius/">https://9elements.github.io/fancy-border-radius/</a>
+            <aside class="notes">Now you can write all those values by hand, but if there's a tool available to do it more easily, why not? Somebody made a fancy border radius generator that will calculate all the requisite values for you that you can copy and plug into your own code.</aside>
+          </section>
+          
+          <section>
+            <h2>Transforms</h2>
+            <p>Transform functions include, <code class="alt">rotate()</code>, <code class="alt">scale()</code>, <code class="alt">translate()</code> and <code class="alt">skew()</code>. Each transform is cumulative and operate from their <code class="alt">transform-origin</code>.</p>
+            <div class="livecode livecode-2p" style="height:65vh">
+              <div class="result transforms">
+                <div style="display:flex;height:100%">
+                  <div class="box" style="height:30vmin;width:30vmin;background-color:#bababa;margin:auto"></div>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.transforms .box {
+  transform: rotate(0deg);
+  //transform: scale(0, 0);
+  //transform: translate(0, 0);
+  //transform: skew(0deg, 0deg);
+  //transform-origin: 50% 50%;
+}</style></div>
+            <aside class="notes">CSS also has a transform function, which if you are familiar with image editing software, behaves pretty similarly in that you can rotate, scale, translate and skew an element on the page.</aside>
+          </section>
+
+          <section>
           <h2>Transforms</h2>
-          <p>Do not work on inline elements. Transforms are cumulative and operate from their <code class="alt">transform-origin</code>. There are 2d and 3d transforms available.</p>
-          <pre><code>.element {
-  transform-origin: 50% 50% /* Default values if not explicitly set */
-}</code></pre>
-          <p>Transform functions include, <code class="alt">rotate()</code>, <code class="alt">scale()</code>, <code class="alt">translate()</code> and <code class="alt">skew()</code>.</p>
-          <div class="l-double">
             <pre><code>/* If you need multiple transforms, do this */
 .element {
   transform: translate(-10px, -20px) scale(2) rotate(45deg)
@@ -232,7 +478,566 @@
   transform: scale(2);
   transform: rotate(45deg);
 }</code></pre>
-          </div>
+            <aside class="notes">Transforms are also cumulative, which means that you can combine multiple transforms, BUT, they have to be within the same CSS declaration. Otherwise, because of the cascading nature of CSS, your previous transforms will not apply, and only the last declaration would be in effect.</aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Creating/combining multiple shapes</h2>
+            <ul>
+              <li><code>::before</code> & <code>::after</code></li>
+              <li>Positioning</li>
+              <li><code>linear-gradient()</code> & <code>radial-gradient()</code></li>
+              <li><code>box-shadow</code></li>
+            </ul>
+            <aside class="notes">Now that we have all these shapes, we need some way to put them all together. This is the most fun part of CSS, in my opinion, because even though the individual properties are pretty cool, the full power of CSS comes from using various properties in different combinations to do amazing things.</aside>
+          </section>
+
+          <section data-background-image="img/single-div.jpg">
+            <h2>A single <code>div</code></h2>
+            <aside class="notes">
+              <p>I want to bring to your attention one of my favourite CSS projects on the web today, which is called A Single Div by Lynn Fisher. She has created all these amazing illustrations on the web with pure CSS using only a single <code>div</code> element.</p>
+              <p>And so this next section is going to cover CSS properties that lets us do things like that, and how to use them.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Pseudo-elements</h2>
+            <div>
+              <p><code class="alt">::before</code> and <code class="alt">::after</code></p>
+              <pre><code>.element::before {
+  content: '';
+  display: block;
+  width: 50%;
+  height: 50%;
+}</code></pre>
+            </div>
+            <div class="fragment">
+              <p>Must have the <code class="alt">content</code> property to work</p>
+              <p>At least have empty quotes</p>
+              <p>Not visible in the page's source, only in CSS</p>
+            </div>
+            <aside class="notes">
+              <p>One way to get around the limitation of having only 1 element to work with is to utilise pseudo-elements. Using <code>::before</code> creates a child element that is the first child of the selected element while using <code>::after</code> creates a child element which is the last child. So instead of just 1 element, we can now have 3 elements to work with.</p>
+              <p>In order for the browser to render these pseudo-elements though, they must have the <code>content</code> property set, regardless of whether or not there is content between the quotes.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Positioning</h2>
+            <p><code>static</code>, <code>relative</code>, <code>absolute</code>, <code>sticky</code></p>
+            <div class="l-double" style="align-items:end;justify-items:center">
+              <img class="plain" style="height:4em" data-src="img/normal-flow.svg" alt="Fancy border-radius generator">
+              <img class="plain fragment" data-src="img/flex-abs.svg" alt="Fancy border-radius generator">
+            </div>
+            <aside class="notes">
+              <p>The <code>position</code> property in CSS lets us set how an element is positioned in a document. Under normal circumstances, the browser renders elements on the page sequentially according to the order they appear in the source. Think of them as all existing on the same level.</p>
+              <p>When we set a position of absolute of an element, we have removed it from the normal flow. But we can also then position it however we want relative to a parent element with the top, right, bottom and left properties.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>A CSS heart</h2>
+            <div class="livecode livecode-2p" style="height:65vh">
+              <div class="result heart">
+                <div style="display:flex;height:100%">
+                  <div class="box" style="margin:auto"></div>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.heart .box {
+  background-color: red;
+  height: 30vmin;
+  width: 30vmin;
+  position: relative;
+  //transform: rotate(-45deg);
+}
+
+.heart .box::before,
+.heart .box::after {
+  content: '';
+  background-color: red;
+  height: 30vmin;
+  width: 30vmin;
+  border-radius: 50%;
+  //position: absolute;
+}
+
+.heart .box::before {
+  //top: -15vmin;
+  //left: 0;
+}</style></div>
+            <aside class="notes">
+              <p>Before we move on, let's see how we can create a simple illustration of a heart with only 1 div using the techniques we've just covered. We start off with a red square, height and width of 30vmin. To make the round parts of a heart, we will need to use both pseudo-elements, so that's what the <code>content</code> property is for.</p>
+              <p>We want to position those 2 round pseudo-elements relative to the square, so we have <code>position: relative</code> on the parent and <code>position: absolute</code> on the pseudos.</p>
+              <p>After that, it's a matter of tweaking the position of the circles and rotating the whole thing by 45deg.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Gradients</h2>
+            <p>Can be used in any property that accepts images, e.g. <code class="alt">background</code>, <code class="alt">list-style-image</code> etc.</p>
+            <pre><code>linear-gradient( [ &lt;angle&gt; | &lt;side-or-corner&gt; ]?, &lt;color-stop-list&gt; )</code></pre>
+            <p>First argument specifies gradient line, defaults to <code class="alt">to-bottom</code> if omitted. Can use angle or keyword.</p>
+            <pre><code>&lt;color-stop-list&gt; = &lt;color-stop&gt;#{2,}
+&lt;color-stop&gt; = &lt;color&gt; &lt;length-percentage&gt;?</code></pre>
+            <p>At least 2 values, no maximum limit. Between 2 colour stops, the line's colour is linearly interpolated between the 2 colours.</p>
+            <aside class="notes">
+              <p>What if 3 elements is not enough for the piece we had in mind? Looking at some of Lynn Fisher's creations, there is clearly no way only 3 elements were involved. Gradients can be another way to add elements to your art piece.</p>
+              <p>This is the syntax for setting a linear gradient on an element. There is no limit to how many colour stops you want to apply, so you could get some pretty realistic effects by blending the right colours.</p>
+            </aside>
+          </section>
+
+          <section>
+            <p>For clean change between 2 colours, have 2 colour stops at the same position, i.e. at least 4 <code class="alt">&lt;color-stop&gt;</code> values needed.</p>
+            <div class="l-double" style="grid-gap:1em;grid-template-columns:calc(50% - 0.5em) calc(50% - 0.5em)">
+              <div class="gradient1">
+                <pre><code>.element {
+  background-image: linear-gradient(orange, green)
+}</code></pre>
+              </div>
+              
+              <div class="gradient2">
+                <pre><code>.element {
+  background-image: linear-gradient(orange, orange 50%, green 50%, green)
+}</code></pre>
+              </div>
+            </div>
+            <aside class="notes">
+              <p>But in addition to adding shading and depth to our creations by mimicking the existence of a light source, we can also define clean colour stops to make it seem we have more elements that we actually have. Or create stripes, which are essentially bands of colour.</p>
+              <p>Just make sure the end of the previous colour stop matches exactly the start of the next one to get a sharp edge.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Gradients</h2>
+            <div class="livecode livecode-2p" style="height:65vh">
+              <div class="result radial">
+                <div style="display:flex;height:100%">
+                  <div class="box1" style="height:30vmin;width:30vmin;margin:auto"></div>
+                  <div class="box2" style="height:30vmin;width:30vmin;margin:auto"></div>
+                  <div class="box3" style="margin:auto"></div>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.radial .box1 {
+  background: radial-gradient(green, orange);
+}
+
+.radial .box2 {
+  background: radial-gradient(green 0%, green 50%, orange 50%, orange 100%);
+}
+
+.radial .box3 {
+  width: 30vmin;
+  height: 30vmin;
+  background: radial-gradient(circle at bottom right, green 0%, green 37.5%, orange 37.5%, orange 100%);
+}</style></div>
+            <aside class="notes">
+              <p>If what you need are concentric circles, then radial gradients are probably what you're looking for. They operate similar to linear gradients except with some additional positioning values.</p>
+              <p>So you can shift the centre of your concentric circles to achieve different effects. For that you can use keyword values like top, right, bottom and left, or CSS length units. The length will be distance of the centre from the edge of the box.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Box shadow</h2>
+            <div>
+              <p>Multiple box shadows are a thing</p>
+              <pre class="language-css"><code>box-shadow: [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color];</code></pre>
+              <p>Make use of the offsets for positioning, and the blur radius for sizing</p>
+            </div>
+            <aside class="notes">
+              <p>Lastly, I'm going to talk about shadows. A shadow is cast by an object. Which means the shadow will always be the same shape as the object which cast it. So shadows are great for creating multiple copies of the same shape.</p>
+              <p>The syntax may seem a bit complicated, but similar to the other CSS properties we covered today, if you can remember the exact syntax, great. Good for you and your strong memory. Otherwise, it's fairly trivial to check the MDN web docs for the correct syntax.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="livecode livecode-2p" style="height:65vh">
+              <div class="result shadow">
+                <div style="display:flex;height:100%">
+                  <div class="box" style="margin:auto"></div>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.shadow .box {
+  border-radius: 50%;
+  height: 1px;
+  width: 1px;
+  box-shadow: -6em   0 0 0.5em #fed650,
+              -4em   0 0 0.5em #fed650,
+              -2em   0 0 0.5em #fed650,
+                 0   0 0 0.5em #fed650,
+               4em   0 0 0.5em #fed650, 
+              -6em 2em 0 0.5em #fed650,
+              -4em 2em 0 0.5em #fed650,
+                 0 2em 0 0.5em #fed650,
+               2em 2em 0 0.5em #fed650,
+               4em 2em 0 0.5em #fed650,
+               6em 2em 0 0.5em #fed650;
+}</style></div>
+            </div>
+            <aside class="notes">A pattern of circles can be created with a single div. Can you tell which is the original?</aside>
+          </section>
+
+          <section>
+            <h2>Text shadow</h2>
+            <p>Similar to box shadows but is added to text instead.</p>
+            <pre class="language-css"><code>text-shadow: [horizontal offset] [vertical offset] [optional blur radius] [color];</code></pre>
+            <div class="livecode livecode-2p" style="height:65vh">
+                <div class="result shadow">
+                  <div style="display:flex;height:100%">
+                    <p class="text" style="margin:auto">Say equilateral quadrilateral really fast 🚀</p>
+                  </div>
+                </div>
+                <div class="code"><style class="code-editor" contenteditable="true">.shadow .text {
+  text-shadow: 1em  2em 0 white,
+              -1em -2em 0 white;
+}</style></div>
+            </div>
+            <aside class="notes">
+              <p>We also have text shadows, which like box shadows, have no limit to how many shadows you want to apply but if you do use more than 1, then keep in mind they are applied front-to-back, meaning the first specified shadow on top.</p>
+              <p>If you decide to make the offset significantly large, you would have duplicated the original text. Textual content is more than just alphanumeric characters though.</p>
+              <p>Something multi-coloured, like emoji, end up as a flat colour. Because it is a shadow, and shadows don't have colour.</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Putting some of it together</h2>
+            <p>It's Malaysia's 62nd birthday today.</p>
+            <img style="max-height:85vh" data-src="img/flag-tweet.jpg" alt="Tweet about Malaysia flag in CSS">
+            <aside class="notes">
+              <p>Today is the national day of my country, Malaysia. Our national flag, Jalur Gemilang, or Stripes of Glory, is made up of 14 alternating red and white stripes along the fly, and a blue canton with a crescent and a 14-point star called Bintang Persekutuan (Federal Star).</p>
+              <p>I had a conversation with Gao Wei, who's giving a workshop in the other room right this minute, about how most kindergarteners will never get this flag right. There are so many things that could go wrong.</p>
+              <p>But, that 14-point star is a challenge, a challenge for Malaysian web developers to create in pure CSS to celebrate national day.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="malaysia1" style="margin:0 auto 1em"></div>
+            <pre style="font-size:85%"><code style="max-height:70vh">.jalur-gemilang {
+  width: 15em;
+  height: 7.5em;
+  position: relative;
+  background-image: linear-gradient(
+                      to bottom, 
+                      #cc0001 0%, #cc0001 calc(100% / 14),
+                      #fff calc(100% / 14), #fff calc(100% / 14 * 2),
+                      #cc0001 calc(100% / 14 * 2), #cc0001 calc(100% / 14 * 3),
+                      #fff calc(100% / 14 * 3), #fff calc(100% / 14 * 4),
+                      #cc0001 calc(100% / 14 * 4), #cc0001 calc(100% / 14 * 5),
+                      #fff calc(100% / 14 * 5), #fff calc(100% / 14 * 6),
+                      #cc0001 calc(100% / 14 * 6), #cc0001 calc(100% / 14 * 7),
+                      #fff calc(100% / 14 * 7), #fff calc(100% / 14 * 8),
+                      #cc0001 calc(100% / 14 * 8), #cc0001 calc(100% / 14 * 9),
+                      #fff calc(100% / 14 * 9), #fff calc(100% / 14 * 10),
+                      #cc0001 calc(100% / 14 * 10), #cc0001 calc(100% / 14 * 11),
+                      #fff calc(100% / 14 * 11), #fff calc(100% / 14 * 12),
+                      #cc0001 calc(100% / 14 * 12), #cc0001 calc(100% / 14 * 13),
+                      #fff calc(100% / 14 * 13), #fff calc(100%));
+}</code></pre>
+            <aside class="notes">
+              <p>Building this flag requires a lot of the techniques mentioned earlier, like border-radius, transforms, gradients and so on. One thing I didn't mention is the <code>calc()</code> function, which allows you to do arithmetic in the browser.</p>
+              <p>I use it extensively here because I want my flag proportions to be just right. And it also makes it easier to change the size of the flag.</p>
+              <p>We start with a linear gradient to create stripes. 14 stripes! Using 14 clean colour stops.</p>
+            </aside>
+          </section>
+
+          <section>
+            <div class="malaysia1 malaysia2" style="margin:0 auto 1em"></div>
+            <pre style="font-size:85%"><code style="max-height:70vh">.jalur-gemilang::before {
+  content: "";
+  display: block;
+  height: calc(7.5em / 14 * 8);
+  width: 7.5em;
+  background-color: #010066;
+  position: absolute;
+}</code></pre>
+            <aside class="notes">Then comes the blue canton, which we can use a pseudo-element to create. Why waste an extra element so early in the process? The canton should take up the height of 8 stripes, while the width should be half of the whole flag.</aside>
+          </section>
+
+          <section>
+            <div class="malaysia1 malaysia2 malaysia3" style="margin:0 auto 1em"></div>
+            <pre style="font-size:85%"><code style="max-height:70vh">.jalur-gemilang::after {
+  content: "";
+  display: block;
+  width: calc(7.5em / 14 * 6);
+  height: calc(7.5em / 14 * 6);
+  background-color: #ffcc00;
+  position: absolute;
+  top: calc(7.5em / 14);
+  left: calc(7.5em / 14 * (11 / 4));
+  border-radius: 50%;
+}</code></pre>
+            <aside class="notes">The next part would be the crescent. If you think about it, a crescent can be made with 2 circles, one slightly larger than the other. As long as the smaller circle is the same colour as the background, we can offset it until we get a crescent in the width and direction we want. So we can use the <code>::after</code> pseudo-element here for the larger circle.</aside>
+          </section>
+
+          <section>
+            <div class="malaysia1 malaysia2 malaysia3" style="margin:0 auto 1em">
+              <div class="bulan"></div>
+            </div>
+            <pre style="font-size:85%"><code style="max-height:70vh">.bulan {
+  width: calc(7.5em / 14 * (16 / 3));
+  height: calc(7.5em / 14 * (16 / 3));
+  background-color: #010066;
+  position: absolute;
+  top: calc(7.5em / 14 * (4 / 3));
+  left: calc(7.5em / 14 * (15 / 4));
+  border-radius: 50%;
+  z-index: 2;
+}</code></pre>
+            <aside class="notes">Here's where I ran out of brain cells, and started using child elements. This here is the smaller circle I was talking about, and positioned slightly off to the right from the bigger circle, creating the illusion of a crescent.</aside>
+          </section>
+
+          <section>
+            <div class="malaysia1 malaysia2 malaysia3" style="margin:0 auto 1em">
+              <div class="bulan"></div>
+              <div class="bintang"></div>
+            </div>
+            <pre style="font-size:85%"><code style="max-height:70vh">.bintang {
+  position: absolute;
+  top: calc(7.5em / 14 * 3);
+  left: calc(7.5em / 14 * (31 / 4));
+  z-index: 2;
+}</code></pre>
+            <aside class="notes">Now is the most exciting part. The infamous 14-point star. This is definitely not the only way to create it, it's just the method I chose to use. Start off with the core of the star, positioning it relative to the crescent. You don't see anything because there is no width or height on this core, it's for positioning purposes.</aside>
+          </section>
+
+          <section>
+            <div class="malaysia1 malaysia2 malaysia3" style="margin:0 auto 1em">
+              <div class="bulan"></div>
+              <div class="bintang">
+                <div class="segi"></div>
+              </div>
+            </div>
+            <pre style="font-size:85%"><code style="max-height:70vh">.segi {
+  width: calc(7.5em / 14 * (3.14159 / 7));
+  height: calc(7.5em / 7);
+  background: #ffcc00;
+  position: absolute;
+  left: calc(7.5em / 14 - ((7.5em / 14 * (3.14159 / 14))) / 2);
+}</code></pre>
+            <aside class="notes">Now we start building the star. Starting off with a simple rectangle.</aside>
+          </section>
+
+          <section>
+            <div class="malaysia1 malaysia2 malaysia3 malaysia4" style="margin:0 auto 1em">
+              <div class="bulan"></div>
+              <div class="bintang">
+                <div class="segi"></div>
+              </div>
+            </div>
+            <pre style="font-size:85%"><code style="max-height:70vh">.segi::before {
+  content: '';
+  display: block;
+  border-bottom: calc(7.5em / 14 * (3 / 2)) solid #ffcc00;
+  border-left: calc(7.5em / 14 * (3.14159 / 14)) solid transparent;
+  border-right: calc(7.5em / 14 * (3.14159 / 14)) solid transparent;
+  position: absolute;
+  top: calc(-7.5em / 14 * (3 / 2));
+}</code></pre>
+            <aside class="notes">Remember that 1 element can actually become 3, so use the <code>::before</code> pseudo-element with the triangle border trick for the top point.</aside>
+          </section>
+
+          <section>
+              <div class="malaysia1 malaysia2 malaysia3 malaysia4 malaysia5" style="margin:0 auto 1em">
+                <div class="bulan"></div>
+                <div class="bintang">
+                  <div class="segi"></div>
+                </div>
+              </div>
+              <pre style="font-size:85%"><code style="max-height:70vh">.segi::after {
+  content: '';
+  display: block;
+  border-top: calc(7.5em / 14 * (3 / 2)) solid #ffcc00;
+  border-left: calc(7.5em / 14 * (3.142 / 14)) solid transparent;
+  border-right: calc(7.5em / 14 * (3.142 / 14)) solid transparent;
+  position: absolute;
+  bottom: calc(-7.5em / 14 * (3 / 2));
+}</code></pre>
+            <aside class="notes">And do the same with <code>::after</code> for the bottom point.</aside>
+          </section>
+
+          <section>
+            <div class="malaysia1 malaysia2 malaysia3 malaysia4 malaysia5" style="margin:0 auto 1em">
+              <div class="bulan"></div>
+              <div class="bintang">
+                <div class="segi"></div>
+                <div class="segi"></div>
+                <div class="segi"></div>
+                <div class="segi"></div>
+                <div class="segi"></div>
+                <div class="segi"></div>
+                <div class="segi"></div>
+              </div>
+            </div>
+            <pre style="font-size:85%"><code style="max-height:70vh">.segi:nth-child(2) {  
+  transform: rotate(calc(360deg / 14));
+}
+
+.segi:nth-child(3) {
+  transform: rotate(calc((360deg / 14) * 2);
+}
+
+.segi:nth-child(4) {
+  transform: rotate(calc((360deg / 14) * 3);
+}
+
+.segi:nth-child(5) {
+  transform: rotate(calc((360deg / 14) * 4);
+}
+
+.segi:nth-child(6) {
+  transform: rotate(calc((360deg / 14) * 5);
+}
+
+.segi:nth-child(7) {
+  transform: rotate(calc((360deg / 14) * 6);
+}</code></pre>
+          <aside class="notes">We need to repeat this 6 more times, with each pair of points rotated so they fill up the entire core of the star. Here is where the transform property comes in handy.</aside>
+        </section>
+
+          <section class="huat">
+            <h2>Jalur Gemilang</h2>
+            <p>Happy 62nd birthday, Malaysia!</p>
+            <div class="malaysia1 malaysia2 malaysia3 malaysia4 malaysia5 malaysia6" style="margin:0 auto 1em">
+              <div class="bulan"></div>
+              <div class="bintang">
+                <div class="segi"></div>
+                <div class="segi"></div>
+                <div class="segi"></div>
+                <div class="segi"></div>
+                <div class="segi"></div>
+                <div class="segi"></div>
+                <div class="segi"></div>
+              </div>
+            </div>
+            <p>Cinta negaraku ❤️</p>
+            <aside class="notes">
+              <p>And so, I present national day fireworks. These are also pure CSS, and I'll just leave this hanging so those of you who are interested will go find out how to make them.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>A single div Singapore flag</h2>
+            <div class="livecode livecode-2p" style="height:65vh">
+              <div class="result singapore" style="display:flex">
+                <div class="flag" style="margin:auto"></div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.flag {
+  height: 36vmin;
+  width: 54vmin;
+  background-image: radial-gradient(circle at 25% 24%, #ed2939 12.7%, transparent 12.8%), radial-gradient(circle at 20% 24%, #fff 12.7%, transparent 12.8%), linear-gradient(180deg, #ed2939 0, #ed2939 50%, #fff 50%, #fff 100%);
+  position: relative;
+  margin: auto;
+}
+
+.flag::before {
+  content: '\2605';
+  color: #fff;
+  font-size: calc(3px + 2.5vmin);
+  height: 5%;
+  line-height: 5%;
+  text-align: center;
+  position: absolute;
+  width: 5%;
+  top: 14%;
+  left: 26%;
+  text-shadow: 3.5vmin 2.7vmin 0px #fff, 2.3vmin 6.8vmin 0px #fff, -2.3vmin 6.8vmin 0px #fff, -3.5vmin 2.7vmin 0px #fff;
+}
+
+</style></div>
+            <aside class="notes">
+              <p>But we are here now, in lovely Singapore, so I must talk about the Singapore flag as well, because you can make it with just a single div. The Singapore flag also has a crescent.</p>
+              <p>Another method of creating the crescent is via the radial gradient property we discussed earlier. Because there is no limit to the number of gradients you can apply to an element, 2 circles made from 2 radial gradients, offset in a similar manner as the previous method, can give you this crescent.</p>
+              <p>The stars on the flag, are regular 5-point stars. Which are Unicode characters, i.e. text. Which means, we can text shadow it and save more elements. Pseudo-elements can totally be shadowed, and that's where the 5 stars come from.</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Some inspiration for you…</h2>
+            <aside class="notes">By now, you already have a good basic knowledge of the CSS properties for drawing stuff in your browser. And I'm just going to show you what is possible, with a lot of patience and many many more elements.</aside>
+          </section>
+
+          <section>
+            <div class="l-double" style="margin-bottom:1em">
+              <figure>
+                <img data-src="img/cp-anime2.jpg" alt="Anime inspired self portrait- with hat in pure CSS">
+                <figcaption><a href="https://codepen.io/SmokinClove/pen/zYOoVJe">https://codepen.io/SmokinClove/pen/zYOoVJe</a></figcaption>
+              </figure>
+              <figure>
+                <img data-src="img/cp-anime1.jpg" alt="Yosano Akiko - 与謝野晶子 in pure CSS">
+                <figcaption><a href="https://codepen.io/SmokinClove/pen/VoEbME">https://codepen.io/SmokinClove/pen/VoEbME</a></figcaption>
+              </figure>
+            </div>
+            <p>By <a href="https://codepen.io/SmokinClove">Nguyen Tuong Van</a></p>
+            <aside class="notes">Anime art. Totally possible. Created by a friend of mine, Van, who is also based in Singapore. Don't think she's here today, but she is pretty amazing.</aside>
+          </section>
+
+          <section>
+            <figure>
+              <img class="plain" data-src="img/cp-gameboy.jpg" alt="Nintendo GameBoy in pure CSS">
+              <figcaption><a href="https://codepen.io/manz/pen/XQYoKd/">Interactive Nintendo GameBoy (Only CSS3 + JS sound)</a> by Manz (<a href="https://codepen.io/manz">@manz</a>)</figcaption>
+            </figure>
+            <aside class="notes">Old school Gameboy? Sure, why not. If you enough well-placed gradients, then you get this effect of realism, kinda like painting. The full code actually includes sound, so if you have some time, check out the CodePen.</aside>
+          </section>
+
+          <section>
+            <figure>
+              <img class="plain" data-src="img/cp-isla.jpg" alt="Portrait of Isla in pure CSS">
+              <figcaption><a href="https://codepen.io/ivorjetski/pen/dBYWWZ/">Pure CSS Only Portrait - Isla</a> by Ben Evans (<a href="https://codepen.io/ivorjetski">@ivorjetski</a>)</figcaption>
+            </figure>
+            <aside class="notes">And now we move into the realm of nuts. Nuts because this level of CSS art creation takes a lot of effort and patience, but the end result is stunning.</aside>
+          </section>
+
+          <section>
+            <figure>
+              <img class="plain" data-src="img/cp-water.jpg" alt="Still Life - Water and Lemons in pure CSS">
+              <figcaption><a href="https://codepen.io/ivorjetski/pen/xMJoYO/">Pure CSS Still Life - Water and Lemons</a> by Ben Evans (<a href="https://codepen.io/ivorjetski">@ivorjetski</a>)</figcaption>
+            </figure>
+            <aside class="notes">This one is also by the same guy, Ben Evans. I've linked to his blog post on this subject. He doesn't actually tell you how he does it, his source code is public on Codepen though.</aside>
+          </section>
+
+          <section>
+            <figure>
+                <img class="plain" data-src="img/cp-francine.jpg" alt="Pure CSS Francine by Diana Smith">
+              <figcaption><a href="http://diana-adrianne.com/purecss-francine/">http://diana-adrianne.com/purecss-francine/</a> by <a href="http://diana-adrianne.com/">Diana Smith</a></figcaption>
+            </figure>
+            <aside class="notes">This piece actually hit mainstream news because social media works in mysterious ways.</aside>
+          </section>
+
+          <section data-background-image="img/francines.jpg">
+            <aside class="notes">Might be because people started viewing it in any and every browser they could find and the end results were quite interesting. Link to one of the articles written about it included at the end as well.</aside>
+          </section>
+        </section>
+
+        <section>
+          <blockquote class="fragment" style="width:max-content">
+            <p>Useless is not worthless.</p>
+            <br><small>—<a href="https://twitter.com/devdevcharlie">Charlie Gerard</a></small>
+          </blockquote>
+          <aside class="notes">
+            <p>I'm sure some people would think, creating art with CSS seems pretty useless. What's the business case for it? Where's the ROI? But to me, doing things for the sake of it is a very good thing.</p>
+            <p>To end off, I want to quote another friend of mine, who makes cool stuff on the web as well, like mind-controlled Javascript and using motion to control stuff in the browser. That useless is not worthless.</p>
+            <p>There is worth in spending time just doing things because you feel like it. There is worth in learning how to use standard everyday techniques in new and creative ways. There is worth because you created something beautiful. And that is something you cannot put a price on.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Related links</h2>
+          <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS">MDN web docs</a></li>
+            <li><a href="https://www.w3.org/TR/css-backgrounds-3/">CSS Backgrounds and Borders Module Level 3</a></li>
+            <li><a href="https://a.singlediv.com/">A Single Div: a CSS drawing project by Lynn Fisher</a></li>
+            <li><a href="https://hacks.mozilla.org/2014/09/single-div-drawings-with-css/">Single Div Drawings with CSS</a></li>
+            <li><a href="https://lynnandtonic.com/thoughts/entries/talk-illustration-with-css/">CSSDay Talk: Illustration with CSS</a></li>
+            <li><a href="https://blog.bitsrc.io/the-anatomy-of-a-pure-css-heart-70a1e8bb5223">The Anatomy of a Pure CSS Heart ❤</a></li>
+            <li><a href="https://dev.to/henrylim96/how-to-create-malaysia-flag-with-html-and-css-3obe">How to Create Malaysia Flag with HTML and CSS 🇲🇾</a></li>
+            <li><a href="https://medium.com/@ivorjetski/the-truth-about-css-art-1eefeaa73746">Send Help! I’m obsessed with CSS Art!</a></li>
+            <li><a href="https://www.vice.com/en_us/article/9kgx7p/painting-made-with-code-html-pure-css-browser-art-diana-smith">This Stunning Image Made With Pure Code Is Like a Mood Ring For Your Browser</a></li>
+          </ul>
         </section>
 
         <section style="text-align:left">
