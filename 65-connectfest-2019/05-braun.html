@@ -1,0 +1,187 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>cmd6 - Responsive design with named grid areas</title>
+  <meta name="description" content="">
+  <meta name="author" content="Chen Hui Jing">
+
+  <style>
+  @font-face {
+    font-family: 'Rubik';
+    src: url('fonts/rubik-medium.woff2') format('woff2'),
+         url('fonts/rubik-medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  html {
+    box-sizing: border-box;
+    height: 100%;
+    font-family: 'Rubik', sans-serif;
+    background-color: #f8f6f1;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    font-size: 2em;
+    margin-bottom: 1em;
+  }
+
+  p {
+    margin-bottom: 1em;
+    font-size: 95%;
+  }
+
+  img {
+    justify-self: center;
+    width: 100%;
+  }
+
+  main svg {
+    margin-top: 1em;
+  }
+
+  main {
+    display: grid;
+    padding: 1em;
+    background-color: #f8f6f1;
+    z-index: 3;
+    grid-gap: 0.5em;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "title title"
+                        "text text"
+                        "key key"
+                        "detail1 detail2"
+                        "detail3 detail4";
+  }
+
+  h1 {
+    grid-area: title;
+  }
+
+  div {
+    grid-area: text;
+  }
+
+  img:first-of-type {
+    grid-area: detail1;
+  }
+
+  img:nth-of-type(2) {
+    grid-area: key;
+  }
+
+  img:nth-of-type(3) {
+    grid-area: detail2;
+  }
+
+  img:nth-of-type(4) {
+    grid-area: detail3;
+  }
+
+  img:nth-of-type(5) {
+    grid-area: detail4;
+  }
+
+  @media screen and (min-aspect-ratio: 1/1) and (min-height: 22em) {
+    main {
+      grid-template-columns: 18.75em 1fr 1fr 1fr;
+      grid-template-rows: calc((100vh - 3em) / 3) calc((100vh - 3em) / 3) calc((100vh - 3em) / 3);
+      grid-template-areas: "title detail1 key key"
+                          "text detail2 key key"
+                          "text detail3 detail4 braun";
+    }
+
+    h1 span {
+      display: block;
+    }
+    
+    img:nth-of-type(2) {
+      height: calc(((100vh - 2em) / 3) * 2);
+      object-fit: cover;
+    }
+    
+    img:first-of-type,
+    img:nth-of-type(3),
+    img:nth-of-type(4),
+    img:nth-of-type(5) {
+      height: calc((100vh - 3em) / 3);
+      object-fit: cover;
+    }
+    
+    svg {
+      grid-area: braun;
+      align-self: end;
+      justify-self: end;
+    }
+  }
+
+  @media screen and (min-aspect-ratio: 8/5) and (min-height: 36em) {
+    main {
+      grid-template-columns: 17.5em 1fr 3fr 1fr 1fr;
+      grid-template-rows: calc((100vh - 3em) / 3) calc((100vh - 3em) / 3) calc((100vh - 3em) / 3);
+      grid-template-areas: "title . key . ."
+                          "text detail1 key detail2 detail3"
+                          "text . . detail4 .";
+    }
+
+    div {
+      margin-top: -2em;
+    }
+    
+    svg {
+      grid-area: text;
+      align-self: end;
+      justify-self: start;
+    }
+  }
+
+  .twitter {
+    position: fixed;
+    top: 0.5em;
+    right: 0.5em;
+    color: darkgreen;
+    writing-mode: vertical-rl;
+    mix-blend-mode: difference;
+    opacity: 0.6;
+    margin: 0;
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <main>
+    <h1><span>Braun HiFi</span> <span>Steuergerät</span> <span>audio 300</span></h1>
+    <div>
+      <p>In der modernen Aufnahmetechnik ist keine Mühe zu groß, kein Aufwand zu kostspielig, um auch allerletzte Feinheiten einer Interpretation zu erhalten.</p>
+      <p>Demgegenüber gibt es aber nur wenige HiFi Geräte, die es fertigbringen, den ganzen Nuancenreichtum wieder vollends hörbar zu machen.</p>
+      <p>Ein Gerät mit diesen Fähigkeiten ist das neue “audio 300”, eine Kompaktanlage mit ungewöhnlicher technischer Ausrüstung und einem formalen Konzept, das Braun höchste internationale Auszeichnungen eintrug.</p>
+    </div>
+    <img src="img/braun5.png">
+    <img src="img/braun6.png">
+    <img src="img/braun7.png">
+    <img src="img/braun8.png">
+    <img src="img/braun9.png">
+    <svg viewBox="0 0 400 170" style="height:2em;"><path fill="#000" fill-rule="nonzero" d="M32.315 148.6H20.767v-35.564h11.548c7.914 0 11.58 5.9 11.58 16.46 0 14.5-4.398 19.103-11.58 19.103zM20.767 61.44h11.266c5.816 0 10.523 4.28 10.523 16.07 0 11.915-5.44 16.037-10.523 16.037H20.767V61.44zm30.82 40.508v-.098c4.578-3.213 11.897-8.74 11.897-26.505 0-22.952-11.976-33.348-28.153-33.348H0V168.03h35.146c19.92 0 29.62-14.765 29.62-36.765 0-20.525-8.053-26.193-13.18-29.317zm51.37-40.508h11.266c5.816 0 10.507 4.28 10.507 16.07 0 11.915-5.423 16.037-10.507 16.037h-11.266V61.44zm42.33 64.41c0-15.705-4.874-20.117-11.51-23.902v-.098c4.578-3.213 11.834-8.74 11.834-26.505 0-22.952-11.91-33.348-28.09-33.348H82.19V168.03h20.753l.014-54.994h11.262c5.902 0 10.124 4.908 10.124 16.047v38.948h20.928l.01-42.18h.005zm40.485-95.246c0-9.477 8.7-10.7 13.51-10.7 4.807 0 13.474 1.2 13.474 10.7l-.008 62.943h-26.99l.014-62.943zM199.282 0c-8.78 0-34.247 1.99-34.247 27.474v140.574h20.763v-55.002h26.96l-.007 54.98h20.78V27.473C233.537 1.943 208.03 0 199.28 0h.002zm96.442 41.97v99.216c0 5.05-4.175 8.422-10.377 8.422-6.23 0-10.328-3.38-10.328-8.422L275 41.97l-20.755.03-.005 102.5c0 19.518 20.065 24.72 31.13 24.72 10.963 0 31.114-5.23 31.114-24.742V41.97h-20.76zm82.978 126.045l-.008-99.172c0-5.05-4.172-8.422-10.37-8.422-6.232 0-10.336 3.387-10.336 8.427l-.006 99.172-20.764.015V65.53c0-19.516 20.068-24.72 31.132-24.72 10.964 0 31.108 5.23 31.108 24.743v102.464h-20.756v-.002z"/></svg>
+  </main>
+
+  <p class="twitter">@hj_chen</p>
+</body>
+
+</html>
