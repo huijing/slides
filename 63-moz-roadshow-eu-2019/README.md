@@ -9,7 +9,7 @@ Topics covered (depending on time):
 
 Event website: [https://mozilla-tito-devr.netlify.com/](https://mozilla-tito-devr.netlify.com/)
 
-*This is a sort-of transcript plus my notes for the talk*
+*This is a sort-of transcript plus my notes for the talk at the Munich stop*
 
 Hello everyone! And thank you all for coming out this evening. We're going to have a packed line-up of talks so I'm going to get straight into things. I'm going to be sharing with you some of my favourite things about the Firefox DevTools and how they've helped me better understand some of the powerful, new CSS features and layout techniques.
 
@@ -129,14 +129,6 @@ We'll be covering what I consider the 3 cornerstones of modern CSS layouts, Flex
 - sometimes there will be situations where the total size of the grid items is larger than the grid container, causing overflow
 - for example, in this case, if the `align-content` value is set to `end`, you will end up with data loss, because it's impossible to scroll to the overflowed content
 - `unsafe` will honour the specified alignment even if this scenario occurs, while `safe` will change the alignment to one that avoids data loss
-
----
-
-- if you noticed, for both Flexbox and Grid, the moment an alignment property was set on an item, it shrinks to fit its contents along the respective axis of alignment
-- so if we have a design like this, *(switch to Malerei, Fotografie, Film)*, with borders that are along the grid lines, but content that is smaller than the cell, you will need to use both Flexbox and Grid
-- *(target arrow)* if we remove `display: flex` on this grid cell and convert the code to use box alignment properties on the grid item, you will see what I mean
-- *(deactivate flex, add align-self: center)*, the grid cell shrinks to fit, and the border shrinks with it
-- so it's not about Flexbox OR Grid, it's about Flexbox AND Grid, really
 
 ---
 
