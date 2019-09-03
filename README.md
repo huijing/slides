@@ -119,3 +119,23 @@
 59. [Using DevTools to understand modern CSS layouts](https://www.chenhuijing.com/slides/59-pixel-pioneers-2019)
 
 60. [Can your site work on IE3?](https://www.chenhuijing.com/slides/60-ie3-challenge)
+
+61. [Frontend Crash Course: CSS](https://www.chenhuijing.com/slides/61-css-crash-course)
+
+62. [Interesting things I learnt about layout](https://www.chenhuijing.com/slides/62-interesting-layout-css)
+
+63. [Understanding modern CSS layouts with Firefox DevTools](https://www.chenhuijing.com/slides/63-moz-roadshow-eu-2019)
+
+64. [Creating art with CSS](https://www.chenhuijing.com/slides/64-connect-asia-2019)
+
+<!-- 65. [Using DevTools to understand modern CSS layouts](https://www.chenhuijing.com/slides/65-connectfest-2019)
+
+66. [Using DevTools to understand modern CSS layouts](https://www.chenhuijing.com/slides/66-wwktm-2019)
+
+67. [Why I love data files in Jekyll](https://www.chenhuijing.com/slides/67-jekyllconf-2019)
+
+68. [Using DevTools to understand modern layouts](https://www.chenhuijing.com/slides/68-finch-frontend-2019)
+
+69. [Demystify modern CSS layouts with DevTools](https://www.chenhuijing.com/slides/69-view-source-2019)
+
+70. [A deep dive into images on the web](https://www.chenhuijing.com/slides/70-fronteers-2019) -->
