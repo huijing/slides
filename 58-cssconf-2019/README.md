@@ -1,6 +1,6 @@
 # Using DevTools to understand modern CSS layouts
 
-*Presented at CSSConf EU 2019*
+*For CSSConf EU 2019. This is a sort-of transcript plus my notes for the talk.*
 
 Hello, Berlin! It's such an incredible privilege to be here at the 10th anniversary of CSSConf EU. I was here for the very first time, in Berlin, at CSSConf and JSConf, last year. It was one of the most amazing experiences of my life, so thank you to the organisers for bringing me out again.
 

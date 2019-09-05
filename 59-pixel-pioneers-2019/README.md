@@ -1,6 +1,6 @@
 # Using DevTools to understand modern CSS layouts
 
-*Presented at Pixel Pioneers 2019*
+*For Pixel Pioneers 2019. This is a sort-of transcript plus my notes for the talk.*
 
 Hello, everyone! This is my first time ever in Bristol. I've barely been here for 5 days but this place has already grown on me. So thank you, Oliver for the opportunity to be here.
 
