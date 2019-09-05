@@ -1,41 +1,16 @@
 # Understanding modern CSS layouts with Firefox DevTools
 
-*Presented at ConnectFest 2019*
+*For ConnectFest 2019. This is a sort-of transcript plus my notes for the talk.*
 
-Good morning, everyone! I know it's early, it's the second day, maybe some of you were out late last night, so thank you all for being here today. This is my first time ever in Portugal and I want to thank the organisers for bringing me out.
+Good morning, everyone! I know it's early, it's the second day, maybe some of you were out late last night, so thank you all for being here today. This is my first time ever in Portugal and I want to thank the organisers for bringing me out. 
 
-## Content-based sizing, letting the browser decide
-  
-- the concept of automatic sizing has always existed
-- browsers have always managed to figure out how much space content should take up without any intervention from us
-- content would reflow without overlapping
-- covered in CSS Intrinsic & Extrinsic Sizing Module Level 3
-- gives authors the option of assigning automatic widths to the elements on their page
-- `width` and `height` now take 3 additional keyword values, `min-content`, `max-content` and `fit-content`
+My name is Hui Jing, and I work as a Developer Advocate with Nexmo, who provides communication APIs for developers who want to integrate functionality like messaging, voice or verification to their applications.
 
----
+I know this is a fairly mixed audience, maybe some of you have been doing web development for years, but some of you have just dabbled a little bit. No matter, because the main point of my talk today is to show you what is possible for web layouts with today's CSS, and explain some of the new behaviours they introduce.
 
-- `min-content` is the smallest size a box could take that doesn't lead to overflow, so inline content will break multiple lines
-- line breaking is a lot more complicated than most people give it credit for, because there is a lot of nuance depending on the language being used
-- for a lot of languages, line breaks occur at word boundaries, where spaces or punctuation are used to explicitly separate words
-- the browser won't break words though, so the word `content` plus the full stop is treated as a single entity
-- and that ends up being the width of the first box
-- for Chinese or Japanese though, the break is per character, usually but not always, because there are rules about certain characters that are not allowed to start or end a line
-- East Asian scripts also use full-width punctuation, so with a full-width comma, this box is now 2 characters wide
-- some Southeast-Asian scripts, like Thai, are written without spaces between words, so text is wrapped at syllable boundaries in addition to word boundaries
+And if you don't understand anything I'm saying, you'll at least get a glimpse of what it's like to be a web developer working on the frontend. It's basically resizing your browser a thousand times a day.
 
----
-
-- `max-content` is a box's ideal size in a given axis when given infinite available space
-- content will take up as much space as required to lay itself out on 1 line
-- the word “ประโยค” (prayokh) is the longest in this sentence, and if you don't read Thai, you probably wouldn't be able to tell where the break would happen
-
----
-
-- `fit-content` unfortunately is not a supported value at this point but all 3 keywords are supported when used in the context of a grid formatting layout
-- `fit-content` is not a fixed value like the previous 2 keywords, it is a range between the `min-content` size and the `max-content` size or length-percentage defined in the function, whichever is smaller
-- if you look at the Chinese and Thai examples, which have exactly the same content, their smallest size is `min-content`, while their largest size ends up being `300px`
-- if I change the cap value to something larger than `max-content`, like `500px`, then `max-content` becomes the largest size
+We usually think of DevTools as a debugging tool, called into play when something is broken. But just like browsers and web technologies have evolved over the years, so have the capabilities of DevTools. Firefox's DevTools have excellent support for the new CSS properties, particularly for layouts.
 
 ## Flexbox, where nobody knows the size of anything
 
@@ -46,7 +21,6 @@ Good morning, everyone! I know it's early, it's the second day, maybe some of yo
 
 ---
 
-- one thing to note is that the specification recommends you use the keywords because they cover the most common use cases, they are `initial`, `none`. `auto` and any `<positive integer>` *(show where to see computed values)*
 - sizing of flex items depends on a number of factors, like the amount of free space available, the amount of content in the flex item and the starting width of the flex item
 - the exact algorithm is sort of complicated but is outlined in the specification if you're interested
 - the key to figuring out flexbox is understanding how the `flex-basis` property works
@@ -60,12 +34,10 @@ Good morning, everyone! I know it's early, it's the second day, maybe some of yo
 - this means all children have the values of `0 1 auto`, meaning the items won't grow beyond their starting widths *(resize until enough room for all content)*
 - a `flex-shrink` value of `1` means all the items will shrink at the same rate if there isn't enough space for all the content to be a single line
 - this is why the the second flex item in the second container takes up less space at this point, because it started shrinking first
-- a flex basis of `auto` resolves to `content`, which is an automatic size based on the content within the flex item, typically equivalent to `max-content` width 
-- when there is no explicit width set on a flex item, i.e. its value is `auto`, and the `flex-basis` is also `auto`, the browser will use content size as the starting point *(make sure to show flex item diagram in Layout panel)*
+- when the flex basis is `auto`, this is typically equivalent to `max-content` width 
+- when there is no explicit width set on a flex item, i.e. when both the width of the flex item and its `flex-basis` is `auto`, the browser will use content size as the starting point *(make sure to show flex item diagram in Layout panel)*
 - if there is an explicit width set *(set width to 200px)*, then that becomes the starting point of size calculation, and because the `flex-grow` factor is `0`, this item ends up being `200px`
 - when there is an explicit `flex-basis` value, even if there is a width on the flex item, the `flex-basis` value trumps it and that value becomes the starting point, and this item ends up being `300px`
-- first column can't shrink any more, but second and third start shrinking at the same time, then second column hits `min-content` and only the third column continues to shrink until `min-content`
-- eventually both sets of content's first and second column are the same width at `min-content`
 
 ---
 
@@ -106,6 +78,19 @@ Good morning, everyone! I know it's early, it's the second day, maybe some of yo
 - if there is more space in the flex container than the total height of all the flex lines *(set container height to more than 75vh)*, you'll end up with these gaps, that maybe you don't want
 - Using `align-content` lets you pack your items together and align the whole block of items within the container
 
+---
+
+- auto margins are your friend
+- unlike in the current implementation of the block formatting context, using `margin: auto` will centre an item right in the middle of the container, allocating available free space equally around all the flex item
+- when you need to centre 1 item in the middle of its parent, instead of using the box alignment properties, you could just slap on a `margin: auto` on the flex child, just saying
+- one thing to note is that if free space is distributed to auto margins, the alignment properties will have no effect in that dimension because the margins will have stolen all the free space left over after flexing
+- a relatively common use-case is when you need 1 item in your navigation alone on the right, auto-margins make things really easy
+
+---
+
+- feel free to change the flex direction when necessary
+- if you need a card layout with content that needs to be aligned to the bottom of the card, using `flex-direction` column, and making the main content grow with `flex: 1`, for example, is a 2-line solution
+
 ## Grid, where we finally have real rows and columns
 
 - *(ask about people using Grid)*
@@ -133,35 +118,6 @@ Good morning, everyone! I know it's early, it's the second day, maybe some of yo
 
 ---
 
-- using `grid-template-areas` to name grid areas is structurally similar to what we see rendered on the page
-- each line surrounded with quotes represents a grid row, every value in the line makes up the grid column
-- every line must have the same number of columns otherwise the whole thing is moot
-- change your layout without having to touch the code for the grid items, only the grid areas *(change grid area of banana)*
-- *(Switch to Braun poster example)*
-- here I've named the key areas of the grid to match what content is in it, like *title*, *text*, and so on
-- when the viewport size changes, I adjust the positions of the elements by touching the CSS for only the grid container *(proceed to resize browser and hit 3 layouts)*
-- you can see how the grid area names, and hence the grid item assigned to it, have been tweaked
-- non-rectangular or disconnected regions may be permitted in future, but for now, just rectangles, no Tetris shapes or that sort of thing
-
----
-
-- like Flexbox, Grid can also use the box alignment properties
-- for Grid, we can use `justify-items` and `justify-self` to adjust content within its grid cell along the inline axis *(do start, center, end)*
-- another category of alignment properties that I didn't mention earlier, are **overflow** alignment keywords
-- sometimes there will be situations where the total size of the grid items is larger than the grid container, causing overflow
-- for example, in this case, if the `align-content` value is set to `end`, you will end up with data loss, because it's impossible to scroll to the overflowed content
-- `unsafe` will honour the specified alignment even if this scenario occurs, while `safe` will change the alignment to one that avoids data loss
-
----
-
-- if you noticed, for both Flexbox and Grid, the moment an alignment property was set on an item, it shrinks to fit its contents along the respective axis of alignment
-- so if we have a design like this, *(switch to Malerei, Fotografie, Film)*, with borders that are along the grid lines, but content that is smaller than the cell, you will need to use both Flexbox and Grid
-- *(target arrow)* if we remove `display: flex` on this grid cell and convert the code to use box alignment properties on the grid item, you will see what I mean
-- *(deactivate flex, add align-self: center)*, the grid cell shrinks to fit, and the border shrinks with it
-- so it's not about Flexbox OR Grid, it's about Flexbox AND Grid, really
-
----
-
 - for the keyword values of `auto-fit` and `auto-fill`, the inspector also makes it much easier to understand what they actually do
 - they are used in the context of the `repeat()` function and make use of the fact that the browser knows how large its own viewport is and hence, is best positioned to generate the perfect number of grid tracks to fill up that space
 - the example here asks the browser to generate as many columns with a minimum width of 6ems that can fit into the available space
@@ -169,17 +125,20 @@ Good morning, everyone! I know it's early, it's the second day, maybe some of yo
 - with `auto-fill`, empty tracks still take up space on the grid
 - with `auto-fit` though, these empty tracks are collapsed and the grid items grow, because of the max value of `1fr`, and fill up the empty space instead
 - so depending on what design you have in mind, you've got options
+- a good use case for this feature is having a fully responsive grid without any media queries at all
+- *(switch to sneaker example)*
 
 ---
 
-- relatively new feature that Firefox started supporting since version 66 is the ability to animate grid columns and rows
-- this was always written into the specification but it took some time for implementation
-- previously only animation of the `gap` property had been supported
-- intuitively, some of us might picture the grid items moving across tracks when animated but that's not the case at all
-- inspecting with DevTools will show exactly what the browser is animating *(trigger grid overlay for grid5.board)*
-- this example consists of a grid container with 1 grid item
-- the CSS animation keyframes are interpolating between the different values of `grid-template-columns` and `grid-template-rows`
-- the grid item's alignment has been set to the bottom-right corner of the grid cell it was placed in
+- using `grid-template-areas` to name grid areas is structurally similar to what we see rendered on the page
+- each line surrounded with quotes represents a grid row, every value in the line makes up the grid column
+- every line must have the same number of columns otherwise the whole thing is moot
+- change your layout without having to touch the code for the grid items, only the grid areas *(change grid area of banana)*
+- *(switch to green tea example)*
+- here I've named the key areas of the grid to match what content is in it, like *title*, *image*, *nav*,  and so on
+- when the viewport size changes, I adjust the positions of the elements by touching the CSS for only the grid container *(proceed to resize browser and hit 3 layouts)*
+- you can see how the grid area names, and hence the grid item assigned to it, have been tweaked
+- non-rectangular or disconnected regions may be permitted in future, but for now, just rectangles, no Tetris shapes or that sort of thing
 
 ## Flexible sizing, responsive design powered up
 
