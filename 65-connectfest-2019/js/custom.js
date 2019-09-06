@@ -4,7 +4,7 @@ const style1 = [
   'background-color: #f9f9fa',
   'background-repeat: repeat',
   'display: block',
-  'height: 50vh',
+  'height: 40vh',
   'text-align: center',
   'line-height: 1.4',
   'font-weight: bold',
@@ -39,7 +39,7 @@ const style3 = [
 ].join(';')
 
 const message1 = 'Using DevTools to understand modern CSS layouts ❤️'
-const message2 = 'Chen Hui Jing, Mozilla TechSpeaker'
+const message2 = 'Chen Hui Jing, Developer advocate @ Nexmo'
 const message3 = '@hj_chen'
 const message4 = '🇲🇾👾🏀🚲🖌👟💻🖊🎙🦊🥑🧗‍♀️🏳️‍🌈'
 

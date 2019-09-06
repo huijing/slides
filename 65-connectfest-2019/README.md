@@ -107,16 +107,6 @@ Whether or not the next 40 minutes will mean anything to you, the one thing I wa
 ## Grid, where we finally have real rows and columns
 
 - *(ask about people using Grid)*
-- whether you're just starting out with grid, or already using it in production, Firefox's grid inspector is still the best tool available at the moment
-- toggle the overlay by clicking the grid tag on the *Inspector*, the waffle icon in *Rules*, or select your grid of choice from the *Layout* panel
-- like the Flexbox inspector, you can change the colour of the overlay
-- particularly helpful because Firefox now supports multiple grid overlays
-- great if you are using nested grids or have more than 1 grid on the same page
-- extending grid lines infinitely becomes quite helpful if you want to check on the alignment of multiple grids *(toggle grid1 and grid4)*
-- additional options include displaying line numbers and grid area names
-
----
-
 - most basic usage of laying out items with grid is setting the track sizes of your rows and columns
 - the browser will automatically place items into the grid using a very well thought through algorithm, which is defined in the specification
 - but things being placed one after another is behaviour most of us are fairly familiar with already
@@ -151,45 +141,6 @@ Whether or not the next 40 minutes will mean anything to you, the one thing I wa
 - here I've named the key areas of the grid to match what content is in it, like *title*, *image*, *nav*,  and so on
 - when the viewport size changes, I adjust the positions of the elements by touching the CSS for only the grid container *(proceed to resize browser and hit 3 layouts)*
 - you can see how the grid area names, and hence the grid item assigned to it, have been tweaked
-- non-rectangular or disconnected regions may be permitted in future, but for now, just rectangles, no Tetris shapes or that sort of thing
-
-## Flexible sizing, responsive design powered up
-
-- flexible sizing is also a big thing when it comes to grid and is a pretty interesting aspect of building modern CSS layouts
-- previously we've always used relative units like percentages, or the newer viewport units, but the issue with those is that they make all your elements change in size at the **same** rate *(show cat example)*
-- grid introduces the `fr` unit, as well as the `minmax()` function, and together with other intrinsic sizing values like `fit-content()` and `auto`, we now can have variable rates of change
-- all these sizing units are fully supported in a grid formatting context, and are applied with the `grid-template-columns` property
-- warning, lots of browser resizing coming up
-
----
-
-- `fr` units versus `auto`
-- let's compare the difference between `fr`, in green, and `auto`, in blue
-- `fr` represents a fraction of leftover space in the grid container, so whenever there is extra space it will always go to an `fr` sized column
-- but it is also the first to be taken away when there isn't enough space
-- `auto` will take up as much space as necessary without breaking lines, like `max-content` but not as rigid
-- without the presence of `fr`, any `auto` sized columns will absorb that free space
-- when there isn't enough space, `auto` will keep the `max-content` width until `fr` has given up all its free space before shrinking itself
-
----
-
-- `fit-content()` versus `minmax()`
-- `fit-content()` and `minmax()` behave quite similarly, they are both a range of values with a minimum and maximum limit
-- `minmax()` takes 2 arguments, the first one being the minimum size and the second one being the maximum, and we've already covered how `fit-content()` works earlier
-- when there isn't enough space, we've already mentioned that `fr` sized columns are the first to lose size
-- but after that, you'll notice that `fit-content()` and `auto` shrink at the same rate
-- if you look at the second set, with `minmax()`, `auto` and `fit-content`, things get a bit interesting because *when* the column grows or shrinks is different
-- `auto` starts off with all the free space when there's plenty of it, then gives it up as space gets taken away
-- once `auto` hits `max-content` size, it stops shrinking and space gets taken away from `minmax()` instead
-- however, at some point, all 3 columns start to shrink again, exactly when I can't say, **but** that point allows all 3 to end up hitting their minimum size *at the same time*
-- *(refer to second set)* in a growth scenario, where there is lots of space, `fit-content()` gets capped at its `max-content` width, while `auto` and `minmax()` continue to grow
-- once `auto` hits `max-content` size though, it pauses growing while `minmax()` continues to absorb the free space until it hits the upper limit of `400px`, after which `auto` takes over the rest of the free space
-
----
-
-- *(show Florence)* with such variable sizing, we have more options for editorial designs that adapt well to a greater range of viewport sizes
-- *hide float (on top right corner) and trigger overlay*
-- grid also allows us to do things like overlap so much easier than before
 
 ## Wrapping up
 
