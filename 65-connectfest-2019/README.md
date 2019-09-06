@@ -2,15 +2,19 @@
 
 *For ConnectFest 2019. This is a sort-of transcript plus my notes for the talk.*
 
-Good morning, everyone! I know it's early, it's the second day, maybe some of you were out late last night, so thank you all for being here today. This is my first time ever in Portugal and I want to thank the organisers for bringing me out. 
+Bom dia! I know it's early, it's the second day, maybe some of you were out late last night, so thank you all for being here today. This is my first time ever in Portugal. Porto is such a beautiful place and I want to thank the organisers for bringing me out.
 
 My name is Hui Jing, and I work as a Developer Advocate with Nexmo, who provides communication APIs for developers who want to integrate functionality like messaging, voice or verification to their applications.
 
-I know this is a fairly mixed audience, maybe some of you have been doing web development for years, but some of you have just dabbled a little bit. No matter, because the main point of my talk today is to show you what is possible for web layouts with today's CSS, and explain some of the new behaviours they introduce.
+I know this is a fairly mixed audience, maybe some of you have been doing web development for years, but some of you may have just dabbled a little bit. No matter, because the main point of my talk today is to show you what is possible for web layouts with today's CSS, and explain some of the new behaviours they introduce.
 
 And if you don't understand anything I'm saying, you'll at least get a glimpse of what it's like to be a web developer working on the frontend. It's basically resizing your browser a thousand times a day.
 
+For the benefit of those who are not familiar with web development, DevTools is something built into most browsers that allow you to peek under the hood of what's happening on the page. Like an x-ray for your website. Web developers, like me, pretty much live in DevTools.
+
 We usually think of DevTools as a debugging tool, called into play when something is broken. But just like browsers and web technologies have evolved over the years, so have the capabilities of DevTools. Firefox's DevTools have excellent support for the new CSS properties, particularly for layouts.
+
+A lot of what I'll be talking about today will revolve around sizing elements on a web page. If you work on the web, you would probably relate when I say, much of our job boils down to making sure everything fits nicely on a page. But with the added complexity of not knowing where, when or how, our users are viewing our work.
 
 ## Flexbox, where nobody knows the size of anything
 
