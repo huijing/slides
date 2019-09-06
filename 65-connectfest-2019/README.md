@@ -16,8 +16,13 @@ We usually think of DevTools as a debugging tool, called into play when somethin
 
 A lot of what I'll be talking about today will revolve around sizing elements on a web page. If you work on the web, you would probably relate when I say, much of our job boils down to making sure everything fits nicely on a page. But with the added complexity of not knowing where, when or how, our users are viewing our work.
 
+Whether or not the next 40 minutes will mean anything to you, the one thing I want everyone in this room to remember is, that websites do not need to look the same in every browser.
+
 ## Flexbox, where nobody knows the size of anything
 
+- New layout model, a lot more powerful than previous techniques we had
+- Allows the browser to take over sizing based on the amount of available space
+- Can be confusing at first because the end result is not what you explicitly set
 - Firefox is the only browser with a Flexbox inspector, locate it at the *Layout* tab, possible to change colour of overlay
 - overlay shows you outlines of each flex item, and the free space available as a texture
 - will tell you the flex direction, and the wrap status
@@ -27,6 +32,10 @@ A lot of what I'll be talking about today will revolve around sizing elements on
 
 - sizing of flex items depends on a number of factors, like the amount of free space available, the amount of content in the flex item and the starting width of the flex item
 - the exact algorithm is sort of complicated but is outlined in the specification if you're interested
+- sizing an item with flexbox involves 3 properties
+    - `flex-grow`, which controls how much an item will grow relative to those in the same container when there is lots of space
+    - `flex-shrink`, which controls how much an item will shrink relative to others when there isn't enough space
+    - `flex-basis`, which is the starting width of the item before the browser manipulates its final size
 - the key to figuring out flexbox is understanding how the `flex-basis` property works
 - say I put a fixed value of `100px` as the `flex-basis` of a flex item, intuitively, many people expect to see a box of width `100px`, because we're used to being in control of our sizing instructions
 - but `flex-basis` is actually the starting point from which the size of the box is calculated, key here is **starting point**, because if flex items are allowed to grow or shrink, odds are the final size will **not** be `100px`
@@ -35,7 +44,7 @@ A lot of what I'll be talking about today will revolve around sizing elements on
 
 - so we've got 2 flex containers with 3 flex items each, first 2 items have the same content, much longer content for the second container's last item
 - both only have `display: flex` set on the parent element and nothing on the children
-- this means all children have the values of `0 1 auto`, meaning the items won't grow beyond their starting widths *(resize until enough room for all content)*
+- it is totally possible to change the different flex values but by default, they are `0 1 auto`, meaning the items won't grow beyond their starting widths *(resize until enough room for all content)*
 - a `flex-shrink` value of `1` means all the items will shrink at the same rate if there isn't enough space for all the content to be a single line
 - this is why the the second flex item in the second container takes up less space at this point, because it started shrinking first
 - when the flex basis is `auto`, this is typically equivalent to `max-content` width 
