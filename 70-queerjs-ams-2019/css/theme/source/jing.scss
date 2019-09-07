@@ -1,0 +1,42 @@
+/**
+ * Custom theme for Reveal.js presentations.
+ *
+ * Copyright (C) 2018 Chen Hui Jing, https://www.chenhuijing.com/
+ */
+
+// Default mixins and settings -----------------
+@import '../template/mixins';
+@import '../template/settings';
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url('../../lib/font/magnetic-pro/magnetic-pro.css');
+@import url('../../lib/font/magnetic-pro-black/magnetic-pro-black.css');
+
+// Theme template ------------------------------
+@import '../template/theme';
+
+// ---------------------------------------------
+// Customised styles for this presentation
+html {
+  box-sizing: border-box;
+  height: 100%;
+  font-size: 125%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+footer {
+  position:absolute;
+  width:calc(100% - 1em);
+  bottom:0;
+  font-family: $mainFont;
+  z-index:1;
+  display:flex;
+  justify-content:space-between;
+  padding:0.5em
+}
