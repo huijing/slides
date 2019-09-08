@@ -128,9 +128,9 @@
 
 64. [Creating art with CSS](https://www.chenhuijing.com/slides/64-connect-asia-2019)
 
-<!-- 65. [Using DevTools to understand modern CSS layouts](https://www.chenhuijing.com/slides/65-connectfest-2019)
+65. [Using DevTools to understand modern CSS layouts](https://www.chenhuijing.com/slides/65-connectfest-2019)
 
-66. [Using DevTools to understand modern CSS layouts](https://www.chenhuijing.com/slides/66-wwktm-2019)
+<!-- 66. [Using DevTools to understand modern CSS layouts](https://www.chenhuijing.com/slides/66-wwktm-2019)
 
 67. [Why I love data files in Jekyll](https://www.chenhuijing.com/slides/67-jekyllconf-2019)
 
@@ -138,4 +138,6 @@
 
 69. [Demystify modern CSS layouts with DevTools](https://www.chenhuijing.com/slides/69-view-source-2019)
 
-70. [A deep dive into images on the web](https://www.chenhuijing.com/slides/70-fronteers-2019) -->
+70. [Neither here nor there](https://www.chenhuijing.com/slides/70-queerjs-ams-2019)
+
+71. [A deep dive into images on the web](https://www.chenhuijing.com/slides/71-fronteers-2019) -->
