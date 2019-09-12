@@ -50,7 +50,7 @@ const style4 = [
   'writing-mode: vertical-lr'
 ].join(';')
 
-const message1 = 'Using DevTools to understand modern CSS layouts ❤️'
+const message1 = 'Understanding modern CSS layouts with Firefox DevTools ❤️'
 const message2 = 'Chen Hui Jing, Mozilla TechSpeaker'
 const message3 = '@hj_chen'
 const message4 = '🇲🇾👾🏀🚲🖌👟💻🖊🎙🦊🥑🧗‍♀️🏳️‍🌈'
