@@ -1,0 +1,1234 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>A deep dive into images on the web</title>
+    <meta name="description" content="Images are often seen as the low-hanging fruit for performance optimisation on the web, so there's plenty of guidance around what image formats to use for which scenarios. But have you wondered why that is? Or how image data itself is interpreted by browsers? This talk goes down a rabbit hole in an attempt to uncover what goes on under the hood when it comes to rendering images on the web. And a deeper understanding of not only the how, but the why, can help you make more informed decisions about the images in your projects.">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/jing.css">
+		<link rel="stylesheet" href="lib/css/atelier-dune-light.css">
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+        <section data-background-image="img/background.jpg">
+          <h1>A deep dive into images<br>on the web</h1>
+          <h3>and then some…</h3>
+          <p style="margin-top:1em"><small><a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
+          <aside class="notes">
+            <p>Hello! I'm pretty excited to be here, sharing the stage with so many amazing speakers. So thank you to the organisers for bringing me out. Today, I'd like to share with everyone my journey of trying to figure out images on the web. You see, I have this tendency to go down rabbit holes with things that seem rather straight-forward at first, but then, you get this little inkling that there's something more beneath the surface?</p>
+            <p>Yeah, that's me. And images. I'm also very annoying and have an incessant need to ask why. Constantly. Which is why I love and appreciate everyone who is still willing to be friends with me. I've been working on the web for a number of years now, and I learned that image optimisation is one of the low-hanging fruits when it comes to web performance.</p>
+          </aside>
+        </section>
+
+        <section data-background-image="img/page-weight.svg" data-background-size="contain">
+          <aside class="notes">
+            <p>You may not be able to discern the exact numbers from this chart but know that as page weight has steadily crept up over the years, images on average make up more than 60% of that page weight.</p>
+            <p>Image sizes matter, because sending smaller images of comparable quality to your users over the interwebs is not only the smart thing to do, it's the right thing to do. But images are not all created equal, some image formats are better suited for certain purposes over others.</p>
+            <p>JPGs for photographs, choose PNGs over GIFs, don't use BMPs or TIFFs at all. I know all this. But for quite a while, I didn't know why, and it gnawed at me enough that one day I decided to find out.</p>
+          </aside>
+        </section>
+
+        <section>
+          <div class="intro-grid">
+            <span class="emoji" role="img" tabindex="0" aria-label="Malaysia">&#x1F1F2;&#x1F1FE;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="alien monster">&#x1F47E;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="basketball">&#x1F3C0;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="bicycle">&#x1F6B2;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="paintbrush">&#x1F58C;&#xFE0F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="sneaker">&#x1F45F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="laptop computer">&#x1F4BB;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="pen">&#x1F58A;&#xFE0F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="studio microphone">&#x1F399;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="fox">&#x1F98A;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="person climbing">&#x1F9D7;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="Rainbow flag">&#x1F3F3;&#xFE0F;&#x200D;&#x1F308;</span>
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+              <img data-src="img/name.svg" alt="Chen Hui Jing" class="plain" style="max-height:25vh">
+              <div>
+                <img data-src="img/avatar.jpg" alt="Jing" style="border-radius:50%">
+              </div>
+              <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
+            </div>
+          </div>
+          <aside class="notes">My name is Hui Jing, and these are the emojis that pretty much describe who I am as a person. Feel free to interpret them however you like. If any of them don't make sense to you, you can always ask me about them later.</aside>
+        </section>
+
+        <section data-background-image="img/primate-art.jpg">
+          <aside class="notes">Right, so images. Image making seems to be emblematic of humanity, don't you think? I tried to research if any other species creates images, and it seems that to date, no image making has ever appeared in the careers of primate artists, who would be the most logical next candidate besides human beings to ever do something like that.</aside>
+        </section>
+
+        <section data-background-image="img/upper-paleolithic.jpg">
+          <aside class="notes">
+            <p>Let's talk a bit about prehistoric images. I told you this was a rabbit hole, no? The earliest images date back to the Upper Paleolithic period, and some research has proposed that image making originated in the discovery of the <strong>representational capacity</strong> of lines, marks or blots of colour.</p>
+            <p>And the act of imagemaking seemed culturally agnostic. From Namibia to Tanzania, India to Brazil and Australia, prehistoric humans were attempting to reproduce the three-dimensional, full-colour world they lived in by making marks on the surfaces around them.</p>
+            <p>If you think about it, imagemaking was an analogue process for the longest time. A pigment on a surface. Something physical, something you could touch.</p>
+          </aside>
+        </section>
+
+        <section data-background-image="img/family.jpg">
+          <aside class="notes">It was photography that brought light into the picture. But of course, the end result was still something persistent, that you could hold in your hand, that you could come back to year after year, even after the photograph had faded and yellowed with time.</aside>
+        </section>
+
+        <section data-background-color="black">
+          <h2 class="flicker">Electronic signals</h2>
+          <aside class="notes">The digital age is one of light and electronic signals. Perhaps it may be more apt to say of light created by electronic signals. I've gone on and one about ancient art work and photography…</aside>
+        </section>
+ 
+        <section>
+          <img class="plain" data-src="img/pixel.svg" alt="Pixel">
+          <aside class="notes">…but really today's story starts off with this little fella, and what it represents. Meet Pixel. No, not the Google phone, not that Pixel. This pixel has been around far longer than that phone.</aside>
+        </section>
+
+        <section>
+          <img style="max-height:100vh" class="plain" data-src="img/pixel.png" alt="Etymology of Pixel">
+          <aside class="notes">Pixel is a pretty well-defined character, multiple definitions if you look around, but the most common one calls a pixel the smallest unit of an image which can be displayed on a digital display device, the basic logical unit for representing digital graphics.</aside>
+        </section>
+
+        <section data-background-image="img/early-pc.jpg">
+          <aside class="notes">
+            <p>Computers have come a long way in a relatively short period of less than a hundred years. The earliest of them having displays that were more indicators of device health rather than program output.</p>
+            <p>But those panels of light bulbs, which allowed engineers to monitor the internal state of their machine, came to be known as <em>monitors</em>.</p>
+          </aside>
+        </section>
+
+        <section>
+          <figure>
+            <img style="max-height:100vh" class="plain" data-src="img/crt.jpg" alt="CRT">
+            <figcaption>CRTs sold by Müller-Uri, Source: <a href="https://www.crtsite.com/page3.html">The Cathode Ray Tube site</a></figcaption>
+          </figure>
+          <aside class="notes">
+            <p>Electronic displays actually pre-date digital computers, with Cathode Ray Tube (CRT) technology becoming commercially available back in 1922. They worked by firing a beam of electrons onto a phosphor-coated screen. The energy from these electrons gets absorbed by the phosphor atoms on the screen, and kicks them up to higher energy levels.</p>
+            <p>If you remember some high school physics, you may already know that this high energy state is unsustainable and the phosphor atoms will come back down, releasing the extra energy in the form of light, resulting in a bright spot on the screen.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Raster scanning</h2>
+          <figure>
+            <img class="plain" data-src="img/raster-scan.gif" alt="Raster scan">
+            <figcaption>Source: <a href="http://msys-mv.blogspot.com/2010/11/understanding-basic-requirements-to.html">M-SYS MV</a></figcaption>
+          </figure>
+          <aside class="notes">There are 2 modes for drawing computer graphics onto a screen. You could do a raster scan, where the electron beam is swept across the screen one row and a time from top to bottom. Varying beam intensity allows for a pattern of illuminated spots across the screen and each of these screen points is a single pixel.</aside>
+        </section>
+
+        <section>
+          <table>
+            <tr>
+              <th></th>
+              <th>Raster scan</th>
+              <th>Random scan</th>
+            </tr>
+            <tr>
+              <td>Electron beam</td>
+              <td>Swept across entire screen, one row at a time, from top-to-bottom</td>
+              <td>Only directed to parts of the screen where image is drawn</td>
+            </tr>
+            <tr>
+              <td>Resolution</td>
+              <td>Poor, due to plotting as discrete point sets</td>
+              <td>Good, as CRT beam directly follows line path</td>
+            </tr>
+            <tr>
+              <td>Picture definition</td>
+              <td>Stored as set of intensity values (pixels) in refresh buffer area</td>
+              <td>Stored as set of line drawing instructions in display file</td>
+            </tr>
+            <tr>
+              <td>Realism</td>
+              <td>Variable intensity values allow for realistic shadow and colour patterns</td>
+              <td>Most suited for line drawing</td>
+            </tr>
+            <tr>
+              <td>Drawing method</td>
+              <td>Screen points (pixels)</td>
+              <td>Mathematical functions</td>
+            </tr>
+          </table>
+          <p><small>Source: Prof. Vijay M. Shekhat, CE Department, <a href="http://www.darshan.ac.in/Upload/DIET/Documents/CE/2160703_CG_GTU_Study_Material_2017_11042017_033102AM.pdf">Computer Graphics</a></small></p>
+          <aside class="notes">
+            <p>Or you could do something called a random scan which could generate vector graphics and both types of scanning have their pros and cons. Back in the 70s, both raster displays and vector displays were used for computer graphics.</p>
+            <p>The relatively high price of memory back then made vector displays more affordable, but by today, they've practically all been replaced by raster displays.</p>
+            <p>Of course, these are merely the mechanics of how an image gets displayed onto a screen. And before that can happen, we must have image data.</p>
+          </aside>
+        </section>
+
+        <section data-background-image="img/file-formats.svg" data-background-size="contain">
+          <aside class="notes">All digital files are really just long lists of numbers stored as binary on a storage device, and file formats are what allows us to read and understand the data these numbers represent. Operating systems and applications can use a number of methods to identify all these different file types.</aside>
+        </section>
+
+        <section>
+          <h2>File formats</h2>
+          <svg width="1674" height="567" viewBox="0 0 1674 567" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="file-type">
+              <line id="Line" x1="628" y1="271" x2="750" y2="271" stroke="white" stroke-width="6" stroke-linecap="round" stroke-dasharray="12 12"/>
+              <path id="Vector" d="M1054.75 476.05H735.439V37H982.906L1054.75 108.846V476.05Z" fill="#E3E4D8"/>
+              <path id="Vector_2" d="M982.906 37V108.846H1054.75L982.906 37Z" fill="#D0CEBD"/>
+              <g id="internal-data">
+                <rect id="Rectangle 2" x="796" y="152" width="24" height="24" fill="#445FEE" stroke="white"/>
+                <rect id="Rectangle 2.2" x="820" y="152" width="24" height="24" fill="#445FEE" stroke="white"/>
+                <rect id="Rectangle 2.1" x="844" y="152" width="24" height="24" fill="#445FEE" stroke="white"/>
+                <rect id="Rectangle 2.3" x="868" y="152" width="24" height="24" fill="#681413" stroke="white"/>
+                <rect id="Rectangle 2.4" x="892" y="152" width="24" height="24" fill="#681413" stroke="white"/>
+                <rect id="Rectangle 2.5" x="916" y="152" width="24" height="24" fill="#681413" stroke="white"/>
+                <rect id="Rectangle 2.6" x="940" y="152" width="24" height="24" fill="#681413" stroke="white"/>
+                <rect id="Rectangle 2.7" x="964" y="152" width="24" height="24" fill="#681413" stroke="white"/>
+                <rect id="Rectangle 2.8" x="796" y="176" width="24" height="24" fill="#D5A021" stroke="white"/>
+                <rect id="Rectangle 2.9" x="820" y="176" width="24" height="24" fill="#D5A021" stroke="white"/>
+                <rect id="Rectangle 2.10" x="844" y="176" width="24" height="24" fill="#D5A021" stroke="white"/>
+                <rect id="Rectangle 2.11" x="868" y="176" width="24" height="24" fill="#D5A021" stroke="white"/>
+                <rect id="Rectangle 2.12" x="892" y="176" width="24" height="24" fill="#D5A021" stroke="white"/>
+                <rect id="Rectangle 2.13" x="916" y="176" width="24" height="24" fill="#D5A021" stroke="white"/>
+                <rect id="Rectangle 2.14" x="940" y="176" width="24" height="24" fill="#EDE7D9" stroke="white"/>
+                <rect id="Rectangle 2.15" x="964" y="176" width="24" height="24" fill="#EDE7D9" stroke="white"/>
+                <rect id="Rectangle 2.16" x="796" y="200" width="24" height="24" fill="#EDE7D9" stroke="white"/>
+                <rect id="Rectangle 2.17" x="820" y="200" width="24" height="24" fill="#EDE7D9" stroke="white"/>
+                <rect id="Rectangle 2.18" x="844" y="200" width="24" height="24" fill="#EDE7D9" stroke="white"/>
+                <rect id="Rectangle 2.19" x="868" y="200" width="24" height="24" fill="#EDE7D9" stroke="white"/>
+                <rect id="Rectangle 2.20" x="892" y="200" width="24" height="24" fill="#EDE7D9" stroke="white"/>
+                <rect id="Rectangle 2.21" x="916" y="200" width="24" height="24" fill="#445FEE" stroke="white"/>
+                <rect id="Rectangle 2.22" x="940" y="200" width="24" height="24" fill="#445FEE" stroke="white"/>
+                <rect id="Rectangle 2.23" x="964" y="200" width="24" height="24" fill="#445FEE" stroke="white"/>
+                <rect id="Rectangle 2.24" x="796" y="224" width="24" height="24" fill="#445FEE" stroke="white"/>
+                <rect id="Rectangle 2.25" x="820" y="224" width="24" height="24" fill="#445FEE" stroke="white"/>
+                <rect id="Rectangle 2.26" x="844" y="224" width="24" height="24" fill="#445FEE" stroke="white"/>
+                <rect id="Rectangle 2.27" x="868" y="224" width="24" height="24" fill="#D5A021" stroke="white"/>
+                <rect id="Rectangle 2.28" x="892" y="224" width="24" height="24" fill="#D5A021" stroke="white"/>
+                <rect id="Rectangle 2.29" x="916" y="224" width="24" height="24" fill="#D5A021" stroke="white"/>
+                <rect id="Rectangle 2.30" x="940" y="224" width="24" height="24" fill="#D5A021" stroke="white"/>
+                <rect id="Rectangle 2.31" x="964" y="224" width="24" height="24" fill="#D5A021" stroke="white"/>
+                <text id=". . ." fill="black" xml:space="preserve" style="white-space: pre" font-family="American Typewriter" font-size="24" font-weight="bold" letter-spacing="0em"><tspan x="888" y="270.248">.&#10;</tspan><tspan x="888" y="298.88">.&#10;</tspan><tspan x="888" y="327.512">.</tspan></text>
+              </g>
+              <g id="file-ext">
+                <g id="a#hj">
+                  <path d="M766.937 533.156C767.708 533.365 768.375 533.698 768.937 534.156C769.521 534.594 769.979 535.125 770.312 535.75C770.667 536.354 770.896 537.021 771 537.75C771.104 538.479 771.073 539.208 770.906 539.938C770.615 540.917 770.115 541.76 769.406 542.469C768.698 543.156 767.854 543.635 766.875 543.906H766.687C766.604 543.948 766.5 543.969 766.375 543.969C766.271 543.969 766.135 544.01 765.969 544.094H765.906C765.427 544.135 764.99 544.177 764.594 544.219C764.198 544.26 763.76 544.281 763.281 544.281H763.094C762.719 544.281 762.354 544.26 762 544.219C761.667 544.177 761.302 544.135 760.906 544.094H760.781C760.656 544.01 760.479 543.958 760.25 543.938C760.021 543.917 759.792 543.865 759.562 543.781C759.042 543.615 758.594 543.417 758.219 543.188C757.698 543.021 757.208 542.812 756.75 542.562C756.458 542.396 756.187 542.229 755.937 542.062C755.708 541.875 755.469 541.677 755.219 541.469C754.802 541.094 754.375 540.667 753.937 540.188C753.521 539.708 753.115 539.219 752.719 538.719C752.594 538.469 752.458 538.229 752.312 538C752.167 537.75 752.031 537.479 751.906 537.188C751.823 536.979 751.719 536.771 751.594 536.562C751.49 536.333 751.396 536.115 751.312 535.906L750.937 536.281C750.042 537.26 749.208 538.156 748.437 538.969C748.062 539.344 747.687 539.708 747.312 540.062C746.958 540.396 746.583 540.719 746.187 541.031C745.854 541.365 745.562 541.625 745.312 541.812C745.083 542 744.865 542.188 744.656 542.375C744.615 542.417 744.552 542.469 744.469 542.531C744.385 542.594 744.302 542.667 744.219 542.75L744.031 542.812C743.052 543.542 741.958 543.906 740.75 543.906C739.896 543.906 739.062 543.698 738.25 543.281C737.437 542.885 736.802 542.323 736.344 541.594C735.74 540.865 735.375 540.031 735.25 539.094C735.125 538.156 735.229 537.26 735.562 536.406L735.625 536.219C735.708 536.135 735.76 536.042 735.781 535.938C735.802 535.833 735.865 535.688 735.969 535.5C736.01 535.292 736.104 535.052 736.25 534.781C736.396 534.51 736.573 534.156 736.781 533.719C736.99 533.24 737.219 532.792 737.469 532.375C737.74 531.958 738 531.51 738.25 531.031C738.583 530.552 738.917 530.052 739.25 529.531C739.604 528.99 739.979 528.469 740.375 527.969C740.583 527.677 740.781 527.396 740.969 527.125C741.177 526.833 741.385 526.531 741.594 526.219C741.885 525.844 742.156 525.49 742.406 525.156C742.677 524.802 742.958 524.479 743.25 524.188C743.542 523.896 743.823 523.604 744.094 523.312C744.385 523 744.698 522.698 745.031 522.406C745.281 522.156 745.521 521.927 745.75 521.719C746 521.49 746.25 521.271 746.5 521.062L746.906 520.719C747.115 520.51 747.344 520.281 747.594 520.031C747.865 519.76 748.146 519.521 748.437 519.312C748.646 519.062 748.854 518.823 749.062 518.594C749.292 518.344 749.531 518.073 749.781 517.781C750.198 517.26 750.708 516.688 751.312 516.062V515.938L751.687 515.531V515.469C751.729 515.385 751.885 515.219 752.156 514.969C752.323 514.719 752.51 514.5 752.719 514.312C752.802 514.146 752.917 514 753.062 513.875C753.229 513.75 753.417 513.604 753.625 513.438C753.75 513.312 753.885 513.177 754.031 513.031C754.177 512.865 754.365 512.74 754.594 512.656C754.885 512.406 755.156 512.26 755.406 512.219C755.49 512.135 755.594 512.094 755.719 512.094C756.198 511.844 756.781 511.688 757.469 511.625C757.635 511.542 757.885 511.5 758.219 511.5H758.281H758.875H759C759.125 511.583 759.26 511.625 759.406 511.625C759.552 511.625 759.687 511.656 759.812 511.719C759.979 511.802 760.115 511.844 760.219 511.844C760.344 511.844 760.469 511.865 760.594 511.906C760.594 511.99 760.615 512.031 760.656 512.031H760.719C760.802 512.073 760.896 512.094 761 512.094C761.104 512.094 761.208 512.135 761.312 512.219C761.396 512.344 761.542 512.427 761.75 512.469C761.75 512.552 761.771 512.594 761.812 512.594H761.875C761.958 512.635 762.031 512.677 762.094 512.719C762.156 512.76 762.229 512.802 762.312 512.844V512.969C763.167 513.573 763.854 514.365 764.375 515.344V515.531C764.458 515.74 764.521 515.948 764.562 516.156C764.604 516.344 764.667 516.562 764.75 516.812H764.812V516.875V517.094C764.896 517.219 764.937 517.344 764.937 517.469V517.594C764.979 517.885 765 518.167 765 518.438C765 518.688 765 518.854 765 518.938V519V519.969C765 521.073 764.937 522.031 764.812 522.844L764.75 523.031C764.667 523.406 764.625 523.771 764.625 524.125C764.625 524.458 764.604 524.781 764.562 525.094C764.479 525.469 764.437 525.823 764.437 526.156C764.437 526.469 764.437 526.771 764.437 527.062C764.396 528.521 764.396 529.719 764.437 530.656C764.437 530.865 764.437 531.031 764.437 531.156C764.437 531.281 764.479 531.458 764.562 531.688C764.562 531.771 764.573 531.823 764.594 531.844C764.615 531.865 764.625 531.917 764.625 532V532.062L764.75 532.188V532.25H764.812C764.896 532.333 764.958 532.396 765 532.438C765.042 532.479 765.177 532.542 765.406 532.625C765.615 532.708 765.802 532.76 765.969 532.781C766.135 532.802 766.302 532.854 766.469 532.938C766.51 532.938 766.552 532.958 766.594 533C766.656 533.021 766.708 533.031 766.75 533.031H766.875L766.937 533.156Z" fill="white"/>
+                  <path d="M810.687 516.062C811.708 516.062 812.667 516.458 813.562 517.25C814.479 518.042 815.167 519.073 815.625 520.344C815.917 521.156 816.104 522.021 816.187 522.938C816.292 523.854 816.292 524.76 816.187 525.656C816.104 526.552 815.937 527.417 815.687 528.25C815.437 529.083 815.094 529.823 814.656 530.469C814.49 530.594 814.354 530.729 814.25 530.875C814.146 531.021 814.052 531.156 813.969 531.281L813.781 531.594C813.74 531.635 813.667 531.729 813.562 531.875C813.479 532 813.396 532.125 813.312 532.25L812.75 533.031L812.031 533.906C811.823 534.24 811.625 534.542 811.437 534.812C811.25 535.062 811.042 535.333 810.812 535.625C810.646 535.833 810.5 536.021 810.375 536.188C810.25 536.333 810.104 536.531 809.937 536.781C809.896 536.823 809.844 536.885 809.781 536.969C809.719 537.031 809.646 537.104 809.562 537.188V537.375L808.344 538.906L807.062 540.5L805.844 542.031C805.677 542.281 805.5 542.521 805.312 542.75C805.146 542.958 805 543.167 804.875 543.375L804.562 543.719C803.333 545.302 801.906 546.083 800.281 546.062C799.302 546.062 798.354 545.74 797.437 545.094C796.542 544.469 795.781 543.625 795.156 542.562C794.635 541.583 794.292 540.625 794.125 539.688C793.833 540.062 793.594 540.375 793.406 540.625L792.656 541.781L791.875 542.938C791.271 543.917 790.552 544.667 789.719 545.188C788.906 545.729 788.073 546 787.219 546C786.365 546 785.521 545.74 784.687 545.219C783.854 544.719 783.115 544.021 782.469 543.125C781.865 542.271 781.406 541.292 781.094 540.188C780.781 539.083 780.604 537.938 780.562 536.75C780.521 535.542 780.625 534.354 780.875 533.188C781.125 532 781.51 530.896 782.031 529.875C782.156 529.583 782.271 529.323 782.375 529.094C782.479 528.844 782.615 528.615 782.781 528.406L782.844 528.219L783.062 527.844C783.229 527.552 783.396 527.24 783.562 526.906C783.729 526.552 783.875 526.198 784 525.844C784.208 525.469 784.385 525.125 784.531 524.812C784.698 524.479 784.844 524.146 784.969 523.812C785.177 523.521 785.354 523.198 785.5 522.844C785.667 522.49 785.812 522.146 785.937 521.812C786.271 521.125 786.562 520.469 786.812 519.844C787.083 519.198 787.344 518.531 787.594 517.844L787.656 517.781C787.448 518.073 787.25 518.333 787.062 518.562C786.896 518.771 786.75 518.979 786.625 519.188C786.417 519.479 786.229 519.76 786.062 520.031C785.896 520.281 785.729 520.51 785.562 520.719C785.354 521.094 785.156 521.427 784.969 521.719C784.802 521.99 784.656 522.24 784.531 522.469C784.448 522.469 784.406 522.531 784.406 522.656C784.281 522.865 784.125 523.135 783.937 523.469C783.771 523.781 783.583 524.083 783.375 524.375L783.25 524.5C783.125 524.792 782.969 525.083 782.781 525.375C782.615 525.646 782.448 525.927 782.281 526.219C782.156 526.51 782.01 526.833 781.844 527.188C781.677 527.542 781.479 527.885 781.25 528.219L781.125 528.406C781 528.698 780.865 529 780.719 529.312C780.573 529.604 780.385 529.917 780.156 530.25L779.906 530.844C779.823 531.052 779.708 531.271 779.562 531.5C779.417 531.708 779.302 531.958 779.219 532.25C779.135 532.333 779.073 532.448 779.031 532.594C778.99 532.74 778.917 532.885 778.812 533.031C778.687 533.24 778.573 533.448 778.469 533.656C778.365 533.865 778.271 534.073 778.187 534.281V534.5C778.021 534.708 777.885 534.906 777.781 535.094C777.677 535.281 777.573 535.49 777.469 535.719C777.427 535.802 777.375 535.917 777.312 536.062C777.25 536.208 777.177 536.344 777.094 536.469L775 540.812V540.875C774.479 541.979 773.812 542.823 773 543.406C772.187 543.99 771.354 544.281 770.5 544.281C769.271 544.281 768.187 543.729 767.25 542.625C766.271 541.646 765.583 540.292 765.187 538.562C764.812 536.833 764.812 535.094 765.187 533.344C765.271 532.865 765.385 532.385 765.531 531.906C765.698 531.406 765.844 530.854 765.969 530.25C766.135 529.771 766.281 529.312 766.406 528.875C766.531 528.438 766.635 528 766.719 527.562C766.885 527 767.031 526.51 767.156 526.094C767.302 525.677 767.458 525.229 767.625 524.75L767.687 524.688V524.5C767.854 524.021 768 523.615 768.125 523.281C768.271 522.948 768.427 522.542 768.594 522.062C768.719 521.688 768.865 521.281 769.031 520.844C769.198 520.385 769.375 519.938 769.562 519.5C769.771 518.938 769.958 518.448 770.125 518.031C770.292 517.615 770.437 517.229 770.562 516.875C770.937 516.021 771.323 515.177 771.719 514.344C772.115 513.49 772.5 512.656 772.875 511.844C773.354 510.906 773.802 510.031 774.219 509.219C774.635 508.406 775.083 507.635 775.562 506.906L775.875 506.312H775.937L776.281 505.75C776.406 505.542 776.521 505.344 776.625 505.156C776.729 504.948 776.865 504.76 777.031 504.594C777.323 504.177 777.583 503.792 777.812 503.438C778.062 503.062 778.333 502.677 778.625 502.281V502.219C779.271 501.531 779.896 500.792 780.5 500C780.833 499.667 781.156 499.333 781.469 499C781.802 498.646 782.135 498.312 782.469 498H782.594C783.448 497.229 784.292 496.583 785.125 496.062C785.958 495.521 786.802 495.104 787.656 494.812C788.302 494.604 788.917 494.448 789.5 494.344C790.104 494.219 790.708 494.156 791.312 494.156C791.792 494.156 792.229 494.177 792.625 494.219C793.021 494.26 793.417 494.375 793.812 494.562C793.979 494.562 794.115 494.594 794.219 494.656C794.323 494.719 794.417 494.75 794.5 494.75L794.687 494.812C794.812 494.896 794.948 494.948 795.094 494.969C795.26 494.99 795.385 495.042 795.469 495.125H795.531L795.719 495.312C795.802 495.354 795.885 495.385 795.969 495.406C796.052 495.427 796.146 495.479 796.25 495.562L796.437 495.719C796.521 495.802 796.625 495.885 796.75 495.969C796.875 496.052 797.042 496.219 797.25 496.469L797.437 496.531L797.594 496.719C797.719 496.802 797.823 496.906 797.906 497.031C797.99 497.135 798.073 497.229 798.156 497.312H798.219L798.344 497.438C798.552 497.729 798.698 497.979 798.781 498.188C798.865 498.188 798.917 498.208 798.937 498.25L799.125 498.594C799.208 498.677 799.281 498.781 799.344 498.906C799.406 499.031 799.479 499.177 799.562 499.344C799.646 499.469 799.76 499.667 799.906 499.938C800.052 500.188 800.177 500.458 800.281 500.75L800.344 500.875C800.51 501.208 800.635 501.552 800.719 501.906L800.844 502.219C800.885 502.427 800.927 502.635 800.969 502.844C801.01 503.031 801.052 503.208 801.094 503.375V503.438C801.177 503.521 801.229 503.667 801.25 503.875C801.271 504.062 801.323 504.302 801.406 504.594V504.906C801.406 504.99 801.417 505.042 801.437 505.062C801.458 505.062 801.469 505.083 801.469 505.125V505.188C801.469 505.354 801.49 505.5 801.531 505.625C801.594 505.75 801.625 505.854 801.625 505.938C801.625 506.146 801.635 506.333 801.656 506.5C801.677 506.646 801.687 506.781 801.687 506.906H802.187H802.25H802.375H802.75L802.812 507.094H803.219C803.385 507.094 803.521 507.115 803.625 507.156C803.729 507.198 803.823 507.219 803.906 507.219H804.094C804.135 507.302 804.219 507.354 804.344 507.375C804.49 507.396 804.625 507.427 804.75 507.469C804.833 507.552 804.906 507.615 804.969 507.656C805.031 507.677 805.083 507.729 805.125 507.812C805.292 507.896 805.437 507.969 805.562 508.031C805.708 508.094 805.865 508.167 806.031 508.25C806.115 508.333 806.187 508.406 806.25 508.469C806.312 508.531 806.385 508.583 806.469 508.625C806.552 508.625 806.604 508.656 806.625 508.719C806.646 508.781 806.698 508.812 806.781 508.812C806.865 508.979 807 509.115 807.187 509.219C807.396 509.469 807.594 509.708 807.781 509.938C807.969 510.167 808.104 510.312 808.187 510.375V510.562H808.344V510.688C808.385 510.688 808.406 510.719 808.406 510.781C808.406 510.844 808.448 510.875 808.531 510.875C808.615 510.958 808.698 511.083 808.781 511.25V511.438C808.865 511.479 808.927 511.573 808.969 511.719C809.094 511.844 809.156 511.969 809.156 512.094C809.24 512.094 809.281 512.156 809.281 512.281L809.344 512.406C809.344 512.448 809.365 512.49 809.406 512.531C809.406 512.573 809.427 512.615 809.469 512.656L809.562 512.844L809.75 513.188C809.75 513.229 809.792 513.312 809.875 513.438C809.875 513.646 809.937 513.771 810.062 513.812C810.187 514.188 810.302 514.562 810.406 514.938C810.51 515.312 810.604 515.688 810.687 516.062Z" fill="white"/>
+                  <path d="M862.375 523.344C863.479 524.031 864.24 524.979 864.656 526.188C865.094 527.375 865.125 528.583 864.75 529.812C864.667 530.104 864.573 530.375 864.469 530.625C864.365 530.854 864.271 531.094 864.187 531.344C864.146 531.552 864.052 531.771 863.906 532C863.781 532.208 863.677 532.458 863.594 532.75C863.51 533 863.406 533.24 863.281 533.469C863.156 533.677 863.052 533.885 862.969 534.094L862.844 534.219L862.562 534.688V534.812L862.187 535.375V535.438C861.896 535.917 861.594 536.385 861.281 536.844C860.99 537.281 860.677 537.688 860.344 538.062C860.01 538.479 859.656 538.906 859.281 539.344C858.906 539.781 858.531 540.188 858.156 540.562H858.031C857.615 540.979 857.146 541.385 856.625 541.781C856.104 542.177 855.594 542.542 855.094 542.875C854.448 543.25 853.812 543.573 853.187 543.844C852.583 544.135 851.937 544.344 851.25 544.469H851.125L850.875 544.594H850.719C850.677 544.635 850.615 544.656 850.531 544.656C850.448 544.656 850.323 544.698 850.156 544.781H849.969L849.594 544.844H849.531H849.375C849.292 544.844 849.208 544.865 849.125 544.906C849.042 544.948 848.979 544.969 848.937 544.969H848.375H847.969V545.062H847.844H847.781H847.656H847.594C847.51 545.062 847.417 545.042 847.312 545C847.208 544.979 847.073 544.969 846.906 544.969H846.687H846.625C846.542 544.969 846.448 544.969 846.344 544.969C846.24 544.969 846.146 544.927 846.062 544.844H845.937C844.521 544.635 843.219 544.104 842.031 543.25C841.552 542.917 841.083 542.521 840.625 542.062C840.187 541.583 839.781 541.083 839.406 540.562C839.406 540.521 839.396 540.5 839.375 540.5C839.354 540.5 839.344 540.479 839.344 540.438V540.375C838.573 540.625 837.885 540.812 837.281 540.938H837.219C837.135 540.979 837.01 541.01 836.844 541.031H836.719H836.344L836.281 541.156H836.156H835.75H835.562H835.125H835V541.031H834.937H834.781H834.406C834.323 541.031 834.229 541.021 834.125 541C834.021 540.958 833.906 540.938 833.781 540.938H833.656C833.615 540.854 833.521 540.812 833.375 540.812C833.25 540.812 833.125 540.792 833 540.75C832.792 540.667 832.615 540.594 832.469 540.531C832.323 540.469 832.198 540.417 832.094 540.375H831.906C831.573 540.167 831.24 539.969 830.906 539.781C830.594 539.573 830.292 539.344 830 539.094C829.792 538.885 829.562 538.677 829.312 538.469C829.083 538.24 828.865 537.979 828.656 537.688H828.594L828.062 537.75C827.937 537.75 827.854 537.792 827.812 537.875H827.625H827.5H827.312H827.25C827.167 537.917 826.969 537.938 826.656 537.938L826.156 538.062H825.906H825.781H825.594H824.937H824.625C824.583 538.062 824.531 538.042 824.469 538C824.406 537.958 824.333 537.938 824.25 537.938H823.969H823.844C823.323 537.854 822.833 537.74 822.375 537.594C821.917 537.448 821.448 537.24 820.969 536.969C820.927 536.969 820.906 537 820.906 537.062V537.188C820.698 537.521 820.469 537.812 820.219 538.062C820.094 538.271 819.948 538.469 819.781 538.656C819.635 538.823 819.5 539.01 819.375 539.219C819.167 539.427 818.979 539.635 818.812 539.844C818.667 540.031 818.531 540.229 818.406 540.438V540.562C818.198 540.771 818.021 540.979 817.875 541.188C817.729 541.375 817.542 541.573 817.312 541.781C816.292 543.156 814.865 543.844 813.031 543.844C812.385 543.844 811.76 543.74 811.156 543.531C810.573 543.344 810.052 543.021 809.594 542.562C808.573 541.792 807.917 540.802 807.625 539.594C807.354 538.365 807.448 537.177 807.906 536.031C808.073 535.74 808.208 535.479 808.312 535.25C808.437 535 808.562 534.75 808.687 534.5C808.771 534.292 808.865 534.062 808.969 533.812C809.073 533.542 809.208 533.302 809.375 533.094C809.458 532.885 809.562 532.667 809.687 532.438C809.833 532.188 809.948 531.958 810.031 531.75C810.115 531.583 810.198 531.417 810.281 531.25C810.365 531.062 810.448 530.906 810.531 530.781C810.573 530.698 810.615 530.625 810.656 530.562C810.698 530.5 810.719 530.448 810.719 530.406C810.802 530.198 810.885 530.021 810.969 529.875C811.073 529.708 811.146 529.562 811.187 529.438C811.271 529.354 811.323 529.271 811.344 529.188C811.365 529.104 811.417 529.01 811.5 528.906C811.583 528.698 811.677 528.531 811.781 528.406C811.885 528.281 811.979 528.115 812.062 527.906L812.281 527.562C812.365 527.354 812.469 527.146 812.594 526.938C812.719 526.729 812.823 526.49 812.906 526.219L813.687 524.875L814.437 523.531C814.521 523.323 814.635 523.115 814.781 522.906C814.948 522.698 815.094 522.458 815.219 522.188L815.906 520.844H815.969L816.687 519.5C816.771 519.417 816.854 519.271 816.937 519.062C817.021 518.896 817.115 518.75 817.219 518.625C817.323 518.5 817.427 518.344 817.531 518.156L818.219 516.938H818.281C818.531 516.458 818.792 516 819.062 515.562C819.354 515.125 819.604 514.688 819.812 514.25C820.458 513.229 821.292 512.438 822.312 511.875C823.333 511.292 824.469 511 825.719 511C826.323 511 826.927 511.073 827.531 511.219C828.156 511.365 828.719 511.615 829.219 511.969C830.594 512.781 831.542 513.917 832.062 515.375C832.604 516.812 832.667 518.26 832.25 519.719C832.729 519.427 833.24 519.198 833.781 519.031C834.323 518.844 834.896 518.75 835.5 518.75C835.979 518.75 836.427 518.812 836.844 518.938C837.281 519.062 837.729 519.229 838.187 519.438C838.271 519.438 838.354 519.5 838.437 519.625C838.562 519.25 838.667 519.021 838.75 518.938C838.833 518.646 838.927 518.354 839.031 518.062C839.156 517.75 839.281 517.448 839.406 517.156L839.906 515.875L840.094 515.406C840.573 513.99 841.417 512.854 842.625 512C843.854 511.125 845.208 510.688 846.687 510.688C847.5 510.688 848.312 510.854 849.125 511.188C849.979 511.479 850.74 511.917 851.406 512.5C852.073 513.083 852.615 513.76 853.031 514.531C853.844 516.24 854.021 517.938 853.562 519.625V519.719L853.406 520.281L853.219 520.781L852.969 521.938L852.781 522.969L852.469 524.125C852.385 524.458 852.312 524.802 852.25 525.156C852.187 525.49 852.104 525.844 852 526.219C851.917 526.552 851.844 526.906 851.781 527.281C851.719 527.656 851.667 528.01 851.625 528.344C851.625 528.552 851.604 528.75 851.562 528.938C851.521 529.104 851.479 529.292 851.437 529.5C851.646 529.375 851.812 529.229 851.937 529.062C852.083 528.875 852.24 528.677 852.406 528.469L852.781 528.094L853.031 527.719C853.198 527.552 853.312 527.406 853.375 527.281C853.458 527.135 853.542 527.021 853.625 526.938C853.833 526.646 854.021 526.365 854.187 526.094C854.354 525.802 854.521 525.531 854.687 525.281C855.208 524.427 855.896 523.771 856.75 523.312C857.604 522.833 858.521 522.594 859.5 522.594C860.604 522.573 861.562 522.823 862.375 523.344Z" fill="white"/>
+                  <path d="M899.531 522.25C900.635 522.854 901.437 523.74 901.937 524.906C902.458 526.052 902.552 527.24 902.219 528.469C901.885 529.615 901.5 530.771 901.062 531.938C900.812 532.542 900.542 533.125 900.25 533.688C899.979 534.229 899.677 534.729 899.344 535.188C898.573 536.458 897.74 537.552 896.844 538.469C896.552 538.719 896.26 538.99 895.969 539.281C895.698 539.552 895.417 539.792 895.125 540C894.792 540.25 894.437 540.49 894.062 540.719C893.687 540.927 893.333 541.135 893 541.344C891.25 542.24 889.417 542.688 887.5 542.688H887.437H886.844H886.656H886.531H886.094H885.969L885.781 542.625H885.562H885.5H885.375H885.187C885.104 542.542 885 542.5 884.875 542.5C884.75 542.5 884.646 542.479 884.562 542.438H884.437H884.156V542.375C884.156 542.375 884.115 542.344 884.031 542.281H883.906C883.823 542.281 883.781 542.26 883.781 542.219H883.469L883.406 542.094H883.281C883.198 542.052 883.052 541.99 882.844 541.906C882.656 541.823 882.458 541.74 882.25 541.656L882.062 541.531C881.896 541.448 881.75 541.385 881.625 541.344C881.521 541.302 881.427 541.24 881.344 541.156L881.281 541.094L881.094 540.938H881.031C880.99 540.938 880.969 540.917 880.969 540.875C880.885 540.792 880.802 540.719 880.719 540.656C880.635 540.594 880.573 540.562 880.531 540.562V540.5C880.052 540.167 879.625 539.802 879.25 539.406C878.896 538.99 878.573 538.521 878.281 538C878.198 538.083 878.135 538.188 878.094 538.312C878.052 538.417 877.99 538.51 877.906 538.594C877.615 538.969 877.344 539.323 877.094 539.656C876.865 539.969 876.594 540.271 876.281 540.562C875.906 541.042 875.479 541.469 875 541.844C874.437 542.219 873.74 542.625 872.906 543.062C872.656 543.188 872.458 543.25 872.312 543.25H872.25C872.167 543.333 872.062 543.375 871.937 543.375C871.854 543.417 871.76 543.458 871.656 543.5C871.552 543.542 871.437 543.562 871.312 543.562C871.104 543.604 870.917 543.625 870.75 543.625C870.604 543.625 870.49 543.625 870.406 543.625C870.365 543.625 870.323 543.646 870.281 543.688C870.24 543.75 870.198 543.781 870.156 543.781H869.781H869.625H869.562H869.437H869.375C869.292 543.781 869.208 543.75 869.125 543.688C869.042 543.646 868.958 543.625 868.875 543.625H868.812H868.687H868.625H868.5L868.437 543.562H868.219C868.135 543.562 868.062 543.542 868 543.5C867.937 543.458 867.885 543.438 867.844 543.438H867.719C867.51 543.438 867.25 543.375 866.937 543.25C866.896 543.208 866.844 543.188 866.781 543.188C866.719 543.188 866.646 543.146 866.562 543.062H866.375C864.75 542.375 863.448 541.292 862.469 539.812C862.385 539.688 862.302 539.573 862.219 539.469C862.135 539.344 862.052 539.24 861.969 539.156C861.927 539.073 861.906 539.021 861.906 539C861.906 538.979 861.865 538.927 861.781 538.844C861.135 539.052 860.531 539.156 859.969 539.156C859.323 539.156 858.698 539.062 858.094 538.875C857.51 538.688 856.99 538.354 856.531 537.875C855.552 537.104 854.896 536.135 854.562 534.969C854.25 533.802 854.323 532.635 854.781 531.469C854.906 531.177 855.042 530.875 855.187 530.562C855.354 530.229 855.5 529.896 855.625 529.562C855.75 529.188 855.854 528.948 855.937 528.844L856.125 528.594C856.167 528.51 856.208 528.396 856.25 528.25C856.292 528.104 856.333 527.99 856.375 527.906L856.531 527.625C856.615 527.458 856.687 527.312 856.75 527.188C856.812 527.062 856.885 526.896 856.969 526.688L857.344 525.781L857.875 524.938C857.917 524.771 857.969 524.625 858.031 524.5C858.094 524.375 858.167 524.229 858.25 524.062L858.687 523.094L859.656 521.312L860.562 519.562C860.562 519.562 860.583 519.542 860.625 519.5V519.438L861.5 517.719C861.542 517.635 861.594 517.542 861.656 517.438C861.74 517.333 861.823 517.24 861.906 517.156C861.906 517.115 861.917 517.073 861.937 517.031C861.958 516.969 861.969 516.917 861.969 516.875C862.615 515.812 863.458 514.979 864.5 514.375C865.542 513.75 866.677 513.438 867.906 513.438C869.052 513.438 870.125 513.688 871.125 514.188C872.625 515 873.667 516.24 874.25 517.906C874.333 517.573 874.427 517.229 874.531 516.875C874.635 516.5 874.729 516.125 874.812 515.75C874.979 515.188 875.125 514.667 875.25 514.188C875.396 513.688 875.552 513.177 875.719 512.656L877.437 506.406C877.854 504.906 878.667 503.698 879.875 502.781C881.104 501.865 882.49 501.406 884.031 501.406C884.323 501.406 884.625 501.427 884.937 501.469C885.271 501.51 885.594 501.552 885.906 501.594C886.719 501.844 887.458 502.219 888.125 502.719C888.812 503.198 889.375 503.781 889.812 504.469C890.271 505.156 890.594 505.917 890.781 506.75C890.99 507.583 891.021 508.427 890.875 509.281L890.687 509.969L890.562 510.625C890.562 510.833 890.552 511.042 890.531 511.25C890.51 511.458 890.5 511.677 890.5 511.906C890.417 512.323 890.344 512.75 890.281 513.188C890.219 513.604 890.167 514.031 890.125 514.469V514.594C890.125 514.969 890.104 515.375 890.062 515.812C890.021 516.229 889.979 516.677 889.937 517.156C889.812 518.135 889.74 519.01 889.719 519.781C889.635 520.198 889.594 520.625 889.594 521.062C889.594 521.479 889.573 521.896 889.531 522.312V523.594C889.448 523.802 889.406 524.01 889.406 524.219C889.406 524.406 889.406 524.604 889.406 524.812V526.094V526.562V526.688V527.25C889.406 527.375 889.427 527.5 889.469 527.625C889.51 527.729 889.531 527.865 889.531 528.031V527.969C889.531 527.969 889.552 527.948 889.594 527.906C889.802 527.698 890 527.469 890.187 527.219C890.396 526.948 890.625 526.635 890.875 526.281C890.958 526.115 891.052 525.969 891.156 525.844C891.281 525.719 891.385 525.573 891.469 525.406C891.719 525.073 891.865 524.75 891.906 524.438H892.031C892.51 523.542 893.177 522.844 894.031 522.344C894.885 521.823 895.823 521.562 896.844 521.562C897.823 521.542 898.719 521.771 899.531 522.25Z" fill="white"/>
+                </g>
+                <g id="XcT">
+                  <path d="M975.594 511.906C976.156 512.323 976.635 512.875 977.031 513.562C977.427 514.25 977.74 515 977.969 515.812C978.219 516.625 978.375 517.5 978.437 518.438C978.5 519.375 978.448 520.312 978.281 521.25C977.948 523 977.562 524.729 977.125 526.438C976.875 527.292 976.604 528.135 976.312 528.969C976.042 529.781 975.74 530.552 975.406 531.281C974.635 533.156 973.802 534.802 972.906 536.219C972.615 536.594 972.323 536.99 972.031 537.406C971.76 537.802 971.479 538.177 971.187 538.531C970.854 538.906 970.5 539.26 970.125 539.594C969.75 539.906 969.396 540.208 969.062 540.5C967.312 541.875 965.479 542.562 963.562 542.562H963.5H962.906H962.719H962.594H962.156H962.031L961.844 542.438H961.625H961.562H961.437H961.25C961.167 542.354 961.062 542.302 960.937 542.281C960.812 542.24 960.708 542.198 960.625 542.156H960.5H960.219V542.094C960.219 542.01 960.177 541.969 960.094 541.969H959.969C959.885 541.969 959.844 541.927 959.844 541.844H959.531L959.469 541.656H959.344C959.26 541.615 959.115 541.531 958.906 541.406C958.719 541.281 958.521 541.156 958.312 541.031L958.125 540.812C957.958 540.646 957.812 540.531 957.687 540.469C957.583 540.406 957.49 540.333 957.406 540.25L957.344 540.125L957.156 539.938H957.094C957.052 539.938 957.031 539.917 957.031 539.875C956.948 539.792 956.865 539.688 956.781 539.562C956.698 539.417 956.635 539.344 956.594 539.344V539.281C956.115 538.719 955.687 538.146 955.312 537.562C954.958 536.958 954.635 536.271 954.344 535.5C954.26 535.667 954.198 535.823 954.156 535.969C954.115 536.094 954.052 536.24 953.969 536.406C953.677 537.01 953.406 537.552 953.156 538.031C952.927 538.49 952.656 538.927 952.344 539.344C951.969 540.073 951.542 540.719 951.062 541.281C950.729 541.615 950.385 541.938 950.031 542.25C949.698 542.542 949.344 542.833 948.969 543.125C948.76 543.292 948.562 543.375 948.375 543.375H948.312C948.229 543.5 948.125 543.562 948 543.562C947.917 543.646 947.823 543.719 947.719 543.781C947.615 543.865 947.5 543.906 947.375 543.906C947.167 543.948 946.979 543.969 946.812 543.969C946.667 543.969 946.552 543.969 946.469 543.969C946.427 543.969 946.385 544 946.344 544.062C946.302 544.125 946.26 544.156 946.219 544.156H945.844H945.687H945.625H945.5H945.437C945.354 544.156 945.271 544.125 945.187 544.062C945.104 544 945.021 543.969 944.937 543.969H944.875H944.75H944.687H944.562L944.5 543.906H944.281C944.198 543.906 944.125 543.875 944.062 543.812C944 543.75 943.948 543.719 943.906 543.719H943.781C943.615 543.719 943.354 543.604 943 543.375C942.958 543.333 942.906 543.302 942.844 543.281C942.781 543.26 942.708 543.208 942.625 543.125H942.437C940.812 542.104 939.51 540.458 938.531 538.188C938.448 537.979 938.365 537.812 938.281 537.688C938.198 537.562 938.115 537.417 938.031 537.25C937.99 537.167 937.969 537.094 937.969 537.031C937.969 536.948 937.927 536.865 937.844 536.781C937.552 536.906 937.26 537.021 936.969 537.125C936.698 537.208 936.385 537.25 936.031 537.25C935.385 537.25 934.76 537.104 934.156 536.812C933.573 536.5 933.052 536 932.594 535.312C931.615 534.167 930.958 532.719 930.625 530.969C930.312 529.219 930.385 527.469 930.844 525.719C930.969 525.302 931.104 524.833 931.25 524.312C931.417 523.792 931.562 523.302 931.687 522.844C931.771 522.635 931.823 522.448 931.844 522.281C931.865 522.094 931.917 521.938 932 521.812L932.187 521.438C932.229 521.271 932.271 521.094 932.312 520.906C932.354 520.698 932.396 520.51 932.437 520.344L932.594 519.969C932.677 519.76 932.75 519.552 932.812 519.344C932.875 519.115 932.948 518.854 933.031 518.562L933.406 517.219L933.937 515.938C933.979 515.729 934.031 515.521 934.094 515.312C934.156 515.083 934.229 514.844 934.312 514.594L934.75 513.188L935.719 510.5L936.625 507.875C936.625 507.875 936.646 507.854 936.687 507.812V507.688L937.562 505.125C937.604 504.958 937.656 504.812 937.719 504.688C937.802 504.542 937.885 504.385 937.969 504.219C937.969 504.177 937.979 504.125 938 504.062C938.021 504 938.031 503.927 938.031 503.844C938.677 502.26 939.521 501 940.562 500.062C941.604 499.125 942.74 498.656 943.969 498.656C945.115 498.656 946.187 499.042 947.187 499.812C948.687 501.042 949.729 502.896 950.312 505.375C950.396 504.896 950.49 504.385 950.594 503.844C950.698 503.281 950.792 502.698 950.875 502.094C951.042 501.281 951.187 500.51 951.312 499.781C951.458 499.031 951.615 498.271 951.781 497.5L953.5 488.094C953.917 485.885 954.729 484.083 955.937 482.688C957.167 481.292 958.552 480.594 960.094 480.594C960.385 480.594 960.687 480.625 961 480.688C961.333 480.75 961.656 480.823 961.969 480.906C962.781 481.24 963.521 481.802 964.187 482.594C964.875 483.365 965.437 484.26 965.875 485.281C966.333 486.302 966.656 487.438 966.844 488.688C967.052 489.917 967.083 491.167 966.937 492.438L966.75 493.469L966.625 494.438C966.625 494.729 966.615 495.052 966.594 495.406C966.573 495.74 966.562 496.052 966.562 496.344C966.479 496.99 966.406 497.646 966.344 498.312C966.281 498.958 966.229 499.583 966.187 500.188V500.375C966.187 500.979 966.167 501.594 966.125 502.219C966.083 502.823 966.042 503.49 966 504.219C965.875 505.719 965.802 507.042 965.781 508.188C965.698 508.792 965.656 509.427 965.656 510.094C965.656 510.74 965.635 511.385 965.594 512.031V513.938C965.51 514.271 965.469 514.583 965.469 514.875C965.469 515.146 965.469 515.438 965.469 515.75V517.656V518.375V518.562V519.375C965.469 519.583 965.49 519.781 965.531 519.969C965.573 520.135 965.594 520.323 965.594 520.531V520.469C965.594 520.385 965.615 520.344 965.656 520.344C965.865 520.01 966.062 519.656 966.25 519.281C966.458 518.885 966.687 518.448 966.937 517.969C967.021 517.719 967.115 517.49 967.219 517.281C967.344 517.052 967.448 516.833 967.531 516.625C967.781 516.146 967.927 515.656 967.969 515.156H968.094C968.573 513.781 969.24 512.729 970.094 512C970.948 511.25 971.885 510.875 972.906 510.875C973.885 510.875 974.781 511.219 975.594 511.906Z" fill="white"/>
+                  <path d="M1012.5 533.094C1013.96 533.573 1015.04 534.49 1015.75 535.844C1016.44 537.302 1016.53 538.708 1016.03 540.062C1015.74 541 1015.26 541.792 1014.59 542.438C1013.93 543.062 1013.17 543.49 1012.31 543.719C1011.94 543.844 1011.64 543.906 1011.41 543.906C1011.36 543.99 1011.28 544.031 1011.16 544.031H1011.03C1010.95 544.031 1010.85 544.042 1010.75 544.062C1010.65 544.083 1010.52 544.094 1010.37 544.094C1009.6 544.219 1008.93 544.281 1008.34 544.281H1008.28C1007.59 544.281 1006.91 544.219 1006.22 544.094H1006.03L1005.78 544.031H1005.66C1005.57 544.031 1005.48 544.01 1005.37 543.969C1005.27 543.927 1005.17 543.906 1005.06 543.906H1005L1004.87 543.844C1004.75 543.844 1004.67 543.802 1004.62 543.719H1004.44H1004.37C1004.33 543.719 1004.31 543.688 1004.31 543.625C1004.27 543.625 1004.21 543.604 1004.12 543.562C1004.04 543.521 1003.91 543.479 1003.72 543.438C1003.3 543.271 1002.9 543.083 1002.5 542.875C1002.12 542.667 1001.75 542.427 1001.37 542.156C1001 541.865 1000.62 541.562 1000.25 541.25C999.875 540.917 999.542 540.562 999.25 540.188C998.604 539.5 998.094 538.667 997.719 537.688C997.51 537.312 997.323 536.938 997.156 536.562C997.01 536.167 996.896 535.729 996.812 535.25C996.812 535.125 996.792 535.042 996.75 535C996.75 535.042 996.708 535.104 996.625 535.188L996.562 535.25C996.354 535.542 996.135 535.823 995.906 536.094C995.698 536.344 995.49 536.573 995.281 536.781C994.865 537.344 994.437 537.875 994 538.375C993.583 538.854 993.156 539.333 992.719 539.812C992.469 540.021 992.219 540.229 991.969 540.438C991.74 540.646 991.479 540.906 991.187 541.219C990.937 541.427 990.656 541.656 990.344 541.906C990.052 542.156 989.719 542.417 989.344 542.688C988.365 543.458 987.25 543.844 986 543.844C985.146 543.844 984.323 543.646 983.531 543.25C982.74 542.875 982.094 542.323 981.594 541.594C981.031 540.906 980.687 540.135 980.562 539.281C980.437 538.427 980.479 537.573 980.687 536.719C980.771 536.24 980.896 535.812 981.062 535.438C981.25 535.062 981.385 534.729 981.469 534.438C981.635 534.104 981.802 533.76 981.969 533.406C982.135 533.052 982.281 532.708 982.406 532.375C983.01 531.188 983.698 530.01 984.469 528.844L985.625 527.125C985.792 526.958 985.979 526.656 986.187 526.219C986.312 526.094 986.427 525.958 986.531 525.812C986.656 525.667 986.802 525.531 986.969 525.406C987.385 524.844 987.896 524.271 988.5 523.688C988.792 523.396 989.073 523.135 989.344 522.906C989.635 522.656 989.885 522.417 990.094 522.188L990.875 521.438C990.958 521.396 991.042 521.344 991.125 521.281C991.208 521.219 991.292 521.146 991.375 521.062C991.583 520.854 991.771 520.688 991.937 520.562C992.125 520.417 992.323 520.24 992.531 520.031L993.125 519.438C993.292 519.271 993.5 519.021 993.75 518.688C993.917 518.521 994.083 518.375 994.25 518.25C994.437 518.104 994.635 517.948 994.844 517.781C994.844 517.74 994.854 517.719 994.875 517.719C994.896 517.719 994.906 517.677 994.906 517.594C994.99 517.594 995.094 517.531 995.219 517.406C995.26 517.406 995.281 517.385 995.281 517.344L995.469 517.219C995.552 517.219 995.667 517.156 995.812 517.031H995.875L996 516.938C996.042 516.854 996.094 516.802 996.156 516.781C996.219 516.76 996.292 516.708 996.375 516.625H996.437C996.646 516.542 996.823 516.479 996.969 516.438C997.135 516.396 997.26 516.333 997.344 516.25H997.406C997.49 516.25 997.573 516.24 997.656 516.219C997.74 516.198 997.823 516.188 997.906 516.188C997.948 516.104 998.031 516.062 998.156 516.062C998.24 516.062 998.312 516.052 998.375 516.031C998.458 516.01 998.521 516 998.562 516H998.687H998.75H998.875C999.042 516 999.167 515.958 999.25 515.875H999.844H999.906H1000.03H1000.22C1000.34 515.958 1000.61 516 1001.03 516C1001.28 516.042 1001.52 516.083 1001.75 516.125C1002 516.167 1002.26 516.208 1002.53 516.25H1002.59C1002.97 516.333 1003.34 516.427 1003.72 516.531C1004.11 516.635 1004.54 516.771 1005 516.938C1005.85 517.229 1006.58 517.552 1007.19 517.906C1007.4 517.99 1007.58 518.062 1007.75 518.125C1007.94 518.188 1008.11 518.271 1008.28 518.375H1008.34C1008.43 518.458 1008.51 518.521 1008.59 518.562C1008.68 518.604 1008.76 518.667 1008.84 518.75H1008.91L1009.12 518.875H1009.25C1009.37 519 1009.46 519.062 1009.5 519.062C1010.19 519.479 1010.77 520.01 1011.25 520.656C1011.75 521.302 1012.1 522.01 1012.31 522.781C1012.79 524.406 1012.73 525.938 1012.12 527.375L1011.81 528.094C1011.81 528.135 1011.79 528.177 1011.75 528.219C1011.73 528.26 1011.72 528.302 1011.72 528.344C1011.64 528.51 1011.58 528.656 1011.56 528.781C1011.54 528.906 1011.49 529.021 1011.41 529.125V529.25C1011.36 529.333 1011.32 529.438 1011.28 529.562C1011.24 529.688 1011.22 529.833 1011.22 530C1011.18 530.125 1011.14 530.271 1011.09 530.438C1011.05 530.583 1011.01 530.719 1010.97 530.844C1010.97 530.927 1010.95 531.042 1010.91 531.188C1010.86 531.333 1010.84 531.469 1010.84 531.594L1010.78 532.188V532.312H1010.66V532.375V532.5C1010.74 532.542 1010.85 532.583 1011 532.625C1011.15 532.667 1011.26 532.708 1011.34 532.75L1011.81 532.875C1011.9 532.917 1011.99 532.969 1012.09 533.031C1012.2 533.073 1012.33 533.094 1012.5 533.094Z" fill="white"/>
+                  <path d="M1056.87 510.938C1057.65 511.021 1058.36 511.323 1059.03 511.844C1059.7 512.344 1060.26 513 1060.72 513.812C1061.2 514.625 1061.55 515.552 1061.78 516.594C1062.01 517.635 1062.1 518.74 1062.06 519.906C1061.98 521.177 1061.71 522.375 1061.25 523.5C1060.81 524.604 1060.25 525.51 1059.56 526.219C1059.52 526.344 1059.47 526.5 1059.41 526.688C1059.34 526.854 1059.27 527.042 1059.19 527.25C1058.98 527.729 1058.78 528.302 1058.59 528.969C1058.43 529.615 1058.24 530.302 1058.03 531.031C1057.95 531.323 1057.85 531.615 1057.75 531.906C1057.65 532.177 1057.55 532.479 1057.47 532.812L1056.87 534.562L1056.81 534.75C1056.73 535.083 1056.61 535.438 1056.47 535.812C1056.32 536.167 1056.21 536.51 1056.12 536.844C1056 537.323 1055.84 537.771 1055.66 538.188C1055.49 538.583 1055.3 539.01 1055.09 539.469C1054.93 539.76 1054.78 540.052 1054.66 540.344C1054.55 540.615 1054.44 540.865 1054.31 541.094C1054.23 541.26 1054.18 541.375 1054.16 541.438C1054.14 541.5 1054.08 541.573 1054 541.656C1053.96 541.74 1053.92 541.833 1053.87 541.938C1053.83 542.042 1053.79 542.135 1053.75 542.219C1053.67 542.302 1053.59 542.396 1053.53 542.5C1053.47 542.583 1053.42 542.625 1053.37 542.625V542.812C1053.17 542.938 1053.05 543.062 1053.03 543.188H1052.97C1052.89 543.271 1052.82 543.354 1052.78 543.438C1052.74 543.521 1052.68 543.635 1052.59 543.781L1052.47 543.969H1052.41C1052.32 544.052 1052.25 544.125 1052.19 544.188C1052.12 544.25 1052.07 544.302 1052.03 544.344H1051.97C1051.93 544.344 1051.9 544.406 1051.87 544.531H1051.81C1051.73 544.615 1051.68 544.667 1051.66 544.688C1051.64 544.708 1051.58 544.76 1051.5 544.844H1051.44C1051.44 544.885 1051.42 544.906 1051.37 544.906H1051.31L1051.25 545.125H1051.12C1051.08 545.208 1051.04 545.26 1051 545.281C1050.96 545.302 1050.92 545.354 1050.87 545.438H1050.75H1050.69L1050.53 545.5H1050.34C1050.14 545.708 1049.95 545.812 1049.78 545.812C1049.7 545.896 1049.6 545.948 1049.5 545.969C1049.4 545.99 1049.29 546.021 1049.19 546.062H1049.12H1049H1048.94H1048.81L1048.75 546.25H1048.62H1048.19H1048H1047.78H1047.66C1047.57 546.25 1047.44 546.24 1047.25 546.219C1047.06 546.198 1046.86 546.146 1046.66 546.062H1046.44C1046.23 546.062 1046.04 545.979 1045.87 545.812C1045.62 545.812 1045.3 545.688 1044.91 545.438C1044.66 545.271 1044.41 545.083 1044.16 544.875C1043.93 544.688 1043.69 544.49 1043.44 544.281C1043.35 544.115 1043.26 543.979 1043.16 543.875C1043.05 543.771 1042.96 543.646 1042.87 543.5V543.438L1042.81 543.375C1042.73 543.292 1042.65 543.198 1042.56 543.094C1042.5 542.99 1042.45 542.896 1042.41 542.812C1042.2 542.438 1042.03 542.115 1041.91 541.844C1041.78 541.552 1041.7 541.344 1041.66 541.219H1041.59C1041.55 541.219 1041.53 541.177 1041.53 541.094C1041.49 541.052 1041.47 541 1041.47 540.938C1041.43 540.896 1041.41 540.854 1041.41 540.812C1041.41 540.771 1041.39 540.708 1041.34 540.625V540.5L1041.28 540.312C1041.28 540.271 1041.25 540.208 1041.19 540.125C1041.15 540.042 1041.1 539.917 1041.06 539.75C1040.98 539.625 1040.94 539.521 1040.94 539.438C1040.94 539.333 1040.92 539.219 1040.87 539.094V538.906L1040.75 538.781V538.594V538.531C1040.75 538.448 1040.74 538.396 1040.72 538.375C1040.7 538.333 1040.69 538.271 1040.69 538.188V538V537.938L1040.56 537.75V537.438C1040.44 537.604 1040.3 537.75 1040.16 537.875C1040.01 538 1039.86 538.146 1039.72 538.312C1039.55 538.396 1039.41 538.5 1039.28 538.625C1039.16 538.729 1039.01 538.823 1038.84 538.906C1038.43 539.385 1038.02 539.667 1037.62 539.75H1037.5C1037.46 539.833 1037.42 539.885 1037.37 539.906C1037.33 539.927 1037.28 539.979 1037.22 540.062H1036.91C1036.86 540.146 1036.72 540.229 1036.47 540.312H1036.34H1036.28H1036.16H1036.09C1036.09 540.312 1036.02 540.375 1035.87 540.5H1035.75H1035.56H1035.5H1035.37H1034.81H1034.16C1034.07 540.5 1033.96 540.469 1033.81 540.406C1033.67 540.344 1033.49 540.312 1033.28 540.312C1033.03 540.271 1032.71 540.083 1032.31 539.75H1032.25C1032.08 539.708 1031.91 539.625 1031.72 539.5C1031.55 539.354 1031.41 539.219 1031.28 539.094H1031.16C1031.03 538.927 1030.89 538.75 1030.72 538.562C1030.57 538.354 1030.44 538.167 1030.31 538H1030.19V537.938C1030.06 537.771 1029.95 537.594 1029.84 537.406C1029.74 537.219 1029.6 537.01 1029.44 536.781C1029.15 536.094 1028.99 535.708 1028.97 535.625C1028.89 535.625 1028.84 535.604 1028.84 535.562V535.438C1028.76 535.229 1028.7 535.021 1028.66 534.812C1028.61 534.604 1028.55 534.427 1028.47 534.281C1028.39 533.948 1028.32 533.635 1028.28 533.344C1028.24 533.031 1028.18 532.771 1028.09 532.562V532.438C1028.09 532.312 1028.08 532.208 1028.06 532.125C1028.04 532.042 1028.03 531.958 1028.03 531.875V531.688V531.031C1027.95 530.823 1027.9 530.521 1027.87 530.125C1027.87 530 1027.87 529.865 1027.87 529.719C1027.87 529.573 1027.93 529.458 1028.03 529.375C1028.03 529.042 1028.04 528.719 1028.06 528.406C1028.08 528.073 1028.09 527.812 1028.09 527.625V527.562C1028.22 527.042 1028.28 526.688 1028.28 526.5C1028.36 526.292 1028.42 526.125 1028.44 526C1028.46 525.854 1028.51 525.698 1028.59 525.531C1028.03 526.552 1027.53 527.5 1027.09 528.375C1026.68 529.25 1026.3 530.031 1025.97 530.719C1025.49 531.781 1025.05 532.74 1024.66 533.594C1024.26 534.448 1023.91 535.219 1023.59 535.906L1021.5 540.625V540.812C1020.94 541.958 1020.25 542.833 1019.44 543.438C1018.62 544.042 1017.77 544.344 1016.87 544.344C1015.73 544.344 1014.71 543.875 1013.81 542.938C1013.33 542.458 1012.92 541.896 1012.56 541.25C1012.21 540.583 1011.93 539.865 1011.72 539.094C1011.53 538.323 1011.42 537.51 1011.37 536.656C1011.33 535.802 1011.37 534.969 1011.5 534.156V533.969L1011.56 533.719V533.594C1011.65 533.385 1011.69 533.177 1011.69 532.969C1011.69 532.74 1011.71 532.5 1011.75 532.25C1011.92 531.479 1012.08 530.719 1012.25 529.969C1012.44 529.219 1012.64 528.417 1012.84 527.562C1013.18 526.417 1013.51 525.271 1013.84 524.125C1014.2 522.979 1014.57 521.844 1014.97 520.719C1015.45 519.219 1015.96 517.781 1016.5 516.406C1017.06 515.01 1017.64 513.677 1018.22 512.406C1018.59 511.635 1018.99 510.854 1019.41 510.062C1019.82 509.271 1020.22 508.521 1020.59 507.812C1021.16 506.875 1021.69 506.01 1022.19 505.219C1022.71 504.427 1023.26 503.708 1023.84 503.062C1024.41 502.292 1025.09 501.521 1025.91 500.75C1026.28 500.333 1026.66 499.979 1027.03 499.688C1027.43 499.375 1027.82 499.073 1028.22 498.781C1028.64 498.49 1029.06 498.208 1029.5 497.938C1029.96 497.646 1030.43 497.375 1030.91 497.125C1031.43 496.917 1031.93 496.75 1032.41 496.625C1032.89 496.479 1033.36 496.323 1033.84 496.156H1034.75H1034.81C1034.9 496.156 1034.98 496.125 1035.06 496.062C1035.15 496 1035.23 495.969 1035.31 495.969H1035.5H1035.56H1036.09L1036.66 496.156H1036.91H1037.03H1037.09H1037.31H1037.44C1037.96 496.323 1038.47 496.521 1038.97 496.75C1039.47 496.958 1039.94 497.271 1040.37 497.688H1040.5C1040.79 497.938 1041.07 498.229 1041.34 498.562C1041.64 498.875 1041.89 499.219 1042.09 499.594C1042.34 499.885 1042.57 500.24 1042.78 500.656C1043.01 501.073 1043.23 501.49 1043.44 501.906C1043.69 502.635 1043.91 503.375 1044.09 504.125C1044.3 504.875 1044.45 505.677 1044.53 506.531C1044.57 507.01 1044.61 507.51 1044.66 508.031C1044.7 508.552 1044.72 509.115 1044.72 509.719V509.781C1044.72 509.865 1044.7 509.948 1044.66 510.031C1044.61 510.115 1044.59 510.198 1044.59 510.281C1044.72 510.156 1044.84 510.094 1044.97 510.094H1045.5H1045.56C1045.56 510.01 1045.62 509.969 1045.75 509.969H1045.94H1046.06H1046.25H1046.44H1046.66H1046.91C1046.95 509.969 1046.99 509.99 1047.03 510.031V510.094H1047.22H1047.28H1047.41H1047.47C1047.68 510.094 1047.85 510.156 1048 510.281C1048.17 510.281 1048.29 510.312 1048.37 510.375H1048.44C1048.92 510.542 1049.35 510.76 1049.75 511.031C1050.15 511.302 1050.54 511.635 1050.94 512.031C1051.35 512.323 1051.72 512.708 1052.03 513.188C1052.24 512.896 1052.49 512.635 1052.78 512.406C1053.2 512.073 1053.65 511.771 1054.12 511.5C1054.6 511.208 1055.07 511.021 1055.53 510.938H1055.72H1056.44H1056.87ZM1044.59 510.375C1044.84 510.25 1045.07 510.177 1045.28 510.156C1045.51 510.115 1045.73 510.052 1045.94 509.969C1045.73 510.052 1045.51 510.115 1045.28 510.156C1045.07 510.177 1044.84 510.25 1044.59 510.375Z" fill="white"/>
+                </g>
+                <circle id="Ellipse" cx="918" cy="536" r="7" fill="white"/>
+              </g>
+              <g id="external-data">
+                <path id="Vector_3" d="M579 306.208C544.987 306.208 517.415 296.441 517.415 284.396V316.472H517.531C519.406 327.919 546.206 337 579 337C611.794 337 638.594 327.919 640.469 316.472H640.585V284.396C640.585 296.441 613.013 306.208 579 306.208Z" fill="#681413"/>
+                <path id="Vector_4" d="M579 275.415C544.987 275.415 517.415 265.649 517.415 253.604V285.679H517.531C519.406 297.126 546.206 306.208 579 306.208C611.794 306.208 638.594 297.126 640.469 285.679H640.585V253.604C640.585 265.649 613.013 275.415 579 275.415Z" fill="#D5A021"/>
+                <path id="Vector_5" d="M579 244.623C613.012 244.623 640.585 234.857 640.585 222.811C640.585 210.765 613.012 201 579 201C544.988 201 517.415 210.765 517.415 222.811C517.415 234.857 544.988 244.623 579 244.623Z" fill="#94A4F5"/>
+                <path id="Vector_6" d="M579 244.623C544.987 244.623 517.415 234.856 517.415 222.811V254.887H517.531C519.406 266.334 546.206 275.415 579 275.415C611.794 275.415 638.594 266.334 640.469 254.887H640.585V222.811C640.585 234.856 613.013 244.623 579 244.623Z" fill="#445FEE"/>
+              </g>
+            </g>
+            <g id="file-extension">
+              <line id="Line_2" x1="1073.11" y1="521.398" x2="1151.4" y2="489.891" stroke="white" stroke-width="4" stroke-linecap="round"/>
+              <rect id="Rectangle" x="906" y="471" width="165" height="94" rx="22" stroke="white" stroke-width="4" stroke-linejoin="round"/>
+              <text id="File extension" fill="white" xml:space="preserve" style="white-space: pre" font-family="American Typewriter" font-size="64" letter-spacing="0em"><tspan x="1168" y="507.856">File extension</tspan></text>
+            </g>
+            <g class="fragment" id="external-metadata">
+              <path id="Line_4" d="M423 87L553 192" stroke="white" stroke-width="4" stroke-linecap="round"/>
+              <text id="External metadata" fill="white" xml:space="preserve" style="white-space: pre" font-family="American Typewriter" font-size="64" letter-spacing="0em"><tspan x="0" y="65.856">External metadata</tspan></text>
+              <text id="Mac OS type-codes Mac OS X UTIs OS/2 extended attr. POSIX extended attr. PUIDs MIME types FFIDs File content-based identification" fill="white" xml:space="preserve" style="white-space: pre" font-family="American Typewriter" font-size="36" letter-spacing="0em"><tspan x="0" y="121.544">Mac OS type-codes&#10;</tspan><tspan x="0" y="170.088">Mac OS X UTIs&#10;</tspan><tspan x="0" y="218.632">OS/2 extended attr.&#10;</tspan><tspan x="0" y="267.176">POSIX extended attr.&#10;</tspan><tspan x="0" y="315.72">PUIDs&#10;</tspan><tspan x="0" y="364.264">MIME types&#10;</tspan><tspan x="0" y="412.808">FFIDs&#10;</tspan><tspan x="0" y="461.352">File content-based identification</tspan></text>
+            </g>
+            <g class="fragment" id="internal-metadata">
+              <path id="Line_3" d="M875 149L1085.5 48" stroke="white" stroke-width="4" stroke-linecap="round"/>
+              <rect id="Rectangle_2" x="786" y="146" width="89" height="35" rx="7" stroke="white" stroke-width="4" stroke-linejoin="round"/>
+              <text id="Internal metadata" fill="white" xml:space="preserve" style="white-space: pre" font-family="American Typewriter" font-size="64" letter-spacing="0em"><tspan x="1113" y="57.856">Internal metadata</tspan></text>
+              <text id="File header / Magic number" fill="white" xml:space="preserve" style="white-space: pre" font-family="American Typewriter" font-size="36" letter-spacing="0em"><tspan x="1113" y="113.544">File header / Magic number</tspan></text>
+            </g>
+          </svg>  
+          <aside class="notes">
+            <p>Filename extensions are probably the most popular method used by most operating systems.</p>
+            <p>Information about file formats can also be explicitly stored in the file system instead of the file itself as external metadata.</p>
+            <p>And files themselves will contain information about their own format, as internal metadata. Such information is usually put at the beginning of the file as a file header, or a magic number if it's only a few bytes long.</p>
+            <p>Image files are a particular type of file format, so their file headers would contain stuff like the image format, resolution, colour space, authoring information, camera model and so on. Broadly speaking, there are 2 kinds of images, raster and vector.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Colour depth</h2>
+          <div class="l-multiple">
+            <figure>
+              <img class="plain" data-src="img/1_bit.png" alt="1-bit image">
+              <figcaption>1-bit PNG<br><small>(2 colours)</small></figcaption>
+            </figure>
+            <figure>
+              <img class="plain" data-src="img/2_bit.png" alt="2-bit image">
+              <figcaption>2-bit PNG<br><small>(4 colours)</small></figcaption>
+            </figure>
+            <figure>
+              <img class="plain" data-src="img/4_bit.png" alt="4-bit image">
+              <figcaption>4-bit PNG<br><small>(16 colours)</small></figcaption>
+            </figure>
+            <figure>
+              <img class="plain" data-src="img/8_bit.png" alt="8-bit image">
+              <figcaption>8-bit PNG<br><small>(256 colours)</small></figcaption>
+            </figure>
+            <figure>
+              <img class="plain" data-src="img/24_bit.png" alt="24-bit image">
+              <figcaption>24-bit PNG<br><small>(16,777,216 colours)</small></figcaption>
+            </figure>
+          </div>
+          <p><small>Source: <a href="https://en.wikipedia.org/wiki/Color_depth">Wikipedia, Color depth</a></small></p>
+          <aside class="notes">
+            <p>A raster image is also known as a bitmap image, which are comprised of pixels in a grid. And each pixel contains a bit of colour information, a combination of the additive primary colours, red, green and blue.</p>
+            <p>A bitmap is essentially a spatially mapped array of bits. The number of bits per pixel will determine how many unique colours the image can contain, this is also known as colour depth.</p>
+            <p>Raster displays store per pixel image data as a bitmap in a region of memory called the frame buffer. So clearly, memory is an integral part of the rendering process. The total amount of memory needed is dependant on the resolution of the output signal and the colour depth.</p>
+          </aside>
+        </section>
+
+        <section data-background-image="img/macpaint-spec.png">
+          <h2 class="txtbg-dark">MacPaint</h2>
+          <div class="l-double" style="justify-items:center">
+            <img class="plain" data-src="img/macpaint.png" alt="Screenshot I of MacPaint">
+            <img class="plain" data-src="img/woodcut.png" alt="Screenshot II of MacPaint">
+          </div>
+          <aside class="notes">
+            <p>Before computers became a consumer product, each model pretty much had its own suite of software and file formats which weren't all that interoperable.</p>
+            <p>But when the Macintosh came out in 1984, the MacPaint application introduced a well-defined and well-documented file format for saving image files created with it.</p>
+            <p>And what's most notable about it is that other applications could use the image files it generated.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>MS Paintbrush</h2>
+          <div class="l-double" style="align-items:center">
+            <figure>
+              <img class="plain" data-src="img/paintbrush1.png" alt="MS Paintbrush on Windows 3.0">
+              <figcaption>Paintbrush for Windows 3.0</figcaption>
+            </figure>
+            <figure>
+                <img class="plain" data-src="img/paintbrush2.png" alt="MS Paintbrush on Windows 3.1">
+              <figcaption>Paintbrush for Windows 3.1</figcaption>
+            </figure>
+          </div>
+          <aside class="notes">
+            <p>On the Windows side of things, we had BMP, which was released in 1987. As a kid who grew up with Microsoft, shout-out MS-DOS 6.0, I would say this was the first image format I ever encountered.</p>
+            <p>I never had a Mac, so I never used MacPaint, it was MS Paint (back when it was known as Paintbrush) for me, all day, every day.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Bitmap (BMP)</h2>
+          <div class="l-double" style="align-items:center">
+            <figure>
+              <img class="plain" data-src="img/colour-indexed.png" alt="Palette-indexed bitmap">
+              <figcaption>Bitmap and its corresponding colour table</figcaption>
+            </figure>
+            <figure>
+                <img class="plain" data-src="img/colour-direct.png" alt="Direct colour storage">
+              <figcaption>Colours directly in bitmap itself</figcaption>
+            </figure>
+          </div>
+          <p><small>Source: <a href="https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/types-of-bitmaps">Microsoft, Types of Bitmaps</a></small></p>
+          <aside class="notes">
+            <p>This is an example of a 4-bit BMP image, which means a given pixel can be 1 of 16 colours. Each colour in the table is represented by a 24-bit hexadecimal number, 8 bits each for red, green and blue.</p>
+            <p>And we can map each pixel to its corresponding colour value based on the colour table. Such bitmaps are called palette-indexed bitmaps, but some bitmaps can store the colours themselves.</p>
+            <p>The thing is BMP files are usually not compressed, and hence, not great for web use at all.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Graphics Interchange Format (GIF)</h2>
+          <img class="plain" data-src="img/gif-spec.png" alt="GIF specification">
+          <p><small>Source: <a href="https://www.w3.org/Graphics/GIF/spec-gif87.txt">Graphics Interchange Format (tm)</a></small></p>
+          <aside class="notes">
+            <p>Which brings us to the Graphics Interchange Format. Whether you pronounce it GIF or JIF, what's not up for debate is the fact that this was the first image format built for data transfer.</p>
+            <p>Developed by CompuServe and released on 15 June, 1987, this is a format that pre-dates me. At the time, memory was at a premium. So how could users access and send files to each other without locking up all their computer's memory?</p>
+            <p>Steve Wilhite and his team centred the GIF around the Lempel-Ziv-Welch compression algorithm. And as we go along, you'll see that image formats and compression algorithms practically go hand-in-hand.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Compression algorithms</h2>
+          <div class="l-double" style="align-items:center">
+            <figure>
+              <video loop autoplay>
+                <source data-src="videos/run-length.mp4" type="video/mp4">
+                Sorry, your browser doesn't support embedded videos, 
+                but don't worry, you can <a href="videos/run-length.mp4">download it</a>
+                and watch it with your favourite video player!
+              </video>
+              <figcaption>Run length compression used by MacPaint</figcaption>
+            </figure>
+            <figure class="fragment">
+              <video loop autoplay>
+                <source data-src="videos/lzw.mp4" type="video/mp4">
+                Sorry, your browser doesn't support embedded videos, 
+                but don't worry, you can <a href="videos/lzw.mp4">download it</a>
+                and watch it with your favourite video player!
+              </video>
+              <figcaption>Lempel–Ziv–Welch (LZW) compression</figcaption>
+            </figure>
+          </div>
+          <p><small>Motion graphics by <a href="https://www.crystallawvfx.com/">Crystal Law</a></small></p>
+          <aside class="notes">
+            <p>MacPaint used run-length encoding, which combined repeated data into a shorter single data value and count. This was great for simple black and white pictures, which was pretty much what the MacPaint could achieve. But it couldn't do colour very well.</p>
+            <p>I won't go into details of the actual LZW algorithm, but it encodes the image by creating a dictionary of repeated sequences of colours and could achieve much better compression rates than any prior image format.</p>
+          </aside>
+        </section>
+
+        <section>
+          <figure>
+            <img class="plain" style="max-height:75vh" data-src="img/lhc92.jpg" alt="Les Horribles Cernettes">
+            <figcaption>First band photo on the web</figcaption>
+          </figure>
+          <p><small>Source: <a href="https://cernettes.wixsite.com/cernettes/firstphoto">The Cernettes</a></small></p>
+          <aside class="notes">
+            <p>The first photo of a band published on the internet was a promotional shot for Les Horribles Cernettes, a particle physics parody pop group at CERN. And what format was this photo in? GIF.</p>
+            <p>This was back in 1992 on the World Wide Web browser. So it's definitely no surprise that when Mosaic was released in 1993, it launched with support for 2 image formats, GIF and JPG.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Joint Photographic Experts Group (JPEG)</h2>
+          <img class="plain" data-src="img/jpeg.svg" alt="JPEG">
+          <aside class="notes">
+            <p>JPG is both the name of the committee that created the JPG standard, as well as the name of the image compression algorithm itself.</p>
+            <p>Jon, who is coming up immediately after this, is a member of that committee and will tell you more about it and what they do. We swapped slots because I'm talking about the past and present while he will be covering what we have now and what's to come in the future.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>JPG compression</h2>
+          <img class="plain" style="max-height:75vh" data-src="img/jpg.png" alt="JPG compression">
+          <p><small>Reference: <a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG works</a></small></p>
+          <aside class="notes">JPG was revolutionary when it was released in 1992. A lot of the information here I learned from Colt McAnlis, who wrote a really in-depth explainer on how JPG works, which you should really check out if you're interested in this.</aside>
+        </section>
+
+        <section>
+          <img class="plain" data-src="img/jpeg1.png" alt="JPG compression">
+          <p><small>Reference: <a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG works</a></small></p>
+          <aside class="notes">
+            <p>JPG converts from RGB to Y,Cb,Cr colour model, comprising Luminance, Chroma Blue and Chroma Red. This works because we notice luminance more distinctly than chrominance, so we can get away with aggressive changes to the Cb/Cr channels.</p>
+            <p>The Cb/Cr channels don't have as much detail as the Y channel. They contain less information. So what the algorithm does is resize the Cb and Cr channels to a fraction of their original size, also known as downsampling. This process is lossy, so we won't be able to recover the exact source colours anymore.</p>
+          </aside>
+        </section>
+
+        <section>
+          <img class="plain" data-src="img/jpeg2.png" alt="JPG compression">
+          <p><small>Reference: <a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG works</a></small></p>
+          <aside class="notes">
+            <p>The math is centred around the Discrete Consine Transform (DCT), where the idea is that any 8-by-8 block can be represented as a sum of weighted cosine transforms, at various frequencies.</p>
+            <p>After applying the requisite formula and basic functions, we end up with a matrix of 64 coefficients. The uppermost-left coefficient is called DC, while the other 63 are called AC.</p>
+            <p>The data has transformed from a spatial to a frequency domain. After this conversion, the coefficients are now real numbers instead of byte-aligned integer values, causing a bloat from 1 byte to 4 bytes.</p>
+            <p></p>
+          </aside>
+        </section>
+
+        <section>
+          <img class="plain" data-src="img/jpeg3.png" alt="JPG compression">
+          <p><small>Reference: <a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG works</a></small></p>
+          <aside class="notes">
+            <p>So it is necessary for a quantisation phase. JPG uses a pre-calculated matrix of quantisation factors instead of directly converting the weights-matrix back into a 0 to 255 number space.</p>
+            <p>The final matrix will end up with a large number of entries that are small values or zero, which compresses well. The matrix of quantisation factors are controlled by changing the quality level.</p>
+          </aside>
+        </section>
+
+        <section>
+          <img class="plain" data-src="img/jpeg4.png" alt="JPG compression">
+          <p><small>Reference: <a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG works</a></small></p>
+          <aside class="notes">By now you might notice that there are a larger number of zeroes toward the bottom right of the matrix, so a Zig-Zag algorithm is applied to create a linear array of values from the block. After such a reordering, further compression with run-length encoding can yield even better results.</aside>
+        </section>
+
+        <section>
+          <img class="plain" style="max-height:75vh" data-src="img/jpg.png" alt="JPG compression">
+          <p><small>Reference: <a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG works</a></small></p>
+          <aside class="notes">
+            <p>The full process of generating a JPG file involves more steps than what I outlined but that was my general understanding of how JPG compression works. If you have any further questions about JPG, Jon is the most qualified person to answer them.</p>
+            <p>JPG does extremely well with photographic images and effects like gradients, but not as well with line drawings or graphics with sharp contrast between the pixels. But an interesting feature of JPGs is the option of progressive JPGs.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Progressive JPGs</h2>
+          <figure>
+            <img class="plain" data-src="img/progressive-jpg.jpeg" alt="Timeline of loading progressive jpg">
+            <figcaption>Image source: <a href="https://www.liquidweb.com/kb/what-is-a-progressive-jpeg/">What is a progressive JPEG?</a></figcaption>
+          </figure>
+          <aside class="notes">
+            <p>I learned about how progressive JPGs from Jon, in fact, when I read his article called Progressive JPEGs and green Martians. Non-progressive JPGs encode all the coefficients of each 8-by-8 block sequentially.</p>
+            <p>Instead of doing that, we can encode all the DC coefficients first, then some low-frequency AC coefficients, followed by high-frequency AC coefficients at the end.</p>
+            <p>Progressive JPGs require the encoder and decoder to make multiple passes through the image, and a typical progressive JPG has about 10 scans. So as the image gets decoded, you see a blurry image get progressively sharp as the image loads.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>JPG optimisation tips</h2>
+          <ol>
+            <li>Use high quality source material</li>
+            <li>Alignment on the 8x8 pixel grid</li>
+            <li>Reduce contrast and saturation</li>
+            <li>Sepia images</li>
+            <li>Slight blurring</li>
+          </ol>
+          <p><small>Reference: <a href="https://compress-or-die.com/Understanding-JPG/">Finally understanding JPG</a></small></p>
+          <aside class="notes">
+            <p>So based on our newfound understanding of JPG, there are a couple of tips we can apply to reduce the size of our JPG files without significantly compromising quality. These tips are by creator of the Compress-Or-Die image optimisation tool, Christoph Erdmann.</p>
+            <p>Ideally, tip 0 is to use an optimisation tool, preferably one you can automate. But the following are a bit more on the manual side of things.</p>
+            <p>First tip is relatively straightforward. Because JPG is lossy, if your source had already been compressed with lossy algorithms before, the end result isn't going to be as pretty when compared with a lossless source file like a PNG, for example.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>2. Alignment on the 8x8 pixel grid</h2>
+          <div class="l-double" style="justify-items:center">
+            <img class="plain" style="max-height:75vh" data-src="img/jpg-aligned.png" alt="Alignment to 8x8 grid">
+            <img class="plain" style="max-height:75vh" data-src="img/jpg-notaligned.png" alt="Misaligned from grid altogether">
+          </div>
+          <p><small>Reference: <a href="https://compress-or-die.com/Understanding-JPG/">Finally understanding JPG</a></small></p>
+          <aside class="notes">
+            <p>This 2nd tip I found very interesting. It involves aligning the sharp edges of your image to the grid to help the JPG algorithm not take patterns from the DCT patterns table that were intended for flat areas.</p> 
+            <p>The image on the left is aligned on grid, while the one on the right is slightly misaligned. The content is essentially the same. but the file size for the aligned graphic ended up being more than 20% smaller. And you might not be able to see the difference very clearly, but the box edges are sharper for the first image as well.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>3. Reduce contrast and saturation</h2>
+          <img class="plain" style="max-height:75vh" data-src="img/opt-contrast.jpg" alt="LAB colour mode in Affinity Photo">
+          <p><small>Reference: <a href="https://compress-or-die.com/Understanding-JPG/">Finally understanding JPG</a></small></p>
+          <aside class="notes">
+            <p>If you do edit your own images, you might realise that your image editing software does not support Y,Cr,Cb colour model. But most image software support a colour mode called LAB, which stands for lightness, red/green and blue/yellow respectively.</p>
+            <p>Reducing the contrast of an image lowers the differences between data in the lightness channel, while a reduction in saturation corresponds to a contrast change in the colour channels.</p>
+            <p>Of course, the amount of tweaking you want to make to your image depends a lot on the art direction you're going for. It's also good to keep in mind that changes in the lightness channel do have a greater impact than that of the colour channels.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>4. Sepia images</h2>
+          <figure>
+            <img class="plain" style="max-height:60vh" data-src="img/opt-sepia.jpg" alt="Una Kravets at JSConf.Asia 2018">
+            <figcaption><a href="https://www.youtube.com/watch?v=XZmvHVVj0Ns">Una Kravets: CSS Blend Modes, Because…</a></figcaption>
+          </figure>
+          <p><small>Reference: <a href="https://compress-or-die.com/Understanding-JPG/">Finally understanding JPG</a></small></p>
+          <aside class="notes">Another pretty smart trick is to get rid of the colour information altogether, then colourising the image via CSS, with properties like <code>filter</code> or even in combination with blend modes. If blend modes are your thing, you must check out Una Kravet's amazing talk on blend modes, link in the slide.</aside>
+        </section>
+
+        <section>
+          <h2>5. Slight blurring</h2>
+          <div class="l-double" style="justify-items:center">
+            <img class="plain" style="max-height:75vh" data-src="img/opt-blurred.jpg" alt="Non-key areas of image blurred out">
+            <img class="plain" style="max-height:75vh" data-src="img/opt-notblurred.jpg" alt="No blur applied">
+          </div>
+          <p><small>Reference: <a href="https://compress-or-die.com/Understanding-JPG/">Finally understanding JPG</a></small></p>
+          <aside class="notes">
+            <p>You could put in more manual effort and explicitly smooth out the sharp transitions in the colour channels, which will improve savings during the down-sampling phase.</p>
+            <p>Or you could also do what I did and apply a simple Gaussian blur on the parts of your image which aren't pertinent. A lazier way to benefit from some data savings as well.</p>
+            <p>You don't have to apply all of these tips to all your images because it really does depend on the context in which your images are appearing in. But it's good to know what options are available to you.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Speed, Quality, Size</h2>
+          <figure style="width:60vw;margin:0 auto">
+            <video loop autoplay style="width:100%">
+              <source data-src="videos/whack-a-mole.mp4" type="video/mp4">
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/whack-a-mole.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <figcaption>Can't have 'em all</figcaption>
+          </figure>
+          <aside class="notes">
+            <p>Although JPG had some patent issues, it is a standard, and developers are free to attempt improvements on the compression algorithm, and depending on what the end goal is, this may differ between implementations.</p>
+            <p>I mean, you could try to make it faster by reducing the encoding time. You could go for reducing the file size as much as possible. Or you could go for image quality, a bit more tricky but I consider it the “let's see how much visual information you can get away with tossing out“ factor.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>JPG encoders, there are many</h2>
+          <div class="l-multiple" style="align-items:end">
+            <figure>
+              <img class="plain" style="max-width:25vw" data-src="img/libjpeg.svg" alt="libjpeg">
+              <figcaption>libjpeg</figcaption>
+            </figure>
+            <figure>
+              <img class="plain" style="max-width:25vw" data-src="img/mozjpeg.png" alt="mozJPEG">
+              <figcaption>mozJPEG</figcaption>
+            </figure>
+            <figure>
+              <img class="plain" style="min-height:20vh" data-src="img/guetzli.svg" alt="Guetzli">
+              <figcaption>Guetzli</figcaption>
+            </figure>
+          </div>
+          <aside class="notes">
+            <p>libjpeg is the original JPG encoder, written in C and distributed under a custom permissive license. Since then, it has been forked and improved upon with encoders like MozJPEG, which targeted images on the web specifically.</p>
+            <p>They do some interesting stuff like trellis quantisation, which I cannot explain but makes the file size smaller at the expense of encoding time.</p>
+            <p>Guetzli is even newer, released by Google with a focus on image quality, but apparently it's really much slower than MozJPEG. Trade-offs, you know?</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>libjpeg-turbo</h2>
+          <figure>
+            <img class="plain" style="max-height:70vh" data-src="img/libjpeg-turbo.png" alt="libjpeg-turbo home page">
+            <figcaption><a href="https://libjpeg-turbo.org/">https://libjpeg-turbo.org/</a></figcaption>
+          </figure>
+          <aside class="notes">
+            <p>libjpeg-turbo is an open source JPG image codec which is used by a large number of applications and operating systems. Chrome has been using it since version 11 and Firefox since version 5.0. Not too sure about WebKit though, they might still be using libjpeg.</p>
+            <p>And while I was trying to figure the image encoders used for GIFS, I unearthed the story of how PNG came about. If you already know this story like the back of your hand, please grant me your patience while I summarise what happened.</p>
+            <p>Turns out the LZW compression algorithm was patented by Unisys back in 1985. But when CompuServe used it to power GIF, they were not aware of its patent status. And Unisys didn't make any moves until 1993, when Mosaic came out.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>GIF89a</h2>
+          <div class="l-multiple">
+            <video loop autoplay>
+              <source data-src="videos/beyonce.mp4" type="video/mp4">
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/beyonce.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <video loop autoplay>
+              <source data-src="videos/mind-blown.mp4" type="video/mp4">
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/mind-blown.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <video loop autoplay>
+              <source data-src="videos/shaq.mp4" type="video/mp4">
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/shaq.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+          </div>
+          <aside class="notes">
+            <p>If you squinted hard at my slides when I first mentioned GIFs, you may have noticed the specification said GIF87a. GIF89a was an extension that added features like transparency, and more crucially, the ability to animate the GIF.</p>
+            <p>Animated GIFs have had enormous staying power, seeing as how I've sent more than handful just earlier today. They had been all the rage on the web the moment browsers started to support them and in 1994, Unisys decided to enforce its patent.</p>
+            <p>By December of 1994, a court agreement between Unisys and CompuServe resulted in the announcement that Unisys would start collecting royalties from all software makers who used the GIF89a format.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Burn All GIFs day</h2>
+          <p>November 5, 1999</p>
+          <figure style="width:40vw;margin:0 auto">
+            <video loop autoplay style="width:100%">
+              <source data-src="videos/burn-all-gifs.mp4" type="video/mp4">
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/burn-all-gifs.mp4">download it</a>
+              and watch it with your favourite video player!
+            </video>
+            <figcaption><a href="https://burnallgifs.org/archives/">https://burnallgifs.org/archives/</a></figcaption>
+          </figure>
+          <aside class="notes">Outrage ensued. And in stepped <em>The League for Programming Freedom</em> and their idea to burn all GIFs on November 5, 1999. There was also a concrete plan developing on the usenet newsgroup <em>comp.graphics</em> on alternatives to the GIF format.</aside>
+        </section>
+
+        <section>
+          <h2>Portable Network Graphics (PNG)</h2>
+          <figure>
+            <img class="plain" data-src="img/png-header.png" alt="PNG header">
+            <figcaption>8-byte signature of a PNG file</figcaption>
+          </figure>
+          <aside class="notes">
+            <p>They came up with a little something called Portable Network Graphics, shortened from the proposed PING, for “Ping is not GIF”. Some other suggestions were quite fun, like TNT, for “The New Thing”.</p>
+            <p>PNGs outperformed GIFs in a multitude of ways. It was 100% open-source and patent-free. It could support thousands of colours versus GIF's 256. It handled transparency better.</p>
+            <p>But the designers of PNG made a conscious decision not to provide animation capabilities. And that was pretty much what kept the GIF alive all these years, because there was no viable alternative to animated GIFs.</p>
+            <p>In contrast to JPG, PNG compression is lossless. And it is a 2-part process. Delta encoding is a way of storing or transferring data via differences between sequential data instead of complete files. Diff-ing, essentially.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>PNG filter algorithms</h2>
+          <table class="png-filters">
+            <tr>
+              <td>None</td>
+              <td>—</td>
+              <td>Zero</td>
+              <td>
+                <img class="plain" data-src="img/none.png" alt="None">
+              </td>
+            </tr>
+            <tr>
+              <td>Sub</td>
+              <td><code>Sub(x) = Raw(x) - Raw(x-bpp)</code></td>
+              <td>Byte A (to the left)</td>
+              <td>
+                <img class="plain" data-src="img/sub.png" alt="Sub">
+              </td>
+            </tr>
+            <tr>
+              <td>Up</td>
+              <td><code>Up(x) = Raw(x) - Prior(x)</code></td>
+              <td>Byte B (above)</td>
+              <td>
+                <img class="plain" data-src="img/up.png" alt="Up">
+              </td>
+            </tr>
+            <tr>
+              <td>Average</td>
+              <td><code>Average(x) = Raw(x) - floor((Raw(x-bpp)+Prior(x))/2)</code></td>
+              <td>Mean of bytes A and B, rounded down</td>
+              <td>
+                <img class="plain" data-src="img/average.png" alt="Average">
+              </td>
+            </tr>
+            <tr>
+              <td>Paeth</td>
+              <td><code>Paeth(x) = Raw(x) - PaethPredictor(Raw(x-bpp), Prior(x), Prior(x-bpp))</code></td>
+              <td>A, B, or C, whichever is closest to<br><code>p = A + B − C</code></td>
+              <td>
+                <img class="plain" data-src="img/sub.png" alt="Paeth">
+              </td>
+            </tr>
+          </table>
+          <aside class="notes">
+            <p>This is advantageous for compression when the data you're dealing with is linearly correlated, so the differences in values are often repeated, low values. Before compression, filter algorithms are used to prepare the image data for optimal compression.</p>
+            <p>For each scan-line of pixels, the current pixel is encoded in relation to the pixel on its left (A), directly above it (B), and at its top-left (C). These filters are not done per pixel though, but per channel, e.g. all red values, then all blue values, then green.</p>
+            <p>Developers of PNG also came up with some general rules of thumb to select the best filter based on the the type of image being processed.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>DEFLATE compression algorithm</h2>
+          <figure>
+            <img class="plain" style="max-height:70vh" data-src="img/deflate.png" alt="DEFLATE compression algorithm specification">
+            <figcaption><a href="https://tools.ietf.org/html/rfc1951">DEFLATE Compressed Data Format Specification version 1.3</a></figcaption>
+          </figure>
+          <aside class="notes">
+            <p>After the filtering is done, the actual compression takes place, using the DEFLATE algorithm, which is also used in gzip compressed files and zip files.</p>
+            <p>So again, Colt McAnlis also has another in-depth explainer on how PNG works. In it, he highlights that the nature of image data brings about some interesting caveats when using DEFLATE.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>What a difference 2 pixels can make</h2>
+          <img class="plain" data-src="img/kiwis.jpg" alt="Difference in compression rates of 2 sets of images of kiwis">
+          <p><small>Reference: <a href="https://encode.ru/threads/1725-pngthermal-pseudo-thermal-view-of-PNG-compression-efficiency">pngthermal</a></small></p>
+          <aside class="notes">
+            <p>Specifically, how the exact dimensions of your image could have an impact on how well image compression works. If you look at the illustration, you'll see two nearly identical images of kiwi fruits. Only that the image on the right is 2 pixels wider.</p>
+            <p>For the smaller image, the bytes representing the second and third kiwis fell between the LZ match range and are encoded as highly efficient LZ matches, hence the dark blue thermal pattern. </p>
+            <p>But somehow, the extra 2 columns of pixels in the right image resulted in the bytes for the second and third kiwis to be out of match range, and they are encoded as non-matching. Thus causing the file size to bloat dramatically, doubling in size.</p>
+            <p>PNGs are a regularly-used format on the web, so let's go through some tips to keep their file sizes down as well.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Optimising PNG files</h2>
+          <ol>
+            <li>Reduce number of colours</li>
+            <li>Choose the right pixel format</li>
+            <li>Use indexed images, if possible</li>
+            <li>Optimise fully transparent pixels</li>
+          </ol>
+          <p><small>Reference: <a href="https://medium.com/@duhroach/reducing-png-file-size-8473480d0476">Reducing PNG file Size</a></small></p>
+          <aside class="notes">
+            <p>Again, if you can, use a tool. Automate all the things. But if you had to do some manual tweaking, one way to reduce the file size of your PNGs is by reducing the number of unique colours within the image.</p>
+            <p>Because this impacts the filtering stage, where a lower difference between adjacent pixels will decrease the range of values output from the filtering process. With more duplicate values, DEFLATE can compress better.</p>
+            <p>HOWEVER, this makes it a lossy process, which is why your human eye is absolutely required if you want to take this approach. Our current tools are still unable to discern visual quality at a level acceptable to human perception. For now.</p>
+            <p>Also, if you're not using transparency in your image, then don't bother with RGBA 32 bits per pixel. You could use the 24 bits per pixel truecolour format instead, or even just use a JPG, why not? For greyscale images, 8 bits per pixel will suffice.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>3. Use indexed images, if possible</h2>
+          <div class="l-double">
+            <figure>
+              <img class="plain" data-src="img/opt-pngfull.jpg" alt="Full colour PNG">
+              <figcaption>Full colour PNG</figcaption>
+            </figure>
+            <figure>
+              <img class="plain" data-src="img/opt-pngindexed.jpg" alt="Indexed palette PNG">
+              <figcaption>Indexed colour PNG</figcaption>
+            </figure>
+          </div>
+          <p><small>Reference: <a href="https://medium.com/@duhroach/reducing-png-file-size-8473480d0476">Reducing PNG file Size</a></small></p>
+          <aside class="notes">
+            <p>If your image is neither a photograph nor contains lots of gradients, you could consider changing its colour mode to indexed. This will generate a reduced palette of colours from your source image.</p>
+            <p>What we're doing here is increasing the odds that adjacent pixels are pointing to the same colour, resulting in even more duplicate values at the end of the filtering process. More duplicate values, better compression, smaller file size.</p>
+            <p>Given the amount of possible savings, it might be worth it to just do an inventory of your images to see if you can get away with this conversion at scale.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>4. Optimise fully transparent pixels</h2>
+          <div class="l-double">
+            <figure>
+              <img class="plain" data-src="img/opt-pngclean.jpg" alt="Masked portions of image in single colour">
+              <figcaption>Masked portion of image filled with single colour</figcaption>
+            </figure>
+            <figure>
+              <img class="plain" data-src="img/opt-pngdirty.jpg" alt="Masked portions of image unoptimised">
+              <figcaption>Masked portion of image untouched</figcaption>
+            </figure>
+          </div>
+          <p><small>Reference: <a href="https://medium.com/@duhroach/reducing-png-file-size-8473480d0476">Reducing PNG file Size</a></small></p>
+          <aside class="notes">
+            <p>Say you need to crop out large swathes of background out of a logo image or something. You could try assigning transparency to selected colour values in the indexed-colour table.</p>
+            <p>Then, when the image is decoded in memory, the transparency will be set accordingly, but you can only do this with images in indexed mode. If you are using full RGB, make sure the bits of the image which will end up being alpha-ed out are of a single colour.</p>
+            <p>If you leave the parts of the image under the mask as is, even though your users won't see those pixels, they will definitely feel them. Because those pixels still get processed during encoding.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>libpng</h2>
+          <figure>
+            <img class="plain" data-src="img/libpng.png" alt="libpng home page">
+            <figcaption><a href="http://www.libpng.org/pub/png/libpng.html">http://www.libpng.org/pub/png/libpng.html</a></figcaption>
+          </figure>
+          <aside class="notes">
+            <p>libpng is the official PNG reference library, and is what Firefox uses for PNG support. So earlier, I mentioned libjpeg-turbo as a kind of segue into PNGs. But we really ought to talk about these image encoders in relation to browser rendering engines.</p>
+            <p>First of all, I'd like to clarify that I'm NOT a browser engineer, far from it. I know a C++ program when I see one, but that's about it. So not going to be too technical here. And if you ARE a browser engineer, I'd love to pick your brain after this.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>What is a browser engine? <span class="emoji" role="img" tabindex="0" aria-label="thinking face">&#x1F914;</span></h2>
+          <img class="plain" data-src="img/browser-magic.png" alt="The blackbox of browser engines">
+          <p><small>Source: <a href="https://hacks.mozilla.org/2017/05/quantum-up-close-what-is-a-browser-engine/">Quantum Up Close: What is a browser engine?</a></small></p>
+          <aside class="notes">
+            <p>Potch, Developer Advocate at Mozilla, wrote this awesome article about Project Quantum and browser engines when Firefox was doing its big core engine overhaul back in 2017.</p>
+            <p>Most web developers, myself included, probably see the browser engine as a magical black box that turns the code we write into web sites our users can somehow consume even if they are on a different browser, different device, different time zone.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>What is a browser engine? <span class="emoji" role="img" tabindex="0" aria-label="nerd face">&#x1F913;</span></h2>
+          <img class="plain" style="max-height:70vh" data-src="img/browser-engine.png" alt="Browser engine diagram">
+          <p><small>Source: <a href="https://hacks.mozilla.org/2017/05/quantum-up-close-what-is-a-browser-engine/">Quantum Up Close: What is a browser engine?</a></small></p>
+          <aside class="notes">
+            <p>Browser engines combine the structure and style of a web page to draw it on the screen, then figure out which parts can be interacted with. As you can see, lots of parsers and dedicated engines to do all of that work.</p>
+            <p>Today, I was planning to cover 2 portions of this diagram. So far we've touched on the blue-circled portion about media, specifically images.</p>
+            <p>Considering how much the browser has to do, it makes sense that the image encoding and decoding part of things is generally taken care of by third party libraries, some of which we've already talked about.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Image encoders in browsers</h2>
+          <div class="l-double">
+            <figure>
+              <img class="plain" data-src="img/chromium-encoders.png" alt="Chromium GitHub repository">
+              <figcaption>Chromium</figcaption>
+            </figure>
+            <figure>
+              <img class="plain" data-src="img/gecko-encoders.png" alt="Geckto GitHub repository">
+              <figcaption>Gecko</figcaption>
+            </figure>
+          </div>
+          <aside class="notes">
+            <p>Both Chromium and Gecko have their source code available on GitHub, so we can dig in and find the encoders they're using. Okay, we've covered a lot about image data already.</p>
+            <p>I now want to move further down the pipeline to when that image data, together with pixel data from other sources, gets painted onto the screen. Because that part is extremely fascinating.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Browser rendering pipeline</h2>
+          <img class="plain" data-src="img/pipeline1.png" alt="Layout computation to frame tree">
+          <p><small>Reference: <a href="https://mozillagfx.wordpress.com/2017/09/21/introduction-to-webrender-part-1-browsers-today/">Introduction to WebRender – Part 1 – Browsers today</a></small></p>
+          <aside class="notes">
+            <p>Nicolas Silva, who leads the Firefox GFX team, was a great help as he explained a lot of this stuff to me. Although each browser engine does things slightly differently, the general idea behind a modern rendering pipeline involves:</p>
+            <ul>
+              <li>layout computation into a frame tree</li>
+              <li>generation of drawing commands called a display list</li>
+              <li>the painting of portions of that display list into layers</li>
+              <li>and finally, combining those layers into one final image through compositing</li>
+            </ul>
+            <p>Because the displays that we use now are all raster displays, it is necessary for a rasterisation process to occur before graphics can be displayed on the screen. Decoded images are generally already in a raster format, but vector graphics or fonts need to be expressed as pixels as well.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Browser rendering pipeline</h2>
+          <img class="plain" data-src="img/pipeline2.png" alt="Generation of display list">
+          <p><small>Reference: <a href="https://mozillagfx.wordpress.com/2017/09/21/introduction-to-webrender-part-1-browsers-today/">Introduction to WebRender – Part 1 – Browsers today</a></small></p>
+          <aside class="notes">
+            <p>Nicolas Silva, who leads the Firefox GFX team, was a great help as he explained a lot of this stuff to me. Although each browser engine does things slightly differently, the general idea behind a modern rendering pipeline involves:</p>
+            <ul>
+              <li>layout computation into a frame tree</li>
+              <li>generation of drawing commands called a display list</li>
+              <li>the painting of portions of that display list into layers</li>
+              <li>and finally, combining those layers into one final image through compositing</li>
+            </ul>
+            <p>Because the displays that we use now are all raster displays, it is necessary for a rasterisation process to occur before graphics can be displayed on the screen. Decoded images are generally already in a raster format, but vector graphics or fonts need to be expressed as pixels as well.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Browser rendering pipeline</h2>
+          <img class="plain" data-src="img/pipeline3.png" alt="Painting display list to layers">
+          <p><small>Reference: <a href="https://mozillagfx.wordpress.com/2017/09/21/introduction-to-webrender-part-1-browsers-today/">Introduction to WebRender – Part 1 – Browsers today</a></small></p>
+          <aside class="notes">
+            <p>Nicolas Silva, who leads the Firefox GFX team, was a great help as he explained a lot of this stuff to me. Although each browser engine does things slightly differently, the general idea behind a modern rendering pipeline involves:</p>
+            <ul>
+              <li>layout computation into a frame tree</li>
+              <li>generation of drawing commands called a display list</li>
+              <li>the painting of portions of that display list into layers</li>
+              <li>and finally, combining those layers into one final image through compositing</li>
+            </ul>
+            <p>Because the displays that we use now are all raster displays, it is necessary for a rasterisation process to occur before graphics can be displayed on the screen. Decoded images are generally already in a raster format, but vector graphics or fonts need to be expressed as pixels as well.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Browser rendering pipeline</h2>
+          <img class="plain" data-src="img/pipeline4.png" alt="Layers composited into final image">
+          <p><small>Reference: <a href="https://mozillagfx.wordpress.com/2017/09/21/introduction-to-webrender-part-1-browsers-today/">Introduction to WebRender – Part 1 – Browsers today</a></small></p>
+          <aside class="notes">
+            <p>Nicolas Silva, who leads the Firefox GFX team, was a great help as he explained a lot of this stuff to me. Although each browser engine does things slightly differently, the general idea behind a modern rendering pipeline involves:</p>
+            <ul>
+              <li>layout computation into a frame tree</li>
+              <li>generation of drawing commands called a display list</li>
+              <li>the painting of portions of that display list into layers</li>
+              <li>and finally, combining those layers into one final image through compositing</li>
+            </ul>
+            <p>Because the displays that we use now are all raster displays, it is necessary for a rasterisation process to occur before graphics can be displayed on the screen. Decoded images are generally already in a raster format, but vector graphics or fonts need to be expressed as pixels as well.</p>
+          </aside>
+        </section>
+
+        <section>
+          <img class="plain" style="max-height:85vh" data-src="img/toy-engine.png" alt="How to build a browser engine series">
+          <p><small>Reference: <a href="https://limpet.net/mbrubeck/2014/11/05/toy-layout-engine-7-painting.html">Let's build a browser engine!</a></small></p>
+          <aside class="notes">
+            <p>For anyone who is not a browser engineer, I highly recommend going through this series of articles on how to build a browser engine by Matt Brubeck. He's a research engineer with Mozilla and works on Servo.</p>
+            <p>Servo is a prototype web browser engine written in Rust by the team at Mozilla. It's essentially a new rendering engine and Mozilla is gradually replacing the old Gecko code, which has been around for a REALLY long time, with the stable parts of Servo. And that's what Project Quantum is all about.</p>
+            <p>The first version of Firefox with a Servo component enabled was 57, back in 2017, and since then, more and more of Servo has been making its way into Firefox.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Rasterisation (1/3)</h2>
+          <p>Simple rasteriser for painting rectangles</p>
+          <pre><code class="rust">pub struct Canvas {
+    pub pixels: Vec&lt;Color&gt;,
+    pub width: usize,
+    pub height: usize,
+}
+
+impl Canvas {
+    /// Create a blank canvas
+    fn new(width: usize, height: usize) -> Canvas {
+        let white = Color { r: 255, g: 255, b: 255, a: 255 };
+        Canvas {
+            pixels: vec![white; width * height],
+            width: width,
+            height: height,
+        }
+    }
+  // …
+}</code></pre>
+          <p><small>Source: <a href="https://limpet.net/mbrubeck/2014/11/05/toy-layout-engine-7-painting.html">Let's build a browser engine!</a></small></p>
+          <aside class="notes">
+            <p>Matt built his toy browser engine in Rust, and it is open-sourced, available on GitHub. He chose to write his own rasteriser, which only paints solid rectangles. But from this, we can sort of see how browser engines paint image data from memory onto the screen.</p>
+            <p>I'm not that familiar with Rust, to be honest, but the code is relatively understandable when he explains it in his article. And we're only going to be looking at the paint portion of this toy browser engine. Here, we can see that all the pixels will be stored in a Canvas.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Rasterisation (2/3)</h2>
+          <p>Simple rasteriser for painting rectangles</p>
+          <pre><code class="rust">fn paint_item(&mut self, item: &DisplayCommand) {
+    match *item {
+        DisplayCommand::SolidColor(color, rect) => {
+            // Clip the rectangle to the canvas boundaries.
+            let x0 = rect.x.clamp(0.0, self.width as f32) as usize;
+            let y0 = rect.y.clamp(0.0, self.height as f32) as usize;
+            let x1 = (rect.x + rect.width).clamp(0.0, self.width as f32) as usize;
+            let y1 = (rect.y + rect.height).clamp(0.0, self.height as f32) as usize;
+
+            for y in y0 .. y1 {
+                for x in x0 .. x1 {
+                    self.pixels[y * self.width + x] = color;
+                }
+            }
+        }
+    }
+}</code></pre>
+          <p><small>Source: <a href="https://limpet.net/mbrubeck/2014/11/05/toy-layout-engine-7-painting.html">Let's build a browser engine!</a></small></p>
+          <aside class="notes">Painting a rectangle on the canvas involves looping through the rows and columns of the canvas. This here is a helper method to ensure the loop doesn't go beyond the bounds of the canvas.</aside>
+        </section>
+
+        <section>
+          <h2>Rasterisation (3/3)</h2>
+          <p>Simple rasteriser for painting rectangles</p>
+          <pre><code class="rust">/// Paint a tree of LayoutBoxes to an array of pixels.
+pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
+    let display_list = build_display_list(layout_root);
+    let mut canvas = Canvas::new(bounds.width as usize, bounds.height as usize);
+    for item in display_list {
+        canvas.paint_item(&item);
+    }
+    canvas
+}</code></pre>
+          <p><small>Source: <a href="https://limpet.net/mbrubeck/2014/11/05/toy-layout-engine-7-painting.html">Let's build a browser engine!</a></small></p>
+          <aside class="notes">
+            <p>Finally, we have the actual <code>paint()</code> function, which builds the display list (actual function not included here) then paints the data to the canvas, pixel by pixel, line by line until the entire canvas is filled up.</p>
+            <p>Like I mentioned, this particular implementation only supports solid colours. Because doing something like transparency would require additional blending to calculate the pixel colour values.</p>
+          </aside>
+        </section>
+
+        <section>
+          <blockquote>
+            <p>The graphics backend is an array of bytes and a for loop that goes and says: go from the left edge of the rectangle to the right edge and write the same colour over and over again into this array.</p>
+            <br><small>—Matt Brubeck, Bay Area Rust Meetup (Nov 2014)</small>
+          </blockquote>
+          <span class="kaomoji">¯\_(ツ)_/¯</span>
+          <aside class="notes">
+            <p>Matt had given a short talk at the Bay Area Rust Meetup, where he talked about this project, and gave an excellent answer to the question, so what is your graphics backend?</p>
+            <p>It's an array. It's an array, AND a for-loop.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Graphics libraries</h2>
+          <div class="l-multiple" style="align-items:center">
+            <figure>
+              <img class="plain" style="min-width:15vw" data-src="img/skia.svg" alt="skia logo">
+              <figcaption>Skia</figcaption>
+            </figure>
+            <figure>
+              <img class="plain" style="max-width:15vw" data-src="img/moz-gfx.png" alt="Mozilla GFX team logo">
+              <figcaption>WebRender</figcaption>
+            </figure>
+            <figure>
+              <img class="plain" style="max-width:15vw" data-src="img/macOS.png" alt="Mozilla GFX team logo">
+              <figcaption>Core Graphics</figcaption>
+            </figure>
+            <figure>
+              <img class="plain" data-src="img/cairo.svg" alt="cairo logo">
+              <figcaption>Cairo</figcaption>
+            </figure>
+            <figure>
+              <img class="plain" data-src="img/pango.svg" alt="pango logo">
+              <figcaption>Pango</figcaption>
+            </figure>
+          </div>
+          <aside class="notes">
+            <p>Of course, commercial browsers make use of graphics APIs and libraries to implement rasterisation, because clearly what we expect from the web is much more than just solid coloured rectangles. Browser makers need functions for rendering text, polygons, lines, gradients, curves…you know, all of the things.</p>
+            <p>This is a list of common graphics libraries currently being used to power the popular browser engines. Chrome uses the Skia graphics library almost exclusively for all graphics operations, even text rendering.</p>
+            <p>Firefox used to use CoreGraphics and Cairo but eventually simplified the number of backends they ran on. And after the smoke clears on their big engine overhaul, Firefox will eventually use Skia for canvas, and WebRender for everything else.</p>
+            <p>Safari, which is based on WebKit, apparently used Apple's Core Image libraries, but I'm not sure what they use right this minute.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Painting</h2>
+          <img class="plain" data-src="img/paint.png" alt="Mapping of colour information from frame buffer to bitmap">
+          <p><small>Reference: <a href="https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/">The whole web at maximum FPS: How WebRender gets rid of jank</a></small></p>
+          <aside class="notes">
+            <p>The concept of painting still remains the same though, with displays accessing the frame buffer for information on every pixel that needs to be displayed onto the screen in RGBA format. A frame is considered rendered when all the pixels have been filled in by the renderer.</p>
+            <p>This process is constantly being repeated every time something on the page changes. But most of the time, only a part of the screen is changing. Browsers will figure out what changed and only update those relevant pixels. This is called invalidation.</p>
+            <p>Invalidation as an optimisation technique has been around since the early browsers, but they could only get us so far. Though invalidation techniques work well for small changes, like a blinking caret on an input field, sweeping changes affecting most of the screen required something more.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Compositing (1/2)</h2>
+          <img class="plain" style="max-height:80vh" data-src="img/composite.png" alt="Compositing process for scrolling a web page">
+          <p><small>Reference: <a href="https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/">The whole web at maximum FPS: How WebRender gets rid of jank</a></small></p>
+          <aside class="notes">
+            <p>Browser engineers then came up with the idea of having layers. With layers, the browser would only have to repaint the layer which changed, or sometimes, simply rearrange the layers, as is the case when you're trying to scroll a web page.</p>
+            <p>For scrolling, the compositing process starts with source bitmaps, and a target bitmap which is what ends up displayed on the screen. The compositor will copy the layers that remain unchanged, like the background, to the destination bitmap.
+            <p>After that, it will figure out which portion of the scrollable content needs to be visible, then copies those bits over to the destination as well.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Compositing (2/2)</h2>
+          <img class="plain" style="max-height:80vh" data-src="img/recomposite.png" alt="Figure showing only layers with changes get invalidated">
+          <p><small>Reference: <a href="https://www.chromium.org/developers/design-documents/gpu-accelerated-compositing-in-chrome"> GPU Accelerated Compositing in Chrome</a></small></p>
+          <aside class="notes">
+            <p>The compositor is also responsible for applying the necessary transformations, depending on the layer's CSS transform properties, to each compositing layer's bitmap before compositing it.</p>
+            <p>Having layers means that when the browser invalidates a layer, only the contents of that layer need to be repainted, then recomposited.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Making use of the GPU (1/2)</h2>
+          <img class="plain" style="max-height:70vh" data-src="img/cores.png" alt="CPU cores versus GPU cores">
+          <aside class="notes">
+            <p>It used to be that all the work on the rendering pipeline was done by the CPU, on the main thread. But the CPU has a task list from here to moon and back, it's a very busy piece of hardware.</p>
+            <p>Graphics Processing Units or GPUs used to be the domain of the video games industry, but are now pretty much a general purpose technology and an integral part of computer architecture. GPUs have exceptional parallel processing capabilities, and are really good at rendering frames fast.</p>
+            <p>So the next thing browser engineers did was to move rendering tasks to the GPU.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Making use of the GPU (2/2)</h2>
+          <video loop autoplay>
+            <source data-src="videos/parallel.mp4" type="video/mp4">
+            Sorry, your browser doesn't support embedded videos, 
+            but don't worry, you can <a href="videos/parallel.mp4">download it</a>
+            and watch it with your favourite video player!
+          </video>
+          <p><small>Reference: <a href="https://mozillagfx.wordpress.com/2013/07/22/hardware-acceleration-and-compositing/">Hardware acceleration and compositing</a></small></p>
+          <aside class="notes">
+            <p>For our current browser landscape, paint and composite are relatively separate processes in all the major browsers. And browser engineers are trying to move both of them off the main thread.</p>
+            <p>As it turns out, it's much easier to move compositing to the GPU because GPUs are great at blitting quads. Blitting being the process of combining several bitmaps into one with a boolean function.</p>
+            <p>Paint, on the other hand, is trickier to move, because the GPU is not necessarily good at painting all the things. It's really fast for blitting surfaces, but not for drawing bezier curves and shapes, for example. Text rendering isn't that great on GPU either.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>GPU rasterisation in Chromium</h2>
+          <video loop autoplay>
+            <source data-src="videos/chromium.mp4" type="video/mp4">
+            Sorry, your browser doesn't support embedded videos, 
+            but don't worry, you can <a href="videos/chromium.mp4">download it</a>
+            and watch it with your favourite video player!
+          </video>
+          <p><small>Reference: <a href="https://software.intel.com/en-us/articles/software-vs-gpu-rasterization-in-chromium">Software vs. GPU rasterization in Chromium</a></small></p>
+          <aside class="notes">
+            <p>The Chromium Project has very detailed design documentation which outline exactly what goes on under the hood with Blink and cc, the Chrome compositor.</p>
+            <p>In Chromium, the page is divided up into tiles of 256 by 256 pixels for more efficient rasterisation. Paint commands which don't impact certain tiles get ignored and only the tiles which need to be updated get rasterised again.</p>
+            <p>The old way of rasterising a tile makes use of the Skia library, which uses a scanline algorithm to create a bitmap that is sent to the GPU to be drawn on screen. The new method is also executed by Skia, but with a GPU backend called Ganesh. And it's faster because there is no copying involved.</p>
+            <p>But the challenge of having the GPU rasterise small, complicated shapes like fonts is not trivial at all, especially for the CJK languages with thousands of glyphs. So it seems like both the CPU and GPU will still have their roles to play in the rasterisation process.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>If you could have a do-over…</h2>
+          <figure>
+            <img class="plain" data-src="img/evolution.png" alt="Seedling growing into a flower">
+            <figcaption>What if we actually need a butterfly instead?</figcaption>
+          </figure>
+          <aside class="notes">
+            <p>Browser rendering engines were designed at a time when GPUs were not commonplace outside gaming machines, and CPUs didn't have as many cores as they do now. Websites also weren't that complicated at the time.</p>
+            <p>Historically, 2D graphics APIs such as cairo and skia have focused on the 2D rendering side of things. But the web platform evolved and we started to do things like animations and perspective transformations in the browser.</p>
+            <p>To offer first-class support for these capabilities, browsers added them at the compositor level, simply because it was hard or inadequate to do so within cairo or such graphics APIs.</p>
+            <p>So essentially, browser engines were improved upon based on their <strong>existing</strong> implementation as computer hardware evolved. Developments such as separating paint and compositing were part of that improvement.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>WebRender (1/2)</h2>
+          <figure>
+            <img class="plain" data-src="img/webrender.png" alt="Drawing of a jet engine labeled with the different Project Quantum projects">
+            <figcaption><a href="https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/">The whole web at maximum FPS: How WebRender gets rid of jank</a> by Lin Clark</figcaption>
+          </figure>
+          <aside class="notes">
+            <p>This is why WebRender is so interesting. It is a 2D renderer for the web, which started out as Servo‘s graphics engine.</p>
+            <p>WebRender removes the separation between painting and compositing, and instead makes use of the GPU's exceptional parallel processing power to handle painting and compositing in a single step through various techniques that make use of the display list.</p>
+            <p>And because WebRender was written from scratch for the needs of modern web specifications, functionalities like animation and 3D was built directly into it at the same level as the 2D rendering primitives.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>WebRender (2/2)</h2>
+          <div class="l-double">
+            <figure>
+              <img class="plain" style="max-height:65vh" data-src="img/mozhacks.png" alt="Lin Clark's article on MozHacks">
+              <figcaption><a href="https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/">https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/</a></figcaption>
+            </figure>
+            <figure>
+                <img class="plain" style="max-height:65vh" data-src="img/gfx-blog.png" alt="Home page of the Mozilla Gfx blog">
+              <figcaption><a href="https://mozillagfx.wordpress.com/">https://mozillagfx.wordpress.com/</a></figcaption>
+            </figure>
+          </div>
+          <aside class="notes">
+            <p>Lin Clark, who writes the best technical articles, has a very in-depth and easy-to-read article on MozHacks on all the details of how WebRender works. And that was the basis for a lot of the stuff I mentioned.</p>
+            <p>I think the developments happening around WebRender are really cool and if you would like follow along as well, the Mozilla Gfx team also maintains a blog with project updates and explainers on what goes on under the hood.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Acknowledgements</h2>
+          <p><span class="emoji" role="img" tabindex="0" aria-label="folded hands">&#x1F64F;</span> Big thank you to these beautiful human beings who answered my noob questions <span class="emoji" role="img" tabindex="0" aria-label="folded hands">&#x1F64F;</span></p>
+          <div class="l-multiple">
+            <figure>
+              <img class="plain" style="border-top-left-radius:84%;border-top-right-radius:94%;border-bottom-left-radius:72%;border-bottom-right-radius:83%;transform:rotate(-5deg)" data-src="img/ben.jpg" alt="Benedikt Meurer">
+              <figcaption><a href="https://twitter.com/bmeurer">@bmeurer</a></figcaption>
+            </figure>
+            <figure>
+              <img class="plain" style="border-top-left-radius:73%;border-top-right-radius:100%;border-bottom-left-radius:100%;border-bottom-right-radius:82%;transform:rotate(-7deg)"data-src="img/dan.jpeg" alt="Dan Callahan">
+              <figcaption><a href="https://twitter.com/callahad">@callahad</a></figcaption>
+            </figure>
+            <figure>
+              <img class="plain" style="border-top-left-radius:95%;border-top-right-radius:70%;border-bottom-left-radius:80%;border-bottom-right-radius:100%;transform:rotate(-2deg)" data-src="img/flaki.jpg" alt="István “Flaki” Szmozsánszky">
+              <figcaption><a href="https://twitter.com/slsoftworks">@slsoftworks</a></figcaption>
+            </figure>
+            <figure>
+              <img class="plain" style="border-top-left-radius:84%;border-top-right-radius:94%;border-bottom-left-radius:72%;border-bottom-right-radius:83%;transform:rotate(5deg)" data-src="img/lin.jpeg" alt="Lin Clark">
+              <figcaption><a href="https://twitter.com/linclark">@linclark</a></figcaption>
+            </figure>
+            <figure>
+              <img class="plain" style="border-top-left-radius:73%;border-top-right-radius:70%;border-bottom-left-radius:80%;border-bottom-right-radius:82%;transform:rotate(-7deg)" data-src="img/martin.jpg" alt="Martin Splitt">
+              <figcaption><a href="https://twitter.com/g33konaut">@g33konaut</a></figcaption>
+            </figure>
+            <figure>
+              <img class="plain" style="border-top-left-radius:88%;border-top-right-radius:92%;border-bottom-left-radius:72%;border-bottom-right-radius:82%;transform:rotate(-2deg);" data-src="img/mathias.jpg" alt="Mathias Bynens">
+              <figcaption><a href="https://twitter.com/mathias">@mathias</a></figcaption>
+            </figure>
+            <figure>
+              <img class="plain" style="border-top-left-radius:74%;border-top-right-radius:94%;border-bottom-left-radius:85%;border-bottom-right-radius:83%;transform:rotate(5deg)" data-src="img/nical.jpg" alt="Nicolas Silva">
+              <figcaption><a href="https://twitter.com/nicalsilva">@nicalsilva</a></figcaption>
+            </figure>
+            <figure>
+              <img class="plain" style="border-top-left-radius:88%;border-top-right-radius:92%;border-bottom-left-radius:80%;border-bottom-right-radius:82%;transform:rotate(7deg);" data-src="img/potch.jpg" alt="Matt “Potch” Claypotch">
+              <figcaption><a href="https://twitter.com/potch">@potch</a></figcaption>
+            </figure>
+          </div>
+          <aside class="notes">I am so grateful to these beautiful people who gave me time of day, and either answered my noob questions on browser rendering, or took the effort to point me in the right direction. Even though they're not here right now, I'd like to say a big thank you to all of them.</aside>
+        </section>
+
+        <section>
+          <h2>References</h2>
+          <ul style="column-count:2;font-size:75%;break-inside:avoid-column">
+            <li>Davis, W. (1986). <em>The Origins of Image Making.</em> Current Anthropology, 27(3), 193-215. doi:10.1086/203422</li>
+            <li><a href="https://www.popularmechanics.com/technology/a21457/the-gif-is-dead-long-live-the-gif/">The GIF Is Dead. Long Live the GIF.</a></li>
+            <li><a href="https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/types-of-bitmaps?view=netframework-4.7.2">Types of Bitmaps</a></li>
+            <li><a href="https://hackernoon.com/why-do-we-need-JPG-compression-and-how-its-technically-working-52a3a9ced55d">Why do we need JPG compression and how it's technically working?</a> by <a href="https://techeries.com/about-us/">Steven Hansen</a></li>
+            <li><a href="https://cloudinary.com/blog/progressive_jpegs_and_green_martians">Progressive JPEGs and green Martians</a> by <a href="https://twitter.com/jonsneyers">Jon Sneyers</a></li>
+            <li><a href="https://compress-or-die.com/Understanding-JPG/">Finally understanding JPG</a> by <a href="https://twitter.com/McSodbrenner">Christoph Erdmann</a></li>
+            <li><a href="https://medium.freecodecamp.org/how-jpg-works-a4dbd2316f35">How JPG Works</a>, <a href="https://medium.com/@duhroach/how-png-works-f1174e3cc7b7">How PNG Works</a>, <a href="https://medium.com/@duhroach/reducing-png-file-size-8473480d0476">Reducing PNG file Size</a> by <a href="https://twitter.com/duhroach">Colt McAnlis</a></li>
+            <li><a href="https://groups.google.com/forum/#!msg/comp.graphics/tylpVt2y9s8/eHWKNVLYMREJ">Thoughts on a GIF-replacement file format</a></li>
+            <li><a href="https://hacks.mozilla.org/2017/05/quantum-up-close-what-is-a-browser-engine/">Quantum Up Close: What is a browser engine?</a> by <a href="https://twitter.com/potch">Matt "Potch" Claypotch</a></li>
+            <li><a href="https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html">Let's build a browser engine!</a> by <a href="https://limpet.net/mbrubeck/">Matt Brubeck</a></li>
+            <li><a href="https://kilianvalkhof.com/2008/web/on-rendering-engines-and-graphic-libraries/">On rendering engines and graphic libraries</a> by <a href="https://kilianvalkhof.com/">Kilian Valkhof</a></li>
+            <li><a href="https://nical.github.io/posts/rust-2d-graphics-01.html">Following up on the 2d graphics in Rust discussion</a> by <a href="">Nicolas Silva</a></li>
+            <li><a href="https://mozillagfx.wordpress.com/2017/09/21/introduction-to-webrender-part-1-browsers-today/">Introduction to WebRender – Part 1 – Browsers today</a> by <a href="">Nicolas Silva</a></li>
+            <li><a href="https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/">The whole web at maximum FPS: How WebRender gets rid of jank</a> by <a href="">Lin Clark</a></li>
+            <li><a href="https://software.intel.com/en-us/articles/software-vs-gpu-rasterization-in-chromium">Software vs. GPU rasterization in Chromium*</a> by <a href="http://mkollaro.github.io/">Martina Kollarova</a></li>
+            <li><a href="https://www.chromium.org/developers/design-documents/gpu-accelerated-compositing-in-chrome"> GPU Accelerated Compositing in Chrome</a> by Tom Wiltzius, Vangelis Kokkevis & the Chrome Graphics team</li>
+          </ul>
+          <aside class="notes">And I also read a lot more than is on here, but this list only contains links to what I actually reference in my talk. If all this is as fascinating to you as it is to me, come chat! I'll share my longer list of resources with you as well.</aside>
+        </section>
+
+        <section>
+          <p>This talk is dedicated to browser engineers everywhere.</p>
+          <p>I owe my career to you.</p>
+          <aside class="notes">
+            <p>I love the web. Truly. And I know that it takes many different groups of people contributing in their own way, that makes the web what it is. But today, I want to show my appreciation for browser engineers. Some of them have made this their full time careers, others have done so as OSS contributors on their own time.</p>
+            <p>Even though browsers are not the only way to access information on the web, they are the predominant medium at the moment. So thank you, browser engineers everywhere, for striving to make the web experience smoother, faster and more accessible for all of us.</p>
+          </aside>
+        </section>
+
+        <section style="text-align:left">
+          <h1>Thank you!</h1>
+          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle">https://www.chenhuijing.com</a></p>
+          <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/codepen_w.png" alt="Codepen"><a href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle">@huijing</a></p>
+          <p style="text-align:right"><small>Font used is <a href="http://bureauroffa.com/about-proza-libre">Proza Libre</a> by <a href="www.bureauroffa.com">Bureau Roffa</a></small></p>
+        </section>
+      </div>
+
+      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://www.chenhuijing.com/slides/71-fronteers-2019</span><span style="text-align:right">@hj_chen</span></footer>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
