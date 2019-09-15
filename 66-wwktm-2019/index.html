@@ -1,0 +1,130 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Using DevTools to understand modern CSS layouts</title>
+  <meta name="description" content="DevTools are primarily used for debugging, but they can also help developers better understand and visualise how the browsers are interpreting layout properties. Through live demonstrations with DevTools, this talk will explain auto-margins, box alignment, flexible sizing and grid placement, and show some real-world use cases for building layouts with them.">
+  <meta name="author" content="Chen Hui Jing">
+
+  <style>
+  @font-face {
+    font-family: 'Gilbert';
+    src: url('fonts/gilbert-bold.otf')  format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    box-sizing: border-box;
+    height: 100%;
+    font-size: 1.25em;
+  }
+
+  body {
+    height: 100%;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    margin: auto;
+    width: min-content;
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: calc(1em + 3vmin);
+    text-align: center;
+    margin-block-end: 0.5em;
+  }
+
+  .links {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+    background: rgb(255, 255, 255);
+    background-image: linear-gradient(224deg, rgba(45, 45, 45, 0.5) 0%, rgba(90, 90, 90, 0.5) 62%, rgba(128, 128, 128, 0.5) 83%, rgba(184, 184, 184, 0.5) 100%);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.35), inset 0px -3px 1px 0px rgba(68, 68, 68, 0.5), inset 0px 1px 1px 0px rgba(188, 188, 188, 0.5);
+    border-radius: 3vmin;
+    transition: all 0.3s ease-out;
+    display: flex;
+  }
+
+  a:hover, 
+  a:focus {
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.35), inset 0px -2px 1px 0px rgba(68, 68, 68, 0.5), inset 0px 2px 1px 0px rgba(188, 188, 188, 0.5);
+  }
+
+  a span {
+    margin: auto;
+  }
+
+  .big {
+    font-family: 'Gilbert';
+    font-size: 11vmin;
+    height: 18vmin;
+    width: 18vmin;
+  }
+
+  @media screen and (min-width: 660px) {
+    .video {
+      writing-mode: vertical-rl;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      height: 70vmin;
+      max-width: 100%;
+    }
+
+    video {
+      width: max-content;
+      min-width: 15em;
+      max-width: initial;
+    }
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body class="index">
+  <main>
+    
+    <div class="video">
+      <h1>Web Weekend Kathmandu 2019</h1>
+      <video loop>
+        <source src="videos/cat.mp4" type="video/mp4">
+        Sorry, your browser doesn't support embedded videos, 
+        but don't worry, you can <a href="videos/cat.mp4">download it</a>
+        and watch it with your favourite video player!
+      </video>
+    </div>
+    <div class="links">
+      <a class="big" href="01-flexible-box.html"><span>01</span></a>
+      <a class="big" href="02-grid.html"><span>02</span></a>
+      <a class="big" href="03-sneakers.html"><span class="emoji" role="img" tabindex="0" aria-label="sneaker">&#x1F45F;</span></a>
+      <a class="big" href="04-greentea.html"><span class="emoji" role="img" tabindex="0" aria-label="hot beverage">&#x1F375;</span></a>
+    </div>
+  </main>
+  <script src="scripts.js"></script>
+</body>
+
+</html>
