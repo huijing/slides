@@ -61,6 +61,151 @@
           <aside class="notes">I also have a day job, because gainful employment is a kind of a good look. Currently, I'm with Nexmo as a Developer Advocate. Nexmo being a company that does communication APIs for messaging, voice, verification among many others.</aside>
         </section>
 
+        <section>
+          <h2>What are data files?</h2>
+          <div class="txt-left" style="width:max-content;margin:0 auto">
+            <ul>
+              <li><strong>Custom data</strong> that can be accessed via the Liquid templating system</li>
+              <li>Supported formats:
+                <ul>
+                  <li>YAML</li>
+                  <li>JSON</li>
+                  <li>CSV</li>
+                  <li>TSV</li>
+                </ul>
+              </li>
+              <li>Helps <strong>avoid repetition</strong> in your templates</li>
+              <li>Keeps the focus on the <strong>content</strong></li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Liquid templating engine</h2>
+          <div class="txt-left" style="width:max-content;margin:0 auto">
+            <p>Open-source template language created by Shopify and written in Ruby</p>
+            <p>Features include:</p>
+            <ul>
+              <li>Logical and comparison operators (<code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>or</code>, <code>and</code>)</li>
+              <li>Control flow</li>
+              <li>Iteration</li>
+              <li>Variables</li>
+              <li>Truthy and falsy</li>
+              <li>Filters</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Control flow</h2>
+          <table>
+            <tr>
+              <td style="width:20%"><code>if</code></td>
+              <td>Executes a block of code only if a certain condition is <code>true</code></td>
+            </tr>
+            <tr>
+              <td style="width:20%"><code>unless</code></td>
+              <td>The opposite of <code>if</code> – executes a block of code only if a certain condition is <strong>not</strong> met</td>
+            </tr>
+            <tr>
+              <td style="width:20%"><code>elsif / else</code></td>
+              <td>Adds more conditions within an <code>if</code> or <code>unless</code> block</td>
+            </tr>
+            <tr>
+              <td style="width:20%"><code>case / when</code></td>
+              <td>Creates a switch statement to compare a variable with different values. <code>case</code> initialises the switch statement, and <code>when</code> compares its values</td>
+            </tr>
+          </table>
+        </section>
+
+        <section>
+          <h2><code>unless</code></h2>
+          <p>Your best substitute for <code>not</code></p>
+          <div class="l-double">
+            <pre><code>{% unless post.special %}
+&lt;header class="c-event__header"&gt;
+  &lt;h2 class="c-event__title"&gt;
+    {{ post.title }}
+  &lt;/h2&gt;
+  &lt;p&gt;&lt;strong&gt;Event location:&lt;/strong&gt; {{ post.location }}&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Event date:&lt;/strong&gt; {{ post.event-date | date: "%b %-d, %Y" }}&lt;/p&gt;
+&lt;/header&gt;
+
+&lt;a href="https://www.meetup.com/SingaporeCSS/events/{{ post.event-id }}/" class="c-rsvp"&gt;&lt;span&gt;RSVP&lt;/span&gt;&lt;span&gt;at meetup.com&lt;/span&gt;&lt;/a&gt;
+
+&lt;div class="c-event__content"&gt;
+  {{ post.content | markdownify }}
+&lt;/div&gt;
+{% endunless %}</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>Iteration</h2>
+        </section>
+
+        <section>
+          <h2>Variables</h2>
+        </section>
+
+        <section>
+          <h2>Using data files (1/2)</h2>
+          <p>Place data files (supported formats only) in the <code>_data</code> folder</p>
+          <img class="plain" data-src="img/folder.png" alt="Folder structure">
+          <p>Jekyll will recognise them during site generation</p>
+          <p>Data will be accessible via <code>site.data.NAME_OF_FILE</code></p>
+        </section>
+
+        <section>
+          <h2>Using data files (2/2)</h2>
+          <div class="l-double">
+            <div>
+              <p><code>speakers.yml</code></p>
+              <pre><code>gloria:
+  name: "Gloria Soh"
+  twitter: "Gloriasohss"
+  shortcode: "gloria"
+  bio: "Gloria is a CSS queen who is bitcoin rich."
+
+jacob:
+  name: "Jacob Tan"
+  twitter: "jacobtyq"
+  shortcode: "jacob"
+  bio: "Plays too much Factorio… and Developer by day"
+  
+sarah:
+  name: "Sarah Lienert"
+  twitter: "SazzarJ"
+  shortcode: "sarah"
+  bio: "Sarah likes to bake things for Talk.CSS and teach children."</code></pre>
+            </div>
+            <div>
+              <p><code>speakers.html</code></p>
+              <pre><code>&lt;ul class="l-speakers c-speakers"&gt;
+  {% for speaker in site.data.speakers %}
+  &lt;div class="l-speaker c-speaker"&gt;
+    &lt;figure&gt;
+      &lt;img class="c-speaker__img" src="{{ site.url }}/assets/img/speakers/{{ speaker[1].shortcode }}.jpg" srcset="{{ site.url }}/assets/img/speakers/{{ speaker[1].shortcode }}@2x.jpg 2x" alt="{{ speaker[0].name }}"/&gt;
+      {% if speaker[1].twitter %}
+      &lt;figcaption&gt;&lt;a class="c-speaker__link" href="https://twitter.com/{{ speaker[1].twitter }}"&gt;@{{ speaker[1].twitter }}&lt;/a&gt;&lt;/figcaption&gt;
+      {% elsif speaker[1].github %}
+      &lt;figcaption&gt;&lt;a class="c-speaker__link" href="https://github.com/{{ speaker[1].github }}"&gt;@{{ speaker[1].github }}&lt;/a&gt;&lt;/figcaption&gt;
+      {% else %}
+      &lt;figcaption&gt;&lt;span class="c-speaker__link"&gt;@{{ speaker[1].shortcode }}&lt;/span&gt;&lt;/figcaption&gt;
+      {% endif %}
+    &lt;/figure&gt;
+    &lt;p class="c-speaker__intro"&gt;{{ speaker[1].bio }}&lt;/p&gt;
+  &lt;/div&gt;
+  {% endfor %}
+&lt;/ul&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2></h2>
+        </section>
+
         <section style="text-align:left">
           <h1>Thank you!</h1>
           <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle">https://www.chenhuijing.com</a></p>
@@ -71,7 +216,7 @@
         </section>
       </div>
 
-      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://www.chenhuijing.com/slides/64-connect-asia-2019</span><span style="text-align:right">@hj_chen</span></footer>
+      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://www.chenhuijing.com/slides/67-jekyllconf-2019</span><span style="text-align:right">@hj_chen</span></footer>
     </div>
 
     <script src="js/reveal.js"></script>

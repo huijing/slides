@@ -54,6 +54,10 @@ html {
     margin-right: 1rem;
   }
 
+  .txt-left {
+    text-align: left;
+  }
+
   strong {
     color: $headingColor;
   }
@@ -80,6 +84,7 @@ html {
 
   pre code {
     height: 100%;
+    font-size: 65%;
   }
 
   blockquote {
@@ -111,9 +116,12 @@ html {
     }
   }
 
-  ul,
-  ol {
-    max-width: 75%;
+  li {
+    margin-bottom: 0.5em;
+
+    li {
+      margin-bottom: 0;
+    }
   }
 
   video {
@@ -171,75 +179,6 @@ span[role=img][aria-label]:hover::after {
   padding: 0.25em;
   border: 1px solid $backgroundColor;
   box-shadow: 2px 2px 4px $mainColor;
-}
-
-// Demo-related ------------------------------
-.livecode {
-  display: grid;
-  grid-gap: 0.5em;
-  margin: 0;
-  padding: 0;
-
-  .markup {
-    font-size: 85%;
-  }
-
-  .result {
-    max-height: 100%;
-    overflow-y: scroll;
-    width: 100%;
-    border: 1px dashed $headingColor;
-
-    li {
-      line-height: 0;
-    }
-
-    p {
-      margin: 0;
-      padding: 0;
-    }
-  }
-
-  .code {
-    text-align: left;
-    width: 100%;
-    font-family: monospace;
-    color: #efdcbc;
-    background-color: #3f3f3f;
-    padding: 0.5em;
-    border-radius: 0.25em;
-    overflow-y: scroll;
-  }
-}
-
-.livecode-2p {
-  grid-template-columns: 50% 50%;
-  height: 60vh;
-}
-
-.livecode-3p {
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas: 'a b'
-                       'a c';
-
-  .markup {
-    grid-area: b;
-  }
-
-  .result {
-    grid-area: a;
-  }
-
-  .code {
-    grid-area: c;
-  }
-}
-
-.code-editor {
-  display: block;
-  height: 100%;
-  white-space: pre-wrap;
 }
 
 // Intro grid ------------------------------

@@ -52,16 +52,16 @@ body {
   word-wrap: break-word; }
 
 .reveal h1 {
-  font-size: 3.157em; }
-
-.reveal h2 {
   font-size: 2.369em; }
 
-.reveal h3 {
+.reveal h2 {
   font-size: 1.777em; }
 
-.reveal h4 {
+.reveal h3 {
   font-size: 1.333em; }
+
+.reveal h4 {
+  font-size: 1em; }
 
 .reveal h1 {
   text-shadow: none; }
@@ -147,7 +147,7 @@ body {
   font-family: "Dank Mono", monospace;
   text-transform: none;
   border-radius: 4px;
-  max-height: 45vh; }
+  max-height: 65vh; }
 
 .reveal pre code {
   display: block;
@@ -292,6 +292,9 @@ html {
   vertical-align: middle;
   margin-right: 1rem; }
 
+.reveal .txt-left {
+  text-align: left; }
+
 .reveal strong {
   color: #bef992; }
 
@@ -312,7 +315,8 @@ html {
   border-radius: .125em; }
 
 .reveal pre code {
-  height: 100%; }
+  height: 100%;
+  font-size: 65%; }
 
 .reveal blockquote {
   width: 80%;
@@ -336,9 +340,10 @@ html {
     right: -0.4em;
     content: '\201D'; }
 
-.reveal ul,
-.reveal ol {
-  max-width: 75%; }
+.reveal li {
+  margin-bottom: 0.5em; }
+  .reveal li li {
+    margin-bottom: 0; }
 
 .reveal video {
   display: block;
@@ -384,53 +389,6 @@ span[role=img][aria-label]:hover::after {
   padding: 0.25em;
   border: 1px solid #2b1f31;
   box-shadow: 2px 2px 4px #fff; }
-
-.livecode {
-  display: grid;
-  grid-gap: 0.5em;
-  margin: 0;
-  padding: 0; }
-  .livecode .markup {
-    font-size: 85%; }
-  .livecode .result {
-    max-height: 100%;
-    overflow-y: scroll;
-    width: 100%;
-    border: 1px dashed #bef992; }
-    .livecode .result li {
-      line-height: 0; }
-    .livecode .result p {
-      margin: 0;
-      padding: 0; }
-  .livecode .code {
-    text-align: left;
-    width: 100%;
-    font-family: monospace;
-    color: #efdcbc;
-    background-color: #3f3f3f;
-    padding: 0.5em;
-    border-radius: 0.25em;
-    overflow-y: scroll; }
-
-.livecode-2p {
-  grid-template-columns: 50% 50%;
-  height: 60vh; }
-
-.livecode-3p {
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas: 'a b' 'a c'; }
-  .livecode-3p .markup {
-    grid-area: b; }
-  .livecode-3p .result {
-    grid-area: a; }
-  .livecode-3p .code {
-    grid-area: c; }
-
-.code-editor {
-  display: block;
-  height: 100%;
-  white-space: pre-wrap; }
 
 .intro-grid {
   display: grid;
