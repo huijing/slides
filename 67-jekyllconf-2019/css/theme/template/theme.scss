@@ -168,7 +168,7 @@ body {
   font-family: $codeFont;
   text-transform: none;
   border-radius: 4px;
-  max-height: 65vh;
+  max-height: none;
 }
 
 .reveal pre code {
@@ -192,7 +192,7 @@ body {
 .reveal table td {
   text-align: left;
   padding: 0.2em 0.5em 0.2em 0.5em;
-  border-bottom: 1px solid;
+  border-bottom: thin solid;
 }
 
 .reveal table th[align="center"],

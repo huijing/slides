@@ -25,7 +25,9 @@
         <section>
           <h1>Why I love data files in Jekyll</h1>
           <p><small><a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            <p>Hello everyone! This is the first time I'm presenting at an online conference, so it's pretty cool to be speaking to everyone from my own room for a change. It's also my first JekyllConf, so this kinda exciting. Today I'm going to be talking about how I used data files to help me manage the website for SingaporeCSS, which is the only CSS-centric meetup group in Singapore at the moment.</p>
+          </aside>
         </section>
 
         <section>
@@ -51,14 +53,14 @@
               <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
             </div>
           </div>
-          <aside class="notes">My name is Hui Jing, and these are the emojis that pretty much describe who I am as a person. Feel free to interpret them however you like. If any of them don't make sense to you, you can always ask me about them later.</aside>
+          <aside class="notes">My name is Hui Jing, and these are the emojis that pretty much describe who I am as a person. There is also a diagram explaining my name because I found that Chinese names can sometimes be confusing. Anyway, feel free to interpret the emojis however you like. If any of them don't make sense to you, maybe you could tweet me or something.</aside>
         </section>
 
         <section>
           <img style="max-height:7.5em;margin-bottom:0.5em" class="plain" data-src="img/love-dev.svg" alt="Nexmo Developer Relations">
           <p><span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span> Developer Advocate <span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span></p>
           <img style="max-height:2.5em;margin-top:1em" class="plain" data-src="img/nexmo.svg" alt="Nexmo">
-          <aside class="notes">I also have a day job, because gainful employment is a kind of a good look. Currently, I'm with Nexmo as a Developer Advocate. Nexmo being a company that does communication APIs for messaging, voice, verification among many others.</aside>
+          <aside class="notes">I also have a day job, because gainful employment is a kind of a good look on me. Currently, I'm with Nexmo as a Developer Advocate. Nexmo being a company that does communication APIs for messaging, voice, verification among many others.</aside>
         </section>
 
         <section>
@@ -78,74 +80,10 @@
               <li>Keeps the focus on the <strong>content</strong></li>
             </ul>
           </div>
-        </section>
-
-        <section>
-          <h2>Liquid templating engine</h2>
-          <div class="txt-left" style="width:max-content;margin:0 auto">
-            <p>Open-source template language created by Shopify and written in Ruby</p>
-            <p>Features include:</p>
-            <ul>
-              <li>Logical and comparison operators (<code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>or</code>, <code>and</code>)</li>
-              <li>Control flow</li>
-              <li>Iteration</li>
-              <li>Variables</li>
-              <li>Truthy and falsy</li>
-              <li>Filters</li>
-            </ul>
-          </div>
-        </section>
-
-        <section>
-          <h2>Control flow</h2>
-          <table>
-            <tr>
-              <td style="width:20%"><code>if</code></td>
-              <td>Executes a block of code only if a certain condition is <code>true</code></td>
-            </tr>
-            <tr>
-              <td style="width:20%"><code>unless</code></td>
-              <td>The opposite of <code>if</code> – executes a block of code only if a certain condition is <strong>not</strong> met</td>
-            </tr>
-            <tr>
-              <td style="width:20%"><code>elsif / else</code></td>
-              <td>Adds more conditions within an <code>if</code> or <code>unless</code> block</td>
-            </tr>
-            <tr>
-              <td style="width:20%"><code>case / when</code></td>
-              <td>Creates a switch statement to compare a variable with different values. <code>case</code> initialises the switch statement, and <code>when</code> compares its values</td>
-            </tr>
-          </table>
-        </section>
-
-        <section>
-          <h2><code>unless</code></h2>
-          <p>Your best substitute for <code>not</code></p>
-          <div class="l-double">
-            <pre><code>{% unless post.special %}
-&lt;header class="c-event__header"&gt;
-  &lt;h2 class="c-event__title"&gt;
-    {{ post.title }}
-  &lt;/h2&gt;
-  &lt;p&gt;&lt;strong&gt;Event location:&lt;/strong&gt; {{ post.location }}&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Event date:&lt;/strong&gt; {{ post.event-date | date: "%b %-d, %Y" }}&lt;/p&gt;
-&lt;/header&gt;
-
-&lt;a href="https://www.meetup.com/SingaporeCSS/events/{{ post.event-id }}/" class="c-rsvp"&gt;&lt;span&gt;RSVP&lt;/span&gt;&lt;span&gt;at meetup.com&lt;/span&gt;&lt;/a&gt;
-
-&lt;div class="c-event__content"&gt;
-  {{ post.content | markdownify }}
-&lt;/div&gt;
-{% endunless %}</code></pre>
-          </div>
-        </section>
-
-        <section>
-          <h2>Iteration</h2>
-        </section>
-
-        <section>
-          <h2>Variables</h2>
+          <aside class="notes">
+            <p>Jeykll is currently on 4.0.0, released last month. If you are on GitHub pages, then the gem's version is 3.8.5. The ability to store data in external files then access them was first introduced in 2013 for the 1.3.0 release so it had already been a feature when I picked up Jekyll for the first time.</p>
+            <p>There are loads of static generators out there today and if we look at the most popular few, Jekyll isn't the only one that supports external data files. Hugo has something similar but it's called Templates, Gatsby uses GraphQL to manage data sources. I have no idea what Next.JS does. But my point is, the ability to access custom data stored in external files makes maintenance and organisation of the site much easier to handle.</p>
+          </aside>
         </section>
 
         <section>
@@ -154,6 +92,7 @@
           <img class="plain" data-src="img/folder.png" alt="Folder structure">
           <p>Jekyll will recognise them during site generation</p>
           <p>Data will be accessible via <code>site.data.NAME_OF_FILE</code></p>
+          <aside class="notes">Some data file basics. Place the data files you'd like Jekyll to access in a <code>_data</code> folder at the root of your project, and Jekyll will parse them during the site generation process. The data in those files can be accessed with the syntax, <code>site.data.</code> whatever you named your data file.</aside>
         </section>
 
         <section>
@@ -200,10 +139,546 @@ sarah:
 &lt;/ul&gt;</code></pre>
             </div>
           </div>
+          <aside class="notes">
+            <p>For example, to display a list of speakers on my template with data from the <code>speaker.yml</code> file, I would do a <code>for</code> loop that runs through every entry in the data file, and this picks out the relevant fields I want formatted in a specific way on my template. I will cover this in more detail later on.</p>
+            <p>So Jekyll supports 4 file formats, YAML, JSON, CSV and TSV. And we can shape the data in these files to our needs via the Liquid templating engine. If you are already very familiar with Liquid, please bear with me, or take this as a refresher. I will be going into some features of Liquid that are very relevant when dealing with custom data.</p>
+            <p>So maybe think of this as data files and Liquid talk.</p>
+          </aside>
         </section>
 
         <section>
-          <h2></h2>
+          <h2>Liquid templating engine</h2>
+          <div class="txt-left" style="width:max-content;margin:0 auto">
+            <p>Open-source template language created by Shopify and written in Ruby</p>
+            <p>Features include:</p>
+            <ul>
+              <li>Logical and comparison operators (<code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>or</code>, <code>and</code>)</li>
+              <li>Truthy and falsy</li>
+              <li>Control flow</li>
+              <li>Iteration</li>
+              <li>Variables</li>
+              <li>Filters</li>
+            </ul>
+          </div>
+          <aside class="notes">
+            <p>Like most self-respecting templating engines, there are numerous functions to add logic to your templates. We have the basic logical and comparison operators, which will form the basis for control flow logic. We have equals, not equals, greater than, less than, greater than less than inclusive, then and and or. You might notice an omission here, but we'll talk about that more later on.</p>
+            <p>Then we have truthiness, control flow, iterators, variables and filters. Again, typical in many templating engines. But there are some Liquid specific behaviours and limitations that we need to understand so we can work efficiently with it.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Truthy and falsy in Liquid</h2>
+          <p>All values in Liquid are truthy <strong>except</strong> <code>nil</code> and <code>false</code></p>
+          <p>Strings and arrays, even when <strong>empty</strong>, are truthy</p>
+          <p>Check for emptiness using <code>blank</code> or <code>empty</code></p>
+          <aside class="notes">
+            <p>As a web developer, my main programming language of choice is Javascript. Please don't judge me. But this is probably why I'm not entirely surprised by the slight weirdness of truthiness and falsiness in Liquid. The key point to be aware of is that everything in Liquid is truthy by default, unless it resolves explicitly to <code>false</code> or it's a <code>nil</code> value.</p>
+            <p>Strings and arrays are considered truthy even if there's nothing in them. Their mere existence is truth. Same goes for the number 0, any integers or floats, you get the picture.</p>
+            <p><code>nil</code> is a special empty value that is returned when Liquid cannot find anything to return. It is not a string with characters "nil", the letters N, I and L, do not show up anywhere. It is nothing.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Control flow</h2>
+          <table>
+            <tr>
+              <td style="width:20%"><code>if</code></td>
+              <td>Executes a block of code only if a certain condition is <code>true</code></td>
+            </tr>
+            <tr>
+              <td style="width:20%"><code>unless</code></td>
+              <td>The opposite of <code>if</code> – executes a block of code only if a certain condition is <strong>not</strong> met</td>
+            </tr>
+            <tr>
+              <td style="width:20%"><code>elsif / else</code></td>
+              <td>Adds more conditions within an <code>if</code> or <code>unless</code> block</td>
+            </tr>
+            <tr>
+              <td style="width:20%"><code>case / when</code></td>
+              <td>Creates a switch statement to compare a variable with different values. <code>case</code> initialises the switch statement, and <code>when</code> compares its values</td>
+            </tr>
+          </table>
+          <aside class="notes">
+            <p>Now that we've sorted that out, control flow. Control flow is pretty standard, except for the fact that there is <code>and</code> and <code>or</code> but no <code>not</code> operator. There is an <code>unless</code> operator though, which sort of behaves like a <code>not</code>, but not exactly.</p>
+            <p>It is possible achieve the effect of a <code>not</code> operator but we would have to nest conditionals instead of putting them all on the same line. For example, to have a conditional like “if a and b and not c”, you'd have to first do an “if a and b”, then nest an “unless c” within it.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Relevant questions</h2>
+          <ul>
+            <li><a href="https://github.com/Shopify/liquid/issues/138">How to express logic "and","or", "not"?</a></li>
+            <li><a href="https://stackoverflow.com/questions/30822160/does-liquid-have-a-does-not-contain-or-not-in-array-operator">Does Liquid have a does not contain or not in array operator?</a></li>
+          </ul>
+          <aside class="notes">That example I picked up from a Github issue on the Liquid repository, which got reopened a couple times over the past 7 years, I think. It is currently still open today. Clearly, <code>not</code> is something most people expect but unfortunately is not provided as a basic operator.</aside>
+        </section>
+
+        <section>
+          <h2><code>unless</code></h2>
+          <p>Your best substitute for <code>not</code></p>
+          <div class="l-double">
+            <pre><code>{% unless post.special %}
+&lt;header class="c-event__header"&gt;
+  &lt;h2 class="c-event__title"&gt;
+    {{ post.title }}
+  &lt;/h2&gt;
+  &lt;p&gt;&lt;strong&gt;Event location:&lt;/strong&gt; {{ post.location }}&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Event date:&lt;/strong&gt; {{ post.event-date | date: "%b %-d, %Y" }}&lt;/p&gt;
+&lt;/header&gt;
+
+&lt;a href="https://www.meetup.com/SingaporeCSS/events/{{ post.event-id }}/" class="c-rsvp"&gt;&lt;span&gt;RSVP&lt;/span&gt;&lt;span&gt;at meetup.com&lt;/span&gt;&lt;/a&gt;
+
+&lt;div class="c-event__content"&gt;
+  {{ post.content | markdownify }}
+&lt;/div&gt;
+{% endunless %}</code></pre>
+            <div class="txt-left">
+              <ul>
+                <li>Controls rendering when conditional returns <code>nil</code> or <code>false</code></li>
+                <li>Prevent rendering of empty HTML elements </li>
+                <li>Useful when used in conjunction with front matter variables</li>
+              </ul>
+            </div>
+          </div>
+          <aside class="notes">
+            <p>Instead, we have <code>unless</code>. As long as the specified condition is NOT met, the code block will render. So for this example, if my post has the front matter value of <code>special: true</code>, the content inside my unless block is not going to show up.</p>
+            <p>Could I achieve the same effect with an if-else block around using <code>page.special</code> as a variable in the conditional? Yes, as a matter of fact I could. But it's nice to have options, no?</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Iteration</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Iterator</th>
+                <th>Description</th>
+                <th>Parameters</th>
+              </tr>
+            </thead>
+            <tr>
+              <td><code>for</code></td>
+              <td>Repeatedly executes a block of code</td>
+              <td><code>limit</code>, <code>offset</code>, <code>range</code>, <code>reversed</code></td>
+            </tr>
+            <tr>
+              <td><code>cycle</code></td>
+              <td>Loops through a group of strings and outputs them in the order that they were passed as parameters (must be used within <code>for</code> loop)</td>
+              <td><code>cycle group</code></td>
+            </tr>
+            <tr>
+              <td><code>tablerow</code></td>
+              <td>Generates an HTML table (has to be wrapped with <code>&lt;table&gt;</code> tags)</td>
+              <td><code>limit</code>, <code>offset</code>, <code>range</code>, <code>cols</code></td>
+            </tr>
+          </table>
+          <aside class="notes">
+            <p>Now let's move on to iterators, which are pretty much a major motivation for most people to want to use templating languages in the first place.</p>
+            <p>When we refer to data, we often are talking about pieces of information formatted in a specific way, essentially a repeatable pattern. Iterators are important for transforming the data into a format that suits our purpose.</p>
+            <p>Liquid provides the very basic <code>for</code> loop, but allows for the usage of parameters, like <code>limit</code>, <code>offset</code> or <code>range</code> and so on, which can be combined in different ways to make Jekyll quite flexible.</p>
+            <p>And now I'm going to illustrate some of the parameters by going through the different <code>for</code> loops which are used in the SingaporeCSS website.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Display only latest post</h2>
+          <div class="l-double">
+            <img style="justify-self:center" class="plain" data-src="img/homepage.png" alt="SingaporeCSS home page">
+            <pre style="align-self:center"><code>{% for post in site.posts limit:1 %}
+&lt;article class="c-upcoming-event {{ post.css }}"&gt;
+  {% unless post.special %}
+  &lt;header class="c-event__header"&gt;
+    &lt;h2 class="c-event__title"&gt;
+      {{ post.title }}
+    &lt;/h2&gt;
+    &lt;p&gt;&lt;strong&gt;Event location:&lt;/strong&gt; {{ post.location }}&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Event date:&lt;/strong&gt; {{ post.event-date | date: "%b %-d, %Y" }}&lt;/p&gt;
+  &lt;/header&gt;
+  
+  &lt;a href="https://www.meetup.com/SingaporeCSS/events/{{ post.event-id }}/" class="c-rsvp"&gt;&lt;span&gt;RSVP&lt;/span&gt;&lt;span&gt;at meetup.com&lt;/span&gt;&lt;/a&gt;
+  
+  &lt;div class="c-event__content"&gt;
+    {{ post.content | markdownify }}
+  &lt;/div&gt;
+  {% endunless %}
+&lt;/article&gt;
+{% endfor %}</code></pre>
+          </div>
+          <aside class="notes">
+            <p>This is the homepage of the site. And what I wanted was for some of details of the upcoming meetup to be displayed, appropriately formatted, of course. Jekyll already has <code>post</code> as a predefined variable we can use to access all the posts in our <code>_posts</code> folder.</p>
+            <p>This can be done in a fairly straightforward manner using the <code>limit</code> parameter with the value of <code>1</code> in the <code>for</code> loop since posts are in reverse chronological order by default.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Display list of 3 posts before the latest one</h2>
+          <div class="l-double">
+            <img style="justify-self:center" class="plain" data-src="img/homepage2.png" alt="SingaporeCSS home page">
+            <pre style="align-self:center"><code>&lt;h2&gt;Past meetups&lt;/h2&gt;
+&lt;ul class="l-past-events c-past-events"&gt;
+  {% for post in site.posts offset:1 limit:3 %}
+    &lt;li class="l-past-event c-past-event"&gt;
+      &lt;a class="c-past-event__link" href="{{ post.url | prepend: site.baseurl }}"&gt;
+        &lt;span class="c-past-event__meta"&gt;{{ post.event-date | date: "%b %-d, %Y" }}&lt;/span&gt;
+        &lt;h3&gt;{{ post.title }}&lt;/h3&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+  {% endfor %}
+&lt;/ul&gt;
+&lt;a class="l-archive__link c-archive__link" href="{{ "/archives" | prepend: site.baseurl }}"&gt;View full list&lt;/a&gt;</code></pre>
+          </div>
+          <aside class="notes">
+            <p>The next section is a preview list of the 3 previous meetups. Here I didn't want the latest post to be on the list, so this is where the <code>offset</code> parameter comes in handy.</p>
+            <p>I could just offset the post listing by 1 and only display from the second post onwards. With offset, you can also skip entire blocks of posts if that's what you want to do.</p>
+            <p>There are other parameters like <code>cycle</code> and <code>range</code> but they haven't been necessary thus far. Maybe if I add more features to the site in future.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Variables</h2>
+          <p>Possible to create new Liquid variables in addition to predefined ones</p>
+          <table>
+            <tr>
+              <td><code>assign</code></td>
+              <td>Creates a new variable</td>
+            </tr>
+            <tr>
+              <td><code>capture</code></td>
+              <td>Captures the string inside of the opening and closing tags and assigns it to a variable</td>
+            </tr>
+            <tr>
+              <td><code>increment</code></td>
+              <td>Creates a new number variable, and increases its value by one every time it is called</td>
+            </tr>
+            <tr>
+              <td><code>decrement</code></td>
+              <td>Creates a new number variable, and decreases its value by one every time it is called</td>
+            </tr>
+          </table>
+          <p>Custom front matter variables can be defined and accessed via the <code>page.VARIABLE_NAME</code> syntax</p>
+          <aside class="notes">
+            <p>Jekyll provides some predefined global and site variables which cover a lot of common use-cases, but also allows us to create our own. There are 2 types of custom variables, if you will. One is with custom front matter, which you can access via the <code>page.VARIABLE_NAME</code> syntax, and the other way is to use the <code>assign</code> or <code>capture</code> tags.</p>
+            <p>As for the <code>increment</code> and <code>decrement</code> options, I have yet to discover a relevant use case for them, but if you have used it before, I'd love to hear about it.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Establishing relationships across data files</h2>
+          <div class="l-multiple">
+             <div>
+              <p><code>speakers.yml</code></p>
+              <pre><code>gloria:
+  name: "Gloria Soh"
+  twitter: "Gloriasohss"
+  shortcode: "gloria"
+  bio: "Gloria is a CSS queen who is bitcoin rich."
+
+jacob:
+  name: "Jacob Tan"
+  twitter: "jacobtyq"
+  shortcode: "jacob"
+  bio: "Plays too much Factorio… and Developer by day"
+  
+sarah:
+  name: "Sarah Lienert"
+  twitter: "SazzarJ"
+  shortcode: "sarah"
+  bio: "Sarah likes to bake things for Talk.CSS and teach children."</code></pre>
+            </div>
+            <div>
+              <p><code>videos.yml</code></p>
+              <pre><code>s2502:
+  title: "CSS grid for noobs"
+  link: "https://youtu.be/0Laanmn3zWc"
+  shortcode: "s2502"
+  description: "Shirlaine and Gloria share their experience of learning and using CSS grid. Video from <a href='http://juniordev.sg/'>JuniorDev.SG</a>."
+
+s2601:
+  title: "Frontend development for distributed teams"
+  link: "https://youtu.be/xj-MbcBfu6Y"
+  shortcode: "s2601"
+  description: "Ardy shares how frontend development is done at Skyscanner, with a distributed team of more than 400 engineers."
+
+s2602:
+  title: "Faux sub-grid"
+  link: "https://youtu.be/ChnITWfUfFU"
+  shortcode: "s2602"
+  description: "Using CSS grid but sad that subgrid isn't here yet? Zell has open-sourced his Sass-powered workaround."</code></pre>
+            </div>
+            <div>
+              <p><code>meetups.yml</code></p>
+              <pre><code style="max-height:85vh">25:
+  colour:
+    name: lime
+    hex: "#00FF00"
+    rgba: rgba(0, 255, 0, 1)
+  videos:
+    - ref: s2501
+    - ref: s2502
+  speakers:
+    - ref: ed
+    - ref: gloria
+    - ref: shirlaine
+
+26:
+  colour:
+    name: indigo
+    hex: "#4b0082"
+    rgba: rgba(75, 0, 130, 1)
+    text: "#fff"
+  videos:
+    - ref: s2601
+    - ref: s2602
+    - ref: s2603
+  speakers:
+    - ref: zell
+    - ref: sheldon
+    - ref: ardy</code></pre>
+            </div>
+          </div>
+          <aside class="notes">
+            <p>The SingaporeCSS website had always been a pet project of mine over the past 3 years and even though I doubt anybody visits the site, it's my baby and I love it regardless. When I first started, all the markup was manually written, which didn't make sense as the site grew because every post had a similar format. But I was lazy. Oh, so lazy.</p>
+            <p>When I finally wanted to create a page to list all speakers, I realised the existing implementation made the idea infeasible, and hence I stopped procrastinating and decided to resolve this technical debt.</p>
+            <p>Some planning was necessary in order to extract all the hard-coded values into data files that could be iterated upon. Each post represented 1 meetup, each meetup had multiple speakers with their corresponding videos. Videos would not be repeated across meetups, but speakers could be.</p>
+            <p>Then we also have variations, where sometimes there would be no video, and also some additional bits like CSS colour of the month, or news updates. So it took a combination of templating features to get things wired together.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Using <code>assign</code> to simplify custom data (1/2)</h2>
+          <div class="l-double">
+            <pre><code>40:
+  colour:
+    name: lightseagreen
+    hex: "#20b2aa"
+    rgba: rgba(32, 178, 170, 1)
+  videos:
+    - ref: s4001
+    - ref: s4002
+    - ref: s4003
+    - ref: s4004
+  speakers:
+    - ref: alex
+    - ref: ujjwal
+    - ref: linhan
+    - ref: mike</code></pre>
+            <pre><code>{% assign meetup = site.data.meetups[page.meetup] %}
+&lt;div class="c-videos"&gt;
+  /* other code */
+
+  {% for videos in meetup.videos %}
+  {% assign video = site.data.videos[videos.ref] %}
+  &lt;div class="c-video"&gt;
+    &lt;a class="c-video__link" href="{{ video.link }}"&gt;
+      &lt;img class="c-video__img" src="{{ site.url }}/assets/img/videos/talk-{{ page.meetup }}/{{ video.shortcode }}.jpg" srcset="{{ site.url }}/assets/img/videos/talk-{{ page.meetup }}/{{ video.shortcode }}@2x.jpg 2x" alt="Link to {{ video.title }} video"/&gt;
+    &lt;/a&gt;
+    &lt;p class="c-video__desc"&gt;{{ video.description }}&lt;/p&gt;
+  &lt;/div&gt;
+  {% endfor %}
+
+  /* moar code */
+&lt;/div&gt;</code></pre>
+          </div>
+          <aside class="notes">
+            <p>My data format of choice is YAML, so all the examples today are using YAML. The key data file was the meetup.yml file as it was the one that referenced both the speakers file and the videos file, and sort of ties them together.</p>
+            <p>To access specific values in the file, the syntax ended up being rather long, like <code>site.data.meetups[KEY_VALUE]</code>. Here's where I used the <code>assign</code> tag to put all that into a variable. This made the code much neater for when I wanted to loop through the video entries in the meetup data file, then use those values as keys in the videos data file.</p>
+            <p>I make use of the matching of values in one file as the key of another in order to stitch all the data together, so if you do dig into my source code, you will find things like <code>shortcode</code> or <code>ref</code> whose main purpose is, matching of key values pairs. Sort of like a foreign key in structured databases, I suppose.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Using <code>assign</code> to simplify custom data (2/2)</h2>
+          <div class="l-double">
+            <pre><code>40:
+  colour:
+    name: lightseagreen
+    hex: "#20b2aa"
+    rgba: rgba(32, 178, 170, 1)
+  videos:
+    - ref: s4001
+    - ref: s4002
+    - ref: s4003
+    - ref: s4004
+  speakers:
+    - ref: alex
+    - ref: ujjwal
+    - ref: linhan
+    - ref: mike</code></pre>
+            <pre><code>{% if meetup.colour %}
+{% assign colour = meetup.colour %}
+&lt;div class="c-colour"&gt;
+  {% if colour.text %}
+  &lt;div class="c-swatch" style="background-color:{{ colour.hex }};color:{{ colour.text }}"&gt;
+  {% else %}
+  &lt;div class="c-swatch" style="background-color:{{ colour.hex }}"&gt;
+  {% endif %}
+    &lt;div class="c-swatch__txt"&gt;
+      &lt;p&gt;{{ colour.name }}&lt;/p&gt;
+      &lt;p&gt;{{ colour.hex }}&lt;/p&gt;
+      &lt;p&gt;{{ colour.rgba }}&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;h4&gt;CSS colour of the month&lt;/h4&gt;
+&lt;/div&gt;
+{% endif %}</code></pre>
+          </div>
+          <aside class="notes">
+            <p>To deal with the fact that some sections on the site were added on later, like the CSS colour of the month, some checking logic was required. So here's where Liquid's truthiness comes in handy. I can check for <code>meetup.colour</code>, and if this key does not exist in the entry on the meetup data file, the code block will not render as Jekyll returns nil in that case.</p>
+            <p>It all sounds rather straightforward now that I've streamlined the explanation to the pertinent bits, but it took me quite a while to figure out Liquid's truthiness which is why I spent a slide and a half talking about it earlier.</p>
+            <p>I personally prefer doing an additional <code>assign</code> for aesthetic reasons so the code is easier to read, but you don't really have to if you are okay with the longform style.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Count of speakers with <code>forloop.length</code></h2>
+          <p>Variables can be used outside the <code>for</code> loop they were declared in.</p>
+          <pre style="white-space:pre-wrap"><code>{% for speaker in site.data.speakers %}{% assign count = forloop.length %}{% endfor %}
+
+So far, {{ count }} lovely people have spoken at Talk.CSS, we want you to be one of them too. If you're thinking, “but I have nothing to talk about”, we can help. Anything related to CSS will work. It could be something you debugged at work, or about a new property you read about, or something you built, or even a rant about why something doesn't work the way you want it.</code></pre>
+          <p><code>☝️ speakers.md ☝️</code></p>
+          <aside class="notes">
+            <p>Earlier on I mentioned that I wanted a listing of all speakers, right? Liquid also has a <code>forloop</code> object which contains attributes of its parent <code>for</code> loop. And this is pretty useful.</p>
+            <p>It allowed me to have a dynamically updated speaker count as part of the copy for the speakers page, so every time I added a new speaker to the file, this number updates itself.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Using <code>capture</code> for complex strings</h2>
+          <p>Variables created through <code>{% capture %}</code> are strings.</p>
+          <p>Can create complex strings using other variables created with <code>assign</code>.</p>
+          <pre><code>{% if page.css %}
+{% capture special_styles %}/assets/css/{{ page.css }}.css{% endcapture %}
+&lt;link rel="stylesheet" href="{{ special_styles | prepend: site.baseurl }}"&gt;
+{% endif %}</code></pre>
+          <aside class="notes">
+            <p>Finally, let's talk about <code>capture</code>. With <code>assign</code>, you can wrap a variable in quotations to save it as a string. <code>capture</code> takes all the content between the tags and assigns it to the variable.</p>
+            <p>So it may seem like there's simply a minor difference in syntax here. But the advantage of <code>capture</code> is you can use it to create complex strings that are made up of multiple string variables created through <code>assign</code>.</p>
+            <p>My particular use case was for conditional CSS in the head of my site, but I wanted the URL of the stylesheet to be processed through Jekyll filters, just to make sure I didn't have inconsistent paths.</p>
+            <p>One thing about filters is that all the Liquid filters are supported by Jekyll, in addition to those that are specific to Jekyll only. So the one I've used here, <code>baseurl</code>, is a Jekyll specific filter. The full list is available on the documentation site.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>SingaporeCSS website workflow (1/2)</h2>
+          <div class="l-double">
+            <div>
+              <p><code>speakers.yml</code></p>
+              <pre><code>ollie:
+  name: "Ollie Monk"
+  twitter: "ollie_monk"
+  shortcode: "ollie"
+  bio: "A modern Renaissance man with a wide range of interests. Looking for his headphones. Clearly did not write this bio himself."
+
+jinjiang:
+  name: "Zhao Jinjiang"
+  twitter: "zhaojinjiang"
+  shortcode: "jinjiang"
+  bio: "0.1x engineer. Loves football. Does frontend."</code></pre>
+            </div>
+            <div>
+              <p><code>post.markdown</code></p>
+              <pre><code>---
+layout: post
+title: "Talk.CSS #43"
+date: 2019-08-07 19:00:00 +0800
+location: HOOQ
+event-date: 2019-09-04 19:00:00 +0800
+categories: meetup
+meetup: 43
+event-id: 261692436
+novideos: true
+---</code></pre>
+            </div>
+          </div>
+          <aside class="notes">
+            <p>Now with the templates all set up, I no longer have type (or copy and paste) any markup code. The site is managed entirely via markdown files and front matter on each individual post, and the 3 data files.</p>
+            <p>When a new speaker submits a talk, they are added to the speaker data file with required information like name, social media handles, 1-liner bios etc. and this information is used in the <code>speaker.html</code> include file, using <code>shortcode</code> as the reference.</p>
+            <p>The post itself is written in markdown, with some custom front matter variables, that are used in the templates as logic checks. For example, before the meetup, there are no videos, so with novideos set to true, the markup for the videos section won't render.</p>
+          </aside>
+        </section>
+
+        <section>
+          <div class="l-double">
+            <div>
+              <p><code>videos.yml</code></p>
+              <pre><code>s4301:
+  title: "Lean animations"
+  link: "https://youtu.be/_QN_ahQN0Ic"
+  shortcode: "s4301"
+  description: "Jinjiang shares some very practical tips on how to quickly add animations to your design or product."
+
+s4302:
+  title: "An exploration of CJSS - A CSS based web framework"
+  link: "https://youtu.be/x1U9tPwRiiw"
+  shortcode: "s4302"
+  description: "CSS-in-JS? How about JS-in-CSS instead? Yishu ponders some deep questions about web development, plus LIVE-CODING!"
+
+s4303:
+  title: "Sometimes you gotta abuse Grid"
+  link: "https://youtu.be/9DwzDzCNDwI"
+  shortcode: "s4303"
+  description: "Sheldon encountered a problem and solved it the best way he could, with Grid. Context is everything, my friends."</code></pre>
+            </div>
+            <div>
+              <p><code>post.markdown</code></p>
+              <pre><code>---
+layout: post
+title: "Talk.CSS #43"
+date: 2019-08-07 19:00:00 +0800
+location: HOOQ
+event-date: 2019-09-04 19:00:00 +0800
+categories: meetup
+meetup: 43
+event-id: 261692436
+---</code></pre>
+            </div>
+          <aside class="notes">
+            <p>Once a meetup is done and dusted, the content of the post, which had previously been details of each speaker's talk, would be replaced with a short paragraph of recap text.</p>
+            <p>The novideos front matter would be removed, and the videos go into the videos.yml file, and that data gets parsed into the video section of the recap template. Same goes for CSS colour of the month, as that information gets added to the meetup.yml file after the meetup is over.</p>
+            <p>I could have saved a bit of time by doing this refactoring a bit earlier, but oh well.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>If you are also using YML…</h2>
+          <p>There is a difference between lists and dictionaries.</p>
+          <div class="l-double">
+            <pre><code>41:
+  colour:
+    name: steelblue
+    hex: "#4682b4"
+    rgba: rgba(70, 130, 180, 1)
+    text: "#fff"
+  videos:
+    - ref: s4101
+    - ref: s4102
+    - ref: s4103
+    - ref: s4104
+  speakers:
+    - ref: van
+    - ref: dylan
+    - ref: weiyuan
+    - ref: ollie</code></pre>
+          <div>
+            <ul>
+              <li>All members of a list are lines at the same indentation level starting with a  <code style="white-space:nowrap">"- "</code></li>
+              <li>A dictionary is represented by key/value pairs in the form <code>key: value</code>, where the colon <strong>must</strong> be followed by a space</li>
+              <li>Complicated data structures like lists of dictionaries, or dictionaries with lists as values are possible</li>
+            </ul>
+          </div>
+          <aside class="notes">
+            <p>Okay, I'm almost done here. I wasn't too familiar with YML when I started but after a lot of trial and error, I learned that the dash makes a difference in how the YAML file is parsed. Because I was using the square bracket notation to iterate over videos and speakers, those had to be a list. If I used a dictionary syntax, that is, without the dash, things didn't work out.</p>
+            <p>I want to plug the Jekyll documentation, which I personally find really well written and should be your go-to reference whenever you want to implement something slightly more complicated than rendering front matter on your template.</p>
+            <p>I hope some of the things I covered today are useful to some of you, and thank you all for taking the time to listen to me talk about data files! If you have any questions, you can find me on Twitter, and I'll try my best to answer them.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>SingaporeCSS website</h2>
+          <p>Source code: <a href="https://github.com/SingaporeCSS/singaporecss.github.io">https://github.com/SingaporeCSS/singaporecss.github.io</a></p>
+          <p>On the web: <a href="https://singaporecss.github.io">https://singaporecss.github.io</a></p>
+          <img class="plain" data-src="img/logo.svg" alt="SingaporeCSS">
+          <aside class="notes">Also, if anyone is interested to see the source code of the entire site, we are on Github, the site is hosted on Github because I have an operating budget of zero dollars, just saying.</aside>
         </section>
 
         <section style="text-align:left">

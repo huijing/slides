@@ -35,8 +35,8 @@ html {
   }
 
   .l-multiple {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
 
     .j-vert {
       width: 1em;

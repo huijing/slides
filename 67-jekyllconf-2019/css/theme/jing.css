@@ -147,7 +147,7 @@ body {
   font-family: "Dank Mono", monospace;
   text-transform: none;
   border-radius: 4px;
-  max-height: 65vh; }
+  max-height: none; }
 
 .reveal pre code {
   display: block;
@@ -167,7 +167,7 @@ body {
 .reveal table td {
   text-align: left;
   padding: 0.2em 0.5em 0.2em 0.5em;
-  border-bottom: 1px solid; }
+  border-bottom: thin solid; }
 
 .reveal table th[align="center"],
 .reveal table td[align="center"] {
@@ -278,8 +278,8 @@ html {
   display: none; }
 
 .reveal .l-multiple {
-  display: flex;
-  justify-content: space-around; }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10em, 1fr)); }
   .reveal .l-multiple .j-vert {
     width: 1em; }
 
