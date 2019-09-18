@@ -130,14 +130,18 @@
 
 65. [Using DevTools to understand modern CSS layouts](https://www.chenhuijing.com/slides/65-connectfest-2019)
 
-<!-- 66. [Using DevTools to understand modern CSS layouts](https://www.chenhuijing.com/slides/66-wwktm-2019)
+66. [Using DevTools to understand modern CSS layouts](https://www.chenhuijing.com/slides/66-wwktm-2019)
 
 67. [Why I love data files in Jekyll](https://www.chenhuijing.com/slides/67-jekyllconf-2019)
 
 68. [Using DevTools to understand modern layouts](https://www.chenhuijing.com/slides/68-finch-frontend-2019)
 
-69. [Demystify modern CSS layouts with DevTools](https://www.chenhuijing.com/slides/69-view-source-2019)
+<!-- 69. [Demystify modern CSS layouts with DevTools](https://www.chenhuijing.com/slides/69-view-source-2019)
 
 70. [Neither here nor there](https://www.chenhuijing.com/slides/70-queerjs-ams-2019)
 
-71. [A deep dive into images on the web](https://www.chenhuijing.com/slides/71-fronteers-2019) -->
+71. [A deep dive into images on the web](https://www.chenhuijing.com/slides/71-fronteers-2019)
+
+73. [Making CSS from good to great: the power of Subgrid](https://www.chenhuijing.com/slides/73-mdr-asia-2019)
+
+74. [How CSS evolves, a look back at 2 years of CSS grid](https://www.chenhuijing.com/slides/74-devfestgt-2019) -->
