@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Ostrich Sans';
+  src: url('ostrichsans-heavy.woff2') format('woff2'),
+     url('ostrichsans-heavy.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}

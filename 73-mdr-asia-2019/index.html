@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Making CSS from good to great: the power of Subgrid</title>
+    <meta name="description" content="Even though Grid allowed us to do many things with an ease that was not possible before, there is still room for improvement. Cue Subgrid. This feature allows nested grids to participate in the sizing of their parent grids, solving a major pain point developers faced with just Grid alone. This talk will explain how subgrid works and the use-cases it solves.">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/jing.css">
+    <link rel="stylesheet" href="lib/css/atelier-dune-light.css">
+
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-background-image="img/background.jpg">
+          <h1>Making CSS from Good to Great</h1>
+          <h3>The Power of Subgrid</h3>
+          <p style="margin-top:1em"><small><a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
+          <aside class="notes">
+
+          </aside>
+        </section>
+        
+        <section style="text-align:left">
+          <h1>Thank you!</h1>
+          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle">https://www.chenhuijing.com</a></p>
+          <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/codepen_w.png" alt="Codepen"><a href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle">@huijing</a></p>
+          <p style="text-align:right"><small>Header font is <a href="https://www.theleagueofmoveabletype.com/ostrich-sans">Ostrich Sans</a> by <a href="https://www.tylerfinck.com/">Tyler Finck</a>.<br>Body font is <a href="https://github.com/impallari/Libre-Baskerville">Libre Baskerville</a> by <a href="https://github.com/impallari">Pablo Impallari</a>.</small></p>
+        </section>
+      </div>
+
+      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://www.chenhuijing.com/slides/73-mdr-asia-2019</span><span style="text-align:right">@hj_chen</span></footer>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      Reveal.initialize({
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
