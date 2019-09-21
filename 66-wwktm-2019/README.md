@@ -4,7 +4,7 @@
 
 Namaskar. This is my first time visiting Nepal and I feel very blessed for the opportunity to speak to all of you today. Big thank you to the organisers for bringing me over. I'm going to be sharing with you some of my favourite things about the Firefox DevTools and how they've helped me better understand some of the powerful, new CSS features and layout techniques.
 
-I've only got 25 minutes, so let's get right into it. If I'm going a little too fast, please feel free to come talk to me afterwards and ask me any questions you may have.
+I've only got 25 minutes, so let's get right into it. If I'm going a little too fast, please feel free to come talk to me afterwards and ask me any questions you may have. I also have a bunch of different stickers I'd like to give out, if stickers are your thing.
 
 ## Flexbox, where nobody knows the size of anything
 
