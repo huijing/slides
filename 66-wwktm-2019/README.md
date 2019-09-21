@@ -2,9 +2,9 @@
 
 *For Web Weekend Kathmandu 2019. This is a sort-of transcript plus my notes for the talk.*
 
-Hello everyone! This is my first time visiting Nepal and I feel very blessed for the opportunity to speak to all of you today. Big thank you to the organisers for bringing me over. I'm going to be sharing with you some of my favourite things about the Firefox DevTools and how they've helped me better understand some of the powerful, new CSS features and layout techniques.
+Namaskar. This is my first time visiting Nepal and I feel very blessed for the opportunity to speak to all of you today. Big thank you to the organisers for bringing me over. I'm going to be sharing with you some of my favourite things about the Firefox DevTools and how they've helped me better understand some of the powerful, new CSS features and layout techniques.
 
-I've only got 25 minutes, so let's get right into it.
+I've only got 25 minutes, so let's get right into it. If I'm going a little too fast, please feel free to come talk to me afterwards and ask me any questions you may have.
 
 ## Flexbox, where nobody knows the size of anything
 
@@ -121,4 +121,4 @@ Because of time constraints, I didn't get the chance to cover things like subgri
 
 These new layout techniques allow designers and developers to spend less time wrangling their code and focus their efforts on the actual design of more innovative and adaptive layouts that work well across as many devices and browsers as possible.
 
-And I want to end off by saying, if you've been on the fence about trying out these new features because they seem complicated and hard, just go for it.
+And I want to end off by saying, if you've been on the fence about trying out these new features because they seem complicated and hard, just jump right in. The journey will be smoother than you think.
