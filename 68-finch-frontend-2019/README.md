@@ -1,6 +1,39 @@
-# Using DevTools to Understand Modern Layouts
+# Using DevTools to understand modern layouts
 
 *For Finch Frontend 2019. This is a sort-of transcript plus my notes for the talk.*
+
+## Content-based sizing, letting the browser decide
+  
+- the concept of automatic sizing has always existed
+- browsers have always managed to figure out how much space content should take up without any intervention from us
+- content would reflow without overlapping
+- covered in CSS Intrinsic & Extrinsic Sizing Module Level 3
+- gives authors the option of assigning automatic widths to the elements on their page
+- `width` and `height` now take 3 additional keyword values, `min-content`, `max-content` and `fit-content`
+
+---
+
+- `min-content` is the smallest size a box could take that doesn't lead to overflow, so inline content will break multiple lines
+- line breaking is a lot more complicated than most people give it credit for, because there is a lot of nuance depending on the language being used
+- for a lot of languages, line breaks occur at word boundaries, where spaces or punctuation are used to explicitly separate words
+- the browser won't break words though, so the word `content` plus the full stop is treated as a single entity
+- and that ends up being the width of the first box
+- for Chinese or Japanese though, the break is per character, usually but not always, because there are rules about certain characters that are not allowed to start or end a line
+- East Asian scripts also use full-width punctuation, so with a full-width comma, this box is now 2 characters wide
+- some Southeast-Asian scripts, like Thai, are written without spaces between words, so text is wrapped at syllable boundaries in addition to word boundaries
+
+---
+
+- `max-content` is a box's ideal size in a given axis when given infinite available space
+- content will take up as much space as required to lay itself out on 1 line
+- the word “ประโยค” (prayokh) is the longest in this sentence, and if you don't read Thai, you probably wouldn't be able to tell where the break would happen
+
+---
+
+- `fit-content` unfortunately is not a supported value at this point but all 3 keywords are supported when used in the context of a grid formatting layout
+- `fit-content` is not a fixed value like the previous 2 keywords, it is a range between the `min-content` size and the `max-content` size or length-percentage defined in the function, whichever is smaller
+- if you look at the Chinese and Thai examples, which have exactly the same content, their smallest size is `min-content`, while their largest size ends up being `300px`
+- if I change the cap value to something larger than `max-content`, like `500px`, then `max-content` becomes the largest size
 
 ## Flexbox, where nobody knows the size of anything
 
@@ -67,6 +100,7 @@
 - the cross axis is perpendicular to the main axis
 - items are stretched along the cross axis to the full height of the flex line once you apply `display: flex`
 - once the `align-self` or `align-items` property is applied though, the items revert to their original heights
+- this behaviour also happens for grid items, where if you apply any of the self-alignment properties, the item shrinks to fit its content
 - an interesting value for `align-items` is `baseline`, which is useful when you have text within flex items of varying sizes and positions
 - `baseline` lines them all up, so if the text within each item is related, it becomes much easier to read
 
@@ -74,19 +108,6 @@
 
 - if there is more space in the flex container than the total height of all the flex lines *(set container height to more than 75vh)*, you'll end up with these gaps, that maybe you don't want
 - Using `align-content` lets you pack your items together and align the whole block of items within the container
-
----
-
-- auto margins are your friend
-- unlike in the current implementation of the block formatting context, using `margin: auto` will centre an item right in the middle of the container, allocating available free space equally around all the flex item
-- when you need to centre 1 item in the middle of its parent, instead of using the box alignment properties, you could just slap on a `margin: auto` on the flex child, just saying
-- one thing to note is that if free space is distributed to auto margins, the alignment properties will have no effect in that dimension because the margins will have stolen all the free space left over after flexing
-- a relatively common use-case is when you need 1 item in your navigation alone on the right, auto-margins make things really easy
-
----
-
-- feel free to change the flex direction when necessary
-- if you need a card layout with content that needs to be aligned to the bottom of the card, using `flex-direction` column, and making the main content grow with `flex: 1`, for example, is a 2-line solution
 
 ## Grid, where we finally have real rows and columns
 
@@ -126,8 +147,65 @@
 - when the viewport size changes, I adjust the positions of the elements by touching the CSS for only the grid container *(proceed to resize browser and hit 3 layouts)*
 - you can see how the grid area names, and hence the grid item assigned to it, have been tweaked
 
+---
+
+- relatively new feature that Firefox started supporting since version 66 is the ability to animate grid columns and rows
+- this was always written into the specification but it took some time for implementation
+- previously only animation of the `gap` property had been supported
+- intuitively, some of us might picture the grid items moving across tracks when animated but that's not the case at all
+- inspecting with DevTools will show exactly what the browser is animating *(trigger grid overlay for grid5.board)*
+- this example consists of a grid container with 1 grid item
+- the CSS animation keyframes are interpolating between the different values of `grid-template-columns` and `grid-template-rows`
+- the grid item's alignment has been set to the bottom-right corner of the grid cell it was placed in
+
+---
+
+- if you can recall when I talked a bit about the box alignment properties earlier, I mentioned that using self-alignment properties will result in the item shrinking to fit its content
+- so if we have a design like this, *(switch to Malerei, Fotografie, Film)*, with borders that are along the grid lines, but content that is smaller than the cell, you will need to use both Flexbox and Grid
+- *(target arrow)* if we remove `display: flex` on this grid cell and convert the code to use box alignment properties on grid, you will see what I mean
+- *(deactivate flex, add align-self: center)*, the grid cell shrinks to fit, and the border shrinks with it
+- so it's not about Flexbox OR Grid, it's about Flexbox AND Grid, really
+
+## Flexible sizing, responsive design powered up
+
+- flexible sizing is also a big thing when it comes to grid and is a pretty interesting aspect of building modern CSS layouts
+- previously we've always used relative units like percentages, or the newer viewport units, but the issue with those is that they make all your elements change in size at the **same** rate
+- grid introduces the `fr` unit, as well as the `minmax()` function, and together with other intrinsic sizing values like `fit-content()` and `auto`, we now can have variable rates of change
+- all these sizing units are fully supported in a grid formatting context, and are applied with the `grid-template-columns` property
+- warning, lots of browser resizing coming up
+
+---
+
+- `fr` units versus `auto`
+- let's compare the difference between `fr`, in green, and `auto`, in blue
+- `fr` represents a fraction of leftover space in the grid container, so whenever there is extra space it will always go to an `fr` sized column
+- but it is also the first to be taken away when there isn't enough space
+- `auto` will take up as much space as necessary without breaking lines, like `max-content` but not as rigid
+- without the presence of `fr`, any `auto` sized columns will absorb that free space
+- when there isn't enough space, `auto` will keep the `max-content` width until `fr` has given up all its free space before shrinking itself
+
+---
+
+- `fit-content()` versus `minmax()`
+- `fit-content()` and `minmax()` behave quite similarly, they are both a range of values with a minimum and maximum limit
+- `minmax()` takes 2 arguments, the first one being the minimum size and the second one being the maximum, and we've already covered how `fit-content()` works earlier
+- when there isn't enough space, we've already mentioned that `fr` sized columns are the first to lose size
+- but after that, you'll notice that `fit-content()` and `auto` shrink at the same rate
+- if you look at the second set, with `minmax()`, `auto` and `fit-content`, things get a bit interesting because *when* the column grows or shrinks is different
+- `auto` starts off with all the free space when there's plenty of it, then gives it up as space gets taken away
+- once `auto` hits `max-content` size, it stops shrinking and space gets taken away from `minmax()` instead
+- however, at some point, all 3 columns start to shrink again, exactly when I can't say, **but** that point allows all 3 to end up hitting their minimum size *at the same time*
+- *(refer to second set)* in a growth scenario, where there is lots of space, `fit-content()` gets capped at its `max-content` width, while `auto` and `minmax()` continue to grow
+- once `auto` hits `max-content` size though, it pauses growing while `minmax()` continues to absorb the free space until it hits the upper limit of `400px`, after which `auto` takes over the rest of the free space
+
+---
+
+- *(show Florence)* with such variable sizing, we have more options for editorial designs that adapt well to a greater range of viewport sizes
+- *hide float (on top right corner) and trigger overlay*
+- grid also allows us to do things like overlap so much easier than before
+
 ## Wrapping up
 
 These new layout techniques allow designers and developers to spend less time wrangling their code and focus their efforts on the actual design of more innovative and adaptive layouts that work well across as many devices and browsers as possible.
 
-And I want to end off by saying, if you've been on the fence about trying out these new features because they seem complicated and hard, just go for it.
+And I want to end off by saying, if you've been on the fence about trying out these new features because they seem complicated and hard, just jump right in. The journey will be smoother than you think.
