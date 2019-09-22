@@ -1,0 +1,104 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>cmd5 - Responsive grid without media queries</title>
+  <meta name="description" content="">
+  <meta name="author" content="Chen Hui Jing">
+
+  <style>
+  html {
+    box-sizing: border-box;
+    height: 100%;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  img {
+    display: block;
+    border-radius: 50%;
+    width: 100%;
+    box-shadow: 0.25em 0.25em 0.5em rgba(0,0,0,0.5);
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+    grid-gap: 1em;
+    padding: 1em;
+  }
+
+  .twitter {
+    position: fixed;
+    top: 0.5em;
+    right: 0.5em;
+    color: darkgreen;
+    writing-mode: vertical-rl;
+    mix-blend-mode: difference;
+    opacity: 0.6;
+    margin: 0;
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <main>
+    <ul>
+      <li><img src="img/image1.jpg"></li>
+      <li><img src="img/image2.jpg"></li>
+      <li><img src="img/image3.jpg"></li>
+      <li><img src="img/image4.jpg"></li>
+      <li><img src="img/image5.jpg"></li>
+      <li><img src="img/image6.jpg"></li>
+      <li><img src="img/image7.jpg"></li>
+      <li><img src="img/image8.jpg"></li>
+      <li><img src="img/image9.jpg"></li>
+      <li><img src="img/image10.jpg"></li>
+      <li><img src="img/image11.jpg"></li>
+      <li><img src="img/image12.jpg"></li>
+      <li><img src="img/image13.jpg"></li>
+      <li><img src="img/image14.jpg"></li>
+      <li><img src="img/image15.jpg"></li>
+      <li><img src="img/image16.jpg"></li>
+      <li><img src="img/image17.jpg"></li>
+      <li><img src="img/image18.jpg"></li>
+      <li><img src="img/image19.jpg"></li>
+      <li><img src="img/image20.jpg"></li>
+      <li><img src="img/image21.jpg"></li>
+      <li><img src="img/image22.jpg"></li>
+      <li><img src="img/image23.jpg"></li>
+      <li><img src="img/image24.jpg"></li>
+      <li><img src="img/image25.jpg"></li>
+      <li><img src="img/image26.jpg"></li>
+      <li><img src="img/image27.jpg"></li>
+      <li><img src="img/image28.jpg"></li>
+      <li><img src="img/image29.jpg"></li>
+      <li><img src="img/image30.jpg"></li>
+      <li><img src="img/image31.jpg"></li>
+      <li><img src="img/image32.jpg"></li>
+    </ul>
+  </main>
+</body>
+
+</html>

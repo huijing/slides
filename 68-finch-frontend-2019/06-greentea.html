@@ -1,0 +1,200 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>cmd6 - Responsive design with named grid areas</title>
+  <meta name="description" content="">
+  <meta name="author" content="Chen Hui Jing">
+
+  <style>
+  @font-face {
+    font-family: 'Gentium Book Basic';
+    src: url('fonts/genbkbasr.woff2') format('woff2'),
+         url('fonts/genbkbasr.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  html {
+    box-sizing: border-box;
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Gentium Book Basic', serif;
+  }
+
+  p {
+    line-height: 1.4;
+    margin-bottom: 1em;
+  }
+
+  img {
+    max-width: 100%;
+    object-fit: contain;
+    height: 100%;
+  }
+
+  button {
+    font-family: inherit;
+    font-size: inherit;
+    border: 0;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    transition: background-color 0.5s;
+  }
+
+  button:hover {
+    background-color: darkgrey;
+  }
+
+  h1 {
+    display: none;
+    margin: auto;
+  }
+
+  p {
+    display: none;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  h1.jsActive,
+  .jsActive p {
+    display: block;
+  }
+
+  .grid {
+    padding: 10px;
+    background-color: #ffff96;
+  }
+
+  .grid > div {
+    background-color: #1b2b34;
+    padding: 1em;
+    color: #ffff96;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  @media screen and (min-width: 440px) {
+    .grid {
+      display: grid;
+      grid-template-columns: 6em calc(100% - 6.25em);
+      grid-template-rows: 45vh 25vh max-content;
+      grid-template-areas: 'title image'
+                          'nav image'
+                          'content content';
+      gap: 0.25em;
+      transition: all 1s;
+    }
+    
+    .image { 
+      grid-area: image;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .title {
+      grid-area: title;
+      writing-mode: vertical-rl;
+      display: flex;
+    }
+
+    .content {
+      grid-area: content;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .nav {
+      grid-area: nav;
+      flex-direction: column;
+    }
+  }
+
+  @media screen and (min-width: 820px) {
+    .grid {
+      grid-template-columns: 55% calc(45% - 0.5em);
+      grid-template-rows: 4em 1fr max-content;
+      grid-template-areas: 'image title'
+                          'image content'
+                          'image nav';
+      gap: 0.5em;
+    }
+    
+    .title {
+      writing-mode: horizontal-tb;
+    }
+    
+    .nav {
+      flex-direction: row;
+    }
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <main class="grid" data-active="1">
+    <div class="title" id="titles">
+      <h1 data-info="1" class="jsActive">Green Tea</h1>
+      <h1 data-info="2">Sencha</h1>
+      <h1 data-info="3">Matcha</h1>
+    </div>
+  
+    <div class="image">
+      <img src="img/green-tea.jpg" alt="Varieties of Green Tea">
+    </div>
+  
+    <div class="content">
+      <div data-info="1" class="jsActive">
+        <p>Green tea is made from the leaves of Camellia sinensis that have undergone minimal oxidation during processing. Green tea originates in China, but it has become associated with many cultures throughout Asia.</p>
+        <p>Green tea has recently become more widespread in the West, where black tea has been the traditionally consumed tea. Green tea has become the raw material for extracts which are used in various beverages, health foods, dietary supplements, and cosmetic items.</p>
+        <p>Many varieties of green tea have been created in the countries where it is grown. These varieties can differ substantially due to variable growing conditions, horticulture, production processing, and harvesting time.</p>
+      </div>
+      <div data-info="2">
+        <p>Sencha (煎茶) is a Japanese green tea witch is distinguished by its fresh taste and the uniform and emerald leaves. It is the most popular tea in Japan accounting for about 80% of the produced teas.</p>
+        <p>Sencha is like most Japanese green teas briefly treated with hot steam in order to prevent the oxidation (kill green) while in China green tea is mostly roasted for a short time at about 280° C.</p>
+        <p>The best and most expensive quality of Sencha is Shincha, the first flush, which is harvested depending on the region between April and May.</p>
+      </div>
+      <div data-info="3">
+        <p>Matcha (抹茶) is a powder green tea used in the Japanese tea ceremony. But nowadays matcha is also used as a fancy drink or to flavour foods such as mochi and soba noodles, shakes or ice cream. Matcha is made of tencha, a shaded tea similar to gyokuro.</p>
+        <p>Matcha are often given poetic names called chamei (tea names) either by the producing plantation, shop or creator of the blend, or by the grand master of a particular tea tradition. When a blend is named by the grand master of some tea ceremony lineage, it becomes known as the master's konomi, or favoured blend. </p>
+      </div>
+    </div>
+  
+    <div class="nav">
+      <button id="prev" type="button">Prev</button>
+      <button id="next" type="button">Next</button>
+    </div>
+  </main>
+
+  <p class="twitter">@hj_chen</p>
+</body>
+
+</html>
