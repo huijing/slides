@@ -14,9 +14,9 @@
 ---
 
 - `min-content` is the smallest size a box could take that doesn't lead to overflow, so inline content will break multiple lines
-- line breaking is a lot more complicated than most people give it credit for, because there is a lot of nuance depending on the language being used
-- for a lot of languages, line breaks occur at word boundaries, where spaces or punctuation are used to explicitly separate words
-- the browser won't break words though, so the word `content` plus the full stop is treated as a single entity
+- line breaking might be something most of us don't give a second thought to, but there is lot of nuance depending on the language being used
+- for many languages, like English or French, line breaks occur at word boundaries, where spaces or punctuation are used to explicitly separate words
+- browsers will not break words by default, so the word `content` plus the full stop is treated as a single entity
 - and that ends up being the width of the first box
 - for Chinese or Japanese though, the break is per character, usually but not always, because there are rules about certain characters that are not allowed to start or end a line
 - East Asian scripts also use full-width punctuation, so with a full-width comma, this box is now 2 characters wide
@@ -37,9 +37,9 @@
 
 ## Flexbox, where nobody knows the size of anything
 
-- New layout model, a lot more powerful than previous techniques we had
-- Allows the browser to take over sizing based on the amount of available space
-- Can be confusing at first because the end result is not what you explicitly set
+- the first layout model that was designed specifically for building web layouts, a lot more powerful than previous techniques we had
+- allows the browser to take over sizing based on the amount of available space
+- can be confusing at first because the end result may not be what you explicitly set
 - Firefox is the only browser with a Flexbox inspector, locate it at the *Layout* tab, possible to change colour of overlay
 - overlay shows you outlines of each flex item, and the free space available as a texture
 - will tell you the flex direction, and the wrap status
@@ -59,7 +59,8 @@
 
 ---
 
-- so we've got 2 flex containers with 3 flex items each, first 2 items have the same content, much longer content for the second container's last item
+- sometimes you may encounter a scenario where the same flex values give you different end results
+- here are 2 flex containers with 3 flex items each, first 2 items have the same content, much longer content for the second container's last item
 - both only have `display: flex` set on the parent element and nothing on the children
 - it is totally possible to change the different flex values but by default, they are `0 1 auto`, meaning the items won't grow beyond their starting widths *(resize until enough room for all content)*
 - a `flex-shrink` value of `1` means all the items will shrink at the same rate if there isn't enough space for all the content to be a single line
@@ -71,14 +72,16 @@
 
 ---
 
+- what I find really cool about flexbox is the amount of control it gives us over the distribution of free space between content
+- flex items are sized depending on the interplay between the 3 flex item properties 
 - the next bit I want to cover is understanding the difference between having a `flex-basis` of `auto` versus a `flex-basis` of `0`
 - again, I have 2 sets of 3 items, but this time, with exactly the same content
-- the items are allowed to both grow and shrink, but each item in the set has a different `flex-grow` factor
-- `flex-shrink` is `1` for all the items to make things easier to observe
-- the key difference between both sets is that the first set uses `auto` as the `flex-basis`, which means the starting width for each item is the width of its content
+- all the items have `flex-shrink` set to 1, so they will shrink at the same rate when there isn't enough space
+- but I've put in varying `flex-grow` values of 1, 2 and 0 respectively, to demonstrate how free space gets added to your flex items when there is excess space
+- the first set uses `auto` as the `flex-basis`, which means the starting width for each item is the width of its content
 - the available free space is the total width of the container minus the widths of the content within the 3 flex items
 - that free space is distributed between items 1 and 2 in the ratio of 1:2, respectively
-- inspector shows you that item 1 grew by x, and item 2 grew by 2x, and also shows you the starting width of each item
+- inspector shows you the starting width of each item and how much each of them grew by
 - the second set has `flex-basis` set to `0`, that means there is no starting width for each item
 - the free space available is equivalent to the total width of the container minus the `min-content` width of the third item, because again, the browser doesn't break words so that's as small as it can go
 - then that free space is divided between item 1 and 2 in the ratio of 1:2 as well
@@ -207,5 +210,7 @@
 ## Wrapping up
 
 These new layout techniques allow designers and developers to spend less time wrangling their code and focus their efforts on the actual design of more innovative and adaptive layouts that work well across as many devices and browsers as possible.
+
+As more layout features like subgrid or multi-column continue to be developed and adopted by browsers, there's never been a more exciting time to be designing for the web.
 
 And I want to end off by saying, if you've been on the fence about trying out these new features because they seem complicated and hard, just jump right in. The journey will be smoother than you think.
