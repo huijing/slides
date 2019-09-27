@@ -1,0 +1,142 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>cmd9 - Art-directed flexible grid</title>
+  <meta name="description" content="">
+  <meta name="author" content="Chen Hui Jing">
+
+  <style>
+  @font-face {
+    font-family: 'Permanent Marker';
+    src: url('fonts/permanentmarker.woff2') format('woff2'),
+        url('fonts/permanentmarker.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Adamina';
+    src: url('fonts/adamina-regular.woff2') format('woff2'),
+        url('fonts/adamina-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Rasa';
+    src: url('fonts/rasa-regular.woff2') format('woff2'),
+        url('fonts/rasa-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  html {
+    box-sizing: border-box;
+    height: 100%;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+  }
+
+  img {
+    max-width: 100%;
+    object-fit: cover;
+    object-position: 26%;
+    height: 100%;
+  }
+
+  main {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: minmax(20%, 20em) auto fit-content(15em);
+    grid-template-rows: 30vmin min-content max-content auto;
+  }
+
+  main::before {
+    content: '';
+    grid-column: 2;
+    grid-row: 1 / -2;
+    background-color: red;
+  }
+
+  img {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 3;
+    mix-blend-mode: difference;
+  }
+
+  h1 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: calc(1.5em + 2.5vw);
+    padding: 0.25em;
+    grid-column: 2 / span 2;
+    grid-row: 2;
+    text-align: right;
+    position: relative;
+  }
+
+  .intro {
+    font-family: 'Adamina', serif;
+    font-size: calc(1em + 1vmin);
+    grid-row: 3;
+    color: #444;
+    margin-bottom: 1em;
+    padding-left: 1em;
+    line-height: 1.4;
+  }
+
+  div {
+    font-family: 'Rasa', serif;
+    grid-column: 1 / -1;
+    grid-row: 4;
+    margin: 1em;
+    font-size: 115%;
+  }
+
+  div p {
+    margin-bottom: 1em;
+  }
+
+  .twitter {
+    position: fixed;
+    top: 0.5em;
+    right: 0.5em;
+    color: darkgreen;
+    writing-mode: vertical-rl;
+    mix-blend-mode: difference;
+    opacity: 0.6;
+    margin: 0;
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <main>
+    <img src="img/james.jpg" alt="James McAvoy">
+    <h1>The hero with a<br>thousand faces</h1>
+    <p class="intro">An early winter afternoon in London: gray clouds, flat light, a bite in the air, the last leaves clinging to nearly naked trees. James McAvoy is entertaining mortal thoughts.</p>
+    
+    <div>
+      <p>“As somebody who’s always thought I’d be happy making it to 70 years of age and then die, I think: I’ve got 31 years left,” he says, apropos of seemingly nothing, while driving his red Audi home through the tight streets of North London. “It’s important to do what I want to do, instead of what I should do.”</p>
+      <p>McAvoy will be 40 years old in April. It’s not unusual for men of his age to start reconsidering their priorities. But something about McAvoy’s frank appraisal of his own impermanence is jolting. It’s partly that he still looks so young, even with his somewhat unconvincing beard, and partly the fact that I remember him best from the roles he played as a 20-something.</p>
+      <p>This confessional moment comes near the start of a long, barely interrupted, and often hilarious monologue of thoughts, reflections, impressions, and bonsmots, all delivered in a quicksilver Glaswegian burr, and it’s hard to process the words as he says them. All I can think as I sit in the passenger seat is: Why is James McAvoy telling me about his sudden urge to outrun time? It seems a strange intimacy to share with a stranger. As the monologue roller-coasters through the X-Men franchise, worker’s rights, clean carbs, Scottish independence, the strange performance art of celebrity, class struggle, Brexit, fatherhood, and Swedish personal trainers, a thought nags at me. What is behind that remark?</p>
+    </div>
+  </main>
+
+  <p class="twitter">@hj_chen</p>
+</body>
+
+</html>

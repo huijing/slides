@@ -1,0 +1,164 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Demystify Modern CSS Layouts with DevTools</title>
+  <meta name="description" content="Although we tend to associate DevTools with debugging, Firefox DevTools comes with features that can help visualise how these properties work and better understand what's going on as the viewport size changes.">
+  <meta name="author" content="Chen Hui Jing">
+
+  <style>
+    @font-face {
+      font-family: 'Gilbert';
+      src: url('fonts/gilbert-bold.otf')  format('opentype');
+      font-weight: 700;
+      font-style: normal;
+    }
+  
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  
+    html {
+      box-sizing: border-box;
+      height: 100%;
+      font-size: 1.25em;
+    }
+  
+    body {
+      height: 100%;
+    }
+  
+    main {
+      display: flex;
+      height: 100%;
+      justify-content: center;
+    }
+
+    h1 {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      text-align: center;
+      color: rgb(0, 70, 210);
+      margin-right: 0.25em;
+    }
+  
+    .links {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  
+    a {
+      text-decoration: none;
+      background: rgb(255, 255, 255);
+      background-image: linear-gradient(224deg, rgba(45, 45, 45, 0.5) 0%, rgba(90, 90, 90, 0.5) 62%, rgba(128, 128, 128, 0.5) 83%, rgba(184, 184, 184, 0.5) 100%);
+      box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.35), inset 0px -3px 1px 0px rgba(68, 68, 68, 0.5), inset 0px 1px 1px 0px rgba(188, 188, 188, 0.5);
+      transition: all 0.3s ease-out;
+      display: flex;
+    }
+  
+    a:hover, 
+    a:focus {
+      text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+      box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.35), inset 0px -2px 1px 0px rgba(68, 68, 68, 0.5), inset 0px 2px 1px 0px rgba(188, 188, 188, 0.5);
+    }
+  
+    a span {
+      margin: auto;
+    }
+  
+    .big {
+      font-family: 'Gilbert';
+      font-size: 12vmin;
+      height: 21vmin;
+      width: 21vmin;
+      border-radius: 1rem;
+    }
+  
+    .small {
+      display: flex;
+      justify-content: space-between;
+    }
+  
+    .small a {
+      font-size: 5vmin;
+      height: 10vmin;
+      width: 10vmin;
+      border-radius: 0.5rem;
+    }
+  
+    video {
+      height: 100%;
+      margin-right: 1em;
+    }
+  
+    input[type=checkbox] ~ label {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 3em;
+      height: 3em;
+      z-index: 1;
+      cursor: pointer;
+    }
+  
+    input[type=checkbox] {
+      position: absolute;
+      opacity: 0;
+      z-index: -1;
+    }
+  
+    .credit {
+      font-size: 2em;
+      text-shadow: 2px 2px 4px darkgreen;
+      color: white;
+      transform: rotate(-45deg);
+      position: absolute;
+      top: 65%;
+      right: 0;
+      display: none;
+    }
+  
+    input[type=checkbox]:checked ~ .credit {
+      display: block;
+    }
+    </style>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body class="index">
+  <main>
+      <h1>View Source 2019</h1>
+      <video loop>
+        <source src="videos/cat.mp4" type="video/mp4">
+        Sorry, your browser doesn't support embedded videos, 
+        but don't worry, you can <a href="videos/cat.mp4">download it</a>
+        and watch it with your favourite video player!
+      </video>
+    <div class="links">
+      <a class="big" href="01-content-based-sizing.html"><span>01</span></a>
+      <a class="big" href="02-flexible-box.html"><span>02</span></a>
+      <a class="big" href="03-grid.html"><span>03</span></a>
+      <div class="small">
+        <a href="05-greentea.html"><span class="emoji" role="img" tabindex="0" aria-label="hot beverage">&#x1F375;</span></a>
+        <a href="06-lmn.html"><span class="emoji" role="img" tabindex="0" aria-label="camera">&#x1F4F7;</span></a>
+      </div>
+      <a class="big" href="04-flexible-sizing.html"><span>04</span></a>
+      <div class="small">
+        <a href="07-florence.html"><span class="emoji" role="img" tabindex="0" aria-label="musical notes">&#x1F3B6;</span></a>
+        <a href="08-james.html"><span class="emoji" role="img" tabindex="0" aria-label="performing arts">&#x1F3AD;</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="scripts.js"></script>
+</body>
+
+</html>
