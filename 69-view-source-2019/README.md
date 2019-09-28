@@ -2,6 +2,10 @@
 
 *For View Source 2019. This is a sort-of transcript plus my notes for the talk.*
 
+Hello, everyone! It's really great to be back in Amsterdam again without the heat wave. But honestly, even if the weather was the worst it ever could be, I'd still be here in a heartbeat to be with all of you. My name is Hui Jing and today I'd like go through some of the newer CSS layout techniques, but with the help of DevTools.
+
+I don't know about you, but I used to think of DevTools as something you'd invoke when things went wrong. A debugging tool, if you may. But over the past 2 years, the Firefox DevTools has transformed into much more than that. Because I'd used Nightly as my main browser, I sort of experienced this first-hand as an end-user.
+
 ## Content-based sizing, letting the browser decide
   
 - the concept of automatic sizing has always existed
@@ -15,10 +19,10 @@
 
 - `min-content` is the smallest size a box could take that doesn't lead to overflow, so inline content will break multiple lines
 - line breaking might be something most of us don't give a second thought to, but there is lot of nuance depending on the language being used
-- for many languages, like English or French, line breaks occur at word boundaries, where spaces or punctuation are used to explicitly separate words
+- for many languages, like English or Dutch, line breaks occur at word boundaries, where spaces or punctuation are used to explicitly separate words
 - browsers will not break words by default, so the word `content` plus the full stop is treated as a single entity
 - and that ends up being the width of the first box
-- for Chinese or Japanese though, the break is per character, usually but not always, because there are rules about certain characters that are not allowed to start or end a line
+- for Chinese or Japanese though, the break is per character most of the time, but not always, because there are rules about certain characters that are not allowed to start or end a line
 - East Asian scripts also use full-width punctuation, so with a full-width comma, this box is now 2 characters wide
 - some Southeast-Asian scripts, like Thai, are written without spaces between words, so text is wrapped at syllable boundaries in addition to word boundaries
 
@@ -132,7 +136,7 @@
 - using `grid-template-areas` to name grid areas is structurally similar to what we see rendered on the page
 - each line surrounded with quotes represents a grid row, every value in the line makes up the grid column
 - every line must have the same number of columns otherwise the whole thing is moot
-- change your layout without having to touch the code for the grid items, only the grid areas *(change grid area of banana)*
+- change your layout without having to touch the code for the grid items, only the grid areas *(change grid area of boat)*
 - *(switch to green tea example)*
 - here I've named the key areas of the grid to match what content is in it, like *title*, *image*, *nav*,  and so on
 - when the viewport size changes, I adjust the positions of the elements by touching the CSS for only the grid container *(proceed to resize browser and hit 3 layouts)*
@@ -193,12 +197,17 @@
 
 - *(show Florence)* with such variable sizing, we have more options for editorial designs that adapt well to a greater range of viewport sizes
 - *hide float (on top right corner) and trigger overlay*
-- grid also allows us to do things like overlap so much easier than before
+- individual CSS properties might be good, but it's when they are combined together in creative ways when magic can potentially happen
+- grid also allows us to do things like overlap so much easier than before, which provides even more opportunities to use other properties like blend modes, background-clip, masks, to do interesting things *(show James)*
 
 ## Wrapping up
 
-These new layout techniques allow designers and developers to spend less time wrangling their code and focus their efforts on the actual design of more innovative and adaptive layouts that work well across as many devices and browsers as possible.
+It's not inaccurate to say that I CSS as a hobby. To me, it's not work, it's not a chore, it's a means of creative expression. However, I am fully aware that many people in our industry do not share my sentiments. CSS, admittedly, does require a different mental model from what is seen as traditional programming paradigms.
 
-As more layout features like subgrid or multi-column continue to be developed and adopted by browsers, there's never been a more exciting time to be designing for the web.
+CSS is evolving and becoming more powerful. Many of the older layout hacks like nested HTML tables, for example, are no longer necessary. But with layout properties that were specifically designed to suit the dynamic nature of the web, there are new concepts to be learned.
 
-And I want to end off by saying, if you've been on the fence about trying out these new features because they seem complicated and hard, just jump right in. The journey will be smoother than you think.
+I realised that DevTools can be an avenue to encourage developers to start trying out new CSS features by providing guidance as part of the debugging process. Flexbox really clicked for me when I saw how the browser calculated the size of my items.
+
+The Grid inspector made it easier for me to experiment with more complicated designs because of features like area names and line numbers, supporting multiple grid overlays, UI details like repositioning line number tags at the edges of the windows. Shipping new CSS features with corresponding DevTools support is one of my favourite things about Firefox DevTools.
+
+And I want to end off by saying, if you've been on the fence about trying out these new features because they seem complicated and hard, just do it. It's not as scary as you think.
