@@ -44,7 +44,6 @@
       transform: rotate(180deg);
       text-align: center;
       color: rgb(0, 70, 210);
-      margin-right: 0.25em;
     }
   
     .links {
@@ -75,8 +74,8 @@
     .big {
       font-family: 'Gilbert';
       font-size: 12vmin;
-      height: 21vmin;
-      width: 21vmin;
+      height: 20vmin;
+      width: 20vmin;
       border-radius: 1rem;
     }
   
@@ -87,14 +86,19 @@
   
     .small a {
       font-size: 5vmin;
-      height: 10vmin;
-      width: 10vmin;
+      height: 9.5vmin;
+      width: 9.5vmin;
       border-radius: 0.5rem;
+    }
+
+    .video {
+      position: relative;
+      text-align: center;
     }
   
     video {
       height: 100%;
-      margin-right: 1em;
+
     }
   
     input[type=checkbox] ~ label {
@@ -136,13 +140,18 @@
 
 <body class="index">
   <main>
-      <h1>View Source 2019</h1>
+    <h1>View Source 2019</h1>
+    <div class="video">
       <video loop>
         <source src="videos/cat.mp4" type="video/mp4">
         Sorry, your browser doesn't support embedded videos, 
         but don't worry, you can <a href="videos/cat.mp4">download it</a>
         and watch it with your favourite video player!
       </video>
+      <input type="checkbox" id="credit">
+      <label for="credit"></label>
+      <p class="credit">Thank you to @wgao19 for sharing this GIF with me…</p>
+    </div>
     <div class="links">
       <a class="big" href="01-content-based-sizing.html"><span>01</span></a>
       <a class="big" href="02-flexible-box.html"><span>02</span></a>

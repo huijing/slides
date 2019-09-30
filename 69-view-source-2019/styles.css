@@ -7,8 +7,6 @@
   padding: 0; }
 
 html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
   height: 100%;
   font-size: 1.25em; }
 
@@ -21,7 +19,8 @@ div {
           box-sizing: border-box; }
   div code {
     font-size-adjust: 0.6;
-    color: darkgreen; }
+    color: darkgreen;
+    white-space: nowrap; }
 
 h1,
 h2,

@@ -36,8 +36,10 @@ I don't know about you, but I used to think of DevTools as something you'd invok
 
 - `fit-content` unfortunately is not a supported value at this point but all 3 keywords are supported when used in the context of a grid formatting layout
 - `fit-content` is not a fixed value like the previous 2 keywords, it is a range between the `min-content` size and the `max-content` size or length-percentage defined in the function, whichever is smaller
-- if you look at the Chinese and Thai examples, which have exactly the same content, their smallest size is `min-content`, while their largest size ends up being `300px`
-- if I change the cap value to something larger than `max-content`, like `500px`, then `max-content` becomes the largest size
+- so for this example, the 3 columns are sized with `min-content`, `max-content` and `fit-content(300px)` respectively
+- the `max-content` width of this run of text is `462px`
+- when I resize the browser, `fit-content()` shrinks to a smallest width of `min-content`, but grows until it hits `300px` and stops
+- if I change the cap value to something larger than its `max-content` width, like `500px`, the column doesn't reach `500px`, it will just stop at its `max-content` size of 462px
 
 ## Flexbox, where nobody knows the size of anything
 
