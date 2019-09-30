@@ -115,6 +115,7 @@ I don't know about you, but I used to think of DevTools as something you'd invok
 ## Grid, where we finally have real rows and columns
 
 - *(ask about people using Grid)*
+- regardless of whether you have used Grid in production or are just trying it out for the first time, the Grid Inspector tool can really help when it comes to using grid
 - most basic usage of laying out items with grid is setting the track sizes of your rows and columns
 - the browser will automatically place items into the grid using a very well thought through algorithm, which is defined in the specification
 - but things being placed one after another is behaviour most of us are fairly familiar with already

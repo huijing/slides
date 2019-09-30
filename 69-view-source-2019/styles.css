@@ -35,7 +35,7 @@ img {
   margin-bottom: 0.5em; }
 
 img[src$=".svg"] {
-  max-height: 3em; }
+  max-height: 2em; }
 
 .twitter {
   position: fixed;
