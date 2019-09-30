@@ -202,12 +202,10 @@ I don't know about you, but I used to think of DevTools as something you'd invok
 
 ## Wrapping up
 
-It's not inaccurate to say that I CSS as a hobby. To me, it's not work, it's not a chore, it's a means of creative expression. However, I am fully aware that many people in our industry do not share my sentiments. CSS, admittedly, does require a different mental model from what is seen as traditional programming paradigms.
-
 CSS is evolving and becoming more powerful. Many of the older layout hacks like nested HTML tables, for example, are no longer necessary. But with layout properties that were specifically designed to suit the dynamic nature of the web, there are new concepts to be learned.
 
 I realised that DevTools can be an avenue to encourage developers to start trying out new CSS features by providing guidance as part of the debugging process. Flexbox really clicked for me when I saw how the browser calculated the size of my items.
 
 The Grid inspector made it easier for me to experiment with more complicated designs because of features like area names and line numbers, supporting multiple grid overlays, UI details like repositioning line number tags at the edges of the windows. Shipping new CSS features with corresponding DevTools support is one of my favourite things about Firefox DevTools.
 
-And I want to end off by saying, if you've been on the fence about trying out these new features because they seem complicated and hard, just do it. It's not as scary as you think.
+And I want to end off by saying, *(trigger gif)* if you've been on the fence about trying out these new features because they seem complicated and hard, just do it. It's not as scary as you think.
