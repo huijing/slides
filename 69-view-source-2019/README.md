@@ -53,12 +53,9 @@ I don't know about you, but I used to think of DevTools as something you'd invok
 
 ---
 
+- what I find really cool about flexbox is the amount of control it gives us over the distribution of free space between content
 - sizing of flex items depends on a number of factors, like the amount of free space available, the amount of content in the flex item and the starting width of the flex item
 - the exact algorithm is sort of complicated but is outlined in the specification if you're interested
-- sizing an item with flexbox involves 3 properties
-    - `flex-grow`, which controls how much an item will grow relative to those in the same container when there is lots of space
-    - `flex-shrink`, which controls how much an item will shrink relative to others when there isn't enough space
-    - `flex-basis`, which is the starting width of the item before the browser manipulates its final size
 - the key to figuring out flexbox is understanding how the `flex-basis` property works
 - say I put a fixed value of `100px` as the `flex-basis` of a flex item, intuitively, many people expect to see a box of width `100px`, because we're used to being in control of our sizing instructions
 - but `flex-basis` is actually the starting point from which the size of the box is calculated, key here is **starting point**, because if flex items are allowed to grow or shrink, odds are the final size will **not** be `100px`
@@ -78,13 +75,11 @@ I don't know about you, but I used to think of DevTools as something you'd invok
 
 ---
 
-- what I find really cool about flexbox is the amount of control it gives us over the distribution of free space between content
-- flex items are sized depending on the interplay between the 3 flex item properties 
 - the next bit I want to cover is understanding the difference between having a `flex-basis` of `auto` versus a `flex-basis` of `0`
 - again, I have 2 sets of 3 items, but this time, with exactly the same content
 - all the items have `flex-shrink` set to 1, so they will shrink at the same rate when there isn't enough space
 - but I've put in varying `flex-grow` values of 1, 2 and 0 respectively, to demonstrate how free space gets added to your flex items when there is excess space
-- the first set uses `auto` as the `flex-basis`, which means the starting width for each item is the width of its content
+- the first set uses `auto` as the `flex-basis`, which means the starting width for each item is its content width
 - the available free space is the total width of the container minus the widths of the content within the 3 flex items
 - that free space is distributed between items 1 and 2 in the ratio of 1:2, respectively
 - inspector shows you the starting width of each item and how much each of them grew by
@@ -99,8 +94,7 @@ I don't know about you, but I used to think of DevTools as something you'd invok
 - the flex inspector allows us to visualise free space is distributed for all the different values *(activate flexbox inspector)*
 - box alignment properties are meant to be used across layout models, although for now, they can only be used with flex and grid
 - `justify-content` lets us adjust flex items along the **main axis**, which is the direction flex items are laid out
-- `start`, `center` and `end` are **positional** keywords, which adjust the flex children's absolute position within the flex container
-- `space-around`, `space-between` and `space-evenly` are **distribution** keywords, which disperse extra space between the flex children
+- can move all the flex children within the container or disperse the extra space between them
 - if we change the `flex-direction` to `column`, `justify-content` still adjusts the flex items along the **main axis** *(remember to also add a height less than viewport height)*
 - it's just that the main axis is now flowing from top to bottom, so the flex items move along this direction instead
 
@@ -108,8 +102,8 @@ I don't know about you, but I used to think of DevTools as something you'd invok
 
 - the cross axis is perpendicular to the main axis
 - items are stretched along the cross axis to the full height of the flex line once you apply `display: flex`
-- once the `align-self` or `align-items` property is applied though, the items revert to their original heights
-- this behaviour also happens for grid items, where if you apply any of the self-alignment properties, the item shrinks to fit its content
+- once any self-alignment properties (`align-self` or `align-items`) are applied though, the items revert to their original heights
+- this behaviour also happens for grid items, which will shrink to fit their content
 - an interesting value for `align-items` is `baseline`, which is useful when you have text within flex items of varying sizes and positions
 - `baseline` lines them all up, so if the text within each item is related, it becomes much easier to read
 
@@ -135,30 +129,33 @@ I don't know about you, but I used to think of DevTools as something you'd invok
 
 ---
 
-- using `grid-template-areas` to name grid areas is structurally similar to what we see rendered on the page
+- the `grid-template-areas` property is used to name grid areas 
+- fond of this syntax because it is structurally similar to what we see rendered on the page
+- especially useful if you are doing full page layouts involving numerous grid items
 - each line surrounded with quotes represents a grid row, every value in the line makes up the grid column
 - every line must have the same number of columns otherwise the whole thing is moot
-- change your layout without having to touch the code for the grid items, only the grid areas *(change grid area of boat)*
+- change your layout without having to touch the code for the individual grid items, you only modify the grid areas *(change grid area of boat)*
 - *(switch to green tea example)*
 - here I've named the key areas of the grid to match what content is in it, like *title*, *image*, *nav*,  and so on
-- when the viewport size changes, I adjust the positions of the elements by touching the CSS for only the grid container *(proceed to resize browser and hit 3 layouts)*
-- you can see how the grid area names, and hence the grid item assigned to it, have been tweaked
+- when the viewport size changes, I can adjust the positions of the elements by touching the CSS for only the grid container *(proceed to resize browser and hit 3 layouts)*
+- with the Grid Inspector, you can see how the grid area names, and hence the grid item assigned to it, have been tweaked
 
 ---
 
 - relatively new feature that Firefox started supporting since version 66 is the ability to animate grid columns and rows
-- this was always written into the specification but it took some time for implementation
-- previously only animation of the `gap` property had been supported
+- this was always written into the specification but it took some time for browsers to ship this feature
 - intuitively, some of us might picture the grid items moving across tracks when animated but that's not the case at all
 - inspecting with DevTools will show exactly what the browser is animating *(trigger grid overlay for grid5.board)*
-- this example consists of a grid container with 1 grid item
-- the CSS animation keyframes are interpolating between the different values of `grid-template-columns` and `grid-template-rows`
+- this example consists of a grid container of 2 rows and 2 columns with 1 grid item in it
+- the CSS animation keyframes are interpolating between the different column and row sizes I've set
 - the grid item's alignment has been set to the bottom-right corner of the grid cell it was placed in
+- so this is where having corresponding DevTools support for a new CSS feature really helped in my understanding of how things worked
 
 ---
 
+- sometimes I get the question of which layout model is better, Flexbox or Grid, and to me that's the wrong question to ask
 - if you can recall when I talked a bit about the box alignment properties earlier, I mentioned that using self-alignment properties will result in the item shrinking to fit its content
-- so if we have a design like this, *(switch to Malerei, Fotografie, Film)*, with borders that are along the grid lines, but content that is smaller than the cell, you will need to use both Flexbox and Grid
+- so if we have a design like this, *(switch to Malerei, Fotografie, Film)*, with borders that are along the grid lines, but content that is smaller than the cell, you will need to use **both** Flexbox and Grid
 - *(target arrow)* if we remove `display: flex` on this grid cell and convert the code to use box alignment properties on grid, you will see what I mean
 - *(deactivate flex, add align-self: center)*, the grid cell shrinks to fit, and the border shrinks with it
 - so it's not about Flexbox OR Grid, it's about Flexbox AND Grid, really
