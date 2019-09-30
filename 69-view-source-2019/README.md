@@ -167,7 +167,7 @@ I don't know about you, but I used to think of DevTools as something you'd invok
 - previously we've always used relative units like percentages, or the newer viewport units, but the issue with those is that they make all your elements change in size at the **same** rate
 - grid introduces the `fr` unit, as well as the `minmax()` function, and together with other intrinsic sizing values like `fit-content()` and `auto`, we now can have variable rates of change
 - all these sizing units are fully supported in a grid formatting context, and are applied with the `grid-template-columns` property
-- warning, lots of browser resizing coming up
+- warning, lots of browser resizing coming up *(make sure console view is triggered)*
 
 ---
 
@@ -176,29 +176,34 @@ I don't know about you, but I used to think of DevTools as something you'd invok
 - `fr` represents a fraction of leftover space in the grid container, so whenever there is extra space it will always go to an `fr` sized column
 - but it is also the first to be taken away when there isn't enough space
 - `auto` will take up as much space as necessary without breaking lines, like `max-content` but not as rigid
-- without the presence of `fr`, any `auto` sized columns will absorb that free space
-- when there isn't enough space, `auto` will keep the `max-content` width until `fr` has given up all its free space before shrinking itself
+- when used together with `fr`, any `auto` will cap itself at `max-content` width no matter how much the viewport grows
+- but when there isn't enough space, `auto` will keep the `max-content` width until `fr` has given up all its free space before shrinking itself
 
 ---
 
-- `fit-content()` versus `minmax()`
+- `fit-content()` versus `minmax()` 
 - `fit-content()` and `minmax()` behave quite similarly, they are both a range of values with a minimum and maximum limit
 - `minmax()` takes 2 arguments, the first one being the minimum size and the second one being the maximum, and we've already covered how `fit-content()` works earlier
-- when there isn't enough space, we've already mentioned that `fr` sized columns are the first to lose size
-- but after that, you'll notice that `fit-content()` and `auto` shrink at the same rate
-- if you look at the second set, with `minmax()`, `auto` and `fit-content`, things get a bit interesting because *when* the column grows or shrinks is different
+- looking at example #5, when there isn't enough space, we've already mentioned that `fr` sized columns are the first to lose size
+- but after that, you'll notice that `fit-content()` and `auto` shrink and reach their minimum content size at the same time
+- moving down to example #6, with `minmax()`, `auto` and `fit-content`, things get a bit interesting because *when* the column grows or shrinks is different
 - `auto` starts off with all the free space when there's plenty of it, then gives it up as space gets taken away
 - once `auto` hits `max-content` size, it stops shrinking and space gets taken away from `minmax()` instead
 - however, at some point, all 3 columns start to shrink again, exactly when I can't say, **but** that point allows all 3 to end up hitting their minimum size *at the same time*
-- *(refer to second set)* in a growth scenario, where there is lots of space, `fit-content()` gets capped at its `max-content` width, while `auto` and `minmax()` continue to grow
+- *(refer to example #6)* in a growth scenario, where there is lots of space, `fit-content()` gets capped at its `max-content` width, while `auto` and `minmax()` continue to grow
 - once `auto` hits `max-content` size though, it pauses growing while `minmax()` continues to absorb the free space until it hits the upper limit of `400px`, after which `auto` takes over the rest of the free space
 
 ---
 
 - *(show Florence)* with such variable sizing, we have more options for editorial designs that adapt well to a greater range of viewport sizes
+- there are 2 layouts here, which pretty much look the same at this wide viewport, but as the viewport gets smaller, the difference is apparent
+- with percentage sizing, the image gets to small, the text gets squished up, and we would end up writing a different sets of sizes with a media query for narrow viewports
 - *hide float (on top right corner) and trigger overlay*
+- but with the flexible sizing units, the layout is more robust across a much wider range of viewport sizes
 - individual CSS properties might be good, but it's when they are combined together in creative ways when magic can potentially happen
 - grid also allows us to do things like overlap so much easier than before, which provides even more opportunities to use other properties like blend modes, background-clip, masks, to do interesting things *(show James)*
+- this is a relatively crude example of adding blend modes to overlapping content for some artistic effects that morph and change with the viewport size
+- what we have now is so much more room for creative expression on the web
 
 ## Wrapping up
 
