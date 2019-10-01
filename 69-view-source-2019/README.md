@@ -159,6 +159,7 @@ I don't know about you, but I used to think of DevTools as something you'd invok
 - so if we have a design like this, *(switch to Malerei, Fotografie, Film)*, with borders that are along the grid lines, but content that is smaller than the cell, you will need to use **both** Flexbox and Grid
 - *(target arrow)* if we remove `display: flex` on this grid cell and convert the code to use box alignment properties on grid, you will see what I mean
 - *(deactivate flex, add align-self: center)*, the grid cell shrinks to fit, and the border shrinks with it
+- perfectly acceptable to make a grid item a flex container
 - so it's not about Flexbox OR Grid, it's about Flexbox AND Grid, really
 
 ## Flexible sizing, responsive design powered up
