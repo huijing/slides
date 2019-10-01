@@ -168,9 +168,11 @@ I don't know about you, but I used to think of DevTools as something you'd invok
 - grid introduces the `fr` unit, as well as the `minmax()` function, and together with other intrinsic sizing values like `fit-content()` and `auto`, we now can have variable rates of change
 - all these sizing units are fully supported in a grid formatting context, and are applied with the `grid-template-columns` property
 - warning, lots of browser resizing coming up *(make sure console view is triggered)*
+- alternative talk title is “you mean you don't resize your browser a thousand times a day?”
 
 ---
 
+- *(toggle 1 for titles, toggle 2 to hide 5–8, toggle 3 to hide 1–4)*
 - `fr` units versus `auto`
 - let's compare the difference between `fr`, in green, and `auto`, in blue
 - `fr` represents a fraction of leftover space in the grid container, so whenever there is extra space it will always go to an `fr` sized column
