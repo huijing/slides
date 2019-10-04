@@ -2,17 +2,19 @@
 
 *For Fronteers 2019. This is sort of a transcript of the talk.*
 
-Hello! I'm pretty excited to be here, sharing the stage with so many amazing speakers. So thank you to the organisers for bringing me out. Today, I'd like to share with everyone my journey of trying to figure out images on the web. You see, I have this tendency to go down rabbit holes with things that seem rather straight-forward at first, but then, you get this little inkling that there's something more beneath the surface?
+Hello! This is my very first Fronteers ever and I'm really happy to be here. A big thank you to the organisers for having me this year. Today, I'd like to share with everyone my journey of trying to figure out images on the web. You see, I have this tendency to go down rabbit holes with things that seem rather straight-forward at first, but then, I start to wonder if there's something more beneath the surface?
 
-Yeah, that's me. And images. I'm also very annoying and have an incessant need to ask why. Constantly. Which is why I love and appreciate everyone who is still willing to be friends with me. I've been working on the web for a number of years now, and I learned that image optimisation is one of the low-hanging fruits when it comes to web performance.
+So take this as a bit of a content warning, that this talk will go places.
 
-You may not be able to discern the exact numbers from this chart but know that as page weight has steadily crept up over the years, images on average make up more than 60% of that page weight. Image sizes matter, because sending smaller images of comparable quality to your users over the interwebs is not only the smart thing to do, it's the right thing to do. 
+But anyway, that's what happened to me with images. I'm also very annoying and have an incessant need to ask why. Constantly. Which is why I love and appreciate everyone who is still willing to be friends with me. I've been working on the web for a number of years now, and I learned that image optimisation is one of the low-hanging fruits when it comes to web performance.
+
+You may not be able to discern the exact numbers from this chart but know that as page weight has steadily crept up over the years, images on average make up more than 60% of that page weight. Image sizes matter, because sending smaller images of comparable quality to your users over the interwebs is not only the smart thing to do, it's the right thing to do.
 
 But images are not all creates equal, some image formats are better suited for certain purposes over others. JPGs for photographs, choose PNGs over GIFs, don't use BMPs or TIFFs at all. I know all this. But for quite a while, I didn't know why, and it gnawed at me enough that one day I decided to find out.
 
-My name is Hui Jing, you can also call me Jing. This is me in emojis, make what you will of them. The fox is not that obvious, but I use it to indicate that I'm a Mozilla Techspeaker, which is an initiative by Mozilla to support technical evangelists in regional communities around the world by providing resources and funding.
+My name is Hui Jing, and these are the emojis that pretty much describe who I am as a person. Feel free to interpret them however you like. If any of them don't make sense to you, you can always ask me about them later.
 
-I also have a day job as a Developer Advocate with Nexmo. Nexmo being a platform that provides APIs for messaging, voice and authentication so developers can easily integrate communications into their applications.
+I do want to say how much of a privilege it is to be MC-ed by Phil Hawksworth for the second time this year. It's a completely different talk this time, Phil, I have slides and all, so hopefully what happened last time won't happen again. Fingers crossed.
 
 ## On the origins of imagemaking
 
@@ -26,7 +28,7 @@ If you think about it, imagemaking was an analogue process for the longest time.
 
 ## On some history of digital displays
 
-The digital age is one of light and electronic signals. Perhaps it may be more apt to say of light created by electronic signals. I've gone on and one about ancient art work and photography, but really today's story is about this little fella, and what it represents.
+The digital age is one of light and electronic signals. Perhaps it may be more apt to say of light created by electronic signals. I've gone on and one about ancient art work and photography, but really today's story starts off with this adorable thing, and what it represents. Meet Pixel. No, not the Google phone, not that Pixel. This pixel has been around far longer than that phone.
 
 Meet Pixel. No, not the Google phone, not that Pixel. This pixel has been around far longer than that phone. Pixel is a pretty well-defined character, multiple definitions if you look around, but the most common one calls a pixel the smallest unit of an image which can be displayed on a digital display device, the basic logical unit for representing digital graphics.
 
@@ -78,13 +80,11 @@ MacPaint used run-length encoding, which combined repeated data into a shorter s
 
 I won't go into details of the actual LZW algorithm, but it encodes the image by creating a dictionary of repeated sequences of colours and could achieve much better compression rates than any prior image format.
 
-The first photo of a band published on the internet was a promotional shot for Les Horribles Cernettes, a particle physics parody pop group at CERN. And what format was this photo in? GIF. This was back in 1992 on the World Wide Web browser. So it's definitely no surprise that when Mosaic was released in 1993, it launched with support for 2 image formats, GIF and JPEG.
+The first photo of a band published on the internet was a promotional shot for a particle physics parody pop group at CERN. And what format was this photo in? GIF. This was back in 1992 on the World Wide Web browser. So it's definitely no surprise that when Mosaic was released in 1993, it launched with support for 2 image formats, GIF and JPEG.
 
 ## Joint Photographic Experts Group (JPEG)
 
-JPEG is both the name of the committee that created the JPEG standard, as well as the name of the image compression algorithm itself. 
-
-Jon, who is coming up immediately after this, is a member of that committee and will tell you more about it and what they do. We swapped slots because I'm talking about the past and present while he will be covering what we have now and what's to come in the future.
+JPG is both the name of the committee that created the JPG standard, as well as the name of the image compression algorithm itself. The committee created and maintains the JPEG, JPEG 2000 and JPEG XR standards.
 
 JPEG was revolutionary when it was released in 1992. A lot of the information here I learned from Colt McAnlis, who wrote a really in-depth explainer on how JPG works, which you should really check out if you're interested in this.
 
@@ -100,13 +100,13 @@ So it is necessary for a quantisation phase. JPG uses a pre-calculated matrix of
 
 By now you might notice that there are a larger number of zeroes toward the bottom right of the matrix, so a Zig-Zag algorithm is applied to create a linear array of values from the block. After such a reordering, further compression with run-length encoding can yield even better results.
 
-The full process of generating a JPG file involves more steps than what I outlined but that was my general understanding of how JPG compression works. If you have any further questions about JPG, Jon is the most qualified person to answer them.
+The full process of generating a JPG file involves more steps than what I outlined but that was my general understanding of how JPG compression works.
 
 JPG does extremely well with photographic images and effects like gradients, but not as well with line drawings or graphics with sharp contrast between the pixels. But an interesting feature of JPGs is the option of progressive JPGs.
 
 ## Progressive JPGs
 
-I learned about how progressive JPGs from Jon, in fact, when I read his article called Progressive JPEGs and green Martians. Non-progressive JPGs encode all the coefficients of each 8-by-8 block sequentially. Instead of doing that, we can encode all the DC coefficients first, then some low-frequency AC coefficients, followed by high-frequency AC coefficients at the end.
+I learned about how progressive JPGs from Jon Sneyers, when I read his article called Progressive JPEGs and green Martians. Non-progressive JPGs encode all the coefficients of each 8-by-8 block sequentially. Instead of doing that, we can encode all the DC coefficients first, then some low-frequency AC coefficients, followed by high-frequency AC coefficients at the end.
 
 Progressive JPGs require the encoder and decoder to make multiple passes through the image, and a typical progressive JPG has about 10 scans. So as the image gets decoded, you see a blurry image get progressively sharp as the image loads.
 
@@ -212,7 +212,7 @@ libpng is the official PNG reference library, and is what Firefox uses for PNG s
 
 First of all, I'd like to clarify that I'm NOT a browser engineer, far from it. I know a C++ program when I see one, but that's about it. So not going to be too technical here. And if you ARE a browser engineer, I'd love to pick your brain after this.
 
-Potch, Developer Advocate at Mozilla, wrote this awesome article about Project Quantum and browser engines when Firefox was doing its big core engine overhaul back in 2017.
+Matt Claypotch, better known as Potch, wrote this awesome article about Project Quantum and browser engines when Firefox was doing its big core engine overhaul back in 2017.
 
 Most web developers, myself included, probably see the browser engine as a magical black box that turns the code we write into web sites our users can somehow consume even if they are on a different browser, different device, different time zone.
 
@@ -308,8 +308,10 @@ I am so grateful to these beautiful people who gave me time of day, and either a
 
 And I also read a lot more than is on here, but this list only contains links to what I actually reference in my talk. If all this is as fascinating to you as it is to me, come chat! I'll share my longer list of resources with you as well.
 
-I love the web. Truly. And I know that it takes many different groups of people contributing in their own way, that makes the web what it is. But today, I want to show my appreciation for browser engineers. Some of them have made this their full time careers, others have done so as OSS contributors on their own time.
+I love the web. Truly. And I know that it takes many different groups of people contributing in their own way, that makes the web what it is. I was fortunate enough to attend View Source a couple days ago, and got the chance to meet some of the folks who actually work on browsers.
+
+I know this started out as a talk about images, but as rabbit holes go, you never know where you will end up, right? At this point, I want to show my appreciation for browser engineers. Some of them have made this their full time careers, others have done so as OSS contributors on their own time.
 
 Even though browsers are not the only way to access information on the web, they are the predominant medium at the moment. So thank you, browser engineers everywhere, for striving to make the web experience smoother, faster and more accessible for all of us.
 
-And thank you for your attention.
+Thank you.

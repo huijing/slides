@@ -27,8 +27,9 @@
           <h3>and then some…</h3>
           <p style="margin-top:1em"><small><a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
           <aside class="notes">
-            <p>Hello! This is my very first Fronteers ever and I'm really happy to be here. A big  thank you to the organisers for having me this year. Today, I'd like to share with everyone my journey of trying to figure out images on the web. You see, I have this tendency to go down rabbit holes with things that seem rather straight-forward at first, but then, I start to wonder if there's something more beneath the surface?</p>
-            <p>That's what happened to me with images. I'm also very annoying and have an incessant need to ask why. Constantly. Which is why I love and appreciate everyone who is still willing to be friends with me. I've been working on the web for a number of years now, and I learned that image optimisation is one of the low-hanging fruits when it comes to web performance.</p>
+            <p>Hello! This is my very first Fronteers ever and I'm really happy to be here. A big thank you to the organisers for having me this year. Today, I'd like to share with everyone my journey of trying to figure out images on the web. You see, I have this tendency to go down rabbit holes with things that seem rather straight-forward at first, but then, I start to wonder if there's something more beneath the surface?</p>
+            <p>So take this as a bit of a content warning, that this talk will go places.</p>
+            <p>But anyway, that's what happened to me with images. I'm also very annoying and have an incessant need to ask why. Constantly. Which is why I love and appreciate everyone who is still willing to be friends with me. I've been working on the web for a number of years now, and I learned that image optimisation is one of the low-hanging fruits when it comes to web performance.</p>
           </aside>
         </section>
 
@@ -1096,7 +1097,7 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
           </figure>
           <aside class="notes">
             <p>Browser rendering engines were designed at a time when GPUs were not commonplace outside gaming machines, and CPUs didn't have as many cores as they do now. Websites also weren't that complicated at the time.</p>
-            <p>Historically, 2D graphics APIs such as cairo and skia have focused on the 2D rendering side of things. But the web platform evolved and we started to do things like animations and perspective transformations in the browser.</p>
+            <p>Historically, 2D graphics APIs such as Cairo and Skia have focused on the 2D rendering side of things. But the web platform evolved and we started to do things like animations and perspective transformations in the browser.</p>
             <p>To offer first-class support for these capabilities, browsers added them at the compositor level, simply because it was hard or inadequate to do so within cairo or such graphics APIs.</p>
             <p>So essentially, browser engines were improved upon based on their <strong>existing</strong> implementation as computer hardware evolved. Developments such as separating paint and compositing were part of that improvement.</p>
           </aside>
@@ -1109,9 +1110,9 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
             <figcaption><a href="https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/">The whole web at maximum FPS: How WebRender gets rid of jank</a> by Lin Clark</figcaption>
           </figure>
           <aside class="notes">
-            <p>This is why WebRender is so interesting. It is a 2D renderer for the web, which started out as Servo‘s graphics engine.</p>
+            <p>This is why WebRender is so interesting. It is a 2D renderer for the web, which started out as Servo’s graphics engine.</p>
             <p>WebRender removes the separation between painting and compositing, and instead makes use of the GPU's exceptional parallel processing power to handle painting and compositing in a single step through various techniques that make use of the display list.</p>
-            <p>And because WebRender was written from scratch for the needs of modern web specifications, functionalities like animation and 3D was built directly into it at the same level as the 2D rendering primitives.</p>
+            <p>And because WebRender was written from scratch for the needs of modern web specifications, functionalities like animation and 3D were built directly into it at the same level as the 2D rendering primitives.</p>
           </aside>
         </section>
 
@@ -1170,7 +1171,7 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
               <figcaption><a href="https://twitter.com/potch">@potch</a></figcaption>
             </figure>
           </div>
-          <aside class="notes">I am so grateful to these beautiful people who gave me time of day, and either answered my noob questions on browser rendering, or took the effort to point me in the right direction. Even though they're not here right now, I'd like to say a big thank you to all of them.</aside>
+          <aside class="notes">I am so grateful to these beautiful people who gave me time of day, and either answered my noob questions on browser rendering, or took the effort to point me in the right direction. Even though most of them are not here right now, I'd still like to say a big thank you to all of them.</aside>
         </section>
 
         <section>
@@ -1200,7 +1201,8 @@ pub fn paint(layout_root: &LayoutBox, bounds: Rect) -> Canvas {
           <p>This talk is dedicated to browser engineers everywhere.</p>
           <p>I owe my career to you.</p>
           <aside class="notes">
-            <p>I love the web. Truly. And I know that it takes many different groups of people contributing in their own way, that makes the web what it is. But today, I want to show my appreciation for browser engineers. Some of them have made this their full time careers, others have done so as OSS contributors on their own time.</p>
+            <p>I love the web. Truly. And I know that it takes many different groups of people contributing in their own way, that makes the web what it is. I was fortunate enough to attend View Source a couple days ago, and got the chance to meet some of the folks who actually work on browsers.</p>
+            <p>I know this started out as a talk about images, but as rabbit holes go, you never know where you will end up, right? At this point, I want to show my appreciation for browser engineers. Some of them have made this their full time careers, others have done so as OSS contributors on their own time.</p>
             <p>Even though browsers are not the only way to access information on the web, they are the predominant medium at the moment. So thank you, browser engineers everywhere, for striving to make the web experience smoother, faster and more accessible for all of us.</p>
           </aside>
         </section>
