@@ -1,0 +1,67 @@
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 100%; }
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  margin: 0;
+  padding: 0; }
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center; }
+
+h1 {
+  margin-bottom: 1em; }
+
+.links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+a {
+  text-decoration: none;
+  background: white;
+  background-image: -o-linear-gradient(226deg, rgba(45, 45, 45, 0.5) 0%, rgba(90, 90, 90, 0.5) 62%, rgba(128, 128, 128, 0.5) 83%, rgba(184, 184, 184, 0.5) 100%);
+  background-image: linear-gradient(224deg, rgba(45, 45, 45, 0.5) 0%, rgba(90, 90, 90, 0.5) 62%, rgba(128, 128, 128, 0.5) 83%, rgba(184, 184, 184, 0.5) 100%);
+  -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.35), inset 0px -3px 1px 0px rgba(68, 68, 68, 0.5), inset 0px 1px 1px 0px rgba(188, 188, 188, 0.5);
+          box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.35), inset 0px -3px 1px 0px rgba(68, 68, 68, 0.5), inset 0px 1px 1px 0px rgba(188, 188, 188, 0.5);
+  -webkit-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+a:hover,
+a:focus {
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.35), inset 0px -2px 1px 0px rgba(68, 68, 68, 0.5), inset 0px 2px 1px 0px rgba(188, 188, 188, 0.5);
+          box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.35), inset 0px -2px 1px 0px rgba(68, 68, 68, 0.5), inset 0px 2px 1px 0px rgba(188, 188, 188, 0.5); }
+
+a span {
+  margin: auto; }
+
+.big {
+  font-size: 12vmin;
+  height: 20vmin;
+  width: 20vmin;
+  border-radius: 1rem; }

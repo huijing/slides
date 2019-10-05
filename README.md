@@ -142,6 +142,8 @@
 
 71. [A deep dive into images on the web](https://www.chenhuijing.com/slides/71-fronteers-2019)
 
-<!-- 72. [Making CSS from good to great: the power of Subgrid](https://www.chenhuijing.com/slides/72-mdr-asia-2019)
+72. [You mean you don't resize your browser 1000 times a day?](https://www.chenhuijing.com/slides/72-browser-resize-1000)
 
-73. [How CSS evolves, a look back at 2 years of CSS grid](https://www.chenhuijing.com/slides/73-devfestgt-2019) -->
+<!-- 73. [Making CSS from good to great: the power of Subgrid](https://www.chenhuijing.com/slides/73-mdr-asia-2019)
+
+74. [How CSS evolves, a look back at 2 years of CSS grid](https://www.chenhuijing.com/slides/74-devfestgt-2019) -->
