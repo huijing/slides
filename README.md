@@ -146,4 +146,6 @@
 
 <!-- 73. [Making CSS from good to great: the power of Subgrid](https://www.chenhuijing.com/slides/73-mdr-asia-2019)
 
-74. [How CSS evolves, a look back at 2 years of CSS grid](https://www.chenhuijing.com/slides/74-devfestgt-2019) -->
+74. [How CSS evolves, a look back at 2 years of CSS grid](https://www.chenhuijing.com/slides/74-devfestgt-2019) 
+
+75. [Making CSS from good to great: the power of Subgrid](https://www.chenhuijing.com/slides/75-devfestkl-2019) -->
