@@ -30,7 +30,168 @@
 
           </aside>
         </section>
-        
+
+        <section>
+          <div class="intro-grid">
+            <span class="emoji" role="img" tabindex="0" aria-label="Malaysia">&#x1F1F2;&#x1F1FE;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="alien monster">&#x1F47E;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="basketball">&#x1F3C0;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="bicycle">&#x1F6B2;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="paintbrush">&#x1F58C;&#xFE0F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="sneaker">&#x1F45F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="laptop computer">&#x1F4BB;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="pen">&#x1F58A;&#xFE0F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="studio microphone">&#x1F399;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="fox">&#x1F98A;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="person climbing">&#x1F9D7;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="Rainbow flag">&#x1F3F3;&#xFE0F;&#x200D;&#x1F308;</span>
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+              <img data-src="img/name.svg" alt="Chen Hui Jing" class="plain" style="max-height:25vh">
+              <div>
+                <img data-src="img/avatar.jpg" alt="Jing" style="border-radius:50%">
+              </div>
+              <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
+            </div>
+          </div>
+          <aside class="notes">
+            <p>My name is Hui Jing, and these are the emojis that pretty much describe who I am as a person. Feel free to interpret them however you like. If any of them don't make sense to you, you can always ask me about them later.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:1em;">Web layouts over the years</h2>
+          <div class="l-multiple">
+            <img class="plain fragment" style="margin:0 0.5em;" data-src="img/layouts1.png" alt="No layout">
+            <img class="plain fragment" style="margin:0 0.5em;" data-src="img/layouts2.png" alt="Table-based layout">
+            <img class="plain fragment" style="margin:0 0.5em;" data-src="img/layouts3.png" alt="Float-based layout">
+            <img class="plain fragment" style="margin:0 0.5em;" data-src="img/layouts4.png" alt="Panel-style from frameworks">
+          </div>
+          <aside class="notes">
+            <p>Within the short span of the web's life, we've seen web layouts evolve as browser technologies and web standards matured. In the web's infancy, there was no layout whatsoever. We were still amazed that the web even existed.</p>
+            <p>Then, during the pre-school age of the web, we started to use tables to do layout. And that was fun, because like most kindergarten kids, everything seemed like a good idea. There were all sorts of crazy, creative layouts on the web.</p>
+            <p>But when we got to the pre-teen era, things started to conform a little more. We got a bit more self-concious, a little less radical, it wasn't that cool to be different. Float-based layouts to build sites with headers, sidebars and footers were the most socially acceptable.</p>
+            <p>By high school, life had gotten complicated, and angsty. CSS was hard. Responsive design, what? People suck. Browsers are broken. Oh, frameworks can take care of all that for me? Sure! I don't really care. So we ended up with sites that utilised very similar layouts.</p>
+          </aside>
+        </section>
+
+        <section>
+          <section>
+            <h2>What is CSS grid?</h2>
+            <p>Defines a <strong style="border-bottom:0.125em solid;">two-dimensional</strong> grid-based layout system, optimized for user interface design.</p>
+            <aside class="notes">Now, let's examine CSS grid. What is it? This is how it's described in the specification. The key word here is two-dimensional.</aside>
+          </section>
+
+          <section>
+            <blockquote>“Grid works from the <strong style="border-bottom:0.125em solid;">container</strong> in, other layout methods start with the <strong style="border-bottom:0.125em solid;">item</strong>”<br><small>—<a href="https://rachelandrew.co.uk/">Rachel Andrew</a></small></blockquote>
+            <aside class="notes">Rachel Andrew, who is one of the major contributors to the CSS grid specification, sums it up as such. Grid works from the container in, while other layout methods start with the item first. Let me explain.</aside>
+          </section>
+
+          <section>
+            <h2>Layout technique: <code>inline-block</code></h2>
+            <div class="livecode">
+              <div class="result inlineblock" style="font-size:75%;">
+                <div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item A</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item B</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item C</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item D</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item E</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item F</p></div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.inlineblock__item {
+  display: inline-block;
+  width: calc(100% / 3);
+}</style></div>
+            </div>
+            <aside class="notes">One approach for creating a grid layout is the <code>inline-block</code> technique. For a three column grid, we set the display of the items to <code>inline-block</code> and give them all a width of a third of the container.</aside>
+          </section>
+
+          <section>
+            <h2>Layout technique: <code>float</code></h2>
+            <div class="livecode">
+              <div class="result float" style="font-size:75%;">
+                <div class="float__item" style="border:1px solid;padding:1em 0;">
+                  <p>Item A</p>
+                </div>
+                <div class="float__item" style="border:1px solid;padding:1em 0;">
+                  <p>Item B</p>
+                </div>
+                <div class="float__item" style="border:1px solid;padding:1em 0;">
+                  <p>Item C</p>
+                </div>
+                <div class="float__item" style="border:1px solid;padding:1em 0;">
+                  <p>Item D</p>
+                </div>
+                <div class="float__item" style="border:1px solid;padding:1em 0;">
+                  <p>Item E</p>
+                </div>
+                <div class="float__item" style="border:1px solid;padding:1em 0;">
+                  <p>Item F</p>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.float__item {
+  float: left;
+  width: calc(100% / 3);
+}</style></div>
+            </div>
+            <aside class="notes">It's almost the same if you use <code>float</code>, because you also need to set a width on each item.</aside>
+          </section>
+
+          <section>
+            <h2>Layout technique: <code>flex</code></h2>
+            <div class="livecode">
+              <div class="result flexbox" style="font-size:75%;">
+                <div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item A</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item B</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item C</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item D</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item E</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item F</p></div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.flexbox {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flexbox__item {
+  flex: 0 0 calc(100% / 3);
+}</style></div>
+            </div>
+            <aside class="notes">
+              <p>For Flexbox, to ensure our items line up in three columns, we prevent them from growing or shrinking, then set the flex-basis to a third of the container. Again, we are dealing with the item.</p>
+              <p>For all 3 techniques I just described, there isn't actually a grid. It just looks that way because we've forced the items to line up with each other.</p>
+            </aside>
+          </section>
+
+          <section>
+            <blockquote>“Grid is the only layout technique that establishes a <strong style="border-bottom:0.125em solid;">relationship</strong> between rows and columns of grid items.”</blockquote>
+            <aside class="notes">But for Grid, the dimensions for rows and columns are defined on the parent container instead. The grid is real, and we can place items inside this grid.</aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Grid versus Flexbox?</h2>
+            <h2 class="fragment j-stamp">Wrong question</h2>
+            <aside class="notes">Some people have asked why we need Grid when we already have Flexbox? Or, is Grid supposed to replace Flexbox? My response is, these 2 layout techniques are not competing against each other. They are meant to be complementary.</aside>
+          </section>
+
+          <section>
+            <h2>Grid AND Flexbox</h2>
+            <div class="l-multiple">
+              <img class="plain fragment" style="margin:0 0.25em;" data-src="img/kaya-butter.jpg">
+              <img class="plain fragment" style="margin:0 0.25em;" data-src="img/nuts-bolts.jpg">
+              <img class="plain fragment" style="margin:0 0.25em;" data-src="img/jayz-beyonce.jpg">
+            </div>
+            <aside class="notes">Grid and Flexbox are best friends. Like kaya and butter. Like nuts and bolts. Like Jay-Z and Beyoncé. Either are good on their own, but together, they can reach another level of awesome.</aside>
+          </section>
+
+          <section>
+            <h2>Flexbox ➡ single dimension</h2>
+            <div class="l-double">
+              <figure style="width:85%;">
+                <img class="plain" data-src="img/daisy-h.svg">
+                <figcaption>flex-direction: row</figcaption>
+              </figure>
+              <figure style="width:75%;">
+                <img class="plain" data-src="img/daisy-v.svg">
+                <figcaption>flex-direction: column</figcaption>
+              </figure>
+            </div>
+            <aside class="notes">Flexbox is suited for laying out items in a single dimension. Where there isn't a relationship between the rows and columns. Think of it more like a long daisy chain of flex children.</aside>
+          </section>
+        </section>
+
         <section style="text-align:left">
           <h1>Thank you!</h1>
           <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle">https://www.chenhuijing.com</a></p>
@@ -41,7 +202,7 @@
         </section>
       </div>
 
-      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://www.chenhuijing.com/slides/72-mdr-asia-2019</span><span style="text-align:right">@hj_chen</span></footer>
+      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://www.chenhuijing.com/slides/73-mdr-asia-2019</span><span style="text-align:right">@hj_chen</span></footer>
     </div>
 
     <script src="js/reveal.js"></script>
