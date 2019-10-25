@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'M+ MN Type-1';
+  src: url('mplus-1mn-regular.woff2') format('woff2'),
+     url('mplus-1mn-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'M+ MN Type-1';
+  src: url('mplus-1mn-bold.woff2') format('woff2'),
+     url('mplus-1mn-bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
