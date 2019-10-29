@@ -214,7 +214,7 @@ body {
   transition: color .15s ease; }
 
 .reveal a:hover {
-  color: #25f8de;
+  color: #a0fcf1;
   text-shadow: none;
   border: none; }
 
@@ -299,13 +299,13 @@ html {
   transform: rotate(-30deg) translateX(-50%);
   background-color: #000;
   padding: 0.25em;
-  border: 0.2em solid #a70000;
+  border: 0.15em solid #a70000;
   color: #a70000;
   text-shadow: 1px 1px 2px black;
   box-shadow: 1px 1px 2px black;
   border-radius: 0.5em;
   text-transform: uppercase;
-  font-size: 175%; }
+  font-size: 200%; }
 
 .reveal em,
 .reveal strong {
