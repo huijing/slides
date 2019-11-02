@@ -26,7 +26,7 @@
           <h1>Making CSS from Good to Great</h1>
           <h3>The Power of Subgrid</h3>
           <p style="margin-top:1em"><small><a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
-          <aside class="notes"></aside>
+          <aside class="notes">Thank you all for coming out for the Mozilla Developer Roadshow. We are very happy to see of you here this evening. My talk will cover a couple of things, CSS, as mentioned in the title, specifically for layouts, and we're also going to cover some DevTools stuff as well. Hopefully you will find this both interesting and useful.</aside>
         </section>
 
         <section>
@@ -52,7 +52,7 @@
               <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
             </div>
           </div>
-          <aside class="notes">My name is Hui Jing, as you can probably guess from this, I'm a big fan of emojis. And these pretty much describe who I am as a person. Feel free to interpret them however you like. If any of them don't make sense to you, you can always ask me about them later.</aside> 
+          <aside class="notes">My name is Hui Jing, as you can probably guess from this, I'm a big fan of emojis. And these pretty much describe who I am as a person. If any of them don't make sense to you, just ask me about them later.</aside> 
         </section>
 
         <section>
@@ -67,7 +67,7 @@
             <aside class="notes">
               <p>The World Wide Web turned 30 years old this year back in March. Maybe this is considered ancient for some of you, but if you think about it, this technology that almost all of us use everyday, is really quite young.</p>
               <p>If we think about other mediums for transmitting knowledge and information, print has had thousands of years to develop. The telephone, from its mechanical predecessors till today, also had hundreds of years to evolve.</p>
-              <p>30 years really is not a long time at all. And when the web launched, this was what it looked like. Text. Lines of text.</p>
+              <p>30 years really is not a long time at all. And when the web launched, this was what it looked like. Text. Lines and lines of text.</p>
             </aside>
           </section>
 
@@ -80,10 +80,10 @@
               <img class="plain fragment" style="margin:0 0.5em;max-height:75vh" data-src="img/layouts4.png" alt="Panel-style from frameworks">
             </div>
             <aside class="notes">
-              <p>So when the web started out, layout was non-existent. You could format your text with spaces, line breaks and indents, sure. But having a designed visual layout on your web page? Nope.</p>
-              <p>The HTML2 specification which was released in 1994 introduced the <code>&lt;table&gt;</code> tag and although its intended use was for tabular data, that didn't stop people from using it to build all sorts of cool and funky layouts. Sure, some of the techniques involved slicing up an image into multiple parts or whatever, but it worked. Sort of.</p>
-              <p>Then CSS came along in 1996, and with it came floats. And developers learned a new way to layout elements on their page. But floats weren't easy to deal with. Columns were uneven heights, things got displaced and didn't line up, you had to clear stuff.</p>
-              <p>And because it was so hard and unwieldy, some people decided to build out pre-written code, AKA a framework, and let everyone else apply these pre-written styles with classes. This approach was really popular and we hit an age where a lot of websites had very similar layouts.</p>
+              <p>So when the web started out, 👾 layout was non-existent. You could format your text with spaces, line breaks and indents, sure. But having a designed visual layout on your web page? Nope.</p>
+              <p>The HTML2 specification which was released in 1994 introduced 👾 the <code>&lt;table&gt;</code> tag and although its intended use was for tabular data, that didn't stop people from using it to build all sorts of cool and funky layouts. Sure, some of the techniques involved slicing up an image into multiple parts or whatever, but it worked. Sort of.</p>
+              <p>Then CSS came along in 1996, and with it came 👾 floats. And developers learned a new way to layout elements on their page. But floats weren't easy to deal with. Columns were uneven heights, things got displaced and didn't line up, you had to clear stuff.</p>
+              <p>And because it was so hard and unwieldy, 👾 some people decided to build out pre-written code, AKA a framework, and let everyone else apply these pre-written styles with classes. This approach was really popular and we hit an age where a lot of websites had very similar layouts.</p>
             </aside>
           </section>
 
@@ -94,7 +94,7 @@
 
           <section data-background-image="img/css-history.png" data-background-size="95%">
             <aside class="notes">
-              <p>But CSS is an evolving technology. Yes, it started out in 1996 as a long monolithic document, and browser vendors treated it a bit like how Malaysians treat traffic laws. We take them as suggestions rather than rules.</p>
+              <p>But CSS is an evolving technology. Yes, it started out in 1996 as a long monolithic document, and at the time, browser vendors treated the implementation of CSS a bit like how Malaysians treat traffic laws. We take them as suggestions rather than rules.</p>
               <p>The CSS Working Group was created in 1997 to tackle issues which were not addressed in the first version of CSS and they have been working on improving and evolving CSS ever since.</p>
               <p>By 2000, CSS had been broken up into modules to clarify the relationships between different parts of the specification, and make it easier to test, update and maintain the specification as a whole.</p>
               <p>The 2018 CSS Snapshot released in January this year now consists of 99 modules, many of which are being actively worked on.</p>
@@ -129,9 +129,9 @@
               </div>
             </div>
             <aside class="notes">
-              <p>In CSS2, we had 4 layout modes that each worked better for different use-cases. We had block layout, which was meant for laying out boxes on the page. We had inline layout, meant for laying out text.</p>
-              <p>Then we had table layouts that worked best for laying out 2D data in a tabular format. And positioned layout, which was like an escape hatch, that let us position elements without regard to other elements on the page.</p>
-              <p>But in 2009, the flex layout model was proposed, and it was the first layout model designed specifically for building dynamic layouts on the web.</p>
+              <p>In CSS2, we had 4 layout modes that each worked better for different use-cases. We had block layout, which was meant for laying out boxes on the page. 👾 We had inline layout, meant for laying out text.</p>
+              <p>👾 Then we had table layouts that worked best for laying out 2D data in a tabular format. 👾 And positioned layout, which was like an escape hatch, that let us position elements without regard to other elements on the page.</p>
+              <p>But in 2009, 👾 the flex layout model was proposed, and it was the first layout model designed specifically for building dynamic layouts on the web. It introduced new and powerful methods for distributing space and aligning content in a way that better suited the dynamic nature of the web.</p>
             </aside>
           </section>
         </section>
@@ -140,7 +140,10 @@
           <section>
             <h2 style="margin-top:0.5em">Grid versus Flexbox?</h2>
             <h2 class="fragment j-stamp">⚠ Wrong question ⚠</h2>
-            <aside class="notes">Some people have asked why we need Grid when we already have Flexbox? Or, is Grid supposed to replace Flexbox? My response is, these 2 layout techniques are not competing against each other. They are meant to be complementary.</aside>
+            <aside class="notes">
+              <p>Some people have asked me, so why do we need Grid then, when we already have Flexbox? If Flexbox is really as great as I say it is. I also get the question: is Grid supposed to replace Flexbox?</p>
+              <p>👾 Wrong questions, my friends. Wrong questions. Why? Because these 2 layout techniques are not competing against each other. They are meant to be complementary.</p>
+            </aside>
           </section>
 
           <section>
@@ -150,7 +153,7 @@
               <img class="plain fragment" style="margin:0 0.25em;" data-src="img/nuts-bolts.jpg">
               <img class="plain fragment" style="margin:0 0.25em;" data-src="img/jayz-beyonce.jpg">
             </div>
-            <aside class="notes">Grid and Flexbox are best friends. Like sushi and wasabi. Like nuts and bolts. Like Jay-Z and Beyoncé. Either are good on their own, but together, they can reach another level of awesome.</aside>
+            <aside class="notes">Grid and Flexbox are best friends. Like sushi and wasabi. Like nuts and bolts. Like Jay-Z and Beyoncé. Either are good on their own, but together, they can transcend awesomeness.</aside>
           </section>
 
           <section>
@@ -165,7 +168,7 @@
                 <figcaption>flex-direction: column</figcaption>
               </figure>
             </div>
-            <aside class="notes">Flexbox is suited for laying out items in a single dimension. Where there isn't a relationship between the rows and columns. Think of it more like a long daisy chain of flex children.</aside>
+            <aside class="notes">Flexbox is suited for laying out items in a single dimension. Where there is no relationship between the rows and columns. Think of it more like a long daisy chain of flex children.</aside>
           </section>
         </section>
 
@@ -173,12 +176,15 @@
           <section>
             <h2>What is CSS grid?</h2>
             <p style="line-height:1.5">Defines a <strong style="border-bottom:0.1em solid;">two-dimensional</strong> grid-based layout system,<br>optimized for user interface design.</p>
-            <aside class="notes">Now, let's examine CSS grid. What is it? This is how it's described in the specification. The key word here is two-dimensional.</aside>
+            <aside class="notes">Grid, on the other hand, recognises rows and columns. This is how it's described in the specification. The key word here is two-dimensional.</aside>
           </section>
 
           <section>
             <blockquote>“Grid works from the <strong style="border-bottom:0.1em solid;">container</strong> in, other layout methods start with the <strong style="border-bottom:0.1em solid;">item</strong>”<br><small>—<a href="https://rachelandrew.co.uk/">Rachel Andrew</a></small></blockquote>
-            <aside class="notes">Rachel Andrew, who is one of the major contributors to the CSS grid specification, sums it up as such. Grid works from the container in, while other layout methods start with the item first. Let me explain.</aside>
+            <aside class="notes">
+              <p>Rachel Andrew, who is one of the major contributors to the CSS grid specification, sums it up as such. Grid works from the container in, while other layout methods start with the item first. Let me explain with a scenario.</p>
+              <p>Say you wanted to lay out your content into 3 columns. How would you go about it?</p>
+            </aside>
           </section>
 
           <section>
@@ -192,7 +198,7 @@
   width: calc(100% / 3);
 }</style></div>
             </div>
-            <aside class="notes">One approach for creating a grid layout is the <code>inline-block</code> technique. For a three column grid, we set the display of the items to <code>inline-block</code> and give them all a width of a third of the container.</aside>
+            <aside class="notes">One approach for creating such a layout could be the <code>inline-block</code> technique. For a three column grid, we set the display of the items to <code>inline-block</code> and give them all a width of a third of the container.</aside>
           </section>
 
           <section>
@@ -223,7 +229,7 @@
   width: calc(100% / 3);
 }</style></div>
             </div>
-            <aside class="notes">It's almost the same if you use <code>float</code>, because you also need to set a width on each item.</aside>
+            <aside class="notes">If <code>float</code>s are more your style, you can do that too. It's very similar to <code>inline-block</code> though, because you also need to set a width on each item.</aside>
           </section>
 
           <section>
@@ -242,14 +248,84 @@
 }</style></div>
             </div>
             <aside class="notes">
-              <p>For Flexbox, to ensure our items line up in three columns, we prevent them from growing or shrinking, then set the flex-basis to a third of the container. Again, we are dealing with the item.</p>
+              <p>Flexbox can do this too. To ensure our items line up in three columns, we prevent them from growing or shrinking, then set the flex-basis to a third of the container. But again, notice that we are setting property values on the item.</p>
               <p>For all 3 techniques I just described, there isn't actually a grid. It just looks that way because we've forced the items to line up with each other.</p>
             </aside>
           </section>
 
           <section>
             <blockquote>“Grid is the only layout technique that establishes a <strong style="border-bottom:0.1em solid;">relationship</strong> between rows and columns of grid items.”</blockquote>
-            <aside class="notes">But for Grid, the dimensions for rows and columns are defined on the parent container instead. The grid is real, and we can place items inside this grid.</aside>
+            <aside class="notes">But when using Grid, the dimensions for rows and columns are defined on the parent container instead. The grid is real, and we can place items inside this grid.</aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Basics of CSS Grid</h2>
+            <div class="l-double">
+              <div class="fragment" style="width:100%;">
+                <p>Define your grid.</p>
+                <img class="plain" style="max-height:65vh;" data-src="img/define-grid.svg" alt="Define a grid">
+              </div>
+              <div class="fragment" style="width:100%;">
+                <p>Place items in the grid.</p>
+                <img class="plain" style="max-height:65vh;" data-src="img/place-items.svg" alt="Place items in the grid">
+            </div>
+            <aside class="notes">The basic premise of how grid works involves two steps. You 👾 define the grid, then 👾 place items in it either by yourself, or let the browser do it for you.</aside>
+          </section>
+
+          <section>
+            <h2>Grid terminology</h2>
+            <img class="plain" data-src="img/terminology.svg" alt="Grid terminology">
+            <aside class="notes">
+              <p>I'll be using some terms related to Grid throughout this talk, so I'd like to clarify them here. Grid lines are the horizontal and vertical lines that form the basis of the grid structure, and can be referred to by their numerical index, which starts from 1.</p>
+              <p>Each space between grid lines are known as grid tracks, which make up the rows and columns of the grid, and represent the spaces your items appear in.</p>
+              <p>The grid cell is a single unit of the grid and is made up of 2 adjacent row lines and 2 adjacent column lines. By default, each grid item takes up 1 grid cell. A grid area is made up of multiple grid cells.</p>
+              <p>The best part about Grid, is the ability to define grid gaps, which are the gutters between grid tracks. This feature has been expanded to flex layouts as well, and you can already use it in Firefox 63 onwards.</p>
+            </aside>
+          </section>
+
+          <section>
+            <img class="plain" data-src="img/grid-release.png">
+            <aside class="notes">In 2017, Grid was rolled out very successfully, might I add. By the end of March, all the major browsers had shipped a stable implementation which worked the same way. And by October, even Samsung Internet and Edge (RIP) joined the party.</aside>
+          </section>
+
+          <section>
+            <h2>Browser support for Grid (Level 1)</h2>
+            <p class="ciu_embed" data-feature="css-grid" data-periods="future_1,current,past_1,past_2" data-accessible-colours="true">
+              <a href="http://caniuse.com/#feat=css-grid">
+                <img src="img/css-grid.png" alt="Data on support for the css-grid feature across the major browsers from caniuse.com">
+              </a>
+            </p>
+            <aside class="notes">Right now, and I know the numbers are tiny here, more than 92% of internet users are using a browser that supports CSS grid.</aside>
+          </section>
+
+          <section>
+            <h2>Using DevTools to learn Grid</h2>
+            <a href="devtools/grid.html">Live demo</a>
+            <aside class="notes">I've always used Firefox Devtools ever since I first started using Grid. Because it provided features that made it much easier to debug Grid layouts, since Day 1. But Devtools can be more than just that. It can be a means for the browser to help us understand CSS better.</aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>What's in Grid Level 2?</h2>
+            <p>Level 2 expands Grid by adding <strong>“subgrid” capabilities</strong> for nested grids to participate in the sizing of their parent grids; and <strong>aspect-ratio–controlled gutters</strong>.</p>
+            <aside class="notes">Level 2 of the grid specification includes subgrid, as well as defines the behaviour for aspect-ratio-controlled gutters.</aside>
+          </section>
+
+          <section>
+            <h2>Why we need subgrid?</h2>
+          </section>
+
+          <section>
+            <h2>The subgrid syntax</h2>
+          </section>
+
+          <section>
+            <h2>Using DevTools to learn Subgrid</h2>
+            <a href="devtools/subgrid.html">Live demo</a>
+            <aside class="notes"></aside>
           </section>
         </section>
 
@@ -263,6 +339,7 @@
             <li><a href="https://rachelandrew.co.uk/archives/2018/04/27/grid-level-2-and-subgrid/">Grid Level 2 and Subgrid</a></li>
             <li><a href="https://www.smashingmagazine.com/2018/07/css-grid-2/">CSS Grid Level 2: Here Comes Subgrid</a></li>
             <li><a href="https://gridbyexample.com/examples/">Grid by Example</a></li>
+            <li><a href="https://24ways.org/2018/researching-a-property-in-the-css-specifications/">Researching a Property in the CSS Specifications</a></li>
           </ul>
         </section>
 
@@ -280,6 +357,7 @@
     </div>
 
     <script src="js/reveal.js"></script>
+    <script src="lib/js/caniuse-embed.min.js"></script>
 
     <script>
       Reveal.initialize({

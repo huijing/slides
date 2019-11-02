@@ -1,0 +1,221 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>CSS Grid in action</title>
+  <meta name="description" content="">
+  <meta name="author" content="Chen Hui Jing">
+
+  <style>
+  @font-face {
+    font-family: "Emoji";
+    src: local("Apple Color Emoji"), local("Segoe UI Emoji"), local("Segoe UI Symbol"), local("Noto Color Emoji");
+  }
+    
+  * {
+    margin: 0;
+    padding: 0;
+  }
+    
+  html {
+    height: 100%;
+    font-size: 1.25em;
+  }
+    
+  body {
+    height: 100%;
+    padding: 1em;
+  }
+    
+  h1,
+  h2 {
+    margin-bottom: 0.5em;
+  }
+  
+  hr {
+    margin: 1em 0;
+  }
+
+  .twitter {
+    position: fixed;
+    top: 0.5em;
+    right: 0.5em;
+    color: darkgreen;
+    writing-mode: vertical-rl;
+    mix-blend-mode: luminosity;
+    opacity: 0.6;
+  }
+    
+  .box {
+    border: 1px solid;
+  }
+
+  .grid1 {
+    display: grid;
+    grid-template-columns: 5em 5em 5em;
+    grid-template-rows: 5em 5em;
+  }
+
+  .grid2 {
+    display: grid;
+    grid-template-columns: repeat(9, 6.6vmin);
+    grid-template-rows: repeat(9, 6.6vmin);
+  }
+
+  .go::before {
+    display: block;
+    content: '';
+    width: 53.1vmin;
+    height: 53.1vmin;
+    background-size: 6.6vmin 6.6vmin, 6.6vmin 6.6vmin, 26.4vmin 26.4vmin;
+    background-color: burlywood;
+    background-image: linear-gradient(black 0.3vmin, transparent 0), linear-gradient(90deg, black 0.3vmin, transparent 0), radial-gradient(#000000 0.9vmin, rgba(0, 0, 0, 0) 0%);
+    border: 3.1vmin solid burlywood;
+  }
+    
+  .go-piece {
+    font-size: 6.4vmin;
+    font-family: "Emoji";
+    line-height: 7vmin;
+  }
+    
+  .grid2__item:first-child {
+    grid-row: 4;
+    grid-column: 5;
+  }
+  
+  .grid2__item:nth-child(2) {
+    grid-row: 6;
+    grid-column: 5;
+  }
+    
+  .grid2__item:nth-child(3) {
+    grid-row: 4;
+    grid-column: 6;
+  }
+
+  .grid2__item:nth-child(4) {
+    grid-row: 6;
+    grid-column: 7;
+  }
+  
+  .grid3 {
+    display: grid;
+    grid-template-columns: repeat(6, 9vmin);
+    grid-template-rows: repeat(6, 9vmin);
+    grid-template-areas: 'dolls dolls dolls . . .'
+                          'dolls dolls dolls . . .'
+                          'dolls dolls dolls sushi sushi .'
+                          '. . . sushi sushi .'
+                          '. . . . . . '
+                          'tower tower tower tower tower tower';
+  }
+
+  .grid3 .box:first-child { grid-area: dolls }
+  .grid3 .box:nth-child(2) { grid-area: sushi }
+  .grid3 .box:nth-child(3) { grid-area: tower }
+  
+  .grid4 {
+    display: grid;
+    background-color: seashell;
+    background-image: linear-gradient(45deg, sandybrown 25%, transparent 25%, transparent 75%, sandybrown 75%, sandybrown), linear-gradient(45deg, sandybrown 25%, transparent 25%, transparent 75%, sandybrown 75%, sandybrown);
+    animation: move 10s infinite ease;
+  }
+
+  .chess {
+    background-size: 30vmin 30vmin;
+    background-position: 0 0, 15vmin 15vmin;
+    width: 45vmin;
+    height: 45vmin;
+  }
+
+  .grid4 div {
+    height: 15vmin;
+    width: 15vmin;
+    display: flex;
+    place-self: end;
+  }
+
+  .emoji {
+    font-size: 6vmin;
+    font-family: "Emoji";
+    margin: auto;
+  }
+
+  @keyframes move {
+    0% {
+      grid-template-columns: 15vmin 1fr;
+      grid-template-rows: 15vmin 1fr;
+    }
+    25% {
+      grid-template-columns: 45vmin 1fr;
+      grid-template-rows: 15vmin 1fr;
+    }
+    50% {
+      grid-template-columns: 45vmin 1fr;
+      grid-template-rows: 45vmin 1fr;
+    }
+    75% {
+      grid-template-columns: 15vmin 1fr;
+      grid-template-rows: 45vmin 1fr;
+    }
+    100% {
+      grid-template-columns: 15vmin 1fr;
+      grid-template-rows: 15vmin 1fr;
+    }
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <h1>Demystify Grid with Firefox DevTools</h1>
+  <h2>The most basic grid</h2>
+  <div class="grid1">
+    <div class="box">A</div>
+    <div class="box">B</div>
+    <div class="box">C</div>
+    <div class="box">D</div>
+    <div class="box">E</div>
+    <div class="box">F</div>
+  </div>
+
+  <hr>
+
+  <h2>Line-based placement</h2>
+  <div class="grid2 go">
+    <div class="grid2__item go-piece">⚫️</div>
+    <div class="grid2__item go-piece">⚪️</div>
+    <div class="grid2__item go-piece">⚫️</div>
+    <div class="grid2__item go-piece">⚪️</div>
+  </div>
+
+  <hr>
+
+  <h2>Naming grid areas</h2>
+  <div class="grid3">
+    <div class="box"><span class="emoji">🎎</span></div>
+    <div class="box"><span class="emoji">🍣</span></div>
+    <div class="box"><span class="emoji">🗼</span></div>
+  </div>
+
+  <hr>
+
+  <h2>Animating grid rows and columns</h2>
+  <div class="grid4 chess">
+    <div class="grid4__item"><span class="emoji">♟</span></div>
+  </div>
+
+  <hr>
+
+  <p class="twitter">@hj_chen</p>
+</body>
+
+</html>
