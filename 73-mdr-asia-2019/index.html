@@ -310,12 +310,20 @@
         <section>
           <section>
             <h2>What's in Grid Level 2?</h2>
-            <p>Level 2 expands Grid by adding <strong>“subgrid” capabilities</strong> for nested grids to participate in the sizing of their parent grids; and <strong>aspect-ratio–controlled gutters</strong>.</p>
+            <ul style="max-width:31em">
+              <span style="display:block;margin-bottom:0.5em">Level 2 expands Grid by:</span>
+              <li class="fragment" style="margin-bottom:0.5em">adding <strong>“subgrid” capabilities</strong> for nested grids to participate in the sizing of their parent grids</li>
+              <li class="fragment" style="margin-bottom:0.5em"><strong>aspect-ratio–controlled gutters</strong>.</li>
+            </ul>
             <aside class="notes">Level 2 of the grid specification includes subgrid, as well as defines the behaviour for aspect-ratio-controlled gutters.</aside>
           </section>
 
           <section>
             <h2>Why we need subgrid?</h2>
+            <aside class="notes">
+              <p>There are numerous use-cases where we want our nested grids to align up to the outermost grid, for example, if you had a grid of card-style layouts with varied internal content heights. And you wanted the headers and footers for cards in the same row to all line-up.</p>
+              <p>There was no way to do that without subgrid because the grand-child elements don't know about the outermost grid.</p>
+            </aside>
           </section>
 
           <section>
