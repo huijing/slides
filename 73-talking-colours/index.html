@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Talk colours to your browser</title>
+    <meta name="description" content="Welcome to another edition of Hui Jing does bo liao things. This is a talk about Speech APIs in the browser plus some Singlish demystification.">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/jing.css">
+    <link rel="stylesheet" href="lib/css/monokai.css">
+
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Talking to your browser</h1>
+          <h3>(doesn't make you crazy if your browser can respond)</h3>
+          <p><small><a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
+        </section>
+
+        <section>
+          <div class="intro-grid">
+            <span class="emoji" role="img" tabindex="0" aria-label="Malaysia">&#x1F1F2;&#x1F1FE;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="alien monster">&#x1F47E;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="basketball">&#x1F3C0;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="bicycle">&#x1F6B2;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="paintbrush">&#x1F58C;&#xFE0F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="sneaker">&#x1F45F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="laptop computer">&#x1F4BB;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="pen">&#x1F58A;&#xFE0F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="studio microphone">&#x1F399;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="fox">&#x1F98A;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="person climbing">&#x1F9D7;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="Rainbow flag">&#x1F3F3;&#xFE0F;&#x200D;&#x1F308;</span>
+            <div style="display:flex;flex-direction:column;align-items:center">
+              <img data-src="img/name.svg" alt="Chen Hui Jing" class="plain" style="max-height:25vh">
+              <div style="flex:1">
+                <img data-src="img/avatar.jpg" alt="Jing" style="border-radius:50%;width:50vmin">
+              </div>
+              <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <img style="max-height:10em;margin-bottom:0.5em" class="plain" data-src="img/love-dev.svg" alt="Nexmo Developer Relations">
+          <p><span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span> Developer Advocate <span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span></p>
+          <img style="max-height:2.5em;margin-top:1em" class="plain" data-src="img/nexmo.svg" alt="Nexmo">
+        </section>
+
+        <section>
+          <h2><span class="emoji" role="img" tabindex="0" aria-label="Singapore">&#x1F1F8;&#x1F1EC;</span> SingaporeCSS <span class="emoji" role="img" tabindex="0" aria-label="Singapore">&#x1F1F8;&#x1F1EC;</span></h2>
+          <img style="max-height:55vh" class="plain" data-src="img/pirate-ship.png" alt="SingaporeCSS organisers on a pirate ship">
+          <div>
+            <p><a href="https://singaporecss.github.io">https://singaporecss.github.io</a></p>
+            <p><a href="https://twitter.com/SingaporeCSS">@SingaporeCSS</a> | <a href="https://twitter.com/hj_chen">@hj_chen</a> | <a href="https://twitter.com/wgao19">@wgao19</a></p>
+          </div>
+        </section>
+
+        <section>
+          <section>
+            <h2>Web Speech API</h2>
+            <div class="l-double">
+              <div>
+                <h3>Speech Recognition</h3>
+                <p>provides the ability to recognize voice context from an audio input and respond appropriately</p>
+                <ul>
+                  <li><code>SpeechRecognition</code></li>
+                  <li><code>SpeechGrammar</code></li>
+                </ul>
+              </div>
+              <div>
+                <h3>Speech Synthesis</h3>
+                <p>a text-to-speech component that allows programs to read out their text content </p>
+                <ul>
+                  <li><code>SpeechSynthesis</code></li>
+                  <li><code>SpeechSynthesisVoice</code></li>
+                  <li><code>SpeechSynthesisUtterance</code></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <h2>Links and stuff</h2>
+          <ul>
+            <li><a href="https://wiki.mozilla.org/Web_Speech_API_-_Speech_Recognition">Web Speech API - Speech Recognition</a></li>
+          </ul>
+        </section>
+
+        <section style="text-align:left">
+          <h1>Thank you!</h1>
+          <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle">https://www.chenhuijing.com</a></p>
+          <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
+          <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/" style="display:inline-block;vertical-align:middle">@huijing</a></p>
+          <p style="text-align:right"><small>Header font is <a href="https://www.myfonts.com/fonts/bitstream/veracruz-bt/">Vera Cruz BT</a> by <a href="http://www.cruztypedesign.com/">Ray Cruz</a><br>Body font is <a href="https://www.myfonts.com/fonts/mti/morandi/">Morandi</a> by <a href="https://github.com/impallari">Jovica Veljović</a></small></p>
+        </section>
+      </div>
+
+      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://www.chenhuijing.com/slides/73-talking-colours</span><span style="text-align:right">@hj_chen</span></footer>
+    </div>
+
+    <script src="js/reveal.js"></script>
+    <script src="lib/js/ei.js"></script>
+    <script src="lib/js/custom.js"></script>
+
+    <script>
+      Reveal.initialize({
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>

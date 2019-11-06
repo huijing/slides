@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Morandi';
+  src: url('Morandi-Ext.woff2') format('woff2'),
+       url('Morandi-Ext.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
