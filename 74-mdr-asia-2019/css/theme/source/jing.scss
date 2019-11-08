@@ -34,6 +34,7 @@ html {
   .l-multiple {
     display: flex;
     justify-content: space-around;
+    align-items: center;
   }
 
   .l-double {
@@ -48,7 +49,7 @@ html {
   }
 
   .j-stamp {
-    position:absolute;
+    position: absolute;
     top: -50%;
     left: 50%;
     transform: rotate(-30deg) translateX(-50%);

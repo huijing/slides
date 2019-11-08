@@ -313,27 +313,92 @@
             <ul style="max-width:31em">
               <span style="display:block;margin-bottom:0.5em">Level 2 expands Grid by:</span>
               <li class="fragment" style="margin-bottom:0.5em">adding <strong>“subgrid” capabilities</strong> for nested grids to participate in the sizing of their parent grids</li>
-              <li class="fragment" style="margin-bottom:0.5em"><strong>aspect-ratio–controlled gutters</strong>.</li>
+              <li class="fragment" style="margin-bottom:0.5em"><strong>aspect-ratio–controlled gutters</strong></li>
             </ul>
-            <aside class="notes">Level 2 of the grid specification includes subgrid, as well as defines the behaviour for aspect-ratio-controlled gutters.</aside>
+            <aside class="notes">Level 2 of the grid specification includes subgrid, as well as defines the behaviour for aspect-ratio-controlled gutters. But we'll only focus on subgrid right now.</aside>
           </section>
 
           <section>
-            <h2>Why we need subgrid?</h2>
+            <h2>Why do we need subgrid?</h2>
+            <div class="l-multiple" style="gap:1em">
+              <img class="plain" src="img/card-layout.png" alt="Card style layout">
+              <img class="plain" src="img/speaker-layout.png" alt="Speaker cards">
+              <img class="plain" src="img/form-layout.png" alt="Inline form labels and inputs">
+            </div>
             <aside class="notes">
               <p>There are numerous use-cases where we want our nested grids to align up to the outermost grid, for example, if you had a grid of card-style layouts with varied internal content heights. And you wanted the headers and footers for cards in the same row to all line-up.</p>
+              <p>Or if you wanted to align inline form inputs and their labels.</p>
               <p>There was no way to do that without subgrid because the grand-child elements don't know about the outermost grid.</p>
             </aside>
           </section>
 
           <section>
             <h2>The subgrid syntax</h2>
+            <p>Same properties, more values</p>
+            <pre style="width:max-content;margin-bottom:1em"><code>grid-template-columns: subgrid &lt;line-name-list&gt;?
+grid-template-rows: subgrid &lt;line-name-list&gt;?</code></pre>
+            <div class="fragment">
+              <p>The <code>subgrid</code> keyword indicates to the browser the nested grid will use the same sizing as its parent along the relevant axis.</p>
+              <pre style="width:max-content"><code>.subgrid-container {
+  grid-columns: 2 / 5; /* placement for the subgrid container itself */
+
+  display: grid; /* you must still apply a display: grid to the subgrid */
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+}</code></pre>
+</div>
+            <aside class="notes"></aside>
+          </section>
+
+          <section>
+            <h2>Named subgrid lines</h2>
+            <img class="plain" src="img/line-names.svg" alt="Named grid line names and named subgrid line names">
+          </section>
+
+          <section>
+            <h2>No implicit tracks in Subgrid</h2>
+            <div class="livecode livecode-2p">
+              <div class="result grid2" style="font-size:75%;">
+                <div class="subgrid2" style="border:2px solid #eb1af2">
+                  <p style="border:2px solid #0cf7da;padding:1em 0">A</p>
+                  <p style="border:2px solid #0cf7da;padding:1em 0">B</p>
+                  <p style="border:2px solid #0cf7da;padding:1em 0">C</p>
+                  <p style="border:2px solid #0cf7da;padding:1em 0">D</p>
+                  <p style="border:2px solid #0cf7da;padding:1em 0">E</p>
+                  <p style="border:2px solid #0cf7da;padding:1em 0">F</p>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.grid2 {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  grid-template-rows: 50% 50%;
+}
+
+.subgrid2 {
+  grid-column: 2 / 5;
+  grid-row: span 2;
+
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+}</style></div>
+            </div>
+            <aside class="notes"></aside>
           </section>
 
           <section>
             <h2>Using DevTools to learn Subgrid</h2>
             <a href="devtools/subgrid.html">Live demo</a>
             <aside class="notes"></aside>
+          </section>
+
+          <section>
+            <h2>Browser support for subgrid</h2>
+            <p class="ciu_embed" data-feature="css-subgrid" data-periods="future_1,current,past_1,past_2" data-accessible-colours="true">
+              <a href="http://caniuse.com/#feat=css-subgrid">
+                <img src="img/css-subgrid.png" alt="Data on support for the css-subgrid feature across the major browsers from caniuse.com">
+              </a>
+            </p>
           </section>
         </section>
 
@@ -344,6 +409,7 @@
             <li><a href="https://www.w3.org/TR/css-grid-1/">CSS Grid Layout Module Level 1</a></li>
             <li><a href="https://www.w3.org/TR/css-grid-2/">CSS Grid Layout Module Level 2</a></li>
             <li><a href="https://tympanus.net/codrops/css_reference/subgrid/">Codrops reference: Subgrid</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Subgrid">Subgrid on MDN</a></li>
             <li><a href="https://rachelandrew.co.uk/archives/2018/04/27/grid-level-2-and-subgrid/">Grid Level 2 and Subgrid</a></li>
             <li><a href="https://rachelandrew.co.uk/archives/2017/07/20/why-display-contents-is-not-css-grid-layout-subgrid/">Why display: contents is not CSS Grid Layout subgrid</a></li>
             <li><a href="https://www.smashingmagazine.com/2018/07/css-grid-2/">CSS Grid Level 2: Here Comes Subgrid</a></li>

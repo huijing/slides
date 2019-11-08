@@ -179,8 +179,9 @@ body {
 	display: block;
 	padding: 5px;
 	overflow: auto;
-	max-height: 400px;
 	word-wrap: normal;
+	border-radius: 0.25em;
+	padding: 0.25em 0.5em;
 }
 
 .reveal table {

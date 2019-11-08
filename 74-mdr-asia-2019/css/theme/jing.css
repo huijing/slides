@@ -157,8 +157,9 @@ body {
   display: block;
   padding: 5px;
   overflow: auto;
-  max-height: 400px;
-  word-wrap: normal; }
+  word-wrap: normal;
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em; }
 
 .reveal table {
   margin: auto;
@@ -281,7 +282,8 @@ html {
 
 .reveal .l-multiple {
   display: flex;
-  justify-content: space-around; }
+  justify-content: space-around;
+  align-items: center; }
 
 .reveal .l-double {
   display: grid;

@@ -363,8 +363,7 @@ span.emoji {
   font-family: 'Apple Color Emoji', 'Segoe UI Emoji';
   font-style: normal;
   font-size: 125%;
-  display: inline-block;
-  vertical-align: middle; }
+  display: inline-block; }
 
 span[role=img][aria-label],
 span[role=img][aria-label] {
