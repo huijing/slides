@@ -26,6 +26,7 @@
           <h1>Talking to your browser</h1>
           <h3>(doesn't make you crazy if your browser can respond)</h3>
           <p><small><a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
+          <p style="font-size:300%" ><span class="emoji" role="img" tabindex="0" aria-label="rainbow">&#x1F308;</span> <code>&lt;/ RK&gt;</code> <span style="transform:scaleX(-1)" class="emoji" role="img" tabindex="0" aria-label="rainbow">&#x1F308;</span></p>
         </section>
 
         <section>
@@ -134,6 +135,21 @@
 
           <section data-background-image="img/colour-spec.png" data-background-size="contain"></section>
 
+          <section>
+            <h2>If you also like colours…</h2>
+            <figure style="width:80vw;margin:0 auto">
+              <video loop autoplay style="width:100%;margin-bottom:0.25em">
+                <source data-src="img/rainbow-cat.mp4" type="video/mp4">
+                Sorry, your browser doesn't support embedded videos, 
+                but don't worry, you can <a href="videos/rainbow-cat.mp4">download it</a>
+                and watch it with your favourite video player!
+              </video>
+              <figcaption><em>*insert random caption here*</em></figcaption>
+            </figure>
+            <p><a href="https://www.chenhuijing.com/blog/where-did-css-named-colours-come-from/">Where did CSS named colours come from?</a></p>
+
+          </section>
+
           <section data-background-image="img/css-colour.png" data-background-size="contain">
             <h2 class="fragment" style="padding:0.25em 0.5em;background-color:white;display:inline-block;border-radius:0.25em"><span class="emoji" role="img" tabindex="0" aria-label="England">&#x1F3F4;&#xE0067;&#xE0062;&#xE0065;&#xE006E;&#xE0067;&#xE007F;</span> English! <span class="emoji" role="img" tabindex="0" aria-label="England">&#x1F3F4;&#xE0067;&#xE0062;&#xE0065;&#xE006E;&#xE0067;&#xE007F;</span></h2>
           </section>
@@ -147,6 +163,7 @@
             <h2>Cue bo liao idea…</h2>
             <p class="fragment"><strong>Singlish lesson #1: Bo liao</strong></p>
             <p class="fragment">Hokkien for “nothing better to do”. Dangerously idle.<br>In Mandarin, it's “<span style="font-family:PingFang">无聊 (wú liáo) </span>”<br>“What for he go and do that sort of thing? Must be damn bo liao.”</p>
+            <p class="fragment"><small>Source: <a href="http://72.5.72.93/html/lexec.php">The Coxford Singlish Dictionary</a></small></p>
           </section>
 
           <section>
@@ -245,6 +262,13 @@ main {
           </section>
 
           <section>
+            <h2>What is a CSS custom property? <span class="emoji" role="img" tabindex="0" aria-label="thinking face">&#x1F914;</span></h2>
+            <p class="fragment">Defined in <a href="https://www.w3.org/TR/css-variables-1/">CSS Custom Properties for Cascading Variables Module Level 1</a></p>
+            <p class="fragment">Introduces cascading variables as a new primitive value type that is accepted by all CSS properties, and custom properties for defining them</p>
+            <pre class="fragment" style="width:max-content"><code>var( &lt;custom-property-name&gt; , &lt;declaration-value&gt;? )</code></pre>
+          </section>
+
+          <section>
             <h2>Have button to trigger microphone</h2>
             <pre style="white-space:pre-wrap;font-size:85%"><code>&lt;body&gt;
   &lt;main&gt;
@@ -285,7 +309,6 @@ main {
 
   const speechRecognition = window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition || window.oSpeechRecognition || window.SpeechRecognition;
   const speechGrammarList =  window.webkitSpeechGrammarList || window.mozSpeechGrammarList || window.msSpeechGrammarList || window.oSpeechGrammarList || window.SpeechGrammarList;
-  const speechSynthesis = window.speechSynthesis;
 
   function addClass(className) {
     docElement.className = `${docElement.className} ${className}`;
@@ -376,6 +399,21 @@ micBtn.addEventListener('click', function() {
           <section>
             <img class="plain" data-src="img/result-object.png" alt="SpeechRecognitionResult object">
           </section>
+
+          <section>
+            <h2>Bonus CSS thing</h2>
+            <p>Don't need an extra HTML element for the warning message</p>
+            <pre><code>.no-speech body::before {
+  content: 'Tragically, your browser does not support the Speech Recognition API. When I wrote this, only Chrome supported it, so maybe try this out with Chrome.';
+  font-family: sans-serif;
+  line-height: 1.3;
+  font-size: 85%;
+  padding: 0.5em;
+  background-color: #ab3c3c;
+  color: white;
+  text-align: center;
+}</code></pre>
+          </section>
         </section>
 
         <section>
@@ -456,6 +494,10 @@ responseForm.addEventListener('submit', function(event) {
   });
   speechSynthesis.speak(utterStuff); /* Start the utterance being spoken */
 }, false)</code></pre>
+          </section>
+
+          <section>
+            <a href="https://singaporecss.github.io/colour-speech/">Do the live demo thingy</a>
           </section>
         </section>
 
