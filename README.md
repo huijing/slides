@@ -58,7 +58,7 @@
 
 29. [Why CSS Grid is a game-changer for web design](https://www.chenhuijing.com/slides/29-constellation-2018)
 
-30. [Vertical writing on the web: inadvertent layout inspiration from a search for cultural identity](https://www.chenhuijing.com/slides/30-smashingsf-2018) 
+30. [Vertical writing on the web: inadvertent layout inspiration from a search for cultural identity](https://www.chenhuijing.com/slides/30-smashingsf-2018)
 
 31. [East Asian web typography: crossing cultural boundaries for web layout inspiration](https://www.chenhuijing.com/slides/31-yglf-2018)
 
@@ -144,8 +144,10 @@
 
 72. [You mean you don't resize your browser 1000 times a day?](https://www.chenhuijing.com/slides/72-browser-resize-1000)
 
-<!-- 73. [Making CSS from good to great: the power of Subgrid](https://www.chenhuijing.com/slides/73-mdr-asia-2019)
+73. [Talk colours to your browser](https://www.chenhuijing.com/slides/32-talking-colours)
 
-74. [How CSS evolves, a look back at 2 years of CSS grid](https://www.chenhuijing.com/slides/74-devfestgt-2019) 
+<!-- 74. [Making CSS from good to great: the power of Subgrid](https://www.chenhuijing.com/slides/73-mdr-asia-2019)
 
-75. [Making CSS from good to great: the power of Subgrid](https://www.chenhuijing.com/slides/75-devfestkl-2019) -->
+75. [How CSS evolves, a look back at 2 years of CSS grid](https://www.chenhuijing.com/slides/74-devfestgt-2019)
+
+76. [Making CSS from good to great: the power of Subgrid](https://www.chenhuijing.com/slides/75-devfestkl-2019) -->
