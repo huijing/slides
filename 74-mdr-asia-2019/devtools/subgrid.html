@@ -31,11 +31,6 @@
     padding: 1em;
   }
 
-  p {
-    margin-bottom: 1em;
-    line-height: 1.4;
-  }
-
   h1,
   h2,
   h3 {
@@ -50,6 +45,11 @@
     font-size: inherit;
   }
 
+  img {
+    max-width: 100%;
+    object-fit: cover;
+  }
+
   .twitter {
     position: fixed;
     top: 0.5em;
@@ -59,35 +59,33 @@
     mix-blend-mode: luminosity;
     opacity: 0.6;
   }
-    
+
   [class^="grid"] {
-    background-color: honeydew;
+    background-color: gainsboro;
+    text-align: center;
   }
 
-  [class^="subgrid"] {
-    border: 2px solid;
+  [class*="grid__item"] {
+    background-color: limegreen;
+    border: 2px dotted forestgreen;
   }
-
-  [class*="__item box"] {
+  
+  [class*="subgrid__item"] {
     background-color: palegreen;
-    border: 3px solid springgreen;
+  }
+  
+  [class*="subsubgrid__item"] {
+    background-color: honeydew;
   }
 
   .grid1,
   .grid2 {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(4, minmax(4em, auto));
+    grid-template-rows: repeat(4, minmax(3em, auto));
   }
 
-  .grid3 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, minmax(4em, auto));
-    gap: 2em;
-  }
-
-  .subgrid1 {
+  .grid1 .subgrid {
     grid-column: 3 / 6;
     grid-row: 2 / 5;
     display: grid;
@@ -95,7 +93,7 @@
     grid-template-rows: 3fr 1fr 1fr;
   }
 
-  .subgrid2 {
+  .grid2 .subgrid {
     grid-column: 2 / 6;
     grid-row: 1 / 4;
     display: grid;
@@ -103,7 +101,14 @@
     grid-template-rows: subgrid;
   }
 
-  .subgrid3 {
+  .grid3 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, minmax(3em, auto));
+    gap: 2em;
+  }
+
+  .grid3 .subgrid {
     grid-column: 2 / 4;
     grid-row: 1 / 5;
     display: grid;
@@ -112,13 +117,49 @@
     gap: 0;
   }
 
-  .subgrid3__item:nth-of-type(1) {
+  .grid3 .subgrid__item:nth-of-type(1) {
     grid-row: 2 / span 3;
   }
 
-  .subgrid3__item:nth-of-type(2) {
+  .grid3 .subgrid__item:nth-of-type(2) {
     grid-column: 1 / span 2;
   }
+
+  .grid4,
+  .grid5 {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(2em, 1fr));
+    gap: 1em;
+    height: 10em;
+  }
+
+  .grid4 .subgrid {
+    grid-column: 2 / 5;
+    display: grid;
+    grid-template-columns: subgrid;
+    padding: 1em;
+    margin: 1em;
+  }
+  
+  .grid4 .subgrid__item {
+    grid-column: span 3;
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+  
+  .grid5 .subgrid {
+    grid-column: 2 / 4;
+    display: grid;
+    grid-template-columns: subgrid; 
+  }
+  
+  .grid5 .subgrid__item-1 {
+    grid-column: span 3;
+  }
+  
+  .grid5 .subgrid__item-2 {
+    grid-column: 4;
+  }  
 
   .uc-form {
     display: grid;
@@ -131,6 +172,36 @@
     grid-column: 1 / -1;
     display: grid;
     grid-template-columns: subgrid;
+  }
+
+  .uc-page {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 1em;
+    background-color: gainsboro;
+    margin-bottom: 1em;
+  }
+
+  .uc-page p {
+    background-color: limegreen;
+    padding: 1em;
+    writing-mode: vertical-lr;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .uc-page ul {
+    grid-column: 2 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-auto-rows: minmax(150px, auto);
+    list-style-type: none;
+    row-gap: 1em;
+  }
+
+  .uc-page li {
+    display: flex;
   }
 
   .uc-nested {
@@ -149,7 +220,7 @@
     column-gap: 1em;
     
     border: 2px solid #000;
-    box-shadow: 4px 4px 0 0 #222;
+   -shadow: 4px 4px 0 0 #222;
     padding: 1.5em;
   }
 
@@ -159,6 +230,9 @@
   
   .uc-nested p {
     grid-column: 2 / -1;
+
+    margin-bottom: 1em;
+    line-height: 1.4;
   }
 
   .uc-nested img {
@@ -180,40 +254,64 @@
 <body>
   <h1>Demystify Subgrid with Firefox DevTools</h1>
   <h2>Subgrid along the columns dimension</h2>
-  <div class="grid1 box">
-    <div class="subgrid1 box">
-      <p class="subgrid1__item box">A</p>
-      <p class="subgrid1__item box">B</p>
-      <p class="subgrid1__item box">C</p>
-      <p class="subgrid1__item box">D</p>
+  <div class="grid1">
+    <div class="grid__item subgrid">
+      <p class="subgrid__item">A</p>
+      <p class="subgrid__item">B</p>
+      <p class="subgrid__item">C</p>
+      <p class="subgrid__item">D</p>
     </div>
   </div>
 
   <hr>
 
   <h2>Subgrid along the rows dimension</h2>
-  <div class="grid2 box">
-    <div class="subgrid2 box">
-      <p class="subgrid2__item box">A</p>
-      <p class="subgrid2__item box">B</p>
-      <p class="subgrid2__item box">C</p>
-      <p class="subgrid2__item box">D</p>
+  <div class="grid2">
+    <div class="grid__item subgrid">
+      <p class="subgrid__item">A</p>
+      <p class="subgrid__item">B</p>
+      <p class="subgrid__item">C</p>
+      <p class="subgrid__item">D</p>
     </div>
   </div>
 
   <hr>
 
   <h2>Gaps with subgrids</h2>
-  <div class="grid3 box">
-    <div class="subgrid3 box">
-      <p class="subgrid3__item box">A</p>
-      <p class="subgrid3__item box">B</p>
+  <div class="grid3">
+    <div class="grid__item subgrid">
+      <p class="subgrid__item">A</p>
+      <p class="subgrid__item">B</p>
     </div>
   </div>
 
   <hr>
 
   <h2>Margins and paddings with subgrids</h2>
+  <div class="grid4">
+    <div class="grid__item-1">1</div>
+    <div class="grid__item-2 subgrid">
+      <div class="subgrid__item subsubgrid">
+        <div class="subsubgrid__item-1">2</div>
+        <div class="subsubgrid__item-2">3</div>
+      </div>
+      
+    </div>
+    <div class="grid__item-3">4</div>
+  </div>
+
+  <hr>
+
+  <h2>No implicit grid tracks</h2>
+  <div class="grid5">
+    <div class="grid__item-1">1</div>
+    <div class="grid__item-2 subgrid">
+      <div class="subgrid__item-1">2</div>
+      <div class="subgrid__item-2">3</div>
+    </div>
+    <div class="grid__item-3">4</div>
+    <div class="grid__item-4">5</div>
+  </div>
 
   <hr>
 
@@ -246,8 +344,21 @@
   <hr>
 
   <h2>Unknown number of rows or columns</h2>
-  <div class="uc-edge">
-    <aside></aside>
+  <div class="uc-page">
+    <p>We should all sleep more</p>
+    <ul>
+      <li><img src="../img/rabbits.jpg" alt="Baby rabbits napping"></li>
+      <li><img src="../img/rabbits.jpg" alt="Baby rabbits napping"></li>
+      <li><img src="../img/rabbits.jpg" alt="Baby rabbits napping"></li>
+      <li><img src="../img/rabbits.jpg" alt="Baby rabbits napping"></li>
+      <li><img src="../img/rabbits.jpg" alt="Baby rabbits napping"></li>
+      <li><img src="../img/rabbits.jpg" alt="Baby rabbits napping"></li>
+      <li><img src="../img/rabbits.jpg" alt="Baby rabbits napping"></li>
+      <li><img src="../img/rabbits.jpg" alt="Baby rabbits napping"></li>
+      <li><img src="../img/rabbits.jpg" alt="Baby rabbits napping"></li>
+      <li><img src="../img/rabbits.jpg" alt="Baby rabbits napping"></li>
+      <li><img src="../img/rabbits.jpg" alt="Baby rabbits napping"></li>
+    </ul>
   </div>
   <p><em>Use-case write up by <a href="https://rachelandrew.co.uk/archives/2019/05/07/a-design-pattern-solved-by-subgrid/">Rachel Andrew</a>.</em></p>
 
@@ -257,7 +368,7 @@
     <ul class="uc-nested">
       <li>
         <h2>Awesome speaker</h2>
-        <img src="http://placekitten.com/200/200" alt="Adorable kitten as placeholder image">
+        <img src="../img/cat1.jpg" alt="Adorable kitten as placeholder image">
         <p>Chocolate bar gummies powder bear claw cake dragée oat cake cake. Chupa chups marzipan ice cream croissant topping liquorice toffee chupa chups chocolate. Pie pie gummies sweet chocolate.</p>
         <span>🌐 https://websi.te</span>
         <span>🐦 @twitter_handle</span>
@@ -266,7 +377,7 @@
     
       <li>
         <h2>Incredible speaker</h2>
-        <img src="http://placekitten.com/200/200" alt="Adorable kitten as placeholder image">
+        <img src="../img/cat2.jpg" alt="Adorable kitten as placeholder image">
         <p>Pie dragée marzipan lemon drops sugar plum wafer I love. Topping tiramisu sweet roll apple pie gummi bears. Toffee ice cream powder. Muffin sesame snaps I love marshmallow. Lemon drops cotton candy macaroon marzipan carrot cake bonbon candy canes powder. Sesame snaps lemon drops fruitcake jujubes topping jujubes cupcake jujubes. Cookie cupcake I love.</p>
         <span>🌐 https://longer.website.url</span>
         <span>🐦 @twt</span>
@@ -275,7 +386,7 @@
       
       <li>
         <h2>Amazing speaker</h2>
-        <img src="http://placekitten.com/200/200" alt="Adorable kitten as placeholder image">
+        <img src="../img/cat3.jpg" alt="Adorable kitten as placeholder image">
         <p>Chocolate bar gummies powder bear claw cake dragée Lemon drops I love tootsie roll dragée gingerbread tart danish halvah cake. Caramels dragée jelly beans tiramisu gummi bears I love danish.</p>
         <span>🌐 https://shrt.url</span>
         <span>🐦 @but_super_long_twitter</span>
