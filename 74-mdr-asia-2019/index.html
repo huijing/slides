@@ -89,22 +89,38 @@
           </section>
 
           <section>
-            <div style="display:flex;flex-wrap:wrap">
-              <div style="flex:1 0 25%;font-size:85%">
-                <h3>Block layout</h3>
-                <p>designed for laying out documents</p>
+            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1em">
+              <div style="flex:1 0 30%;font-size:85%;display:flex">
+                <h3 class="jp" style="writing-mode:vertical-rl;font-size:115%">ブロックレイアウト</h3>
+                <div>
+                  <h3>Block layout</h3>
+                  <p>designed for laying out documents</p>
+                  <img src="img/block-layout.png" alt="block layout" style="height:30vh" class="plain">
+                </div>
               </div>
-              <div style="flex:1 0 25%;font-size:85%" class="fragment">
-                <h3>Inline layout</h3>
-                <p>designed for laying out text</p>
+              <div style="flex:1 0 30%;font-size:85%;display:flex" class="fragment">
+                <h3 class="jp" style="writing-mode:vertical-rl;font-size:115%">インラインレイアウト</h3>
+                <div>
+                  <h3>Inline layout</h3>
+                  <p>designed for laying out text</p>
+                  <img src="img/inline-layout.png" alt="inline layout" style="height:30vh" class="plain">
+                </div>
               </div>
-              <div style="flex:1 0 25%;font-size:85%" class="fragment">
-                <h3>Table layout</h3>
-                <p>designed for laying out 2D data in a tabular format</p>
+              <div style="flex:1 0 30%;font-size:85%;display:flex" class="fragment">
+                <h3 class="jp" style="writing-mode:vertical-rl;font-size:115%">テーブルレイアウト</h3>
+                <div>
+                  <h3>Table layout</h3>
+                  <p>designed for laying out 2D data in a tabular format</p>
+                  <img src="img/table-layout.png" alt="table layout" style="height:30vh" class="plain">
+                </div>
               </div>
-              <div style="flex:1 0 25%;font-size:85%" class="fragment">
-                <h3>Positioned layout</h3>
-                <p>designed for very explicit positioning without much regard for other elements in the document</p>
+              <div style="flex:0 0 65%;font-size:85%;display:flex" class="fragment">
+                <h3 class="jp" style="writing-mode:vertical-rl;font-size:115%">絶対位置指定</h3>
+                <div>
+                  <h3>Positioned layout</h3>
+                  <p>designed for very explicit positioning without much regard for other elements in the document</p>
+                </div>
+                <img src="img/positioned-layout.png" alt="positioned layout" style="height:30vh" class="plain">
               </div>
             </div>
             <aside class="notes">
@@ -206,7 +222,12 @@
           </section>
 
           <section>
-            <blockquote>“Grid is the only layout technique that establishes a <strong style="border-bottom:0.1em solid;">relationship</strong> between rows and columns of grid items.”</blockquote>
+            <blockquote>
+              <p>Grid is the only layout technique that establishes a <strong style="border-bottom:0.1em solid;">relationship</strong> between rows and columns of grid items.</p>
+            </blockquote>
+            <blockquote>
+              <p lang="ja" class="jp" style="font-style:normal">グリッドは、グリッド項目の行と列の間の関係を確立する唯一のレイアウト手法です。</p>
+            </blockquote>
             <aside class="notes">But when using Grid, the dimensions for rows and columns are defined on the parent container instead. The grid is real, and we can place items inside this grid. And that is AMAZING.</aside>
           </section>
         </section>
@@ -216,11 +237,11 @@
             <h2>Basics of CSS Grid</h2>
             <div class="l-double">
               <div class="fragment" style="width:100%;">
-                <p>Define your grid.</p>
+                <p>Define your grid.<br><span class="jp">グリッドコンテナーを作成する</span></p>
                 <img class="plain" style="max-height:65vh;" data-src="img/define-grid.svg" alt="Define a grid">
               </div>
               <div class="fragment" style="width:100%;">
-                <p>Place items in the grid.</p>
+                <p>Place items in the grid.<br><span class="jp">グリッドにアイテムを配置</span></p>
                 <img class="plain" style="max-height:65vh;" data-src="img/place-items.svg" alt="Place items in the grid">
             </div>
             <aside class="notes">The basic premise of how grid works involves two steps. You 👾 define the grid, then 👾 place items in it either by yourself, or let the browser do it for you.</aside>

@@ -341,6 +341,14 @@ html {
   .reveal blockquote p::after {
     right: -0.3em;
     content: '\201D'; }
+  .reveal blockquote .jp::before {
+    top: -0.25em;
+    left: -1em;
+    content: '\300C'; }
+  .reveal blockquote .jp::after {
+    bottom: -0.25em;
+    right: -0.75em;
+    content: '\300D'; }
 
 .reveal figure img {
   max-height: 75vh; }

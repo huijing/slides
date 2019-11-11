@@ -105,6 +105,18 @@ html {
       right: -0.3em;
       content: '\201D';
     }
+
+    .jp::before {
+      top: -0.25em;
+      left: -1em;
+      content: '\300C';
+    }
+
+    .jp::after {
+      bottom: -0.25em;
+      right: -0.75em;
+      content: '\300D';
+    }
   }
 
   figure {
