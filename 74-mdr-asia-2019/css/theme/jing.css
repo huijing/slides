@@ -480,3 +480,6 @@ span[role=img][aria-label]:hover::after {
 .intro-grid div {
   grid-row: 2 / -3;
   grid-column: 1 / -1; }
+
+.jp {
+  font-family: 'Tsukushi B Round Gothic', sans-serif; }

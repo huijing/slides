@@ -103,26 +103,30 @@
 
   .grid3 {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, minmax(3em, auto));
-    gap: 2em;
+    grid-template-columns: repeat(4, minmax(2em, 1fr));
+    grid-template-rows: 1fr 1fr;
+    gap: 1em;
+    height: 10em;
+  }
+
+  .grid3 .grid__item-1 {
+    grid-row: 1 / -1;
+  }
+  
+  .grid3 .grid__item-4 {
+    grid-column: span 2;
   }
 
   .grid3 .subgrid {
-    grid-column: 2 / 4;
-    grid-row: 1 / 5;
+    grid-column: 2 / 5;
     display: grid;
     grid-template-columns: subgrid;
     grid-template-rows: subgrid;
-    gap: 0;
+    gap: 2em;
   }
 
-  .grid3 .subgrid__item:nth-of-type(1) {
-    grid-row: 2 / span 3;
-  }
-
-  .grid3 .subgrid__item:nth-of-type(2) {
-    grid-column: 1 / span 2;
+  .grid3 .subgrid__item-2 {
+    grid-column: span 2;
   }
 
   .grid4,
@@ -141,10 +145,12 @@
     margin: 1em;
   }
   
-  .grid4 .subgrid__item {
+  .grid4 .subsubgrid {
     grid-column: span 3;
     display: grid;
     grid-template-columns: subgrid;
+    padding: 1em;
+    margin: 1em;
   }
   
   .grid5 .subgrid {
@@ -159,7 +165,32 @@
   
   .grid5 .subgrid__item-2 {
     grid-column: 4;
-  }  
+  }
+  
+  .grid6 {
+    margin-top: 1em;
+    height: 10em;
+
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: 50% 50%;
+  }
+
+  .grid6 .subgrid {
+    grid-column: 2 / 5;
+    grid-row: span 2;
+
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .grid6 .subgrid__item {
+    padding: 1em;
+    background-color: rgba(152, 251, 152, 0.5);
+  }
 
   .uc-form {
     display: grid;
@@ -279,10 +310,13 @@
 
   <h2>Gaps with subgrids</h2>
   <div class="grid3">
-    <div class="grid__item subgrid">
-      <p class="subgrid__item">A</p>
-      <p class="subgrid__item">B</p>
+    <div class="grid__item-1">1</div>
+    <div class="grid__item-2 subgrid">
+      <div class="subgrid__item-1">2</div>
+      <div class="subgrid__item-2">3</div>
     </div>
+    <div class="grid__item-3">4</div>
+    <div class="grid__item-4">5</div>
   </div>
 
   <hr>
@@ -311,6 +345,17 @@
     </div>
     <div class="grid__item-3">4</div>
     <div class="grid__item-4">5</div>
+  </div>
+
+  <div class="grid6">
+    <div class="grid__item subgrid">
+      <p class="subgrid__item">A</p>
+      <p class="subgrid__item">B</p>
+      <p class="subgrid__item">C</p>
+      <p class="subgrid__item">D</p>
+      <p class="subgrid__item">E</p>
+      <p class="subgrid__item">F</p>
+    </div>
   </div>
 
   <hr>
@@ -345,7 +390,7 @@
 
   <h2>Unknown number of rows or columns</h2>
   <div class="uc-page">
-    <p>We should all sleep more</p>
+    <p>もうちょっと寝ましょう</p>
     <ul>
       <li><img src="../img/rabbits.jpg" alt="Baby rabbits napping"></li>
       <li><img src="../img/rabbits.jpg" alt="Baby rabbits napping"></li>

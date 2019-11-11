@@ -281,8 +281,6 @@ html {
 .reveal .l-multiple {
   display: flex;
   justify-content: space-around; }
-  .reveal .l-multiple .j-vert {
-    width: 1em; }
 
 .reveal .l-double {
   display: grid;
@@ -293,7 +291,23 @@ html {
   vertical-align: middle;
   margin-right: 1rem; }
 
-.reveal em {
+.reveal .j-stamp {
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: rotate(-30deg) translateX(-50%);
+  background-color: #000;
+  padding: 0.25em;
+  border: 0.15em solid #a70000;
+  color: #a70000;
+  text-shadow: 1px 1px 2px black;
+  box-shadow: 1px 1px 2px black;
+  border-radius: 0.5em;
+  text-transform: uppercase;
+  font-size: 200%; }
+
+.reveal em,
+.reveal strong {
   color: #4b729e; }
 
 .reveal pre {
@@ -411,3 +425,55 @@ span[role=img][aria-label]:hover::after {
   display: block;
   height: 100%;
   white-space: pre-wrap; }
+
+.intro-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(12, 2em);
+  grid-template-rows: repeat(11, 2em);
+  grid-template-areas: '. . . . a . . b . . . .' '. m . . . . . . . c . .' '. . . . . . . . . . . .' 'l . . . . . . . . . . d' '. . . . . . . . . . . .' 'k . . . . . . . . . . e' '. . . . . . . . . . . .' 'j . . . . . . . . . . .' '. . . . . . . . . . f .' '. . i . . . . . g . . .' '. . . . . h . . . . . .'; }
+  .intro-grid span {
+    font-size: 1.5em; }
+
+.intro-grid span:first-child {
+  grid-area: a; }
+
+.intro-grid span:nth-child(2) {
+  grid-area: b; }
+
+.intro-grid span:nth-child(3) {
+  grid-area: c; }
+
+.intro-grid span:nth-child(4) {
+  grid-area: d; }
+
+.intro-grid span:nth-child(5) {
+  grid-area: e; }
+
+.intro-grid span:nth-child(6) {
+  grid-area: f; }
+
+.intro-grid span:nth-child(7) {
+  grid-area: g; }
+
+.intro-grid span:nth-child(8) {
+  grid-area: h; }
+
+.intro-grid span:nth-child(9) {
+  grid-area: i; }
+
+.intro-grid span:nth-child(10) {
+  grid-area: j; }
+
+.intro-grid span:nth-child(11) {
+  grid-area: k; }
+
+.intro-grid span:nth-child(12) {
+  grid-area: l; }
+
+.intro-grid span:nth-child(13) {
+  grid-area: m; }
+
+.intro-grid div {
+  grid-row: 2 / -3;
+  grid-column: 1 / -1; }
