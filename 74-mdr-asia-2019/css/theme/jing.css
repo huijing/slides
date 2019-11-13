@@ -280,6 +280,20 @@ html {
 *::after {
   box-sizing: inherit; }
 
+.reveal :lang(ja) {
+  font-family: 'Tsukushi B Round Gothic', sans-serif; }
+
+.reveal :lang(ko) {
+  font-family: 'Nanum Gothic', sans-serif; }
+
+.reveal .lang-links {
+  display: flex;
+  list-style-type: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1; }
+
 .reveal .l-multiple {
   display: flex;
   justify-content: space-around;
@@ -341,11 +355,13 @@ html {
   .reveal blockquote p::after {
     right: -0.3em;
     content: '\201D'; }
-  .reveal blockquote .jp::before {
+  .reveal blockquote p:lang(ja)::before,
+  .reveal blockquote p:lang(zh)::before {
     top: -0.25em;
     left: -1em;
     content: '\300C'; }
-  .reveal blockquote .jp::after {
+  .reveal blockquote p:lang(ja)::after,
+  .reveal blockquote p:lang(zh)::after {
     bottom: -0.25em;
     right: -0.75em;
     content: '\300D'; }
@@ -488,6 +504,3 @@ span[role=img][aria-label]:hover::after {
 .intro-grid div {
   grid-row: 2 / -3;
   grid-column: 1 / -1; }
-
-.jp {
-  font-family: 'Tsukushi B Round Gothic', sans-serif; }

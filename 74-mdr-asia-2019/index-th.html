@@ -35,13 +35,7 @@
           <h1>Making CSS from Good to Great</h1>
           <h3>The Power of Subgrid</h3>
           <p style="margin-top:1em"><small><a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
-          <aside class="notes">
-            <p>(안녕하세요. 저는 Hui Jing 입니다. 오늘 저는 파이어폭스 개발 툴을 이용해 CSS 그리드를 배우는 법에 대해 발표하겠습니다)</p>
-            <p>An-nyeong-ha-se-yo.</p>
-            <p>Cho-nun Hui Jing ib-ni-da.</p>
-            <p>O-nul cho-nun pai-er-pok-su kae-pal tul-ul ee-yong-heh<br>CSS grid-el-ul pay-uh-nun paob-eh-teh-heh<br>pal-peo-heh-geh-sib-ni-da.</p>
-            <p>No, I really cannot speak Korean.</p>
-          </aside>
+          <aside class="notes">Thank you all for coming out for the Mozilla Developer Roadshow. We are very happy to see of you here this evening. My talk will cover a couple of things, CSS, as mentioned in the title, specifically for layouts, and we're also going to cover some DevTools stuff as well. Hopefully you will find this both interesting and useful.</aside>
         </section>
 
         <section>
@@ -67,7 +61,7 @@
               <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
             </div>
           </div>
-          <aside class="notes">Let's do this again. My name is Hui Jing, as you can probably guess from this slide, I'm a big fan of emojis. And these pretty much describe who I am as a person. If any of them don't make sense to you, just ask me about them later.</aside> 
+          <aside class="notes">My name is Hui Jing, as you can probably guess from this, I'm a big fan of emojis. And these pretty much describe who I am as a person. If any of them don't make sense to you, just ask me about them later.</aside> 
         </section>
 
         <section>
@@ -103,29 +97,35 @@
           </section>
 
           <section>
-            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1em;font-size:85%">
-              <div style="flex:1 0 30%">
-                <h3 style="margin:0">Block layout</h3>
-                <h3 lang="ko" style="font-size:90%">블록 레이아웃</h3>
-                <p>designed for laying out documents</p>
-                <img src="img/block-layout.png" alt="block layout" style="height:30vh" class="plain">
-              </div>
-              <div style="flex:1 0 30%" class="fragment">
-                <h3 style="margin:0">Inline layout</h3>
-                <h3 lang="ko" style="font-size:90%">인라인 레이아웃</h3>
-                <p>designed for laying out text</p>
-                <img src="img/inline-layout.png" alt="inline layout" style="height:30vh" class="plain">
-              </div>
-              <div style="flex:1 0 30%" class="fragment">
-                <h3 style="margin:0">Table layout</h3>
-                <h3 lang="ko" style="font-size:90%">테이블 레이아웃</h3>
-                <p>designed for laying out 2D data in a tabular format</p>
-                <img src="img/table-layout.png" alt="table layout" style="height:30vh" class="plain">
-              </div>
-              <div style="flex:0 0 65%;display:flex;align-items:center" class="fragment">
+            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1em">
+              <div style="flex:1 0 30%;font-size:85%;display:flex">
+                <h3 class="jp" style="writing-mode:vertical-rl;font-size:115%">ブロックレイアウト</h3>
                 <div>
-                  <h3 style="margin:0">Positioned layout</h3>
-                  <h3 lang="ko" style="font-size:90%">절대 위치잡기</h3>
+                  <h3>Block layout</h3>
+                  <p>designed for laying out documents</p>
+                  <img src="img/block-layout.png" alt="block layout" style="height:30vh" class="plain">
+                </div>
+              </div>
+              <div style="flex:1 0 30%;font-size:85%;display:flex" class="fragment">
+                <h3 class="jp" style="writing-mode:vertical-rl;font-size:115%">インラインレイアウト</h3>
+                <div>
+                  <h3>Inline layout</h3>
+                  <p>designed for laying out text</p>
+                  <img src="img/inline-layout.png" alt="inline layout" style="height:30vh" class="plain">
+                </div>
+              </div>
+              <div style="flex:1 0 30%;font-size:85%;display:flex" class="fragment">
+                <h3 class="jp" style="writing-mode:vertical-rl;font-size:115%">テーブルレイアウト</h3>
+                <div>
+                  <h3>Table layout</h3>
+                  <p>designed for laying out 2D data in a tabular format</p>
+                  <img src="img/table-layout.png" alt="table layout" style="height:30vh" class="plain">
+                </div>
+              </div>
+              <div style="flex:0 0 65%;font-size:85%;display:flex" class="fragment">
+                <h3 class="jp" style="writing-mode:vertical-rl;font-size:115%">絶対位置指定</h3>
+                <div>
+                  <h3>Positioned layout</h3>
                   <p>designed for very explicit positioning without much regard for other elements in the document</p>
                 </div>
                 <img src="img/positioned-layout.png" alt="positioned layout" style="height:30vh" class="plain">
@@ -140,14 +140,14 @@
           <section>
             <h2>Flexible box layout</h2>
             <p>describes a CSS box model optimised for <strong>user interface design</strong> and designed for laying out more <strong>complex applications and webpages</strong></p>
-            <p lang="ko"><strong>사용자 인터페이스 디자인에</strong> 최적화되고보다 <strong>복잡한 응용 프로그램 및 웹 페이지를</strong> 레이아웃하기 위해 설계된 CSS 상자 모델을 설명합니다</p>
+            <p class="jp" lang="ja">一次元のレイアウトモデルとして、またインターフェース中のアイテム間でスペースの<strong>分配をする機能</strong>と強力な<strong>位置合わせをする機能</strong>を提供するものとして設計されました</p>
             <aside class="notes"><p>In 2009, the flex layout model was proposed. It was the first layout model designed specifically for building dynamic layouts on the web, introducing new and powerful methods for distributing space and aligning content in a way that better suited the dynamic nature of the web.</p></aside>
           </section>
 
           <section>
             <h2>Grid layout</h2>
             <p>Defines a <strong>two-dimensional</strong> grid-based layout system, optimised for <strong>user interface design</strong>.</p>
-            <p lang="ko"><strong>사용자 인터페이스 디자인에</strong> 최적화 된 <strong>2 차원</strong> 그리드 기반 레이아웃 시스템을 정의합니다</p>
+            <p class="jp" lang="ja"><strong>二次元</strong>グリッドシステムを CSS にもたらします</p>
             <aside class="notes"><p>Following that, the grid layout model came along, the only layout model which recognises the relationship between rows and columns.</p></aside>
           </section>
         </section>
@@ -171,7 +171,7 @@
               </div>
               <div class="code"><style class="code-editor" contenteditable="true">.inlineblock__item {
   display: inline-block;
-  
+  width: calc(100% / 3);
 }</style></div>
             </div>
             <aside class="notes">One approach for creating such a layout could be the <code>inline-block</code> technique. For a three column grid, we set the display of the items to <code>inline-block</code> and give them all a width of a third of the container.</aside>
@@ -234,7 +234,7 @@
               <p>Grid is the only layout technique that establishes a <strong style="border-bottom:0.1em solid;">relationship</strong> between rows and columns of grid items.</p>
             </blockquote>
             <blockquote>
-              <p lang="ko" style="font-style:normal">그리드는 그리드 항목의 행과 열 사이의 <strong>관계를</strong> 설정하는 유일한 레이아웃 기술입니다</p>
+              <p lang="ja" class="jp" style="font-style:normal">グリッドは、グリッド項目の行と列の間の関係を確立する唯一のレイアウト手法です。</p>
             </blockquote>
             <aside class="notes">But when using Grid, the dimensions for rows and columns are defined on the parent container instead. The grid is real, and we can place items inside this grid. And that is AMAZING.</aside>
           </section>
@@ -245,11 +245,11 @@
             <h2>Basics of CSS Grid</h2>
             <div class="l-double">
               <div class="fragment" style="width:100%;">
-                <p>Define your grid.<br><span lang="ko">그리드를 만들</span></p>
+                <p>Define your grid.<br><span class="jp">グリッドコンテナーを作成する</span></p>
                 <img class="plain" style="max-height:65vh;" data-src="img/define-grid.svg" alt="Define a grid">
               </div>
               <div class="fragment" style="width:100%;">
-                <p>Place items in the grid.<br><span lang="ko">그리드에 항목을 배치</span></p>
+                <p>Place items in the grid.<br><span class="jp">グリッドにアイテムを配置</span></p>
                 <img class="plain" style="max-height:65vh;" data-src="img/place-items.svg" alt="Place items in the grid">
             </div>
             <aside class="notes">The basic premise of how grid works involves two steps. You 👾 define the grid, then 👾 place items in it either by yourself, or let the browser do it for you.</aside>
@@ -257,7 +257,7 @@
 
           <section>
             <h2>Grid terminology</h2>
-            <img class="plain" data-src="img/terminology-kr.svg" alt="Grid terminology">
+            <img class="plain" data-src="img/terminology-jp.svg" alt="Grid terminology">
             <aside class="notes">
               <p>I'll be using some terms related to Grid throughout this talk, so I'd like to clarify them here. Grid lines are the horizontal and vertical lines that form the basis of the grid structure, and can be referred to by their numerical index, which starts from 1.</p>
               <p>Each space between grid lines are known as grid tracks, which make up the rows and columns of the grid, and represent the spaces your items appear in.</p>
@@ -332,12 +332,54 @@ grid-template-rows: subgrid &lt;line-name-list&gt;?</code></pre>
   grid-template-columns: subgrid;
   grid-template-rows: subgrid;
 }</code></pre>
-            </div>
+</div>
+              <!-- <div class="fragment fade-in" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
+                <img data-src="img/nested-boxes.png" alt="Nested boxes" class="plain fragment fade-out">
+              </div> -->
             <aside class="notes">
               <p>The <code>subgrid</code> keyword is what allows the nested grid to participate in the sizing of outer grids. And it is possible to keep nesting subgrids as well. 👾 But maybe don't go too overboard with it. 👾</p>
               <p>It's important to remember that the <code>subgrid</code> value is used in <code>grid-template-columns</code> and <code>grid-template-rows</code>, not the <code>display</code> property.</p>
             </aside>
           </section>
+
+          <section>
+            <h2>Named subgrid lines</h2>
+            <img class="plain" src="img/line-names.svg" alt="Named grid line names and named subgrid line names">
+            <aside class="notes">
+              <p>Subgrids inherit a number of things from the outer grid, and one of them is line names. </p>
+            </aside>
+          </section>
+
+          <!-- <section>
+            <h2>No implicit tracks in Subgrid</h2>
+            <div class="livecode livecode-2p">
+              <div class="result grid2" style="font-size:75%;">
+                <div class="subgrid2" style="border:2px solid #eb1af2">
+                  <p style="border:2px solid #0cf7da;padding:1em 0">A</p>
+                  <p style="border:2px solid #0cf7da;padding:1em 0">B</p>
+                  <p style="border:2px solid #0cf7da;padding:1em 0">C</p>
+                  <p style="border:2px solid #0cf7da;padding:1em 0">D</p>
+                  <p style="border:2px solid #0cf7da;padding:1em 0">E</p>
+                  <p style="border:2px solid #0cf7da;padding:1em 0">F</p>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.grid2 {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  grid-template-rows: 50% 50%;
+}
+
+.subgrid2 {
+  grid-column: 2 / 5;
+  grid-row: span 2;
+
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+}</style></div>
+            </div>
+            <aside class="notes"></aside>
+          </section> -->
 
           <section>
             <h2>Using DevTools to learn Subgrid</h2>
@@ -375,7 +417,7 @@ grid-template-rows: subgrid &lt;line-name-list&gt;?</code></pre>
         </section>
 
         <section style="text-align:left">
-          <h1 lang="ko">감사합니다 🙇‍♀️</h1>
+          <h1 lang="ja">ありがとうございました 🙇‍♀️</h1>
           <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle">https://www.chenhuijing.com</a></p>
           <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
           <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
