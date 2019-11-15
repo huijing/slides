@@ -75,6 +75,11 @@
 - although subgrids inherit 繼承 the line names from their parents, can also name subgrid lines
 - line numbers of the subgrid start from `1`, *refer to the example after toggling subgrid lines*
 
+- 我們可以讓嵌套的網格只對齊父網格的單一維度，怎麼說呢，就是讓內容只對齊行，或只對齊列
+- 把`subgrid`關鍵字設在`grid-template-rows`或`grid-template-columns`屬性上
+- Subgrid會有自己的的格線編號，所以設Subgrid本身的位置用的數值指標跟Subgrid內容的數值指標不同
+- 通過DevTools的Grid overlay可以看得出來該用哪一套
+- 我們還可以換顏色，如果你不喜歡紫色，就換成你喜歡的顏色好了
 ---
 
 - grid gaps on the parent grid are also inherited by the subgrid
@@ -84,9 +89,12 @@
 - *set subgrid gap to 2em*
 - if the parent has a gap of `1em` but the subgrid has a gap of `2em`, even though the subgrid items are still aligned to the parent grid, the subgrid item is now 0.5em smaller
 
+- 格線間距也會被嵌套的網格繼承
+- 但是你可以覆寫間距的尺寸
+- 間距尺寸會影響子元素的寬度，雖然內容都對齊了，但是應為間距比較大，subgrid的子元素寬度比較小
 ---
 
-- any margins, borders and paddings applied to each edge of the subgrid will “accumulate” as you nest more subgrids
+- any margins, borders and paddings applied to each edge of the subgrid will “accumulate” 累積 as you nest more subgrids
 - here we have a grid, a subgrid and an additional nested subgrid, so 3 layers
 - the outermost grid also has grid gap applied
 - item 2 and item 3 are grandchildren of the outermost grid
