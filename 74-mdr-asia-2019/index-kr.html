@@ -35,7 +35,13 @@
           <h1>Making CSS from Good to Great</h1>
           <h3>The Power of Subgrid</h3>
           <p style="margin-top:1em"><small><a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
-          <aside class="notes">大家好！非常高興你們前來出席 Mozilla Developer Roadshow 的台北站。今晚，我想跟大家分享一些關於 CSS 佈局以及 Firefox Devtools 的新進展，希望分享的內容會對那些做前端的朋友們有些幫助。</aside>
+          <aside class="notes">
+            <p>(안녕하세요. 저는 Hui Jing 입니다. 오늘 저는 파이어폭스 개발 툴을 이용해 CSS 그리드를 배우는 법에 대해 발표하겠습니다)</p>
+            <p>An-nyeong-ha-se-yo.</p>
+            <p>Cho-nun Hui Jing ib-ni-da.</p>
+            <p>O-nul cho-nun pai-er-pok-su kae-pal tul-ul ee-yong-heh<br>CSS grid-el-ul pay-uh-nun paob-eh-teh-heh<br>pal-peo-ha-geh-sib-ni-da.</p>
+            <p>No, I really cannot speak Korean.</p>
+          </aside>
         </section>
 
         <section>
@@ -61,14 +67,14 @@
               <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
             </div>
           </div>
-          <aside class="notes">我姓陳，名叫慧晶，來自馬來西亞。其實也很少用中文做技術演講啦，所以如果有哪些用詞不當的地方，要事先請大家多多包涵。我非常熱愛emoji，所以就選擇用它們來介紹自己。我曾经当过全职篮球选手，也因此无意间走上网络开发这条路。若你觉得很好奇，篮球怎么会跟网络开发扯上关系，那待会儿可以找我聊聊。</aside> 
+          <aside class="notes">Let's do this again. My name is Hui Jing, as you can probably guess from this slide, I'm a big fan of emojis. And these pretty much describe who I am as a person. If any of them don't make sense to you, just ask me about them later.</aside> 
         </section>
 
         <section>
           <img style="max-height:10em;margin-bottom:0.5em" class="plain" data-src="img/love-dev.svg" alt="Nexmo Developer Relations">
           <p><span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span> Developer Advocate <span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span></p>
           <img style="max-height:2.5em;margin-top:1em" class="plain" data-src="img/nexmo.svg" alt="Nexmo">
-          <aside class="notes">现在我在Nexmo担任开发大使，是开发者关系团队的成员。Nexmo是个通讯API平台，提供信息，语音，认证，音视频等API，好让开发者轻松把通信功能添加入自己的APP内。是蠻有趣的啦，但是今天的主題是網絡佈局。</aside>
+          <aside class="notes">I am currently a Developer Advocate with Nexmo, which is a platform that provides APIs for messaging, voice and authentication so developers can easily integrate communications into their applications. Pretty cool, but today, we're all about web layouts.</aside>
         </section>
 
         <section>
@@ -84,71 +90,65 @@
               <img class="plain fragment" style="margin:0 0.5em;max-height:75vh" data-src="img/layouts4.png" alt="Panel-style from frameworks">
             </div>
             <aside class="notes">
-              <p>起初的互聯網是根本沒有佈局這個概念的。當時的網頁也只不過是數行的文字。文字嘛，可用空白，斷行，縮排之類的來做些調整，但是要設計出印刷界的創意佈局是不可能的。</p>
-              <p>我們是什麼時候開始能夠在網頁上設定元素的位置呢？👾這應該是1994年左右，因為那是瀏覽器開始支持 <code>table</code>元素的時候。<code>table</code>嘛，用意是讓我們好好的呈現表格數據，但是<code>table</code>很快就被黑成做佈局的工具之一。開發者都很有創意，把<code>table</code>無限嵌套，為了達成理想的佈局不擇手段。</p>
-              <p>到了1996年就是CSS的到來啦。CSS的來臨，👾也帶來了<code>float</code>這個屬性。可是利用<code>float</code>來做佈局並不簡單。利用<code>float</code>建立的列常常高低不均勻，要對齊行內的元素也很煩，時不時還得用上<code>clear</code>。<code>clear</code>來<code>clear</code>去，都不懂在<code>clear</code>什麼鬼。</p>
-              <p>就因為難度也太高了，久而久之就有人創建了CSS框架。👾CSS也不需要自己動手寫啦，就把CSS class套在元素上就行了。響應式設計框架也幫你處理好。所以這個做法非常受歡迎，而我們也引入了網頁設計千篇一律的現象。</p>
+              <p>So when the web started out, there was no layout. You could format your text with spaces, line breaks and indents, sure. But having a designed visual layout on your web page? Nope.</p>
+              <p>The first time we could sort of place things in specific positions on a webpage was probably 👾 in 1994 when <code>table</code> elements were supported in browsers. Originally meant for people to make data tables, it was soon hacked to make all sorts of creative, interesting layouts.</p>
+              <p>Then 👾 CSS came along in 1996, and with it came floats. And we learned a new way to layout elements on their page. 👾 But floats weren't easy to deal with. Columns were uneven heights, things got displaced and didn't line up, you had to clear stuff. 👾</p>
+              <p>And because it was so hard, 👾 some people decided to build frameworks, and let everyone else apply these pre-written styles with CSS classes. This approach was really popular and we hit an age where a lot of websites had very similar layouts.</p>
             </aside>
           </section>
 
           <section>
             <img data-src="img/jon-gold.png" class="plain" alt="Tweet by Jon Gold on how all websites these days use 1 of 2 layouts" style="max-height:100vh">
-            <aside class="notes">這個推常在前端演講中出現，但是我覺得它準確的描述了現在網頁設計的現象。六千八百個推特用戶也同意。我們設計的網頁長的像左邊的還是向右邊的？這二十年來，CSS不斷的在演變。而佈局的屬性也越來越多，我們的工具箱越來越強大而多功能。</aside>
+            <aside class="notes">This tweet has been used in conference talks all over the world many many times, but I think it makes a very strong point. And 6.8 thousand people seem to agree. But CSS has evolved over the past 20 years, and we now have a lot of options for doing layouts.</aside>
           </section>
 
           <section>
-            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1em">
-              <div style="flex:1 0 30%;font-size:85%;display:flex">
-                <h3 lang="zh-TW" style="writing-mode:vertical-rl;font-size:115%">塊級佈局</h3>
-                <div>
-                  <h3>Block layout</h3>
-                  <p>designed for laying out documents</p>
-                  <img src="img/block-layout.png" alt="block layout" style="height:30vh" class="plain">
-                </div>
+            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1em;font-size:85%">
+              <div style="flex:1 0 30%">
+                <h3 style="margin:0">Block layout</h3>
+                <h3 lang="ko" style="font-size:90%">블록 레이아웃</h3>
+                <p>designed for laying out documents</p>
+                <img src="img/block-layout.png" alt="block layout" style="height:30vh" class="plain">
               </div>
-              <div style="flex:1 0 30%;font-size:85%;display:flex" class="fragment">
-                <h3 lang="zh-TW" style="writing-mode:vertical-rl;font-size:115%">內聯佈局</h3>
-                <div>
-                  <h3>Inline layout</h3>
-                  <p>designed for laying out text</p>
-                  <img src="img/inline-layout.png" alt="inline layout" style="height:30vh" class="plain">
-                </div>
+              <div style="flex:1 0 30%" class="fragment">
+                <h3 style="margin:0">Inline layout</h3>
+                <h3 lang="ko" style="font-size:90%">인라인 레이아웃</h3>
+                <p>designed for laying out text</p>
+                <img src="img/inline-layout.png" alt="inline layout" style="height:30vh" class="plain">
               </div>
-              <div style="flex:1 0 30%;font-size:85%;display:flex" class="fragment">
-                <h3 lang="zh-TW" style="writing-mode:vertical-rl;font-size:115%">表格佈局</h3>
-                <div>
-                  <h3>Table layout</h3>
-                  <p>designed for laying out 2D data in a tabular format</p>
-                  <img src="img/table-layout.png" alt="table layout" style="height:30vh" class="plain">
-                </div>
+              <div style="flex:1 0 30%" class="fragment">
+                <h3 style="margin:0">Table layout</h3>
+                <h3 lang="ko" style="font-size:90%">테이블 레이아웃</h3>
+                <p>designed for laying out 2D data in a tabular format</p>
+                <img src="img/table-layout.png" alt="table layout" style="height:30vh" class="plain">
               </div>
-              <div style="flex:0 0 65%;font-size:85%;display:flex" class="fragment">
-                <h3 lang="zh-TW" style="writing-mode:vertical-rl;font-size:115%">絕對定位</h3>
+              <div style="flex:0 0 65%;display:flex;align-items:center" class="fragment">
                 <div>
-                  <h3>Positioned layout</h3>
+                  <h3 style="margin:0">Positioned layout</h3>
+                  <h3 lang="ko" style="font-size:90%">절대 위치잡기</h3>
                   <p>designed for very explicit positioning without much regard for other elements in the document</p>
                 </div>
                 <img src="img/positioned-layout.png" alt="positioned layout" style="height:30vh" class="plain">
               </div>
             </div>
             <aside class="notes">
-              <p>CSS介紹了四種基本佈局模塊，各有長處。塊級佈局適合在網頁上佈置盒子。👾內聯佈局則適合文字的排版。</p>
-              <p>👾之前提過了，表格佈局是為了處理表格數據。👾最後是絕對定位，算是最霸主型的佈局方式，因為它根本不理會網頁上的其他元素，想在哪裡就在哪裡。</p>
+              <p>In CSS2, we had 4 layout modes for different use cases. We had block layout, which was meant for laying out boxes on the page. 👾 We had inline layout, meant for laying out text.</p>
+              <p>👾 Then we had table layouts that worked best for laying out 2D data in a tabular format. 👾 And positioned layout, which was like an escape hatch, that let us position elements without regard to other elements on the page.</p>
             </aside>
           </section>
 
           <section>
             <h2>Flexible box layout</h2>
             <p>describes a CSS box model optimised for <strong>user interface design</strong> and designed for laying out more <strong>complex applications and webpages</strong></p>
-            <p lang="zh-TW">为用户界面设计的布局模型；可以对齐主轴或交叉轴上的项目，从而提供对一组项目大小和对齐的高级控制</p>
-            <aside class="notes">Flexbox是在2009被提議的。而它可以算是有史以來第一个以网络本质为主而编写的CSS規範，提供了对一组项目大小和对齐的高级控制。</aside>
+            <p lang="ko"><strong>사용자 인터페이스 디자인에</strong> 최적화되고보다 <strong>복잡한 응용 프로그램 및 웹 페이지를</strong> 레이아웃하기 위해 설계된 CSS 상자 모델을 설명합니다</p>
+            <aside class="notes"><p>In 2009, the flex layout model was proposed. It was the first layout model designed specifically for building dynamic layouts on the web, introducing new and powerful methods for distributing space and aligning content in a way that better suited the dynamic nature of the web.</p></aside>
           </section>
 
           <section>
             <h2>Grid layout</h2>
             <p>Defines a <strong>two-dimensional</strong> grid-based layout system, optimised for <strong>user interface design</strong>.</p>
-            <p lang="zh-TW">二维网格布局系统，为用户界面设计的布局模型</p>
-            <aside class="notes">紧接着的一年后，微軟的工程師為了配合Metro UI的研發而提議了Grid。所以最早實現Grid的瀏覽器是IE。Grid最适合用來做二维网格布局。</aside>
+            <p lang="ko"><strong>사용자 인터페이스 디자인에</strong> 최적화 된 <strong>2 차원</strong> 그리드 기반 레이아웃 시스템을 정의합니다</p>
+            <aside class="notes"><p>Following that, the grid layout model came along, the only layout model which recognises the relationship between rows and columns.</p></aside>
           </section>
         </section>
 
@@ -157,9 +157,9 @@
             <h2>Why is CSS grid special?</h2>
             <blockquote class="fragment" style="width:max-content;margin:0 auto">“Grid works from the <strong style="border-bottom:0.1em solid;">container</strong> in,<br>other layout methods start with the <strong style="border-bottom:0.1em solid;">item</strong>”<br><small>—<a href="https://rachelandrew.co.uk/">Rachel Andrew</a></small></blockquote>
             <aside class="notes">
-              <p>能夠做出二維佈局又有什麼了不起呢？重點是它完全改變了我們對網頁佈局的設計思路，也改變了我們寫代碼習慣。</p>
-              <p>Rachel Andrew是Grid規範的主要貢獻者之一。她是這樣形容Grid的。Grid是以容器為主，而與其的佈局方式都以單元為主。這個概念得用實例解釋比較容易明白。</p>
-              <p>假設您想將內容分為三列，你會怎麼實現？</p>
+              <p>Why is this significant? What's the big deal about this two dimension thing? Well, it changes the way we think about layout and how we write the code to do it.</p>
+              <p>Rachel Andrew, who is one of the major contributors to the CSS grid specification, sums it up as such. Grid works from the container in, while other layout methods start with the item first. Let me explain with a scenario.</p>
+              <p>Say you wanted to lay out your content into 3 columns. How would you go about it?</p>
             </aside>
           </section>
 
@@ -171,10 +171,10 @@
               </div>
               <div class="code"><style class="code-editor" contenteditable="true">.inlineblock__item {
   display: inline-block;
-  width: calc(100% / 3);
+  
 }</style></div>
             </div>
-            <aside class="notes">我們可以用<code>inline-block</code>來做。先把<code>inline-block</code>設在單元上，然後把寬度設為容器的三分之一。結果就是要三列的佈局了。</aside>
+            <aside class="notes">One approach for creating such a layout could be the <code>inline-block</code> technique. For a three column grid, we set the display of the items to <code>inline-block</code> and give them all a width of a third of the container.</aside>
           </section>
 
           <section>
@@ -205,7 +205,7 @@
   width: calc(100% / 3);
 }</style></div>
             </div>
-            <aside class="notes">不喜歡<code>inline-block</code>，也可以用<code>float</code>來做。代碼跟<code>inline-block</code>的非常相似。 重點是把單元的寬度設為容器的三分之一。</aside>
+            <aside class="notes">If <code>float</code>s are more your style, you can do that too. It's very similar to <code>inline-block</code> though, because you also need to set a width on each item.</aside>
           </section>
 
           <section>
@@ -224,8 +224,8 @@
 }</style></div>
             </div>
             <aside class="notes">
-              <p>比較新潮的朋友們也可以選擇用Flexbox。要保持均勻的三列，就得鎖定單元的伸縮功能，然後把<code>flex-basis</code>设为容器的三分之一宽。</p>
-              <p>以上的三種方法根本都沒有格線存在。我們只是強迫單元對齊，格線完全是假象啊。</p>
+              <p>Flexbox can do this too. To ensure our items line up in three columns, we prevent them from growing or shrinking, then set the flex-basis to a third of the container. But again, notice that we are setting property values on the item.</p>
+              <p>For all 3 techniques I just described, there isn't actually a grid. It just looks that way because we've forced the items to line up with each other.</p>
             </aside>
           </section>
 
@@ -233,10 +233,10 @@
             <blockquote>
               <p>Grid is the only layout technique that establishes a <strong style="border-bottom:0.1em solid;">relationship</strong> between rows and columns of grid items.</p>
             </blockquote>
-            <blockquote style="width:max-content">
-              <p lang="zh-TW" style="font-style:normal">只有Grid中的行列才是真實的，是有關係的。</p>
+            <blockquote>
+              <p lang="ko" style="font-style:normal">그리드는 그리드 항목의 행과 열 사이의 <strong>관계를</strong> 설정하는 유일한 레이아웃 기술입니다</p>
             </blockquote>
-            <aside class="notes">可是用Grid做出來的格線確實是有行與列的。行與列的尺寸通過容器來定義，之後我們只需要把單元佈置在格線內。這是前所未有的神奇功能呀。</aside>
+            <aside class="notes">But when using Grid, the dimensions for rows and columns are defined on the parent container instead. The grid is real, and we can place items inside this grid. And that is AMAZING.</aside>
           </section>
         </section>
 
@@ -245,30 +245,30 @@
             <h2>Basics of CSS Grid</h2>
             <div class="l-double">
               <div class="fragment" style="width:100%;">
-                <p>Define your grid.<br><span lang="zh-TW">建立格線容器</span></p>
+                <p>Define your grid.<br><span lang="ko">그리드를 만들</span></p>
                 <img class="plain" style="max-height:65vh;" data-src="img/define-grid.svg" alt="Define a grid">
               </div>
               <div class="fragment" style="width:100%;">
-                <p>Place items in the grid.<br><span lang="zh-TW">放置格線單元</span></p>
+                <p>Place items in the grid.<br><span lang="ko">그리드에 항목을 배치</span></p>
                 <img class="plain" style="max-height:65vh;" data-src="img/place-items.svg" alt="Place items in the grid">
             </div>
-            <aside class="notes">要實現Grid佈局基本上只有兩個步驟。首先，👾建立一個格線容器，👾然後把格線單元佈置在格線內。</aside>
+            <aside class="notes">The basic premise of how grid works involves two steps. You 👾 define the grid, then 👾 place items in it either by yourself, or let the browser do it for you.</aside>
           </section>
 
           <section>
             <h2>Grid terminology</h2>
-            <img class="plain" data-src="img/terminology-tw.svg" alt="Grid terminology">
+            <img class="plain" data-src="img/terminology-kr.svg" alt="Grid terminology">
             <aside class="notes">
-              <p>今天會提到一些與Grid相關的語法，所以先說明一下。格線是構成網格結構基礎的水平線和垂直線，這些格線都會有編號，讓我們來定位每一個格線單元。要注意的是編號是從一開始，而不是零。</p>
-              <p>格線之間的空間就是格線軌道。格線單元就佈置在這些軌道中。</p>
-              <p>格線單元則是網格中最小的單位，格線容器內子元素的默認尺寸是一個單位，但是我們可以把元素尺寸跨越多個網格單元，成為格線區域。</p>
-              <p>其實我本身認為Grid最大的優點是格線間距這個功能。之前想在格線的行列中設間距是一件非常煩人的事情。而<code>gap</code>這個屬性也擴展到Flexbox了，Firefox是六十三以上都開始支持它了。</p>
+              <p>I'll be using some terms related to Grid throughout this talk, so I'd like to clarify them here. Grid lines are the horizontal and vertical lines that form the basis of the grid structure, and can be referred to by their numerical index, which starts from 1.</p>
+              <p>Each space between grid lines are known as grid tracks, which make up the rows and columns of the grid, and represent the spaces your items appear in.</p>
+              <p>The grid cell is a single unit of the grid and is made up of 2 adjacent row lines and 2 adjacent column lines. By default, each grid item takes up 1 grid cell. A grid area is made up of multiple grid cells.</p>
+              <p>The best part about Grid, is the ability to define grid gaps, which are the gutters between grid tracks. This feature has been expanded to flex layouts as well, and you can already use it in Firefox 63 onwards.</p>
             </aside>
           </section>
 
           <section>
             <img class="plain" data-src="img/grid-release.png">
-            <aside class="notes">Grid在2017的發布相當成功。如果你看一下這個日曆，主流瀏覽器在三月底都開始支持Grid了。Samsung Internet和Edge也在十月份發佈的版本支持Grid。</aside>
+            <aside class="notes">So in 2017, Grid was rolled out. Very successfully, might I add. By the end of March, all the major browsers had shipped a stable implementation which worked the same way. And by October, even Samsung Internet and Edge (RIP) could support Grid.</aside>
           </section>
 
           <section>
@@ -278,14 +278,14 @@
                 <img src="img/css-grid.png" alt="Data on support for the css-grid feature across the major browsers from caniuse.com">
               </a>
             </p>
-            <aside class="notes">至今，93%的互聯網用戶的瀏覽器都支持Grid了，所以之前大家喜歡用「 瀏覽器不支持它」的這個的藉口已經過時了。</aside>
+            <aside class="notes">Right now, and I know the numbers are tiny here, more than 92% of internet users are using a browser that supports CSS grid. So not much of an excuse not to try it out anymore.</aside>
           </section>
 
           <section>
             <h2>Using DevTools to learn Grid</h2>
             <a href="devtools/grid.html">Live demo</a>
             <img class="plain" style="display:block;max-height:45vh;margin:1em auto" src="img/grid-qr.png" alt="QR code for link to example page">
-            <aside class="notes">在我印象中，Firefox Devtools跟Grid是相輔相成的，要調適佈局絕對少不了它。但是除了當調適工具之外，Devtools也可以是一個讓我們更深入了解新CSS屬性的教材工具。接下來就用一些實例來了解Grid吧。</aside>
+            <aside class="notes">I've always used Firefox Devtools ever since I first started using Grid. Because it provided features that made it much easier to debug Grid layouts, since Day 1. But Devtools can be more than just that. It can be a means for the browser to help us understand CSS better, especially as more new properties get shipped.</aside>
           </section>
         </section>
 
@@ -298,9 +298,9 @@
               <li class="fragment" style="margin-bottom:0.5em"><strong>aspect-ratio–controlled gutters</strong></li>
             </ul>
             <aside class="notes">
-              <p>不知道大家是否熟悉CSS規範的等級。長話短說，CSS規範原本是個非常冗長的文件。直到2000年，CSS工作組決定吧規範分成模塊，讓編輯跟方便測試，制定和維護規範。</p>
-              <p>這個分隔後的規範常被稱為CSS3。但是以後是不會再有CSS4，CSS5等等，因為每一個CSS功能都有自己的規範。其中如果有哪些細節比較棘手或許要更深入的研討時，工作組就會把它推遲到模塊的下一個等級。例如，writing-mode現在已經有四個等級了。</p>
-              <p>Subgrid一向來都被視為一項重要的功能，但是實現細節還想當複雜，所以它被推遲到Level 2。Grid模块Level 2的规范包括了Subgrid以及長寬比格線間距。今天我們只討論Subgrid這一塊。</p>
+              <p>Some of us might not be too familiar the the levels in CSS specifications. Long story short, the CSS spec used to be a big monolithic document for the first 2 versions, but was split up into modules in 2000 to make it easier to test, develop and maintain the specification.</p>
+              <p>This split up version was commonly referred to as CSS3. But there is and will never be CSS4 or 5 and so on, because each CSS feature is a separate document now. Usually when a feature gets too complicated, or something in there requires more discussion, it gets deferred to the next level.</p>
+              <p>Subgrid was an important feature from the start, but it needed more time to ensure robustness, hence it was deferred to Level 2. So level 2 of the grid specification covers 👾 subgrid, as well as 👾 defines the behaviour for aspect-ratio-controlled gutters. But we'll only focus on subgrid right now.</p>
             </aside>
           </section>
 
@@ -312,8 +312,9 @@
               <img class="plain" src="img/form-layout.png" alt="Inline form labels and inputs">
             </div>
             <aside class="notes">
-              <p>Subgrid有許多實際用例。假如你想實現圖案中的卡式佈局，而卡中的內容長短都不均勻，那麼卡中的頁眉和頁腳就對不齊了啊。有了Subgrid，嵌套網格將會使用父級網格元素中的軌道定義來排列它其中的網格元素。這卡內的內容都能以父網格的軌道對齊。</p>
-              <p>同樣的，假如你的網絡表格中的輸入和標籤是運用內聯佈局，要讓標籤跨行對齊時間非常麻煩的意見事。Subgrid也可以用來解決這個難題。</p>
+              <p>There are numerous use-cases where we want our nested grids to align up to the outermost grid, for example, if you had a grid of card-style layouts with varied internal content heights. And you wanted the headers and footers for cards in the same row to all line-up.</p>
+              <p>Or if you wanted to align inline form inputs and their labels.</p>
+              <p>There was no way to do that without subgrid because the grand-child elements don't know about the outermost grid.</p>
             </aside>
           </section>
 
@@ -332,14 +333,17 @@ grid-template-rows: subgrid &lt;line-name-list&gt;?</code></pre>
   grid-template-rows: subgrid;
 }</code></pre>
             </div>
-            <aside class="notes">Subgrid能讓嵌套格線對齊父格線軌道。雖然你可以無限制的嵌套格線，也別做得太過火啦。<code>subgrid</code>這個關鍵字使用在<code>grid-template-columns</code>和 <code>grid-template-rows</code>這兩個屬性上, 而不是<code>display</code>屬性。元素的<code>display</code>值依然要設為<code>grid</code>。</aside>
+            <aside class="notes">
+              <p>The <code>subgrid</code> keyword is what allows the nested grid to participate in the sizing of outer grids. And it is possible to keep nesting subgrids as well. 👾 But maybe don't go too overboard with it. 👾</p>
+              <p>It's important to remember that the <code>subgrid</code> value is used in <code>grid-template-columns</code> and <code>grid-template-rows</code>, not the <code>display</code> property.</p>
+            </aside>
           </section>
 
           <section>
             <h2>Using DevTools to learn Subgrid</h2>
             <a href="devtools/subgrid.html">Live demo</a>
             <img class="plain" style="display:block;max-height:45vh;margin:1em auto" src="img/subgrid-qr.png" alt="QR code for link to example page">
-            <aside class="notes">接下來，我們再通過檢查元素的方式來了解Subgrid的特點。</aside>
+            <aside class="notes">If you thought Firefox devtools was good for Grid layouts, you'll see how essential it is when using Subgrid.</aside>
           </section>
 
           <section>
@@ -349,7 +353,7 @@ grid-template-rows: subgrid &lt;line-name-list&gt;?</code></pre>
                 <img src="img/css-subgrid.png" alt="Data on support for the css-subgrid feature across the major browsers from caniuse.com">
               </a>
             </p>
-            <aside class="notes">Subgrid還沒被瀏覽器廣泛支持，所以我們更加需要嘗試去用它，多用多討論。這樣才能引起其他瀏覽器供應商的注意力，讓他們把Subgrid功能放在優先級列表上。</aside>
+            <aside class="notes">Browser support for subgrid is a bit sad right now. Which is why more of us need to try it out, build things with subgrid and talk about it. This will send a signal to the other browser vendors that we, as web developers, want this feature. So please put it higher on the priority list.</aside>
           </section>
         </section>
 
@@ -367,11 +371,11 @@ grid-template-rows: subgrid &lt;line-name-list&gt;?</code></pre>
             <li><a href="https://gridbyexample.com/examples/">Grid by Example</a></li>
             <li><a href="https://24ways.org/2018/researching-a-property-in-the-css-specifications/">Researching a Property in the CSS Specifications</a></li>
           </ul>
-          <aside class="notes">我們會將今天所有呈現的幻燈片分享給大家。有興趣開始接觸Grid和Subgrid的朋友們可以參考這些連結。同時也希望大家下載Firefox，尤其是Nightly版本，嘗試一下最新最酷炫的新功能。</aside>
+          <aside class="notes">These slides will be shared out with everyone and these are some useful links if you want to learn more about grid and subgrid. And definitely download a copy of Firefox, more fun if you pick the Nightly version, to see all the great Devtool features as they are released.</aside>
         </section>
 
         <section style="text-align:left">
-          <h1 lang="zh-TW">謝謝大家 🙇‍♀️</h1>
+          <h1 lang="ko">감사합니다 🙇‍♀️</h1>
           <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle">https://www.chenhuijing.com</a></p>
           <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>
           <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen" style="display:inline-block;vertical-align:middle">@hj_chen</a></p>

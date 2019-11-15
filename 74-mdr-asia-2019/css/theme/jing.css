@@ -286,6 +286,9 @@ html {
 .reveal :lang(ko) {
   font-family: 'Nanum Gothic', sans-serif; }
 
+.reveal :lang(zh-TW) {
+  font-family: 'Yuppy TC', sans-serif; }
+
 .reveal .lang-links {
   display: flex;
   list-style-type: none;
@@ -363,7 +366,7 @@ html {
   .reveal blockquote p:lang(ja)::after,
   .reveal blockquote p:lang(zh)::after {
     bottom: -0.25em;
-    right: -0.75em;
+    right: -1em;
     content: '\300D'; }
 
 .reveal figure img {

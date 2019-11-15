@@ -9,12 +9,21 @@
 - the browser will automatically place items into the grid using a very well thought through algorithm, which is defined in the specification
 - but things being placed one after another is behaviour most of us are fairly familiar with already
 
+- 不管你是第一次嘗試用Grid做佈局，或則是你已經把Grid部署到生產環境了，開發過程真的少不了Grid inspector這個工具
+- 之前提過了，最基本的格線佈局是在父元素上設定軌道的尺寸
+- 我蠻喜歡這套語法的，因為它相當視覺性，`grid-template-columns`的三個屬性值代表網格的三個列，`grid-template-rows`的兩個屬性值代表兩個行。
+- 瀏覽器會按順序把子元素默認排列在網格中，可是這並不新奇嘛，瀏覽器一向來都有按順序排列元素的功能
 ---
 
 - what's special about grid is how simple it is to manually place items in both dimensions
 - it is like placing stones on a Go board, like this example, where each stone is a grid item
 - the properties which control the grid item's position will be `grid-row` and `grid-column`
 - so here is where the ability to see the line numbers comes in very handy, especially if you have more complex layouts involving lots of columns, like here I have 9, but a real Go board would have 19
+
+- Grid最大的賣點則是讓我們輕鬆的把格線單元佈置在網格中的任何位置，就好像把棋子擺在棋盤上似的
+- 這個例子是個用存CSS做出來的圍棋板，初學者用的，所以只有九個行，九個列
+- 但是這也算是比較大型的網格嘛，所以要佈置棋子時，如果沒有DevTools網格覆蓋的格線數字，要我坐在哪裡算線條，簡直是浪費我的青春呀
+- 調整棋子的位置就要用上`grid-row`以及`grid-column`這兩個屬性，有點類似高中數學課學習的x和y坐標
 
 ---
 
@@ -26,6 +35,12 @@
 - change your layout without having to touch the code for the individual grid items, you only modify the grid areas *(change grid area of sushi)*
 - with the Grid Inspector, you can see how the grid area names, and hence the grid item assigned to it, have been tweaked
 
+- 另一個有趣的功能則是`grid-template-areas`
+- 它應許我們命名格線區域，而我們可以利用區域名稱來佈置子元素
+- 用引號括起來的每一行代表了網格的一行
+- 引號內的值代表網格中的列
+- 這語法的好處在於當你在設計擁有許多元素的大型的頁面時，假如需要調整子元素的位置，尤其是做響應式設計時，根本不需要動到子元素的CSS
+- 如果我要把壽司的區域改小，調`grid-template-areas`就可以了
 ---
 
 - relatively new feature that Firefox started supporting since version 66 is the ability to animate grid columns and rows
@@ -36,6 +51,12 @@
 - the CSS animation keyframes are interpolating between the different column and row sizes I've set
 - the grid item's alignment has been set to the bottom-right corner of the grid cell it was placed in
 - so this is where having corresponding DevTools support for a new CSS feature really helped in my understanding of how things worked
+
+- 一個較新的功能則是Grid行與列的的動畫
+- 其實規範很早就有了，但是瀏覽器實現規範也沒這麼快啦
+- 起初看到這個功能時，我還以為子元素在跨越軌道，但是用DevTools檢查後才發現事實並非如此
+- 我們只能把動畫設在行與列的尺寸上，這個棋盤是假象呀，使用CSS背景做出來的假象
+- 但是如果沒有DevTools，我很難想像出這份動畫是怎麼實現的
 
 ---
 
@@ -51,7 +72,7 @@
 - can specify subgrid in one dimension only, i.e. follow the parent grid only for row or column then specify own track size in other dimension
 - using the `subgrid` keyword in respective dimension
 - can also follow parent grid in one dimension, then let the browser generate implicit tracks for other dimension
-- although subgrids inherit the line names from their parents, can also name subgrid lines
+- although subgrids inherit 繼承 the line names from their parents, can also name subgrid lines
 - line numbers of the subgrid start from `1`, *refer to the example after toggling subgrid lines*
 
 ---
