@@ -73,7 +73,7 @@
           <div class="fragment fade-in">
             <div class="definition fragment fade-out">
               <p><strong>Singlish lesson: Tok Kong</strong></p>
-              <p>Hokkien term meaning “superb” or “top of the line”.<br>In Mandarin, it's possible to write it as “<span style="font-family:PingFang">督公 (dū gōng) </span>”<br>“Check out his DVD player. Tok kong, man!”</p>
+              <p>Hokkien term meaning “superb” or “top of the line”.<br>In Mandarin, it's possible to write it as “<span style="font-family:PingFang">督公 (dū gōng) </span>”<br>“Have you used CSS grid to build layout? It's super tok kong!”</p>
               <p><small>Source: <a href="http://72.5.72.93/html/lexec.php">The Coxford Singlish Dictionary</a></small></p>
             </div>
           </div>
@@ -95,6 +95,13 @@
               <img class="plain fragment" style="margin:0 0.5em;max-height:75vh" data-src="img/layouts2.png" alt="Table-based layout">
               <div class="fragment fade-in" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
                 <img data-src="img/nested-boxes.png" alt="Nested boxes" class="plain fragment fade-out">
+              </div>
+              <div class="fragment fade-in">
+                <div class="definition fragment fade-out">
+                  <p><strong>Singlish lesson: Jia lat</strong></p>
+                  <p>Hokkien adjective literally meaning "to eat strength". Means that a task is onerous and consumes one's energy. Can sometimes be used to denote being in trouble.<br>“Have you inspected Twitter lately? The markup nest until very jia lat leh.”</p>
+                  <p><small>Source: <a href="http://72.5.72.93/html/lexec.php">The Coxford Singlish Dictionary</a></small></p>
+                </div>
               </div>
               <img class="plain fragment" style="margin:0 0.5em;max-height:75vh" data-src="img/layouts3.png" alt="Float-based layout">
               <div class="fragment fade-in" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
@@ -275,8 +282,7 @@
             <div class="fragment fade-in">
               <div class="definition fragment fade-out">
                 <p><strong>Singlish lesson: Si bei</strong></p>
-                <p>Originated from Teochew <span style="font-family:PingFang">死父 (dū gōng) </span> "very" or "extremely".<br>In Mandarin, it's possible to write it as “<span style="font-family:PingFang">督公 (dū gōng) </span>”<br>“Check out his DVD player. Tok kong, man!”</p>
-                <p><small>Source: <a href="http://72.5.72.93/html/lexec.php">The Coxford Singlish Dictionary</a></small></p>
+                <p>Originated from Teochew, means “very” or “extremely”<br>Literally translates to “<span style="font-family:PingFang">死父 (sǐ fù) </span>” or “dead father”<br>“The CSS grid roll-out in 2017 was sibei successful.”</p>
               </div>
             </div>
             <aside class="notes">So in 2017, Grid was rolled out. Very successfully, might I add. By the end of March, all the major browsers had shipped a stable implementation which worked the same way. And by October, even Samsung Internet and Edge (RIP) could support Grid.</aside>
@@ -343,21 +349,13 @@ grid-template-rows: subgrid &lt;line-name-list&gt;?</code></pre>
   grid-template-columns: subgrid;
   grid-template-rows: subgrid;
 }</code></pre>
-              </div>
-              <div class="fragment fade-in" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
-                <img data-src="img/nested-boxes.png" alt="Nested boxes" class="plain fragment fade-out">
-              </div>
+            </div>
+            <div class="fragment fade-in" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
+              <img data-src="img/nested-boxes.png" alt="Nested boxes" class="plain fragment fade-out">
+            </div>
             <aside class="notes">
               <p>The <code>subgrid</code> keyword is what allows the nested grid to participate in the sizing of outer grids. And it is possible to keep nesting subgrids as well. 👾 But maybe don't go too overboard with it. 👾</p>
               <p>It's important to remember that the <code>subgrid</code> value is used in <code>grid-template-columns</code> and <code>grid-template-rows</code>, not the <code>display</code> property.</p>
-            </aside>
-          </section>
-
-          <section>
-            <h2>Named subgrid lines</h2>
-            <img class="plain" src="img/line-names.svg" alt="Named grid line names and named subgrid line names">
-            <aside class="notes">
-              <p>Subgrids inherit a number of things from the outer grid, and one of them is line names. </p>
             </aside>
           </section>
 
