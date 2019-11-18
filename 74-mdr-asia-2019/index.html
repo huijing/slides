@@ -36,7 +36,10 @@
           <h3>The Power of Subgrid</h3>
           <p style="margin-top:1em"><small><a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
           <h2 class="fragment j-stamp"><span class="emoji" role="img" tabindex="0" aria-label="Singapore">&#x1F1F8;&#x1F1EC;</span> Singlish edition <span class="emoji" role="img" tabindex="0" aria-label="Singapore">&#x1F1F8;&#x1F1EC;</span></h2>
-          <aside class="notes">Thank you all for coming out for the Mozilla Developer Roadshow. We are very happy to see of you here this evening. My talk will cover a couple of things, CSS, as mentioned in the title, specifically for layouts, and we're also going to cover some DevTools stuff as well. Hopefully you will find this both interesting and useful.</aside>
+          <aside class="notes">
+            <p>Harrow, everybody! I see a number of familiar faces, and a lot of unfamiliar ones. Thanks muchly for coming out tonight, especially to the familiar faces, because I have harassed many of you to either speak at my meetup or attend events, and yet, you all still turn up.</p>
+            <p>👾 As an homage to Singapore, tonight's talk will be given in Singlish. For those of you who either, like me, grew up around here or chose to make this your home, no introduction required. For those of you who are new to Singlish, welcome to Singapore.</p>
+          </aside>
         </section>
 
         <section>
@@ -45,6 +48,11 @@
             <hr>
             <input type="range">
           </div>
+          <aside class="notes">
+            <p>For the benefit of the audience who are unfamiliar with English spoken in Singapore, there is a range. Best explained in a graphical form. FYI, this is a legitimate HTML range input. Come ask me how it's built later.</p>
+            <p>So today, I will try to keep the level somewhere in the middle of Queen's english, and extreme Singlish. In general, the “R” sound sometimes becomes “L”, like ready will may sound like leddy. Also, the “ver” sound may often just be omiited. Like, government, will become gahmen. Or nevermind, will become nehmind. Also, grammar is optional.</p>
+            <p>Other than that, it should be mostly comprehensible. If you feel a lack of confidence, please sit next to a friendly Singlish-speaking attendee. They will decipher all of this for you.</p>
+          </aside>
         </section>
 
         <section>
@@ -77,14 +85,14 @@
               <p><small>Source: <a href="http://72.5.72.93/html/lexec.php">The Coxford Singlish Dictionary</a></small></p>
             </div>
           </div>
-          <aside class="notes">My name is Hui Jing, as you can probably guess from this, I'm a big fan of emojis. And these pretty much describe who I am as a person. If any of them don't make sense to you, just ask me about them later.</aside> 
+          <aside class="notes">My name is Hui Jing, and I'm simple enough that emojis can more or less sum up my entire life. But this page is also a teaser for how tok gong CSS grid is. 👾 Explanation time. Tok gong, means superb or top of the line. These annotations will be sprinkled throughout the presentation, so you can learn a bit of Singlish as well.</aside> 
         </section>
 
         <section>
           <img style="max-height:10em;margin-bottom:0.5em" class="plain" data-src="img/love-dev.svg" alt="Nexmo Developer Relations">
           <p><span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span> Developer Advocate <span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span></p>
           <img style="max-height:2.5em;margin-top:1em" class="plain" data-src="img/nexmo.svg" alt="Nexmo">
-          <aside class="notes">I am currently a Developer Advocate with Nexmo, which is a platform that provides APIs for messaging, voice and authentication so developers can easily integrate communications into their applications. Pretty cool, but today, we're all about web layouts.</aside>
+          <aside class="notes">Right now, Nexmo pays my CPF. CPF is something that the gahmen makes companies who employ locals or permanent residents pay into our retirement fund. Nexmo does communications APIs, like if your app needs SMS or voice or verification etc, can consider trying Nexmo. But today, I'm all about the layouts.</aside>
         </section>
 
         <section>
@@ -92,6 +100,13 @@
             <h2 style="margin-bottom:1em;">Web layouts over the years</h2>
             <div class="l-multiple">
               <img class="plain" style="margin:0 0.5em;max-height:75vh" data-src="img/layouts1.png" alt="No layout">
+              <div class="fragment fade-in">
+                <div class="definition fragment fade-out">
+                  <p><strong>Singlish lesson: Swee</strong></p>
+                  <p>Hokkien for “pretty” or “beautiful”. Also used to describe something as properly or correctly done.<br>“This layout do until very swee leh.”</p>
+                  <p><small>Source: <a href="http://72.5.72.93/html/lexec.php">The Coxford Singlish Dictionary</a></small></p>
+                </div>
+              </div>
               <img class="plain fragment" style="margin:0 0.5em;max-height:75vh" data-src="img/layouts2.png" alt="Table-based layout">
               <div class="fragment fade-in" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
                 <img data-src="img/nested-boxes.png" alt="Nested boxes" class="plain fragment fade-out">
@@ -107,19 +122,26 @@
               <div class="fragment fade-in" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
                 <span style="font-family:Hiragino Maru Gothic ProN;font-size:150%;white-space:nowrap;padding:0.5em;background-color:red" class="plain fragment fade-out">(╯°□°）╯︵ ┻━┻</span>
               </div>
+              <div class="fragment fade-in">
+                <div class="definition fragment fade-out">
+                  <p><strong>Singlish lesson: Senget</strong></p>
+                  <p>Malay for “slanted” or “crooked”.<br>“How come the last item in the row senget wan?”</p>
+                  <p><small>Source: <a href="http://72.5.72.93/html/lexec.php">The Coxford Singlish Dictionary</a></small></p>
+                </div>
+              </div>
               <img class="plain fragment" style="margin:0 0.5em;max-height:75vh" data-src="img/layouts4.png" alt="Panel-style from frameworks">
             </div>
             <aside class="notes">
-              <p>So when the web started out, there was no layout. You could format your text with spaces, line breaks and indents, sure. But having a designed visual layout on your web page? Nope.</p>
-              <p>The first time we could sort of place things in specific positions on a webpage was probably 👾 in 1994 when <code>table</code> elements were supported in browsers. Originally meant for people to make data tables, it was soon hacked for making layouts. Because developers discovered… 👾 nesting.</p>
-              <p>Then 👾 CSS came along in 1996, and with it came floats. And we learned a new way to layout elements on their page. 👾 But floats weren't easy to deal with. Columns were uneven heights, things got displaced and didn't line up, you had to clear stuff. 👾</p>
-              <p>And because it was so hard, 👾 some people decided to build frameworks, and let everyone else apply these pre-written styles with CSS classes. This approach was really popular and we hit an age where a lot of websites had very similar layouts.</p>
+              <p>So when the web started out, got no layout. At most, can format text with spaces, line breaks and indents. But to have a do until swee-swee layout on your webpage. Kenot. 👾</p>
+              <p>The first time we can put things in specific positions on a webpage was probably 👾 in 1994 when <code>table</code> elements were supported in browsers. <code>table</code> element supposed to be for you all to make data tables, but like most things in life, they kena misuse. Because developers discovered… 👾 nesting. So in those days, the markup nest until very jia lat. 👾</p>
+              <p>Budden 👾 in 96 we got CSS. CSS got floats. So everybody need to learn new techniques. But 👾 floats very hard. Column height not even. Your inline things all senget 👾. Some more need to clear things.</p>
+              <p>And because it was so hard, 👾 people decide to build frameworks, like your Bootstrap, Foundation etc. Then let everyone else use CSS classes to build layouts. This approach very popular, so then we entered the age of all websites look the same.</p>
             </aside>
           </section>
 
           <section>
             <img data-src="img/jon-gold.png" class="plain" alt="Tweet by Jon Gold on how all websites these days use 1 of 2 layouts" style="max-height:100vh">
-            <aside class="notes">This tweet has been used in conference talks all over the world many many times, but I think it makes a very strong point. And 6.8 thousand people seem to agree. But CSS has evolved over the past 20 years, and we now have a lot of options for doing layouts.</aside>
+            <aside class="notes">This tweet is very over-used but it's very true leh. And 6.8 thousand people also agree. But CSS has evolved over the past 20 years, and now we got a lot of options for doing layouts liao.</aside>
           </section>
 
           <section>
@@ -148,21 +170,21 @@
               </div>
             </div>
             <aside class="notes">
-              <p>In CSS2, we had 4 layout modes for different use cases. We had block layout, which was meant for laying out boxes on the page. 👾 We had inline layout, meant for laying out text.</p>
-              <p>👾 Then we had table layouts that worked best for laying out 2D data in a tabular format. 👾 And positioned layout, which was like an escape hatch, that let us position elements without regard to other elements on the page.</p>
+              <p>In CSS2, we had 4 layout modes for different use cases. Got block layout, to layout boxes on the page. 👾 Got inline layout, to layout text.</p>
+              <p>👾 Then got table layouts that supposed to be for two-dimensional data lor. 👾 And finally, positioned layout, which is like an escape hatch, so your element don't care about other elements on the page.</p>
             </aside>
           </section>
 
           <section>
             <h2>Flexible box layout</h2>
             <p>describes a CSS box model optimised for <strong>user interface design</strong> and designed for laying out more <strong>complex applications and webpages</strong></p>
-            <aside class="notes">In 2009, the flex layout model was proposed. It was the first layout model designed specifically for building dynamic layouts on the web, introducing new and powerful methods for distributing space and aligning content in a way that better suited the dynamic nature of the web.</aside>
+            <aside class="notes">In 2009, the flex layout model was proposed. It can be considered the first tok gong layout model, because it was built for the web. Because on the web, we don't control how our users view our sites right? So we need, flexibility. Flexbox very flexible. It also let us control spacing and alignment of items like never before.</aside>
           </section>
 
           <section>
             <h2>Grid layout</h2>
             <p>Defines a <strong>two-dimensional</strong> grid-based layout system,<br>optimised for <strong>user interface design</strong>.</p>
-            <aside class="notes">Following that, the grid layout model came along, the only layout model which recognises the relationship between rows and columns.</aside>
+            <aside class="notes">After that, we got grid. And Grid is the only layout model which recognises the relationship between rows and columns.</aside>
           </section>
         </section>
 
@@ -171,9 +193,9 @@
             <h2>Why is CSS grid special?</h2>
             <blockquote class="fragment" style="width:max-content;margin:0 auto">“Grid works from the <strong style="border-bottom:0.1em solid;">container</strong> in,<br>other layout methods start with the <strong style="border-bottom:0.1em solid;">item</strong>”<br><small>—<a href="https://rachelandrew.co.uk/">Rachel Andrew</a></small></blockquote>
             <aside class="notes">
-              <p>Why is this significant? What's the big deal about this two dimension thing? Well, it changes the way we think about layout and how we write the code to do it.</p>
-              <p>Rachel Andrew, who is one of the major contributors to the CSS grid specification, sums it up as such. Grid works from the container in, while other layout methods start with the item first. Let me explain with a scenario.</p>
-              <p>Say you wanted to lay out your content into 3 columns. How would you go about it?</p>
+              <p>So what? Why two-dimension so tok gong? Because it changes the way we think about layout and how we write the code to do it.</p>
+              <p>Rachel Andrew, who is one of the major contributors to the CSS grid specification, describes Grid liddat. Grid works from the container in, while other layout methods start with the item first. Okay, example time.</p>
+              <p>Say you wanted to lay out your content into 3 columns. How you do?</p>
             </aside>
           </section>
 
@@ -188,7 +210,7 @@
   
 }</style></div>
             </div>
-            <aside class="notes">One approach for creating such a layout could be the <code>inline-block</code> technique. For a three column grid, we set the display of the items to <code>inline-block</code> and give them all a width of a third of the container.</aside>
+            <aside class="notes">Can use <code>inline-block</code> technique. To make 3 columns, we set the display of the items to <code>inline-block</code> then everybody's width set to 1/3 of the container.</aside>
           </section>
 
           <section>
@@ -219,7 +241,7 @@
   width: calc(100% / 3);
 }</style></div>
             </div>
-            <aside class="notes">If <code>float</code>s are more your style, you can do that too. It's very similar to <code>inline-block</code> though, because you also need to set a width on each item.</aside>
+            <aside class="notes">Don't like <code>inline-block</code>? Nehmind, can use <code>float</code>s. It's very similar to <code>inline-block</code>, because you also need to set a width on each item.</aside>
           </section>
 
           <section>
@@ -238,8 +260,8 @@
 }</style></div>
             </div>
             <aside class="notes">
-              <p>Flexbox can do this too. To ensure our items line up in three columns, we prevent them from growing or shrinking, then set the flex-basis to a third of the container. But again, notice that we are setting property values on the item.</p>
-              <p>For all 3 techniques I just described, there isn't actually a grid. It just looks that way because we've forced the items to line up with each other.</p>
+              <p>If you want to be modern, and use Flexbox, also can. We make the items not flexible, then set the flex-basis to 1/3 of the container. But again, the property is set on the item.</p>
+              <p>For all 3 techniques I just described, there is no grid. These grids are fake wan. It just looks that way because we've forced the items to line up with each other.</p>
             </aside>
           </section>
 
@@ -247,7 +269,15 @@
             <blockquote>
               <p>Grid is the only layout technique that establishes a <strong style="border-bottom:0.1em solid;">relationship</strong> between rows and columns of grid items.</p>
             </blockquote>
-            <aside class="notes">But when using Grid, the dimensions for rows and columns are defined on the parent container instead. The grid is real, and we can place items inside this grid. And that is AMAZING.</aside>
+            <div class="fragment" style="width:55%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
+              <video loop autoplay style="width:100%">
+                <source data-src="img/ahmazing.mp4" type="video/mp4">
+                Sorry, your browser doesn't support embedded videos, 
+                but don't worry, you can <a href="img/ahmazing.mp4">download it</a>
+                and watch it with your favourite video player!
+              </video>
+            </div>
+            <aside class="notes">But when you use CSS grid, the dimensions for rows and columns are defined on the parent container.So this grid is real, and we can place items inside this grid. And that 👾is AH-MAZ-ING.</aside>
           </section>
         </section>
 
@@ -263,17 +293,17 @@
                 <p>Place items in the grid.</p>
                 <img class="plain" style="max-height:65vh;" data-src="img/place-items.svg" alt="Place items in the grid">
             </div>
-            <aside class="notes">The basic premise of how grid works involves two steps. You 👾 define the grid, then 👾 place items in it either by yourself, or let the browser do it for you.</aside>
+            <aside class="notes">The basic usage of grid only needs 2 steps. You 👾 define the grid, then 👾 place items inside. You can either ownself place or let the browser place for you.</aside>
           </section>
 
           <section>
             <h2>Grid terminology</h2>
             <img class="plain" data-src="img/terminology.svg" alt="Grid terminology">
             <aside class="notes">
-              <p>I'll be using some terms related to Grid throughout this talk, so I'd like to clarify them here. Grid lines are the horizontal and vertical lines that form the basis of the grid structure, and can be referred to by their numerical index, which starts from 1.</p>
-              <p>Each space between grid lines are known as grid tracks, which make up the rows and columns of the grid, and represent the spaces your items appear in.</p>
-              <p>The grid cell is a single unit of the grid and is made up of 2 adjacent row lines and 2 adjacent column lines. By default, each grid item takes up 1 grid cell. A grid area is made up of multiple grid cells.</p>
-              <p>The best part about Grid, is the ability to define grid gaps, which are the gutters between grid tracks. This feature has been expanded to flex layouts as well, and you can already use it in Firefox 63 onwards.</p>
+              <p>Later might have some minor jargon, so clarify here first. Grid lines are the horizontal and vertical lines that form the basis of the grid structure. We use a numerical index to reference the lines, and the index starts from 1. Like Lua, not C.</p>
+              <p>Each space between grid lines are called grid tracks, these are the rows and columns of your grid, and represent the spaces your items appear in.</p>
+              <p>The grid cell is a single unit of the grid and is made up of 2 adjacent row lines and 2 adjacent column lines. By default, each grid item is 1 grid cell. Many grid cells become grid area.</p>
+              <p>The best part about Grid, is can have gaps between tracks. No more funny negative margin and paddings sia. This feature has been expanded to flex layouts as well, so if you're using Firefox 63 and beyond, also can use.</p>
             </aside>
           </section>
 
@@ -285,7 +315,7 @@
                 <p>Originated from Teochew, means “very” or “extremely”<br>Literally translates to “<span style="font-family:PingFang">死父 (sǐ fù) </span>” or “dead father”<br>“The CSS grid roll-out in 2017 was sibei successful.”</p>
               </div>
             </div>
-            <aside class="notes">So in 2017, Grid was rolled out. Very successfully, might I add. By the end of March, all the major browsers had shipped a stable implementation which worked the same way. And by October, even Samsung Internet and Edge (RIP) could support Grid.</aside>
+            <aside class="notes">So in 2017, Grid had a sibei successful roll-out 👾. By the end of March, all the major browsers had shipped a stable implementation which worked the same way. And by October, even Samsung Internet and Edge (RIP) also can support Grid liao.</aside>
           </section>
 
           <section>
@@ -295,14 +325,14 @@
                 <img src="img/css-grid.png" alt="Data on support for the css-grid feature across the major browsers from caniuse.com">
               </a>
             </p>
-            <aside class="notes">Right now, and I know the numbers are tiny here, more than 92% of internet users are using a browser that supports CSS grid. So not much of an excuse not to try it out anymore.</aside>
+            <aside class="notes">Right now, and I know this very small kenot see, but trust me, more than 93% of internet users are using a browser that supports CSS grid. So if your excuse for not using Grid is browser support, kenot. Update your excuse.</aside>
           </section>
 
           <section>
             <h2>Using DevTools to learn Grid</h2>
             <a href="devtools/grid.html">Live demo</a>
             <img class="plain" style="display:block;max-height:45vh;margin:1em auto" src="img/grid-qr.png" alt="QR code for link to example page">
-            <aside class="notes">I've always used Firefox Devtools ever since I first started using Grid. Because it provided features that made it much easier to debug Grid layouts, since Day 1. But Devtools can be more than just that. It can be a means for the browser to help us understand CSS better, especially as more new properties get shipped.</aside>
+            <aside class="notes">Ever since I started using Grid, I always use Firefox DevTools. Why? Because the feature set for debugging grid with Firefox DevTools is da best. But other than debugging, actually DevTools can also help us learn CSS.</aside>
           </section>
         </section>
 
@@ -315,9 +345,9 @@
               <li class="fragment" style="margin-bottom:0.5em"><strong>aspect-ratio–controlled gutters</strong></li>
             </ul>
             <aside class="notes">
-              <p>Some of us might not be too familiar the the levels in CSS specifications. Long story short, the CSS spec used to be a big monolithic document for the first 2 versions, but was split up into modules in 2000 to make it easier to test, develop and maintain the specification.</p>
-              <p>This split up version was commonly referred to as CSS3. But there is and will never be CSS4 or 5 and so on, because each CSS feature is a separate document now. Usually when a feature gets too complicated, or something in there requires more discussion, it gets deferred to the next level.</p>
-              <p>Subgrid was an important feature from the start, but it needed more time to ensure robustness, hence it was deferred to Level 2. So level 2 of the grid specification covers 👾 subgrid, as well as 👾 defines the behaviour for aspect-ratio-controlled gutters. But we'll only focus on subgrid right now.</p>
+              <p>So CSS specs got level wan, right? Long story short, the CSS spec used to be very long document for the first 2 versions, budden in 2000 it was split up into modules so easier to test, update and maintain.</p>
+              <p>This split up version is the one everyone calls CSS3. And put in their resume together with HTML5. But there will never be CSS4 or CSS5 or whatever, because each CSS feature is a separate document now. When a feature grows too big, or something inside need more discussion, it gets deferred to the next level.</p>
+              <p>Subgrid was always important, but it needed more time to make sure it was implemented in a swee-swee manner, hence it was deferred to Level 2. So level 2 of the grid specification covers 👾 subgrid, as well as 👾 another thing called aspect-ratio-controlled gutters. But today only Subgrid la.</p>
             </aside>
           </section>
 
@@ -329,9 +359,9 @@
               <img class="plain" src="img/form-layout.png" alt="Inline form labels and inputs">
             </div>
             <aside class="notes">
-              <p>There are numerous use-cases where we want our nested grids to align up to the outermost grid, for example, if you had a grid of card-style layouts with varied internal content heights. And you wanted the headers and footers for cards in the same row to all line-up.</p>
+              <p>Subgrid actually got quite a few use-cases. Because what it does is let nested grids line up with the outermost grid, for example, because everyone and their cat want card-style layout. Then many times, designers assume everyone speaks the same amount of lorem ipsum. Budden you implement liao, all the content different length, then very jia lat, right?</p>
               <p>Or if you wanted to align inline form inputs and their labels.</p>
-              <p>There was no way to do that without subgrid because the grand-child elements don't know about the outermost grid.</p>
+              <p>Last time kenot, because the grand-child elements don't know about the outermost grid. But now with Subgrid, can.</p>
             </aside>
           </section>
 
@@ -354,8 +384,8 @@ grid-template-rows: subgrid &lt;line-name-list&gt;?</code></pre>
               <img data-src="img/nested-boxes.png" alt="Nested boxes" class="plain fragment fade-out">
             </div>
             <aside class="notes">
-              <p>The <code>subgrid</code> keyword is what allows the nested grid to participate in the sizing of outer grids. And it is possible to keep nesting subgrids as well. 👾 But maybe don't go too overboard with it. 👾</p>
-              <p>It's important to remember that the <code>subgrid</code> value is used in <code>grid-template-columns</code> and <code>grid-template-rows</code>, not the <code>display</code> property.</p>
+              <p>Ok, the syntax looks a bit cheem, but later use example easier to see. The important thing here is the <code>subgrid</code> keyword. When you use it, the browser knows that your nested grid should follow the sizing of the outside grid. And it is possible to keep nesting subgrids as well. 👾 Just don't do the jia lat nesting la. 👾</p>
+              <p>Again, must remember that the <code>subgrid</code> value is used in <code>grid-template-columns</code> and <code>grid-template-rows</code>, not the <code>display</code> property.</p>
             </aside>
           </section>
 
@@ -363,7 +393,7 @@ grid-template-rows: subgrid &lt;line-name-list&gt;?</code></pre>
             <h2>Using DevTools to learn Subgrid</h2>
             <a href="devtools/subgrid.html">Live demo</a>
             <img class="plain" style="display:block;max-height:45vh;margin:1em auto" src="img/subgrid-qr.png" alt="QR code for link to example page">
-            <aside class="notes">If you thought Firefox devtools was good for Grid layouts, you'll see how essential it is when using Subgrid.</aside>
+            <aside class="notes">If you thought Firefox devtools was good for Grid layouts, it's even more tok gong for Subgrid sia.</aside>
           </section>
 
           <section>
@@ -373,7 +403,7 @@ grid-template-rows: subgrid &lt;line-name-list&gt;?</code></pre>
                 <img src="img/css-subgrid.png" alt="Data on support for the css-subgrid feature across the major browsers from caniuse.com">
               </a>
             </p>
-            <aside class="notes">Browser support for subgrid is a bit sad right now. Which is why more of us need to try it out, build things with subgrid and talk about it. This will send a signal to the other browser vendors that we, as web developers, want this feature. So please put it higher on the priority list.</aside>
+            <aside class="notes">Browser support for subgrid is a bit sad right now. Which is why more of us need to try it out, build things with subgrid and talk about it or complain about it, if you must. Because any publicity is good publicity. Then other browser makers will also prioritise subgrid and ship it sooner.</aside>
           </section>
         </section>
 
@@ -391,7 +421,7 @@ grid-template-rows: subgrid &lt;line-name-list&gt;?</code></pre>
             <li><a href="https://gridbyexample.com/examples/">Grid by Example</a></li>
             <li><a href="https://24ways.org/2018/researching-a-property-in-the-css-specifications/">Researching a Property in the CSS Specifications</a></li>
           </ul>
-          <aside class="notes">These slides will be shared out with everyone and these are some useful links if you want to learn more about grid and subgrid. And definitely download a copy of Firefox, more fun if you pick the Nightly version, to see all the great Devtool features as they are released.</aside>
+          <aside class="notes">These slides will be shared out with everyone and these are some useful links if you want to learn more about grid and subgrid. And definitely download a copy of Firefox, plus points if you download the Nightly version. Live is short, take some risks.</aside>
         </section>
 
         <section style="text-align:left">
