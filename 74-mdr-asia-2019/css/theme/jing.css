@@ -289,6 +289,9 @@ html {
 .reveal :lang(zh-TW) {
   font-family: 'Yuppy TC', sans-serif; }
 
+.reveal :lang(th) {
+  font-family: 'Ayuthaya', sans-serif; }
+
 .reveal .lang-links {
   display: flex;
   list-style-type: none;
