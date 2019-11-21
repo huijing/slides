@@ -22,6 +22,7 @@
 
   <body>
     <div class="reveal">
+      <img class="mozilla" src="img/mozilla.svg" alt="Mozilla">
       <ul class="lang-links">
         <li><a href="index-jp.html"><span class="emoji" role="img" tabindex="0" aria-label="Japan">&#x1F1EF;&#x1F1F5;</span></a></li>
         <li><a href="index-kr.html"><span class="emoji" role="img" tabindex="0" aria-label="South Korea">&#x1F1F0;&#x1F1F7;</span></a></li>
@@ -35,13 +36,7 @@
           <h1>Making CSS from Good to Great</h1>
           <h3>The Power of Subgrid</h3>
           <p style="margin-top:1em"><small><a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
-          <aside class="notes">
-            <p>(안녕하세요. 저는 Hui Jing 입니다. 오늘 저는 파이어폭스 개발 툴을 이용해 CSS 그리드를 배우는 법에 대해 발표하겠습니다)</p>
-            <p>An-nyeong-ha-se-yo.</p>
-            <p>Cho-nun Hui Jing ib-ni-da.</p>
-            <p>O-nul cho-nun pai-er-pok-su kae-pal tul-ul ee-yong-heh<br>CSS grid-el-ul pay-uh-nun paob-eh-teh-heh<br>pal-peo-ha-geh-sib-ni-da.</p>
-            <p>No, I really cannot speak Korean.</p>
-          </aside>
+          <aside class="notes">Thank you all for coming out for the Mozilla Developer Roadshow. We are very happy to see of you here this evening. My talk will cover a couple of things, CSS, as mentioned in the title, specifically for layouts, and we're also going to cover some DevTools stuff as well. Hopefully you will find this both interesting and useful.</aside>
         </section>
 
         <section>
@@ -62,12 +57,12 @@
             <div style="display:flex;flex-direction:column;align-items:center;justify-content:center">
               <img data-src="img/name.svg" alt="Chen Hui Jing" class="plain" style="max-height:25vh">
               <div>
-                <img data-src="img/avatar.jpg" alt="Jing" style="border-radius:50%">
+                <img data-src="img/avatar.jpg" alt="Jing" style="border-radius:50%" >
               </div>
               <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
             </div>
           </div>
-          <aside class="notes">Let's do this again. My name is Hui Jing, as you can probably guess from this slide, I'm a big fan of emojis. And these pretty much describe who I am as a person. If any of them don't make sense to you, just ask me about them later.</aside> 
+          <aside class="notes">MMy name is Hui Jing, and I'm simple enough that emojis can more or less sum up my entire life. If any of them don't make sense to you, just ask me about them later.</aside> 
         </section>
 
         <section>
@@ -83,6 +78,9 @@
             <div class="l-multiple">
               <img class="plain" style="margin:0 0.5em;max-height:75vh" data-src="img/layouts1.png" alt="No layout">
               <img class="plain fragment" style="margin:0 0.5em;max-height:75vh" data-src="img/layouts2.png" alt="Table-based layout">
+              <div class="fragment fade-in" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
+                <img data-src="img/nested-boxes.png" style="max-height:75vh" alt="Nested boxes" class="plain fragment fade-out">
+              </div>
               <img class="plain fragment" style="margin:0 0.5em;max-height:75vh" data-src="img/layouts3.png" alt="Float-based layout">
               <div class="fragment fade-in" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
                 <span style="font-family:Hiragino Maru Gothic ProN;font-size:150%;white-space:nowrap;padding:0.5em;background-color:red" class="plain fragment fade-out">(╯°□°）╯︵ ┻━┻</span>
@@ -91,14 +89,14 @@
             </div>
             <aside class="notes">
               <p>So when the web started out, there was no layout. You could format your text with spaces, line breaks and indents, sure. But having a designed visual layout on your web page? Nope.</p>
-              <p>The first time we could sort of place things in specific positions on a webpage was probably 👾 in 1994 when <code>table</code> elements were supported in browsers. Originally meant for people to make data tables, it was soon hacked to make all sorts of creative, interesting layouts.</p>
+              <p>The first time we could sort of place things in specific positions on a webpage was probably 👾 in 1994 when <code>table</code> elements were supported in browsers. Originally meant for people to make data tables, they were soon misused for layouts. Because developers discovered… 👾 nesting.</p>
               <p>Then 👾 CSS came along in 1996, and with it came floats. And we learned a new way to layout elements on their page. 👾 But floats weren't easy to deal with. Columns were uneven heights, things got displaced and didn't line up, you had to clear stuff. 👾</p>
               <p>And because it was so hard, 👾 some people decided to build frameworks, and let everyone else apply these pre-written styles with CSS classes. This approach was really popular and we hit an age where a lot of websites had very similar layouts.</p>
             </aside>
           </section>
 
           <section>
-            <img data-src="img/jon-gold.png" class="plain" alt="Tweet by Jon Gold on how all websites these days use 1 of 2 layouts" style="max-height:100vh">
+            <img data-src="img/jon-gold.png" class="plain" alt="Tweet by Jon Gold on how all websites these days use 1 of 2 layouts" style="max-height:75vh">
             <aside class="notes">This tweet has been used in conference talks all over the world many many times, but I think it makes a very strong point. And 6.8 thousand people seem to agree. But CSS has evolved over the past 20 years, and we now have a lot of options for doing layouts.</aside>
           </section>
 
@@ -107,24 +105,24 @@
               <div style="flex:1 0 30%;font-size:85%">
                 <h3>Block layout</h3>
                 <p>designed for laying out documents</p>
-                <img src="img/block-layout.png" alt="block layout" style="height:30vh" class="plain">
+                <img src="img/block-layout.png" alt="block layout" style="height:25vh" class="plain">
               </div>
               <div style="flex:1 0 30%;font-size:85%" class="fragment">
                 <h3>Inline layout</h3>
                 <p>designed for laying out text</p>
-                <img src="img/inline-layout.png" alt="inline layout" style="height:30vh" class="plain">
+                <img src="img/inline-layout.png" alt="inline layout" style="height:25vh" class="plain">
               </div>
               <div style="flex:1 0 30%;font-size:85%" class="fragment">
                 <h3>Table layout</h3>
                 <p>designed for laying out 2D data in a tabular format</p>
-                <img src="img/table-layout.png" alt="table layout" style="height:30vh" class="plain">
+                <img src="img/table-layout.png" alt="table layout" style="height:25vh" class="plain">
               </div>
               <div style="flex:0 0 65%;font-size:85%;display:flex" class="fragment">
                 <div>
                   <h3>Positioned layout</h3>
                   <p>designed for very explicit positioning without much regard for other elements in the document</p>
                 </div>
-                <img src="img/positioned-layout.png" alt="positioned layout" style="height:30vh" class="plain">
+                <img src="img/positioned-layout.png" alt="positioned layout" style="height:25vh" class="plain">
               </div>
             </div>
             <aside class="notes">
@@ -232,6 +230,14 @@
             <blockquote>
               <p lang="th" style="font-style:normal">Grid layout เป็น layout ชนิดเดียวที่ให้คุณกำหนดความสัมพันธ์ระหว่างแถวและคอลัมน์ของ grid item แต่ละอัน</p>
             </blockquote>
+            <div class="fragment" style="width:55%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
+              <video loop autoplay style="width:100%">
+                <source data-src="img/ahmazing.mp4" type="video/mp4">
+                Sorry, your browser doesn't support embedded videos, 
+                but don't worry, you can <a href="img/ahmazing.mp4">download it</a>
+                and watch it with your favourite video player!
+              </video>
+            </div>
             <aside class="notes">But when using Grid, the dimensions for rows and columns are defined on the parent container instead. The grid is real, and we can place items inside this grid. And that is AMAZING.</aside>
           </section>
         </section>
@@ -328,6 +334,9 @@ grid-template-rows: subgrid &lt;line-name-list&gt;?</code></pre>
   grid-template-columns: subgrid;
   grid-template-rows: subgrid;
 }</code></pre>
+            </div>
+            <div class="fragment fade-in" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
+              <img data-src="img/nested-boxes.png" alt="Nested boxes" class="plain fragment fade-out">
             </div>
             <aside class="notes">
               <p>The <code>subgrid</code> keyword is what allows the nested grid to participate in the sizing of outer grids. And it is possible to keep nesting subgrids as well. 👾 But maybe don't go too overboard with it. 👾</p>

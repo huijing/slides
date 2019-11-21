@@ -280,6 +280,13 @@ html {
 *::after {
   box-sizing: inherit; }
 
+.reveal .mozilla {
+  position: fixed;
+  z-index: 1;
+  height: 1em;
+  top: 0.25em;
+  left: 0.25em; }
+
 .reveal :lang(ja) {
   font-family: 'Tsukushi B Round Gothic', sans-serif; }
 
