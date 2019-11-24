@@ -60,136 +60,41 @@
         </section>
 
         <section>
-          <h2 style="margin-bottom:1em;">Web layouts over the years</h2>
-          <div class="l-multiple">
-            <img class="plain fragment" style="margin:0 0.5em;" data-src="img/layouts1.png" alt="No layout">
-            <img class="plain fragment" style="margin:0 0.5em;" data-src="img/layouts2.png" alt="Table-based layout">
-            <img class="plain fragment" style="margin:0 0.5em;" data-src="img/layouts3.png" alt="Float-based layout">
-            <img class="plain fragment" style="margin:0 0.5em;" data-src="img/layouts4.png" alt="Panel-style from frameworks">
-          </div>
-          <aside class="notes">
-            <p>Within the short span of the web's life, we've seen web layouts evolve as browser technologies and web standards matured. In the web's infancy, there was no layout whatsoever. We were still amazed that the web even existed.</p>
-            <p>Then, during the pre-school age of the web, we started to use tables to do layout. And that was fun, because like most kindergarten kids, everything seemed like a good idea. There were all sorts of crazy, creative layouts on the web.</p>
-            <p>But when we got to the pre-teen era, things started to conform a little more. We got a bit more self-concious, a little less radical, it wasn't that cool to be different. Float-based layouts to build sites with headers, sidebars and footers were the most socially acceptable.</p>
-            <p>By high school, life had gotten complicated, and angsty. CSS was hard. Responsive design, what? People suck. Browsers are broken. Oh, frameworks can take care of all that for me? Sure! I don't really care. So we ended up with sites that utilised very similar layouts.</p>
-          </aside>
+          <img style="max-height:10em;margin-bottom:0.5em" class="plain" data-src="img/love-dev.svg" alt="Nexmo Developer Relations">
+          <p><span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span> Developer Advocate <span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span></p>
+          <img style="max-height:2.5em;margin-top:1em" class="plain" data-src="img/nexmo.svg" alt="Nexmo">
+          <aside class="notes">Right now, Nexmo pays my CPF. CPF is something that the gahmen makes companies who employ locals or permanent residents pay into our retirement fund. Nexmo does communications APIs, like if your app needs SMS or voice or verification etc, can consider trying Nexmo. But today, I'm all about the layouts.</aside>
         </section>
 
         <section>
-          <section>
-            <h2>What is CSS grid?</h2>
-            <p>Defines a <strong style="border-bottom:0.125em solid;">two-dimensional</strong> grid-based layout system, optimized for user interface design.</p>
-            <aside class="notes">Now, let's examine CSS grid. What is it? This is how it's described in the specification. The key word here is two-dimensional.</aside>
-          </section>
-
-          <section>
-            <blockquote>“Grid works from the <strong style="border-bottom:0.125em solid;">container</strong> in, other layout methods start with the <strong style="border-bottom:0.125em solid;">item</strong>”<br><small>—<a href="https://rachelandrew.co.uk/">Rachel Andrew</a></small></blockquote>
-            <aside class="notes">Rachel Andrew, who is one of the major contributors to the CSS grid specification, sums it up as such. Grid works from the container in, while other layout methods start with the item first. Let me explain.</aside>
-          </section>
-
-          <section>
-            <h2>Layout technique: <code>inline-block</code></h2>
-            <div class="livecode">
-              <div class="result inlineblock" style="font-size:75%;">
-                <div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item A</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item B</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item C</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item D</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item E</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item F</p></div>
-              </div>
-              <div class="code"><style class="code-editor" contenteditable="true">.inlineblock__item {
-  display: inline-block;
-  width: calc(100% / 3);
-}</style></div>
-            </div>
-            <aside class="notes">One approach for creating a grid layout is the <code>inline-block</code> technique. For a three column grid, we set the display of the items to <code>inline-block</code> and give them all a width of a third of the container.</aside>
-          </section>
-
-          <section>
-            <h2>Layout technique: <code>float</code></h2>
-            <div class="livecode">
-              <div class="result float" style="font-size:75%;">
-                <div class="float__item" style="border:1px solid;padding:1em 0;">
-                  <p>Item A</p>
-                </div>
-                <div class="float__item" style="border:1px solid;padding:1em 0;">
-                  <p>Item B</p>
-                </div>
-                <div class="float__item" style="border:1px solid;padding:1em 0;">
-                  <p>Item C</p>
-                </div>
-                <div class="float__item" style="border:1px solid;padding:1em 0;">
-                  <p>Item D</p>
-                </div>
-                <div class="float__item" style="border:1px solid;padding:1em 0;">
-                  <p>Item E</p>
-                </div>
-                <div class="float__item" style="border:1px solid;padding:1em 0;">
-                  <p>Item F</p>
-                </div>
-              </div>
-              <div class="code"><style class="code-editor" contenteditable="true">.float__item {
-  float: left;
-  width: calc(100% / 3);
-}</style></div>
-            </div>
-            <aside class="notes">It's almost the same if you use <code>float</code>, because you also need to set a width on each item.</aside>
-          </section>
-
-          <section>
-            <h2>Layout technique: <code>flex</code></h2>
-            <div class="livecode">
-              <div class="result flexbox" style="font-size:75%;">
-                <div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item A</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item B</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item C</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item D</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item E</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item F</p></div>
-              </div>
-              <div class="code"><style class="code-editor" contenteditable="true">.flexbox {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.flexbox__item {
-  flex: 0 0 calc(100% / 3);
-}</style></div>
-            </div>
-            <aside class="notes">
-              <p>For Flexbox, to ensure our items line up in three columns, we prevent them from growing or shrinking, then set the flex-basis to a third of the container. Again, we are dealing with the item.</p>
-              <p>For all 3 techniques I just described, there isn't actually a grid. It just looks that way because we've forced the items to line up with each other.</p>
-            </aside>
-          </section>
-
-          <section>
-            <blockquote>“Grid is the only layout technique that establishes a <strong style="border-bottom:0.125em solid;">relationship</strong> between rows and columns of grid items.”</blockquote>
-            <aside class="notes">But for Grid, the dimensions for rows and columns are defined on the parent container instead. The grid is real, and we can place items inside this grid.</aside>
-          </section>
+          <h2>Using DevTools to learn Grid</h2>
+          <a href="devtools/grid.html">Live demo</a>
+          <img class="plain" style="display:block;max-height:45vh;margin:1em auto" src="img/grid-qr.png" alt="QR code for link to example page">
+          <aside class="notes">Ever since I started using Grid, I always use Firefox DevTools. Why? Because the feature set for debugging grid with Firefox DevTools is da best. But other than debugging, actually DevTools can also help us learn CSS.</aside>
         </section>
 
         <section>
-          <section>
-            <h2>Grid versus Flexbox?</h2>
-            <h2 class="fragment j-stamp">Wrong question</h2>
-            <aside class="notes">Some people have asked why we need Grid when we already have Flexbox? Or, is Grid supposed to replace Flexbox? My response is, these 2 layout techniques are not competing against each other. They are meant to be complementary.</aside>
-          </section>
+          <h2>Using DevTools to learn Subgrid</h2>
+          <a href="devtools/subgrid.html">Live demo</a>
+          <img class="plain" style="display:block;max-height:45vh;margin:1em auto" src="img/subgrid-qr.png" alt="QR code for link to example page">
+          <aside class="notes">If you thought Firefox devtools was good for Grid layouts, it's even more tok gong for Subgrid sia.</aside>
+        </section>
 
-          <section>
-            <h2>Grid AND Flexbox</h2>
-            <div class="l-multiple">
-              <img class="plain fragment" style="margin:0 0.25em;" data-src="img/kaya-butter.jpg">
-              <img class="plain fragment" style="margin:0 0.25em;" data-src="img/nuts-bolts.jpg">
-              <img class="plain fragment" style="margin:0 0.25em;" data-src="img/jayz-beyonce.jpg">
-            </div>
-            <aside class="notes">Grid and Flexbox are best friends. Like kaya and butter. Like nuts and bolts. Like Jay-Z and Beyoncé. Either are good on their own, but together, they can reach another level of awesome.</aside>
-          </section>
-
-          <section>
-            <h2>Flexbox ➡ single dimension</h2>
-            <div class="l-double">
-              <figure style="width:85%;">
-                <img class="plain" data-src="img/daisy-h.svg">
-                <figcaption>flex-direction: row</figcaption>
-              </figure>
-              <figure style="width:75%;">
-                <img class="plain" data-src="img/daisy-v.svg">
-                <figcaption>flex-direction: column</figcaption>
-              </figure>
-            </div>
-            <aside class="notes">Flexbox is suited for laying out items in a single dimension. Where there isn't a relationship between the rows and columns. Think of it more like a long daisy chain of flex children.</aside>
-          </section>
+        <section>
+          <h2>References</h2>
+          <ul>
+            <li><a href="https://www.w3.org/TR/css-flexbox-1/">CSS Flexible Box Layout Module Level 1</a></li>
+            <li><a href="https://www.w3.org/TR/css-grid-1/">CSS Grid Layout Module Level 1</a></li>
+            <li><a href="https://www.w3.org/TR/css-grid-2/">CSS Grid Layout Module Level 2</a></li>
+            <li><a href="https://tympanus.net/codrops/css_reference/subgrid/">Codrops reference: Subgrid</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Subgrid">Subgrid on MDN</a></li>
+            <li><a href="https://rachelandrew.co.uk/archives/2018/04/27/grid-level-2-and-subgrid/">Grid Level 2 and Subgrid</a></li>
+            <li><a href="https://rachelandrew.co.uk/archives/2017/07/20/why-display-contents-is-not-css-grid-layout-subgrid/">Why display: contents is not CSS Grid Layout subgrid</a></li>
+            <li><a href="https://www.smashingmagazine.com/2018/07/css-grid-2/">CSS Grid Level 2: Here Comes Subgrid</a></li>
+            <li><a href="https://gridbyexample.com/examples/">Grid by Example</a></li>
+            <li><a href="https://24ways.org/2018/researching-a-property-in-the-css-specifications/">Researching a Property in the CSS Specifications</a></li>
+          </ul>
+          <aside class="notes">These slides will be shared out with everyone and these are some useful links if you want to learn more about grid and subgrid. And definitely download a copy of Firefox, plus points if you download the Nightly version. Live is short, take some risks.</aside>
         </section>
 
         <section style="text-align:left">
