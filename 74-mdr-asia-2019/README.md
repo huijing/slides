@@ -94,7 +94,7 @@
 - the limitation is, you cannot do this if the number of rows or columns is not explicitly stated
 - when we don't know how much content a grid would contain, we usually just let the browser figure out the number of tracks automatically without specifying a number
 - but if we do that, we cannot use `1 / -1`
-- subgrid can resolve this problem because we can put in unknown items into a subgrid which aligns with the rest of the parent layout, which can have a known grid structure
+- subgrid can resolve this problem because we can wrap the unknown items into a subgrid which aligns with the rest of the parent layout, which can have a known grid structure
 
 ---
 
