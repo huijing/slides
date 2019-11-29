@@ -26,7 +26,9 @@
           <h1>How CSS evolves, a look back at 2 years of CSS grid</h1>
           <p style="margin-top:1em"><small><a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
           <aside class="notes">
-
+            <p>Hello, everyone! First of all, I want to the thank the organising team of DevFest Georgetown for bringing me home. And thank you all for being here today. I need to thank you all up front because recently, I've been a little upset when I think about CSS. Upset because CSS is becoming more and more awesome, but it seems as though people still think it's this limited, broken thing that doesn't work properly.</p>
+            <p>I don't know about the rest of you, but I was one of those people who loved CSS from the start. So much so that I tried doing everything in pure CSS if I could. Now that I'm slightly less immature, I realised that it wasn't the best idea, but it did make me very familiar with how CSS worked.</p>
+            <p>Then somehow, I got sort of involved a bit more with the folks who build browsers and develop web standards, and found the entire process very fascinating, and I wanted to share what I learned with all of you.</p>
           </aside>
         </section>
 
@@ -53,7 +55,7 @@
               <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
             </div>
           </div>
-          <aside class="notes">My name is Hui Jing, as you can probably guess from this, I'm a big fan of emojis. And these pretty much describe who I am as a person. If any of them don't make sense to you, just ask me about them later.</aside> 
+          <aside class="notes">My name is Hui Jing, and in addition to CSS, I also love emojis. And these pretty much describe who I am as a person. If any of them don't make sense to you, just ask me about them later.</aside> 
         </section>
 
         <section>
@@ -77,26 +79,25 @@
             <div style="display:grid;grid-template-columns:1fr;justify-items:center">
               <img class="plain fragment" style="grid-column:1;grid-row:1" data-src="img/layout1.png" alt="No layout">
               <img class="plain fragment" style="grid-column:1;grid-row:1" data-src="img/layout2.png" alt="Table-based layout">
+              <div class="fragment fade-in" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
+                <img data-src="img/nested-boxes.png" style="max-height:75vh" alt="Nested boxes" class="plain fragment fade-out">
+              </div>
               <img class="plain fragment" style="grid-column:1;grid-row:1" data-src="img/layout3.png" alt="Float-based layout">
               <img class="plain fragment" style="grid-column:1;grid-row:1" data-src="img/layout4.png" alt="Panel-style from frameworks">
               <img class="plain fragment" style="grid-column:1;grid-row:1" data-src="img/layout5.png" alt="Grid layouts and beyond">
             </div>
             <aside class="notes">
-              <p>So when the web started out, 👾 layout was non-existent. You could format your text with spaces, line breaks and indents, sure. But having a designed visual layout on your web page? Nope.</p>
-              <p>The HTML2 specification which was released in 1994 introduced 👾 the <code>&lt;table&gt;</code> tag and although its intended use was for tabular data, that didn't stop people from using it to build all sorts of cool and funky layouts. Sure, some of the techniques involved slicing up an image into multiple parts or whatever, but it worked. Sort of.</p>
-              <p>Then CSS came along in 1996, and with it came 👾 floats. And developers learned a new way to layout elements on their page. But floats weren't easy to deal with. Columns were uneven heights, things got displaced and didn't line up, you had to clear stuff.</p>
-              <p>And because it was so hard and unwieldy, 👾 some people decided to build out pre-written code, AKA a framework, and let everyone else apply these pre-written styles with classes. This approach was really popular and we hit an age where a lot of websites had very similar layouts.</p>
+              <p>So when the web started out, there was no layout. You could format your text with spaces, line breaks and indents, sure. But having a designed visual layout on your web page? Nope.</p>
+              <p>The first time we could sort of place things in specific positions on a webpage was probably 👾 in 1994 when <code>table</code> elements were supported in browsers. Originally meant for people to make data tables, they were soon misused for layouts. Because developers discovered… 👾 nesting.</p>
+              <p>Then 👾 CSS came along in 1996, and with it came floats. And we learned a new way to layout elements on their page. 👾 But floats weren't easy to deal with. Columns were uneven heights, things got displaced and didn't line up, you had to clear stuff. 👾</p>
+              <p>And because it was so hard, 👾 some people decided to build frameworks, and let everyone else apply these pre-written styles with CSS classes. This approach was really popular and we hit an age where a lot of websites had very similar layouts.</p>
+              <p>But during that time, CSS also started to have properties that were designed to suit the web better, to suit the fact that content on the web is very different from any other static medium.</p>
             </aside>
-          </section>
-
-          <section>
-            <img data-src="img/jon-gold.png" alt="Tweet by Jon Gold on how all websites these days use 1 of 2 layouts" class="plain" style="max-height:100vh">
-            <aside class="notes">This tweet has been used in conference talks all over the world many many times, but I think it makes a very strong point. And 6.8 thousand people seem to agree.</aside>
           </section>
 
           <section data-background-image="img/css-history.png" data-background-size="95%">
             <aside class="notes">
-              <p>But CSS is an evolving technology. Yes, it started out in 1996 as a long monolithic document, and at the time, browser vendors treated the implementation of CSS a bit like how Malaysians treat traffic laws. We take them as suggestions rather than rules.</p>
+              <p>Think of CSS as an evolving technology. Yes, it started out in 1996 as a long monolithic document, and at the time, browser vendors treated the implementation of CSS a bit like how we Malaysians treat traffic laws. We take them as suggestions rather than rules.</p>
               <p>The CSS Working Group was created in 1997 to tackle issues which were not addressed in the first version of CSS and they have been working on improving and evolving CSS ever since.</p>
               <p>By 2000, CSS had been broken up into modules to clarify the relationships between different parts of the specification, and make it easier to test, update and maintain the specification as a whole.</p>
               <p>The 2018 CSS Snapshot released in January this year now consists of 99 modules, many of which are being actively worked on.</p>
@@ -104,7 +105,11 @@
           </section>
 
           <section data-background-image="img/layout-props.png" data-background-size="95%">
-            <aside class="notes">Individual CSS properties can be quite useful on their own, but the full power of CSS truly shines through when we use different properties in combination. For example, this highlighted subset consists of modules that are layout-related.</aside>
+            <aside class="notes">
+              <p>Individual CSS properties can be quite useful on their own, but the full power of CSS truly shines through when we use different properties in combination.</p>
+              <p>For example, this highlighted subset consists of modules that are layout-related, but there are so many others as well. Some are completely new, some are enhancements on older features.</p>
+              <p>Today, I'm going to focus mostly on CSS for layouts. Not only because I genuinely enjoy moving boxes around on the page, but also, I feel it's one of those aspects of CSS where the evolution is most ah-maz-ing.</p>
+            </aside>
           </section>
 
           <section>
@@ -147,7 +152,103 @@
           <section>
             <h2>Grid layout</h2>
             <p>Defines a <strong>two-dimensional</strong> grid-based layout system,<br>optimised for <strong>user interface design</strong>.</p>
-            <aside class="notes">After that, we got grid. And Grid is the only layout model which recognises the relationship between rows and columns.</aside>
+            <aside class="notes">After that, we got grid. And Grid is the only layout model that can truly handle laying out elements in two dimensions.</aside>
+          </section>
+        </section>
+        
+        <section>
+          <section>
+            <h2>Why is CSS grid special?</h2>
+            <blockquote class="fragment" style="width:max-content;margin:0 auto">
+              <p>Grid works from the <strong>container</strong> in,<br>other layout methods start with the <strong>item</strong></p>
+              <br><small><a href="https://rachelandrew.co.uk/">Rachel Andrew</a></small>
+            </blockquote>
+            <aside class="notes">
+              <p>Maybe some of you are thinking, that can't be true. All our content on the web is in two dimensions already, right? Well, even though it is, we had very limited control along the block direction.</p>
+              <p>Rachel Andrew, who is one of the major contributors to the CSS grid specification, describes Grid liddat. Grid works from the container in, while other layout methods start with the item first. Okay, example time.</p>
+              <p>Say you wanted to lay out your content into 3 columns. How would you do this?</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Layout technique: <code>inline-block</code></h2>
+            <div class="livecode livecode-2p">
+              <div class="result inlineblock" style="font-size:75%;">
+                <div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item A</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item B</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item C</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item D</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item E</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;"><p>Item F</p></div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.inlineblock__item {
+  display: inline-block;
+  
+}</style></div>
+            </div>
+            <aside class="notes">Can use <code>inline-block</code> technique. To make 3 columns, we set the display of the items to <code>inline-block</code> then everybody's width set to 1/3 of the container.</aside>
+          </section>
+
+          <section>
+            <h2>Layout technique: <code>float</code></h2>
+            <div class="livecode livecode-2p">
+              <div class="result float" style="font-size:75%;">
+                <div class="float__item" style="border:1px solid;padding:1em 0;">
+                  <p>Item A</p>
+                </div>
+                <div class="float__item" style="border:1px solid;padding:1em 0;">
+                  <p>Item B</p>
+                </div>
+                <div class="float__item" style="border:1px solid;padding:1em 0;">
+                  <p>Item C</p>
+                </div>
+                <div class="float__item" style="border:1px solid;padding:1em 0;">
+                  <p>Item D</p>
+                </div>
+                <div class="float__item" style="border:1px solid;padding:1em 0;">
+                  <p>Item E</p>
+                </div>
+                <div class="float__item" style="border:1px solid;padding:1em 0;">
+                  <p>Item F</p>
+                </div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.float__item {
+  float: left;
+  width: calc(100% / 3);
+}</style></div>
+            </div>
+            <aside class="notes">Don't like <code>inline-block</code>? Nehmind, can use <code>float</code>s. It's very similar to <code>inline-block</code>, because you also need to set a width on each item.</aside>
+          </section>
+
+          <section>
+            <h2>Layout technique: <code>flex</code></h2>
+            <div class="livecode livecode-2p">
+              <div class="result flexbox" style="font-size:75%;">
+                <div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item A</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item B</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item C</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item D</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item E</p></div><div class="flexbox__item" style="border:1px solid;padding:1em 0;"><p>Item F</p></div>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.flexbox {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flexbox__item {
+  flex: 0 0 calc(100% / 3);
+}</style></div>
+            </div>
+            <aside class="notes">
+              <p>If you want to be modern, and use Flexbox, also can. We make the items not flexible, then set the flex-basis to 1/3 of the container. But again, the property is set on the item.</p>
+              <p>For all 3 techniques I just described, there is no grid. These grids are fake wan. It just looks that way because we've forced the items to line up with each other.</p>
+            </aside>
+          </section>
+
+          <section>
+            <blockquote>
+              <p>Grid is the only layout technique that establishes a <strong>relationship</strong> between rows and columns of grid items.</p>
+            </blockquote>
+            <div class="fragment" style="width:55%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
+              <video loop autoplay style="width:100%">
+                <source data-src="img/ahmazing.mp4" type="video/mp4">
+                Sorry, your browser doesn't support embedded videos, 
+                but don't worry, you can <a href="img/ahmazing.mp4">download it</a>
+                and watch it with your favourite video player!
+              </video>
+            </div>
+            <aside class="notes">But when you use CSS grid, the dimensions for rows and columns are defined on the parent container.So this grid is real, and we can place items inside this grid. And that 👾is AH-MAZ-ING.</aside>
           </section>
         </section>
 
@@ -164,11 +265,11 @@
           <section>
             <h2>Grid <span style="font-size:125%">AND</span> Flexbox</h2>
             <div class="l-multiple">
-              <img class="plain fragment" style="margin:0 0.25em;" data-src="img/sushi-wasabi.jpg">
+              <img class="plain fragment" style="margin:0 0.25em;" data-src="img/kaya-butter.jpg">
               <img class="plain fragment" style="margin:0 0.25em;" data-src="img/nuts-bolts.jpg">
               <img class="plain fragment" style="margin:0 0.25em;" data-src="img/jayz-beyonce.jpg">
             </div>
-            <aside class="notes">Grid and Flexbox are best friends. Like sushi and wasabi. Like nuts and bolts. Like Jay-Z and Beyoncé. Either are good on their own, but together, they can transcend awesomeness.</aside>
+            <aside class="notes">Grid and Flexbox are best friends. Like kaya and butter. Like nuts and bolts. Like Jay-Z and Beyoncé. Either are good on their own, but together, they can transcend awesomeness.</aside>
           </section>
 
           <section>
@@ -183,10 +284,142 @@
                 <figcaption>flex-direction: column</figcaption>
               </figure>
             </div>
-            <aside class="notes">Flexbox is suited for laying out items in a single dimension. Where there is no relationship between the rows and columns. Think of it more like a long daisy chain of flex children.</aside>
+            <aside class="notes">Flexbox is suited for laying out items in a single dimension, where there is no relationship between the rows and columns. But you can customise how much an item grows or shrinks in that single dimension. It's very flexible, especially once you figure out how the sizing works.</aside>
+          </section>
+
+          <section>
+            <h2>Grid ➡ two dimensions</h2>
+            <figure>
+              <img class="plain" data-src="img/rows-cols.svg">
+              <figcaption>Items know about row and column sizing</figcaption>
+            </figure>
+            <aside class="notes"></aside>
           </section>
         </section>
-        
+
+        <section>
+          <section>
+            <h2>Where does CSS come from?</h2>
+            <ul>
+              <li class="fragment">Browser vendors</li>
+              <li class="fragment">Companies who need certain features</li>
+              <li class="fragment">CSS working group</li>
+            </ul>
+          </section>
+
+          <section>
+            <iframe width="880" height="495" src="https://www.youtube.com/embed/cYGOv2ToZjY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </section>
+
+          <section>
+            <h2>The CSS Working Group</h2>
+            <div class="fragment fade-in" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
+              <img data-src="img/darkness.jpg" style="max-height:75vh" alt="Not what the CSSWG looks like" class="plain fragment fade-out">
+            </div>
+            <img class="plain fragment" data-src="img/csswg.jpg" alt="Team photo of the CSSWG">
+            <aside class="notes"></aside>
+          </section>
+
+          <section>
+            <h2>Specification document statuses</h2>
+            <div style="display:grid;grid-template-columns:repeat(5, 1fr);grid-template-rows:min-content 1fr;column-gap:1em;text-align:left;font-size:85%;margin-top:1em">
+              <div style="grid-row:span 2;display:grid;grid-template-rows:subgrid">
+                <h4>Working Draft (WD)</h4>
+                <p style="margin:0">to create a snapshot of the specification's current state and to solicit input from the W3C and the public</p>
+              </div>
+              <div class="fragment" style="grid-row:span 2;display:grid;grid-template-rows:subgrid">
+                <h4>Last Call Working Draft (LC or LCWD)</h4>
+                <p style="margin:0">to announce that the specification will move toward Candidate Recommendation unless significant issues are brought up</p>
+              </div>
+              <div class="fragment" style="grid-row:span 2;display:grid;grid-template-rows:subgrid">
+                <h4>Candidate Recommendation (CR)</h4>
+                <p style="margin:0">to express that all known issues have been resolved, and is a call for implementations</p>
+              </div>
+              <div class="fragment" style="grid-row:span 2;display:grid;grid-template-rows:subgrid">
+                <h4>Proposed Recommendation (PR)</h4>
+                <p style="margin:0">needs a comprehensive test suite and implementation reports proving that every feature is interoperably implemented in at least two shipping implementations</p>
+              </div>
+              <div class="fragment" style="grid-row:span 2;display:grid;grid-template-rows:subgrid">
+                <h4>Recommendation (REC)</h4>
+                <p style="margin:0">finally, a standard<br><img class="plain" style="width:100%" data-src="img/yasssss.gif" alt="An extremely excited cat"></p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>It's not a linear process…</h2>
+            <img class="plain" data-src="img/snakes-ladders.svg" alt="W3C snakes and ladders">
+          </section>
+
+          <section>
+            <blockquote>
+              <p>…it shouldn’t come as a shock that grid-based layouts have been a goal of CSS since the beginning.</p>
+              <br><small><a href="https://alistapart.com/article/the-story-of-css-grid-from-its-creators/">The Story of CSS Grid, from Its Creators</a> by <a href="https://www.aaron-gustafson.com/">Aaron Gustafson</a></small>
+              <br>
+            </blockquote>
+          </section>
+
+          <section>
+            <h2>Fun facts about CSS grid</h2>
+            <ul>
+              <li class="fragment">Numerous proposals submitted that were never implemented</li class="fragment">
+              <li class="fragment">First proposal that stuck was one from <strong>Microsoft</strong> (for Metro UI)</li>
+              <li class="fragment">First implementation of Grid ever was in <strong>IE10</strong> (with vendor prefix)</li>
+              <li class="fragment"><strong>Bloomberg</strong> hired <strong>Igalia</strong> to implement CSS grid for <strong>Blink</strong> and <strong>WebKit</strong></li>
+              <li class="fragment"><strong>Rachel Andrew</strong> proposed <code>gap</code> to solve the gutter problem</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <img class="plain" data-src="img/grid-release.png">
+            <aside class="notes">So in 2017, Grid had a sibei successful roll-out 👾. By the end of March, all the major browsers had shipped a stable implementation which worked the same way. And by October, even Samsung Internet and Edge (RIP) also can support Grid liao.</aside>
+          </section>
+
+          <section>
+            <h2>Browser support for Grid (Level 1)</h2>
+            <p class="ciu_embed" data-feature="css-grid" data-periods="future_1,current,past_1,past_2" data-accessible-colours="true">
+              <a href="http://caniuse.com/#feat=css-grid">
+                <img src="img/css-grid.png" alt="Data on support for the css-grid feature across the major browsers from caniuse.com">
+              </a>
+            </p>
+            <aside class="notes">Right now, and I know this very small kenot see, but trust me, more than 93% of internet users are using a browser that supports CSS grid. So if your excuse for not using Grid is browser support, kenot. Update your excuse.</aside>
+          </section>
+
+          <section>
+            <h2>Basics of CSS grid</h2>
+            <div class="l-double">
+              <div class="fragment" style="width:100%;">
+                <p>Define your grid.</p>
+                <img class="plain" style="max-height:65vh;" data-src="img/define-grid.svg" alt="Define a grid">
+              </div>
+              <div class="fragment" style="width:100%;">
+                <p>Place items in the grid.</p>
+                <img class="plain" style="max-height:65vh;" data-src="img/place-items.svg" alt="Place items in the grid">
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Grid terminology</h2>
+            <img class="plain" data-src="img/terminology.svg" alt="Grid terminology">
+            <aside class="notes">
+              <p>Later might have some minor jargon, so clarify here first. Grid lines are the horizontal and vertical lines that form the basis of the grid structure. We use a numerical index to reference the lines, and the index starts from 1. Like Lua, not C.</p>
+              <p>Each space between grid lines are called grid tracks, these are the rows and columns of your grid, and represent the spaces your items appear in.</p>
+              <p>The grid cell is a single unit of the grid and is made up of 2 adjacent row lines and 2 adjacent column lines. By default, each grid item is 1 grid cell. Many grid cells become grid area.</p>
+              <p>The best part about Grid, is can have gaps between tracks. No more funny negative margin and paddings sia. This feature has been expanded to flex layouts as well, so if you're using Firefox 63 and beyond, also can use.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Using DevTools to learn Grid</h2>
+            <a href="devtools/grid.html">Live demo</a>
+            <img class="plain" style="display:block;max-height:45vh;margin:1em auto" src="img/grid-qr.png" alt="QR code for link to example page">
+            <aside class="notes">Ever since I started using Grid, I always use Firefox DevTools. Why? Because the feature set for debugging grid with Firefox DevTools is da best. But other than debugging, actually DevTools can also help us learn CSS.</aside>
+          </section>
+        </section>
+
         <section style="text-align:left">
           <h1>Thank you!</h1>
           <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com" style="display:inline-block;vertical-align:middle">https://www.chenhuijing.com</a></p>
@@ -201,6 +434,7 @@
     </div>
 
     <script src="js/reveal.js"></script>
+    <script src="lib/js/caniuse-embed.min.js"></script>
 
     <script>
       Reveal.initialize({
