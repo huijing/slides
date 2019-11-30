@@ -51,7 +51,7 @@
 - can specify subgrid in one dimension only, i.e. follow the parent grid only for row or column then specify own track size in other dimension
 - using the `subgrid` keyword in respective dimension
 - can also follow parent grid in one dimension, then let the browser generate implicit tracks for other dimension
-- although subgrids inherit 繼承 the line names from their parents, can also name subgrid lines
+- although subgrids inherit the line names from their parents, can also name subgrid lines
 - line numbers of the subgrid start from `1`, *refer to the example after toggling subgrid lines*
 
 ---
@@ -65,7 +65,7 @@
 
 ---
 
-- any margins, borders and paddings applied to each edge of the subgrid will “accumulate” 累積 as you nest more subgrids
+- any margins, borders and paddings applied to each edge of the subgrid will “accumulate” as you nest more subgrids
 - here we have a grid, a subgrid and an additional nested subgrid, so 3 layers
 - the outermost grid also has grid gap applied
 - item 2 and item 3 are grandchildren of the outermost grid

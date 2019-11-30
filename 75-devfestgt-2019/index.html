@@ -77,7 +77,7 @@
           <section>
             <h2 style="margin-bottom:1em;">Web layouts over the years</h2>
             <div style="display:grid;grid-template-columns:1fr;justify-items:center">
-              <img class="plain fragment" style="grid-column:1;grid-row:1" data-src="img/layout1.png" alt="No layout">
+              <img class="plain" style="grid-column:1;grid-row:1" data-src="img/layout1.png" alt="No layout">
               <img class="plain fragment" style="grid-column:1;grid-row:1" data-src="img/layout2.png" alt="Table-based layout">
               <div class="fragment fade-in" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
                 <img data-src="img/nested-boxes.png" style="max-height:75vh" alt="Nested boxes" class="plain fragment fade-out">
@@ -89,7 +89,7 @@
             <aside class="notes">
               <p>So when the web started out, there was no layout. You could format your text with spaces, line breaks and indents, sure. But having a designed visual layout on your web page? Nope.</p>
               <p>The first time we could sort of place things in specific positions on a webpage was probably 👾 in 1994 when <code>table</code> elements were supported in browsers. Originally meant for people to make data tables, they were soon misused for layouts. Because developers discovered… 👾 nesting.</p>
-              <p>Then 👾 CSS came along in 1996, and with it came floats. And we learned a new way to layout elements on their page. 👾 But floats weren't easy to deal with. Columns were uneven heights, things got displaced and didn't line up, you had to clear stuff. 👾</p>
+              <p>Then 👾 CSS came along in 1996, and with it came floats. And we learned a new way to layout elements on their page. But floats weren't easy to deal with. Columns were uneven heights, things got displaced and didn't line up, you had to clear stuff.</p>
               <p>And because it was so hard, 👾 some people decided to build frameworks, and let everyone else apply these pre-written styles with CSS classes. This approach was really popular and we hit an age where a lot of websites had very similar layouts.</p>
               <p>👾 But during that time, CSS also started to have properties that were designed to suit the web better, to suit the fact that content on the web is very different from any other static medium.</p>
             </aside>
@@ -165,7 +165,7 @@
             </blockquote>
             <aside class="notes">
               <p>Maybe some of you are thinking, that can't be true. All our content on the web has always been in two dimensions already, right? Well, even though the content sort of flowed in two dimensions, we had very limited control along the block direction.</p>
-              <p>Rachel Andrew, who is one of the major contributors to the CSS grid specification, describes Grid liddat. Grid works from the container in, while other layout methods start with the item first. Okay, example time.</p>
+              <p>Rachel Andrew, who is one of the major contributors to the CSS grid specification, describes it like this. Grid works from the container in, while other layout methods start with the item first. Okay, example time.</p>
               <p>Say you wanted to lay out your content into 3 columns. How would you do this?</p>
             </aside>
           </section>
@@ -269,7 +269,7 @@
               <img class="plain fragment" style="margin:0 0.25em;" data-src="img/nuts-bolts.jpg">
               <img class="plain fragment" style="margin:0 0.25em;" data-src="img/jayz-beyonce.jpg">
             </div>
-            <aside class="notes">Grid and Flexbox are best friends. Like kaya and butter. Like nuts and bolts. Like Jay-Z and Beyoncé. Either are good on their own, but together, they can transcend awesomeness.</aside>
+            <aside class="notes">Grid and Flexbox are best friends. Like kaya and butter. Like nuts and bolts. Like Jay-Z and Beyoncé. Either are good on their own, but together, they become ah-ma-zing.</aside>
           </section>
 
           <section>
@@ -308,7 +308,7 @@
               <li class="fragment">Companies who need certain features</li>
               <li class="fragment">CSS working group</li>
             </ul>
-            <iframe width="880" height="495" src="https://www.youtube.com/embed/cYGOv2ToZjY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe class="fragment" style="display:block;margin:1em auto" width="880" height="495" src="https://www.youtube.com/embed/cYGOv2ToZjY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <aside class="notes">
               <p>But let's take another step back and talk about where CSS actually comes from. Sometimes they are proposed by browsers themselves, not much surprise there. So Google, Mozilla, Samsung, Microsoft are all fairly involved here.</p>
               <p>There are also non-browser companies who will propose features, like Adobe, which proposed one of my favourite specifications, CSS shapes.</p>
@@ -355,7 +355,6 @@
             <aside class="notes">
               <p>It's during those calls when CSS specifications get discussed. Specifications go through several stages before becoming a standard. They start off as an idea, or collection of ideas, which get fleshed out and worked through.</p>
               <p>People will raise questions about certain use-cases, or highlight issues with syntax, with logic, with implementation details, and so on. It's not a quick nor easy process. Sometimes the process takes years and years. Usually it takes someone with a vested interest to drive the specification forward.</p>
-              <p>For Grid, I think it's safe to say one of the key people who did that was Rachel Andrew.</p>
             </aside>
           </section>
 
