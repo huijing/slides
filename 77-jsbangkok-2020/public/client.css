@@ -1,0 +1,224 @@
+:root {
+  --grad1: #de726f;
+  --grad2: #2254b6;
+  --accent: #164194;
+  --txt-light: white;
+  --background: #f5f1e9;
+  --chat-bg: rgba(255, 255, 255, 0.75);
+}
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100%;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  transform: translate3d(0, 0, 0);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background, #f5f1e9);
+}
+
+header {
+  background-image: linear-gradient(155.58deg,var(--grad1, #de726f) 4.46%,var(--grad2, #2254b6) 90.47%);
+  padding: 0.5em;
+  text-align: center;
+  color: var(--txt-light, white);
+  text-shadow: 1px 1px 2px black;
+}
+
+main {
+  display: flex;
+  text-align: center;
+  flex: 1;
+}
+
+main p {
+  font-size: 200%;
+  max-width: 80%;
+  margin: auto;
+  text-shadow: 1px 1px 2px grey;
+}
+
+.btn-chat {
+  height: 5em;
+  width: 5em;
+  background-color: var(--accent, #164194);
+  border-radius: 50%;
+  padding: 11px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .2), 0 3px 6px 0 rgba(0, 0, 0, .19);
+  position: fixed;
+  right: 1em;
+  bottom: 1em;
+}
+
+.btn-chat svg {
+  height: 2.5em;
+  width: 2.5em;
+}
+
+aside {
+  position: fixed;
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+  display: flex;
+  flex-direction: column;
+  min-width: 20em;
+  width: 25%;
+  height: 100%;
+  background: var(--chat-bg);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
+  transition: transform 0.5s ease;
+}
+
+aside.active {
+  transform: translateX(0);
+}
+
+.header {
+  text-align: center;
+  padding: 0.5em 1em;
+  background-color: var(--accent, #164194);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
+  line-height: 1.3;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.btn-close {
+  margin-left: auto;
+  height: 2em;
+  width: 2em;
+  background: transparent;
+  border: none;
+}
+
+.btn-close svg {
+  height: 1em;
+  width: 1em;
+}
+
+.messages {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  padding: 1em 1.5em 0;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
+}
+
+.message {
+  display: flex;
+  align-items: center;
+}
+
+.message:first-child {
+  margin-top: auto;
+}
+
+.message p {
+  border-radius: 0.25em;
+  padding: 0.5em;
+  margin-bottom: 1em;
+}
+
+.message.agent {
+  position: relative;
+}
+
+.message.agent::after {
+  content: "";
+  position: absolute;
+  left: -15px;
+  bottom: 1em;
+  border: 0 solid transparent;
+  border-top: 9px solid var(--grad2);
+  border-radius: 0 20px 0;
+  width: 15px;
+  height: 30px;
+  transform: rotate(145deg);
+}
+
+.message.agent p {
+  background-color: var(--grad2);
+  color: var(--txt-light);
+  border-radius: 4px;
+}
+
+.message.input {
+  position: relative;
+  align-self: flex-end;
+}
+
+.message.input::after {
+  content: "";
+  position: absolute;
+  right: -15px;
+  bottom: 1em;
+  border: 0 solid transparent;
+  border-top: 9px solid var(--grad1);
+  border-radius: 0 20px 0;
+  width: 15px;
+  height: 30px;
+  transform: rotate(45deg) scaleY(-1);
+  
+}
+
+.message.input p {
+  background-color: var(--grad1);
+  text-align: right;
+  color: var(--txt-light);
+}
+
+.controls {
+  padding: 0.5em;
+  background-color: var(--txt-light);
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+}
+
+input[type="text"] {
+  flex: 1;
+  font-size: 100%;
+  max-width: calc(100% - 2.5em);
+}
+
+input[type="submit"] {
+  font-size: 100%;
+  border-radius: 4px;
+  margin-left: 0.5em;
+  height: 2em;
+  padding: 0 0.5em;
+  background-color: var(--accent);
+  color: var(--txt-light);
+}
+
+a {
+  color: currentColor;
+}
+
+footer {
+  padding: 0.25em;
+  background-image: linear-gradient(155.58deg, var(--grad2, #2254b6) 4.46%, var(--grad1, #de726f) 90.47%);
+  color: var(--txt-light, white);
+  text-align: center;
+}
