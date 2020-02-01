@@ -4,6 +4,7 @@
   "description": "A simple on-page chatbox to demonstrate Nexmo's Conversations API, customised for Javascript Bangkok 1.0.0",
   "main": "server.js",
   "scripts": {
+    "serve": "browser-sync start --proxy 'localhost:5344' --serveStatic 'public' --files 'public' 'views'",
     "start": "node server.js"
   },
   "dependencies": {
@@ -18,6 +19,8 @@
     "express"
   ],
   "devDependencies": {
-    "dotenv": "^8.2.0"
+    "browser-sync": "^2.26.7",
+    "dotenv": "^8.2.0",
+    "onchange": "^6.1.0"
   }
 }

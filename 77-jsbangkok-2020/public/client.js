@@ -1,6 +1,6 @@
 function triggerChat() {
   const button = document.getElementById('showChat');
-  appendMessage('Hello! My name is James, how can I help you today?', 'agent');
+  appendMessage('Hello! My name is Nanami. Chibi isn\'t with the Dragonians right now. But is there anything else you\'d like to talk about?', 'agent');
   button.addEventListener('click', event => {
     const chatWindow = document.getElementById('chatWindow');
     chatWindow.classList.toggle('active');     

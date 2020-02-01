@@ -1,0 +1,119 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Learn CSS with DevTools</title>
+  <meta name="description" content="Various examples where DevTools really helps with understanding of CSS properties">
+  <meta name="author" content="Chen Hui Jing">
+
+  <style>
+  @font-face {
+    font-family: "Emoji";
+    src: local("Apple Color Emoji"), local("Segoe UI Emoji"), local("Segoe UI Symbol"), local("Noto Color Emoji");
+  }
+    
+  * {
+    margin: 0;
+    padding: 0;
+  }
+    
+  html {
+    height: 100%;
+    font-size: 1.25em;
+  }
+    
+  body {
+    height: 100%;
+    padding: 1em;
+  }
+    
+  h1,
+  h2 {
+    margin-bottom: 0.5em;
+  }
+  
+  hr {
+    margin: 1em 0;
+  }
+
+  .twitter {
+    position: fixed;
+    top: 0.5em;
+    right: 0.5em;
+    color: darkgreen;
+    writing-mode: vertical-rl;
+    mix-blend-mode: luminosity;
+    opacity: 0.6;
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <h1>Learn CSS with DevTools</h1>
+
+  <h2>Flexbox</h2>
+ 
+  <h2>Grid</h2>
+
+  <h2>Subgrid</h2>
+
+  <h2>CSS shapes</h2>
+
+  <p class="twitter">@hj_chen</p>
+
+  <script>
+    const style1 = [
+      'background: radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.15) 30%, rgba(255,255,255,.3) 32%, rgba(255,255,255,0) 33%) 0 0, radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.2) 11%, rgba(255,255,255,.4) 13%, rgba(255,255,255,0) 14%) -10vw -25vh, radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.2) 11%, rgba(255,255,255,.4) 13%, rgba(255,255,255,0) 14%) -3vw 17em, linear-gradient(155.58deg,#de726f 4.46%, #2254b6 90.47%);',
+      'background-size: 80vw 80vw, 80vw 80vw, 120vw 120vw, 100% 100%',
+      'color: white',
+      'text-shadow: 1px 1px 2px black',
+      'display: block',
+      'line-height: 1.4',
+      'text-align: center',
+      'font-weight: bold',
+      'font-size: calc(1.5em + 1.5vw)',
+      'padding: 15vh 1em'
+    ].join(';')
+
+    const style2 = [
+      'background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(222, 114, 111, 0.2) 0, rgba(222, 114, 111, 0.05) 2rem, transparent 0, transparent 1rem, rgba(222, 114, 111, 0.15) 0, rgba(222, 114, 111, 0.05) 4rem, transparent 0, transparent 1rem, rgba(255, 255, 255, 0.3) 0, rgba(255, 255, 255, 0.1) 2rem), repeating-linear-gradient(45deg, transparent, transparent 1rem, rgba(222, 114, 111, 0.2) 0, rgba(222, 114, 111, 0.05) 2rem, transparent 0, transparent 1rem, rgba(222, 114, 111, 0.15) 0, rgba(222, 114, 111, 0.05) 4rem, transparent 0, transparent 1rem, rgba(255, 255, 255, 0.4) 0, rgba(255, 255, 255, 0.1) 2rem), #fff',
+      'background-blend-mode: multiply',
+      'color: black',
+      'font-size: calc(0.75em + 1vw)',
+      'display: block',
+      'text-align:center',
+      'padding: 1em',
+      'line-height: 1.4'
+    ].join(';')
+    
+    const style3 = [
+      'background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(34, 84, 182, 0.2) 0, rgba(34, 84, 182, 0.05) 2rem, transparent 0, transparent 1rem, rgba(34, 84, 182, 0.15) 0, rgba(34, 84, 182, 0.05) 4rem, transparent 0, transparent 1rem, rgba(255, 255, 255, 0.3) 0, rgba(255, 255, 255, 0.1) 2rem), repeating-linear-gradient(45deg, transparent, transparent 1rem, rgba(34, 84, 182, 0.2) 0, rgba(34, 84, 182, 0.05) 2rem, transparent 0, transparent 1rem, rgba(34, 84, 182, 0.15) 0, rgba(34, 84, 182, 0.05) 4rem, transparent 0, transparent 1rem, rgba(255, 255, 255, 0.4) 0, rgba(255, 255, 255, 0.1) 2rem), #fff',
+      'background-blend-mode: multiply',
+      'color: black',
+      'font-size: calc(1em + 1.75vw)',
+      'display: block',
+      'text-align: center',
+      'padding: 0.5em',
+      'line-height: 1.4',
+      'font-family: "Apple Color Emoji", "Segoe UI Emoji"'
+    ].join(';')
+
+    const title = 'DevTools, the CSS advocate in your browser'
+    const aboutMe = 'Chen Hui Jing, Developer Advocate @ Nexmo'
+    const emojis = '🇲🇾👾🏀🚲🖌👟💻✒️🎙🦊🥑🧗‍♀️🏳️‍🌈'
+
+    console.log('%c%s', style1, title)
+    console.log('%c%s', style2, aboutMe)
+    console.log('%c%s', style3, emojis)
+  </script>
+</body>
+
+</html>

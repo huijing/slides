@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'りいてがき筆';
+  src: url('assets/subhead.woff2') format('woff2'),
+       url('assets/subhead.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KSO雷神';
+  src: url('assets/head.woff2') format('woff2'),
+       url('assets/head.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --grad1: #de726f;
   --grad2: #2254b6;
@@ -31,7 +47,7 @@ body {
   background-color: var(--background, #f5f1e9);
 }
 
-header {
+body > header {
   background-image: linear-gradient(155.58deg,var(--grad1, #de726f) 4.46%,var(--grad2, #2254b6) 90.47%);
   padding: 0.5em;
   text-align: center;
@@ -40,16 +56,45 @@ header {
 }
 
 main {
-  display: flex;
-  text-align: center;
   flex: 1;
+  writing-mode: vertical-rl;
+  display: grid;
+  grid-template-rows: max-content 1fr;
+  font-family: 'Fantasque Sans Mono', sans-serif;
 }
 
-main p {
-  font-size: 200%;
-  max-width: 80%;
-  margin: auto;
-  text-shadow: 1px 1px 2px grey;
+main header {
+  writing-mode: vertical-rl;
+
+}
+
+main header h1 {
+  font-family: "KSO雷神";
+  font-size: calc(10vh + 3em);
+}
+
+main header h2 {
+  font-family: "りいてがき筆";
+  font-size: calc(3vh + 1em);
+}
+
+main ul {
+  list-style: none;
+  writing-mode: horizontal-tb;
+  display: grid;
+  grid-template-columns: 
+}
+
+li img {
+  float: left;
+}
+
+p {
+  line-height: 1.3;
+}
+
+img {
+  max-width: 25vw;
 }
 
 .btn-chat {

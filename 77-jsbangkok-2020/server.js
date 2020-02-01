@@ -43,6 +43,10 @@ app.get('/agent', function(request, response) {
   response.sendFile(__dirname + '/views/agent.html');
 });
 
+app.get('/devtools', function(request, response) {
+  response.sendFile(__dirname + '/views/devtools.html');
+});
+
 let activeConversationDetails; /* Creates some pseudo in-memory persistence */
 let agentMember;
 app.route('/api/new').get((req, res) => {
@@ -140,7 +144,7 @@ app.route('/api/jwt/:user').get((req, res) => {
 });
 
 app.route('/webhooks/event').post((req, res) => { /* Gets all the events that happen on the application for debugging or further functionality devlopement */
-  console.log(req.body);
+  console.log('Request body: ', req.body);
 });
 
 const listener = app.listen(process.env.PORT, function() {
