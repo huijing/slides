@@ -11,44 +11,93 @@
   <meta name="author" content="Chen Hui Jing">
 
   <style>
-  @font-face {
-    font-family: "Emoji";
-    src: local("Apple Color Emoji"), local("Segoe UI Emoji"), local("Segoe UI Symbol"), local("Noto Color Emoji");
-  }
-    
-  * {
-    margin: 0;
-    padding: 0;
-  }
-    
-  html {
-    height: 100%;
-    font-size: 1.25em;
-  }
-    
-  body {
-    height: 100%;
-    padding: 1em;
-  }
-    
-  h1,
-  h2 {
-    margin-bottom: 0.5em;
-  }
-  
-  hr {
-    margin: 1em 0;
-  }
+    @font-face {
+      font-family: "Emoji";
+      src: local("Apple Color Emoji"), local("Segoe UI Emoji"), local("Segoe UI Symbol"), local("Noto Color Emoji");
+    }
+      
+    * {
+      margin: 0;
+      padding: 0;
+    }
+      
+    html {
+      height: 100%;
+      font-size: 1.25em;
+    }
+      
+    body {
+      height: 100%;
+      padding: 1em;
+    }
 
-  .twitter {
-    position: fixed;
-    top: 0.5em;
-    right: 0.5em;
-    color: darkgreen;
-    writing-mode: vertical-rl;
-    mix-blend-mode: luminosity;
-    opacity: 0.6;
-  }
+    section {
+      padding-bottom: 1em;
+    }
+      
+    h1 {
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      margin-bottom: 1em;
+    }
+    
+    hr {
+      margin: 1em 0;
+    }
+
+    code {
+      font-size-adjust: 0.59;
+    }
+
+    img {
+      width: 8em;
+    }
+
+    .box {
+      border: 1px dashed;
+    }
+
+    [class^='flex-'] {
+      box-sizing: content-box;
+      display: flex;
+      margin-bottom: 1em;
+    }
+
+    .flex-auto div:first-child {
+      flex: auto;
+    }
+
+    .flex-auto div:nth-child(2) {
+      flex: 2 1 auto;
+    }
+
+    .flex-auto div:nth-child(3) {
+      flex: initial;
+    }
+
+    .flex-zero div:first-child {
+      flex: 1 1 0;
+    }
+
+    .flex-zero div:nth-child(2) {
+      flex: 2 1 0;
+    }
+
+    .flex-zero div:nth-child(3) {
+      flex: 0 1 0;
+    }
+
+    .twitter {
+      position: fixed;
+      top: 0.5em;
+      right: 0.5em;
+      color: darkgreen;
+      writing-mode: vertical-rl;
+      mix-blend-mode: luminosity;
+      opacity: 0.6;
+    }
   </style>
 
   <!--[if lt IE 9]>
@@ -59,13 +108,47 @@
 <body>
   <h1>Learn CSS with DevTools</h1>
 
-  <h2>Flexbox</h2>
- 
-  <h2>Grid</h2>
+  <section>
+    <h2>Flexbox</h2>
+    <p>Understanding <code>flex-basis</code></p>
 
-  <h2>Subgrid</h2>
+    <div class="flex-auto">
+      <div class="box">Give me 1 unit of free space.</div>
+      <div class="box">Give me 2 units of free space.</div>
+      <div class="box">I'm fine, no extra space for me.</div>
+    </div>
 
-  <h2>CSS shapes</h2>
+    <div class="flex-zero">
+      <div class="box">Give me 1 unit of free space.</div>
+      <div class="box">Give me 2 units of free space.</div>
+      <div class="box">I'm fine, no extra space for me.</div>
+    </div>
+  </section>
+  
+  <section>
+    <h2>Grid</h2>
+    <p>Usefulness of <code>grid-template-areas</code></p>
+    <div class="grid4">
+      <div class="box"><span class="emoji">🧀</span></div>
+      <div class="box"><span class="emoji">🛶</span></div>
+      <div class="box"><span class="emoji">🚲</span></div>
+    </div>
+  </section>
+  
+  <section>
+    <h2>Subgrid</h2>
+    <p>How line-numbering differs with subgrid</p>
+  </section>
+  
+  <section>
+    <h2>CSS shapes</h2>
+    <p>Customising <code>clip-path</code> and <code>shape-outside</code></p>
+  </section>
+
+  <a href="/">
+    <img src="assets/demo-link.png" alt="chibi barking at butterfly">
+  </a>
+  
 
   <p class="twitter">@hj_chen</p>
 

@@ -40,61 +40,169 @@ html {
 body {
   height: 100%;
   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  transform: translate3d(0, 0, 0);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
   background-color: var(--background, #f5f1e9);
 }
 
 body > header {
   background-image: linear-gradient(155.58deg,var(--grad1, #de726f) 4.46%,var(--grad2, #2254b6) 90.47%);
-  padding: 0.5em;
-  text-align: center;
+  height: 3.5em;
+  display: flex;
   color: var(--txt-light, white);
   text-shadow: 1px 1px 2px black;
 }
 
+body > header h1 {
+  margin: auto;
+  display: inline-block;
+  overflow: hidden;
+  height: 1.25em;
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.long {
+  display: inline;
+}
+
+.short {
+  display: none;
+}
+
+@supports (flex-wrap: wrap) {
+  body > header h1 {
+    display: inline-flex;
+    flex-wrap: wrap;
+  }
+
+  .short {
+    display: block;
+    overflow: hidden;
+    flex-grow: 1;
+    width: 0;
+    text-overflow: ellipsis;
+    text-align: center;
+  }
+
+  .long {
+    flex-basis: 100%;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  line-height: 1.3;
+  font-size: calc(0.75em + 0.5vw);
+  margin-top: 1em;
+}
+
+img {
+  max-height: calc((100vh - 9em) / 3);
+}
+
 main {
-  flex: 1;
-  writing-mode: vertical-rl;
-  display: grid;
-  grid-template-rows: max-content 1fr;
   font-family: 'Fantasque Sans Mono', sans-serif;
 }
 
 main header {
-  writing-mode: vertical-rl;
-
+  margin: 1em auto 1.5em;
+  width: max-content;
 }
 
 main header h1 {
   font-family: "KSO雷神";
   font-size: calc(10vh + 3em);
+  text-align: center;
 }
 
-main header h2 {
+main h2 {
   font-family: "りいてがき筆";
   font-size: calc(3vh + 1em);
+  text-align: right;
 }
 
-main ul {
-  list-style: none;
-  writing-mode: horizontal-tb;
-  display: grid;
-  grid-template-columns: 
+main li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
 }
 
-li img {
+main li:nth-child(even) {
+  text-align: right;
+  flex-direction: row-reverse;
+}
+
+ul h2 {
+  writing-mode: vertical-rl;
   float: left;
 }
 
-p {
-  line-height: 1.3;
+.chibi img {
+  float: left;
+  shape-outside: url("assets/chibiterasu.png");
+  shape-image-threshold: 0.5;
+  shape-margin: 0.5em;
 }
 
-img {
-  max-width: 25vw;
+.kagu img {
+  float: right;
+  shape-outside: url("assets/kagu.png");
+  shape-image-threshold: 0.8;
+  shape-margin: 0.5em;
+}
+
+.kurow img {
+  float: left;
+  shape-outside: url("assets/kurow.png");
+  shape-image-threshold: 0.8;
+  shape-margin: 0.5em;
+}
+
+@media screen and (min-width: 955px) {
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1;
+    writing-mode: vertical-rl;
+    display: grid;
+    grid-template-rows: max-content 1fr;
+  }
+
+  main header {
+    writing-mode: vertical-rl;
+    margin: auto;
+    height: max-content;
+  }
+
+  main ul {
+    writing-mode: horizontal-tb;
+    display: grid;
+    grid-template-columns: 30% 1fr 30%;
+    grid-template-rows: repeat(6, 1fr);
+    max-height: calc(100vh - 5em);
+    overflow-y: scroll;
+  }
+
+  .chibi {
+    grid-row: span 2;
+    grid-column: span 2;
+  }
+  
+  .kagu {
+    grid-row: 3 / span 2;
+    grid-column: 2 / span 2;
+  }
+  
+  .kurow {
+    grid-row: 5 / span 2;
+    grid-column: 1 / span 2;
+  }
 }
 
 .btn-chat {
@@ -262,8 +370,12 @@ a {
 }
 
 footer {
-  padding: 0.25em;
+  height: 1.5em;
+  display: flex;
   background-image: linear-gradient(155.58deg, var(--grad2, #2254b6) 4.46%, var(--grad1, #de726f) 90.47%);
   color: var(--txt-light, white);
-  text-align: center;
+}
+
+footer small {
+  margin: auto;
 }
