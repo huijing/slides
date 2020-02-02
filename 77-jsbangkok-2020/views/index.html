@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Hoomin Chatbox</title>
+    <title>Chibi-chat demo @ Javascript Bangkok 1.0.0</title>
     <meta name="description" content="A simple on-page chatbox to demonstrate Nexmo's Conversations API" />
-    <link id="favicon" rel="icon" href="https://www.nexmo.com/favicon.ico" type="image/x-icon">
+    <link id="favicon" rel="icon" href="/assets/favicon.ico" type="image/x-icon">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -55,20 +55,19 @@
     </main>
     
     <aside id="chatWindow">
-      <div class="header">
+      <header class="header">
         <h1>👹 Chibi-chat 👹</h1>
         <button class="btn-close" id="closeChat"><svg viewBox="0 0 47.971 47.971"><path fill="white" d="M28.228 23.986L47.092 5.122a2.998 2.998 0 000-4.242 2.998 2.998 0 00-4.242 0L23.986 19.744 5.121.88a2.998 2.998 0 00-4.242 0 2.998 2.998 0 000 4.242l18.865 18.864L.879 42.85a2.998 2.998 0 104.242 4.241l18.865-18.864L42.85 47.091c.586.586 1.354.879 2.121.879s1.535-.293 2.121-.879a2.998 2.998 0 000-4.242L28.228 23.986z"/></svg></button>
-      </div>
+      </header>
 
-      <div id="message-area" class="messages">
-      </div>
+      <section id="messageArea" class="messages"></section>
 
-      <div class="controls">
-        <form id="textentry">
-          <input id="textbox" type="text" />
-          <input id="submit" type="submit" value="Send" />
+      <section class="controls">
+        <form id="textEntry">
+          <input id="textBox" type="text">
+          <input id="submit" type="submit" value="Send">
         </form>
-      </div>
+      </section>
     </aside>
 
     <footer>

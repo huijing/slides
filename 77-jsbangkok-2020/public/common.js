@@ -21,24 +21,22 @@ function setupConversation(apiPath) {
 }
 
 function setupListeners() {
-  const form = document.getElementById('textentry');
-  const textbox = document.getElementById('textbox');
+  const form = document.getElementById('textEntry');
+  const textBox = document.getElementById('textBox');
 
   activeConversation.on('text', (sender, message) => {
-    console.log(sender, message);
     appendMessage(
       message.body.text,
-      `${sender.user.name === 'agent' ? 'agent' : 'input'}`
+      `${sender.user.name === 'agent' ? 'agent' : 'user'}`
     );
   });
 
   form.addEventListener('submit', event => {
     event.preventDefault();
     event.stopPropagation();
-    console.log(event.target)
-    const inputText = textbox.value;
+    const inputText = textBox.value;
     activeConversation.sendText(inputText);
-    textbox.value = '';
+    textBox.value = '';
   }, false);
 }
 
@@ -50,12 +48,12 @@ function appendMessage(message, sender, appendAfter) {
   messageDiv.innerHTML = '<p>' + message + '</p>';
   messageDiv.dataset.messageId = messageId++;
 
-  const messageArea = document.getElementById('message-area');
+  const messageArea = document.getElementById('messageArea');
   if (appendAfter == null) {
     messageArea.appendChild(messageDiv);
   } else {
     const inputMsg = document.querySelector(
-      `.message[data-message-id='${appendAfter}']`
+      `.message[data-messageId='${appendAfter}']`
     );
     inputMsg.parentNode.insertBefore(messageDiv, inputMsg.nextElementSibling);
   }

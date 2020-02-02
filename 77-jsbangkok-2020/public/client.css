@@ -39,12 +39,11 @@ html {
 
 body {
   height: 100%;
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   background-color: var(--background, #f5f1e9);
 }
 
 body > header {
-  background-image: linear-gradient(155.58deg,var(--grad1, #de726f) 4.46%,var(--grad2, #2254b6) 90.47%);
+  background-image: linear-gradient(155.58deg, var(--grad1, #de726f) 4.46%, var(--grad2, #2254b6) 90.47%);
   height: 3.5em;
   display: flex;
   color: var(--txt-light, white);
@@ -96,7 +95,7 @@ ul {
 p {
   line-height: 1.3;
   font-size: calc(0.75em + 0.5vw);
-  margin-top: 1em;
+  margin-top: 0.5em;
 }
 
 img {
@@ -189,6 +188,10 @@ ul h2 {
     overflow-y: scroll;
   }
 
+  main li {
+    margin-bottom: initial;
+  }
+
   .chibi {
     grid-row: span 2;
     grid-column: span 2;
@@ -232,7 +235,7 @@ aside {
   min-width: 20em;
   width: 25%;
   height: 100%;
-  background: var(--chat-bg);
+  background: var(--chat-bg, rgba(255, 255, 255, 0.75));
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
   transition: transform 0.5s ease;
 }
@@ -258,6 +261,7 @@ aside.active {
   width: 2em;
   background: transparent;
   border: none;
+  cursor: pointer;
 }
 
 .btn-close svg {
@@ -299,7 +303,7 @@ aside.active {
   left: -15px;
   bottom: 1em;
   border: 0 solid transparent;
-  border-top: 9px solid var(--grad2);
+  border-top: 9px solid var(--grad2, #2254b6);
   border-radius: 0 20px 0;
   width: 15px;
   height: 30px;
@@ -307,39 +311,38 @@ aside.active {
 }
 
 .message.agent p {
-  background-color: var(--grad2);
-  color: var(--txt-light);
+  background-color: var(--grad2, #2254b6);
+  color: var(--txt-light, white);
   border-radius: 4px;
 }
 
-.message.input {
+.message.user {
   position: relative;
   align-self: flex-end;
 }
 
-.message.input::after {
+.message.user::after {
   content: "";
   position: absolute;
   right: -15px;
   bottom: 1em;
   border: 0 solid transparent;
-  border-top: 9px solid var(--grad1);
+  border-top: 9px solid var(--grad1, #de726f);
   border-radius: 0 20px 0;
   width: 15px;
   height: 30px;
   transform: rotate(45deg) scaleY(-1);
-  
 }
 
-.message.input p {
-  background-color: var(--grad1);
+.message.user p {
+  background-color: var(--grad1, #de726f);
   text-align: right;
-  color: var(--txt-light);
+  color: var(--txt-light, white);
 }
 
 .controls {
   padding: 0.5em;
-  background-color: var(--txt-light);
+  background-color: var(--txt-light, white);
 }
 
 form {
@@ -361,8 +364,8 @@ input[type="submit"] {
   margin-left: 0.5em;
   height: 2em;
   padding: 0 0.5em;
-  background-color: var(--accent);
-  color: var(--txt-light);
+  background-color: var(--accent, #164194);
+  color: var(--txt-light, white);
 }
 
 a {

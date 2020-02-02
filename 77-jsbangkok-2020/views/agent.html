@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Hoomin Chatbox</title>
+    <title>Chibi-chat agent interface</title>
     <meta name="description" content="A simple on-page chatbox to demonstrate Nexmo's Conversations API" />
-    <link id="favicon" rel="icon" href="https://www.nexmo.com/favicon.ico" type="image/x-icon">
+    <link id="favicon" rel="icon" href="/assets/favicon.ico" type="image/x-icon">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,21 +15,19 @@
   </head>
 
   <body>
+    <header>
+      <h1>👹 Chibi-chat agent interface 👹</h1>
+    </header>
+
     <main>
-      <div class="header">
-        <h1>👹 Chibi-chat 👹</h1>
-      </div>
+      <section id="messageArea" class="messages"></section>
 
-      <div id="message-area" class="messages">
-
-      </div>
-
-      <div class="controls">
-        <form id="textentry">
-          <input id="textbox" type="text" />
-          <input id="submit" type="submit" value="Send" />
+      <section class="controls">
+        <form id="textEntry">
+          <input id="textBox" type="text">
+          <input id="submit" type="submit" value="Send">
         </form>
-      </div>
+      </section>
     </main>
   </body>
 </html>
