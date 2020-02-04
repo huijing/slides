@@ -24,7 +24,7 @@
       
     html {
       height: 100%;
-      font-size: 1.25em;
+      font-size: calc(0.75em + 0.75vw);
     }
       
     body {
@@ -49,11 +49,11 @@
     }
 
     code {
-      font-size-adjust: 0.59;
+      font-size-adjust: 0.49;
     }
 
     img {
-      width: 8em;
+      width: 12em;
     }
 
     .box {
@@ -88,6 +88,85 @@
 
     .flex-zero div:nth-child(3) {
       flex: 0 1 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(6, 12vmin);
+      grid-template-rows: repeat(6, 12vmin);
+      grid-template-areas: 'boxing boxing boxing . . .'
+                          'boxing boxing boxing . . .'
+                          'boxing boxing boxing elephant elephant .'
+                          '. . . elephant elephant .'
+                          '. . . . . . '
+                          'coconut coconut coconut coconut coconut coconut';
+    margin-bottom: 1em;
+    }
+
+    .grid .box:first-child { grid-area: boxing }
+    .grid .box:nth-child(2) { grid-area: elephant }
+    .grid .box:nth-child(3) { grid-area: coconut }
+
+    .grid2 {
+      display: inline-grid;
+      grid-template-columns: repeat(6, 15vmin);
+      grid-template-rows: repeat(5, 12vmin);
+      background-color:gainsboro;
+      text-align: center;
+      margin-bottom: 1em;
+    }
+
+    .grid__item {
+      background-color: rgba(50, 205, 50, 0.6);
+      border: 2px dotted black;
+    }
+
+    .subgrid1 {
+      grid-row: 4 / span 2;
+      grid-column: 2 / span 3;
+      display: grid;
+      grid-template-columns: subgrid;
+      grid-template-rows: 3fr 1fr;
+    }
+
+    .subgrid2 {
+      grid-column: 3 / span 4;
+      grid-row: 2 / span 3;
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-template-columns: 1fr 2fr; 
+    }
+
+    .subgrid__item {
+      background-color: palegreen;
+      border: 2px dotted darkgreen;
+    }
+
+    .shape {
+      height: 35vmin;
+      width: 35vmin;
+      float: left;
+      shape-outside: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      shape-margin: 0.5em;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      background-color: gold;
+    }
+
+    .emoji {
+      font-family: "Emoji";
+      font-size: 2.5em;
+    }
+
+    .demo {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+    }
+
+    .demo h2 {
+      writing-mode: vertical-lr;
+      text-orientation: upright;
+      letter-spacing: -0.3em;
     }
 
     .twitter {
@@ -129,27 +208,45 @@
   <section>
     <h2>Grid</h2>
     <p>Usefulness of <code>grid-template-areas</code></p>
-    <div class="grid4">
-      <div class="box"><span class="emoji">🧀</span></div>
-      <div class="box"><span class="emoji">🛶</span></div>
-      <div class="box"><span class="emoji">🚲</span></div>
+    <div class="grid">
+      <div class="box"><span class="emoji">🥊</span></div>
+      <div class="box"><span class="emoji">🐘</span></div>
+      <div class="box"><span class="emoji">🥥</span></div>
     </div>
   </section>
   
   <section>
     <h2>Subgrid</h2>
     <p>How line-numbering differs with subgrid</p>
+    <div class="grid2">
+      <div class="subgrid1 grid__item">
+        <p class="subgrid__item">A</p>
+        <p class="subgrid__item">B</p>
+        <p class="subgrid__item">C</p>
+        <p class="subgrid__item">D</p>
+      </div>
+
+      <div class="subgrid2 grid__item">
+        <p class="subgrid__item">1</p>
+        <p class="subgrid__item">2</p>
+        <p class="subgrid__item">3</p>
+      </div>
+    </div>
   </section>
   
   <section>
     <h2>CSS shapes</h2>
     <p>Customising <code>clip-path</code> and <code>shape-outside</code></p>
+    <div class="shape"></div>
+    <p>Programmatically rehydrate the team, but meeting assassin run it up the flag pole put it on the parking lot, regroup. That's mint, well done screw the pooch, so when does this sunset? yet going forward nor i also believe it's important for every member to be involved and invested in our company and this is one way to do so. Drop-dead date optics commitment to the cause or your work on this project has been really impactful. Make it a priority quick-win. We need to socialize the comms with the wider stakeholder community quick sync and design thinking and this is our north star design nor big picture yet upsell. The horse is out of the barn.</p>
   </section>
 
-  <a href="/">
-    <img src="assets/demo-link.png" alt="chibi barking at butterfly">
-  </a>
-  
+  <section class="demo">
+    <h2>Demo</h2>
+    <a href="/">
+      <img src="assets/demo-link.png" alt="chibi barking at butterfly">
+    </a>
+  </section>
 
   <p class="twitter">@hj_chen</p>
 
