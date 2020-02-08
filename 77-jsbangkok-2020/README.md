@@ -22,7 +22,7 @@ Because of the limited time, I picked a few specific CSS properties to talk abou
 - browser calculates the end size based on the different values of `flex-grow`, `flex-shrink` and `flex-basis`
 - This mental model is not easy to wrap your head around, so DevTools can help
 - `flex-basis` is the property many developers misunderstand
-- It is the **starting** point from which the browser calculates the end size
+- it is the **starting** point from which the browser calculates the end size
 - implies the value you input here may or may not end up being the final size, especially if your items are allowed to grow or shrink
 - *highlight 3rd item in flex-auto example, toggle overlay*
 - `flex: initial` resolves to a `flex-grow` value of `0`, a `flex-shrink` value of `1` and a `flex-basis` of `auto`
@@ -31,8 +31,8 @@ Because of the limited time, I picked a few specific CSS properties to talk abou
 - free space is space that is not occupied by text nodes
 - browser will not break words, so the minimum size an item can shrink to is the length of the longest word, that's called `min-content`
 - `max-content` is the length which can fit all content into a single line without breaking
-- a flex basis of `auto` resolves to `content`, which is usually the `max-content` width
 - when there is no explicit width set on a flex item, i.e. its value is `auto`, and the `flex-basis` is also `auto`, the browser will use content size as the starting point
+- a flex basis of `auto` resolves to `content`, which is usually the `max-content` width
 - - *highlight 3rd item in flex-auto example, open layout panel to show*
 - if there is an explicit width set *(set width to 200px)*, then that becomes the starting point of size calculation, and because the `flex-grow` factor is `0`, this item ends up being `200px`
 - when there is an explicit `flex-basis` value, even if there is a width on the flex item, the `flex-basis` value trumps it and that value becomes the starting point, and this item ends up being `300px`
@@ -61,8 +61,8 @@ Because of the limited time, I picked a few specific CSS properties to talk abou
 - any content within the grid item would not be able to align itself with the main grid
 - allows nested grids to participate in the sizing of their parent grids
 - line numbers of the subgrid start from `1`, *refer to the example after toggling subgrid lines*
-- can specify subgrid in one dimension only, i.e. then let the browser generate implicit tracks for other dimension
-- using the `subgrid` keyword in respective dimension, `grid-template-rows` or `grid-template-columns`
+- `subgrid` is a **sizing** property, you still must use `display: grid` on your nested grids
+- use the `subgrid` keyword for `grid-template-rows` or `grid-template-columns`
 - allows content within the grid item to line-up with the outer grid
 
 ## `polygon` value
@@ -79,7 +79,10 @@ Because of the limited time, I picked a few specific CSS properties to talk abou
 
 - a lot that CSS can do now, a layout like this chat where you want the messages to start at the bottom can be done with flexbox and the box alignment properties
 - *type something into the livechat window*
+- *switch to console to plug the coupon code*
 - alternating left-right layout can be done without rearranging the markup, so you can maintain a consistent hierarchy
+- with shapes, your text can even flow around an image
+- *switch to Chrome window for agent interface*
 - have the footer be neatly at the bottom of the window when there isn't enough content at first can be easily done with flexbox now
 - have personal wishlist of more features that DevTools can have for this purpose like Logical Properties and mixed writing modes and we can feedback this to the different DevTools teams
 - but my wish is for more people to try out the new properties, you don't have to use all of them, but know that there are lots more possibilities now that our toolbox has expanded

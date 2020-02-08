@@ -5,7 +5,7 @@ function setupConversation(apiPath) {
       return response.json();
     })
     .then(function(response) {
-      new NexmoClient({ debug: true })
+      new NexmoClient({ debug: false })
         .login(response.jwt) /* Used to log into Nexmo */
         .then(app => {
           console.log('*** Logged into app', app);
