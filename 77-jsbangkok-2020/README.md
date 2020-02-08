@@ -27,21 +27,21 @@ Because of the limited time, I picked a few specific CSS properties to talk abou
 - *highlight 3rd item in flex-auto example, toggle overlay*
 - `flex: initial` resolves to a `flex-grow` value of `0`, a `flex-shrink` value of `1` and a `flex-basis` of `auto`
 - *demonstrate values with computed tab, browser styles, find property*
-- a flex basis of `auto` resolves to `content`, which is an automatic size based on the content within the flex item, typically equivalent to `max-content` width 
-- when there is no explicit width set on a flex item, i.e. its value is `auto`, and the `flex-basis` is also `auto`, the browser will use content size as the starting point *(make sure to show flex item diagram in Layout panel)*
-- if there is an explicit width set *(set width to 200px)*, then that becomes the starting point of size calculation, and because the `flex-grow` factor is `0`, this item ends up being `200px`
-- when there is an explicit `flex-basis` value, even if there is a width on the flex item, the `flex-basis` value trumps it and that value becomes the starting point, and this item ends up being `300px`
-
----
-
 - flexbox takes into account free space in the flex container
 - free space is space that is not occupied by text nodes
 - browser will not break words, so the minimum size an item can shrink to is the length of the longest word, that's called `min-content`
 - `max-content` is the length which can fit all content into a single line without breaking
-- when `flex-basis` is set to auto, the starting size of the item is its `max-content` size
-- *highlight 3rd item in flex-auto example, open layout panel to show*
+- a flex basis of `auto` resolves to `content`, which is usually the `max-content` width
+- when there is no explicit width set on a flex item, i.e. its value is `auto`, and the `flex-basis` is also `auto`, the browser will use content size as the starting point
+- - *highlight 3rd item in flex-auto example, open layout panel to show*
+- if there is an explicit width set *(set width to 200px)*, then that becomes the starting point of size calculation, and because the `flex-grow` factor is `0`, this item ends up being `200px`
+- when there is an explicit `flex-basis` value, even if there is a width on the flex item, the `flex-basis` value trumps it and that value becomes the starting point, and this item ends up being `300px`
 - a `flex-basis` of `auto` takes into account the size of content within the flex items, so the free space distributed by `flex-grow` is whatever is left over
-- when the `flex-basis` is set to `0`, the content size is disregarded, so if you look at item 1 and item 2 in the second set, 2 is exactly twice the size of 1
+- when the `flex-basis` is set to `0`, the content size is disregarded *highlight second flexbox example*
+- the only difference between these 3 flex items are their different `flex-grow` values, 
+- so all the free space available will be distributed among items that are allowed to grow, so item 2 is twice the size of item 1
+- when there is no more space left, the inspector will tell you the minimum size has been reached
+- *give item 2 a really big flex-grow value to show how inspector tells you the minimum size*
 
 ## `grid-template-areas`
 
@@ -51,7 +51,7 @@ Because of the limited time, I picked a few specific CSS properties to talk abou
 - especially useful if you are doing full page layouts involving numerous grid items
 - each line surrounded with quotes represents a grid row, every value in the line makes up the grid column
 - every line must have the same number of columns otherwise the whole thing is moot
-- change your layout without having to touch the code for the individual grid items, you only modify the grid areas *(change grid area of sushi)*
+- change your layout without having to touch the code for the individual grid items, you only modify the grid areas *(change grid area of elephant)*
 - with the Grid Inspector, you can see how the grid area names, and hence the grid item assigned to it, have been tweaked
 
 ## Subgrid line numbers
@@ -60,11 +60,27 @@ Because of the limited time, I picked a few specific CSS properties to talk abou
 - initial implementation of grid only allows direct grid children to participate in the grid
 - any content within the grid item would not be able to align itself with the main grid
 - allows nested grids to participate in the sizing of their parent grids
-- can specify subgrid in one dimension only, i.e. follow the parent grid only for row or column then specify own track size in other dimension
-- using the `subgrid` keyword in respective dimension
-- can also follow parent grid in one dimension, then let the browser generate implicit tracks for other dimension
-- although subgrids inherit the line names from their parents, can also name subgrid lines
 - line numbers of the subgrid start from `1`, *refer to the example after toggling subgrid lines*
+- can specify subgrid in one dimension only, i.e. then let the browser generate implicit tracks for other dimension
+- using the `subgrid` keyword in respective dimension, `grid-template-rows` or `grid-template-columns`
+- allows content within the grid item to line-up with the outer grid
 
 ## `polygon` value
 
+- possible to let text flow around a shape or even image
+- with the `shape-outside` property and `clip-path` property
+- both make use of the shape basic shape values, like `circle()`, `ellipse()`, `polygon()`
+- *inspect element then switch to rules panel*
+- `shape-outside` controls what the text flows around
+- `clip-path` controls the shape of how the box is being clipped
+- both properties can be used individually, and seeing how changing the values via DevTools makes it easier to understand how they work together
+
+## Chibi-chat demo
+
+- a lot that CSS can do now, a layout like this chat where you want the messages to start at the bottom can be done with flexbox and the box alignment properties
+- *type something into the livechat window*
+- alternating left-right layout can be done without rearranging the markup, so you can maintain a consistent hierarchy
+- have the footer be neatly at the bottom of the window when there isn't enough content at first can be easily done with flexbox now
+- have personal wishlist of more features that DevTools can have for this purpose like Logical Properties and mixed writing modes and we can feedback this to the different DevTools teams
+- but my wish is for more people to try out the new properties, you don't have to use all of them, but know that there are lots more possibilities now that our toolbox has expanded
+- hope that DevTools can help you figure things out just like it helped me
