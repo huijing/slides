@@ -203,3 +203,13 @@ span[role=img][aria-label]:hover::after {
     z-index: 0;
   }
 }
+
+.twitter {
+  position: fixed;
+  top: 0.5em;
+  right: 0.5em;
+  color: $main-colour;
+  writing-mode: vertical-rl;
+  mix-blend-mode: luminosity;
+  opacity: 0.6;
+}
