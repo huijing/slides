@@ -87,6 +87,22 @@ a {
   }
 }
 
+ul {
+  max-width: 35em;
+  width: max-content;
+  margin: 0 auto;
+  text-align: left;
+  line-height: 1.5;
+}
+
+li {
+  transition: opacity 0.5s;
+}
+
+.fragment {
+  opacity: 0;
+}
+
 .title {
   font-size: 3em;
   line-height: 1;
@@ -202,6 +218,12 @@ span[role=img][aria-label]:hover::after {
     opacity: 0;
     z-index: 0;
   }
+}
+
+.controllers {
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .twitter {

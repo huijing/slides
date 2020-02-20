@@ -78,6 +78,22 @@ a {
     -webkit-transform: scale(1.2);
             transform: scale(1.2); }
 
+ul {
+  max-width: 35em;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 auto;
+  text-align: left;
+  line-height: 1.5; }
+
+li {
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s; }
+
+.fragment {
+  opacity: 0; }
+
 .title {
   font-size: 3em;
   line-height: 1; }
@@ -182,3 +198,19 @@ span[role=img][aria-label]:hover::after {
   [id^=slide]:target ~ .slide {
     opacity: 0;
     z-index: 0; } }
+
+.controllers {
+  position: fixed;
+  top: 0;
+  left: 0; }
+
+.twitter {
+  position: fixed;
+  top: 0.5em;
+  right: 0.5em;
+  color: #1572b6;
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  mix-blend-mode: luminosity;
+  opacity: 0.6; }
