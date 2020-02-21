@@ -235,3 +235,25 @@ span[role=img][aria-label]:hover::after {
   mix-blend-mode: luminosity;
   opacity: 0.6;
 }
+
+.people {
+  display: flex;
+  gap: 1em;
+  padding: 1em;
+
+  img {
+    border-radius: 50%;
+    border: 0.5vw solid $main-colour;
+  }
+}
+
+.meetups {
+  display: flex;
+  gap: 1em;
+  padding: 1em;
+  justify-content: center;
+
+  img {
+    width: 3em;
+  }
+}

@@ -214,3 +214,25 @@ span[role=img][aria-label]:hover::after {
           writing-mode: vertical-rl;
   mix-blend-mode: luminosity;
   opacity: 0.6; }
+
+.people {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1em;
+  padding: 1em; }
+  .people img {
+    border-radius: 50%;
+    border: 0.5vw solid #1572b6; }
+
+.meetups {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1em;
+  padding: 1em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  .meetups img {
+    width: 3em; }

@@ -37,7 +37,7 @@ const navigate = event => {
     const winHash = window.location.hash
     const activeList = document.querySelector(winHash + ' .revealable');
     if (activeList) {
-      const listArray = [...document.querySelectorAll('.fragment')];
+      const listArray = [...document.querySelectorAll(winHash + ' .revealable .fragment')];
       if (listArray[0]) {
         listArray[0].classList.remove('fragment');
       }
@@ -47,7 +47,7 @@ const navigate = event => {
   if (activeSlide && event.code === 'Comma') {
     const winHash = window.location.hash
     const activeList = document.querySelector(winHash + ' .revealable');
-    if (activeList) {
+    if (activeList) { 
       const listArray = [...document.querySelectorAll(winHash + ' .revealable li')];
       const hideList = listArray.forEach(list => {
         list.classList.add('fragment')
