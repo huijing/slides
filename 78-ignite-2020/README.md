@@ -52,6 +52,46 @@ KopiJS, other than a physical meet-up where people chill out and la kopi (which 
 
 👾👾👾
 
-👾👾👾
+If you are new to the Singapore tech community, and are interested in starting a meetup of your own, I have good news for you. This is one of the easiest places in the world to start your own meetup, in my opinion. For the reasons I have mentioned previously.
+
+As with any meetup, the 2 critical components are speakers and a venue. The venue bit is pretty easy to settle. Take it from someone whose meetup had this stupid idea to have a different venue every time from day 1. When we started out, our sister meetup Talk.JS was regularly hosted at the Paypal offices. Things have changed since then, but still.
+
+What you'd do is take a peek at where other people were hosting their meetups. If you noticed a venue you like, you'd ping the meetup organiser and ask them to put you in touch with their recent host. Most of the time, there's your venue. Sometimes you'd have to repeat this a couple times but generally things work out fine.
+
+You also want to have some way to inform the local tech public about your exciting new meetup. For me, I had the benefit of having friends who ran meetups themselves so I would show up at theirs and mention we were happening at such-and-such place at such-an-such date. Meetup.com is a popular platform for Singapore tech meetups to handle RSVPs.
+
+And as a web developer myself, of course we had to have our own website. But as a cheap-ass local Chinese person, I also refused to pay for anything if I could help it so our website was and is still hosted for free on GitHub without a custom domain.
+
+In the words of famous poet, Lady Gaga, social media is the toilet of the internet, but still, it is a necessary evil. So we also have a Facebook presence and a Twitter presence, in addition to Meetup.com and our website.
+
+If you manage to snag sponsors for your event, good on you. CSS doesn't attract enough attendees for most HR departments anyway, so we don't get them. But because our venues are so awesome in Singapore, a lot of the time they will toss in a few pizzas. My crowd is special. Why? Because they don't eat. Like seriously. But I know some other meetups where food gets snapped up in 15 minutes.
+
+Engineers.SG is one of the most amazing things in the world, truly. Because it is a platform that showcases the local tech scene and the community it is made up of. They have been recording SingaporeCSS since our first meetup, and even though a couple failed along the way, for the most part, we have video evidence of almost every meetup ever.
+
+Finally, depending on the amount of effort you want to put in, the post meetup housekeeping matters can be either non-existent or like me, I update the website with recap and videos, plus send out a newsletter. All purely optional activities, so you do you.
 
 👾👾👾
+
+It's not all smooth sailing. Some of you who organise meetups yourselves may relate to this, but especially Asians, I feel, asking someone to speak is worse than asking them to go to the dentist. Furthermore, the fact that CSS is not the most popular thing around, it is doubly challenging.
+
+I have no solution to this. Co-founder of SingaporeCSS, Chris, who has moved back to Australia end of 2018, and I used to always have a handful of talks in our back pocket, ready to invoke whenever we had a speaker drought. Which, if you peek at our archives, is fairly often. Oh well.
+
+Attendance is also sketchy, because we are a free event, so everybody drops out for reasons. Maybe their cat sick, they kena support ticket at 5pm that day, they got hot date, you know, lots of unexpected things in life. Drop off rate is pretty high, so RSVP numbers should be taken with a big block of salt. Personally I like to make fun of this, like screenshot-ing the number off Meetup.com then annotating it with emojis of aeroplane, kite, pigeon. You'll only get it if you're local.
+
+This has not happened to us very often, but sometimes the venue with renege on us fairly close to the meetup date. We have not cancelled a meetup because of that before, but have had to scramble to find a new venue in short notice. I usually fall back to Hackerspace.
+
+And lastly, tired. I would be lying if I said I hadn't thought about wrapping the whole thing up. I never thought this would last for more than 4 years. Last year was particularly challenging because Chris left as well, and I was travelling a lot. Organising a meetup is quite thankless and I felt bad asking other people to take over my shit while I was out gallivanting around conferences and stuff.
+
+👾👾👾
+
+Of course I cannot help myself, we must mention COVID. I mean, the reason this is now an online thing is because of the virus situation to begin with. This is not a good situation but there have been some silver linings. Let me explain.
+
+I feel that the closeness of the tech community has shone through during this trying time, and meetup organisers have rallied and led by Engineers.SG, we have quickly pivoted to moving things online rather than just cancelling all the things.
+
+We've learned the logistics of setting up, and attendees are also not totally new to the online style, who knows, it's a bit like innovation out of necessity but perhaps after all this blows over, we now have an additional format for meetups that might be more accessible to folks who cannot physically show up.
+
+ 👾👾👾
+
+I would like to end off by saying how thankful and blessed I feel to be part of this community. I am grateful to the community leaders who took me under their wing, to every volunteer who has offered to help out with our meetup, to every speaker who chose to share their knowledge and to everyone who has showed up or thought about showing up to our meetup before. The thought does count.
+
+So thank you everyone, for allowing us to be consistently anyhowly for more than 4 years.
