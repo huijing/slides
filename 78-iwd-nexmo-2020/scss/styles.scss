@@ -1,36 +1,50 @@
 @charset 'utf-8';
 
 @font-face {
-  font-family: 'iA Writer Duospace';
-  src: url('../fonts/iawriterduospace-regular.woff2') format('woff2'),
-       url('../fonts/iawriterduospace-regular.woff') format('woff');
+  font-family: 'Junicode';
+  src: url('../fonts/junicode-boldcondensed-webfont.woff2') format('woff2'),
+       url('../fonts/junicode-boldcondensed-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'iA Writer Duospace';
-  src: url('../fonts/iawriterduospace-bold.woff2') format('woff2'),
-       url('../fonts/iawriterduospace-bold.woff') format('woff');
+  font-family: 'Work Sans';
+  src: url('../fonts/worksans-regular-webfont.woff2') format('woff2'),
+       url('../fonts/worksans-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('../fonts/worksans-semibold-webfont.woff2') format('woff2'),
+       url('../fonts/worksans-semibold-webfont.woff') format('woff');
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'iA Writer Duospace';
-  src: url('../fonts/iawriterduospace-regularitalic.woff2') format('woff2'),
-       url('../fonts/iawriterduospace-regularitalic.woff') format('woff');
+  font-family: 'Work Sans';
+  src: url('../fonts/worksans-italic-webfont.woff2') format('woff2'),
+       url('../fonts/worksans-italic-webfont.woff') format('woff');
   font-weight: normal;
   font-style: italic;
 }
 
-$base-font: 'iA Writer Duospace', 'iA Writer Duospace Regular', Courier, monospace;
+$base-font: 'Work Sans', sans-serif;
+$header-font: 'Junicode', serif;
 $code-font: 'Victor Mono', Courier, monospace;
 
 *,
 *::before,
 *::after {
   box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -61,7 +75,19 @@ video {
 }
 
 h1 {
-  font-size: 2em;
+  font-family: $header-font;
+  font-size: 3.998em;
+}
+
+h2 {
+  font-family: $header-font;
+  font-size: 2.827em;
+  color: white;
+  text-shadow: 2px 2px 4px black;
+}
+
+p {
+  margin-bottom: 1em;
 }
 
 a {
@@ -78,6 +104,43 @@ a {
   }
 }
 
+blockquote {
+  width: 70%;
+  margin: auto;
+  text-align: left;
+  line-height: 1.55;
+  font-size: 150%;
+  font-style: italic;
+  position: relative;
+
+  p::before,
+  p::after {
+    position: absolute;
+    font-size: 2.5em;
+    font-family: Georgia, serif;
+  }
+
+  p::before {
+    top: -0.5em;
+    left: -0.5em;
+    content: '\201C';
+  }
+
+  p::after {
+    bottom: 0.75em;
+    right: 0em;
+    content: '\201D';
+  }
+
+  span {
+    display: inline-block;
+    font-size: 50%;
+    max-width: 50%;
+    margin-top: 0.5em;
+    font-style: normal;
+  }
+}
+
 code {
   font-size-adjust: 0.51;
   font-family: $code-font;
@@ -88,7 +151,8 @@ code {
 }
 
 .title {
-  font-size: 3em;
+  mix-blend-mode: difference;
+  color: #ffd700;
 }
 
 .o-content {
