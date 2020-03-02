@@ -2,20 +2,20 @@
 // overridden by the super-theme
 
 // Background of the presentation
-$backgroundColor: #fcfcfc;
+$backgroundColor: #000;
 
 // Primary/body text
-$mainFont: 'Magnetic Pro', 'HeiTi SC', 'Microsoft YaHei', sans-serif;
+$mainFont: 'Codec Pro', 'HeiTi SC', 'Microsoft YaHei', sans-serif;
 $mainFontSize: 2.4em;
-$mainColor: #333;
+$mainColor: #fff;
 
 // Vertical spacing between blocks of text
 $blockMargin: 20px;
 
 // Headings
 $headingMargin: 0 0 $blockMargin 0;
-$headingFont: 'Magnetic Pro Black', 'Arial Black', 'Microsoft YaHei', sans-serif;
-$headingColor: #372822;
+$headingFont: 'Asul', 'Weibei SC', 'Microsoft YaHei', 'Arial Black', sans-serif;
+$headingColor: #fff;
 $headingLineHeight: 1.2;
 $headingLetterSpacing: normal;
 $headingTextTransform: normal;

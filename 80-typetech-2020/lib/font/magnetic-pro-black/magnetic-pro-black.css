@@ -1,9 +1,0 @@
-@font-face {
-  font-family: 'Magnetic Pro Black';
-  src: url('magnetic-pro-black.eot');
-  src: url('magnetic-pro-black.eot?#iefix') format('embedded-opentype'),
-     url('magnetic-pro-black.woff2') format('woff2'),
-     url('magnetic-pro-black.woff') format('woff');
-  font-weight: 900;
-  font-style: normal;
-}

@@ -1,30 +1,33 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<title>文字的故事: A typography story</title>
-    <meta name="description" content="A brief history of the written word from both an Eastern and Western perspective.">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>East Asian typography on the modern web</title>
+    <meta name="description" content="This talk will cover what is currently possible for East Asian typography with CSS, but also touch upon potential solutions for its existing challenges and invite attendees to ponder how different writing systems are adapting to the digital world.">
 
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/jing.css">
-		<link rel="stylesheet" href="lib/css/monokai.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/jing.css">
+    <link rel="stylesheet" href="lib/css/monokai.css">
 
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
         <section data-background="img/cover.jpg" data-transition="fade">
-          <h1 class="j-vert" style="display:inline-block;width:1em;vertical-align:middle;">文字的故事</h1>
-          <h1 style="display:inline-block;width:calc(100%-2em);vertical-align:middle;margin-left:1em;">A typography story</h1>
+          <h1 style="display:flex;align-items:center">
+            <span>East Asian typography on the modern web</span>
+            <span class="j-vert" lang="zh-hans">网络时代的汉字排版</span>
+          </h1>
           <p><small>By <a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
         </section>
 
@@ -41,7 +44,7 @@
           <section data-background-image="img/proto.jpg" data-transition="fade">
             <div class="l-double">
               <h2>Phoenician alphabet</h2>
-              <h2 class="j-vert" style="justify-self:center;" lang="zh-hans">甲骨文</h2>
+              <h2 class="j-vert" lang="zh-hans">甲骨文</h2>
             </div>
             <aside class="notes">
               <p>We can see how the nature of Western languages in Europe differ from the Eastern languages in Asia. The Phoenician alphabet is considered the origin of many alphabetic writing systems on which the Greek, Latin and Roman alphabets were based on. With alphabets, you have a small set of letters used in a myriad of combinations to form all the words you would use to communicate with another person.</p>
@@ -50,26 +53,54 @@
           </section>
 
           <section data-background-image="img/hippo.jpg">
-            <div class="l-double" style="font-size:150%;">
+            <div class="l-double">
               <p style="">Hippopotamus<br><small>(English) 12 characters</small></p>
-              <p class="j-vert fragment" style="justify-self:center;" lang="zh-hans">河马</p>
+              <p class="j-vert fragment" lang="zh-hans">河马</p>
             </div>
           </section>
 
           <section data-background-image="img/partners.jpg">
-            <div class="l-double" style="font-size:150%;">
+            <div class="l-double">
               <p style="">Lebensgefährte<br><small>(German) 14 characters</small></p>
-              <p class="j-vert fragment" style="justify-self:center;" lang="zh-hans">伴侣</p>
+              <p class="j-vert fragment" lang="zh-hans">伴侣</p>
             </div>
           </section>
 
           <section data-background-image="img/photography.jpg">
-            <div class="l-double" style="font-size:150%;">
+            <div class="l-double">
               <p style="">Grianghrafadóireachta<br><small>(Irish) 21 characters</small></p>
-              <p class="j-vert fragment" style="justify-self:center;" lang="zh-hans">摄影</p>
+              <p class="j-vert fragment" lang="zh-hans">摄影</p>
             </div>
           </section>
+        </section>
 
+        <section>
+          <div class="intro-grid">
+            <span class="emoji" role="img" tabindex="0" aria-label="Malaysia">&#x1F1F2;&#x1F1FE;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="alien monster">&#x1F47E;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="basketball">&#x1F3C0;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="bicycle">&#x1F6B2;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="paintbrush">&#x1F58C;&#xFE0F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="sneaker">&#x1F45F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="laptop computer">&#x1F4BB;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="pen">&#x1F58A;&#xFE0F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="studio microphone">&#x1F399;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="fox">&#x1F98A;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="person climbing">&#x1F9D7;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="Rainbow flag">&#x1F3F3;&#xFE0F;&#x200D;&#x1F308;</span>
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+              <img data-src="img/name.svg" alt="Chen Hui Jing" class="plain" style="max-height:25vh">
+              <div>
+                <img data-src="img/avatar.jpg" alt="Jing" style="border-radius:50%">
+              </div>
+              <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
+            </div>
+          </div>
+          <aside class="notes">My name is Hui Jing, and I'm simple enough that emojis can more or less sum up my entire life. But this page is also a teaser for how tok gong CSS grid is. 👾 Explanation time. Tok gong, means superb or top of the line. These annotations will be sprinkled throughout the presentation, so you can learn a bit of Singlish as well.</aside> 
+        </section>
+
+        <section>
           <section>
             <img class="plain" data-src="img/alphabets.jpg" alt="Evolution of the Latin alphabet">
             <aside class="notes">This is a table that illustrates how the modern alphabet came to be. Vincent Steer, founder of the British Typographers' Guild, said that the character of any alphabet is dictated by the materials used in its expression. Cuneiform writing was made by using a wedge-shaped tool that was pressed into wet clay, the Egyptians wrote on papyrus with a reed pen, making their lines were soft and flowy.</aside>
@@ -123,6 +154,7 @@
               <p>One of the most fascinating things about China is the fact that it has the richest and most detailed historical record. Chinese records are the stuff of legends, with annals dating back till 722BC of the Spring and Autumn period. By the close of the 15th century, China probably produced more books in terms of title and volume than all other nations put together.</p>
             </aside>
           </section>
+
           <section>
             <div class="l-multiple">
               <h2 class="j-vert" lang="zh-hans">书画同源</h2>
@@ -131,43 +163,50 @@
             </div>
             <aside class="notes">书画同源. Calligraphy and painting were one of the most highly regarded arts in Imperial China and this phrase describes how closely intertwined these two disciplines are. 文房四宝 is an expression used to refer to the four implements necessary for writing and painting. The brush, paper, inkstick and inkstone, which was used to grind the solid inksticks.</aside>
           </section>
+
           <section data-background-image="img/materials.jpg">
             <aside class="notes">Brush writing had been a traditional method developed long before our knowledge of ancient writing and the Chinese used a very wide range of materials for record keeping. Bones, shells, bronze, stone, jade and wood. But you can't really call those books. The origins of Chinese books were written on bamboo and silk. The invention of paper is credited to 蔡伦 in 105AD. Even though inks had been used for writing much earlier, the technique for inkmaking was perfected around the Eastern Han dynasty and 韦诞, who lived between 179-253, is known as one of the earliest inkmakers.</aside>
           </section>
+
           <section data-background-image="img/dazhuan.jpg">
             <aside class="notes">
               <p>Oracle Bone script or 甲骨文, is considered the earliest writing system we had, and with more than 5000 characters, it was a pretty sophisticated writing system. Considering the Shang dynasty existed from around 1600BC till 1046BC, I find this highly impressive. 甲骨文 characters were all straight lines and angles, because characters were cut with a sharp stylus or knife onto very hard materials of bone or turtle shells.</p>
               <p>But the key implement of Chinese writing is the brush. Pieces of ox bone bearing inscriptions made by hair brush and ink have been dated around the time of the Shang dynasty. 金文 or Bronze script were found on bronze artefacts that dated back to the Shang dynasty as well. Early bronze inscriptions were cast from clay moulds, while later inscriptions were carved. In general, scripts developed and used before Qin Shihuang unified China fall into a very large category known as 大篆, or Big Seal script. 大篆 encompasses all the pre-Qin scripts like 甲骨文, 金文, 籀文, 石鼓文, 六国文.</p>
             </aside>
           </section>
+
           <section data-background-image="img/xiaozhuan.jpg">
             <aside class="notes">Part of the unification of China was the standardisation of Chinese writing during the Qin dynasty, which gave rise to 小篆 or Small Seal script。Characters were simplified, and had more distinct radicals and less strokes. Many of the variant glyphs were discarded. With its elegant strokes and curves, 小篆 is arguably the most artistic for all the scripts and was used throughout the Han dynasty until eventually falling out of favour during the Three Kingdoms.</aside>
           </section>
+
           <section data-background-image="img/lishu.jpg">
             <aside class="notes">Clerical script or 隶书，evolved from 小篆 during the end of the Qin dynasty and reached peak usage around the Eastern Han dynasty. Strokes were further simplified and the characters developed a more square look, as calligraphic techniques matured.</aside>
           </section>
+
           <section data-background-image="img/kaishu.jpg">
             <aside class="notes">楷书 or Model script in turn evolved from 隶书, during the late Han and flourished during the Tang dynasty. It has been said that Chinese characters were finalised with the formation of 楷书。I mean, it is still widely used today. Within calligraphy circles, there is a saying that highlights how every dynasty had an exceptional script of its time. 秦篆汉隶唐楷。</aside>
           </section>
+
           <section data-background-image="img/songti.jpg">
             <aside class="notes">宋体 can be considered the first printing-specific Chinese script. Earliest woodblock prints were based off the writings of well-known calligraphers. But again, the medium and tools used resulted in the evolution of the way the scripts were produced. By the Ming dynasty, 宋体 had matured into the form we are familiar with today.</aside>
           </section>
+
           <section>
             <div class="l-double">
               <figure class="fragment" style="margin-bottom:1em;">
-                <img class="plain" style="height:35vh;" data-src="img/songti.svg" alt="SongTi">
+                <img class="plain" data-src="img/songti.svg" alt="SongTi">
                 <figcaption>SongTi</figcaption>
               </figure>
               <figure class="fragment" style="margin-bottom:1em;">
-                <img class="plain" style="height:35vh;" data-src="img/kaiti.svg" alt="KaiTi">
+                <img class="plain" data-src="img/kaiti.svg" alt="KaiTi">
                 <figcaption>KaiTi</figcaption>
               </figure>
               <figure class="fragment" >
-                <img class="plain" style="height:35vh;" data-src="img/fangsongti.svg" alt="FangSongTi">
+                <img class="plain" data-src="img/fangsongti.svg" alt="FangSongTi">
                 <figcaption>FangSongTi</figcaption>
               </figure>
               <figure class="fragment" >
-                <img class="plain" style="height:35vh;" data-src="img/heiti.svg" alt="HeiTi">
+                <img class="plain" data-src="img/heiti.svg" alt="HeiTi">
                 <figcaption>HeiTi</figcaption>
               </figure>
             </div>
@@ -270,7 +309,7 @@
 
         <section>
           <h2>A long list of references</h2>
-          <ul style="column-count:2;font-size:50%;">
+          <ul style="column-count:2">
             <li>Zhang, X. & Han, Q. (2009). <em>The history of Chinese printing: (illustrated).</em> Paramus, N.J: Homa et Sekey Books.</li>
             <li>Brokaw, C. & Reed, C. A. (2010). <em>From woodblocks to the Internet: Chinese publishing and print culture in transition, circa 1800 to 2008.</em> Leiden: Brill.</li>
             <li>Tsien T. (2011). <em>Collected writings on Chinese culture.</em> Hong Kong: The Chinese University Press.</li>
@@ -283,27 +322,30 @@
         </section>
 
         <section style="text-align: left;">
-          <h1>THE END</h1>
+          <h1>Thank you</h1>
           <p><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com">https://www.chenhuijing.com</a></p>
           <p><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen">@hj_chen</a></p>
           <p><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen">@hj_chen</a></p>
-          <p><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/">@huijing</a></p>
+          <p><img class="j-icon plain" data-src="img/codepen_w.png" alt="Codepen"><a href="http://codepen.io/huijing/">@huijing</a></p>
         </section>
       </div>
-		</div>
+    </div>
 
-		<script src="js/reveal.js"></script>
+    <script src="js/reveal.js"></script>
 
-		<script>
-			Reveal.initialize({
-				hash: true,
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true }
-				]
-			});
-		</script>
-	</body>
+    <script>
+      Reveal.initialize({
+        width: 1920,
+        height: 1080,
+        hash: true,
+        transition: 'fade',
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
 </html>
