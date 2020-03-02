@@ -19,12 +19,12 @@ body {
   color: #fff; }
 
 ::selection {
-  color: #fff;
+  color: #000;
   background: #00cc00;
   text-shadow: none; }
 
 ::-moz-selection {
-  color: #fff;
+  color: #000;
   background: #00cc00;
   text-shadow: none; }
 
@@ -297,6 +297,14 @@ html {
   vertical-align: middle;
   margin-right: 1rem; }
 
+.reveal .j-light-bg h2,
+.reveal .j-light-bg p,
+.reveal .j-light-bg figcaption {
+  color: black; }
+
+.reveal section img {
+  background: none; }
+
 .reveal em {
   color: #fff; }
 
@@ -313,7 +321,8 @@ html {
   box-shadow: none;
   line-height: 1.55;
   font-size: 130%;
-  position: relative; }
+  position: relative;
+  background: none; }
   .reveal blockquote p::before,
   .reveal blockquote p::after {
     position: absolute;
@@ -399,13 +408,6 @@ span[role=img][aria-label]:hover::after {
   display: block;
   height: 100%;
   white-space: pre-wrap; }
-
-.vidcode {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  height: 75vh; }
-  .vidcode video {
-    align-self: center; }
 
 .livecode-2p {
   grid-template-columns: 65% calc(35% - 0.5em);

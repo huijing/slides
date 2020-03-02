@@ -52,6 +52,18 @@ html {
     margin-right: 1rem;
   }
 
+  .j-light-bg {
+    h2,
+    p,
+    figcaption {
+      color: black;
+    }
+  }
+
+  section img {
+    background: none;
+  }
+
   em {
     color: $headingColor;
   }
@@ -72,6 +84,7 @@ html {
     line-height: 1.55;
     font-size: 130%;
     position: relative;
+    background: none;
 
     p::before,
     p::after {
@@ -185,16 +198,6 @@ span[role=img][aria-label]:hover::after {
   display: block;
   height: 100%;
   white-space: pre-wrap;
-}
-
-.vidcode {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  height: 75vh;
-
-  video {
-    align-self: center;
-  }
 }
 
 .livecode-2p {
