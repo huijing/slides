@@ -1,24 +1,24 @@
 @font-face {
   font-family: 'Junicode';
-  src: url("../fonts/junicode-boldcondensed-webfont.woff2") format("woff2"), url("../fonts/junicode-boldcondensed-webfont.woff") format("woff");
+  src: url("fonts/junicode-boldcondensed-webfont.woff2") format("woff2"), url("fonts/junicode-boldcondensed-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'Work Sans';
-  src: url("../fonts/worksans-regular-webfont.woff2") format("woff2"), url("../fonts/worksans-regular-webfont.woff") format("woff");
+  src: url("fonts/worksans-regular-webfont.woff2") format("woff2"), url("fonts/worksans-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'Work Sans';
-  src: url("../fonts/worksans-semibold-webfont.woff2") format("woff2"), url("../fonts/worksans-semibold-webfont.woff") format("woff");
+  src: url("fonts/worksans-semibold-webfont.woff2") format("woff2"), url("fonts/worksans-semibold-webfont.woff") format("woff");
   font-weight: bold;
   font-style: normal; }
 
 @font-face {
   font-family: 'Work Sans';
-  src: url("../fonts/worksans-italic-webfont.woff2") format("woff2"), url("../fonts/worksans-italic-webfont.woff") format("woff");
+  src: url("fonts/worksans-italic-webfont.woff2") format("woff2"), url("fonts/worksans-italic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: italic; }
 
