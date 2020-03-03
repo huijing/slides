@@ -154,6 +154,6 @@
 
 77. [DevTools, the CSS advocate in your browser](https://devtools-jsbangkok.herokuapp.com/devtools)
 
-78. [Talk.CSS, 4 years and counting](https://www.chenhuijing.com/slides/78-ignite-2020)
+78. [Women in Tech, anecdotes from Singapore](https://www.chenhuijing.com/slides/78-iwd-nexmo-2020)
 
-79. [🧵 What is this? Why must bind?](https://www.chenhuijing.com/slides/79-what-is-this)
+79. [Talk.CSS, 4 years and counting](https://www.chenhuijing.com/slides/79-ignite-2020)
