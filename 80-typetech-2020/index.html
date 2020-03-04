@@ -23,55 +23,13 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <section data-background="img/cover.jpg" data-transition="fade">
-          <h1 style="display:flex;align-items:center">
+        <section data-background="#007bc3">
+          <h1 style="display:flex;align-items:center;color:#fff">
             <span>East Asian typography on the modern web</span>
             <span class="j-vert" lang="zh-hans">网络时代的汉字排版</span>
           </h1>
           <p><small>By <a href="https://www.chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
-        </section>
-
-        <section>
-          <section>
-            <blockquote>“Typography is writing with prefabricated letters”<br><small>—Gerrit Noordzij</small></blockquote>
-            <aside class="notes">I've come across numerous definitions of typography over the years, and have personally settled on this one by Gerrit Noordzij, that “Typography is writing with prefabricated letters”. Letters are the building blocks of a writing system, regardless of language. And if you think about it, almost every writing system in the world today seems to be alphabetic.</aside>
-          </section>
-
-          <section data-background-image="img/directions.jpg">
-            <aside class="notes">But Chinese is different. Chinese is currently the only logographic writing system left that is widely used by millions of people. Each Chinese character is composed within a uniform square, allowing Chinese to be read efficiently, regardless of whether it is set horizontally or vertically. And until proven otherwise, it seems that the Chinese language was an indigenous invention, developed separately from the Proto-Sinaitic scripts which were the origins of alphabetic languages.</aside>
-          </section>
-
-          <section data-background-image="img/proto.jpg" data-transition="fade">
-            <div class="l-double j-light-bg" >
-              <h2>Phoenician alphabet</h2>
-              <h2 class="j-vert" lang="zh-hans">甲骨文</h2>
-            </div>
-            <aside class="notes">
-              <p>We can see how the nature of Western languages in Europe differ from the Eastern languages in Asia. The Phoenician alphabet is considered the origin of many alphabetic writing systems on which the Greek, Latin and Roman alphabets were based on. With alphabets, you have a small set of letters used in a myriad of combinations to form all the words you would use to communicate with another person.</p>
-              <p>With Chinese characters, we have thousands upon thousands of unique glyphs that can express meaning on their own or be used in combination with other glyphs. This has a direct consequence on the structure of the language itself.</p>
-            </aside>
-          </section>
-
-          <section data-background-image="img/hippo.jpg">
-            <div class="l-double j-light-bg">
-              <p>Hippopotamus<br><small>(English) 12 characters</small></p>
-              <p class="j-vert fragment" lang="zh-hans">河马</p>
-            </div>
-          </section>
-
-          <section data-background-image="img/partners.jpg">
-            <div class="l-double j-light-bg">
-              <p>Lebensgefährte<br><small>(German) 14 characters</small></p>
-              <p class="j-vert fragment" lang="zh-hans">伴侣</p>
-            </div>
-          </section>
-
-          <section data-background-image="img/photography.jpg">
-            <div class="l-double j-light-bg">
-              <p>Grianghrafadóireachta<br><small>(Irish) 21 characters</small></p>
-              <p class="j-vert fragment" lang="zh-hans">摄影</p>
-            </div>
-          </section>
+          <aside class="notes">Hello everyone. This is my first ever typography conference and I'm just so excited to be here. Big thank you to the organisers for having me and giving me this opportunity to share with all of you a topic I'm particularly passionate about.</aside>
         </section>
 
         <section>
@@ -92,233 +50,119 @@
             <div style="display:flex;flex-direction:column;align-items:center;justify-content:center">
               <img data-src="img/name.svg" alt="Chen Hui Jing" class="plain" style="max-height:25vh">
               <div>
-                <img data-src="img/avatar.jpg" alt="Jing" style="border-radius:50%">
+                <img data-src="img/avatar.jpg" alt="Jing" style="border-radius:50%;max-height:40vh">
               </div>
               <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
             </div>
           </div>
-          <aside class="notes">My name is Hui Jing, and I'm simple enough that emojis can more or less sum up my entire life. But this page is also a teaser for how tok gong CSS grid is. 👾 Explanation time. Tok gong, means superb or top of the line. These annotations will be sprinkled throughout the presentation, so you can learn a bit of Singlish as well.</aside> 
+          <aside class="notes">My name is Hui Jing, and I'm simple enough that these emojis paint a fairly comprehensive picture of who I am as a person. If you are unfamiliar with Chinese names, our family names come first, followed by our first names.</aside> 
         </section>
 
         <section>
           <section>
-            <img class="plain" data-src="img/alphabets.jpg" alt="Evolution of the Latin alphabet">
-            <aside class="notes">This is a table that illustrates how the modern alphabet came to be. Vincent Steer, founder of the British Typographers' Guild, said that the character of any alphabet is dictated by the materials used in its expression. Cuneiform writing was made by using a wedge-shaped tool that was pressed into wet clay, the Egyptians wrote on papyrus with a reed pen, making their lines were soft and flowy.</aside>
-          </section>
-
-          <section>
-            <div class="l-double">
-              <img class="plain" data-src="img/trajan.jpg" alt="Trajan Column">
-              <img class="plain" data-src="img/trajan-inscription.jpg" alt="Trajan Column inscription">
-            </div>
-            <aside class="notes">Evidence of writing by the Ancient Greeks were largely preserved in stone inscriptions, and although the earliest ones were almost purely sans serif, later stone cutters tended to spread out the ends of letters into serifs. The most famous Roman inscription is probably the Trajan Column, whose capitals are still the object of study for design students today. And if you notice the inscription, earliest letters consisted only of capitals.</aside>
-          </section>
-
-          <section>
-            <div class="l-double">
-              <img class="plain" data-src="img/lower-a.jpg" alt="Evolution of the lowercase A">
-              <img class="plain" data-src="img/lower-g.jpg" alt="Evolution of the lowercase G">
-            </div>
-            <aside class="notes">But inscriptions also served as guides for manuscript writers, who used yet another tool for writing, in this case, the pen. A pen produces letters which are smoother and flow better as compared to engravings. The very first Roman Square Capitals, modelled on stone inscriptions, were not easy to write. But people couldn't seem to get enough of books and transcription culture blossomed, which greatly increased the volume of writing. Scribes evolved the alphabets themselves into forms that were faster and easier to write, and lower-case letters were created.</aside>
-          </section>
-
-          <section data-background-image="img/gothic.jpg">
+            <h2>Typography…? 🧐</h2>
+            <blockquote class="fragment">“Typography is writing with prefabricated letters”<br><small>—Gerrit Noordzij</small></blockquote>
             <aside class="notes">
-              <p>Carolingian miniscules were used all over Europe by the 11th century. But again, overwhelming demand for written matter, led to the development of Gothic scripts, which were narrower and could allow words to be compacted. A space-saving measure, actually. And most countries in Europe had their own flavour of Gothic scripts.</p>
-              <p>When moveable type took over as the preferred method of duplication, type designers once again modelled their types on manuscript writing, and by now, there was quite a large range of styles they could choose from.</p>
-              <p>It's rather cyclical, don't you think? That handwriting, influenced by the tools of the time, was what masons inscribed into stone, which were then copied by scribes, that in turn served as inspiration for printers punch cutting types. Did I mention I love typography?</p>
+              <p>Like I said, this is my first ever typography conference. But I think I was interested in typography before I even knew what it was. Or at least, what it was formally defined as. And I don't think there is a standardised definition, and each have their own nuances.</p>
+              <p>Personally, I like the one by Gerrit Noordzij, that “Typography is writing with prefabricated letters”. Letters are a type of grapheme, which is the smallest unit of a writing system of any given language.</p>
+              <p>A large proportion of the world's writing systems in use today are alphabetic in nature, where a relatively small set of letters can be combined in many different ways to form words, phrases and sentences. Transforming something we hear and say, into something we see and read.</p>
+            </aside>
+          </section>
+
+          <section data-background-image="img/directions.jpg">
+            <aside class="notes">
+              <p>But Chinese is different. Chinese is currently the only logographic writing system left that is widely used by millions of people. Each Han character is composed within a uniform square, allowing Chinese to be read efficiently, regardless of whether it is set horizontally or vertically.</p>
+              <p>And until proven otherwise, it seems that the Chinese language was an indigenous invention, developed separately from the Proto-Sinaitic scripts which were the origins of alphabetic languages.</p>
+            </aside>
+          </section>
+
+          <section data-background-image="img/proto.jpg" data-transition="fade">
+            <div class="l-double j-light-bg" >
+              <h2>Phoenician alphabet</h2>
+              <h2 class="j-vert" lang="zh-hans">甲骨文</h2>
+            </div>
+            <aside class="notes">
+              <p>The nature of writing systems for Western languages in Europe are fairly distinct from that used in East Asia. The Phoenician alphabet is considered the origin of many alphabetic writing systems on which the Greek, Latin and Roman alphabets were based on. With alphabets, you have a small set of letters used in a myriad of combinations to form all the words you would use to communicate with another person.</p>
+              <p>With Han characters, we have thousands upon thousands of unique glyphs that can express meaning on their own or be used in combination with other glyphs. This has a direct consequence on the structure of the language itself.</p>
             </aside>
           </section>
 
           <section>
-            <div class="l-double">
-              <img class="plain" data-src="img/serifs2.jpg" alt="Serif samples">
-              <img class="plain" data-src="img/sans2.jpg" alt="Sans-serif samples">
+            <div class="l-multiple">
+              <p>Hippopotamus<br><small>(English) 12 characters</small></p>
+              🦛
+              <p class="j-vert" lang="zh-hans">河马</p>
             </div>
-            <aside class="notes">I know that was quite a long story but it was meant to set the stage for how we classify Latin-based typefaces. And it seems like there are all manner of categories. We have our Old styles, Transitionals, Moderns and Slabs. Then our Grotesques, Humanists and Geometrics.</aside>
+            <div class="l-multiple">
+              <p>Lebensgefährte<br><small>(German) 14 characters</small></p>
+              🤝
+              <p class="j-vert" lang="zh-hans">伴侣</p>
+            </div>
+            <div class="l-multiple">
+              <p>Grianghrafadóireachta<br><small>(Irish) 21 characters</small></p>
+              📷
+              <p class="j-vert" lang="zh-hans">摄影</p>
+            </div>
           </section>
 
           <section>
-            <div class="l-double">
-              <img class="plain" data-src="img/serifs.jpg" alt="Serif">
-              <img class="plain" data-src="img/sans.jpg" alt="Sans-serif">
-            </div>
-            <aside class="notes">But broadly speaking, Latin-based typefaces can be grouped into Serifs and Sans-serifs. Serifs being those things highlighted in the orange circles. Two big families, if you may.</aside>
-          </section>
-        </section>
-
-        <section>
-          <section data-background-image="img/taowen.jpg">
             <aside class="notes">
-              <p>Even for Chinese scripts, we were influenced by the materials of the time. It's just that Chinese writing went through the entire process of development and evolution way earlier than Europe. Symbols and glyphs, known as 陶文，have been found from archaeological sites dating back to the Neolithic age, were the origins of Chinese writing.</p>
-              <p>One of the most fascinating things about China is the fact that it has the richest and most detailed historical record. Chinese records are the stuff of legends, with annals dating back till 722BC of the Spring and Autumn period. By the close of the 15th century, China probably produced more books in terms of title and volume than all other nations put together.</p>
-            </aside>
-          </section>
-
-          <section>
-            <div class="l-multiple" style="flex-direction:row-reverse">
-              <h2 class="j-vert" lang="zh-hans">书画同源</h2>
-              <img class="plain fragment" data-src="img/painting.jpg" alt="Chinese painting">
-              <img class="plain fragment" data-src="img/treasures.jpg" alt="Four treasures of study">
-            </div>
-            <aside class="notes">书画同源. Calligraphy and painting were one of the most highly regarded arts in Imperial China and this phrase describes how closely intertwined these two disciplines are. 文房四宝 is an expression used to refer to the four implements necessary for writing and painting. The brush, paper, inkstick and inkstone, which was used to grind the solid inksticks.</aside>
-          </section>
-
-          <section data-background-image="img/materials.jpg">
-            <aside class="notes">Brush writing had been a traditional method developed long before our knowledge of ancient writing and the Chinese used a very wide range of materials for record keeping. Bones, shells, bronze, stone, jade and wood. But you can't really call those books. The origins of Chinese books were written on bamboo and silk. The invention of paper is credited to 蔡伦 in 105AD. Even though inks had been used for writing much earlier, the technique for inkmaking was perfected around the Eastern Han dynasty and 韦诞, who lived between 179-253, is known as one of the earliest inkmakers.</aside>
-          </section>
-
-          <section data-background-image="img/dazhuan.jpg">
-            <aside class="notes">
-              <p>Oracle Bone script or 甲骨文, is considered the earliest writing system we had, and with more than 5000 characters, it was a pretty sophisticated writing system. Considering the Shang dynasty existed from around 1600BC till 1046BC, I find this highly impressive. 甲骨文 characters were all straight lines and angles, because characters were cut with a sharp stylus or knife onto very hard materials of bone or turtle shells.</p>
-              <p>But the key implement of Chinese writing is the brush. Pieces of ox bone bearing inscriptions made by hair brush and ink have been dated around the time of the Shang dynasty. 金文 or Bronze script were found on bronze artefacts that dated back to the Shang dynasty as well. Early bronze inscriptions were cast from clay moulds, while later inscriptions were carved. In general, scripts developed and used before Qin Shihuang unified China fall into a very large category known as 大篆, or Big Seal script. 大篆 encompasses all the pre-Qin scripts like 甲骨文, 金文, 籀文, 石鼓文, 六国文.</p>
-            </aside>
-          </section>
-
-          <section data-background-image="img/xiaozhuan.jpg">
-            <aside class="notes">Part of the unification of China was the standardisation of Chinese writing during the Qin dynasty, which gave rise to 小篆 or Small Seal script。Characters were simplified, and had more distinct radicals and less strokes. Many of the variant glyphs were discarded. With its elegant strokes and curves, 小篆 is arguably the most artistic for all the scripts and was used throughout the Han dynasty until eventually falling out of favour during the Three Kingdoms.</aside>
-          </section>
-
-          <section data-background-image="img/lishu.jpg">
-            <aside class="notes">Clerical script or 隶书，evolved from 小篆 during the end of the Qin dynasty and reached peak usage around the Eastern Han dynasty. Strokes were further simplified and the characters developed a more square look, as calligraphic techniques matured.</aside>
-          </section>
-
-          <section data-background-image="img/kaishu.jpg">
-            <aside class="notes">楷书 or Model script in turn evolved from 隶书, during the late Han and flourished during the Tang dynasty. It has been said that Chinese characters were finalised with the formation of 楷书。I mean, it is still widely used today. Within calligraphy circles, there is a saying that highlights how every dynasty had an exceptional script of its time. 秦篆汉隶唐楷。</aside>
-          </section>
-
-          <section data-background-image="img/songti.jpg">
-            <aside class="notes">宋体 can be considered the first printing-specific Chinese script. Earliest woodblock prints were based off the writings of well-known calligraphers. But again, the medium and tools used resulted in the evolution of the way the scripts were produced. By the Ming dynasty, 宋体 had matured into the form we are familiar with today.</aside>
-          </section>
-
-          <section>
-            <div class="l-double">
-              <figure style="margin-bottom:1em">
-                <img class="plain" data-src="img/songti.svg" alt="SongTi">
-                <figcaption>SongTi</figcaption>
-              </figure>
-              <figure class="fragment" style="margin-bottom:1em">
-                <img class="plain" data-src="img/kaiti.svg" alt="KaiTi">
-                <figcaption>KaiTi</figcaption>
-              </figure>
-              <figure class="fragment" >
-                <img class="plain" data-src="img/fangsongti.svg" alt="FangSongTi">
-                <figcaption>FangSongTi</figcaption>
-              </figure>
-              <figure class="fragment" >
-                <img class="plain" data-src="img/heiti.svg" alt="HeiTi">
-                <figcaption>HeiTi</figcaption>
-              </figure>
-            </div>
-            <aside class="notes">
-              <p>The contemporary typefaces used for print publications can be broadly classified into these families: 宋体 (also known as 明体), 楷体, 仿宋体, 黑体. Both 黑体 and 仿宋体 are twentieth century creations.</p>
-              <p>It is not uncommon to see comparisons of 宋体 to serifs and 黑体 to sans-serifs, but I think it makes more sense for Chinese typefaces to maintain their own classifications. They are completely different from Latin alphabets anyway.</p>
+              <p>Before we get into the talk proper, where we'll be looking at what current web technologies offer for typesetting in the browser, THe limitations of digital technology. The trade-offs made for reproducing at scale. so many other factors came into play but undeniable that modern day digital technology suits a particular style of writing system over others. I have no idea what an alternate history would look like because my reality is here and now. It's as if you're asking a person who has been colour-blind their whole life to imagine what green is.</p>
             </aside>
           </section>
         </section>
 
         <section>
-          <section data-background-image="img/tang.png">
-            <div class="l-double j-light-bg">
-              <figure>
-                <img class="plain" data-src="img/sutra-frontispiece.jpg">
-                <figcaption>Diamond Sutra frontispiece (868 A.D.)</figcaption>
-              </figure>
-              <img class="plain" data-src="img/sutra-zoom.jpg" alt="Details of the woodcut">
-            </div>
-            <aside class="notes">
-              <p>Now, the difference between the two systems of language and writing also had an impact on the methods of duplication for text. The most basic copying technology is simply transcription, which was the de facto method of duplication in Europe before printing. Medieval transcription culture blossomed during the Middle Ages as demand for texts increased. This is evidenced by the large collection of medieval manuscripts that are still preserved in various national museums, libraries and universities all across Europe.</p>
-              <p>Transcription was also popular in the East, but as demand for books grew, the invention of printing technology was inevitable. The earliest mechanical printing method for duplication of texts was woodblock printing, invented in China during the Tang dynasty, one of the most prosperous eras in Chinese history between 618-907AD. 玄奘, who went to India on a pilgrimage to retrieve the Buddhist sutras, returned to China in 645AD, and proceeded to translate them, as well as print and distribute images of Samantabhadra (普贤菩萨) on huifeng paper (回锋纸).</p>
-              <p>The first complete printed book is probably the Diamond Sutra, dated 868AD. From the level of detail of those facial expressions and robes, we can see how advanced woodblock printing techniques had developed in China by that time. In fact, during the Song dynasty (960-1279) the block-carving craft reached such heights that engravers were able to imitate individual calligraphic styles in 楷书. The method of woodblock printing persisted all the way till the Qing dynasty and beyond. Woodblock printing was an integral part of Eastern printing culture, coexisting with and complementing moveable-type printing during the later years.</p>
-            </aside>
+          <section>
+            <h2>Glyphs</h2>
           </section>
 
           <section>
-            <div class="l-double">
-              <figure>
-                <img class="plain" data-src="img/salvationis.jpg">
-                <figcaption>Speculum Humanae salvationis (15th century)</figcaption>
-              </figure>
-              <figure>
-                <img class="plain" data-src="img/moriendi.jpg">
-                <figcaption>Ars moriendi (15th century)</figcaption>
-              </figure>
-            </div>
-            <aside class="notes">Woodblock printing was introduced to Europe through Russia, likely by the Mongols, who crusaded along the Silk Road to the West. Evidence of woodblock printing could be found in Europe by 1400, but at the time they were mostly crude cuts, serving as illustrations for new printed books. Although block-printed books were produced in Europe, for example, the <em>Speculum Humanae Salvationis</em> and the <em>Ars moriendi</em>.</aside>
+            <h2>Fonts</h2>
           </section>
 
           <section>
-            <figure>
-              <img class="plain" data-src="img/biblia-pauperum.jpg">
-              <figcaption>Biblia Pauperum (15th century)</figcaption>
-            </figure>
-            <aside class="notes">They were largely used for thin volumes, and mostly religious texts like the <em>Biblia pauperum</em>. Woodblock printing was never a major method for text duplication in Europe. By the time woodblock printing reached Europe, transcription infrastructure was very strongly established, and woodblock printing could not replace it.</aside>
-          </section>
-
-          <section data-background-image="img/tang.png">
-            <div class="l-double">
-              <img class="plain" data-src="img/bisheng.jpg">
-              <figure>
-                <img class="plain" data-src="img/mengxi.jpg">
-                <figcaption>Record of Bi Sheng's invention in Mengxi bitan</figcaption>
-              </figure>
-            </div>
-            <aside class="notes">Moveable type was too pioneered in China. Invented by an ordinary citizen, 毕昇, during the 庆历 reign from 1041-1048. 毕昇's invention was recorded in 梦溪笔谈 by 沈括, using ceramics to manufacture his types. The Chinese used a variety of other materials for making types, like clay, wood, bronze, tin and even lead. Moveable-type printing had a number of advantages, mainly its speed and flexibility in typesetting, making it possible to print all types of books. Moveable types could also be shared between printers. Travelling craftsmen could just carry a load of wood types and set up wherever they could.</aside>
-          </section>
-
-          <section data-background-image="img/jikji.jpg">
-            <img class="plain" data-src="img/jikji-cover.jpg">
-            <aside class="notes">
-              <p>Korea adopted 毕昇's idea of moveable-type printing during the Kingdom of Goryeo (koh-ryah) and brought it to new heights during the Kingdom of Joseon (cho-san). The government set up Chuja-so or the Bureau of Type Casting, which casted hundreds and thousands of metal types, as well as official printing offices in every province.</p>
-              <p>The hallmark of Korean printing was the mass production of metal types, mostly bronze, by casting. This technique of casting was pioneered by the Koreans, with cast metal types being in use before 1239. And with the volume of types cast, they'd honed their techniques to levels far beyond that of other countries.</p>
-              <p>Records have shown that Choe Yun-ui (chue-yon-ne), a Korean civil minister, printed Sangjeong Gogeum Yemun in 1234. And the earliest moveable-type printed book still in existence today, is Jikji, a Korean Buddhist text, dated 1377, three-quarters of a century before Gutenberg.</p>
-            </aside>
+            <h2>Encoding</h2>
+            https://www.w3.org/International/questions/qa-choosing-encodings
           </section>
 
           <section>
-            <h2>Why moveable-type printing didn't dominate in China</h2>
-            <ul>
-              <li class="fragment">Limited government advocacy</li>
-              <li class="fragment">Technical issues in the manufacture of types</li>
-              <li class="fragment">High cost of making types</li>
-              <li class="fragment">Moveable-type printing only effective for large runs</li>
-              <li class="fragment">Quality was worse off than woodblock prints</li>
-              <li class="fragment">Long-standing tradition and expertise in woodblock printing</li>
-            </ul>
-            <aside class="notes">
-              <p>However, moveable-type printing never really took off in China, and there are various reasons for this.</p>
-              <ol>
-                <li>Moveable type was widely used across Korea, but barely used at all in China.</li>
-                <li>The Chinese printers also used a different method from the Koreans to manufacture types, choosing to engrave the types as opposed to casting them. Typesetting was challenging, and there were inking problems with these types.</li>
-                <li>The choice to engrave types as opposed to casting them pushed up the manufacturing cost of types immensely as well.</li>
-                <li>Furthermore, economies of scale only kicked in for large production runs, but printers were often wary of overstocking and often only printed a hundred copies per run. The resetting of type was troublesome and uneconomical when compared to woodblocks for such quantities.</li>
-                <li>Given the lack of emphasis and development of moveable-type printing, the quality of prints left much to be desired as texts were littered with mistakes.</li>
-                <li>Besides, with the long tradition of woodblock printing, the Chinese were exceptional at it. If any technical improvements were necessary for mass produced prints, they would probably have chosen to refine woodblock printing rather than replace it.</li>
-              </ol>
-            </aside>
+            <h2> </h2>
+            most rendering systems involve some kind of mapping from characters to glyphs, stored in fonts. 
           </section>
 
           <section>
-            <figure>
-                <img class="plain" data-src="img/grammatica.jpg">
-                <figcaption>Ars grammatica (ca. 1454-1457)</figcaption>
-              </figure>
-              <aside class="notes">Over in Europe, by the mid-15th century, Gutenberg had printed his first book, <em>Ars grammatica</em> by Aelius Donatus, using moveable type. Even though he did not invent the idea of moveable type, he can be credited for making it work in Europe. Moveable type became the de facto technique for printing in the West, and moveable type technology surged forward through the centuries since. Moveable type printing suited alphabetic languages very well, given there was only a small fixed set of types required to print entire books. But at the end of the day, type is simply a tool for communication, a means to record and duplicate ideas onto a physical medium.</aside>
+            <h2>Unicode</h2>
+          </section>
+
+          <section>
+            <h2>Text rendering in browsers</h2>
+            rendering of glyphs, fidelity of glyphs, design of digital CJK fonts
+            https://blog.justfont.com/2018/11/macfonts-jiyukobo-mincho/
+          </section>
+
+          <section>
+            <h2>Web fonts</h2>
+            character set sizes, webfonts, sizes of font files performance, new loading strategies, subsetting tools, dynamic compile tools
           </section>
         </section>
 
         <section>
-          <h2>A long list of references</h2>
-          <ul style="column-count:2">
-            <li>Zhang, X. & Han, Q. (2009). <em>The history of Chinese printing: (illustrated).</em> Paramus, N.J: Homa et Sekey Books.</li>
-            <li>Brokaw, C. & Reed, C. A. (2010). <em>From woodblocks to the Internet: Chinese publishing and print culture in transition, circa 1800 to 2008.</em> Leiden: Brill.</li>
-            <li>Tsien T. (2011). <em>Collected writings on Chinese culture.</em> Hong Kong: The Chinese University Press.</li>
-            <li>Tsien, T. & Shaughnessy, E. L. (2013). <em>Written on bamboo & silk: the beginnings of Chinese books & inscriptions.</em> Chicago: The University of Chicago Press.</li>
-            <li>Houston, K. (2016). <em>The book: a cover-to-cover exploration of the most powerful object of our time.</em> New York: W.W. Norton & Company.</li>
-            <li>厉致谦 (2013). 西文字体的故事. 上海市: 同济大学出版社.</li>
-            <li>Choi, K. E., & Kim, M. S. (2015). <em>A Comparative Study on the Sociocultural Drivers in the Development of Printing Technology in Korea and Europe</em>. Korea Journal, 55(4), 7-35.</li>
-            <li>Park, H. O. (2014). The History of Pre-Gutenberg Woodblock and Movable Type Printing in Korea. International Journal of Humanities and Social Science, 4(9), 1.</li>
-          </ul>
+          <section>
+            <h2>Typesetting in browsers</h2>
+            CSS
+            writing-mode, text-orientation, layout directions, logical properties, justification
+          </section>
+
+          <section>Limitations</section>
+
+          <section>Closer working relationship between font folks and CSS folks</section>
+        </section>
+
+        <section>
+          <h2>References</h2>
+          https://www.unicode.org/faq/font_keyboard.html
+          https://blog.typekit.com/2010/10/05/type-rendering-on-the-web/
         </section>
 
         <section style="text-align: left;">
@@ -330,7 +174,7 @@
         </section>
       </div>
 
-      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em;mix-blend-mode:difference"><span>https://www.chenhuijing.com/slides/80-type-tech-2020</span><span style="text-align:right">@hj_chen</span></footer>
+      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em;mix-blend-mode:multiply"><span>https://www.chenhuijing.com/slides/80-type-tech-2020</span><span style="text-align:right">@hj_chen</span></footer>
     </div>
 
     <script src="js/reveal.js"></script>

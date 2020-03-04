@@ -2,12 +2,12 @@
 // overridden by the super-theme
 
 // Background of the presentation
-$backgroundColor: #000;
+$backgroundColor: #fff;
 
 // Primary/body text
 $mainFont: 'Codec Pro', 'HeiTi SC', 'Microsoft YaHei', sans-serif;
 $mainFontSize: 2.4em;
-$mainColor: #fff;
+$mainColor: #333;
 
 // Vertical spacing between blocks of text
 $blockMargin: 20px;
@@ -15,7 +15,7 @@ $blockMargin: 20px;
 // Headings
 $headingMargin: 0 0 $blockMargin 0;
 $headingFont: 'Asul', 'Weibei SC', 'Microsoft YaHei', 'Arial Black', sans-serif;
-$headingColor: #fff;
+$headingColor: #007bc3;
 $headingLineHeight: 1.2;
 $headingLetterSpacing: normal;
 $headingTextTransform: normal;
@@ -31,7 +31,7 @@ $heading4Size: 1em;
 $codeFont: 'Dank Mono', monospace;
 
 // Links and actions
-$linkColor: #00cc00;
+$linkColor: #ff9b00;
 $linkColorHover: darken($linkColor, 20%);
 
 // Text selection
