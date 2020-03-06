@@ -310,7 +310,12 @@ html {
 
 .reveal pre {
   line-height: 1.2;
-  font-size: 80%; }
+  font-size: 80%;
+  box-shadow: none; }
+
+.reveal pre code {
+  border-radius: 4px;
+  padding: 0.5em; }
 
 .reveal code {
   font-family: 'Dank Mono', monospace; }

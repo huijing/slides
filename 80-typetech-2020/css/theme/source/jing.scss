@@ -71,6 +71,12 @@ html {
   pre {
     line-height: 1.2;
     font-size: 80%;
+    box-shadow: none;
+  }
+
+  pre code {
+    border-radius: 4px;
+    padding: 0.5em;
   }
 
   code {
