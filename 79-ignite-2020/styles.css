@@ -223,7 +223,9 @@ span[role=img][aria-label]:hover::after {
   padding: 1em; }
   .people img {
     border-radius: 50%;
-    border: 0.5vw solid #1572b6; }
+    border: 0.5vw solid #1572b6;
+    width: 100%;
+    min-width: 0; }
 
 .meetups {
   display: -webkit-box;

@@ -244,6 +244,8 @@ span[role=img][aria-label]:hover::after {
   img {
     border-radius: 50%;
     border: 0.5vw solid $main-colour;
+    width: 100%;
+    min-width: 0;
   }
 }
 
