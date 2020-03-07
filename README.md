@@ -157,3 +157,5 @@
 78. [Women in Tech, anecdotes from Singapore](https://www.chenhuijing.com/slides/78-iwd-nexmo-2020)
 
 79. [Talk.CSS, 4 years and counting](https://www.chenhuijing.com/slides/79-ignite-2020)
+
+80. [What is this? Why must bind?](https://www.chenhuijing.com/slides/80-what-is-this)
