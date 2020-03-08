@@ -74,6 +74,9 @@ ul {
   width: max-content;
   margin: 0 auto; }
 
+li ul {
+  margin: initial; }
+
 .title {
   font-size: 3em; }
 
