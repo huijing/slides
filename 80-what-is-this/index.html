@@ -39,7 +39,7 @@
             <li>Dynamic binding</li>
           </ul>
         </li>
-        <li><em>Simula</em> also introduced the ability of an object to reference itself using the keyword <code>this</code></li>
+        <li>Simula also introduced the ability of an object to reference itself using the keyword <code>this</code></li>
       </ul>
     </div>
     <div class="o-controls">
@@ -51,6 +51,7 @@
   <section class="slide" id="slide3">
     <div class="o-content">
       <h2>Dynamic binding…?</h2>
+      <p>The process of determining the method to invoke at <strong>run-time</strong> rather than compile-time.</p>
     </div>
     <div class="o-controls">
       <a href="#slide2">Back</a>
@@ -60,7 +61,16 @@
 
   <section class="slide" id="slide4">
     <div class="o-content">
-      4
+      <h2>Javascript is OOP??</h2>
+      <div class="revealable">
+        <ul>
+          <li class="fragment">Encapsulation</li>
+          <li class="fragment">Message-passing</li>
+          <li class="fragment">Behaviour sharing</li>
+          <li class="fragment">Subclass polymorphism</li>
+        </ul>
+        <blockquote class="fragment">“Programming using these kinds of objects does not make your code ‘object-oriented’ any more than programming with functions makes your code ‘functional’.”<br><small>—Eric Elliott</small></blockquote>
+      </div>
     </div>
     <div class="o-controls">
       <a href="#slide3">Back</a>
@@ -70,8 +80,8 @@
 
   <section class="slide" id="slide5">
     <div class="o-content">
-      
-     5
+      <h2><code>this</code> in Javascript</h2>
+      <p>It's about where the function was <strong>invoked</strong>, not where it was declared</p>
     </div>
     <div class="o-controls">
       <a href="#slide4">Back</a>
@@ -81,8 +91,61 @@
 
   <section class="slide" id="slide6">
     <div class="o-content">
-      6
-     
+      <h2>Why <code>var that = this</code>?</h2>
+      <div class="l-double">
+        <pre class="language-javascript"><code>function Animal() {
+  this.age = 0
+
+  setInterval(function growUp() {
+    this.age++
+  }, 1000)
+}
+
+var panda = new Animal()
+
+setInterval(function() {
+  console.log(panda);
+}, 1000)</code></pre>
+        <pre class="language-javascript"><code>function Animal() {
+  var that = this
+  that.age = 0
+
+  setInterval(function growUp() {
+    that.age++
+  }, 1000)
+}
+
+var panda = new Animal()
+
+setInterval(function() {
+  console.log(panda);
+}, 1000)</code></pre>
+      </div>
+    </div>
+    <div class="o-controls">
+      <a href="#slide4">Back</a>
+      <a href="#slide6">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide7">
+    <div class="o-content">
+      <h2>Implicit binding</h2>
+      <pre class="language-javascript"><code>const animal = {
+  name: 'Panda',
+  intro() {
+    alert(`I am a ${ this.name }`)
+  },
+  family: {
+    name: 'Ursidae',
+    intro() {
+      alert(`I belong to the ${ this.name } family`)
+    }
+  }
+}
+
+animal.greet()
+animal.family.greet()</code></pre>
     </div>
     <div class="o-controls">
       <a href="#slide5">Back</a>
@@ -90,10 +153,220 @@
     </div>
   </section>
 
-  <section class="slide" id="slide7">
+  <section class="slide" id="slide8">
+    <div class="o-content">
+      <h2>Explicit binding (part 1)</h2>
+      <div class="l-double" style="column-gap:1em;grid-template-columns:calc(50% - 0.5em) calc(50% - 0.5em)">
+        <pre class="language-javascript" style="max-width:100%"><code>function intro() {
+  alert(`I am a ${ this.name } and I ${l1}, ${l2} and ${l3}`)
+}
+
+const animal = {
+  name: 'Panda',
+}
+
+const life = ['eat', 'play', 'sleep']
+
+greet.call(animal, life[0], life[1], life[2])</code></pre>
+        <pre class="language-javascript" style="max-width:100%"><code>function intro() {
+  alert(`I am a ${ this.name } and I ${l1}, ${l2} and ${l3}`)
+}
+
+const animal = {
+  name: 'Panda',
+}
+
+const life = ['eat', 'play', 'sleep']
+
+greet.apply(animal, life)</code></pre>
+      </div>
+    </div>
+    <div class="o-controls">
+      <a href="#slide6">Back</a>
+      <a href="#slide8">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide9">
+    <div class="o-content">
+      <h2><code>new</code> binding</h2>
+      <pre class="language-javascript"><code>function Animal (name) {
+  this.name = name
+}
+
+const panda = new Animal('Panda')</code></pre>
+    </div>
+    <div class="o-controls">
+      <a href="#slide7">Back</a>
+      <a href="#slide9">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide10">
+    <div class="o-content">
+      <h2>Lexical binding</h2>
+      <pre class="language-javascript"><code>function Animal() {
+  this.age = 0
+
+  setInterval(() => {
+    this.age++
+  }, 1000)
+}
+
+const panda = new Animal()
+
+setInterval(function() {
+  console.log(panda);
+}, 1000)</code></pre>
+    </div>
+    <div class="o-controls">
+      <a href="#slide8">Back</a>
+      <a href="#slide10">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide11">
+    <div class="o-content">
+      <h2>Window binding</h2>
+      <div class="l-double">
+        <pre class="language-javascript"><code>function whatIsThis() {
+  return this;
+}
+
+// In a browser:
+whatIsThis() === window; // true 
+
+// In Node:
+whatIsThis() === global; // true</code></pre>
+        <pre class="language-javascript"><code>function whatIsStrictlyThis() {
+  'use strict';
+  return this;
+}
+
+whatIsStrictlyThis() === undefined; // true</code></pre>
+      </div>
+    </div>
+    <div class="o-controls">
+      <a href="#slide9">Back</a>
+      <a href="#slide11">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide12">
+    <div class="o-content">
+      <h2>Explicit binding (part 2)</h2>
+      <pre class="language-javascript"><code>function Animal() {
+  this.age = 0
+
+  var boundGrowUp = (function growUp() {
+    this.age++
+  }).bind(this)
+
+  setInterval(boundGrowUp, 1000)
+}
+
+var panda = new Animal()
+
+setInterval(function() {
+  console.log(panda);
+}, 1000)</code></pre>
+    </div>
+    <div class="o-controls">
+      <a href="#slide10">Back</a>
+      <a href="#slide12">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide13">
+    <div class="o-content">
+      <h2>This is React Knowledgeable, React di mana?</h2>
+      <div class="revealable">
+        <p>Let's talk about event handling…</p>
+        <pre class="language-javascript fragment"><code>// JSX passes event handler as function
+&lt;button onClick={handleClick}&gt; Click me&lt;/button&gt;
+
+// HTML passes inline event handler as string
+&lt;button onclick="handleClick()"&gt;Click me&lt;/button&gt;</code></pre>
+      </div>
+      
+    </div>
+    <div class="o-controls">
+      <a href="#slide11">Back</a>
+      <a href="#slide13">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide14">
+    <div class="o-content">
+      <h2>To make sure <code>this</code> works right</h2>
+      <div class="l-double">
+        <pre class="language-javascript" style="font-size:60%"><code>class Button extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      clicked: false
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(state => ({
+      clicked: !state.clicked
+    }));
+  }
+
+  render() {
+    return (
+      &lt;button onClick={this.handleClick} /&gt;
+    );
+  }
+}</code></pre>
+        <pre class="language-javascript"><code>class Button extends React.Component {
+  state = { clicked: false };
+
+  handleClick = () => {
+    this.setState(state => ({
+      clicked: !state.clicked
+    }));
+  };
+
+  render() {
+    return (
+      &lt;button onClick={this.handleClick} /&gt;
+    );
+  }
+}</code></pre>
+      </div>
+    </div>
+    <div class="o-controls">
+      <a href="#slide12">Back</a>
+      <a href="#slide14">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide15">
+    <div class="o-content">
+      <h2>Use those Hook things everyone loves so much</h2>
+      <pre class="language-javascript"><code>function Button() {
+  const [clicked, setClick] = useState(false);
+  const handleClick = () => setClick(!clicked);
+
+  return (
+    &lt;button onClick={handleClick} /&gt;
+  );
+}</code></pre>
+    </div>
+    <div class="o-controls">
+      <a href="#slide13">Back</a>
+      <a href="#slide15">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide16">
     <div class="o-content">
       <h1>Bunch of articles on binding…</h1>
       <ul>
+        <li><a href="https://medium.com/javascript-scene/what-is-this-the-inner-workings-of-javascript-objects-d397bfa0708a">What is `this`? The Inner Workings of JavaScript Objects</a></li>
         <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind">MDN: Function.prototype.bind()</a></li>
         <li><a href="https://gist.github.com/zcaceres/2a4ac91f9f42ec0ef9cd0d18e4e71262">How to Eyeball Your ‘This’ Context in Javascript</a></li>
         <li><a href="https://javascript.info/bind">Function binding</a></li>
@@ -106,17 +379,17 @@
         </ul>  
     </div>
     <div class="o-controls">
-      <a href="#slide6">Back</a>
-      <a href="#slide8">Next</a>
+      <a href="#slide14">Back</a>
+      <a href="#slide16">Next</a>
     </div>
   </section>
 
-  <section class="slide" id="slide8">
+  <section class="slide" id="slide17">
     <div class="o-content">
       <h1><span class="emoji" role="img" tabindex="0" aria-label="pile of poo">&#x1F4A9;</span> kthxbye <span class="emoji" role="img" tabindex="0" aria-label="pile of poo">&#x1F4A9;</span></h1>
     </div>
     <div class="o-controls">
-      <a href="#slide7">Back</a>
+      <a href="#slide15">Back</a>
     </div>
   </section>
 
