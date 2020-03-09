@@ -1,12 +1,12 @@
 @font-face {
   font-family: "Routed Gothic";
-  src: url("../fonts/routed-gothic-narrow.woff2") format("woff2"), url("../fonts/routed-gothic-narrow.woff") format("woff");
+  src: url("fonts/routed-gothic-narrow.woff2") format("woff2"), url("fonts/routed-gothic-narrow.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: "Routed Gothic";
-  src: url("../fonts/routed-gothic-narrow-italic.woff2") format("woff2"), url("../fonts/routed-gothic-narrow-italic.woff") format("woff");
+  src: url("fonts/routed-gothic-narrow-italic.woff2") format("woff2"), url("fonts/routed-gothic-narrow-italic.woff") format("woff");
   font-weight: normal;
   font-style: italic; }
 
