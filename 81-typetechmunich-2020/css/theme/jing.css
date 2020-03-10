@@ -3,6 +3,8 @@
  *
  * Copyright (C) 2018 Chen Hui Jing, https://www.chenhuijing.com/
  */
+@import url("../../lib/font/movement/movement.css");
+@import url("../../lib/font/kokoro/kokoro.css");
 @import url("../../lib/font/codec-pro/codec-pro.css");
 @import url("../../lib/font/asul/asul.css");
 /*********************************************
@@ -302,10 +304,19 @@ html {
 .reveal .j-light-bg figcaption {
   color: black; }
 
+.reveal .txtbg {
+  background-color: rgba(255, 255, 255, 0.85);
+  display: inline-block; }
+
+.reveal .l-logo {
+  height: 1em;
+  margin: 0 0.25em; }
+
 .reveal section img {
   background: none; }
 
-.reveal em {
+.reveal em,
+.reveal strong {
   color: #007bc3; }
 
 .reveal pre {
@@ -315,13 +326,16 @@ html {
 
 .reveal pre code {
   border-radius: 4px;
-  padding: 0.5em; }
+  padding: 0.5em;
+  height: max-content;
+  max-height: 75vh; }
 
 .reveal code {
   font-family: 'Dank Mono', monospace; }
 
 .reveal blockquote {
   width: max-content;
+  max-width: 100%;
   text-align: left;
   box-shadow: none;
   line-height: 1.55;
@@ -355,6 +369,11 @@ html {
 
 .reveal td {
   vertical-align: middle; }
+
+.reveal .vfonts {
+  font-family: 'Movement';
+  font-variation-settings: "SPAC" var(--spac, 100), "wght" var(--wght, 100);
+  font-size: 4em; }
 
 span.emoji {
   font-family: 'Apple Color Emoji', 'Segoe UI Emoji';
