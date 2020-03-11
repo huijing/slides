@@ -437,6 +437,18 @@ span[role=img][aria-label]:hover::after {
   grid-template-columns: 65% calc(35% - 0.5em);
   height: 70vh; }
 
+.livecode-3p {
+  grid-template-columns: 50% 50%;
+  grid-template-rows: max-content 1fr;
+  grid-template-areas: 'a b' 'a c';
+  max-height: 70vh; }
+  .livecode-3p .markup {
+    grid-area: b; }
+  .livecode-3p .result {
+    grid-area: a; }
+  .livecode-3p .code {
+    grid-area: c; }
+
 .code-editor {
   display: block;
   height: 100%;
