@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Chibi-chat agent interface</title>
+    <meta name="description" content="A simple on-page chatbox to demonstrate Nexmo's Conversations API" />
+    <link id="favicon" rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="/agent.css" />
+    <script src="/nexmoClient.js"></script>
+    <script src="/common.js" defer></script>
+    <script src="/agent.js" defer></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>👹 Chibi-chat agent interface 👹</h1>
+    </header>
+
+    <main>
+      <section id="messageArea" class="messages"></section>
+
+      <section class="controls">
+        <form id="textEntry">
+          <input id="textBox" type="text">
+          <input id="submit" type="submit" value="Send">
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

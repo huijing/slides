@@ -1,0 +1,26 @@
+{
+  "name": "hoomin-chatbox",
+  "version": "0.9.1",
+  "description": "A simple on-page chatbox to demonstrate Nexmo's Conversations API, customised for Javascript Bangkok 1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "dev": "browser-sync start --proxy 'localhost:5344' --serveStatic 'public' --files 'public' 'views'",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nexmo": "^2.6.0-beta-1",
+    "username-generator": "1.1.0  "
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "onchange": "^6.1.0"
+  }
+}
