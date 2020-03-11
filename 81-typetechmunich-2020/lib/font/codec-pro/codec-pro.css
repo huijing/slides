@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Codec Pro';
-  src: url('zetafonts_-_codec_pro_regular-webfont.woff2') format('woff2'),
-       url('zetafonts_-_codec_pro_regular-webfont.woff') format('woff');
+  src: url('zetafonts_-_codec_pro_regular.woff2') format('woff2'),
+       url('zetafonts_-_codec_pro_regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }

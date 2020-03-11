@@ -567,7 +567,7 @@
        url('Bellota-Regular.woff') format('woff');
 }</code></pre>
             <div class="l-double">
-              <p class="ciu_embed" data-feature="woff" data-periods="future_1,current,past_1,past_2" data-accessible-colours="true">
+              <p class="ciu_embed" style="width:100%" data-feature="woff" data-periods="future_1,current,past_1,past_2" data-accessible-colours="true">
                 <a href="http://caniuse.com/#feat=woff">
                   <picture>
                     <source type="image/webp" srcset="https://caniuse.bitsofco.de/image/woff.webp">
@@ -575,7 +575,7 @@
                   </picture>
                 </a>
               </p>
-              <p class="ciu_embed" data-feature="woff" data-periods="future_1,current,past_1,past_2" data-accessible-colours="true">
+              <p class="ciu_embed" style="width:100%" data-feature="woff" data-periods="future_1,current,past_1,past_2" data-accessible-colours="true">
                 <a href="http://caniuse.com/#feat=woff">
                   <picture>
                     <source type="image/webp" srcset="https://caniuse.bitsofco.de/image/woff.webp">
@@ -969,7 +969,7 @@
                 <p class="jap" style="font-family:'Kokoro';font-size:1.3em">唖 芦 溢 茨 鰯 嘘 欝 厩 噂</p>
               </div>
               <div class="code"><style class="code-editor" contenteditable="true">.fvea .han {
-  font-variant-east-asian: simplified;
+  font-variant-east-asian: traditional;
 }
 
 .fvea .jap {
@@ -1006,7 +1006,7 @@
 
           <section>
             <h2>Golden rules for web typography<br><small>by Richard Rutter</small></h2>
-            <ol style="column-count:2">
+            <ol style="column-count:2;column-gap:2em">
               <li>Don't trust computers</li>
               <li>Use the default font size for paragraph text</li>
               <li>Adjust type size according to reading distance</li>
@@ -1152,7 +1152,7 @@
           <section>
             <h2>Vertical text on the web</h2>
             <p>CSS Writing Modes Level 3 defines CSS features to support for various international writing modes, such as <strong>left-to-right</strong> (e.g. Latin or Indic), <strong>right-to-left</strong> (e.g. Hebrew or Arabic), <strong>bidirectional</strong> (e.g. mixed Latin and Arabic) and <strong>vertical</strong> (e.g. Asian scripts).</p>
-            <aside class="notes">Finally, writing systems are also not limited a horizontal, top-to-bottom direction. Traditionally, East Asian languages were all written vertically. Arabic and Hebrew are written from right-to-left.</aside>
+            <aside class="notes">Writing systems are also not limited a horizontal, top-to-bottom direction. Traditionally, East Asian languages were all written vertically. Arabic and Hebrew are written from right-to-left.</aside>
           </section>
 
           <section>
@@ -1242,17 +1242,16 @@
             <h2>Not just for East Asian text</h2>
             <div class="livecode livecode-2p">
               <div class="result wm-cont2" style="font-size:75%;text-align:left">
-                <h2 class="vert-rl upright">MAGIJA</h2>
-                <p class="vert-lr">“…lietuvių tauta privalo būti išsaugota, nes joje slypi raktas visoms mįslėms – ne tik filologijos, bet ir istorijos — įminti”</p>
+                <h2 class="vert-rl upright">Magie</h2>
+                <p class="vert-lr">“Zwei Dinge sind unendlich, das Universum und die menschliche Dummheit, aber bei dem Universum bin ich mir noch nicht ganz sicher.”</p>
                 <div>
-                  <p style="margin-bottom:1em">Kaip ąžuol's drūt's prie Nemunėlio<br>Lietuvis nieko neatbos!<br>Kaip eglė ten prie Šešupėlės<br>Ir vėtroj, ir žiemą žaliuos!</p>
-                  <p>Lietuviais esame mes gimę,<br>Lietuviais norime ir būt!<br>Tą garbę gavome užgimę,<br>Jai ir neturim leist pražūt!</p>
+                  <p style="margin-bottom:1em">Es liegt der heiße Sommer<br>Auf deinen Wängelein;<br>Es liegt der Winter, der kalte,<br>In deinem Herzchen klein.</p>
+                  <p>Das wird sich bei dir ändern,<br>Du Vielgeliebte mein!<br>Der Winter wird auf den Wangen,<br>Der Sommer im Herzen sein.</p>
                 </div>
-                <p class="vert-rl rotate" style="font-weight:bold;font-size:1.414em">Ką darai, daryk gerai!</p>
+                <p class="vert-rl rotate" style="font-weight:bold;font-size:1.414em">Das Leben ist kein Ponyhof</p>
               </div>
               <div class="code"><style class="code-editor" contenteditable="true">.wm-cont2 .vert-rl {
   writing-mode: vertical-rl;
-  color: #fdffba;
 }
 
 .wm-cont2 .upright {
@@ -1261,12 +1260,12 @@
 
 .wm-cont2 .vert-lr {
   writing-mode: ;
-  color: #f69d9d;
+  color: #ff9b00;
 }
 
 .wm-cont2 .rotate {
   transform: rotate(0deg);
-  color: #c0ffc2;
+  color: #007bc3;
 }
 
 .wm-cont2 {
@@ -1282,19 +1281,19 @@
           </section>
 
           <section>
-            <h2>Limitations of CSS</h2>
-            
-          </section>
-
-          <section>
             <h2>CSS Line Layout and Vertical Rhythm</h2>
             <p>Or the lack thereof…</p>
             <iframe width="960" height="540" src="https://www.youtube.com/embed/OtlGo48iTOk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <aside class="notes">
+              <p>Vertical text may be better suited for East Asian languages when it comes to full length body copy, but that doesn't mean other languages can't get in on the fun. We see vertically set text in print all the time.</p>
+              <p>Headers or short runs of text are relatively safe to typeset vertically, and can add some typographic variety to your web layouts. We can also combine <code>writing-mode</code> with transforms or other CSS properties. Lots of possibilities with modern CSS these days.</p>
+            </aside>
           </section>
 
-          <section>Closer working relationship between font folks and CSS folks</section>
-
-          <section>Discussions with no clear answer</section>
+          <section>
+            <h2>Discussions with no clear answer</h2>
+            
+          </section>
         </section>
 
         <section>

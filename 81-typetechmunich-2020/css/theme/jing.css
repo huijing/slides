@@ -15,7 +15,7 @@ body {
   background-color: #fff; }
 
 .reveal {
-  font-family: "Codec Pro", "HeiTi SC", "Microsoft YaHei", sans-serif;
+  font-family: "Codec Pro", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 2.4em;
   font-weight: normal;
   color: #333; }
@@ -335,7 +335,7 @@ html {
 
 .reveal blockquote {
   width: max-content;
-  max-width: 100%;
+  max-width: 80%;
   text-align: left;
   box-shadow: none;
   line-height: 1.55;
@@ -389,7 +389,7 @@ span[role=img][aria-label] {
 span[role=img][aria-label]:focus::after,
 span[role=img][aria-label]:hover::after {
   font-size: 25%;
-  font-family: "Codec Pro", "HeiTi SC", "Microsoft YaHei", sans-serif;
+  font-family: "Codec Pro", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-weight: 400;
   position: absolute;
   display: block;
