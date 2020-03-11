@@ -1,6 +1,6 @@
 # 🧵 What is this? Why must bind?
 
-At &lt;RK⚡️ issue={8}&gt;, god knows when.
+At RK Originals #66, 13 Mar 2020.
 
 - Where did concept of `this` come from?
     - Important concept of OOP
