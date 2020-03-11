@@ -102,8 +102,7 @@
             <aside class="notes">Alphabetic languages form words using combinations of letters, sometimes we end up with really long words. Chinese is more concise, and often the meaning of the word is encompassed within the glyph itself. And that's how we ended up with tens of thousands of characters. But no matter the writing system, the end goal was always to express and record ideas into something concrete.</aside>
           </section>
 
-          <section>
-            cuneiform, hireoglyphs, brush
+          <section data-background-image="img/writing.jpg">
             <aside class="notes">
               <p>Before we get into the talk proper, where we'll be looking at what current web technologies offer for typesetting in the browser, I'd like everyone to just give a think about information technology. Since we are often said to be living in the information age right now.</p>
               <p>Information technology deals with the storage and retrieval of information, the extraction of higher levels of meaning from a collection of information and the transmission of information over large distances.</p>
@@ -112,8 +111,7 @@
             </aside>
           </section>
 
-          <section>
-            printing, lithograph, keyboard configurations
+          <section data-background-image="img/technology.jpg">
             <aside class="notes">
               <p>Technological advancement can generally be thought of as humanity's solution for producing more output for less effort. The advancement of information technology sought to reproduce writing at scale, from employing larger number of humans to copy scripts to the development of printing and digital technology.</p>
               <p>But with every increase in productivity, significant trade-offs were made. The techniques that won out over the course of human civilisation shape how we live today. There are a huge number of factors that came into play but what is undeniable is that modern day digital technology suits a particular style of writing system over others.</p>
@@ -220,7 +218,7 @@
           <section>
             <h2>Declaring character encodings for the web</h2>
             <div class="l-double">
-              <pre><code>&lt;!DOCTYPE html&gt;
+              <pre><code>&lt;!doctype html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
 &lt;meta charset="utf-8"/&gt;
@@ -228,15 +226,14 @@
               <pre><code>@charset "utf-8";
 /* all the styles for your web page */</code></pre>
             </div>
-            <aside class="notes">
-              <p></p>
-            </aside>
+            <aside class="notes">The recommendation from the W3C is to always save your pages as UTF-8, and to always declare the encoding of your document via the <code> charset</code> attribute on meta tags that go into your document's <code>head</code> element. For CSS, you would use an <code>@charset</code> declaration at the top of your stylesheet.</aside>
           </section>
         </section>
 
         <section>
           <section>
             <h2>Text rendering on electronic screens</h2>
+            <img class="plain" data-src="img/rendering-engine.png" alt="Diagram of code to text on screen">
             <aside class="notes">
               <p>Every computer's operating system has a text rendering engine, which is responsible for rasterising the font outlines for display on the screen. Browsers' layout engines will defer to the operating system's text rendering engine. If there are multiple text rendering engines, the browser can pick which to use. This is why text looks different on Mac and Windows, and sometimes even vary on different browsers on the same machine.</p>
               <p>Electronic displays these days are fairly high resolution, but a huge majority of the screens we encounter are raster displays. Which means everything we see on screens are made up of individual discrete pixels. We've just managed to pack a lot more pixels onto a screen than we used to.</p>
@@ -260,6 +257,13 @@
               <p>PostScript was great for printing, but it also handled fonts very well. An issue with fonts at the time was that they did not scale linearly at small sizes. Glyphs would get distorted during scaling, but PostScript handled this by providing additional metadata as font hints.</p>
               <p>This was highly secret technology and the hinted fonts were compressed and encrypted into what Adobe called a Type 1 font, which only stored outline information. The first vector font format, and it did really well on the market.</p>
             </aside>
+          </section>
+
+          <section>
+            <h2>The Font Wars by Typography.Guru</h2>
+            <iframe width="960" height="540" src="https://www.youtube.com/embed/5X9Dj7tBlkg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>https://youtu.be/5X9Dj7tBlkg</p>
+            <aside class="notes">Typography.Guru released an excellent video which takes a look back at the time period during which the industry was transitioning from bitmap fonts to vector fonts. I highly recommend watching this.</aside>
           </section>
 
           <section>
@@ -327,6 +331,32 @@
 
           <section>
             <h2>Typographic anti-aliasing</h2>
+            <div class="l-multiple" style="flex-wrap:wrap;gap:1em">
+              <figure>
+                <img class="plain" data-src="img/core-text8.png" alt="">
+                <figcaption>Core Text rendering</figcaption>
+              </figure>
+
+              <figure>
+                <img class="plain" data-src="img/directwrite.png" alt="">
+                <figcaption>DirectWrite rendering</figcaption>
+              </figure>
+
+              <figure>
+                <img class="plain" data-src="img/gdi-none.png" alt="">
+                <figcaption>GDI rendering with no antialiasing</figcaption>
+              </figure>
+
+              <figure>
+                <img class="plain" data-src="img/gdi-standard.png" alt="">
+                <figcaption>GDI rendering with Standard antialiasing</figcaption>
+              </figure>
+
+              <figure>
+                <img class="plain" data-src="img/gdi-cleartype.png" alt="">
+                <figcaption>GDI rendering with ClearType enabled</figcaption>
+              </figure>
+            </div>
             <aside class="notes">
               <p>Joel Spolsky pointed out that Apple and Microsoft have differing philosophies on how fonts ought to be displayed on computer screens. Even though both use sub-pixel rendering to sharpen fonts on lower resolution screens, the major philosophical difference is that Apple believes the goal of the algorithm is to preserve the design of the typeface as much as possible, as the expense of sharpness, while Microsoft generally believes the shape of each letter should be fitted into pixel boundaries to prevent blurriness and improve readability, at the expense of the typeface's original design.</p>
               <p>As such, both operating systems have their own implementations of how text should be rendered on a screen. Tim Brown's series about type rendering on the web demonstrates these differences in a collection of screenshots of text being rendered by these different engines with and without their respective anti-aliasing techniques applied.</p>
