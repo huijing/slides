@@ -8,7 +8,9 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
+var root = document.documentElement;
 var slideCount = document.querySelectorAll('section').length;
+var pandaHue = document.getElementById('pandaHue');
 
 var controls = function controls(event) {
   var isCover = window.location.hash === '' || window.location.hash === '#start';
@@ -92,6 +94,11 @@ var toggleFullScreen = function toggleFullScreen(event) {
   }
 };
 
+var changePanda = function changePanda(event) {
+  root.style.setProperty('--pandaHue', event.target.value + 'deg');
+};
+
+pandaHue.addEventListener('input', changePanda, false);
 document.body.addEventListener('keydown', controls, false);
 document.addEventListener('keydown', toggleFullScreen, false);
 "use strict";

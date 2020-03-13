@@ -1,4 +1,6 @@
+const root = document.documentElement;
 const slideCount = document.querySelectorAll('section').length;
+const pandaHue = document.getElementById('pandaHue');
 
 const controls = event => {
   const isCover = window.location.hash === '' || window.location.hash === '#start';
@@ -75,5 +77,10 @@ const toggleFullScreen = event => {
   }
 }
 
+const changePanda = event => {
+  root.style.setProperty('--pandaHue', event.target.value + 'deg');
+}
+
+pandaHue.addEventListener('input', changePanda, false);
 document.body.addEventListener('keydown', controls, false);
 document.addEventListener('keydown', toggleFullScreen, false);
