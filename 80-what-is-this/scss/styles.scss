@@ -77,12 +77,12 @@ em {
 }
 
 pre {
-  max-width: max-content;
   margin: 0 auto;
   border-radius: 0.125em;
   font-size: 75%;
   padding: 0.5em;
-	overflow: auto;
+  overflow: auto;
+  max-width: 100%;
 }
 
 code {
@@ -97,7 +97,6 @@ code {
 ul {
   text-align: left;
   line-height: 1.4;
-  width: max-content;
   margin: 0 auto 1em;
 }
 
@@ -105,21 +104,11 @@ li ul {
   margin: initial;
 }
 
-.fragment {
-  opacity: 0;
-}
-
 blockquote {
   max-width: 28em;
   text-align: left;
   margin: 0 auto;
   line-height: 1.2;
-}
-
-.l-double {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  align-items: center;
 }
 
 .title {
@@ -210,6 +199,24 @@ span[role=img][aria-label]:hover::after {
     height: 100%;
     padding: 1em;
     position: absolute;
+  }
+
+  ul {
+    width: max-content;
+  }
+
+  pre {
+    max-width: max-content;
+  }
+
+  .fragment {
+    opacity: 0;
+  }
+
+  .l-double {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
   }
 
   .o-controls {
