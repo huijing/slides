@@ -136,12 +136,12 @@ setInterval(function() {
       <h2>Implicit binding</h2>
       <pre class="language-javascript"><code>const animal = {
   name: 'Panda',
-  intro() {
+  greet() {
     alert(`I am a ${ this.name }`)
   },
   family: {
     name: 'Ursidae',
-    intro() {
+    greet() {
       alert(`I belong to the ${ this.name } family`)
     }
   }
