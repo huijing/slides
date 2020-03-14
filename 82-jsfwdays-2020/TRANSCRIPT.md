@@ -1,8 +1,8 @@
 *For Javascript fwdays'20. This is sort of a transcript and notes for the talk.*
 
-добрий день!
+It's really great to be part of Javascript fwdays. It has been tough for the organisers with the COVID-19 situation so I really want to give them all the credit for handling the situation in such a professional and thoughtful manner.
 
-It's really great to be here in beautiful Kyiv to be part of Javascript fwdays. I know this is a conference for Javascript developers but all of you, whether you like it or not, probably have to write CSS as well. For myself, I loved CSS ever since I first picked up web development. And, of course, I like Javascript, but I just love CSS more.
+Now, I know this is a conference for Javascript developers but all of you, whether you like it or not, probably have to write CSS as well. For myself, I loved CSS ever since I first picked up web development. And, of course, I like Javascript, but I just love CSS more.
 
 Sometimes, even though you love something a lot, over time that feeling might fade. Not so with me and CSS. In fact, I'm even more excited about CSS today than I was when I first started. Why? Because like every good relationship, both parties must evolve and grow.
 
@@ -49,7 +49,7 @@ If it were up to me, I could talk about CSS for days, but don't worry, they gave
 - especially useful if you are doing full page layouts involving numerous grid items
 - each line surrounded with quotes represents a grid row, every value in the line makes up the grid column
 - every line must have the same number of columns otherwise the whole thing is moot
-- change your layout without having to touch the code for the individual grid items, you only modify the grid areas *(change grid area of elephant)*
+- change your layout without having to touch the code for the individual grid items, you only modify the grid areas *(change grid area of one of the things)*
 - with the Grid Inspector, you can see how the grid area names, and hence the grid item assigned to it, have been tweaked
 
 ## Subgrid line numbers
@@ -77,13 +77,11 @@ If it were up to me, I could talk about CSS for days, but don't worry, they gave
 
 - a lot that CSS can do now, a layout like this chat where you want the messages to start at the bottom can be done with flexbox and the box alignment properties
 - *type something into the livechat window*
-- *switch to console to plug the coupon code*
+- to have the chat messages start from the bottom of the page, we can make use of `margin-top: auto` on the first child of the chat container *toggle DevTools and highlight*
 - alternating left-right layout can be done without rearranging the markup, so you can maintain a consistent hierarchy
-- with shapes, your text can even flow around an image
-- *switch to Chrome window for agent interface*
-- have the footer be neatly at the bottom of the window when there isn't enough content at first can be easily done with flexbox now
+- with shapes, your text can even flow around an image, as long as the image has alpha
+- *switch to other window for agent interface*
+- have an element, like maybe a footer, or this message box, be neatly at the bottom of the window when there isn't enough content at first can be easily done with flexbox now
 - have personal wishlist of more features that DevTools can have for this purpose like Logical Properties and mixed writing modes and we can feedback this to the different DevTools teams
 - but my wish is for more people to try out the new properties, you don't have to use all of them, but know that there are lots more possibilities now that our toolbox has expanded
 - hope that DevTools can help you figure things out just like it helped me
-
-Дякую!

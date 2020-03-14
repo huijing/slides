@@ -1,4 +1,5 @@
 let activeConversation;
+
 function setupConversation(apiPath) {
   fetch(apiPath) /* To generate the JWT for the agent */
     .then(function(response) {
@@ -65,3 +66,23 @@ function appendMessage(message, sender, appendAfter) {
 
   return messageDiv.dataset.messageId; /* Return this message id so that a reply can be posted to it later */
 }
+
+const launchFullscreen = element => {
+  if (element.requestFullscreen) {
+    element.requestFullscreen();
+  } else if (element.mozRequestFullScreen) {
+    element.mozRequestFullScreen();
+  } else if (element.webkitRequestFullscreen) {
+    element.webkitRequestFullscreen();
+  } else if (element.msRequestFullscreen) {
+    element.msRequestFullscreen();
+  }
+}
+
+const toggleFullScreen = event => {
+  if (event.code === 'KeyF') {
+    launchFullscreen(document.documentElement);
+  }
+}
+
+document.addEventListener('keydown', toggleFullScreen, false);
