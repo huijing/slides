@@ -1,0 +1,341 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="favicon" rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+
+  <title>Learn CSS with DevTools</title>
+  <meta name="description" content="Various examples where DevTools really helps with understanding of CSS properties">
+  <meta name="author" content="Chen Hui Jing">
+
+  <style>
+    @font-face {
+      font-family: "Emoji";
+      src: local("Apple Color Emoji"), local("Segoe UI Emoji"), local("Segoe UI Symbol"), local("Noto Color Emoji");
+    }
+      
+    * {
+      margin: 0;
+      padding: 0;
+    }
+      
+    html {
+      height: 100%;
+      font-size: calc(0.75em + 0.75vw);
+    }
+      
+    body {
+      height: 100%;
+      padding: 1em;
+    }
+
+    section {
+      padding-bottom: 1em;
+    }
+      
+    h1 {
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      margin-bottom: 1em;
+    }
+    
+    hr {
+      margin: 1em 0;
+    }
+
+    code {
+      font-size-adjust: 0.49;
+    }
+
+    img {
+      width: 12em;
+    }
+
+    .box {
+      border: 1px dashed;
+    }
+
+    [class^='flex-'] {
+      box-sizing: content-box;
+      display: flex;
+      margin-bottom: 1em;
+    }
+
+    .flex-auto div:first-child {
+      flex: auto;
+    }
+
+    .flex-auto div:nth-child(2) {
+      flex: 2 1 auto;
+    }
+
+    .flex-zero div:first-child {
+      flex: 1 1 0;
+    }
+
+    .flex-zero div:nth-child(2) {
+      flex: 2 1 0;
+    }
+
+    .flex-zero div:nth-child(3) {
+      flex: 0 1 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(6, 12vmin);
+      grid-template-rows: repeat(6, 12vmin);
+      grid-template-areas: 'potato potato potato . . .'
+                          'potato potato potato . . .'
+                          'potato potato potato bread bread .'
+                          '. . . bread bread .'
+                          '. . . . . . '
+                          'sunflower sunflower sunflower sunflower sunflower sunflower';
+    margin-bottom: 1em;
+    }
+
+    .grid .box:first-child { grid-area: potato }
+    .grid .box:nth-child(2) { grid-area: bread }
+    .grid .box:nth-child(3) { grid-area: sunflower }
+
+    .grid2 {
+      display: inline-grid;
+      grid-template-columns: repeat(6, 15vmin);
+      grid-template-rows: repeat(5, 12vmin);
+      background-color:whitesmoke;
+      text-align: center;
+      margin-bottom: 1em;
+    }
+
+    .grid__item {
+      border: 2px dotted black;
+    }
+
+    .subgrid1 {
+      grid-row: 3 / span 3;
+      grid-column: 1 / span 4;
+      display: grid;
+      grid-template-columns: subgrid;
+      grid-template-rows: 3fr 1fr;
+      background-color: rgba(61, 204, 133, 0.3);
+    }
+
+    .subgrid1 .subgrid__item {
+      background-color: rgba(61, 204, 133, 0.3);
+      border: 1px black dotted;
+    }
+
+    .subgrid1 .subgrid__item:nth-child(2) {
+      grid-column: 3;
+    }
+
+    .subgrid1 .subgrid__item:nth-child(4) {
+      grid-row: -2;
+      grid-column: 2;
+    }
+
+    .subgrid2 {
+      grid-column: 3 / span 4;
+      grid-row: 2 / span 3;
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: subgrid;
+      background-color: rgba(254, 205, 74, 0.3);
+    }
+
+    .subgrid2 .subgrid__item {
+      background-color: rgba(254, 205, 74, 0.5);
+      border: 1px black dotted; 
+    }
+
+    .subgrid2 .subgrid__item:nth-child(3) {
+      grid-row: -2;
+      grid-column: -1;
+    }
+
+    p.subgrid__item {
+      margin: 0;
+    }
+
+    .shape {
+      height: 35vmin;
+      width: 35vmin;
+      float: left;
+      shape-outside: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      shape-margin: 0.5em;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      background-color: gold;
+    }
+
+    .emoji {
+      font-family: "Emoji";
+      font-size: 2.5em;
+    }
+
+    .demo {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      clear: both;
+    }
+
+    .demo h2 {
+      writing-mode: vertical-lr;
+      text-orientation: upright;
+      letter-spacing: -0.3em;
+    }
+
+    .twitter {
+      position: fixed;
+      top: 0.5em;
+      right: 0.5em;
+      color: darkgreen;
+      writing-mode: vertical-rl;
+      mix-blend-mode: luminosity;
+      opacity: 0.6;
+    }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <h1>Learn CSS with DevTools</h1>
+
+  <section>
+    <h2>Flexbox</h2>
+    <p>Understanding <code>flex-basis</code></p>
+
+    <div class="flex-auto">
+      <div class="box">Give me 1 unit of free space.</div>
+      <div class="box">Give me 2 units of free space.</div>
+      <div class="box">I'm fine, no extra space for me.</div>
+    </div>
+
+    <div class="flex-zero">
+      <div class="box">Give me 1 unit of free space.</div>
+      <div class="box">Give me 2 units of free space.</div>
+      <div class="box">I'm fine, no extra space for me.</div>
+    </div>
+  </section>
+  
+  <section>
+    <h2>Grid</h2>
+    <p>Usefulness of <code>grid-template-areas</code></p>
+    <div class="grid">
+      <div class="box"><span class="emoji">🥔</span></div>
+      <div class="box"><span class="emoji">🥖</span></div>
+      <div class="box"><span class="emoji">🌻</span></div>
+    </div>
+  </section>
+  
+  <section>
+    <h2>Subgrid</h2>
+    <p>How line-numbering differs with subgrid</p>
+    <div class="grid2">
+      <div class="subgrid1 grid__item">
+        <p class="subgrid__item">A</p>
+        <p class="subgrid__item">B</p>
+        <p class="subgrid__item">C</p>
+        <p class="subgrid__item">D</p>
+      </div>
+
+      <div class="subgrid2 grid__item">
+        <p class="subgrid__item">1</p>
+        <p class="subgrid__item">2</p>
+        <p class="subgrid__item">3</p>
+      </div>
+    </div>
+  </section>
+  
+  <section>
+    <h2>CSS shapes</h2>
+    <p>Customising <code>clip-path</code> and <code>shape-outside</code></p>
+    <div class="shape"></div>
+    <p>Programmatically rehydrate the team, but meeting assassin run it up the flag pole put it on the parking lot, regroup. That's mint, well done screw the pooch, so when does this sunset? yet going forward nor i also believe it's important for every member to be involved and invested in our company and this is one way to do so. Drop-dead date optics commitment to the cause or your work on this project has been really impactful. Make it a priority quick-win. We need to socialize the comms with the wider stakeholder community quick sync and design thinking and this is our north star design nor big picture yet upsell. The horse is out of the barn.</p>
+  </section>
+
+  <section class="demo">
+    <h2>Demo</h2>
+    <a href="/">
+      <img src="assets/demo-link.png" alt="chibi barking at butterfly">
+    </a>
+  </section>
+
+  <p class="twitter">@hj_chen</p>
+
+  <script>
+    const style1 = [
+      'background: radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.15) 30%, rgba(255,255,255,.3) 32%, rgba(255,255,255,0) 33%) 0 0, radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.2) 11%, rgba(255,255,255,.4) 13%, rgba(255,255,255,0) 14%) -10vw -25vh, radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.2) 11%, rgba(255,255,255,.4) 13%, rgba(255,255,255,0) 14%) -3vw 17em, linear-gradient(155.58deg, #1b91cd 4.46%, #2254b6 90.47%);',
+      'background-size: 80vw 80vw, 80vw 80vw, 120vw 120vw, 100% 100%',
+      'color: white',
+      'text-shadow: 1px 1px 2px black',
+      'display: block',
+      'line-height: 1.4',
+      'text-align: center',
+      'font-weight: bold',
+      'font-size: calc(1.5em + 1.5vw)',
+      'padding: 15vh 1em'
+    ].join(';')
+
+    const style2 = [
+      'background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(255, 112, 10, 0.2) 0, rgba(255, 112, 10, 0.05) 2rem, transparent 0, transparent 1rem, rgba(255, 112, 10, 0.15) 0, rgba(255, 112, 10, 0.05) 4rem, transparent 0, transparent 1rem, rgba(255, 255, 255, 0.3) 0, rgba(255, 255, 255, 0.1) 2rem), repeating-linear-gradient(45deg, transparent, transparent 1rem, rgba(255, 112, 10, 0.2) 0, rgba(255, 112, 10, 0.05) 2rem, transparent 0, transparent 1rem, rgba(255, 112, 10, 0.15) 0, rgba(255, 112, 10, 0.05) 4rem, transparent 0, transparent 1rem, rgba(255, 255, 255, 0.4) 0, rgba(255, 255, 255, 0.1) 2rem), #fff',
+      'background-blend-mode: multiply',
+      'color: black',
+      'font-size: calc(0.75em + 1vw)',
+      'display: block',
+      'text-align:center',
+      'padding: 1em',
+      'line-height: 1.4'
+    ].join(';')
+
+    const style3 = [
+      'background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(61, 204, 133, 0.2) 0, rgba(61, 204, 133, 0.05) 2rem, transparent 0, transparent 1rem, rgba(61, 204, 133, 0.15) 0, rgba(61, 204, 133, 0.05) 4rem, transparent 0, transparent 1rem, rgba(255, 255, 255, 0.3) 0, rgba(255, 255, 255, 0.1) 2rem), repeating-linear-gradient(45deg, transparent, transparent 1rem, rgba(61, 204, 133, 0.2) 0, rgba(61, 204, 133, 0.05) 2rem, transparent 0, transparent 1rem, rgba(61, 204, 133, 0.15) 0, rgba(61, 204, 133, 0.05) 4rem, transparent 0, transparent 1rem, rgba(255, 255, 255, 0.4) 0, rgba(255, 255, 255, 0.1) 2rem), #fff',
+      'background-blend-mode: multiply',
+      'color: black',
+      'font-size: calc(1em + 1.75vw)',
+      'display: block',
+      'text-align: center',
+      'padding: 0.5em',
+      'line-height: 1.4',
+      'font-family: "Apple Color Emoji", "Segoe UI Emoji"'
+    ].join(';')
+
+    const title = 'DevTools, more than just a debugger'
+    const aboutMe = 'Chen Hui Jing, CSS-lover 💚'
+    const emojis = '🇲🇾👾🏀🚲🖌👟💻✒️🎙🦊🥑🧗‍♀️🏳️‍🌈'
+
+    console.log('%c%s', style1, title)
+    console.log('%c%s', style2, aboutMe)
+    console.log('%c%s', style3, emojis)
+
+    const launchFullscreen = element => {
+      if (element.requestFullscreen) {
+        element.requestFullscreen();
+      } else if (element.mozRequestFullScreen) {
+        element.mozRequestFullScreen();
+      } else if (element.webkitRequestFullscreen) {
+        element.webkitRequestFullscreen();
+      } else if (element.msRequestFullscreen) {
+        element.msRequestFullscreen();
+      }
+    }
+
+    const toggleFullScreen = event => {
+      if (event.code === 'KeyF') {
+        launchFullscreen(document.documentElement);
+      }
+    }
+
+    document.addEventListener('keydown', toggleFullScreen, false);
+  </script>
+</body>
+
+</html>
