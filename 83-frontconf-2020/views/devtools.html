@@ -30,6 +30,8 @@
     body {
       height: 100%;
       padding: 1em;
+      background-color: black;
+      color: white;
     }
 
     section {
@@ -57,7 +59,7 @@
     }
 
     .box {
-      border: 1px dashed;
+      border: 1px dashed white;
     }
 
     [class^='flex-'] {
@@ -90,30 +92,30 @@
       display: grid;
       grid-template-columns: repeat(6, 12vmin);
       grid-template-rows: repeat(6, 12vmin);
-      grid-template-areas: 'potato potato potato . . .'
-                          'potato potato potato . . .'
-                          'potato potato potato bread bread .'
-                          '. . . bread bread .'
+      grid-template-areas: 'beer beer beer . . .'
+                          'beer beer beer . . .'
+                          'beer beer beer pretzel pretzel .'
+                          '. . . pretzel pretzel .'
                           '. . . . . . '
-                          'sunflower sunflower sunflower sunflower sunflower sunflower';
+                          'castle castle castle castle castle castle';
     margin-bottom: 1em;
     }
 
-    .grid .box:first-child { grid-area: potato }
-    .grid .box:nth-child(2) { grid-area: bread }
-    .grid .box:nth-child(3) { grid-area: sunflower }
+    .grid .box:first-child { grid-area: beer }
+    .grid .box:nth-child(2) { grid-area: pretzel }
+    .grid .box:nth-child(3) { grid-area: castle }
 
     .grid2 {
       display: inline-grid;
       grid-template-columns: repeat(6, 15vmin);
       grid-template-rows: repeat(5, 12vmin);
-      background-color:whitesmoke;
+      background-color: dimgray;
       text-align: center;
       margin-bottom: 1em;
     }
 
     .grid__item {
-      border: 2px dotted black;
+      border: 2px dotted white;
     }
 
     .subgrid1 {
@@ -122,12 +124,12 @@
       display: grid;
       grid-template-columns: subgrid;
       grid-template-rows: 3fr 1fr;
-      background-color: rgba(61, 204, 133, 0.3);
+      background-color: rgba(78, 130, 241, 0.2);
     }
 
     .subgrid1 .subgrid__item {
-      background-color: rgba(61, 204, 133, 0.3);
-      border: 1px black dotted;
+      background-color: rgba(78, 130, 241, 0.4);
+      border: 1px white dotted;
     }
 
     .subgrid1 .subgrid__item:nth-child(2) {
@@ -145,12 +147,12 @@
       display: grid;
       grid-template-rows: 1fr 1fr;
       grid-template-columns: subgrid;
-      background-color: rgba(254, 205, 74, 0.3);
+      background-color: rgba(248, 99, 251, 0.2);
     }
 
     .subgrid2 .subgrid__item {
-      background-color: rgba(254, 205, 74, 0.5);
-      border: 1px black dotted; 
+      background-color: rgba(248, 99, 251, 0.4);
+      border: 1px white dotted; 
     }
 
     .subgrid2 .subgrid__item:nth-child(3) {
@@ -169,7 +171,7 @@
       shape-outside: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
       shape-margin: 0.5em;
       clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-      background-color: gold;
+      background-color: hotpink;
     }
 
     .emoji {
@@ -182,6 +184,7 @@
       align-items: center;
       gap: 1em;
       clear: both;
+      justify-content: center;
     }
 
     .demo h2 {
@@ -230,9 +233,9 @@
     <h2>Grid</h2>
     <p>Usefulness of <code>grid-template-areas</code></p>
     <div class="grid">
-      <div class="box"><span class="emoji">🥔</span></div>
-      <div class="box"><span class="emoji">🥖</span></div>
-      <div class="box"><span class="emoji">🌻</span></div>
+      <div class="box"><span class="emoji">🍻</span></div>
+      <div class="box"><span class="emoji">🥨</span></div>
+      <div class="box"><span class="emoji">🏰</span></div>
     </div>
   </section>
   
@@ -273,7 +276,7 @@
 
   <script>
     const style1 = [
-      'background: radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.15) 30%, rgba(255,255,255,.3) 32%, rgba(255,255,255,0) 33%) 0 0, radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.2) 11%, rgba(255,255,255,.4) 13%, rgba(255,255,255,0) 14%) -10vw -25vh, radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.2) 11%, rgba(255,255,255,.4) 13%, rgba(255,255,255,0) 14%) -3vw 17em, linear-gradient(155.58deg, #1b91cd 4.46%, #2254b6 90.47%);',
+      'background: radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.15) 30%, rgba(255,255,255,.3) 32%, rgba(255,255,255,0) 33%) 0 0, radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.2) 11%, rgba(255,255,255,.4) 13%, rgba(255,255,255,0) 14%) -10vw -25vh, radial-gradient(rgba(255,255,255,0) 0, rgba(255,255,255,.2) 11%, rgba(255,255,255,.4) 13%, rgba(255,255,255,0) 14%) -3vw 17em, linear-gradient(117deg, #cb72f1 22%, #5883e9 86%);',
       'background-size: 80vw 80vw, 80vw 80vw, 120vw 120vw, 100% 100%',
       'color: white',
       'text-shadow: 1px 1px 2px black',
@@ -286,7 +289,7 @@
     ].join(';')
 
     const style2 = [
-      'background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(255, 112, 10, 0.2) 0, rgba(255, 112, 10, 0.05) 2rem, transparent 0, transparent 1rem, rgba(255, 112, 10, 0.15) 0, rgba(255, 112, 10, 0.05) 4rem, transparent 0, transparent 1rem, rgba(255, 255, 255, 0.3) 0, rgba(255, 255, 255, 0.1) 2rem), repeating-linear-gradient(45deg, transparent, transparent 1rem, rgba(255, 112, 10, 0.2) 0, rgba(255, 112, 10, 0.05) 2rem, transparent 0, transparent 1rem, rgba(255, 112, 10, 0.15) 0, rgba(255, 112, 10, 0.05) 4rem, transparent 0, transparent 1rem, rgba(255, 255, 255, 0.4) 0, rgba(255, 255, 255, 0.1) 2rem), #fff',
+      'background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(248, 99, 251, 0.2) 0, rgba(248, 99, 251, 0.05) 2rem, transparent 0, transparent 1rem, rgba(248, 99, 251, 0.15) 0, rgba(248, 99, 251, 0.05) 4rem, transparent 0, transparent 1rem, rgba(255, 255, 255, 0.3) 0, rgba(255, 255, 255, 0.1) 2rem), repeating-linear-gradient(45deg, transparent, transparent 1rem, rgba(248, 99, 251, 0.2) 0, rgba(248, 99, 251, 0.05) 2rem, transparent 0, transparent 1rem, rgba(248, 99, 251, 0.15) 0, rgba(248, 99, 251, 0.05) 4rem, transparent 0, transparent 1rem, rgba(255, 255, 255, 0.4) 0, rgba(255, 255, 255, 0.1) 2rem), #fff',
       'background-blend-mode: multiply',
       'color: black',
       'font-size: calc(0.75em + 1vw)',
@@ -297,7 +300,7 @@
     ].join(';')
 
     const style3 = [
-      'background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(61, 204, 133, 0.2) 0, rgba(61, 204, 133, 0.05) 2rem, transparent 0, transparent 1rem, rgba(61, 204, 133, 0.15) 0, rgba(61, 204, 133, 0.05) 4rem, transparent 0, transparent 1rem, rgba(255, 255, 255, 0.3) 0, rgba(255, 255, 255, 0.1) 2rem), repeating-linear-gradient(45deg, transparent, transparent 1rem, rgba(61, 204, 133, 0.2) 0, rgba(61, 204, 133, 0.05) 2rem, transparent 0, transparent 1rem, rgba(61, 204, 133, 0.15) 0, rgba(61, 204, 133, 0.05) 4rem, transparent 0, transparent 1rem, rgba(255, 255, 255, 0.4) 0, rgba(255, 255, 255, 0.1) 2rem), #fff',
+      'background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(78, 130, 241, 0.2) 0, rgba(78, 130, 241, 0.05) 2rem, transparent 0, transparent 1rem, rgba(78, 130, 241, 0.15) 0, rgba(78, 130, 241, 0.05) 4rem, transparent 0, transparent 1rem, rgba(255, 255, 255, 0.3) 0, rgba(255, 255, 255, 0.1) 2rem), repeating-linear-gradient(45deg, transparent, transparent 1rem, rgba(78, 130, 241, 0.2) 0, rgba(78, 130, 241, 0.05) 2rem, transparent 0, transparent 1rem, rgba(78, 130, 241, 0.15) 0, rgba(78, 130, 241, 0.05) 4rem, transparent 0, transparent 1rem, rgba(255, 255, 255, 0.4) 0, rgba(255, 255, 255, 0.1) 2rem), #fff',
       'background-blend-mode: multiply',
       'color: black',
       'font-size: calc(1em + 1.75vw)',
@@ -308,7 +311,7 @@
       'font-family: "Apple Color Emoji", "Segoe UI Emoji"'
     ].join(';')
 
-    const title = 'DevTools, more than just a debugger'
+    const title = 'DevTools, the CSS advocate in your browser'
     const aboutMe = 'Chen Hui Jing, CSS-lover 💚'
     const emojis = '🇲🇾👾🏀🚲🖌👟💻✒️🎙🦊🥑🧗‍♀️🏳️‍🌈'
 
