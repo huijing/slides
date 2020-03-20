@@ -1,16 +1,16 @@
 *For Munich Frontend Conference. This is sort of a transcript and notes for the talk.*
 
-Thank you all for having me at Munich Frontend Conference. It has been tough for the organisers with the COVID-19 situation so I really want to give them all the credit for handling the situation in such a professional and thoughtful manner.
+Thank you all for having me at Munich Frontend Conference. It has been tough for the organisers with the COVID-19 situation so I really want to give them a shout-out for responding in such a timely manner and getting this conference up and running completely online.
 
-Now, I know this is a conference for Javascript developers but all of you, whether you like it or not, probably have to write CSS as well. For myself, I loved CSS ever since I first picked up web development. And, of course, I like Javascript, but I just love CSS more.
+So this is going to be a bit of a CSS talk, covering mostly the layout bits of CSS. I have loved CSS ever since I first picked up web development. And yes, I do like Javascript, but I just love CSS more.
 
 Sometimes, even though you love something a lot, over time that feeling might fade. Not so with me and CSS. In fact, I'm even more excited about CSS today than I was when I first started. Why? Because like every good relationship, both parties must evolve and grow.
 
 And CSS has evolved and grown so much. I'd like to think I did too, but that's another conversation. Recently I've been thinking more and more about how to show people who find CSS confusing, frustrating or are new to it, how things are easier now than before.
 
-A light bulb went off in my head last year after the flexbox inspector was released in Firefox DevTools. Because it showed me what the browser was doing to my flex items. I mean, I always relied heavily on the grid inspector for showing me what was going on with my grid items but the flexbox inspector really opened my eyes to the possibilities of what DevTools could be.
+A light bulb went off in my head last year after the Flexbox inspector was released in Firefox DevTools. Because it showed me what the browser was doing to my flex items. I mean, I always relied heavily on the grid inspector for showing me what was going on with my grid items but the flexbox inspector really opened my eyes to the possibilities of what DevTools could be.
 
-If it were up to me, I could talk about CSS for days, but don't worry, they gave me a time limit. So I picked a few specific CSS properties to talk about today. Let's start with flexbox.
+If it were up to me, I could talk about CSS for days, but don't worry, they gave me a time limit. So I picked a few specific CSS properties to talk about today. Let's start with Flexbox.
 
 ## `flex-basis`
 
@@ -62,6 +62,7 @@ If it were up to me, I could talk about CSS for days, but don't worry, they gave
 - `subgrid` is a **sizing** property, you still must use `display: grid` on your nested grids
 - use the `subgrid` keyword for `grid-template-rows` or `grid-template-columns`
 - allows content within the grid item to line-up with the outer grid
+- 
 
 ## `polygon` value
 
@@ -78,7 +79,7 @@ If it were up to me, I could talk about CSS for days, but don't worry, they gave
 - a lot that CSS can do now, a layout like this chat where you want the messages to start at the bottom can be done with flexbox and the box alignment properties
 - *type something into the livechat window*
 - to have the chat messages start from the bottom of the page, we can make use of `margin-top: auto` on the first child of the chat container *toggle DevTools and highlight*
-- alternating left-right layout can be done without rearranging the markup, so you can maintain a consistent hierarchy
+- alternating left-right layout can be done without rearranging the markup, so you can maintain a consistent hierarchy *show markup for each character*
 - with shapes, your text can even flow around an image, as long as the image has alpha
 - *switch to other window for agent interface*
 - have an element, like maybe a footer, or this message box, be neatly at the bottom of the window when there isn't enough content at first can be easily done with flexbox now
