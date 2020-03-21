@@ -5,4 +5,4 @@ A series of simplified examples to demonstrate specific modern CSS properties an
 Transcript and notes of the talk [here](TRANSCRIPT.md).  
 Presentation deployed [on Heroku](https://devtools-frontconf.herokuapp.com/).
 
-Also, the [Chromium issue](https://bugs.chromium.org/p/chromium/issues/detail?id=728062) to add more Grid inspector features in DevTools.
+Also, the [Chromium issue](https://crbug.com/1047356) to add more Grid inspector features in DevTools.
