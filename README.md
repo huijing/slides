@@ -161,3 +161,7 @@
 80. [What is this? Why must bind?](https://www.chenhuijing.com/slides/80-what-is-this)
 
 81. [East Asian typography on the modern web](https://www.chenhuijing.com/slides/81-typetechmunich-2020)
+
+82. [DevTools, more than just a debugger](https://devtools-jsfwdays.herokuapp.com/devtools)
+
+83. [DevTools, the CSS advocate in your browser](https://devtools-frontconf.herokuapp.com/devtools)
