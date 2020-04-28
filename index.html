@@ -32,20 +32,23 @@
 </head>
 
 <body>
+  <div class="blender" id="blender"></div>
+  <input type="checkbox" class="blend-checkbox" id="blendToggle">
+  <label for="blendToggle" class="blend-toggle"></label>
   <header class="site-header">
     <div class="site-header__wrapper">
       <div class="site-branding">
-        <a class="no-underline" href="/"><span class="site-branding__image">Home</span></a>
+        <a class="no-underline" href="https://chenhuijing.com/"><span class="site-branding__image">Home</span></a>
         <div class="site-branding__wrapper">
-          <h1 class="site-branding__title"><a class="no-underline" href="/">Chen Hui Jing</a></h1>
+          <h1 class="site-branding__title"><a class="no-underline" href="https://chenhuijing.com/">Chen Hui Jing</a></h1>
           <p class="site-branding__description">The chronicles of a self-taught designer and developer.</p>
         </div>
       </div>
       <nav class="site-nav">
-        <a class="site-nav__link no-underline" href="/about/">About</a>
-        <a class="site-nav__link no-underline" href="/work/">Work</a>
-        <a class="site-nav__link no-underline" href="/talks/">Talks</a>
-        <a class="site-nav__link no-underline" href="/blog/">Blog</a>
+        <a class="site-nav__link no-underline" href="https://chenhuijing.com/about/">About</a>
+        <a class="site-nav__link no-underline" href="https://chenhuijing.com/work/">Work</a>
+        <a class="site-nav__link no-underline" href="https://chenhuijing.com/talks/">Talks</a>
+        <a class="site-nav__link no-underline" href="https://chenhuijing.com/blog/">Blog</a>
       </nav>
     </div>
   </header>
@@ -395,7 +398,18 @@
   <footer class="site-footer">
     <div class="site-footer__wrapper--main">
       <div class="footer-main">
-        <img srcset="https://chenhuijing.com/assets/images/avatar@2x.jpg 2x" src="https://chenhuijing.com/assets/images/avatar.jpg" alt="Avatar" class="footer-main__avatar">
+        <input type="checkbox" id="activities">
+        <label for="activities">
+          <div class="hidden">
+            <p class="no-margin">Is currently…</p>
+            <ul class="no-list-style">
+              <li class="no-margin">📖: Lightning Wires</li>
+              <li class="no-margin">🕹: Pharoah</li>
+              <li class="no-margin">📺: Babylon Berlin</li>
+            </ul>
+          </div>
+          <img srcset="https://chenhuijing.com/assets/images/avatar@2x.jpg 2x" src="https://chenhuijing.com/assets/images/avatar.jpg" alt="Avatar" class="footer-main__avatar">
+        </label>
         <div class="footer-main__about">
           <h3>Hello!</h3>
           <p class="no-margin">I'm Hui Jing, a front-end designer and developer who believes HTML and CSS are the foundation of the web.</p>
