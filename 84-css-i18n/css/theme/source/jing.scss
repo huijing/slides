@@ -1,0 +1,56 @@
+/**
+ * Custom theme for Reveal.js presentations.
+ *
+ * Copyright (C) 2020 Chen Hui Jing, https://chenhuijing.com/
+ */
+
+// Default mixins and settings -----------------
+@import '../template/mixins';
+@import '../template/settings';
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url('fonts/plovdiv/plovdiv.css');
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'Plovdiv', sans-serif;
+$mainColor: #fff;
+$headingFont: 'Plovdiv', sans-serif;
+$headingColor: #82e4b8;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$headingFontWeight: bold;
+$backgroundColor: #080030;
+$linkColor: #887acc;
+$linkColorHover: lighten($linkColor, 20%);
+$selectionBackgroundColor: $linkColor;
+$selectionColor: $mainColor;
+
+// Theme template ------------------------------
+@import '../template/theme';
+// ---------------------------------------------
+
+// Customised styles for this presentation -----
+.reveal {
+  .l-multiple {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .l-double {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .j-icon {
+    margin-right: 1rem;
+  }
+
+  .align-icon {
+    display: flex;
+    align-items: center;
+  }
+}
+// ---------------------------------------------
