@@ -1,7 +1,7 @@
 /**
  * Custom theme for Reveal.js presentations.
  *
- * Copyright (C) 2018 Chen Hui Jing, https://www.chenhuijing.com/
+ * Copyright (C) 2020 Chen Hui Jing, https://chenhuijing.com/
  */
 
 // Default mixins and settings -----------------
@@ -10,110 +10,52 @@
 // ---------------------------------------------
 
 // Include theme-specific fonts
-@import url('../../lib/font/magnetic-pro/magnetic-pro.css');
-@import url('../../lib/font/magnetic-pro-black/magnetic-pro-black.css');
+@import url('fonts/magnetic-pro/magnetic-pro.css');
+@import url('fonts/magnetic-pro-black/magnetic-pro-black.css');
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'Magnetic Pro', 'HeiTi SC', 'Microsoft YaHei', sans-serif;
+$mainColor: #333;
+$headingFont: 'Magnetic Pro Black', 'Arial Black', 'Microsoft YaHei', sans-serif;
+$headingColor: #372822;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$headingFontWeight: bold;
+$backgroundColor: #080030;
+$linkColor: #0c0;
+$linkColorHover: darken($linkColor, 20%);
+$selectionBackgroundColor: $linkColor;
+$selectionColor: #fff;
 
 // Theme template ------------------------------
 @import '../template/theme';
-
 // ---------------------------------------------
-// Customised styles for this presentation
-html {
-  box-sizing: border-box;
-  height: 100%;
-  font-size: 125%;
-}
 
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
+// Customised styles for this presentation -----
 .reveal {
   .l-multiple {
     display: flex;
     justify-content: space-around;
-
-    .j-vert {
-      width: 1em;
-    }
   }
 
   .l-double {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
   }
 
   .j-icon {
-    display: inline-block;
-    vertical-align: middle;
     margin-right: 1rem;
   }
 
-  em {
-    color: $headingColor;
-  }
-
-  pre {
-    line-height: 1.2;
-    font-size: 80%;
-  }
-
-  code {
-    font-family: 'Dank Mono', monospace;
-  }
-
-  blockquote {
-    width: 80%;
-    text-align: left;
-    box-shadow: none;
-    line-height: 1.55;
-    font-size: 130%;
-    position: relative;
-
-    p::before,
-    p::after {
-      position: absolute;
-      font-size: 2.5em;
-      font-family: Georgia, serif;
-      color: $headingColor;
-    }
-
-    p::before {
-      top: -0.125em;
-      left: -0.5em;
-      content: '\201C';
-    }
-
-    p::after {
-      bottom: 0;
-      right: -0.3em;
-      content: '\201D';
-    }
-  }
-
-  figure {
-    img {
-      max-height: 75vh;
-    }
-
-    figcaption {
-      font-style: italic;
-      font-size: 75%;
-    }
-  }
-
-  img[src*="svg"] {
-    max-height: 75vh;
-  }
-
-  td {
-    vertical-align: middle;
+  .align-icon {
+    display: flex;
+    align-items: center;
   }
 }
 
-// Accessible emojis ------------------------------
+// Accessible emojis ---------------------------
 span.emoji {
   font-family: 'Apple Color Emoji', 'Segoe UI Emoji';
   font-style: normal;
@@ -144,7 +86,7 @@ span[role=img][aria-label]:hover::after {
   box-shadow: 2px 2px 4px $mainColor;
 }
 
-// Demo-related ------------------------------
+// For live coding -----------------------------
 .livecode {
   display: grid;
   grid-gap: 0.5em;
@@ -206,3 +148,4 @@ span[role=img][aria-label]:hover::after {
   height: 100%;
   white-space: pre-wrap;
 }
+// ---------------------------------------------
