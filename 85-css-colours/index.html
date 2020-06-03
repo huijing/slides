@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Colours in CSS</title>
+  <meta name="description" content="I lub colours. And I lub CSS. So let's talk about colours in CSS. Also, nobody wants to speak at Talk.CSS, what to do?">
+  <meta name="author" content="Chen Hui Jing">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="scripts.js" defer></script>
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body id="main">
+  <section id="slide1">
+    <div class="o-content">
+      <h1 class="title"><span class="emoji" role="img" tabindex="0" aria-label="high voltage">&#x26A1;</span><span class="emoji" role="img" tabindex="0" aria-label="rainbow">&#x1F308;</span> Colours in CSS <span class="emoji" role="img" tabindex="0" aria-label="rainbow">&#x1F308;</span><span class="emoji" role="img" tabindex="0" aria-label="high voltage">&#x26A1;</span></h1>
+      <p class="rainbow-txt">I lub CSS. And I lub colours.<br>And you all dun wanna speak at Talk.CSS.<br>You tell me how???</p>
+    </div>
+    <div class="o-controls">
+      <a href="#slide2">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide2">
+    <div class="o-content">
+      <img style="max-width:65%;margin:0 auto 1em" src="/img/colour-tracker.png" alt="GitHub issue tracking CSS colour of the month">
+      <a href="https://github.com/SingaporeCSS/talk.css/issues/1">https://github.com/SingaporeCSS/talk.css/issues/1</a>
+    </div>
+    <div class="o-controls">
+      <a href="#slide1">Back</a>
+      <a href="#slide3">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide3">
+    <div class="o-content">
+      <p>I wrote a thing last year.</p>
+      <a href="https://chenhuijing.com/blog/where-did-css-named-colours-come-from/">Where did CSS named colours come from?</a>
+    </div>
+    <div class="o-controls">
+      <a href="#slide2">Back</a>
+      <a href="#slide4">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide4">
+    <div class="o-content">
+      <p>You should read this thing to hear from a professional.</p>
+      <a href="https://increment.com/frontend/ask-an-expert-why-is-css-the-way-it-is/">Ask an expert: Why is CSS…the way it is?</a>
+    </div>
+    <div class="o-controls">
+      <a href="#slide3">Back</a>
+      <a href="#slide5">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide5">
+    <div class="o-content">
+      <h2>Colour</h2>
+      <img style="max-width:60%;margin:0 auto 1rem" src="/img/spectrum.png" alt="Diagram showing visible light spectrum">
+      <p>Perceived according to the <strong>wavelength</strong> of the <strong>light</strong> which strikes the eye</p>
+    </div>
+    <div class="o-controls">
+      <a href="#slide4">Back</a>
+      <a href="#slide6">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide6">
+    <div class="o-content">
+      <p>Light is either</p>
+      <div style="display:flex;align-items:center">
+        <img style="max-width:40%;margin:0 auto 1em" src="/img/emitted.png" alt="emitted"> or <img style="max-width:40%;margin:0 auto 1em" src="/img/reflected.png" alt="reflected">
+      </div>
+    </div>
+    <div class="o-controls">
+      <a href="#slide5">Back</a>
+      <a href="#slide7">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide7">
+    <div class="o-content">
+      <h2>Colour space</h2>
+      <p>The resultant set of colours when a colour model is associated with a precise description of how components are to be interpreted</p>
+      <p>Concept seems to have been developed by Hermann Grassmann</p>
+      <p>Grassmann published his theory of how colours mix in 1853</p>
+      <p>Colour can be represented as a convex cone in the 3D linear space</p>
+    </div>
+    <div class="o-controls">
+      <a href="#slide6">Back</a>
+      <a href="#slide8">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide8">
+    <h2>Colour Gamut</h2>
+    <p>The portion of the colour space that can be represented or reproduced</p>
+    <p>Generally specified on the hue-saturation plane</p>
+    <p>When a colour <strong>cannot</strong> be expressed within a particular colour model, it is <em>out of gamut</em></p>
+    <p><a href="http://www.iscc-archive.org/pdf/SchroePigments2.pdf">English translation of Theorie der Pigmente von grösster Leuchtkraft</a> by Erwin Schrödinger</p>
+    <p>As of now, a device that can reproduce the entire visible colour space remains an unrealised goal within the engineering of colour displays and printing processes</p>
+    <div class="o-controls">
+      <a href="#slide7">Back</a>
+      <a href="#slide9">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide9">
+    <h2>Chromaticity</h2>
+    <p>An objective specification of the quality of a colour regardless of its luminance</p>
+    <p>Consists of two independent parameters, often specified as hue (h) and colourfulness (s)</p>
+    <p>Allows for representation via polar coordinates with respect to a white point of a display</p>
+    <div class="o-controls">
+      <a href="#slide8">Back</a>
+      <a href="#slide10">Next</a>
+    </div>
+  </section>
+
+  <section class="slide dark" id="slide10">
+    <div class="o-content">
+      <h2>CMYK colour model</h2>
+      <p>For colour creation in <strong>printing</strong> and <strong>film</strong></p>
+      <p>Uses the subtractive primary colours of pigment (<span style="color:cyan">Cyan</span>, <span style="color:magenta">Magenta</span>, <span style="color:yellow">Yellow</span>, Key (black))</p>
+      <p><span style="color:magenta">Magenta</span> on the X-axis, <span style="color:cyan">Cyan</span> on the Y-axis, <span style="color:yellow">Yellow</span> on the Z-axis</p>
+      <p>Starts with white, and variable amounts of dye subtracts some colours from light leaving others, <span style="color:cyan">cyan</span> absorbs <span style="color:red">red</span>, <span style="color:magenta">magenta</span> absorbs <span style="color:lime">green</span>, <span style="color:yellow">yellow</span> absorbs <span style="color:dodgerblue">blue</span></p>
+    </div>
+    <div class="o-controls">
+      <a href="#slide9">Back</a>
+      <a href="#slide11">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide11">
+    <div class="o-content">
+      <h2><span style="color:red">R</span><span style="color:green">G</span><span style="color:blue">B</span> colour model</h2>
+      <p>All light-emitting displays would use an additive colour model</p>
+      <p>RGB is device-dependent, thus an RGB value will not define the same colour across devices without some kind of colour management</p>
+      <p>A colour is expressed by indicating how much of each of the red, green, and blue is included in numerical terms</p>
+      <p>For computers, component values are stored as integer values ranging from 0 to 255, which is the range an 8-bit byte can offer</p> 
+    </div>
+    <div class="o-controls">
+      <a href="#slide10">Back</a>
+      <a href="#slide12">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide12">
+    <div class="o-content">
+      <h2>Colours in CSS1</h2>
+      <p><a href="https://www.w3.org/TR/REC-CSS1-961217#color-and-background-properties">5.3 Color and background properties</a></p>
+      <p><code>color</code> to describe the text colour of an element</p>
+      <p><code>background-color</code> to describe the background colour of an element</p>
+      <p>Colour can either be a keyword or a numerical RGB specification</p>
+      <p>Hex codes are simply RGB colours in the hexadecimal notation</p>
+    </div>
+    <div class="o-controls">
+      <a href="#slide11">Back</a>
+      <a href="#slide13">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide13">
+    <div class="o-content">
+      <img style="max-width:60%;margin:auto" src="/img/hexcode.png" alt="Diagram showing how hex codes represent RGB values in hexadecimal">
+    </div>
+    <div class="o-controls">
+      <a href="#slide12">Back</a>
+      <a href="#slide14">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide14">
+    <div class="o-content">
+      <iframe style="margin:auto" width="960" height="600" src="https://www.youtube.com/embed/eqZqx6lRPe0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="o-controls">
+      <a href="#slide13">Back</a>
+      <a href="#slide15">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide15">
+    <div class="o-content">
+      <h2>The sRGB colour space</h2>
+      <p>sRGB (standard Red Green Blue) is an RGB color space created by HP and Microsoft for monitors, printers and the Web</p>
+      <p><a href="https://www.w3.org/Graphics/Color/sRGB.html">Original document: A Standard Default Color Space for the Internet - sRGB</a>
+      <p>Even though there were better systems, RGB was “good enough” at the time.</p>
+    </div>
+    <div class="o-controls">
+      <a href="#slide14">Back</a>
+      <a href="#slide16">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide16">
+    <h2><code>transparent</code></h2>
+    <p>Was there from the beginning and is the initial value of <code>background-color</code></p>
+    <p>CSS2 allowed its use in <code>border-color</code></p>
+    <p>CSS3 allowed its use in all elements that accepted a colour value</p>
+    <p>Computes to <code>rgba(0, 0, 0, 0)</code></p>
+    <div class="o-controls">
+      <a href="#slide15">Back</a>
+      <a href="#slide17">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide17">
+    <h2>Named colours</h2>
+    <p>Based on the X11 colours</p>
+    <p>Supported in Mosaic and Netscape Navigator because both ran in X Windows System</p>
+    <p>Chris Lilley lost the fight to use names from the Color Naming System (CNS)</p>
+    <p>The path of least resistance was chosen</p>
+    <div class="o-controls">
+      <a href="#slide16">Back</a>
+      <a href="#slide18">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide18">
+    <div class="o-content">
+      <h2>Colour wheels</h2>
+      <p>An abstract illustrative organisation of colour hues around a circle to show the relationships between them</p>
+      <img src="/img/colourwheels.jpg" alt="Colour wheel diagrams from pre-19th century and earlier">
+    </div>
+    <div class="o-controls">
+      <a href="#slide17">Back</a>
+      <a href="#slide19">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide19">
+    <div class="o-content">
+      <h2>Munsell colour system</h2>
+      <div style="display:flex">
+        <img src="/img/sphere.jpg" alt="Munsell's colour sphere">
+        <div>
+          <p>Created by Professor Albert H. Munsell</p>
+          <p>A colour space that specifies colours based on three properties of colour: hue, chroma and value</p>
+          <p>The first system which separated hue, value and chroma into perceptually uniform and independent dimensions</p>
+          <p>Munsell was the first person to illustrate colours systematically in three-dimensional space</p>
+        </div>
+      </div>
+    </div>
+    <div class="o-controls">
+      <a href="#slide18">Back</a>
+      <a href="#slide20">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide20">
+    <div class="o-content">
+      <h2>CIELAB colour space</h2>
+      <p>Defined by the <em>International Commission on Illumination</em> (CIE) in 1976</p>
+      <p>Also known as LAB, for lightness, green/red and blue/yellow respectively</p>
+      <p>CIELAB gamut includes both the gamuts for RGB and CMYK</p>
+      <p>Meant to approximate human vision and aspires to perceptual uniformity</p>
+      <p>Needed more data per pixel to obtain the same precision as RGB or CMYK</p>
+    </div>
+    <div class="o-controls">
+      <a href="#slide19">Back</a>
+      <a href="#slide21">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide21">
+    <div class="o-content">
+      <h2>HSL colours</h2>
+      <p>An alternative representation of the RGB colour model, utilising a cylindrical geometry, <strong>hue</strong> being the angular dimension, <strong>saturation</strong> along the radial direction and <strong>lightness</strong> from top to bottom</p>
+      <p>Based on the organisation and conceptualisation of colours in human vision</p>
+      <p>Conversion from RGB was fast enough to run in real time on 1970s hardware</p>
+      <p>HSL was added to CSS in 2002 from the desire to have some sort of hue wheel system</p>
+      <p>Fast forward to today, its disadvantages (non-perceptual uniformity being a key one) are flaring their head</p>
+    </div>
+    <div class="o-controls">
+      <a href="#slide20">Back</a>
+      <a href="#slide22">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide22">
+    <div class="o-content">
+      <img style="max-width:65%;margin:auto" src="/img/hsl.jpg" alt="Diagram explaning HSL syntax">
+      <p>Hue is unitless as degrees is implicit, Saturation and Lightness are in percentages</p>
+    </div>
+    <div class="o-controls">
+      <a href="#slide21">Back</a>
+      <a href="#slide23">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide23">
+    <div class="o-content">
+      <h2>Moar colour formats</h2>
+      <p><a href="https://www.w3.org/TR/css-color-4/">CSS Color Module Level 4</a></p>
+      <p>HWB colours (hue, whiteness, blackness)</p>
+      <p>Lab colours (lightness, green/red (a-axis), blue/yellow (b-axis))</p>
+      <p>LCH colours (lightness, chroma, hue)</p>
+    </div>
+    <div class="o-controls">
+      <a href="#slide22">Back</a>
+      <a href="#slide24">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide24">
+    <div class="o-content">
+      <h2>Moar colour functions</h2>
+      <p><a href="https://www.w3.org/TR/css-color-5/">CSS Color Module Level 5</a></p>
+      <p><code>color-mix()</code></p>
+      <p><code>color-contrast()</code></p>
+      <p><code>color-adjust()</code></p>
+    </div>
+    <div class="o-controls">
+      <a href="#slide23">Back</a>
+      <a href="#slide25">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide25">
+    <div class="o-content">
+      <h1>Bunch of articles on colour…</h1>
+      <ul>
+        <li><a href="https://arstechnica.com/information-technology/2015/10/tomato-versus-ff6347-the-tragicomic-history-of-css-color-names/">“Tomato” versus “#FF6347”—the tragicomic history of CSS color names</a></li>
+        <li><a href="https://chenhuijing.com/blog/where-did-css-named-colours-come-from/">Where did CSS named colours come from?</a></li>
+        <li><a href="https://dev.to/bcalou/what-is-the-color-of-a-blank-page-49og">What is the color of a blank page?</a></li>
+        <li><a href="https://increment.com/frontend/ask-an-expert-why-is-css-the-way-it-is/">Ask an expert: Why is CSS…the way it is?</a></li>
+      </ul>  
+    </div>
+    <div class="o-controls">
+      <a href="#slide24">Back</a>
+      <a href="#slide26">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide26">
+    <div class="o-content">
+      <h1><span class="emoji" role="img" tabindex="0" aria-label="pile of poo">&#x1F4A9;</span> kthxbye <span class="emoji" role="img" tabindex="0" aria-label="pile of poo">&#x1F4A9;</span></h1>
+    </div>
+    <div class="o-controls">
+      <a href="#slide25">Back</a>
+    </div>
+  </section>
+
+  <section id="start" class="start">
+    <a href="#slide1">Start</a>
+  </section>
+
+  <aside class="twitter">@hj_chen</aside>
+</body>
+
+</html>
+
+
+
+
