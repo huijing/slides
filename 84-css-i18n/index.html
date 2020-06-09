@@ -107,7 +107,7 @@
             <p><small>Source: <a href="https://www.w3.org/International/questions/qa-lang-why">Why use the language attribute?</a></small></p>
             <aside class="notes">
               <p>Browsers are pretty smart and they come with a lot of sensible defaults. I'm not going to go into the parts about accessibility and using semantic HTML, those are amazing in their own right. But if the browser knows what language your content is in, it gives you lots more useful stuff out the box.</p>
-              <p>We'll cover some of the language-specific behaviours. I'll show what I mean by default font selection as well. But seriously, look at all this good stuff.</p>
+              <p>We'll cover some of the browser's language-specific behaviours. I'll show what I mean by default font selection and generally talk about CSS. But seriously, look at all this good stuff.</p>
             </aside>
           </section>
 
@@ -117,7 +117,7 @@
             <pre style="width:max-content"><code>&lt;html lang="zh"&gt;</code></pre>
             <p>If you have mixed language content on your page:</p>
             <pre style="width:max-content"><code>&lt;p&gt;The fourth animal in the Chinese Zodiac is Rabbit (&lt;span lang="zh"&gt;兔子&lt;/span&gt;).&lt;/p&gt;</code></pre>
-            <aside class="notes">Set the overall default language on the HTML element, because if you simply set it on the body element, the stuff in the head doesn't get it. Language code information is inherited according to the following order of precedence: a <code>lang</code> attribute on the element itself, if not, then the closest parent with a <code>lang</code> attribute set, if not, then the HTTP "Content-Language" header, if not, then user agent default values and user preferences.</aside>
+            <aside class="notes">Set the overall default language on the HTML element, because if you simply set it on the body element, the stuff in the head doesn't get it. Language code information is inherited according to the following order of precedence: a <code>lang</code> attribute on the element itself, if not, then the closest parent with a <code>lang</code> attribute set, if not, then the HTTP "Content-Language" header, if not, then user agent default values and user preferences. Once we've got that settled, let's look at how to make use of this attribute.</aside>
           </section>
         </section>
 
@@ -189,7 +189,7 @@
             </div>
             <small>Image source: <a href="https://graphicdesign.stackexchange.com/a/76034/20360">Cai</a></small>
             <aside class="notes">
-              <p>There are numerous CSS properties now available to us which let us fine-tune the presentation of our content, from the font level all the way to the layout level. An example for a font-level CSS would be the property that deals with faux fonts.</p>
+              <p>There are numerous CSS properties now available to us which let us fine-tune the presentation of our content, from the font level all the way to the layout level. So there's going to be quite a bit of CSS for typography coming up. An example for a font-level CSS would be the property that deals with faux fonts.</p>
               <p>When you use a typeface that does not include styles for bold or italics, the browser will try to artificially recreate these typefaces by modifying the glyphs from the available typeface and the end results are not very aesthetically pleasing.</p>
             </aside>
           </section>
@@ -222,7 +222,7 @@
             </div>
             <aside class="notes">
               <p>The <code>lang</code> attribute also impacts default font selection. Chinese fonts are so huge that most of us don't use them as web fonts for body text. We usually fallback to system fonts. For this presentation, I did not explicitly specify any Chinese fonts, and instead, let the browser pick the appropriate font.</p>
-              <p>I'm guessing most of the audience do not read Chinese, but there are two variants of the Chinese script, simplified and traditional. There are glyphs that look exactly the same for both, there are glyphs that are completely different and there are also stylistic differences for certain glyphs that are essentially the same.</p>
+              <p>I'm guessing most of the audience do not read Chinese, but there are two variants of the Chinese script, simplified and traditional. There are glyphs that look exactly the same for both, there are glyphs that are completely different and there are glyphs that are essentially the same but with stylistic differences.</p>
               <p>Like this particular glyph here, I've made it large so hopefully you can spot the differences in the styles. When I set the language to traditional Chinese, the browser knows to pick the traditional Chinese typeface instead of the simplified typeface.</p>
             </aside>
           </section>
@@ -317,7 +317,7 @@
 }</style></div>
             </div>
             <aside class="notes">
-              <p>Here we have 5 inline boxes. For now there is enough room so all 5 boxes fit into a single line box. But when there isn't enough room, inline boxes will be broken across line boxes. The break is known as a line break.</p>
+              <p>Okay, this example is to lay the ground work for something else I want to cover. But bear with me. Here we have 5 inline boxes. For now there is enough room so all 5 boxes fit into a single line box. But when there isn't enough room, inline boxes will be broken across line boxes. The break is known as a line break.</p>
               <p>These particular lines were broken due to content wrapping, hence known as a soft wrap break. If wrapping is enabled, the user agent has to minimise the amount of content overflowing a line by wrapping the line at a soft wrap opportunity if one exists.</p>
               <p>For most writing systems, soft wrap opportunities occur at word boundaries, where spaces or punctuation are used to explicitly separate words.</p>
             </aside>
@@ -345,8 +345,8 @@
             </table>
             <p><a href="https://youtu.be/r5PLrAoyhv0">Line breaking</a> by Florian Rivoal @ dotCSS</p>
             <aside class="notes">
-              <p>If you're thinking, breaking lines, how hard can that be? Well, there is a lot of nuance word breaking works differently depending on the language we're typesetting for.</p>
-              <p>For example, English wraps at spaces. But for Japanese or Chinese characters, the break is per character, usually but not always. Becauese line breaks are prohibited before certain punctuation marks. </p>
+              <p>Line breaking is really not that straightforward. There is a lot of nuance involved because word breaking works differently depending on the language we're typesetting for.</p>
+              <p>For example, English wraps at spaces. But for Japanese or Chinese characters, the break is per character, but on occasion it's not, because line breaks are prohibited before certain punctuation marks. </p>
               <p>A number of Southeast Asian scripts are written without spaces between words, then text is wrapped at syllable boundaries in addition to word boundaries. We could keep going here.</p>
               <p>There is interplay between the 4 properties here to provide developers more precise control over line breaking, because some rules take precedence over others if both are present, or some only take affect if <code>white-space</code> allows wrapping, for example.</p>
             </aside>
@@ -377,7 +377,7 @@
               </figure>
             </div>
             <aside class="notes">
-              <p>The default value for writing-mode is <code>horizontal-tb</code>. Perfectly logical because the web was born at CERN, where the official languages are English and French. Moreover, most of web technologies were pioneered in English-speaking countries anyway (I think).</p>
+              <p>Okay, let's move a level up to layout. The default value for writing-mode is <code>horizontal-tb</code>. Perfectly logical because the web was born at CERN, where the official languages are English and French. Moreover, most of web technologies were pioneered in English-speaking countries anyway (I think).</p>
               <p>The traditional Mongolian script runs vertically from left-to-right, while East Asian languages like Japanese, Chinese and Korean, when written vertically, runs from right-to-left. The writing mode properties that let you do that are <code>vertical-lr</code> and <code>vertical-rl</code> respectively.</p>
               <p>There are also the values of <code>sideways-lr</code> and <code>sideways-rl</code>, which rotate the glyphs sideways. Every Unicode character has a vertical orientation property that informs rendering engines how the glyph should be oriented by default.</p>
             </aside>
@@ -548,7 +548,7 @@
 }</style></div>
             </div>
             <aside class="notes">
-              <p>Another thing that CSS can do on the internationalisation front is with lists and counters. Numeral systems are writing systems for expressing numbers, and even though the most commonly used system of numerals is the Hindu-Arabic numeral system (0, 1, 2, 3 and so on), CSS allows us to display ordered lists with other numeral systems as well.</p>
+              <p>Another thing that CSS can do on the internationalisation front has to do with lists and counters. Numeral systems are writing systems for expressing numbers, and even though the most commonly used system of numerals is the Hindu-Arabic numeral system (0, 1, 2, 3 and so on), CSS allows us to display ordered lists with other numeral systems as well.</p>
               <p>Predefined counter styles can be used with the list-style-type property, which covers 174 numeral systems from <code>afar</code> to <code>urdu</code>. You can check out the full list at MDN.</p>
             </aside>
           </section>
@@ -619,7 +619,7 @@
             <li><a href="http://fantasai.inkedblade.net/style/discuss/vertical-text/paper">Robust Vertical Text Layout</a></li>
             <li><a href="http://www.unicode.org/reports/tr9/">Unicode Bidirectional Algorithm</a></li>
           </ul>
-          <aside class="notes">Here's a list of links and resources.</aside>
+          <aside class="notes">I'm still trying to learn more about internationalisation best practices and how CSS, especially the newer techniques, can help us build better experiences for users all around the world. These are some resources for those of you who want to learn more. Also feel free to reach out because I'd love to chat more about this topic, CSS and web development in general.</aside>
         </section>
 
         <section style="text-align:left">
