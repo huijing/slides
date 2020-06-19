@@ -65,7 +65,8 @@ pre {
   font-size: 75%;
   padding: 0.5em;
   overflow: auto;
-  max-width: 100%; }
+  max-width: 100%;
+  margin-bottom: 1em; }
 
 code {
   font-size-adjust: 0.51;
