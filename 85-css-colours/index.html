@@ -198,13 +198,11 @@
   </section>
 
   <section class="slide" id="slide16">
-    <div class="o-content">
-      <h2>The sRGB colour space</h2>
-      <p>sRGB (standard Red Green Blue) is an RGB color space created by HP and Microsoft for monitors, printers and the Web</p>
-      <p><a href="https://www.w3.org/Graphics/Color/sRGB.html">Original document: A Standard Default Color Space for the Internet - sRGB</a></p>
-      <p>Colours in CSS were first specified in RGB</p>
-      <p>Even though there were better systems, RGB was “good enough” at the time</p>
-    </div>
+    <h2><code>transparent</code></h2>
+    <p>Was there from the beginning and is the initial value of <code>background-color</code></p>
+    <p>CSS2 allowed its use in <code>border-color</code></p>
+    <p>CSS3 allowed its use in all elements that accepted a colour value</p>
+    <p>Computes to <code>rgba(0, 0, 0, 0)</code></p>
     <div class="o-controls">
       <a href="#slide15">Back</a>
       <a href="#slide17">Next</a>
@@ -212,11 +210,13 @@
   </section>
 
   <section class="slide" id="slide17">
-    <h2><code>transparent</code></h2>
-    <p>Was there from the beginning and is the initial value of <code>background-color</code></p>
-    <p>CSS2 allowed its use in <code>border-color</code></p>
-    <p>CSS3 allowed its use in all elements that accepted a colour value</p>
-    <p>Computes to <code>rgba(0, 0, 0, 0)</code></p>
+    <div class="o-content">
+      <h2>The sRGB colour space</h2>
+      <p>sRGB (standard Red Green Blue) is an RGB color space created by HP and Microsoft for monitors, printers and the Web</p>
+      <p><a href="https://www.w3.org/Graphics/Color/sRGB.html">Original document: A Standard Default Color Space for the Internet - sRGB</a></p>
+      <p>Colours in CSS were first specified in RGB</p>
+      <p>Even though there were better systems, RGB was “good enough” at the time</p>
+    </div>
     <div class="o-controls">
       <a href="#slide16">Back</a>
       <a href="#slide18">Next</a>
@@ -333,7 +333,7 @@ splash-color    := 'reddish' | 'orangish' | 'brownish' | 'yellowish' | 'greenish
   <section class="slide" id="slide25">
     <div class="o-content">
       <img style="max-width:65%;margin:auto" src="./img/hsl.jpg" alt="Diagram explaning HSL syntax">
-      <p>Hue is unitless as degrees is implicit, Saturation and Lightness are in percentages</p>
+      <p><em>Hue</em> is unitless as degrees is implicit, <em>Saturation</em> and <em>Lightness</em> are in percentages</p>
     </div>
     <div class="o-controls">
       <a href="#slide24">Back</a>
@@ -348,6 +348,7 @@ splash-color    := 'reddish' | 'orangish' | 'brownish' | 'yellowish' | 'greenish
       <p>HWB colours (hue, whiteness, blackness)</p>
       <p>Lab colours (lightness, green/red (a-axis), blue/yellow (b-axis))</p>
       <p>LCH colours (lightness, chroma, hue)</p>
+      <p><code>gray()</code> function</p>
     </div>
     <div class="o-controls">
       <a href="#slide25">Back</a>
@@ -357,11 +358,17 @@ splash-color    := 'reddish' | 'orangish' | 'brownish' | 'yellowish' | 'greenish
 
   <section class="slide" id="slide27">
     <div class="o-content">
-      <h2>Moar colour functions</h2>
-      <p><a href="https://www.w3.org/TR/css-color-5/">CSS Color Module Level 5</a></p>
-      <p><code>color-mix()</code></p>
-      <p><code>color-contrast()</code></p>
-      <p><code>color-adjust()</code></p>
+      <h2>Badly-drawn visualisations</h2>
+      <div class="l-double">
+        <figure>
+        <img src="./img/lab.png" style="height:50vh;justify-self:center" alt="Diagram showing the 3 axes, L, a, b">
+        <figcaption>Lab axes</figcaption>
+      </figure>
+        <figure>
+        <img src="./img/lch.png" style="height:50vh;justify-self:center" alt="Diagram showing the L axis and hue angle">
+        <figcaption>L and hue</figcaption>
+      </figure>
+      </div>
     </div>
     <div class="o-controls">
       <a href="#slide26">Back</a>
@@ -370,6 +377,24 @@ splash-color    := 'reddish' | 'orangish' | 'brownish' | 'yellowish' | 'greenish
   </section>
 
   <section class="slide" id="slide28">
+    <div class="o-content">
+      <h2>Moar colour functions</h2>
+      <p><a href="https://www.w3.org/TR/css-color-5/">CSS Color Module Level 5</a></p>
+      <p><code>color-mix()</code></p>
+      <pre class="language-css"><code>mix-color(peru lightgoldenrod 40%)</code></pre>
+      <p><code>color-contrast()</code></p>
+      <pre class="language-css"><code>color-contrast(purple, chartreuse, firebrick, ghostwhite)
+/* ghostwhite wins with a ratio of 8.9 */</code></pre>
+      <p><code>color-adjust()</code></p>
+      <pre class="language-css"><code>color-adjust(darkslategrey lightness(-20%));</code></pre>
+    </div>
+    <div class="o-controls">
+      <a href="#slide27">Back</a>
+      <a href="#slide29">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide29">
     <div class="o-content">
       <h1>Bunch of articles on colour…</h1>
       <ul>
@@ -382,17 +407,17 @@ splash-color    := 'reddish' | 'orangish' | 'brownish' | 'yellowish' | 'greenish
       </ul>  
     </div>
     <div class="o-controls">
-      <a href="#slide27">Back</a>
-      <a href="#slide29">Next</a>
+      <a href="#slide28">Back</a>
+      <a href="#slide30">Next</a>
     </div>
   </section>
 
-  <section class="slide" id="slide29">
+  <section class="slide" id="slide30">
     <div class="o-content">
       <h1><span class="emoji" role="img" tabindex="0" aria-label="pile of poo">&#x1F4A9;</span> kthxbye <span class="emoji" role="img" tabindex="0" aria-label="pile of poo">&#x1F4A9;</span></h1>
     </div>
     <div class="o-controls">
-      <a href="#slide28">Back</a>
+      <a href="#slide29">Back</a>
     </div>
   </section>
 
@@ -401,6 +426,7 @@ splash-color    := 'reddish' | 'orangish' | 'brownish' | 'yellowish' | 'greenish
   </section>
 
   <aside class="twitter">@hj_chen</aside>
+  <img class="jelly" src="img/jellypride.png" alt="Jelly blob holding a pride heart">
 </body>
 
 </html>

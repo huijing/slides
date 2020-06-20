@@ -214,6 +214,14 @@ span[role=img][aria-label]:hover::after {
   top: 0;
   left: 0; }
 
+.jelly {
+  height: 64px;
+  width: 64px;
+  position: fixed;
+  bottom: 0.5em;
+  left: 0.5em;
+  z-index: 2; }
+
 .twitter {
   position: fixed;
   top: 0.5em;
