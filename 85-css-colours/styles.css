@@ -36,7 +36,8 @@ section {
           justify-content: center; }
 
 img,
-video {
+video,
+iframe {
   max-width: 100%; }
 
 h1 {
