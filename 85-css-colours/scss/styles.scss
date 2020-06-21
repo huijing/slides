@@ -107,7 +107,6 @@ blockquote {
 
 .o-content {
   width: 100%;
-  max-height: 100vh;
   margin-bottom: 2rem;
   flex: 1;
   display: flex;
@@ -182,6 +181,10 @@ span[role=img][aria-label]:hover::after {
 
   ul {
     width: max-content;
+  }
+
+  .o-content {
+    max-height: 100vh;
   }
 
   .fragment {
