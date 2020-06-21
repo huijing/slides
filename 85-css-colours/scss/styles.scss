@@ -71,6 +71,8 @@ pre {
   overflow: auto;
   max-width: 100%;
   margin-bottom: 1em;
+  width: max-content;
+  max-width: 100%;
 }
 
 code {
@@ -180,10 +182,6 @@ span[role=img][aria-label]:hover::after {
 
   ul {
     width: max-content;
-  }
-
-  pre {
-    max-width: max-content;
   }
 
   .fragment {

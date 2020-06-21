@@ -67,7 +67,11 @@ pre {
   padding: 0.5em;
   overflow: auto;
   max-width: 100%;
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 100%; }
 
 code {
   font-size-adjust: 0.51;
@@ -168,10 +172,6 @@ span[role=img][aria-label]:hover::after {
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content; }
-  pre {
-    max-width: -webkit-max-content;
-    max-width: -moz-max-content;
-    max-width: max-content; }
   .fragment {
     opacity: 0; }
   .l-double {
