@@ -98,12 +98,14 @@
   </section>
 
   <section class="slide" id="slide8">
-    <h2>Colour Gamut</h2>
-    <p>The portion of the colour space that can be represented or reproduced</p>
-    <p>Generally specified on the hue-saturation plane</p>
-    <p>When a colour <strong>cannot</strong> be expressed within a particular colour model, it is <em>out of gamut</em></p>
-    <p><a href="http://www.iscc-archive.org/pdf/SchroePigments2.pdf">English translation of Theorie der Pigmente von grösster Leuchtkraft</a> by Erwin Schrödinger</p>
-    <p>As of now, a device that can reproduce the entire visible colour space remains an unrealised goal within the engineering of colour displays and printing processes</p>
+    <div class="o-content">
+      <h2>Colour Gamut</h2>
+      <p>The portion of the colour space that can be represented or reproduced</p>
+      <p>Generally specified on the hue-saturation plane</p>
+      <p>When a colour <strong>cannot</strong> be expressed within a particular colour model, it is <em>out of gamut</em></p>
+      <p><a href="http://www.iscc-archive.org/pdf/SchroePigments2.pdf">English translation of Theorie der Pigmente von grösster Leuchtkraft</a> by Erwin Schrödinger</p>
+      <p>As of now, a device that can reproduce the entire visible colour space remains an unrealised goal within the engineering of colour displays and printing processes</p>
+    </div>
     <div class="o-controls">
       <a href="#slide7">Back</a>
       <a href="#slide9">Next</a>
@@ -111,10 +113,12 @@
   </section>
 
   <section class="slide" id="slide9">
-    <h2>Chromaticity</h2>
-    <p>An objective specification of the quality of a colour regardless of its luminance</p>
-    <p>Consists of two independent parameters, often specified as hue (h) and colourfulness (s)</p>
-    <p>Allows for representation via polar coordinates with respect to a white point of a display</p>
+    <div class="o-content">
+      <h2>Chromaticity</h2>
+      <p>An objective specification of the quality of a colour regardless of its luminance</p>
+      <p>Consists of two independent parameters, often specified as hue (h) and colourfulness (s)</p>
+      <p>Allows for representation via polar coordinates with respect to a white point of a display</p>
+    </div>
     <div class="o-controls">
       <a href="#slide8">Back</a>
       <a href="#slide10">Next</a>
@@ -198,11 +202,13 @@
   </section>
 
   <section class="slide" id="slide16">
-    <h2><code>transparent</code></h2>
-    <p>Was there from the beginning and is the initial value of <code>background-color</code></p>
-    <p>CSS2 allowed its use in <code>border-color</code></p>
-    <p>CSS3 allowed its use in all elements that accepted a colour value</p>
-    <p>Computes to <code>rgba(0, 0, 0, 0)</code></p>
+    <div class="o-content">
+      <h2><code>transparent</code></h2>
+      <p>Was there from the beginning and is the initial value of <code>background-color</code></p>
+      <p>CSS2 allowed its use in <code>border-color</code></p>
+      <p>CSS3 allowed its use in all elements that accepted a colour value</p>
+      <p>Computes to <code>rgba(0, 0, 0, 0)</code></p>
+    </div>
     <div class="o-controls">
       <a href="#slide15">Back</a>
       <a href="#slide17">Next</a>
@@ -224,12 +230,14 @@
   </section>
 
   <section class="slide" id="slide18">
-    <h2>Colour Naming System (CNS)</h2>
-    <p>A systematic notation for named colours for computer applications using English terms created by Berk, Brownston and Kaufman in 1982</p>
-    <p>Uses ten colour names: red, orange, brown, yellow, green, blue, purple, white, grey and black</p>
-    <p>Base colour names can be combined or prefixed with modifiers</p>
-    <p>5 lightness terms, 4 saturation terms and 31 hue terms combine to produce 620 chromatic colour names</p>
-    <p>Not meant for computation, rather, a mechanism for naming colour literals and constants</p>
+    <div class="o-content">
+      <h2>Colour Naming System (CNS)</h2>
+      <p>A systematic notation for named colours for computer applications using English terms created by Berk, Brownston and Kaufman in 1982</p>
+      <p>Uses ten colour names: red, orange, brown, yellow, green, blue, purple, white, grey and black</p>
+      <p>Base colour names can be combined or prefixed with modifiers</p>
+      <p>5 lightness terms, 4 saturation terms and 31 hue terms combine to produce 620 chromatic colour names</p>
+      <p>Not meant for computation, rather, a mechanism for naming colour literals and constants</p>
+    </div>
     <div class="o-controls">
       <a href="#slide17">Back</a>
       <a href="#slide19">Next</a>
@@ -237,8 +245,9 @@
   </section>
 
   <section class="slide" id="slide19">
-    <h2>CNS expressed in Backus-Naur form</h2>
-    <pre class="language-markup"><code>named-color     := gray-color | chromatic-color
+    <div class="o-content">
+      <h2>CNS expressed in Backus-Naur form</h2>
+      <pre class="language-markup"><code>named-color     := gray-color | chromatic-color
 
 gray-color      := 'black' | 'white' | lightness gray
 gray            := 'gray' | 'grey'
@@ -251,6 +260,7 @@ lightness       := 'moderate' | 'very'? [ 'dark' | 'light' ]
 hue             := splash-color? base-color | base-color '-' base-color
 base-color      := 'red' | 'orange' | 'brown' | 'yellow' | 'green' | 'blue' | 'purple'
 splash-color    := 'reddish' | 'orangish' | 'brownish' | 'yellowish' | 'greenish' | 'bluish' | 'purplish'</code></pre>
+    </div>
     <div class="o-controls">
       <a href="#slide18">Back</a>
       <a href="#slide20">Next</a>
@@ -258,11 +268,13 @@ splash-color    := 'reddish' | 'orangish' | 'brownish' | 'yellowish' | 'greenish
   </section>
 
   <section class="slide" id="slide20">
+    <div class="o-content">
     <h2>Named colours</h2>
-    <p>Based on the X11 colours</p>
-    <p>Supported in Mosaic and Netscape Navigator because both ran in X Windows System</p>
-    <p>Chris Lilley lost the fight to use names from the Colour Naming System (CNS)</p>
-    <p>The path of least resistance was chosen ¯\_(ツ)_/¯</p>
+      <p>Based on the X11 colours</p>
+      <p>Supported in Mosaic and Netscape Navigator because both ran in X Windows System</p>
+      <p>Chris Lilley lost the fight to use names from the Colour Naming System (CNS)</p>
+      <p>The path of least resistance was chosen ¯\_(ツ)_/¯</p>
+    </div>
     <div class="o-controls">
       <a href="#slide19">Back</a>
       <a href="#slide21">Next</a>
