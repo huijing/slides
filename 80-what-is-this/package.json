@@ -1,24 +1,24 @@
 {
-  "name": "talk-css",
+  "name": "simple-deck",
   "version": "1.0.0",
-  "description": "Introduction slides for Talk.CSS",
+  "description": "Simple web-based slides",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "SingaporeCSS <singaporecss@outlook.com>",
+  "author": "Chen Hui Jing <huijing@hey.com>",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@babel/preset-env": "^7.8.4",
-    "@babel/register": "^7.8.3",
+    "@babel/core": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
+    "@babel/register": "^7.10.3",
     "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
-    "gulp-sass": "^4.0.2",
-    "node-sass": "^4.13.1"
+    "gulp-sass": "^4.1.0",
+    "node-sass": "^4.14.1"
   },
   "babel": {
     "presets": [
@@ -27,6 +27,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/SingaporeCSS/slides.git"
+    "url": "git@github.com:huijing/slides.git"
   }
 }
