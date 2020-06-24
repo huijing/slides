@@ -167,3 +167,5 @@
 83. [DevTools, the CSS advocate in your browser](https://devtools-frontconf.herokuapp.com/devtools) [📹 [video](https://youtu.be/waYrmyVGvio)]
 
 84. [CSS for i18n](https://huijing.github.io/slides/84-css-i18n)
+
+85. [Colours in CSS](https://huijing.github.io/slides/85-css-colours)
