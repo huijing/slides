@@ -1,5 +1,11 @@
 @charset 'utf-8';
 
+:root {
+  --r: 255;
+  --g: 255; 
+  --b: 255;
+}
+
 $base-font: sans-serif;
 $code-font: monospace;
 
@@ -139,6 +145,87 @@ blockquote {
   }
 }
 
+.output {
+  font-family: $code-font;
+  font-size: calc(0.5em + 1vmin);
+  line-height: 1.2;
+}
+
+.hex-code,
+.hex-values {
+  display: grid;
+  grid-template-columns: repeat(7, 4ch);
+}
+
+.hex-code {
+  span {
+    font-size: 3em;
+    color: rgba(0, 0, 0, 1);
+    padding: 0 0.5rem;
+
+    &:nth-child(1) {
+      color: rgba(0, 0, 0, 0.15);
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      color: rgb(var(--r), 0, 0);    
+    }
+
+    &:nth-child(4),
+    &:nth-child(5) {
+      color: rgb(0, var(--g), 0);    
+    }
+
+    &:nth-child(6),
+    &:nth-child(7) {
+      color: rgb(0, 0, var(--b));    
+    }
+  }
+}
+
+@supports (grid-template-columns: subgrid) {
+  .output {
+    display: grid;
+    grid-template-columns: repeat(7, 4ch);
+  }
+
+  .hex-code,
+  .hex-values {
+    grid-template-columns: subgrid;
+    grid-column: 1 / span 7;
+  }
+}
+
+.hex-digits {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:nth-child(1) {
+    grid-column: 2;
+  }
+
+  span {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.25);
+    transition: transform 150ms ease-out;
+
+    &.active {
+      color: rgba(0, 0, 0, 1);
+      transform: scale(1.5);
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      height: 3ch;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      width: 3ch;
+    }
+  }
+}
+
 [class*='o-emoji'] {
   display: inline-block;
   vertical-align: middle;
@@ -197,6 +284,11 @@ span[role=img][aria-label]:hover::after {
     max-height: 100vh;
   }
 
+  .o-tallimg {
+    max-width: 50%;
+    margin: 0 auto 1rem;
+  }
+
   .fragment {
     opacity: 0;
   }
@@ -214,6 +306,16 @@ span[role=img][aria-label]:hover::after {
     justify-content: space-evenly;
     width: 40vw;
     margin: 0 auto;
+  }
+
+  .split-bg {
+    background-image: linear-gradient(90deg, white 0%, white 50%, black 50%, black 100%);
+
+    figure:nth-child(2) {
+      figcaption {
+        filter: invert(1);
+      }
+    }
   }
 
   // Make sections act like slides
@@ -276,6 +378,74 @@ span[role=img][aria-label]:hover::after {
   background: linear-gradient(to right, red, orange, gold, green, dodgerblue, violet);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+$r: rgb(255, 0, 0);
+$g: rgb(0, 255, 0);
+$b: rgb(0, 0, 255);
+$c: rgb(20, 253, 253);
+$m: rgb(254, 20, 254);
+$y: rgb(252, 255, 43);
+
+$colours: (r: $r, g: $g, b: $b, c: $c, m: $m, y: $y);
+
+@mixin magic {
+  @each $class, $colour in $colours {
+    &.#{$class}{
+      background: $colour;
+      @if ($colour == $r) or ($colour == $g) or ($colour == $b) {
+        mix-blend-mode: lighten;
+      } @else {
+        mix-blend-mode: darken;
+      }
+    }
+  }
+}
+
+.content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vmin;
+}
+
+.colour {
+  height: 25vmin;
+  width: 25vmin;
+  border-radius: 50%;
+  position: absolute;
+  animation-timing-function: ease-in-out;
+  animation-duration: 4500ms;
+  animation-iteration-count: infinite;
+  @include magic;
+
+  &:nth-child(1) {
+    animation-name: to-top;
+  }
+
+  &:nth-child(2) {
+    animation-name: to-left;
+  }
+
+  &:nth-child(3) {
+    animation-name: to-right;
+  }
+}
+
+@keyframes to-top {
+  0%, 100% { transform: translate(0, -38%) }
+  50% { transform: translate(0, 0) } 
+}
+
+@keyframes to-left {
+  0%, 100% { transform: translate(-50%, 50%) }
+  50% { transform: translate(0, 0) }
+}
+
+ @keyframes to-right {
+  0%, 100% { transform: translate(50%, 50%) }
+  50% { transform: translate(0, 0) }
 }
 
 // CSS for Prism

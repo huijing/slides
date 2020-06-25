@@ -86,7 +86,7 @@
   <section class="slide" id="slide7">
     <div class="o-content">
       <h2>Trichromat spectral sensitivity</h2>
-      <img style="max-height:60%;margin:0 auto 1rem" src="./img/trichromat.png" alt="Diagram showing visible light spectrum">
+      <img class="o-tallimg" src="./img/trichromat.png" alt="Diagram showing visible light spectrum">
       <p>General diagram, individual profiles will vary</p>
     </div>
     <div class="o-controls">
@@ -150,16 +150,24 @@
     </div>
   </section>
 
-  <section class="slide" id="slide12">
+  <section class="slide split-bg" id="slide12">
     <div class="o-content">
       <div class="l-double" style="gap:1em">
         <figure>
-          <img src="./img/additive.svg" style="max-height:50vh" alt="Additive colours shown as 3 overlapping coloured circles">
-          <figcaption>Additive</figcaption>
+          <div class="content cmyk__content">
+            <div class="colour c"></div>
+            <div class="colour m"></div>
+            <div class="colour y"></div>
+          </div>
+          <figcaption>Subtractive</figcaption>
         </figure>
         <figure>
-          <img src="./img/subtractive.svg" style="max-height:50vh" alt="Subtractive colours shown as 3 overlapping coloured circles">
-          <figcaption>Subtractive</figcaption>
+          <div class="content rgb__content">
+            <div class="colour r"></div>
+            <div class="colour g"></div>
+            <div class="colour b"></div>
+          </div>
+          <figcaption>Additive</figcaption>
         </figure>
       </div>
     </div>
@@ -169,13 +177,9 @@
     </div>
   </section>
 
-  <section class="slide dark" id="slide13">
+  <section class="slide" id="slide13">
     <div class="o-content">
-      <h2>CMYK colour model</h2>
-      <p>For colour creation in <strong>printing</strong> and <strong>film</strong></p>
-      <p>Uses the subtractive primary colours of pigment (<span style="color:cyan">Cyan</span>, <span style="color:magenta">Magenta</span>, <span style="color:yellow">Yellow</span>, Key (black))</p>
-      <p><span style="color:magenta">Magenta</span> on the X-axis, <span style="color:cyan">Cyan</span> on the Y-axis, <span style="color:yellow">Yellow</span> on the Z-axis</p>
-      <p>Starts with white, and variable amounts of dye subtracts some colours from light leaving others, <span style="color:cyan">cyan</span> absorbs <span style="color:red">red</span>, <span style="color:magenta">magenta</span> absorbs <span style="color:lime">green</span>, <span style="color:yellow">yellow</span> absorbs <span style="color:dodgerblue">blue</span></p>
+      <img class="o-tallimg" src="./img/smpte.svg" alt="SMPTE colour bars, a common NTSC test pattern">
     </div>
     <div class="o-controls">
       <a href="#slide12">Back</a>
@@ -185,11 +189,7 @@
 
   <section class="slide" id="slide14">
     <div class="o-content">
-      <h2><span style="color:red">R</span><span style="color:green">G</span><span style="color:blue">B</span> colour model</h2>
-      <p>All light-emitting displays would use an additive colour model</p>
-      <p>RGB is device-dependent, thus an RGB value will not define the same colour across devices without some kind of colour management</p>
-      <p>A colour is expressed by indicating how much of each of the red, green, and blue is included in numerical terms</p>
-      <p>For computers, component values are stored as integer values ranging from 0 to 255, which is the range an 8-bit byte can offer</p> 
+      <img class="o-tallimg" src="./img/tv-test.jpg" alt="TV3 using PM5544, a common PAL test pattern">
     </div>
     <div class="o-controls">
       <a href="#slide13">Back</a>
@@ -197,14 +197,13 @@
     </div>
   </section>
 
-  <section class="slide" id="slide15">
+  <section class="slide dark" id="slide15">
     <div class="o-content">
-      <h2>Colours in CSS1</h2>
-      <p><a href="https://www.w3.org/TR/REC-CSS1-961217#color-and-background-properties">5.3 Color and background properties</a></p>
-      <p><code>color</code> to describe the text colour of an element</p>
-      <p><code>background-color</code> to describe the background colour of an element</p>
-      <p>Colour can either be a keyword or a numerical RGB specification</p>
-      <p>Hex codes are simply RGB colours in the hexadecimal notation</p>
+      <h2>CMYK colour model</h2>
+      <p>For colour creation in <strong>printing</strong> and <strong>film</strong></p>
+      <p>Uses the subtractive primary colours of pigment (<span style="color:cyan">Cyan</span>, <span style="color:magenta">Magenta</span>, <span style="color:yellow">Yellow</span>, Key (black))</p>
+      <p><span style="color:magenta">Magenta</span> on the X-axis, <span style="color:cyan">Cyan</span> on the Y-axis, <span style="color:yellow">Yellow</span> on the Z-axis</p>
+      <p>Starts with white, and variable amounts of dye subtracts some colours from light leaving others, <span style="color:cyan">cyan</span> absorbs <span style="color:red">red</span>, <span style="color:magenta">magenta</span> absorbs <span style="color:lime">green</span>, <span style="color:yellow">yellow</span> absorbs <span style="color:dodgerblue">blue</span></p>
     </div>
     <div class="o-controls">
       <a href="#slide14">Back</a>
@@ -214,7 +213,11 @@
 
   <section class="slide" id="slide16">
     <div class="o-content">
-      <img style="max-width:60%;margin:auto" src="./img/hexcode.png" alt="Diagram showing how hex codes represent RGB values in hexadecimal">
+      <h2><span style="color:red">R</span><span style="color:green">G</span><span style="color:blue">B</span> colour model</h2>
+      <p>All light-emitting displays would use an additive colour model</p>
+      <p>RGB is device-dependent, thus an RGB value will not define the same colour across devices without some kind of colour management</p>
+      <p>A colour is expressed by indicating how much of each of the red, green, and blue is included in numerical terms</p>
+      <p>For computers, component values are stored as integer values ranging from 0 to 255, which is the range an 8-bit byte can offer</p> 
     </div>
     <div class="o-controls">
       <a href="#slide15">Back</a>
@@ -224,8 +227,12 @@
 
   <section class="slide" id="slide17">
     <div class="o-content">
-      <iframe width=800 height=450 style="margin:1em auto" src="https://www.youtube.com/embed/eqZqx6lRPe0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <p>David DeSandro, dotCSS 2018</p>
+      <h2>Colours in CSS1</h2>
+      <p><a href="https://www.w3.org/TR/REC-CSS1-961217#color-and-background-properties">5.3 Color and background properties</a></p>
+      <p><code>color</code> to describe the text colour of an element</p>
+      <p><code>background-color</code> to describe the background colour of an element</p>
+      <p>Colour can either be a keyword or a numerical RGB specification</p>
+      <p>Hex codes are simply RGB colours in the hexadecimal notation</p>
     </div>
     <div class="o-controls">
       <a href="#slide16">Back</a>
@@ -235,11 +242,7 @@
 
   <section class="slide" id="slide18">
     <div class="o-content">
-      <h2><code>transparent</code></h2>
-      <p>Was there from the beginning and is the initial value of <code>background-color</code></p>
-      <p>CSS2 allowed its use in <code>border-color</code></p>
-      <p>CSS3 allowed its use in all elements that accepted a colour value</p>
-      <p>Computes to <code>rgba(0, 0, 0, 0)</code></p>
+      <img style="max-width:60%;margin:auto" src="./img/hexcode.png" alt="Diagram showing how hex codes represent RGB values in hexadecimal">
     </div>
     <div class="o-controls">
       <a href="#slide17">Back</a>
@@ -248,12 +251,27 @@
   </section>
 
   <section class="slide" id="slide19">
-    <div class="o-content">
-      <h2>The sRGB colour space</h2>
-      <p>sRGB (standard Red Green Blue) is an RGB color space created by HP and Microsoft for monitors, printers and the Web</p>
-      <p><a href="https://www.w3.org/Graphics/Color/sRGB.html">Original document: A Standard Default Color Space for the Internet - sRGB</a></p>
-      <p>Colours in CSS were first specified in RGB</p>
-      <p>Even though there were better systems, RGB was “good enough” at the time</p>
+    <div class="o-content" style="align-items:center">
+      <input type="color" value="#ffffff" id="colour">
+      <div class="output">
+        <p id="hexCode" class="hex-code">
+          <span>#</span><span>f</span><span>f</span><span>f</span><span>f</span><span>f</span><span>f</span>
+        </p>
+        <div id="hexValues" class="hex-values">
+          <div class="hex-digits" data-digit="1"><span class="value" data-value="f">f</span><span class="value" data-value="e">e</span><span class="value" data-value="d">d</span><span class="value" data-value="c">c</span><span class="value" data-value="b">b</span><span class="value" data-value="a">a</span><span class="value" data-value="9">9</span><span class="value" data-value="8">8</span><span class="value" data-value="7">7</span><span class="value" data-value="6">6</span><span class="value" data-value="5">5</span><span class="value" data-value="4">4</span><span class="value" data-value="3">3</span><span class="value" data-value="2">2</span><span class="value" data-value="1">1</span><span class="value" data-value="0">0</span>
+          </div>
+          <div class="hex-digits" data-digit="2"><span class="value" data-value="f">f</span><span class="value" data-value="e">e</span><span class="value" data-value="d">d</span><span class="value" data-value="c">c</span><span class="value" data-value="b">b</span><span class="value" data-value="a">a</span><span class="value" data-value="9">9</span><span class="value" data-value="8">8</span><span class="value" data-value="7">7</span><span class="value" data-value="6">6</span><span class="value" data-value="5">5</span><span class="value" data-value="4">4</span><span class="value" data-value="3">3</span><span class="value" data-value="2">2</span><span class="value" data-value="1">1</span><span class="value" data-value="0">0</span>
+          </div>
+          <div class="hex-digits" data-digit="3"><span class="value" data-value="f">f</span><span class="value" data-value="e">e</span><span class="value" data-value="d">d</span><span class="value" data-value="c">c</span><span class="value" data-value="b">b</span><span class="value" data-value="a">a</span><span class="value" data-value="9">9</span><span class="value" data-value="8">8</span><span class="value" data-value="7">7</span><span class="value" data-value="6">6</span><span class="value" data-value="5">5</span><span class="value" data-value="4">4</span><span class="value" data-value="3">3</span><span class="value" data-value="2">2</span><span class="value" data-value="1">1</span><span class="value" data-value="0">0</span>
+          </div>
+          <div class="hex-digits" data-digit="4"><span class="value" data-value="f">f</span><span class="value" data-value="e">e</span><span class="value" data-value="d">d</span><span class="value" data-value="c">c</span><span class="value" data-value="b">b</span><span class="value" data-value="a">a</span><span class="value" data-value="9">9</span><span class="value" data-value="8">8</span><span class="value" data-value="7">7</span><span class="value" data-value="6">6</span><span class="value" data-value="5">5</span><span class="value" data-value="4">4</span><span class="value" data-value="3">3</span><span class="value" data-value="2">2</span><span class="value" data-value="1">1</span><span class="value" data-value="0">0</span>
+          </div>
+          <div class="hex-digits" data-digit="5"><span class="value" data-value="f">f</span><span class="value" data-value="e">e</span><span class="value" data-value="d">d</span><span class="value" data-value="c">c</span><span class="value" data-value="b">b</span><span class="value" data-value="a">a</span><span class="value" data-value="9">9</span><span class="value" data-value="8">8</span><span class="value" data-value="7">7</span><span class="value" data-value="6">6</span><span class="value" data-value="5">5</span><span class="value" data-value="4">4</span><span class="value" data-value="3">3</span><span class="value" data-value="2">2</span><span class="value" data-value="1">1</span><span class="value" data-value="0">0</span>
+          </div>
+          <div class="hex-digits" data-digit="6"><span class="value" data-value="f">f</span><span class="value" data-value="e">e</span><span class="value" data-value="d">d</span><span class="value" data-value="c">c</span><span class="value" data-value="b">b</span><span class="value" data-value="a">a</span><span class="value" data-value="9">9</span><span class="value" data-value="8">8</span><span class="value" data-value="7">7</span><span class="value" data-value="6">6</span><span class="value" data-value="5">5</span><span class="value" data-value="4">4</span><span class="value" data-value="3">3</span><span class="value" data-value="2">2</span><span class="value" data-value="1">1</span><span class="value" data-value="0">0</span>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="o-controls">
       <a href="#slide18">Back</a>
@@ -263,12 +281,8 @@
 
   <section class="slide" id="slide20">
     <div class="o-content">
-      <h2>Colour Naming System (CNS)</h2>
-      <p>A systematic notation for named colours for computer applications using English terms created by Berk, Brownston and Kaufman in 1982</p>
-      <p>Uses ten colour names: red, orange, brown, yellow, green, blue, purple, white, grey and black</p>
-      <p>Base colour names can be combined or prefixed with modifiers</p>
-      <p>5 lightness terms, 4 saturation terms and 31 hue terms combine to produce 620 chromatic colour names</p>
-      <p>Not meant for computation, rather, a mechanism for naming colour literals and constants</p>
+      <iframe width=800 height=450 style="margin:1em auto" src="https://www.youtube.com/embed/eqZqx6lRPe0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <p>David DeSandro, dotCSS 2018</p>
     </div>
     <div class="o-controls">
       <a href="#slide19">Back</a>
@@ -277,6 +291,49 @@
   </section>
 
   <section class="slide" id="slide21">
+    <div class="o-content">
+      <h2><code>transparent</code></h2>
+      <p>Was there from the beginning and is the initial value of <code>background-color</code></p>
+      <p>CSS2 allowed its use in <code>border-color</code></p>
+      <p>CSS3 allowed its use in all elements that accepted a colour value</p>
+      <p>Computes to <code>rgba(0, 0, 0, 0)</code></p>
+    </div>
+    <div class="o-controls">
+      <a href="#slide20">Back</a>
+      <a href="#slide22">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide22">
+    <div class="o-content">
+      <h2>The sRGB colour space</h2>
+      <p>sRGB (standard Red Green Blue) is an RGB color space created by HP and Microsoft for monitors, printers and the Web</p>
+      <p><a href="https://www.w3.org/Graphics/Color/sRGB.html">Original document: A Standard Default Color Space for the Internet - sRGB</a></p>
+      <p>Colours in CSS were first specified in RGB</p>
+      <p>Even though there were better systems, RGB was “good enough” at the time</p>
+    </div>
+    <div class="o-controls">
+      <a href="#slide21">Back</a>
+      <a href="#slide23">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide23">
+    <div class="o-content">
+      <h2>Colour Naming System (CNS)</h2>
+      <p>A systematic notation for named colours for computer applications using English terms created by Berk, Brownston and Kaufman in 1982</p>
+      <p>Uses ten colour names: red, orange, brown, yellow, green, blue, purple, white, grey and black</p>
+      <p>Base colour names can be combined or prefixed with modifiers</p>
+      <p>5 lightness terms, 4 saturation terms and 31 hue terms combine to produce 620 chromatic colour names</p>
+      <p>Not meant for computation, rather, a mechanism for naming colour literals and constants</p>
+    </div>
+    <div class="o-controls">
+      <a href="#slide22">Back</a>
+      <a href="#slide24">Next</a>
+    </div>
+  </section>
+
+  <section class="slide" id="slide24">
     <div class="o-content">
       <h2>CNS expressed in Backus-Naur form</h2>
       <pre class="language-markup"><code>named-color     := gray-color | chromatic-color
@@ -294,12 +351,12 @@ base-color      := 'red' | 'orange' | 'brown' | 'yellow' | 'green' | 'blue' | 'p
 splash-color    := 'reddish' | 'orangish' | 'brownish' | 'yellowish' | 'greenish' | 'bluish' | 'purplish'</code></pre>
     </div>
     <div class="o-controls">
-      <a href="#slide20">Back</a>
-      <a href="#slide22">Next</a>
+      <a href="#slide23">Back</a>
+      <a href="#slide25">Next</a>
     </div>
   </section>
 
-  <section class="slide" id="slide22">
+  <section class="slide" id="slide25">
     <div class="o-content">
     <h2>Named colours</h2>
       <p>Based on the X11 colours</p>
@@ -308,36 +365,36 @@ splash-color    := 'reddish' | 'orangish' | 'brownish' | 'yellowish' | 'greenish
       <p>The path of least resistance was chosen ¯\_(ツ)_/¯</p>
     </div>
     <div class="o-controls">
-      <a href="#slide21">Back</a>
-      <a href="#slide23">Next</a>
+      <a href="#slide24">Back</a>
+      <a href="#slide26">Next</a>
     </div>
   </section>
 
-  <section class="slide" id="slide23">
+  <section class="slide" id="slide26">
     <div class="o-content">
       <h2>Colour wheels</h2>
       <p>An abstract illustrative organisation of colour hues around a circle to show the relationships between them</p>
       <img style="align-self:center" src="./img/colourwheels.jpg" alt="Colour wheel diagrams from pre-19th century and earlier">
     </div>
     <div class="o-controls">
-      <a href="#slide22">Back</a>
-      <a href="#slide24">Next</a>
+      <a href="#slide25">Back</a>
+      <a href="#slide27">Next</a>
     </div>
   </section>
 
-  <section class="slide" id="slide24">
+  <section class="slide" id="slide27">
     <div class="o-content">
       <blockquote>
         <p>When the eye sees a colour it is immediately excited and it is its nature, spontaneously and of necessity, at once to produce another, which with the original colour, comprehends the whole chromatic scale.<br><small>Johann Wolfgang von Goethe, Theory of Colours, Part VI, Completeness and Harmony</small></p>
       </blockquote>
     </div>
     <div class="o-controls">
-      <a href="#slide23">Back</a>
-      <a href="#slide25">Next</a>
+      <a href="#slide26">Back</a>
+      <a href="#slide28">Next</a>
     </div>
   </section>
 
-  <section class="slide" id="slide25">
+  <section class="slide" id="slide28">
     <div class="o-content">
       <h2>Munsell colour system</h2>
       <div class="l-double">
@@ -351,12 +408,12 @@ splash-color    := 'reddish' | 'orangish' | 'brownish' | 'yellowish' | 'greenish
       </div>
     </div>
     <div class="o-controls">
-      <a href="#slide24">Back</a>
-      <a href="#slide26">Next</a>
+      <a href="#slide27">Back</a>
+      <a href="#slide29">Next</a>
     </div>
   </section>
 
-  <section class="slide" id="slide26">
+  <section class="slide" id="slide29">
     <div class="o-content">
       <h2>CIELAB colour space</h2>
       <p>Defined by the <em>International Commission on Illumination</em> (CIE) in 1976</p>
@@ -366,12 +423,12 @@ splash-color    := 'reddish' | 'orangish' | 'brownish' | 'yellowish' | 'greenish
       <p>Needed more data per pixel to obtain the same precision as RGB or CMYK</p>
     </div>
     <div class="o-controls">
-      <a href="#slide25">Back</a>
-      <a href="#slide27">Next</a>
+      <a href="#slide28">Back</a>
+      <a href="#slide30">Next</a>
     </div>
   </section>
 
-  <section class="slide" id="slide27">
+  <section class="slide" id="slide30">
     <div class="o-content">
       <h2>HSL colours</h2>
       <p>An alternative representation of the RGB colour model, utilising a cylindrical geometry, <strong>hue</strong> being the angular dimension, <strong>saturation</strong> along the radial direction and <strong>lightness</strong> from top to bottom</p>
@@ -381,23 +438,23 @@ splash-color    := 'reddish' | 'orangish' | 'brownish' | 'yellowish' | 'greenish
       <p>Fast forward to today, its disadvantages (non-perceptual uniformity being a key one) are flaring their head</p>
     </div>
     <div class="o-controls">
-      <a href="#slide26">Back</a>
-      <a href="#slide28">Next</a>
+      <a href="#slide29">Back</a>
+      <a href="#slide31">Next</a>
     </div>
   </section>
 
-  <section class="slide" id="slide28">
+  <section class="slide" id="slide31">
     <div class="o-content">
       <img style="max-width:65%;margin:auto" src="./img/hsl.jpg" alt="Diagram explaning HSL syntax">
       <p><em>Hue</em> is unitless as degrees is implicit, <em>Saturation</em> and <em>Lightness</em> are in percentages</p>
     </div>
     <div class="o-controls">
-      <a href="#slide27">Back</a>
-      <a href="#slide29">Next</a>
+      <a href="#slide30">Back</a>
+      <a href="#slide32">Next</a>
     </div>
   </section>
 
-  <section class="slide" id="slide29">
+  <section class="slide" id="slide32">
     <div class="o-content">
       <h2>Moar colour formats</h2>
       <p><a href="https://www.w3.org/TR/css-color-4/">CSS Color Module Level 4</a></p>
@@ -407,12 +464,12 @@ splash-color    := 'reddish' | 'orangish' | 'brownish' | 'yellowish' | 'greenish
       <p><code>gray()</code> function</p>
     </div>
     <div class="o-controls">
-      <a href="#slide28">Back</a>
-      <a href="#slide30">Next</a>
+      <a href="#slide31">Back</a>
+      <a href="#slide33">Next</a>
     </div>
   </section>
 
-  <section class="slide" id="slide30">
+  <section class="slide" id="slide33">
     <div class="o-content">
       <h2>Badly-drawn visualisations</h2>
       <div class="l-double">
@@ -427,12 +484,12 @@ splash-color    := 'reddish' | 'orangish' | 'brownish' | 'yellowish' | 'greenish
       </div>
     </div>
     <div class="o-controls">
-      <a href="#slide29">Back</a>
-      <a href="#slide31">Next</a>
+      <a href="#slide32">Back</a>
+      <a href="#slide34">Next</a>
     </div>
   </section>
 
-  <section class="slide" id="slide31">
+  <section class="slide" id="slide34">
     <div class="o-content">
       <h2>Moar colour functions</h2>
       <p><a href="https://www.w3.org/TR/css-color-5/">CSS Color Module Level 5</a></p>
@@ -445,12 +502,12 @@ splash-color    := 'reddish' | 'orangish' | 'brownish' | 'yellowish' | 'greenish
       <pre class="language-css"><code>color-adjust(darkslategrey lightness(-20%));</code></pre>
     </div>
     <div class="o-controls">
-      <a href="#slide30">Back</a>
-      <a href="#slide32">Next</a>
+      <a href="#slide33">Back</a>
+      <a href="#slide35">Next</a>
     </div>
   </section>
 
-  <section class="slide" id="slide32">
+  <section class="slide" id="slide35">
     <div class="o-content">
       <h1>Bunch of resources on colour…</h1>
       <ul>
@@ -465,17 +522,17 @@ splash-color    := 'reddish' | 'orangish' | 'brownish' | 'yellowish' | 'greenish
       </ul>  
     </div>
     <div class="o-controls">
-      <a href="#slide31">Back</a>
-      <a href="#slide33">Next</a>
+      <a href="#slide34">Back</a>
+      <a href="#slide36">Next</a>
     </div>
   </section>
 
-  <section class="slide" id="slide33">
+  <section class="slide" id="slide36">
     <div class="o-content">
       <h1><span class="emoji" role="img" tabindex="0" aria-label="pile of poo">&#x1F4A9;</span> kthxbye <span class="emoji" role="img" tabindex="0" aria-label="pile of poo">&#x1F4A9;</span></h1>
     </div>
     <div class="o-controls">
-      <a href="#slide32">Back</a>
+      <a href="#slide35">Back</a>
     </div>
   </section>
 
