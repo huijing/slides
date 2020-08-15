@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>The prismatic world of CSS colours</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/jing.css" id="theme">
+    <link rel="stylesheet" href="plugin/highlight/atom-one-light.css" id="highlight-theme">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1 class="rainbow-txt">The prismatic world of CSS colours</h1>
+          <p><small>By <a href="https://chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <p>I wrote a thing last year.</p>
+          <a href="https://chenhuijing.com/blog/where-did-css-named-colours-come-from/">Where did CSS named colours come from?</a>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <p>You should read this thing by a professional instead.</p>
+          <a href="https://increment.com/frontend/ask-an-expert-why-is-css-the-way-it-is/">Ask an expert: Why is CSS…the way it is?</a>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <blockquote>
+            <p>Whiteness and all grey Colours between white and black, may be compounded of Colours, and the whiteness of the Sun’s Light is compounded of all the primary Colours mix’d in a due Proportion.<br><small>–Sir Issac Newton, Opticks (Prop. V Theor. IV.)</small></p>
+          </blockquote>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Colour</h2>
+          <img style="max-width:60%;margin:0 auto 1rem" src="./img/spectrum.png" alt="Diagram showing visible light spectrum">
+          <p>Perceived according to the <strong>wavelength</strong> of the <strong>light</strong> which strikes the eye</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Trichromat spectral sensitivity</h2>
+          <img class="tall-img" src="./img/trichromat.png" alt="Diagram showing visible light spectrum">
+          <p>General diagram, individual profiles will vary</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Colour space</h2>
+          <p>The resultant set of colours when a colour model is associated with a precise description of how components are to be interpreted</p>
+          <p>Concept seems to have been developed by Hermann Grassmann</p>
+          <p>Grassmann published his theory of how colours mix in 1853</p>
+          <p>Colour can be represented as a convex cone in the 3D linear space</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Colour Gamut</h2>
+          <p>The portion of the colour space that can be represented or reproduced</p>
+          <p>Generally specified on the hue-saturation plane</p>
+          <p>When a colour <strong>cannot</strong> be expressed within a particular colour model, it is <em>out of gamut</em></p>
+          <p><a href="http://www.iscc-archive.org/pdf/SchroePigments2.pdf">English translation of Theorie der Pigmente von grösster Leuchtkraft</a> by Erwin Schrödinger</p>
+          <p>As of now, a device that can reproduce the entire visible colour space remains an unrealised goal within the engineering of colour displays and printing processes</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Chromaticity</h2>
+          <p>An objective specification of the quality of a colour regardless of its luminance</p>
+          <p>Consists of two independent parameters, often specified as hue (h) and colourfulness (s)</p>
+          <p>Allows for representation via polar coordinates with respect to a white point of a display</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <p>Light is either</p>
+          <div style="display:flex;align-items:center">
+            <img style="max-width:40%;margin:0 auto 1em" src="./img/emitted.png" alt="emitted"> or <img style="max-width:40%;margin:0 auto 1em" src="./img/reflected.png" alt="reflected">
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="split-bg">
+          <div class="l-double" style="gap:1em">
+            <figure>
+              <div class="content cmyk__content">
+                <div class="colour c"></div>
+                <div class="colour m"></div>
+                <div class="colour y"></div>
+              </div>
+              <figcaption>Subtractive</figcaption>
+            </figure>
+            <figure>
+              <div class="content rgb__content">
+                <div class="colour r"></div>
+                <div class="colour g"></div>
+                <div class="colour b"></div>
+              </div>
+              <figcaption>Additive</figcaption>
+            </figure>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <img class="tall-img" src="./img/smpte.svg" alt="SMPTE colour bars, a common NTSC test pattern">
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <img class="tall-img" src="./img/tv-test.jpg" alt="TV3 using PM5544, a common PAL test pattern">
+          <aside class="notes"></aside>
+        </section>
+
+        <section data-background-color="black" class="dark">
+          <h2>CMYK colour model</h2>
+          <p>For colour creation in <strong>printing</strong> and <strong>film</strong></p>
+          <p>Uses the subtractive primary colours of pigment (<span style="color:cyan">Cyan</span>, <span style="color:magenta">Magenta</span>, <span style="color:yellow">Yellow</span>, Key (black))</p>
+          <p><span style="color:magenta">Magenta</span> on the X-axis, <span style="color:cyan">Cyan</span> on the Y-axis, <span style="color:yellow">Yellow</span> on the Z-axis</p>
+          <p>Starts with white, and variable amounts of dye subtracts some colours from light leaving others, <span style="color:cyan">cyan</span> absorbs <span style="color:red">red</span>, <span style="color:magenta">magenta</span> absorbs <span style="color:lime">green</span>, <span style="color:yellow">yellow</span> absorbs <span style="color:dodgerblue">blue</span></p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2><span style="color:red">R</span><span style="color:green">G</span><span style="color:blue">B</span> colour model</h2>
+          <p>All light-emitting displays would use an additive colour model</p>
+          <p>RGB is device-dependent, thus an RGB value will not define the same colour across devices without some kind of colour management</p>
+          <p>A colour is expressed by indicating how much of each of the red, green, and blue is included in numerical terms</p>
+          <p>For computers, component values are stored as integer values ranging from 0 to 255, which is the range an 8-bit byte can offer</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Colours in CSS1</h2>
+          <p><a href="https://www.w3.org/TR/REC-CSS1-961217#color-and-background-properties">5.3 Color and background properties</a></p>
+          <p><code>color</code> to describe the text colour of an element</p>
+          <p><code>background-color</code> to describe the background colour of an element</p>
+          <p>Colour can either be a keyword or a numerical RGB specification</p>
+          <p>Hex codes are simply RGB colours in the hexadecimal notation</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+            <img style="max-width:60%;margin:auto" src="./img/hexcode.png" alt="Diagram showing how hex codes represent RGB values in hexadecimal">
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <input type="color" value="#ffffff" id="colour">
+          <div class="output">
+            <p id="hexCode" class="hex-code">
+              <span>#</span><span>f</span><span>f</span><span>f</span><span>f</span><span>f</span><span>f</span>
+            </p>
+            <div id="hexValues" class="hex-values">
+              <div class="hex-digits" data-digit="1"><span class="value" data-value="f">f</span><span class="value" data-value="e">e</span><span class="value" data-value="d">d</span><span class="value" data-value="c">c</span><span class="value" data-value="b">b</span><span class="value" data-value="a">a</span><span class="value" data-value="9">9</span><span class="value" data-value="8">8</span><span class="value" data-value="7">7</span><span class="value" data-value="6">6</span><span class="value" data-value="5">5</span><span class="value" data-value="4">4</span><span class="value" data-value="3">3</span><span class="value" data-value="2">2</span><span class="value" data-value="1">1</span><span class="value" data-value="0">0</span>
+              </div>
+              <div class="hex-digits" data-digit="2"><span class="value" data-value="f">f</span><span class="value" data-value="e">e</span><span class="value" data-value="d">d</span><span class="value" data-value="c">c</span><span class="value" data-value="b">b</span><span class="value" data-value="a">a</span><span class="value" data-value="9">9</span><span class="value" data-value="8">8</span><span class="value" data-value="7">7</span><span class="value" data-value="6">6</span><span class="value" data-value="5">5</span><span class="value" data-value="4">4</span><span class="value" data-value="3">3</span><span class="value" data-value="2">2</span><span class="value" data-value="1">1</span><span class="value" data-value="0">0</span>
+              </div>
+              <div class="hex-digits" data-digit="3"><span class="value" data-value="f">f</span><span class="value" data-value="e">e</span><span class="value" data-value="d">d</span><span class="value" data-value="c">c</span><span class="value" data-value="b">b</span><span class="value" data-value="a">a</span><span class="value" data-value="9">9</span><span class="value" data-value="8">8</span><span class="value" data-value="7">7</span><span class="value" data-value="6">6</span><span class="value" data-value="5">5</span><span class="value" data-value="4">4</span><span class="value" data-value="3">3</span><span class="value" data-value="2">2</span><span class="value" data-value="1">1</span><span class="value" data-value="0">0</span>
+              </div>
+              <div class="hex-digits" data-digit="4"><span class="value" data-value="f">f</span><span class="value" data-value="e">e</span><span class="value" data-value="d">d</span><span class="value" data-value="c">c</span><span class="value" data-value="b">b</span><span class="value" data-value="a">a</span><span class="value" data-value="9">9</span><span class="value" data-value="8">8</span><span class="value" data-value="7">7</span><span class="value" data-value="6">6</span><span class="value" data-value="5">5</span><span class="value" data-value="4">4</span><span class="value" data-value="3">3</span><span class="value" data-value="2">2</span><span class="value" data-value="1">1</span><span class="value" data-value="0">0</span>
+              </div>
+              <div class="hex-digits" data-digit="5"><span class="value" data-value="f">f</span><span class="value" data-value="e">e</span><span class="value" data-value="d">d</span><span class="value" data-value="c">c</span><span class="value" data-value="b">b</span><span class="value" data-value="a">a</span><span class="value" data-value="9">9</span><span class="value" data-value="8">8</span><span class="value" data-value="7">7</span><span class="value" data-value="6">6</span><span class="value" data-value="5">5</span><span class="value" data-value="4">4</span><span class="value" data-value="3">3</span><span class="value" data-value="2">2</span><span class="value" data-value="1">1</span><span class="value" data-value="0">0</span>
+              </div>
+              <div class="hex-digits" data-digit="6"><span class="value" data-value="f">f</span><span class="value" data-value="e">e</span><span class="value" data-value="d">d</span><span class="value" data-value="c">c</span><span class="value" data-value="b">b</span><span class="value" data-value="a">a</span><span class="value" data-value="9">9</span><span class="value" data-value="8">8</span><span class="value" data-value="7">7</span><span class="value" data-value="6">6</span><span class="value" data-value="5">5</span><span class="value" data-value="4">4</span><span class="value" data-value="3">3</span><span class="value" data-value="2">2</span><span class="value" data-value="1">1</span><span class="value" data-value="0">0</span>
+              </div>
+            </div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <iframe width=800 height=450 style="margin:1em auto" src="https://www.youtube.com/embed/eqZqx6lRPe0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <p>David DeSandro, dotCSS 2018</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2><code>transparent</code></h2>
+          <p>Was there from the beginning and is the initial value of <code>background-color</code></p>
+          <p>CSS2 allowed its use in <code>border-color</code></p>
+          <p>CSS3 allowed its use in all elements that accepted a colour value</p>
+          <p>Computes to <code>rgba(0, 0, 0, 0)</code></p>
+        </section>
+
+        <section>
+          <h2>The sRGB colour space</h2>
+          <p>sRGB (standard Red Green Blue) is an RGB color space created by HP and Microsoft for monitors, printers and the Web</p>
+          <p><a href="https://www.w3.org/Graphics/Color/sRGB.html">Original document: A Standard Default Color Space for the Internet - sRGB</a></p>
+          <p>Colours in CSS were first specified in RGB</p>
+          <p>Even though there were better systems, RGB was “good enough” at the time</p>
+        </section>
+
+        <section>
+          <h2>Colour Naming System (CNS)</h2>
+          <p>A systematic notation for named colours for computer applications using English terms created by Berk, Brownston and Kaufman in 1982</p>
+          <p>Uses ten colour names: red, orange, brown, yellow, green, blue, purple, white, grey and black</p>
+          <p>Base colour names can be combined or prefixed with modifiers</p>
+          <p>5 lightness terms, 4 saturation terms and 31 hue terms combine to produce 620 chromatic colour names</p>
+          <p>Not meant for computation, rather, a mechanism for naming colour literals and constants</p>
+        </section>
+
+        <section>
+          <h2>CNS expressed in Backus-Naur form</h2>
+          <pre class="language-html"><code>named-color     := gray-color | chromatic-color
+
+gray-color      := 'black' | 'white' | lightness gray
+gray            := 'gray' | 'grey'
+
+chromatic-color := [ tint | shade ] hue | [ lightness || saturation ]? hue
+tint            := 'whitish' | 'pale' | 'brilliant' | 'vivid'
+shade           := 'blackish' | 'dim' | 'deep' | 'vivid'
+saturation      := 'grayish' | 'moderate' | 'strong' | 'vivid'
+lightness       := 'moderate' | 'very'? [ 'dark' | 'light' ]
+hue             := splash-color? base-color | base-color '-' base-color
+base-color      := 'red' | 'orange' | 'brown' | 'yellow' | 'green' | 'blue' | 'purple'
+splash-color    := 'reddish' | 'orangish' | 'brownish' | 'yellowish' | 'greenish' | 'bluish' | 'purplish'</code></pre>
+        </section>
+
+        <section>
+          <h2>Named colours</h2>
+          <p>Based on the X11 colours</p>
+          <p>Supported in Mosaic and Netscape Navigator because both ran in X Windows System</p>
+          <p>Chris Lilley lost the fight to use names from the Colour Naming System (CNS)</p>
+          <p>The path of least resistance was chosen ¯\_(ツ)_/¯</p>
+        </section>
+
+        <section>
+          <h2>Colour wheels</h2>
+          <p>An abstract illustrative organisation of colour hues around a circle to show the relationships between them</p>
+          <img style="align-self:center" src="./img/colourwheels.jpg" alt="Colour wheel diagrams from pre-19th century and earlier">
+        </section>
+
+        <section>
+          <blockquote>
+            <p>When the eye sees a colour it is immediately excited and it is its nature, spontaneously and of necessity, at once to produce another, which with the original colour, comprehends the whole chromatic scale.<br><small>Johann Wolfgang von Goethe, Theory of Colours, Part VI, Completeness and Harmony</small></p>
+          </blockquote>
+        </section>
+
+        <section>
+          <h2>Munsell colour system</h2>
+          <div class="l-double">
+            <img src="./img/sphere.jpg" style="justify-self:center" alt="Munsell's colour sphere">
+            <div>
+              <p>Created by Professor Albert H. Munsell</p>
+              <p>A colour space that specifies colours based on three properties of colour: hue, chroma and value</p>
+              <p>The first system which separated hue, value and chroma into perceptually uniform and independent dimensions</p>
+              <p>Munsell was the first person to illustrate colours systematically in three-dimensional space</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>CIELAB colour space</h2>
+          <p>Defined by the <em>International Commission on Illumination</em> (CIE) in 1976</p>
+          <p>Also known as LAB, for lightness, green/red and blue/yellow respectively</p>
+          <p>CIELAB gamut includes both the gamuts for RGB and CMYK</p>
+          <p>Meant to approximate human vision and aspires to perceptual uniformity</p>
+          <p>Needed more data per pixel to obtain the same precision as RGB or CMYK</p>
+        </section>
+
+        <section>
+          <h2>HSL colours</h2>
+          <p>An alternative representation of the RGB colour model, utilising a cylindrical geometry, <strong>hue</strong> being the angular dimension, <strong>saturation</strong> along the radial direction and <strong>lightness</strong> from top to bottom</p>
+          <p>Based on the organisation and conceptualisation of colours in human vision</p>
+          <p>Conversion from RGB was fast enough to run in real time on 1970s hardware</p>
+          <p>HSL was added to CSS in 2002 from the desire to have some sort of hue wheel system</p>
+          <p>Fast forward to today, its disadvantages (non-perceptual uniformity being a key one) are flaring their head</p>
+        </section>
+
+        <section>
+          <img style="max-width:65%;margin:auto" src="./img/hsl.jpg" alt="Diagram explaning HSL syntax">
+          <p><em>Hue</em> is unitless as degrees is implicit, <em>Saturation</em> and <em>Lightness</em> are in percentages</p>
+        </section>
+
+        <section>
+          <h2>Moar colour formats</h2>
+          <p><a href="https://www.w3.org/TR/css-color-4/">CSS Color Module Level 4</a></p>
+          <p>HWB colours (hue, whiteness, blackness)</p>
+          <p>Lab colours (lightness, green/red (a-axis), blue/yellow (b-axis))</p>
+          <p>LCH colours (lightness, chroma, hue)</p>
+          <p><code>gray()</code> function</p>
+        </section>
+
+        <section>
+          <h2>Badly-drawn visualisations</h2>
+          <div class="l-double">
+            <figure>
+              <img src="./img/lab.png" style="max-height:50vh;justify-self:center" alt="Diagram showing the 3 axes, L, a, b">
+              <figcaption>Lab axes</figcaption>
+            </figure>
+            <figure>
+              <img src="./img/lch.png" style="max-height:50vh;justify-self:center" alt="Diagram showing the L axis and hue angle">
+              <figcaption>L and hue</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section>
+          <h2>Moar colour functions</h2>
+          <p><a href="https://www.w3.org/TR/css-color-5/">CSS Color Module Level 5</a></p>
+          <p><code>color-mix()</code></p>
+          <pre class="language-css" style="width:max-content"><code>mix-color(peru lightgoldenrod 40%)</code></pre>
+          <p><code>color-contrast()</code></p>
+          <pre class="language-css" style="width:max-content"><code>color-contrast(purple, chartreuse, firebrick, ghostwhite)
+    /* ghostwhite wins with a ratio of 8.9 */</code></pre>
+          <p><code>color-adjust()</code></p>
+          <pre class="language-css" style="width:max-content"><code>color-adjust(darkslategrey lightness(-20%));</code></pre>
+        </section>
+
+        <section>
+          <h2>Bunch of resources on colour…</h2>
+          <ul>
+            <li><a href="http://sirisaacnewton.info/writings/opticks-by-sir-isaac-newton/">Complete Text of Opticks</a></li>
+            <li><a href="https://arstechnica.com/science/2020/06/experiments-show-hummingbirds-see-colors-youve-never-dreamed-of/">Experiments show hummingbirds see colors you’ve never dreamed of</a></li>
+            <li><a href="https://increment.com/frontend/ask-an-expert-why-is-css-the-way-it-is/">Ask an expert: Why is CSS…the way it is?</a></li>
+            <li><a href="https://arstechnica.com/information-technology/2015/10/tomato-versus-ff6347-the-tragicomic-history-of-css-color-names/">“Tomato” versus “#FF6347”—the tragicomic history of CSS color names</a></li>
+            <li><a href="https://chenhuijing.com/blog/where-did-css-named-colours-come-from/">Where did CSS named colours come from?</a></li>
+            <li><a href="https://dev.to/bcalou/what-is-the-color-of-a-blank-page-49og">What is the color of a blank page?</a></li>
+            <li><a href="http://www.gutenberg.org/files/50572/50572-h/50572-h.htm">Complete Text of Goethe's Theory of Colours</a></li>
+            <li><a href="https://www.xanthir.com/blog/b4JS1">The CNS Color Naming System</a></li>
+          </ul>
+        </section>
+
+        <section style="text-align:left">
+          <h1>Thank you</h1>
+          <p class="align-icon"><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://chenhuijing.com">https://chenhuijing.com</a></p>
+          <p class="align-icon"><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen">@hj_chen</a></p>
+          <p class="align-icon"><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen">@hj_chen</a></p>
+          <p class="align-icon"><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/">@huijing</a></p>
+          <p style="text-align:right"><small>Font is <a href="https://github.com/cyrealtype/Alice">Alice</a> by <a href="http://www.cyreal.org/2012/07/alice/">Ksenia Erulevich</a>.</small></p>
+        </section>
+      </div>
+
+      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://huijing.github.io/slides/86-yglf-2020</span><span style="text-align:right">@hj_chen</span></footer>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        width: 1600,
+        height: 900,
+        hash: true,
+        transition: 'fade',
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+      });
+    </script>
+    <script>
+      const root = document.documentElement
+      const colourInput = document.getElementById('colour')
+      const hexCode = document.getElementById('hexCode')
+      const hexDigits = document.querySelectorAll('[data-digit]')
+      const hexValues = document.querySelectorAll('[data-value]')
+
+      colourInput.addEventListener('input', () => { 
+        setRgb(colourInput.value)
+        let hexChars = colourInput.value.substring(1).split('')
+        hexCode.innerHTML = ''
+        for (var i = 0; i < hexValues.length; i++) {
+          hexValues[i].classList.remove('active')
+        }
+        hexChars.forEach(printHex)
+        hexChars.forEach(getCharacter)
+        hexCode.insertAdjacentHTML('afterbegin', '<span>#</span>')
+      }, false)
+
+      function setRgb(hex) {
+        const tempHex = hex.replace('#', '')
+        const r = parseInt(tempHex.substring(0, 2), 16)
+        const g = parseInt(tempHex.substring(2, 4), 16)
+        const b = parseInt(tempHex.substring(4, 6), 16)
+        
+        root.style.setProperty('--r', r)
+        root.style.setProperty('--g', g)
+        root.style.setProperty('--b', b)
+      }
+
+      function printHex(item, index, array) {
+        hexCode.innerHTML += '<span>' + item + '</span>'
+      }
+
+      function getCharacter(item, index, array) {
+        let set = hexDigits[index]
+        let value = set.querySelector('[data-value="' + item + '"]')
+        value.classList.add('active')
+      }
+    </script>
+  </body>
+</html>

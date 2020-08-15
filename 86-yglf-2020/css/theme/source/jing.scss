@@ -1,0 +1,266 @@
+/**
+ * Custom theme for Reveal.js presentations.
+ *
+ * Copyright (C) 2020 Chen Hui Jing, https://chenhuijing.com/
+ */
+
+// Default mixins and settings -----------------
+@import '../template/mixins';
+@import '../template/settings';
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url('fonts/alice/alice.css');
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'Alice', Georgia, serif;
+$mainColor: #333;
+$headingFont: 'Alice', Georgia, serif;
+$headingColor: #372822;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$headingFontWeight: normal;
+$backgroundColor: #fefffe;
+$linkColor: #0c0;
+$linkColorHover: darken($linkColor, 20%);
+$selectionBackgroundColor: $linkColor;
+$selectionColor: #fefffe;
+
+// Theme template ------------------------------
+@import '../template/theme';
+// ---------------------------------------------
+
+// Customised styles for this presentation -----
+.reveal {
+  .l-multiple {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .l-double {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .j-icon {
+    margin-right: 1rem;
+  }
+
+  .align-icon {
+    display: flex;
+    align-items: center;
+  }
+
+  .tall-img {
+    max-width: 50%;
+    margin: 0 auto 1rem;
+  }
+}
+
+.rainbow-txt {
+  background: linear-gradient(to right, red, orange, gold, green, dodgerblue, violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+$r: rgb(255, 0, 0);
+$g: rgb(0, 255, 0);
+$b: rgb(0, 0, 255);
+$c: rgb(20, 253, 253);
+$m: rgb(254, 20, 254);
+$y: rgb(252, 255, 43);
+
+$colours: (r: $r, g: $g, b: $b, c: $c, m: $m, y: $y);
+
+@mixin magic {
+  @each $class, $colour in $colours {
+    &.#{$class}{
+      background: $colour;
+      @if ($colour == $r) or ($colour == $g) or ($colour == $b) {
+        mix-blend-mode: lighten;
+      } @else {
+        mix-blend-mode: darken;
+      }
+    }
+  }
+}
+
+.split-bg {
+  background-image: linear-gradient(90deg, white 0%, white 50%, black 50%, black 100%);
+
+  figure:nth-child(2) {
+    figcaption {
+      filter: invert(1);
+    }
+  }
+}
+
+.dark {
+  color: white;
+
+  h2 {
+    color: white;
+  }
+}
+
+.output {
+  font-family: monospace;
+  font-size: calc(0.5em + 1vmin);
+  line-height: 1.2;
+}
+
+.hex-code,
+.hex-values {
+  display: grid;
+  grid-template-columns: repeat(7, 4ch);
+}
+
+.hex-code {
+  span {
+    font-size: 3em;
+    color: rgba(0, 0, 0, 1);
+    padding: 0 0.5rem;
+
+    &:nth-child(1) {
+      color: rgba(0, 0, 0, 0.15);
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      color: rgb(var(--r), 0, 0);    
+    }
+
+    &:nth-child(4),
+    &:nth-child(5) {
+      color: rgb(0, var(--g), 0);    
+    }
+
+    &:nth-child(6),
+    &:nth-child(7) {
+      color: rgb(0, 0, var(--b));    
+    }
+  }
+}
+
+@supports (grid-template-columns: subgrid) {
+  .output {
+    display: grid;
+    grid-template-columns: repeat(7, 4ch);
+    justify-content: center;
+  }
+
+  .hex-code,
+  .hex-values {
+    grid-template-columns: subgrid;
+    grid-column: 1 / span 7;
+  }
+}
+
+.hex-digits {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:nth-child(1) {
+    grid-column: 2;
+  }
+
+  span {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.25);
+    transition: transform 150ms ease-out;
+
+    &.active {
+      color: rgba(0, 0, 0, 1);
+      transform: scale(1.5);
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      height: 3ch;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      width: 3ch;
+    }
+  }
+}
+
+.content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vmin;
+}
+
+.colour {
+  height: 25vmin;
+  width: 25vmin;
+  border-radius: 50%;
+  position: absolute;
+  animation-timing-function: ease-in-out;
+  animation-duration: 4500ms;
+  animation-iteration-count: infinite;
+  @include magic;
+
+  &:nth-child(1) {
+    animation-name: to-top;
+  }
+
+  &:nth-child(2) {
+    animation-name: to-left;
+  }
+
+  &:nth-child(3) {
+    animation-name: to-right;
+  }
+}
+
+@keyframes to-top {
+  0%, 100% { transform: translate(0, -38%) }
+  50% { transform: translate(0, 0) } 
+}
+
+@keyframes to-left {
+  0%, 100% { transform: translate(-50%, 50%) }
+  50% { transform: translate(0, 0) }
+}
+
+ @keyframes to-right {
+  0%, 100% { transform: translate(50%, 50%) }
+  50% { transform: translate(0, 0) }
+}
+
+
+// Accessible emojis ---------------------------
+span.emoji {
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji';
+  font-style: normal;
+  font-size: 125%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+span[role=img][aria-label],
+span[role=img][aria-label] {
+  position: relative;
+}
+
+span[role=img][aria-label]:focus::after,
+span[role=img][aria-label]:hover::after {
+  font-size: 25%;
+  font-family: $mainFont;
+  font-weight: 400;
+  position: absolute;
+  display: block;
+  line-height: 1.2;
+  content: attr(aria-label);
+  z-index: 1;
+  background: $mainColor;
+  color: $backgroundColor;
+  padding: 0.25em;
+  border: 1px solid $backgroundColor;
+  box-shadow: 2px 2px 4px $mainColor;
+}
