@@ -302,6 +302,12 @@
   max-width: 50%;
   margin: 0 auto 1rem; }
 
+.reveal .viola {
+  position: absolute;
+  top: 0;
+  right: 0.5em;
+  z-index: 1; }
+
 .rainbow-txt {
   background: linear-gradient(to right, red, orange, gold, green, dodgerblue, violet);
   -webkit-background-clip: text;
@@ -429,12 +435,6 @@
     transform: translate(50%, 50%); }
   50% {
     transform: translate(0, 0); } }
-
-.viola {
-  position: absolute;
-  top: 0;
-  right: 0.5em;
-  z-index: 1; }
 
 span.emoji {
   font-family: 'Apple Color Emoji', 'Segoe UI Emoji';

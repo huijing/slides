@@ -57,6 +57,13 @@ $selectionColor: #fefffe;
     max-width: 50%;
     margin: 0 auto 1rem;
   }
+
+  .viola {
+    position: absolute;
+    top: 0;
+    right: 0.5em;
+    z-index: 1;
+  }
 }
 
 .rainbow-txt {
@@ -231,13 +238,6 @@ $colours: (r: $r, g: $g, b: $b, c: $c, m: $m, y: $y);
  @keyframes to-right {
   0%, 100% { transform: translate(50%, 50%) }
   50% { transform: translate(0, 0) }
-}
-
-.viola {
-  position: absolute;
-  top: 0;
-  right: 0.5em;
-  z-index: 1;
 }
 
 // Accessible emojis ---------------------------
