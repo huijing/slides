@@ -308,6 +308,9 @@
   right: 0.5em;
   z-index: 1; }
 
+.reveal code {
+  font-size-adjust: 0.47; }
+
 .rainbow-txt {
   background: linear-gradient(to right, red, orange, gold, green, dodgerblue, violet);
   -webkit-background-clip: text;
