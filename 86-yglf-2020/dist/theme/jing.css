@@ -311,6 +311,28 @@
 .reveal code {
   font-size-adjust: 0.47; }
 
+.reveal blockquote {
+  width: 80%;
+  text-align: left;
+  box-shadow: none;
+  line-height: 1.55;
+  font-size: 130%;
+  position: relative; }
+  .reveal blockquote p::before,
+  .reveal blockquote p::after {
+    position: absolute;
+    font-size: 2.5em;
+    font-family: Georgia, serif;
+    color: #372822; }
+  .reveal blockquote p::before {
+    top: -0.125em;
+    left: -0.5em;
+    content: '\201C'; }
+  .reveal blockquote p::after {
+    bottom: 0;
+    right: -0.3em;
+    content: '\201D'; }
+
 .rainbow-txt {
   background: linear-gradient(to right, red, orange, gold, green, dodgerblue, violet);
   -webkit-background-clip: text;
@@ -438,6 +460,58 @@
     transform: translate(50%, 50%); }
   50% {
     transform: translate(0, 0); } }
+
+.intro-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(12, 2em);
+  grid-template-rows: repeat(11, 2em);
+  grid-template-areas: '. . . . a . . b . . . .' '. m . . . . . . . c . .' '. . . . . . . . . . . .' 'l . . . . . . . . . . d' '. . . . . . . . . . . .' 'k . . . . . . . . . . e' '. . . . . . . . . . . .' 'j . . . . . . . . . . .' '. . . . . . . . . . f .' '. . i . . . . . g . . .' '. . . . . h . . . . . .'; }
+  .intro-grid span {
+    font-size: 1.5em; }
+
+.intro-grid span:first-child {
+  grid-area: a; }
+
+.intro-grid span:nth-child(2) {
+  grid-area: b; }
+
+.intro-grid span:nth-child(3) {
+  grid-area: c; }
+
+.intro-grid span:nth-child(4) {
+  grid-area: d; }
+
+.intro-grid span:nth-child(5) {
+  grid-area: e; }
+
+.intro-grid span:nth-child(6) {
+  grid-area: f; }
+
+.intro-grid span:nth-child(7) {
+  grid-area: g; }
+
+.intro-grid span:nth-child(8) {
+  grid-area: h; }
+
+.intro-grid span:nth-child(9) {
+  grid-area: i; }
+
+.intro-grid span:nth-child(10) {
+  grid-area: j; }
+
+.intro-grid span:nth-child(11) {
+  grid-area: k; }
+
+.intro-grid span:nth-child(12) {
+  grid-area: l; }
+
+.intro-grid span:nth-child(13) {
+  grid-area: m; }
+
+.intro-grid div {
+  grid-row: 2 / -3;
+  grid-column: 1 / -1; }
 
 span.emoji {
   font-family: 'Apple Color Emoji', 'Segoe UI Emoji';
