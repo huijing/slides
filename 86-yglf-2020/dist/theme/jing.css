@@ -317,7 +317,8 @@
   box-shadow: none;
   line-height: 1.55;
   font-size: 130%;
-  position: relative; }
+  position: relative;
+  font-style: normal; }
   .reveal blockquote p::before,
   .reveal blockquote p::after {
     position: absolute;
