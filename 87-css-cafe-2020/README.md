@@ -169,7 +169,7 @@
 
 ---
 
-- *(toggle 1 for titles, toggle 2 to hide 5–8, toggle 3 to hide 1–4)*
+- *(toggle 1 for titles, toggle 2 to hide 1–4, toggle 3 to hide 5–8)*
 - `fr` units versus `auto`
 - let's compare the difference between `fr`, in green, and `auto`, in blue
 - `fr` represents a fraction of leftover space in the grid container, so whenever there is extra space it will always go to an `fr` sized column
