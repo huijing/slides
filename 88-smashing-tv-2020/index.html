@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Accessibility With(out) Priorities</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/jing.css" id="theme">
+    <link rel="stylesheet" href="plugin/highlight/atom-one-light.css" id="highlight-theme">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Accessibility With(out) Priorities</h1>
+          <p><small>By <a href="https://chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <div class="intro-grid">
+            <span class="emoji" role="img" tabindex="0" aria-label="Malaysia">&#x1F1F2;&#x1F1FE;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="alien monster">&#x1F47E;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="basketball">&#x1F3C0;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="bicycle">&#x1F6B2;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="paintbrush">&#x1F58C;&#xFE0F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="sneaker">&#x1F45F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="laptop computer">&#x1F4BB;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="pen">&#x1F58A;&#xFE0F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="studio microphone">&#x1F399;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="fox">&#x1F98A;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="person climbing">&#x1F9D7;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="Rainbow flag">&#x1F3F3;&#xFE0F;&#x200D;&#x1F308;</span>
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+              <img data-src="img/name.svg" alt="Chen Hui Jing" class="plain" style="max-height:25vh">
+              <div>
+                <img data-src="img/avatar.jpg" alt="Jing" style="border-radius:50%">
+              </div>
+              <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
+            </div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Disclaimer</h2>
+          <p>This talk is purely a sharing based off my personal experiences and I do not believe this represents the full picture of the situation in my region.</p>
+          <p>I am also by no means an expert on accessibility but I am trying my best to learn and get better at it.</p>
+          <aside class="notes">
+            <p>To be honest, I'm fairly nervous about this talk, because not only is it a completely new talk I've never given before. But it is also about a topic that I'm nowhere as confident in my knowledge as compared to something like CSS or basketball.</p>
+            <p>I'm fairly certain there are folks in the audience who are way better at this than I am, and if there is anything I mention that you think is not correct, please let me know, I really want to get better at this.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>a11y</h2>
+          <img class="plain" style="height:7em" data-src="img/a11y.svg" alt="accessibility">
+          <aside class="notes">
+            <p>There are a number of numeronyms relevant to the web, like i18n, for example, but I like the one for accessibility because it also looks like the word “ally”, which is just so apt, in my opinion.</p>
+            <p>My understanding of web accessibility is to make your websites or web applications usable by as many people as possible.</p>
+            <p>There is that inevitable association of accessibility as relevant only for folks with disabilities but it's much broader than that. I know from personal experience that all of us are simply temporarily abled.</p>
+            <p>You could fall ill or be injured. You could just happen to carrying something with one hand and trying to use your phone on the other. You might end up in a place with a bad connection. All of these circumstances should not block you from accessing information.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Web Accessibility Initiative (WAI)</h2>
+          <blockquote>Accessibility is essential for developers and organizations that want to create high quality websites and web tools, and not exclude people from using their products and services.</blockquote>
+          <a href="https://www.w3.org/WAI/">https://www.w3.org/WAI/</a>
+        </section>
+
+        <section>
+          <h2>Why isn't accessibility explicitly taught during the basics of web development? 🤔</h2>
+          <aside class="notes">
+            <p>I am a self-taught web developer. And the way I learned was through various free online courses like CodeAcademy and the like, plus a lot of trial and error. I started out copying and pasting code by viewing source, not even knowing what half the code did.</p>
+            <p>Even though I've read countless articles and heard from many experienced folks on different web development topics over the course of my career, I noticed accessibility made up a relatively small proportion of my daily consumption.</p>
+            <p>Thinking back on those online courses that I took, I can scarcely remember much mention of accessibility, and I do wonder why that is?</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>The 80-20 rule</h2>
+          <aside class="notes">
+            <p>The 80-20 rule is also known as the Pareto principle, which states that for many events, roughly 80% of the effects come from 20% of the causes.</p>
+            <p>What does this have to do with accessibility, you may be wondering? This ties back to my previous thought on why accessibility part of the standard learn to web curriculum because there are numerous low-hanging fruit level things we do for all our projects.</p>
+            <p>And if we take care of these things throughout the course of the project, instead of as one big scary accessibility task, I truly believe that you'd barely feel the weight of any extra effort at all.</p>
+            <p>Some of these things may sound like no-brainers, but I've encountered numerous projects that miss out these things, to an extent that it feels more like the norm to miss them out.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Web Accessibility Laws in Asia</h2>
+          <table style="font-size:50%">
+            <thead>
+              <tr>
+                <th>Country</th>
+                <th style="width:25%">Name</th>
+                <th>Date enacted</th>
+                <th>Type</th>
+                <th>Scope</th>
+                <th>Web only?</th>
+                <th>WCAG version<br></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>China</td>
+                <td><a href="https://www.w3.org/WAI/policies/china/#law-on-the-protection-of-persons-with-disabilities-1990-as-amended" target="_blank" rel="noopener noreferrer">Law on the Protection of Persons with Disabilities 1990, as amended</a></td>
+                <td>2008</td>
+                <td>Accessibility law</td>
+                <td>Public sector,<br>Private sector</td>
+                <td>No</td>
+                <td>None</td>
+              </tr>
+              <tr>
+                <td>China</td>
+                <td><a href="https://www.w3.org/WAI/policies/china/#voluntary-web-accessibility-standard" target="_blank" rel="noopener noreferrer">Voluntary Web Accessibility Standard</a></td>
+                <td>2008</td>
+                <td>Recommendation</td>
+                <td>Government</td>
+                <td>Yes</td>
+                <td>WCAG 2.0 derivative</td>
+              </tr>
+              <tr>
+                <td>Hong Kong</td>
+                <td><a href="https://www.w3.org/WAI/policies/hong-kong-hksar/#guidelines-on-dissemination-of-information-through-government-websites" target="_blank" rel="noopener noreferrer">Guidelines on Dissemination of Information through Government Websites</a></td>
+                <td>1999</td>
+                <td>Mandatory policy</td>
+                <td>Government</td>
+                <td>No</td>
+                <td>WCAG 2.0</td>
+              </tr>
+              <tr>
+                <td>India</td>
+                <td><a href="https://www.w3.org/WAI/policies/india/#rights-of-persons-with-disabilities-act-2016-rpd" target="_blank" rel="noopener noreferrer">Rights of Persons with Disabilities Act, 2016 (RPD)</a></td>
+                <td>2016</td>
+                <td>Non-discrimination law</td>
+                <td>Public sector,<br>Private sector</td>
+                <td>No</td>
+                <td>None</td>
+              </tr>
+              <tr>
+                <td>India</td>
+                <td><a href="https://www.w3.org/WAI/policies/india/#guidelines-for-indian-government-websites" target="_blank" rel="noopener noreferrer">Guidelines for Indian Government Websites</a></td>
+                <td>2009</td>
+                <td>Mandatory policy</td>
+                <td>Government</td>
+                <td>No</td>
+                <td>WCAG 2.0</td>
+              </tr>
+              <tr>
+                <td>Japan</td>
+                <td><a href="https://www.w3.org/WAI/policies/japan/#basic-act-on-the-formation-of-an-advanced-information-and-telecommunications-network-society" target="_blank" rel="noopener noreferrer">Basic Act on the Formation of an Advanced Information and Telecommunications Network Society</a></td>
+                <td>2000</td>
+                <td>Accessibility law</td>
+                <td>Public sector,<br>Private sector</td>
+                <td>No</td>
+                <td>None</td>
+              </tr>
+              <tr>
+                <td>Republic of Korea</td>
+                <td><a href="https://www.w3.org/WAI/policies/republic-of-korea/#act-on-welfare-of-persons-with-disabilities" target="_blank" rel="noopener noreferrer">Act on Welfare of Persons with Disabilities</a></td>
+                <td>2008</td>
+                <td>Non-discrimination law</td>
+                <td>Public sector,<br>Private sector</td>
+                <td>No</td>
+                <td>WCAG 2.0</td>
+              </tr>
+              <tr>
+                <td>Taiwan</td>
+                <td><a href="https://www.w3.org/WAI/policies/taiwan/#web-accessibility-guidelines-2-0" target="_blank" rel="noopener noreferrer">Web Accessibility Guidelines 2.0</a></td>
+                <td>2017</td>
+                <td>Mandatory policy</td>
+                <td>Public sector</td>
+                <td>Yes</td>
+                <td>WCAG 2.0 derivative</td>
+              </tr>
+              <tr>
+                <td>Singapore</td>
+                <td>Website Interface Standards (WIS) for the Singapore Government</td>
+                <td>2004</td>
+                <td>Recommendation</td>
+                <td>Government</td>
+                <td>Yes</td>
+                <td>W3C WCAG 1.0</td>
+              </tr>
+              <tr>
+                <td>Thailand</td>
+                <td>A Guideline on ICT Accessibility for Persons with Disabilities</td>
+                <td>2003</td>
+                <td>Recommendation</td>
+                <td>Government</td>
+                <td>No</td>
+                <td>W3C WCAG 1.0</td>
+              </tr>
+            </tbody>
+          </table>
+          <aside class="notes">
+            <p>This is some information on web accessibility laws in Asia I managed to dig up, most of it is from the W3C site directly but if you notice, they are mostly recommendations or guidelines. The only scope where accessibility is mandatory is for government sites.</p>
+            <p>So I don't think it's a surprise when a lot of folks here don't see accessibility as something important. And based on my personal experience working for local companies, management tends to be fairly top-down, and quite often the emphasis is on short-term results.</p>
+            <p>I'm not saying that all local companies ignore accessibility, but I do feel the lack of legislative consequence does have an impact on how organisations perceive its importance.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>But what can I do?</h2>
+          <p class="fragment">Use your own best judgement</p>
+          <aside class="notes">
+            <p>I do want to stress the importance of using your best judgement on the content you're trying to present. If you're planning to use an animated 3D stacked pie chart, consider including an accessible data table that can express the same thing.</p>
+            <p>But if you're trying to present say a 3D CSS art work collection, then it doesn't make sense to insist every art piece is perfectly accessible to visually impaired folks since the medium is completely visual.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Level 1: No one can tell you're doing it</h2>
+          <img data-src="img/taria.png" alt="Kitten with a waving tail">
+          <aside class="notes">
+            <p>Depending on the type of environment you're in, I would say there are different levels of what you can do, how much you can push back on certain things and so on.</p>
+            <p>So let's start from the stuff that you almost definitely can get away with. I know it's slightly depressing that I'm framing accessibility in this manner, but I accept my reality and I'm merely sharing my thoughts based on that.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Page titles</h2>
+          <div class="l-double">
+            <div class="fragment">
+              <h3>Instead of…</h3>
+              <pre class="wrap">
+                <code><title>Welcome to the home of the fluffiest musicians in the universe the Fluffy Philharmonic</title></code>
+              </pre>
+              <pre>
+                <code><title>Fluffy Philharmonic - Musicians</title></code>
+              </pre>
+              <pre>
+                <code><title>Fluffy Philharmonic | Life at FP</title></code>
+              </pre>
+            </div>
+            <div class="fragment">
+              <h3>Try doing…</h3>
+              <pre>
+                <code><title>Fluffy Philharmonic home page</title></code>
+              </pre>
+              <pre>
+                <code><title>Musicians - Fluffy Philharmonic</title></code>
+              </pre>
+              <pre>
+                <code><title>Life at FP | Fluffy Philharmonic</title></code>
+              </pre>
+            </div>
+          </div>
+          <aside class="notes">
+            <p>I consider actions you can take on an individual capacity and are relatively low effort, things you can get away with, like page titles. Okay, maybe this wasn't the best first example, and page titles are important for SEO as well.</p>
+            <p>I don't actually recall seeing any websites without A page title, probably because I wouldn't have found it on Google at all. But I have encountered pages that don't have proper page titles when navigating within the site. Like, the page title remains unchanged as the site name or something.</p>
+            <p>So this is definitely something to check, because it is easily missed out. The best practice is to front-load important information first.</p>
+            <p>I don't think people intentionally miss this out, but with hardly anyone writing meta tags by hand anymore, this is sort of a common issue, especially when we forget to setup our templates properly.</p>
+          </aside> 
+        </section>
+
+        <section>
+          <h2>Image text alternatives (alt text)</h2>
+          <p class="fragment">Every image must have an <code>alt</code> attribute</p>
+          <p class="fragment">If the image conveys useful information, then it needs alt text.</p>
+          <p class="fragment">If the image is purely decorative, set the alt attribute to empty.</p>
+          <p class="fragment">Context is everything</p>
+          <p class="fragment">Text should be functional and provide an equivalent user experience, not necessarily describe the image.</p>
+          <small class="fragment">Reference: <a href="https://webaim.org/techniques/alttext/">WebAIM alternative text guidelines</a></small>
+          <aside class="notes">
+            <p>I personally took a while before I got the hang of this. I would love to say that I knew about best practices from day 1 that is clearly a bold-faced lie. No, no, no, I've done terrible things. Like setting the alt text to “image3̦”. I have since been trying to redeem myself.</p>
+            <p>All jokes aside, this is really a bit of an art rather than a strict science. And the examples from the W3C as well as WebAIM really helped me grasp the guidelines. First of all, every image must have the alt attribute, even if its empty, it must be there.</p>
+            <p>How the alt text is written does depend on the context in which the image appears and the intended content of the image.</p>
+          </aside> 
+        </section>
+
+        <section>
+          <div class="l-double" style="gap:1em">
+            <div>
+              <img data-src="img/headshot_viola-white.png" alt="Viola, the red panda" class="plain" style="max-height:25vh">
+              <p>Even though Viola the red panda had played the violin for many years, she wasn't exactly passionate about it. But the first time she tried the viola, she finally knew what love was.</p>
+            </div>
+            <div style="text-align:left">
+              <h4>Pick the appropriate option:</h4>
+              <ol>
+                <li>"Image of Viola the red panda"</li>
+                <li>"Viola, the red panda who fell in love with the viola"</li>
+                <li>An empty alt attribute is enough</li>
+                <li>"Viola, the red panda" <span class="fragment">✅</span></li>
+              </ol>
+            </div>
+          </div>
+          <aside class="notes">Option 4 would likely be the best alternative text in this instance. Option 1 unnecessarily describes the image as an image. Option 2 provides extra information that is not presented directly in the image and it is also redundant with content presented later within the text. Option 3 (no alt attribute) is not appropriate because the image conveys content that is not directly presented in the surrounding context. Even though the surrounding text does indicate that it's referring to Viola the red panda, visual users can tell this directly from the content of the image - so if the image conveys content, it should be given alternative text.</aside>
+        </section>
+
+        <section>
+          <div class="l-double" style="gap:1em">
+            <div>
+              <figure>
+                <img data-src="img/headshot_viola-white.png" alt="" class="plain" style="max-height:25vh">
+                <figcaption style="font-weight:bold">Viola, the red panda</figcaption>
+              </figure>
+              <p>Even though Viola the red panda had played the violin for many years, she wasn't exactly passionate about it. But the first time she tried the viola, she finally knew what love was.</p>
+            </div>
+            <div style="text-align:left">
+              <h4>Pick the appropriate option:</h4>
+              <ol>
+                <li>"Viola, the red panda"</li>
+                <li>An empty alt attribute is enough <span class="fragment">✅</span></li>
+                <li>"Image"</li>
+                <li>No alt attribute is required</li>
+              </ol>
+            </div>
+          </div>
+          <aside class="notes">In this case, the content of the image is presented within the surrounding content, so Option 2 (alt="") is the best choice. Option 1 would be redundant. Option 3 provides extraneous and useless information. Option 4 (no alt attribute) is never the right choice - every image must have an alt attribute.</aside>
+        </section>
+
+        <section>
+          <h2>Use the <code>lang</code> attribute</h2>
+          <p class="fragment">Declare the document language using the <code>lang</code> attribute on the <code>html</code> element</p>
+          <p class="fragment">Indicate if there are language changes with the <code>lang</code> attribute on specific elements</p>
+          <pre class="fragment"><code>&lt;html lang="en"></code></pre>
+          <pre class="fragment"><code><p>The fourth animal in the Chinese Zodiac is Rabbit (<span lang="zh">兔子</span>).</p></code></pre>
+          <aside class="notes">
+            <p>I had previously dug a little bit more than usual into this because someone once mentioned to me that CSS had nothing to do with internationalisation. No.</p>
+            <p>And because I'm a terrible vindictive person, I proceeded to write a 2,500 word blog post about it, and made it into a talk. Yes, I can be passive aggressive like that.</p>
+            <p>But anyway, I find that the <code>lang</code> attribute sometimes can get overlooked and most times, mixed language content does not get marked up appropriately.</p>
+          </aside>
+        </section>
+
+        <section>
+          <iframe width="860" height="480" src="https://www.youtube.com/embed/0uzxu9dQnuU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <aside class="notes">Aside from the fact that there are SEO benefits to setting the language of your website, and that services like Google Translate can and will make use of this attribute. I will instead let this clip speak for itself. Oh no, an inadvertently bad joke.</aside>
+        </section>
+
+        <section>
+          <h2>Use semantic mark-up (1/3)</h2>
+          <p>The <code>&lt;div></code> element is not a magical hammer</p>
+          <small class="fragment">Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">HTML elements reference</a> 🧡</small>
+          <aside class="notes">
+            <p>This is sort of a wide-ranging tip because as you dig into the Web Content Accessibility Guidelines (WCAG), there is a lot to learn and cover to hit triple AAA, which is the best target. But I'm not even going there yet.</p>
+            <p>Standard HTML controls for user interface elements already meet basic WCAG success criterion when used according to specification. Browsers have a lot of accessibility features built in, the work has already been done for you. All you need to do is use the appropriate element.</p>
+            <p>There are semantic elements for lots of things, from addresses to keyboard inputs to maps and time. My suggestion is, before you create that next div, think about the content you want to put in it, and check if there's a semantic element for that.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Use semantic mark-up (2/3)</h2>
+          <p>Buttons and links have different semantic meaning</p>
+          <div class="l-double">
+            <div>
+              <pre><code><button>Submit</button></code></pre>
+              <p>Use buttons for actions</p>
+            </div>
+            <div>
+              <pre class="wrap"><code><a href="https://redviolapanda.com">The fluffiest musicians you've ever met</a></code></pre>
+              <p>Use links for changes in location</p>
+            </div>
+          </div>
+          <p>CSS lets you style them both however you want</p>
+          <small class="fragment">Reference: <a href="https://css-tricks.com/a-complete-guide-to-links-and-buttons/">A Complete Guide to Links and Buttons </a></small>
+          <aside class="notes">
+            <p>A fairly good check of when you want to use a button and when you want to use a link is to ask, what happens when your user clicks? If the click triggers an action, go for a button. If the click brings them to somewhere else, go for a link.</p>
+            <p>This distinction can have major implications for usability. Links must have a non-empty href attribute for keyboard users to access them. But the biggest problem is when developers create links that go nowhere.</p>
+            <p>For example, drop-down menus that activate on hover only. Easier to show on CodePen.</p>
+            <p>And besides, as developers, we have the power of CSS to let us style either element however we like. I recommend this very comprehensive article on links and buttons from CSS tricks.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Use semantic mark-up (3/3)</h2>
+          <p>Keyboard accessibility by default</p>
+          <table style="font-size:55%">
+            <thead>
+              <tr>
+                <th>Interaction</th>
+                <th>Keystrokes</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Navigate to most elements</td>
+                <td><kbd>Tab</kbd><br><kbd>Shift</kbd> + <kbd>Tab</kbd> - navigate backward</td>
+                <td>Keyboard focus indicators must be present.<br>Navigation order should be logical and intuitive.</td>
+              </tr>
+              <tr>
+                <td>Link</td>
+                <td><kbd>Enter</kbd></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Button</td>
+                <td><kbd>Enter</kbd> or <kbd>Spacebar</kbd></td>
+                <td>Ensure elements with ARIA role="button" can  be activated with both key commands.</td>
+              </tr>
+              <tr>
+                <td>Checkbox</td>
+                <td><kbd>Spacebar</kbd> - check/uncheck a checkbox</td>
+                <td>Checkboxes should be used when one or more option can be selected.</td>
+              </tr>
+              <tr>
+                <td>Radio buttons</td>
+                <td><kbd>↑</kbd> / <kbd>↓</kbd> or <kbd>←</kbd> / <kbd>→</kbd> - select an option.<br>Tab - move to the next element.</td>
+                <td>Radio buttons should be used when only one option from a group can be selected.</td>
+              </tr>
+              <tr>
+                <td>Select (dropdown) menu</td>
+                <td><kbd>↑</kbd> / <kbd>↓</kbd> - navigate between menu options<br><kbd>Spacebar</kbd> - expand</td>
+                <td>You can also filter by typing letters, but this behavior varies by <br>browser. Some will filter as you type, like autocomplete. Others will <br>only sort by first letter.</td>
+              </tr>
+              <tr>
+                <td>Autocomplete</td>
+                <td>Type to begin filtering<br><kbd>↑</kbd> / <kbd>↓</kbd> - navigate to an option<br><kbd>Enter</kbd> - select an option</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <small>Link: <a href="https://huijing.github.io/demos/megaform/">Form elements</a></small>
+          <aside class="notes">
+            <p>This is only part of the testing checklist on the WebAIM site that outlines what is expected for keyboard interactions but you know what? Using semantic HTML elements gives you almost all of it out the box.</p>
+            <p>Sharing another personal anecdote here, a very extreme case imo, so not sure if anyone can relate, but I've seen code that went through a whole lot of trouble trying to recreate the behaviour of a text input on an empty div element.</p>
+            <p>Even though my first thought was, wow, this person doesn't know the input element exists, the amount of code written made me aware of how much the browser takes care of already as long as we do the minimal effort of using semantic elements.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Level 2: Get designers/writers involved</h2>
+          <img data-src="img/shibas.png" alt="A yellow and a black shiba sitting up">
+          <aside class="notes">
+            <p>If you are in an environment where you can make content/design decisions autonomously, that's great. But I find it is more common to have full-time designers and sometimes content writers you work with.</p>
+            <p>All the previous tips were almost visually invisible, but things like colour contrast, text sizes, form labels and so on are probably things you would want to discuss with the designers on your team.</p>
+            <p>If your designers are not familiar with how browsers work, I really believe that the time and patience developers take to explain reasons why a certain design might not be the best idea is worth it.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Resize text</h2>
+          <p class="fragment">Don't break zooming</p>
+          <p class="fragment">Let users control text size</p>
+          <small class="fragment">Reference: <a href="https://gist.github.com/aaugustin/d6351f12f4604d3343ee5ecf691b3918">Accessibility in browsers: zoom level vs. font size</a></small>
+          <aside class="notes">
+            <p>For a while I had been told not to use fixed font sizes because it would break zoom on browsers. But I noticed that even when I set a fixed font size trying to zoom with the browser still grew my text as expected.</p>
+            <p>Browsers implemented something called proportional scaling years ago, and the simplistic explanation is that it makes CSS pixels larger, hence the viewport smaller allowing media queries to trigger.</p>
+            <p>But there is also something called text scaling, which only works on websites that define font sizes and maybe some other elements with relative units, like rems.</p>
+            <p>Users have the option to set their default font size from the browser settings, so it is still a good idea to size things with relative units to respect your user's default choices.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Write meaningful link text</h2>
+          <p>“Click here” isn't very helpful</p>
+          <p>Write link text so that it describes the content of the link target</p>
+          <div class="l-double" style="gap:1em">
+            <div class="fragment">
+              <h3>Instead of…</h3>
+              <a href="https://redpandaviola.com">Click here</a> to visit our sticker store.
+              <pre class="wrap">
+                <code><a href="https://redpandaviola.com">Click here</a> to visit our sticker store.</code>
+              </pre>
+            </div>
+            <div class="fragment">
+              <h3>Try doing…</h3>
+              Visit our <a href="https://redpandaviola.com">sticker store</a>.
+              <pre>
+                <code>Visit our <a href="https://redpandaviola.com">sticker store</a>.</code>
+              </pre>
+            </div>
+          </div>
+          <aside class="notes">The recommended practice is to write the link text in a way that users have a fairly good idea of where the link will lead them BEFORE they click the link. In other words, the purpose of the link can be determined from the link text alone, or from the link text together with the text of the enclosing sentence.</aside>
+        </section>
+
+        <section>
+          <h2>Use spacing and proper sectioning</h2>
+          <p>Negative space and proximity can help make relationships between content more apparent.</p>
+          <p>Ties back to use of semantic mark-up for headings and content.</p>
+          <p>Content should be easy to scan.</p>
+          <aside class="notes">This would be less of a problem with a designer around, I'm assuming, but let's not assume. The point is, Gestalt Principles, which describe how humans group similar elements, recognise patterns and simplify complex images when we perceive objects, do make a practical difference. And we have the CSS to achieve this.</aside>
+        </section>
+
+        <section>
+          <h2>Colour issues (1/2)</h2>
+          <p class="fragment">Provide enough contrast between text and background</p>
+          <div class="l-double" style="gap:1em">
+            <div class="fragment">
+              <h3>Instead of…</h3>
+              <p style="color:lightgray;background-color:white;border-radius:4px">This is a pretty unreadable combination. I mean, sure I'm using the browser default sans-serif, and the content is not particularly interesting, but still. I'm giving everyone the access to read my shitty content and judge for themselves.</p>
+            </div>
+            <div class="fragment">
+              <h3>Try doing…</h3>
+              <p style="color:#333;background-color:white;border-radius:4px">Clearly a better combination. It didn't make the content any better, I'm still using the browser default sans-serif, and the content has not improved at all, but still. I'm giving everyone the access to read my shitty content and judge for themselves.</p>
+            </div>
+          </div>
+          <aside class="notes">
+            <p>One of my pet peeves is light gray text on a light background. What I try to tell the designers is that no matter how pretty your font is, it doesn't matter if nobody can read the text anyway.</p>
+            <p>And now is probably a good time to talk about the improved accessibility features in browsers' Devtools! I love DevTools. Can't live without them. Both Firefox and Chrome have features that show the contrast ratio of elements on the page.</p>
+            <p>What's important to note is that sometimes the number alone is not enough, as demonstrated by this tweet from Adam Argyle.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Colour issues (2/2)</h2>
+          <p class="fragment">Colour alone is not enough to convey information</p>
+          <div class="l-double" style="gap:1em">
+            <div class="fragment">
+              <h3>Instead of…</h3>
+              <div>
+                <p style="color:salmon">Required fields are in red</p>
+                <label><span style="margin-right:0.5em">Name</span><input></label>
+                <label><span style="color:salmon;margin-right:0.5em">Email</span><input></label>
+              </div>
+            </div>
+            <div class="fragment">
+              <h3>Try doing…</h3>
+              <div>
+                <p><span style="color:salmon">Required fields</span> are in red and marked with an <span style="color:salmon">*</span></p>
+                <label><span style="margin-right:0.5em">Name</span><input></label>
+                <label><span style="color:salmon;margin-right:0.5em">*Email</span><input></label>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            <p>Also, even though colour is very helpful in conveying information, it should not be used as the only way. This is a relatively common user interface where we have forms with a mix of mandatory and optional fields.</p>
+            <p>Here is also where DevTools can come in handy for a quick visual proof of colour issues. You can simulate a variety of conditions from the accessibility tools natively.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Make interactive elements obvious</h2>
+          <p class="fragment">Links and buttons should have distinct styles from the rest of the text</p>
+          <p class="fragment">Keep them consistent throughout the site</p>
+          <div class="livecode livecode-2p">
+              <div class="result focus">
+                <p><a href="https://redviolapanda.com">RedViolaPanda</a> is a nonsensical side-project between <a href="https://twitter.com/hj_chen">Hui Jing</a> and <a href="https://twitter.com/wgao19">Wei</a></p>  
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.focus a:hover {
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 0;
+}
+
+.focus a:focus {
+  outline: 5px auto -webkit-focus-ring-color;
+}</style></div>
+            </div>
+          <aside class="notes">
+            <p>It's fairly common to have customised link styles and hover styles but there are still a couple of things to note. Related to the previous point about colour, it would be better to have something extra like an underline to indicate the presence of a link.</p>
+            <p>This is why I suggest developing a good working relationship with your designers and constantly keep them updated about browser behaviours, what is possible with new CSS and so on. And take the opportunity to slowly share your knowledge about accessibility.</p>
+            <p>Anyway, links. We can do lots of fun stuff with CSS, so go ahead and be as creative as you like, but don't forget about focus states.</p>
+            <p>The outline property and the border property are fairly similar except that outlines never take up space, since they are drawn outside the element's content. And they don't necessarily have to be rectangular, but they almost always are.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Form elements must have labels</h2>
+          <p>Placeholder text is not a substitute for labels</p>
+          <p>Make sure the association between the field and label is clear</p>
+          <div class="l-double" style="gap:1em;align-items:start">
+            <div class="fragment">
+              <h3>Instead of…</h3>
+              <div>
+                <input style="margin-bottom:1em" placeholder="Name">
+                <input style="margin-bottom:1em" placeholder="Email">
+                <input style="margin-bottom:1em" placeholder="Phone">
+              </div>
+            </div>
+            <div class="fragment">
+              <h3>Try doing…</h3>
+              <div>
+                <label style="text-align:left"><span style="margin-right:0.5em;display:block;font-size:75%">Name</span><input placeholder="Name"></label>
+                <label style="text-align:left"><span style="margin-right:0.5em;display:block;font-size:75%">Email</span><input placeholder="Email"></label>
+                <label style="text-align:left"><span style="margin-right:0.5em;display:block;font-size:75%">Phone</span><input placeholder="Phone"></label>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            <p>All input fields should have a descriptive label adjacent to the field. Exactly where can depend on the language direction as well as the type of input in question, but the Gestalt Principles mentioned earlier still apply.</p>
+            <p>The space between the labels and the fields should be smaller than the space between the fields themselves so it is obvious what the label is labelling.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Why so hard…?</h2>
+          <img data-src="img/blob-viola.png" alt="Viola the red panda looking tired">
+          <aside class="notes">
+            <p>I've tried to cover the most basic, generally Level A (according to WCAG standards) items today that you can apply even if you are working in an environment which can be challenging to push back on top-down decisions.</p>
+            <p>In a more ideal situation, and if you feel empowered enough, it is definitely worth the time and effort to try to share your knowledge of accessibility with your team and explain how taking care of these things result in usability improvements for everyone.</p>
+            <p>It will also be less hard to take care of these things during the start of the project as opposed to having it tacked on at the end after all the pages and content have been built out.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>People I've learned from 🥰</h2>
+          <div class="l-multiple">
+            <figure>
+              <img class="j-profile" data-src="img/adrian.jpeg" alt="">
+              <figcaption><a href="https://adrianroselli.com/">Adrian Roselli</a> (<a href="https://twitter.com/aardrian">@aardrian</a>)</figcaption>
+            </figure>
+            <figure>
+              <img class="j-profile" data-src="img/leonie.png" alt="">
+              <figcaption><a href="https://tink.uk/">Léonie Watson</a> (<a href="https://twitter.com/LeonieWatson">@LeonieWatson</a>)</figcaption>
+            </figure>
+            <figure>
+              <img class="j-profile" data-src="img/manuel.jpg" alt="">
+              <figcaption><a href="https://www.matuzo.at/">Manuel Matuzovic</a> (<a href="https://twitter.com/mmatuzo">@mmatuzo</a>)</figcaption>
+            </figure>
+            <figure>
+              <img class="j-profile" data-src="img/eric.jpg" alt="">
+              <figcaption><a href="https://ericwbailey.design/">Eric Bailey</a> (<a href="https://twitter.com/ericwbailey">@ericwbailey</a>)</figcaption>
+            </figure>
+          </div>
+          <p>And many more folks who share their knowledge about accessibility…</p>
+        </section>
+
+        <section>
+          <h2>More relevant links</h2>
+          <ul>
+            <li><a href="https://www.w3.org/TR/wai-aria-practices-1.1/">WAI-ARIA Authoring Practices 1.1</a></li>
+            <li><a href="https://webaim.org/techniques/keyboard/">Keyboard Accessibility</a>
+            <li><a href="https://www.a11yproject.com/">The A11y Project</a></li>
+          </ul>
+        </section>
+
+        <section style="text-align:left">
+          <h1>Thank you</h1>
+          <p class="align-icon"><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://chenhuijing.com">https://chenhuijing.com</a></p>
+          <p class="align-icon"><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen">@hj_chen</a></p>
+          <p class="align-icon"><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen">@hj_chen</a></p>
+          <p class="align-icon"><img class="j-icon plain" data-src="img/codepen_w.png" alt="Codepen"><a href="http://codepen.io/huijing/">@huijing</a></p>
+        </section>
+      </div>
+
+      <a href="https://redviolapanda.com" class="viola"><img src="./img/badge.svg" alt="Red Viola Panda"></a>
+
+      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://huijing.github.io/slides/88-smashing-tv-2020</span><span style="text-align:right">@hj_chen</span></footer>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        width: 1600,
+        height: 900,
+        hash: true,
+        transition: 'fade',
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+      });
+    </script>
+  </body>
+</html>
