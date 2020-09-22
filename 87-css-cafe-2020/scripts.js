@@ -5,7 +5,7 @@ var style2 = ['background-color: white', 'background-image: linear-gradient(90de
 var style3 = ['background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(192, 192, 192, 0.4) 0, rgba(192, 192, 192, 0.1) 2rem, transparent 0, transparent 1rem, rgba(192, 192, 192, 0.3) 0, rgba(192, 192, 192, 0.1) 4rem, transparent 0, transparent 1rem, rgba(255, 255, 255, 0.3) 0, rgba(255, 255, 255, 0.1) 2rem), repeating-linear-gradient(45deg, transparent, transparent 1rem, rgba(192, 192, 192, 0.4) 0, rgba(192, 192, 192, 0.1) 2rem, transparent 0, transparent 1rem, rgba(192, 192, 192, 0.3) 0, rgba(192, 192, 192, 0.1) 4rem, transparent 0, transparent 1rem, rgba(255, 255, 255, 0.4) 0, rgba(255, 255, 255, 0.1) 2rem), #fff', 'background-blend-mode: multiply', 'color: white', 'font-size: calc(1.25em + 2vw)', 'display: block', 'text-align: center', 'padding: 0.5em', 'line-height: 1.4', 'font-family: "Apple Color Emoji", "Segoe UI Emoji"'].join(';');
 var message1 = 'Demystify Modern CSS Layouts with DevTools ';
 var message2 = 'Chen Hui Jing | @hj_chen';
-var message3 = '🇲🇾👾🏀🚲🖌👟💻🖊🎙🦊🥑🧗‍♀️🏳️‍🌈';
+var message3 = '🇲🇾👾🏀🚲🖌👟💻🖊🎙🦊🧗‍♀️🎹🏳️‍🌈';
 console.log('%c%s', style1, message1);
 console.log('%c%s', style2, message2);
 console.log('%c%s', style3, message3);
