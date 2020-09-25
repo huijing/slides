@@ -1,6 +1,6 @@
 # Demystify Modern CSS Layouts with DevTools
 
-*For CSS Café. This is a sort-of transcript plus my notes for the talk.*
+*For FrontendConf 2020. This is a sort-of transcript plus my notes for the talk.*
 
 ## Content-based sizing, letting the browser decide
   

@@ -38,7 +38,7 @@ const style3 = [
 
 const message1 = 'Demystify Modern CSS Layouts with DevTools '
 const message2 = 'Chen Hui Jing | @hj_chen'
-const message3 = '🇲🇾👾🏀🚲🖌👟💻🖊🎙🦊🥑🧗‍♀️🏳️‍🌈'
+const message3 = '🇲🇾👾🏀🚲🖌👟💻🖊🎙🦊🧗‍♀️🎹🏳️‍🌈'
 
 console.log('%c%s', style1, message1)
 console.log('%c%s', style2, message2)
