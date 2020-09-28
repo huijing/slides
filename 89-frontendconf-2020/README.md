@@ -15,7 +15,7 @@
 
 - `min-content` is the smallest size a box could take that doesn't lead to overflow, so inline content will break multiple lines
 - line breaking might be something most of us don't give a second thought to, but there is lot of nuance depending on the language being used
-- for many languages, like English or Dutch, line breaks occur at word boundaries, where spaces or punctuation are used to explicitly separate words
+- for many languages, like English or Russian, line breaks occur at word boundaries, where spaces or punctuation are used to explicitly separate words
 - browsers will not break words by default, so the word `content` plus the full stop is treated as a single entity
 - and that ends up being the width of the first box
 - for Chinese or Japanese though, the break is per character most of the time, but not always, because there are rules about certain characters that are not allowed to start or end a line
