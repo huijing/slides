@@ -2,6 +2,8 @@
 
 *For JSConf Mexico 2020. This is a sort-of transcript plus my notes for the talk.*
 
+Hello everyone! It's such a privilege to be part of this inaugural JSConf Mexico, so I'd like to thank the organisers for having me. Today, I'll be speaking on a topic that I know may not everybody's cup of tea, and that's fine. I don't expect everyone to fall in love with CSS after this, but I do hope that you'll find some of the things I'll be sharing useful and aid in your understanding of how modern CSS layouts work.
+
 ## Content-based sizing, letting the browser decide
   
 - the concept of automatic sizing has always existed
