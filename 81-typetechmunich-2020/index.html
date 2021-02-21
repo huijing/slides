@@ -55,53 +55,10 @@
               <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
             </div>
           </div>
-          <aside class="notes">My name is Hui Jing, and I'm simple enough that these emojis paint a fairly comprehensive picture of who I am as a person. If you are unfamiliar with Chinese names, our family names come first, followed by our first names.</aside> 
+          <aside class="notes">My name is Hui Jing, and I'm simple enough that these emojis paint a fairly comprehensive picture of who I am as a person. If you are unfamiliar with Chinese names, our family names come first, followed by our first names. I happen to be fluent in both English and Chinese, so when I talk a bit more about East Asian languages later during the talk, I will mostly reference Chinese.</aside> 
         </section>
 
         <section>
-          <section>
-            <h2>Typography…? 🧐</h2>
-            <blockquote class="fragment">“Typography is writing with prefabricated letters”<br><small>—Gerrit Noordzij</small></blockquote>
-            <aside class="notes">
-              <p>Even though this is my first typography event, it's safe to say I was interested in typography before I even knew what it was. Or at least, what it was formally defined as. And I don't think there is a standardised definition, and each have their own nuances.</p>
-              <p>Personally, I like the one by Gerrit Noordzij, that “Typography is writing with prefabricated letters”. Letters are a type of grapheme, which is the smallest unit of a writing system of any given language.</p>
-              <p>A large proportion of the world's writing systems in use today are alphabetic in nature, where a relatively small set of letters can be combined in many different ways to form words, phrases and sentences. Transforming something we hear and say, into something we see and read.</p>
-            </aside>
-          </section>
-
-          <section data-background-image="img/directions.jpg">
-            <aside class="notes">
-              <p>But Chinese is different. Chinese is currently the only logographic writing system left that is widely used by millions of people. Each Han character is composed within a uniform square, allowing Chinese to be read efficiently, regardless of whether it is set horizontally or vertically.</p>
-              <p>And until proven otherwise, it seems that the Chinese language was an indigenous invention, developed separately from the Proto-Sinaitic scripts which were the origins of alphabetic languages.</p>
-            </aside>
-          </section>
-
-          <section data-background-image="img/proto.jpg" data-transition="fade">
-            <div class="l-double j-light-bg" >
-              <h2>Phoenician alphabet</h2>
-              <h2 class="j-vert" lang="zh-hans">甲骨文</h2>
-            </div>
-            <aside class="notes">
-              <p>The nature of writing systems for Western languages in Europe are fairly distinct from those used in East Asia. The Phoenician alphabet is considered the origin of many alphabetic writing systems on which the Greek, Latin and Roman alphabets were based on. With alphabets, you have a small set of letters used in a myriad of combinations to form all the words you would use to communicate with another person.</p>
-              <p>With Han characters, we have thousands upon thousands of unique glyphs that can express meaning on their own or be used in combination with other glyphs. This has a direct consequence on the structure of the language itself.</p>
-            </aside>
-          </section>
-
-          <section>
-            <div style="display:grid;grid-template-columns:repeat(3,auto);font-size:200%;align-items:center;justify-content:center;column-gap:2em">
-              <p>Hippopotamus<br><small>(English) 12 characters</small></p>
-              <span class="emoji" style="font-size:2em" role="img" tabindex="0" aria-label="hippopotamus">&#x1F99B;</span>
-              <p class="j-vert" lang="zh-hans">河马</p>
-              <p>Lebensgefährte<br><small>(German) 14 characters</small></p>
-              <span class="emoji" style="font-size:2em" role="img" tabindex="0" aria-label="handshake">&#x1F91D;</span>
-              <p class="j-vert" lang="zh-hans">伴侣</p>
-              <p>Grianghrafadóireachta<br><small>(Irish) 21 characters</small></p>
-              <span class="emoji" style="font-size:2em" role="img" tabindex="0" aria-label="camera">&#x1F4F7;</span>
-              <p class="j-vert" lang="zh-hans">摄影</p>
-            </div>
-            <aside class="notes">Alphabetic languages form words using combinations of letters, sometimes we end up with really long words. Chinese is more concise, and often the meaning of the word is encompassed within the glyph itself. And that's how we ended up with tens of thousands of characters. But no matter the writing system, the end goal was always to express and record ideas into something concrete.</aside>
-          </section>
-
           <section data-background-image="img/writing.jpg">
             <aside class="notes">
               <p>Before we get into the talk proper, where we'll be looking at what current web technologies offer for typesetting in the browser, I'd like everyone to just give a think about information technology. Since we are often said to be living in the information age right now.</p>
@@ -113,7 +70,7 @@
 
           <section data-background-image="img/technology.jpg">
             <aside class="notes">
-              <p>Technological advancement can generally be thought of as humanity's solution for producing more output for less effort. The advancement of information technology sought to reproduce writing at scale, from employing larger number of humans to copy scripts to the development of printing and digital technology.</p>
+              <p>Technological advancement can generally be thought of as humanity's solution for producing more output for less effort. The advancement of information technology sought to reproduce writing at scale, from employing larger numbers of humans to copy scripts to the development of printing and digital technology.</p>
               <p>But with every increase in productivity, significant trade-offs were made. The techniques that won out over the course of human civilisation shape how we live today. There are a huge number of factors that came into play but what is undeniable is that modern day digital technology suits a particular style of writing system over others.</p>
               <p>I have no idea what an alternate history would look like because my reality is here and now. It's as if you're asking a person who has been colour-blind their whole life to imagine what green is. Science fiction writers probably do a better job of this, but I do wonder how different our lives would be if digital technology was pioneered in a different region.</p>
             </aside>
@@ -124,48 +81,13 @@
           <h2>Overview</h2>
           <ol style="list-style-type:cjk-decimal;font-size:1.5em">
             <li class="fragment">Recognising the characters</li>
-            <li class="fragment">Rendering the characters</li>
+            <li class="fragment">Displaying the characters</li>
             <li class="fragment">Laying out the characters</li>
           </ol>
-          <aside class="notes">I've structured the talk broadly into three parts, starting with how digital computers recognise characters, followed by how these characters get rendered on a screen, and finally, how we can display them and lay them out in an aesthetically pleasing manner.</aside>
+          <aside class="notes">I've structured the talk broadly into three parts, starting with how digital computers recognise characters and render them on a screen, followed by how we can display them and lay them out in an aesthetically pleasing manner.</aside>
         </section>
 
         <section>
-          <section>
-            <h2>Glyphs</h2>
-            <div class="l-multiple">
-              <figure>
-                <img class="plain" style="margin:0 0.5em" data-src="img/glyph1.jpg" alt="A metal sort AKA type">
-                <figcaption style="font-style:normal">Ê</figcaption>
-              </figure>
-              <figure>
-                <img class="plain" style="margin:0 0.5em" data-src="img/glyph2.jpg" alt="A bitmap glyph">
-                <figcaption style="font-style:normal">玮</figcaption>
-              </figure>
-              <figure>
-                <img class="plain" style="margin:0 0.5em" data-src="img/glyph3.jpg" alt="A vector glyph">
-                <figcaption style="font-style:normal">Д</figcaption>
-              </figure>
-            </div>
-            <aside class="notes">
-              <p>Here, we've got a nice wooden E with a circumflex, the bitmap Chinese character for 玮, and a vector Cyrillic D. All of them are glyphs.</p>
-              <p>A glyph is the specific shape of a letter or character in a particular font. In the digital world, where everything is data, glyphs can be described as an array of pixels, or collections of vector images or even paths of Bézier curves and straight lines.</p>
-            </aside>
-          </section>
-
-          <section>
-            <h2>Fonts</h2>
-            <div class="l-double" style="align-items:center">
-              <img class="plain" data-src="img/analogue-fonts.jpg" alt="Analogue fonts">
-              <img class="plain" data-src="img/digital-fonts.jpg" alt="Digital fonts">
-            </div>
-            <aside class="notes">
-              <p>Fonts are collections of glyphs. In the analogue world of metal typesetting, these are fonts. Some of you may have seen drawers containing individual metal sorts used for letterpress printing.</p>
-              <p>In the digital world, these are fonts, specifically font files. All digital files are simply long lists of numbers stored as binary on a storage device. And file formats are what allows us to read and understand the data these numbers represent.</p>
-              <p>Different font formats store information about the font, like their glyphs, encodings, metadata about the font and so on, differently based on how their specifications were written.</p>
-            </aside>
-          </section>
-
           <section>
             <h2>Character encoding</h2>
             <figure>
@@ -173,8 +95,7 @@
               <figcaption style="font-style:normal">Encoding options available in FontForge</figcaption>
             </figure>
             <aside class="notes">
-              <p>As such, there has to be a form of translation performed by the computer so these series of binary numeric values can be rendered on the screen as characters that we can recognise and read. Sequences of bytes are mapped to individual characters according to a key, which is known as character encoding.</p>
-              <p>The first encoding standard was the American Standard Code for Information Interchange (ASCII), which was originally based on the English alphabet and developed from telegraph code, specifically Baudot code, if anybody is interested in history.</p>
+              <p>The first encoding standard was the American Standard Code for Information Interchange (ASCII), which was originally based on the English alphabet and developed from telegraph code.</p>
               <p>Computer architecture at the time was largely 8-bit, while ASCII encoded characters in 7 bits, for the original 128 characters. There was capacity for another 128 characters and when computers reached countries outside America, everyone did their own thing to cater for their own language and character requirements.</p>
             </aside>
           </section>
@@ -191,27 +112,8 @@
             </div>
             <aside class="notes">
               <p>Writing systems utilising Han characters consist of tens of thousands of glyphs. These were never going to fit into 8 bits. Local encoding systems like the Chinese Guobiao and the Taiwanese Big5 were developed to handle Chinese characters.</p>
-              <p>Japan even created multiple systems for Japanese depending on the hardware, but the systems were not compatible with one another. The Japanese even have a term for the garbled output caused by text decoded with an unintended chracter encoding, called Mojibake (文字化け).</p>
+              <p>Japan even created multiple systems for Japanese depending on the hardware, but the systems were not compatible with one another. The Japanese even have a term for the garbled output caused by text decoded with an unintended character encoding, called Mojibake (文字化け).</p>
               <p>This issue is less pronounced today with the widespread adoption of Unicode, but it is not solved. For example, Burmese text sometimes still doesn't display correctly on Facebook.</p>
-            </aside>
-          </section>
-
-          <section>
-            <h2>Unicode</h2>
-            <div class="l-double" style="justify-items:initial">
-              <figure>
-                <img data-src="img/unicode-bmp.svg" alt="Map of Basic Multilingual Plane">
-                <figcaption style="font-style:normal">Basic Multilingual Plane</figcaption>
-              </figure>
-              <figure>
-                <img data-src="img/unicode-smp.svg" alt="Map of Supplementary Multilingual Plane">
-                <figcaption style="font-style:normal">Supplementary Multilingual Plane</figcaption>
-              </figure>
-            </div>
-            <aside class="notes">
-              <p>Unicode is the ambitious effort to create a single universal character set that encompasses every reasonable writing system on the planet. It is a multi-byte variable-width encoding scheme, allowing it to be efficient with how bits are used.</p>
-              <p>A Unicode plane is a continuous group of 65,536 code points. There are 17 planes in the Unicode standard and as of version 12.1, six of the planes have assigned code points. So there is plenty of room left.</p>
-              <p>The first plane, plane 0, is the Basic Multilingual Plane and contains the characters for almost all modern languages. Most of the assigned code points in this plane are used for Chinese, Japanese or Korean (CJK) characters and East Asian scripts.</p>
             </aside>
           </section>
 
@@ -252,18 +154,14 @@
               <img class="plain" data-src="img/postscript.png" alt="Structure of a Type 1 font program and dictionary structure which is created when it executes">
               <figcaption>Type 1 font program</figcaption>
             </figure>
-            <aside class="notes">
-              <p>One of the solutions to this problem came from Adobe founder, John Warnock. He had founded Adobe Systems in December 1982, with Charles Geschke. Together with Doug Brotz, Ed Taft and Bill Paxton, they created a page description language called PostScript, which went to market in 1984.</p>
-              <p>PostScript was great for printing, but it also handled fonts very well. An issue with fonts at the time was that they did not scale linearly at small sizes. Glyphs would get distorted during scaling, but PostScript handled this by providing additional metadata as font hints.</p>
-              <p>This was highly secret technology and the hinted fonts were compressed and encrypted into what Adobe called a Type 1 font, which only stored outline information. The first vector font format, and it did really well on the market.</p>
-            </aside>
+            <aside class="notes">PostScript was the solution that Adobe released back in 1984. It was the first ever vector font format and did really well on the market. And after 3 decades, Adobe has announced that they would end support for Type 1 in January 2023.</aside>
           </section>
 
           <section>
             <h2>The Font Wars by Typography.Guru</h2>
             <iframe width="960" height="540" src="https://www.youtube.com/embed/5X9Dj7tBlkg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <p>https://youtu.be/5X9Dj7tBlkg</p>
-            <aside class="notes">Typography.Guru released an excellent video which takes a look back at the time period during which the industry was transitioning from bitmap fonts to vector fonts. I highly recommend watching this.</aside>
+            <aside class="notes">Typography.Guru released an excellent video which takes a look back at the time period during which the industry was transitioning from bitmap fonts to vector fonts.</aside>
           </section>
 
           <section>
@@ -312,12 +210,7 @@
                 </td>
               </tr>
             </table>
-            <aside class="notes">
-              <p>TrueType was Apple and Microsoft's answer to Adobe's font monopoly. Both companies then worked separately to improve TrueType, especially with regards to fonts for East Asian writing systems.</p>
-              <p>Apple came up with TrueType GX, later renamed Apple Advanced Typography. Microsoft came up with TrueType Open in 1994 and eventually Adobe joined in the effort and together they developed OpenType.</p>
-              <p>Microsoft also came up with EOT or embedded OpenType, and tried to submit this as a W3C recommendation. However, it was rejected in favour of WOFF, or the Web Open Font Format.</p>
-              <p>WOFF is a font packaging format designed to provide lightweight, easy-to-implement compression of font data. Any properly licensed TrueType/OpenType/Open Font Format can be packaged in WOFF for web use. WOFF2 is an improvement over WOFF with significantly better compression rates.</p>
-            </aside>
+            <aside class="notes">Apple and Microsoft also got into the game to challenge Adobe's font monopoly and over the years, many font formats were released. Currently we're mostly seeing OpenType and WOFF being widely used.</aside>
           </section>
 
           <section data-background-image="img/chinese-font.jpg">
@@ -330,199 +223,12 @@
           </section>
 
           <section>
-            <h2>Typographic anti-aliasing</h2>
-            <div class="l-multiple" style="flex-wrap:wrap;gap:1em">
-              <figure>
-                <img class="plain" data-src="img/core-text8.png" alt="">
-                <figcaption>Core Text rendering</figcaption>
-              </figure>
-
-              <figure>
-                <img class="plain" data-src="img/directwrite.png" alt="">
-                <figcaption>DirectWrite rendering</figcaption>
-              </figure>
-
-              <figure>
-                <img class="plain" data-src="img/gdi-none.png" alt="">
-                <figcaption>GDI rendering with no antialiasing</figcaption>
-              </figure>
-
-              <figure>
-                <img class="plain" data-src="img/gdi-standard.png" alt="">
-                <figcaption>GDI rendering with Standard antialiasing</figcaption>
-              </figure>
-
-              <figure>
-                <img class="plain" data-src="img/gdi-cleartype.png" alt="">
-                <figcaption>GDI rendering with ClearType enabled</figcaption>
-              </figure>
-            </div>
-            <aside class="notes">
-              <p>Joel Spolsky pointed out that Apple and Microsoft have differing philosophies on how fonts ought to be displayed on computer screens. Even though both use sub-pixel rendering to sharpen fonts on lower resolution screens, the major philosophical difference is that Apple believes the goal of the algorithm is to preserve the design of the typeface as much as possible, as the expense of sharpness, while Microsoft generally believes the shape of each letter should be fitted into pixel boundaries to prevent blurriness and improve readability, at the expense of the typeface's original design.</p>
-              <p>As such, both operating systems have their own implementations of how text should be rendered on a screen. Tim Brown's series about type rendering on the web demonstrates these differences in a collection of screenshots of text being rendered by these different engines with and without their respective anti-aliasing techniques applied.</p>
-            </aside>
-          </section>
-
-          <section>
-            <h2>Font smoothing on the web</h2>
-            <p><em>Note: <code>font-smooth</code> is a non-standard CSS property. It is also only applicable to Mac OS X / macOS.</em></p>
-            <pre><code>-webkit-font-smoothing: auto / none / antialiased / subpixel-antialiased
--moz-osx-font-smoothing: auto / grayscale</code></pre>
-            <video loop autoplay>
-              <source data-src="img/font-smooth.mp4" type="video/mp4">
-              Sorry, your browser doesn't support embedded videos, 
-              but don't worry, you can <a href="img/font-smooth.mp4">download it</a>
-              and watch it with your favourite video player!
-            </video>
-            <aside class="notes">
-              <p>I thought this was worth a mention because even though this is not a standard property (it was in the specification in 2002 but removed in the next release). Because it is not standard, the properties are vendor-prefixed, and only apply to Mac OS X and macOS.</p>
-              <p>By default, the Webkit engine typically uses subpixel anti-aliasing when it is available. This property allows you to turn off subpixel rendering in favour of a standard anti-aliasing technique for font smoothing, which uses whole pixels to render the font.</p>
-              <p>Doing so makes the fonts look thinner and in some contexts sharper, but because there are also cases where doing so will make the text appear more blurry, opinions are mixed on whether this should be used throughout an entire web page or not. For stroke-dense Han characters, the phenomena can be even more pronounced.</p>
-            </aside>
-          </section>
-
-          <section>
             <h2>Web fonts</h2>
             <figure>
               <img class="plain" data-src="img/css2-font.jpg" alt="Webfonts early public working draft">
               <figcaption>Earliest reference of webfonts I could find (21-Jul-1997)</figcaption>
             </figure>
             <aside class="notes">When the web first started, browsers could only choose between fonts that were already installed on their users host machines. But in a revision to the CSS specification, a proposal was made for allowing browsers to load fonts from an external source via a URL. This proposal was eventually made a reality when browser vendors picked it up and implemented it.</aside>
-          </section>
-
-          <section>
-            <svg viewBox="0 0 1648 621">
-              <defs>
-                <linearGradient id="a" x1="0%" x2="102%" y1="0%" y2="101%">
-                  <stop stop-color="#3023AE" offset="0%"/>
-                  <stop stop-color="#C96DD8" offset="100%"/>
-                </linearGradient>
-              </defs>
-              <g fill="none" fill-rule="evenodd">
-                <g fill-rule="nonzero" transform="translate(0 121)">
-                  <rect width="225" height="500" fill="#E4FFD4" rx="15"/>
-                  <path fill="#FDC794" d="M177.674 118.582c-2.995-16.145-9.523-27.592-17.3-35.737l.5 1.616L56.82 98.85c-2.72 5.655-4.92 12.166-6.324 19.736-2.884 15.538.11 31.786 9.404 44.563 8.996 12.36 25.175 24.04 54.184 23.64 29.006.4 45.188-11.27 54.184-23.64 9.293-12.78 12.287-29.03 9.404-44.56l.002-.01z"/>
-                  <path fill="#556080" d="M168.518 113.872c-7.84-4.466-16.755-6.828-25.782-6.828-9.027 0-17.944 2.362-25.782 6.828l-.882.5h-3.418l-.882-.5c-7.838-4.466-16.754-6.828-25.782-6.828-9.027 0-17.943 2.362-25.78 6.828l-1.3.74v1.493c0 6.505 0 21.747 16.302 23.507 3.002.324 5.865.486 8.52.486 22.5 0 28.125-11.674 29.144-20.58h2.974c1.02 8.906 6.642 20.58 29.145 20.58h.003c2.65 0 5.514-.162 8.516-.486 16.304-1.76 16.304-17 16.304-23.507v-1.492l-1.3-.74z"/>
-                  <path fill="#8697CB" d="M81.368 115.127c-1.008-1.006-2.638-1.006-3.647 0l-7.73 7.717c-1.01 1.006-1.01 2.632 0 3.638.51.502 1.17.754 1.83.754.66 0 1.32-.252 1.83-.754l7.74-7.717c1.01-1.004 1.01-2.632 0-3.638h-.02zm11.83 0L80.3 127.99c-1.008 1.005-1.008 2.63 0 3.637.504.502 1.164.754 1.824.754.66 0 1.32-.25 1.824-.75l12.896-12.86c1.008-1 1.008-2.63 0-3.64-1.01-1-2.64-1-3.647 0zm44.912 0c-1.007-1.006-2.637-1.006-3.646 0l-7.737 7.717c-1.01 1.006-1.01 2.632 0 3.638.503.502 1.163.754 1.823.754.66 0 1.32-.252 1.824-.754l7.737-7.717c1.01-1.004 1.01-2.632 0-3.638zm15.477 0c-1.01-1.006-2.64-1.006-3.647 0l-12.897 12.862c-1.008 1-1.008 2.63 0 3.63.503.5 1.164.75 1.824.75.66 0 1.32-.25 1.823-.76l12.897-12.86c1.005-1.01 1.005-2.63 0-3.64v.01z"/>
-                  <path fill="#556080" d="M151.763 46.172c-.807-2.727-2.39-5.196-4.578-7.144-2.92-2.598-6.9-4.028-11.204-4.028-2.79 0-5.61.61-8.15 1.767l-22.37 10.156c-2.52 1.148-5.46 1.526-8.19 1.035l-21.02-3.733c-1.1-.196-2.24-.296-3.37-.296-9.06 0-16.66 5.96-17.68 13.86-.07.57-.11 1.15-.12 1.71l-.34 15 101.45-14.02-4.41-14.32-.01.01zm5.953 19.294L54.604 79.72l-.44 19.075c-.02.756.298 1.48.863 1.98.474.425 1.086.654 1.715.654.12 0 .237-.01.356-.03L161.23 87c.75-.102 1.415-.53 1.822-1.165.405-.635.51-1.417.29-2.138l-5.626-18.24v.01z"/>
-                  <path fill="#8697CB" d="M156.18 60.485L54.722 74.51l-.12 5.21 103.113-14.254"/>
-                  <path fill="#F9A671" d="M49.88 122.793c-1.17-1.104-2.542-1.767-4.022-1.767-4.186 0-7.58 5.096-7.58 11.38 0 6.285 3.394 11.38 7.58 11.38 1.772 0 3.38-.95 4.67-2.48-1.168-6.052-1.37-12.308-.65-18.513h.002zm137.536-9.845c-1.452-6.115-5.933-10.287-10.005-9.317-1.26.31-2.31 1.11-3.16 2.2 1.39 3.9 2.57 8.12 3.43 12.76.4 2.16.68 4.32.85 6.49 1.34.73 2.77 1.04 4.15.71 4.08-.97 6.2-6.71 4.75-12.82l-.01-.02zm-89.82 60.98c-.53 0-1.062-.162-1.523-.5-1.148-.837-1.396-2.448-.552-3.592 8.54-11.605 24.43-19.34 36.18-17.565 6.03.9 10.36 4.27 12.19 9.49.47 1.34-.24 2.81-1.58 3.28-1.34.47-2.81-.24-3.28-1.58-1.2-3.43-3.91-5.48-8.07-6.1-9.83-1.45-23.88 5.5-31.26 15.52-.5.69-1.29 1.05-2.08 1.05h-.02z"/>
-                  <g transform="translate(45 310)">
-                    <path fill="#424A60" d="M135.255 22.51C133.202 9.956 103.865 0 67.96 0S2.718 9.955.664 22.51H.538v104.112h.126c2.054 12.553 31.393 22.51 67.296 22.51 35.902 0 65.242-9.957 67.295-22.51h.127V22.51h-.127z"/>
-                    <path fill="#424A60" d="M67.96 115.367c-37.237 0-67.422-10.71-67.422-23.918v35.17h.126c2.054 12.55 31.393 22.51 67.296 22.51 35.902 0 65.242-9.96 67.295-22.51h.127V91.45c0 13.208-30.186 23.917-67.422 23.917zM.538 90.043v1.406c0-.48.05-.94.126-1.41H.538zm134.717 0c.076.467.127.934.127 1.406v-1.41h-.127z"/>
-                    <path fill="#556080" d="M67.96 81.6C30.723 81.6.538 70.893.538 57.684v35.173h.126c2.054 12.553 31.393 22.51 67.296 22.51 35.902 0 65.242-9.957 67.295-22.51h.127V57.683c0 13.21-30.186 23.918-67.422 23.918zM.538 56.277v1.406c0-.472.05-.94.126-1.406H.538zm134.717 0c.076.467.127.934.127 1.406v-1.406h-.127z"/>
-                    <ellipse cx="67.96" cy="23.918" fill="#7FABDA" rx="67.422" ry="23.918"/>
-                    <g fill="#7383BF">
-                      <path d="M67.96 47.835C30.723 47.835.538 37.125.538 23.918V59.09h.126C2.718 71.643 32.057 81.6 67.96 81.6c35.902 0 65.242-9.957 67.295-22.51h.127V23.918c0 13.208-30.186 23.917-67.422 23.917z"/>
-                      <path d="M.538 22.51v1.408c0-.473.05-.94.126-1.407H.538zm134.717 0c.076.468.127.935.127 1.408V22.51h-.127z"/>
-                    </g>
-                  </g>
-                  <g transform="translate(75 209)">
-                    <path fill="#ECE7EA" d="M27.326 49.296l-1.765-1.764 10.99-10.986 1.77 1.764"/>
-                    <circle cx="51.782" cy="23.072" r="23.072" fill="#F14742"/>
-                    <circle cx="51.782" cy="23.072" r="18.131" fill="#ECE7EA"/>
-                    <path fill="#000" d="M42.526 15.063c-.32 0-.64-.122-.882-.366-.488-.487-.488-1.277 0-1.764 2.708-2.708 6.31-4.2 10.14-4.2 3.83 0 7.43 1.492 10.137 4.2.49.487.49 1.277 0 1.764-.48.487-1.27.487-1.76 0-2.23-2.237-5.21-3.47-8.37-3.47-3.16 0-6.13 1.233-8.37 3.47-.24.244-.56.366-.88.366h-.01z"/>
-                    <path fill="#1B4145" d="M27.544 54.57L8.3 73.814c-2.005 2.004-4.085.832-6.09-1.172C.208 70.64-.964 68.56 1.04 66.555L20.284 47.31l5.982 1.277 1.277 5.982z"/>
-                    <path fill="#C2B8B9" d="M29.888 52.225l-2.344 2.344-7.26-7.26 2.345-2.35c2-2.01 5.25-2.01 7.25 0 2 2 2 5.25 0 7.26z"/>
-                  </g>
-                  <path fill="#3D324C" d="M40.72 103.644c-1.266 0-2.373-.932-2.55-2.218-.197-1.41.788-2.71 2.2-2.902l133.5-18.454c1.416-.227 2.713.787 2.91 2.194.195 1.41-.79 2.71-2.2 2.902L41.077 103.618c-.12.018-.24.026-.358.026z"/>
-                </g>
-                <g class="fragment" transform="translate(225.333 171)">
-                  <rect width="225" height="400" x="183" fill="#D4FFF6" fill-rule="nonzero" rx="15"/>
-                  <path fill="#E9E9E0" fill-rule="nonzero" d="M320.077 218h-78.11c-2.174 0-3.937 1.754-3.937 5.16v142.16c0 .926 1.763 2.68 3.937 2.68h107.855c2.175 0 3.938-1.754 3.938-2.68V252.763c0-1.864-.25-2.464-.692-2.906L321.75 218.69c-.442-.44-1.045-.69-1.672-.69z"/>
-                  <path fill="#D9D7CA" fill-rule="nonzero" d="M321.463 218.404v31.74h31.89"/>
-                  <path fill="#8697CB" fill-rule="nonzero" d="M270.327 252.82h-16.15c-1.484 0-2.69-1.2-2.69-2.677 0-1.48 1.206-2.68 2.69-2.68h16.15c1.485 0 2.69 1.2 2.69 2.68 0 1.478-1.205 2.678-2.69 2.678zm8.073 13.394h-24.22c-1.485 0-2.69-1.2-2.69-2.678 0-1.48 1.205-2.68 2.69-2.68h24.22c1.486 0 2.692 1.2 2.692 2.68 0 1.478-1.206 2.678-2.69 2.678h-.002zm10.766 0c-.7 0-1.4-.294-1.91-.776-.485-.51-.78-1.206-.78-1.902 0-.697.295-1.393.78-1.902.995-.99 2.825-.99 3.82 0 .486.51.782 1.205.782 1.902 0 .696-.296 1.393-.78 1.9-.512.484-1.212.778-1.912.778zm32.297 0h-21.53c-1.487 0-2.693-1.2-2.693-2.678 0-1.48 1.206-2.68 2.692-2.68h21.53c1.487 0 2.692 1.2 2.692 2.68 0 1.478-1.205 2.678-2.69 2.678zm-67.285 40.18c-.7 0-1.4-.296-1.91-.778-.485-.51-.78-1.205-.78-1.902 0-.696.295-1.393.78-1.9.995-.993 2.825-.993 3.82-.002.486.51.782 1.18.782 1.902 0 .697-.296 1.393-.78 1.902-.512.482-1.212.777-1.912.777zm32.297 0h-21.53c-1.487 0-2.693-1.2-2.693-2.68 0-1.478 1.206-2.678 2.692-2.678h21.53c1.487 0 2.692 1.2 2.692 2.678 0 1.48-1.205 2.68-2.69 2.68zm51.135-40.18h-5.382c-1.485 0-2.69-1.2-2.69-2.678 0-1.48 1.205-2.68 2.69-2.68h5.383c1.49 0 2.7 1.2 2.7 2.68 0 1.478-1.2 2.678-2.69 2.678h-.01zm-24.22 13.393h-59.212c-1.485 0-2.69-1.2-2.69-2.678 0-1.48 1.205-2.68 2.69-2.68h59.21c1.486 0 2.692 1.2 2.692 2.68 0 1.47-1.206 2.67-2.69 2.67zm24.22 0h-16.147c-1.486 0-2.69-1.2-2.69-2.678 0-1.48 1.204-2.68 2.69-2.68h16.148c1.49 0 2.7 1.2 2.7 2.68 0 1.47-1.2 2.67-2.69 2.67h-.01zM264.944 293h-10.766c-1.485 0-2.69-1.2-2.69-2.68 0-1.477 1.205-2.677 2.69-2.677h10.766c1.485 0 2.69 1.2 2.69 2.678 0 1.48-1.205 2.68-2.69 2.68zm37.68 0H275.71c-1.486 0-2.692-1.2-2.692-2.68 0-1.477 1.206-2.677 2.69-2.677h26.915c1.486 0 2.692 1.2 2.692 2.678 0 1.48-1.206 2.68-2.692 2.68zm34.986 0h-24.22c-1.487 0-2.693-1.2-2.693-2.68 0-1.477 1.206-2.677 2.692-2.677h24.22c1.48 0 2.69 1.2 2.69 2.678 0 1.48-1.21 2.68-2.69 2.68z"/>
-                  <path fill="#0096E6" fill-rule="nonzero" d="M349.822 368H241.967c-2.174 0-3.937-1.754-3.937-3.92v-41.616h115.73v41.617c0 2.17-1.763 3.92-3.938 3.92z"/>
-                  <path fill="#000" fill-rule="nonzero" d="M250.778 358v-26.016h14.59v2.76h-10.885v8.72h9.138v2.724h-9.13V358h-3.71zm29.884.65c-3.622 0-6.536-1.25-8.74-3.753-2.206-2.502-3.31-5.81-3.31-9.922 0-4.137 1.11-7.445 3.326-9.923 2.217-2.48 5.178-3.718 8.883-3.718 3.7 0 6.65 1.236 8.88 3.71 2.23 2.472 3.34 5.77 3.34 9.895 0 4.2-1.11 7.54-3.33 10.01-2.22 2.46-5.23 3.7-9.03 3.7h-.01zm.053-2.76c2.67 0 4.733-.957 6.192-2.873 1.458-1.916 2.187-4.62 2.187-8.113 0-3.386-.732-6.035-2.196-7.945-1.464-1.91-3.49-2.87-6.077-2.87-2.59 0-4.62.96-6.08 2.87-1.46 1.91-2.19 4.58-2.19 7.99 0 3.39.73 6.07 2.17 8.01 1.45 1.94 3.45 2.92 6 2.92v.01zm17.5 2.11v-26.016h3.634l13.14 20.092v-20.092h3.17V358h-3.62l-13.16-20.092V358h-3.18.01zm32.9 0v-23.256h-9.262v-2.76h22.228v2.76h-9.26V358h-3.7z"/>
-                  <g fill-rule="nonzero">
-                    <path fill="#FDC794" d="M360.674 116.582c-2.995-16.145-9.523-27.592-17.3-35.737l.5 1.616L239.82 96.85c-2.72 5.655-4.92 12.166-6.324 19.736-2.884 15.538.11 31.786 9.404 44.563 8.996 12.36 25.175 24.04 54.184 23.64 29.006.4 45.188-11.27 54.184-23.64 9.293-12.78 12.287-29.03 9.404-44.56l.002-.01z"/>
-                    <path fill="#556080" d="M351.518 111.872c-7.84-4.466-16.755-6.828-25.782-6.828-9.027 0-17.944 2.362-25.782 6.828l-.882.5h-3.418l-.882-.5c-7.838-4.466-16.754-6.828-25.782-6.828-9.027 0-17.943 2.362-25.78 6.828l-1.3.74v1.493c0 6.505 0 21.747 16.302 23.507 3.002.324 5.865.486 8.52.486 22.5 0 28.125-11.674 29.144-20.58h2.974c1.02 8.906 6.642 20.58 29.145 20.58h.003c2.65 0 5.514-.162 8.516-.486 16.304-1.76 16.304-17 16.304-23.507v-1.492l-1.3-.74z"/>
-                    <path fill="#8697CB" d="M264.368 113.127c-1.008-1.006-2.638-1.006-3.647 0l-7.73 7.717c-1.01 1.006-1.01 2.632 0 3.638.51.502 1.17.754 1.83.754.66 0 1.32-.252 1.83-.754l7.74-7.717c1.01-1.004 1.01-2.632 0-3.638h-.02zm11.83 0L263.3 125.99c-1.008 1.005-1.008 2.63 0 3.637.504.502 1.164.754 1.824.754.66 0 1.32-.25 1.824-.75l12.896-12.86c1.008-1 1.008-2.63 0-3.64-1.01-1-2.64-1-3.647 0zm44.912 0c-1.007-1.006-2.637-1.006-3.646 0l-7.737 7.717c-1.01 1.006-1.01 2.632 0 3.638.503.502 1.163.754 1.823.754.66 0 1.32-.252 1.824-.754l7.737-7.717c1.01-1.004 1.01-2.632 0-3.638zm15.477 0c-1.01-1.006-2.64-1.006-3.647 0l-12.897 12.862c-1.008 1-1.008 2.63 0 3.63.503.5 1.164.75 1.824.75.66 0 1.32-.25 1.823-.76l12.897-12.86c1.005-1.01 1.005-2.63 0-3.64v.01z"/>
-                    <path fill="#556080" d="M334.763 44.172c-.807-2.727-2.39-5.196-4.578-7.144-2.92-2.598-6.9-4.028-11.204-4.028-2.79 0-5.61.61-8.15 1.767l-22.37 10.156c-2.52 1.148-5.46 1.526-8.19 1.034l-21.01-3.732c-1.1-.196-2.24-.296-3.37-.296-9.06 0-16.66 5.96-17.68 13.86-.07.57-.11 1.15-.12 1.71l-.34 15 101.44-14.03-4.41-14.32-.01.02zm5.953 19.294L237.604 77.72l-.44 19.075c-.02.756.298 1.48.863 1.98.474.425 1.086.654 1.715.654.12 0 .237-.01.356-.03L344.23 85c.75-.102 1.415-.53 1.822-1.165.405-.635.51-1.417.29-2.138l-5.626-18.24v.01z"/>
-                    <path fill="#8697CB" d="M339.18 58.485L237.722 72.51l-.12 5.21 103.113-14.254"/>
-                    <path fill="#F9A671" d="M232.88 120.793c-1.17-1.104-2.542-1.767-4.022-1.767-4.186 0-7.58 5.096-7.58 11.38 0 6.285 3.394 11.38 7.58 11.38 1.772 0 3.38-.95 4.67-2.48-1.168-6.052-1.37-12.308-.65-18.513h.002zm137.536-9.845c-1.452-6.115-5.933-10.287-10.005-9.317-1.26.31-2.31 1.11-3.16 2.2 1.39 3.9 2.57 8.12 3.43 12.76.4 2.16.68 4.32.85 6.49 1.34.73 2.77 1.04 4.15.71 4.08-.97 6.2-6.71 4.75-12.82l-.01-.02zm-89.82 60.98c-.53 0-1.062-.162-1.523-.5-1.148-.837-1.396-2.448-.552-3.592 8.54-11.605 24.43-19.34 36.18-17.565 6.03.9 10.36 4.27 12.19 9.49.47 1.34-.24 2.81-1.58 3.28-1.34.47-2.81-.24-3.28-1.58-1.2-3.43-3.91-5.48-8.07-6.1-9.83-1.45-23.88 5.5-31.26 15.52-.5.69-1.29 1.05-2.08 1.05h-.02z"/>
-                    <path fill="#3D324C" d="M223.72 101.644c-1.266 0-2.373-.932-2.55-2.218-.197-1.41.788-2.71 2.2-2.902l133.5-18.454c1.416-.227 2.713.787 2.91 2.194.195 1.41-.79 2.71-2.2 2.902l-133.502 18.452c-.12.018-.24.026-.358.026z"/>
-                  </g>
-                  <path stroke="#000" stroke-width="10" d="M.164 200H174.17"/>
-                  <path stroke="#000" stroke-width="10" d="M140.86 177l33.135 23.055-33.135 23.054" stroke-linecap="round"/>
-                  <g fill="#000" font-size="24" font-family="Monaco">
-                    <text transform="translate(44.667 123)">
-                      <tspan x=".908" y="24">Picks</tspan>
-                    </text>
-                    <text transform="translate(44.667 123)">
-                      <tspan x="8.109" y="54">font</tspan>
-                    </text>
-                  </g>
-                </g>
-                <g class="fragment">
-                  <path fill="#fff0D4" fill-rule="nonzero" d="M966 221.02L1115.98 371 966 520.98 816.02 371"/>
-                  <g fill-rule="nonzero">
-                    <path fill="#E37948" d="M933.48 368.015h66.005c1.52 0 2.75 1.23 2.75 2.748v79.69c0 1.518-1.23 2.747-2.75 2.747H933.48c-1.52 0-2.75-1.23-2.75-2.748v-79.69c0-1.516 1.23-2.747 2.75-2.747z"/>
-                    <path fill="#000" d="M938.98 376.26h55.005v68.696H938.98"/>
-                    <path fill="#E4E7E7" d="M944.396 370.764h13.723v-5.496h16.6l.06 5.496h13.69v8.244h-44.08"/>
-                    <path fill="#CDCFCF" d="M944.48 376.28h44.005v2.744H944.48"/>
-                    <path fill="#51BBA8" d="M944.48 409.234h8.25v-8.27h-8.25v8.27zm13.752-8.274v8.238h30.252v-8.238h-30.252z"/>
-                    <path fill="#CCD0D2" d="M944.48 395.522h8.25v-8.27h-8.25v8.27zm13.752-8.27v8.24h30.252v-8.24h-30.252zm-13.75 35.693h8.25v-8.186h-8.25v8.18zm13.75.06h30.252v-8.237h-30.252v8.238zm-13.75 13.683h8.25v-8.186h-8.25v8.186zm13.75.057h30.252v-8.238h-30.252v8.238z"/>
-                  </g>
-                  <g fill="#000" font-size="24" font-family="Monaco">
-                    <text transform="translate(901 293)">
-                      <tspan x="14.831" y="24.633">Matches</tspan>
-                    </text>
-                    <text transform="translate(901 293)">
-                      <tspan x=".428" y="54.633">criteria?</tspan>
-                    </text>
-                  </g>
-                  <g stroke="#000" stroke-width="10">
-                    <path d="M633.497 371h174.006"/>
-                    <path d="M774.193 348l33.135 23.055-33.135 23.054" stroke-linecap="round"/>
-                  </g>
-                </g>
-                <g class="fragment">
-                  <path stroke="#000" stroke-width="10" d="M965.27 220.614V44H517v119.604"/>
-                  <path stroke="#000" stroke-width="10" d="M540.11 129l-23.055 33.135L494 129" stroke-linecap="round"/>
-                  <text fill="#000" transform="translate(983 117)" font-size="24" font-family="Monaco">
-                    <tspan x=".098" y="24">No</tspan>
-                  </text>
-                  <text fill="#000" font-family="Monaco" font-size="24" transform="translate(494 -4)">
-                    <tspan x="31.465" y="24">Next alternative ‘font-family’</tspan>
-                  </text>
-                </g>
-                <g class="fragment">
-                  <path stroke="#000" stroke-width="10" d="M1115.497 371h174.006"/>
-                  <path stroke="#000" stroke-width="10" d="M1256.193 348l33.135 23.055-33.135 23.054" stroke-linecap="round"/>
-                  <text fill="#000" transform="translate(1169 324)" font-size="24" font-family="Monaco">
-                    <tspan x=".396" y="24">Yes</tspan>
-                  </text>
-                </g>
-                <g class="fragment" fill-rule="nonzero" transform="translate(1298 196)">
-                  <circle cx="175" cy="175" r="175" fill="url(#a)"/>
-                  <g transform="translate(60 30)">
-                    <path fill="#F09EA0" d="M122.485 183.36L3.57 249.33c-1.536.852-4.026-1.44-3.304-3.043L56.09 122.23"/>
-                    <path fill="#EF8990" d="M111.49 173.237L7.07 231.164.267 246.288c-.72 1.604 1.767 3.895 3.305 3.042l118.916-65.97-10.995-10.123h-.003z"/>
-                    <ellipse cx="91.084" cy="151.214" fill="#59D3C4" transform="rotate(-47.383 91.084 151.214)" rx="19.631" ry="45.477"/>
-                    <path fill="#88E2E2" d="M104.373 136.754c-18.47-17.006-39.394-24.32-46.735-16.335-2.27 2.46-2.972 6.11-2.318 10.47 9.747 1.04 23.17 8.06 35.502 19.42 12.758 11.74 21.003 25.04 22.466 34.77 4.85.52 8.794-.44 11.234-3.09 7.342-7.98-1.68-28.24-20.15-45.25v.01z"/>
-                    <g fill="#F9DE8F" transform="translate(15.068 175.584)">
-                      <ellipse cx="42.533" cy="9.522" rx="9.129" ry="9.135"/>
-                      <path d="M7.925 41.562c5.042 0 9.13-4.09 9.13-9.135s-4.088-9.135-9.13-9.135c-.494 0-.976.05-1.45.126L.223 37.315c1.62 2.55 4.46 4.247 7.703 4.247z"/>
-                    </g>
-                    <path fill="#F09EA0" d="M124.5 95.368c-1.445 0-2.86-.726-3.68-2.046-1.26-2.032-.637-4.702 1.393-5.964 6.554-4.073 15.487-11.53 20.83-23.92 2.78-6.452 4.198-13.356 4.21-20.52.004-2.39 1.94-4.324 4.328-4.324h.01c2.39.004 4.33 1.946 4.32 4.338-.01 8.346-1.67 16.4-4.91 23.938-6.23 14.45-16.6 23.118-24.21 27.845-.71.442-1.5.653-2.28.653h-.01z"/>
-                    <path fill="#F9DE8F" d="M128.15 132.823c-.386 0-.78-.053-1.17-.162-2.3-.64-3.643-3.03-2.997-5.34 4.813-17.16 12.8-28.81 23.743-34.62 6.9-3.66 13.08-4.08 19.058-4.49 5.55-.37 10.794-.73 17.117-3.55 8.91-3.97 16.43-11.34 22.33-21.91 1.17-2.08 3.81-2.83 5.89-1.66 2.09 1.17 2.83 3.81 1.67 5.9-6.84 12.23-15.71 20.84-26.36 25.59-7.72 3.45-14.27 3.89-20.05 4.29-5.53.38-10.31.7-15.58 3.5-8.77 4.66-15.32 14.53-19.47 29.32-.53 1.91-2.27 3.16-4.16 3.16l-.02-.02zm-45.463-25.346c.16.352.37.69.63 1 1.54 1.832 4.268 2.068 6.098.53 13.64-11.47 20.95-23.56 21.725-35.93.49-7.804-1.678-13.61-3.774-19.227-1.946-5.215-3.785-10.142-3.827-17.07-.06-9.76 3.55-19.65 10.73-29.393 1.41-1.924 1.01-4.634-.92-6.056-1.93-1.41-4.64-1-6.05.92-8.31 11.28-12.49 22.92-12.42 34.59.05 8.47 2.35 14.62 4.37 20.05 1.94 5.2 3.61 9.7 3.24 15.66-.62 9.92-6.9 19.96-18.66 29.85-1.52 1.28-1.94 3.38-1.16 5.1l.01-.02z"/>
-                    <path fill="#F09EA0" d="M193.386 154.03c-1.902 0-3.77-.202-5.603-.602-5.316-1.16-8.643-3.68-11.58-5.902-1.888-1.43-3.672-2.78-5.993-3.812-7.33-3.26-17.27-1.946-29.548 3.91-2.16 1.03-4.74.114-5.77-2.045-1.028-2.16-.113-4.75 2.045-5.78 14.666-7 27.044-8.35 36.79-4.01 3.23 1.43 5.604 3.23 7.698 4.81 2.652 2.01 4.746 3.59 8.205 4.35 5.52 1.2 11.816-.35 18.705-4.63 2.03-1.26 4.7-.64 5.958 1.39 1.26 2.03.635 4.7-1.396 5.96-6.783 4.21-13.323 6.33-19.51 6.33v.03z"/>
-                    <path fill="#88E2E2" d="M194.992 119.83c-.953 0-1.913-.314-2.713-.96-1.87-1.502-2.16-4.227-.66-6.09 4.03-5 9.16-9.123 14.84-11.924 4.1-2.024 8.49-3.388 13.05-4.054 2.37-.345 4.56 1.29 4.91 3.658.34 2.367-1.29 4.565-3.66 4.912-3.67.536-7.19 1.63-10.48 3.253-4.56 2.25-8.69 5.567-11.94 9.593-.86 1.06-2.11 1.612-3.38 1.612h.03zm-25.912 2.57c-2.523 0-4.57-2.047-4.57-4.57 0-2.522 2.047-4.57 4.57-4.57 2.52 0 4.566 2.048 4.566 4.57 0 2.523-2.046 4.57-4.567 4.57z"/>
-                    <path fill="#F09EA0" d="M179.276 59.825c-2.52 0-4.568-2.048-4.568-4.57 0-2.523 2.047-4.57 4.568-4.57 2.52 0 4.567 2.047 4.567 4.57 0 2.522-2.046 4.57-4.567 4.57z"/>
-                    <path fill="#88E2E2" d="M142.607 13.54c-2.52 0-4.568-2.047-4.568-4.57 0-2.522 2.04-4.57 4.56-4.57 2.52 0 4.56 2.048 4.56 4.57 0 2.523-2.05 4.57-4.57 4.57h.01zm80.337 30.756c-2.522 0-4.568-2.048-4.568-4.57 0-2.523 2.046-4.57 4.568-4.57 2.52 0 4.567 2.047 4.567 4.57.01 2.522-2.04 4.57-4.56 4.57z"/>
-                    <path fill="#F9DE8F" d="M193.122 22.68c-2.52 0-4.568-2.047-4.568-4.57 0-2.52 2.047-4.57 4.568-4.57 2.52 0 4.567 2.05 4.567 4.57 0 2.523-2.05 4.57-4.57 4.57z"/>
-                    <path fill="#F09EA0" d="M124.497 39.725c-2.52 0-4.567-2.048-4.567-4.57 0-2.523 2.046-4.57 4.567-4.57 2.522 0 4.568 2.047 4.568 4.57 0 2.522-2.046 4.57-4.568 4.57z"/>
-                    <path fill="#F9DE8F" d="M224.72 131.37c-2.522 0-4.568-2.048-4.568-4.57 0-2.523 2.046-4.57 4.567-4.57 2.52 0 4.56 2.047 4.56 4.57 0 2.522-2.05 4.57-4.57 4.57h.01zM82.303 77.472c-2.52 0-4.567-2.048-4.567-4.57 0-2.523 2.046-4.57 4.567-4.57 2.522 0 4.568 2.047 4.568 4.57s-2.04 4.57-4.56 4.57z"/>
-                  </g>
-                </g>
-              </g>
-            </svg>
-            <aside class="notes">
-              <p>There's an algorithm browsers use to determine which fonts to load and use. And even though it has expanded over the last 2 decades, here's a general idea of what goes on beneath the hood.</p>
-              <p>We set the font using a <code>font-family</code> CSS property. For every character the browser encounters, it will match the character with its corresponding glyph in the intended font file, based on its weight and style, and load that particular font file.</p>
-              <p>If it cannot find a matching glyph, it will do the same for the next font family on the list, until something does match. If nothing hits, a system fallback font will be used instead.</p>
-            </aside>
           </section>
 
           <section>
@@ -607,19 +313,6 @@
           </section>
 
           <section>
-            <div class="l-double" style="justify-items:center">
-              <img data-src="img/devtools-tweet1.png" style="max-height:85vh" alt="Raleway font specimen" class="plain">
-              <img data-src="img/devtools-tweet2.png" style="max-height:85vh" alt="Comfortaa font specimen" class="plain">
-            </div>
-            <p><small><a href="https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector/How_to/Edit_fonts">Firefox Font Tools</a></small></p>
-            <aside class="notes">
-              <p>In terms of browser tools, the Firefox Font Tools is the most full-featured tool you can have right now. A while back, Patrick Brosset, who did a lot of work on the Font Tools, pinged me on Twitter about a feature for detecting missing characters.</p>
-              <p>I'm sure he had been thinking and working on it for a bit, but it was still an amazing surprise when he shared his working prototype of the tool the following day.</p>
-              <p>The Fonts panel has been around in Firefox for a long time, since version 24. And version 63 shipped with a suite of font tools including the polished version of the font highlighter demonstrated in the above tweets.</p>
-            </aside>
-          </section>
-
-          <section>
             <video loop autoplay>
               <source data-src="img/font-highlighter.mp4" type="video/mp4">
               Sorry, your browser doesn't support embedded img, 
@@ -627,7 +320,7 @@
               and watch it with your favourite video player!
             </video>
             <p><small>Slides for <a href="https://speak.wgao19.cc/slides/1904-mixed-and-blended/#/9/3"><em>This world mixed and blended</em></a> by <a href="https://wgao19.cc/">Gao Wei</a>.</small></p>
-            <aside class="notes">How it works is that you can see which fonts are loaded on the page, and which fonts are being loaded for which characters on your page. There's also information about all the fonts on the page in the bottom section there as well.</aside>
+            <aside class="notes">In terms of browser tools, the Firefox Font Tools is the most full-featured tool available right now. How it works is that you can see which fonts are loaded on the page, and which fonts are being loaded for which characters on your page. There's also information about all the fonts on the page in the bottom section there as well.</aside>
           </section>
 
           <section>
@@ -673,7 +366,7 @@
           </section>
 
           <section data-background-image="img/cjk-glyphs.jpg">
-            <p class="txtbg">Source Hans Serif (65,535 glyphs)</p>
+            <h2 class="txtbg">Source Hans Serif (65,535 glyphs)</h2>
             <aside class="notes">
               <p>Most CJK system fonts, short for Chinese, Japanese and Korean, have very good glyph coverage, coming in between 20,000 to 30,000 glyphs. When web fonts were introduced, it allowed developers to send fonts that were not installed on their users' systems via a URL. Font data does take up bandwidth though, and font sizes are dependent on the size of the character set supported by the font.</p>
               <p>The nature of CJK fonts make them impractical from a performance standpoint as web fonts delivered over the internet. Currently, websites in those languages almost always use system fonts because a typical CJK font can go up to around 16mb.</p>
@@ -697,8 +390,8 @@
               </figure>
             </div>
             <aside class="notes">
-              <p>Subsettting is a potential solution to this problem, where you can choose to only provide a limited range of characters to your users. And there are numerous applications both online and offline that allow you to do this, like the ones shown here.</p>
-              <p>Font services like Monotype and Typekit even offer the option of dynamic subsetting, where font files are served with only the glyphs needed on each page. However, these solutions have limitations, like losing OpenType features during subsetting, as well as caching issues, given you're requesting new font files for every page.</p>
+              <p>Sub-setting is a potential solution to this problem, where you can choose to only provide a limited range of characters to your users. And there are numerous applications both online and offline that allow you to do this, like the ones shown here.</p>
+              <p>Font services like Monotype and Typekit even offer the option of dynamic sub-setting, where font files are served with only the glyphs needed on each page. However, these solutions have limitations, like losing OpenType features during sub-setting, as well as caching issues, given you're requesting new font files for every page.</p>
             </aside>
           </section>
 
@@ -730,13 +423,13 @@
             </blockquote>
             <aside class="notes">
               <p>But we could potentially be seeing some breakthroughs in the near future. Currently, there is an industry wide collaboration between Adobe, Apple, Google, Monotype and Mozilla plus a number of type foundries and software vendors, to resolve the issues I just described.</p>
-              <p>In order to tackle the limitations of current font subsetting strategies, this webfont performance super collab is working on a solution that allows the subsetting of a font request to only what's required on a page, but progressively add on to that original font request for subsequent pages.</p>
+              <p>In order to tackle the limitations of current font subsetting strategies, this webfont performance super collab is working on a solution that allows the sub-setting of a font request to only what's required on a page, but progressively add on to that original font request for subsequent pages.</p>
             </aside>
           </section>
 
           <section>
             <h2>Incremental Transfer Demo</h2>
-            <video autoplay controls>
+            <video autoplay controls loop>
               <source data-src="img/incremental.mp4" type="video/mp4">
               Sorry, your browser doesn't support embedded img, 
               but don't worry, you can <a href="img/incremental.mp4">download it</a>
@@ -916,8 +609,8 @@
               <li>zero</li>
             </ul>
             <aside class="notes">
-              <p>Earlier, when I talked about all the different font formats, I mentioned that Apple and Microsoft worked to improve the original implementation of TrueType. OpenType and Apple Advanced Typography are what we term modern font technologies, and they can contain a lot more glyphs that previous font formats.</p>
               <p>OpenType fonts can include an expanded character set and layout features, which gives us much broader linguistic support and more precise typographic control. They can also make multilingual typography easier by allowing multiple language character sets in a single font.</p>
+              <p>For the most part, CSS today provides developers a lot more granular typographic control as compared to the early days. There are CSS properties for adjustments at the character level, at the line level and at the layout level.</p>
             </aside>s
           </section>
 
@@ -953,10 +646,14 @@
                 </td>
               </tr>
             </table>
+            <aside class="notes">Font feature properties are what gives developers access to a variety of OpenType features like swashes, ligatures, old-style numerals, as well as language-specific ones. We can toggle them with CSS as long as the font supports them.</aside>
+          </section>
+
+          <section>
+            <h2>Font metrics are crucial</h2>
             <aside class="notes">
-              <p>Font feature properties give us access to a variety of typographic features like swashes, ligatures, old-style numerals and so on, if the font we're using contains these features. Which means we can toggle them via CSS.</p>
-              <p>Such typographic features are part and parcel of good typography, which is necessary to hold a reader's attention. The written word is a transference of speech, which is heard, into something visual, to be seen. Good speakers will vary their cadence, use gestures, emphasise certain words.</p>
-              <p>Typographic features like small caps, correct use of italics and punctuation do the same for text. Other features like old style numerals and ligatures help maintain typographic colour, to make the reading experience more comfortable.</p>
+              <p>To that point, font metrics are measurements of characters in a font and computers use these to determine how to layout characters on a line, things like spacing between lines, positions of sub and superscripts etc. But font metrics aren't mandatory and sometimes type designers don't include them, and that makes it hard for CSS to figure out what to do.</p>
+              <p>This applies for all OpenType features. But when fonts do have these features, we can do interesting things via CSS.</p>
             </aside>
           </section>
 
@@ -977,7 +674,7 @@
 }</style></div>
             </div>
             <aside class="notes">
-              <p>There's one particular font variant property for East Asian text, allowing us to control glyph substitution and positioning for Han characters. </p>
+              <p>There's one particular font variant property for East Asian text, allowing us to control glyph substitution and positioning for Han characters.</p>
               <p>Depending on the language, the same character does not necessarily use the same glyph. This property allows us to toggle between variant glyphs of certain characters.</p>
             </aside>
           </section>
@@ -1005,21 +702,15 @@
           </section>
 
           <section>
-            <h2>Golden rules for web typography<br><small>by Richard Rutter</small></h2>
-            <ol style="column-count:2;column-gap:2em">
-              <li>Don't trust computers</li>
-              <li>Use the default font size for paragraph text</li>
-              <li>Adjust type size according to reading distance</li>
-              <li>Adjust the font size if the typeface requires it</li>
-              <li>Set tables to be read</li>
-              <li>Set text at display sizes, even on small screens</li>
-              <li>Resize display text as you would an image</li>
-              <li>Reduce your payload</li>
-              <li>Optimise page render timing</li>
-              <li>Learn to use variable fonts</li>
-            </ol>
-            <small><a href="https://www.youtube.com/watch?v=hbIZX6tE9JY">Web Typography</a> @ CSS Day 2018</small>
-            <aside class="notes">Richard Rutter gave a great talk at CSS Day in 2018, where he goes through these golden rules for web typography. These rules are universal regardless of language, but there are certain language specific behaviours that CSS can help us address as well.</aside>
+            <h2>Hyphenation</h2>
+            <blockquote>
+              <p>If you don't give a lang attribute, you don't get automatic hyphenation.</p>
+              <br><small>—Florian Rivoal</small>
+            </blockquote>
+            <aside class="notes">
+              <p>Once the browser knows the language of the content being displayed, there is quite a lot that is taken care of. For example, hyphenation, as <strong>language-specific</strong> dictionaries are used to figure out where the hyphenation points should be.</p>
+              <p>I highly recommend watching Florian Rivoal, co-editor of the CSS Text specification, explain all of this in his talk at DotCSS. This is also why setting the <code>lang</code> attribute on a website is so important.</p>
+            </aside>
           </section>
 
           <section>
@@ -1035,78 +726,29 @@
   text-transform: normal;
 }</style></div>
             <aside class="notes">
+              <p>Other than font-feature CSS properties, other text-related CSS properties also have ‘language awareness’, and include values that perhaps most folks aren't aware of.</p>
               <p>Most of the time we use <code>text-transform</code> for case adjustments and capitalisation. But it actually does take into account numerous language-specific case mapping rules. For example, the German Eszett ß becomes SS in uppercase, or the Greek vowels lose their accent when the entire word is uppercase. Stuff like that.</p>
               <p><code>full-size-kana</code> converts all small Kana characters to their equivalent full-size Kana, mostly used for ruby annotations.</p>
             </aside>
           </section>
 
           <section>
-            <h2>Line breaks in inline boxes</h2>
+            <h2>The <code>text-emphasis</code> property</h2>
+            <p>A selector that represents an element based on its language</p>
             <div class="livecode livecode-3p">
-              <pre class="markup" style="white-space:pre-wrap"><code class="html"><p class="line-container">If an element <em>generates zero boxes</em>, was it <strong>really there</strong> at all?</p></code></pre>
-              <div class="result linebox">
-                <p class="line-container" style="text-align:left">If an element <em>generates zero boxes</em>, was it <strong>really there</strong> at all?</p>
+              <pre class="markup"><code class="html"><p>We use <em>italics</em> to emphasise words in English, <span lang="zh">但是中文则是用<em>着重号</em></span>.</p></code></pre>
+              <div class="result lang-pc">
+                <p>We use <em>italics</em> to emphasise words in English, <span lang="zh">但是中文则是用<em>着重号</em></span>.</p>
               </div>
-              <div class="code"><style class="code-editor" contenteditable="true">.linebox p.line-container {
-  font-size: 65%;
-}
-
-.linebox .line-container em {
-  background-color: limegreen;
-  padding: 0.25em;
-  mix-blend-mode: color;
-}
-
-.linebox .line-container strong {
-  background-color: salmon;
-  padding: 0.25em;
-  mix-blend-mode: hard-light;
+              <div class="code"><style class="code-editor" contenteditable="true">.lang-pc em:lang(zh) {
+  // font-style: normal;
+  // text-emphasis: dot;
 }</style></div>
             </div>
             <aside class="notes">
-              <p>Here we have 5 inline boxes. For now there is enough room so all 5 boxes fit into a single line box. But when there isn't enough room, inline boxes will be broken across line boxes. The break is known as a line break.</p>
-              <p>These particular lines were broken due to content wrapping, hence known as a soft wrap break. If wrapping is enabled, the user agent has to minimise the amount of content overflowing a line by wrapping the line at a soft wrap opportunity if one exists.</p>
-              <p>For most writing systems, soft wrap opportunities occur at word boundaries, where spaces or punctuation are used to explicitly separate words.</p>
+              <p>Chinese writing does not have italic styles. To emphasise words, we use a type of punctuation called 着重号. And we can use CSS for this with the <code>text-emphasis</code> property and set a value of dot. There are more values available, like double circle, or triangle. You could put a string in there as well.</p>
+              <p>CSS has this <code>:lang</code> pseudo-class that will recognises the language of the content of an element. So we can use it to identify and apply this property only to Chinese text.</p>
             </aside>
-          </section>
-
-          <section>
-            <h2>CSS for controlling line breaks</h2>
-            <table>
-              <tr>
-                <td style="width:22%"><code>line-break</code></td>
-                <td>allows choosing various levels of “strictness” for line breaking restrictions</td>
-              </tr>
-              <tr>
-                <td><code>word-break</code></td>
-                <td>controls what types of letters are glommed together to form unbreakable “words”, causing CJK characters to behave like non-CJK text or vice versa</td>
-              </tr>
-              <tr>
-                <td><code>hyphens</code></td>
-                <td>controls whether automatic hyphenation is allowed to break words in scripts that hyphenate</td>
-              </tr>
-              <tr>
-                <td><code>overflow-wrap</code></td>
-                <td>allows the UA to take a break anywhere in otherwise-unbreakable strings that would otherwise overflow</td>
-              </tr>
-            </table>
-            <p><a href="https://youtu.be/r5PLrAoyhv0">Line breaking</a> by Florian Rivoal @ dotCSS</p>
-            <aside class="notes">
-              <p>If you're thinking, breaking lines, how hard can that be? Well, there is a lot of nuance because word breaking works differently depending on the language we're typesetting for.</p>
-              <p>For example, English wraps at spaces. But for Japanese or Chinese characters, the break is per character, usually but not always. Becauese line breaks are prohibited before certain punctuation marks. </p>
-              <p>A number of Southeast Asian scripts are written without spaces between words, then text is wrapped at syllable boundaries in addition to word boundaries. We could keep going here.</p>
-              <p>There is interplay between the 4 properties here to provide developers more precise control over line breaking, because some rules take precedence over others if both are present, or some only take affect if <code>white-space</code> property allows wrapping, for example.</p>
-            </aside>
-          </section>
-
-          <section>
-            <h2>Hyphenation</h2>
-            <blockquote>
-              <p>If you don't give a lang attribute, you don't get automatic hyphenation.</p>
-              <br><small>—Florian Rivoal</small>
-            </blockquote>
-            <p>Browsers use <strong>language-specific</strong> dictionaries to figure out where the hyphenation points should be.</p>
-            <aside class="notes">I highly recommend watching Florian Rivoal, co-editor of the CSS Text specification, explain all of this in his talk at DotCSS. And if you're not sure exactly what's going on, rather confused about all this, just setting the <code>lang</code> attribute will take care of some of this stuff for you.</aside>
           </section>
 
           <section>
@@ -1152,7 +794,7 @@
           <section>
             <h2>Vertical text on the web</h2>
             <p>CSS Writing Modes Level 3 defines CSS features to support for various international writing modes, such as <strong>left-to-right</strong> (e.g. Latin or Indic), <strong>right-to-left</strong> (e.g. Hebrew or Arabic), <strong>bidirectional</strong> (e.g. mixed Latin and Arabic) and <strong>vertical</strong> (e.g. Asian scripts).</p>
-            <aside class="notes">Writing systems are also not limited a horizontal, top-to-bottom direction. Traditionally, East Asian languages were all written vertically. Arabic and Hebrew are written from right-to-left.</aside>
+            <aside class="notes">Writing systems are also not limited a horizontal, top-to-bottom direction. Traditionally, East Asian languages were all written vertically. Arabic and Hebrew are written from right-to-left. But broad support for vertical writing on the web was a relatively recent development, somewhere around 2015 or so.</aside>
           </section>
 
           <section>
@@ -1218,7 +860,7 @@
                 <figcaption>all</figcaption>
               </figure>
               <figure>
-                <div><span style="writing-mode:vertical-rl;font-family:'PingFang SC'">民國<span style="text-combine-upright:digits 3">107</span>年<span style="text-combine-upright:digits">5</span>月<span style="text-combine-upright:digits">25</span>日</span></div><
+                <div><span style="writing-mode:vertical-rl;font-family:'PingFang SC'">民國<span style="text-combine-upright:digits 3">107</span>年<span style="text-combine-upright:digits">5</span>月<span style="text-combine-upright:digits">25</span>日</span></div>
                 <figcaption>digits &lt;integer&gt;*</figcaption>
               </figure>
             </div>
@@ -1276,24 +918,131 @@
             </div>
             <aside class="notes">
               <p>Vertical text may be better suited for East Asian languages when it comes to full length body copy, but that doesn't mean other languages can't get in on the fun. We see vertically set text in print all the time.</p>
-              <p>Headers or short runs of text are relatively safe to typeset vertically, and can add some typographic variety to your web layouts. We can also combine <code>writing-mode</code> with transforms or other CSS properties. Lots of possibilities with modern CSS these days.</p>
+              <p>Headers or short runs of text are relatively safe to typeset vertically, and can add some typographic variety to your web layouts. We can also combine <code>writing-mode</code> with transforms or other CSS properties.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Everything is a box on the web</h2>
+            <img data-src="img/box-fam.svg" style="max-height:75vh" alt="Boxes" class="plain">
+            <aside class="notes">Even though the web can display all sorts of content, dynamic or otherwise, everything is essentially rectangles. Or we can call them boxes. There are many different kinds of boxes, that interact with each other in different ways, but fundamentally, the web is boxes.</aside>
+          </section>
+
+          <section>
+            <h2>Line breaks in inline boxes</h2>
+            <div class="livecode livecode-3p">
+              <pre class="markup" style="white-space:pre-wrap"><code class="html"><p class="line-container">If an element <em>generates zero boxes</em>, was it <strong>really there</strong> at all?</p></code></pre>
+              <div class="result linebox">
+                <p class="line-container" style="text-align:left">If an element <em>generates zero boxes</em>, was it <strong>really there</strong> at all?</p>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.linebox p.line-container {
+  font-size: 65%;
+}
+
+.linebox .line-container em {
+  background-color: limegreen;
+  padding: 0.25em;
+  mix-blend-mode: color;
+}
+
+.linebox .line-container strong {
+  background-color: salmon;
+  padding: 0.25em;
+  mix-blend-mode: hard-light;
+}</style></div>
+            </div>
+            <aside class="notes">
+              <p>Here we have 5 inline boxes. For now there is enough room so all 5 boxes fit into a single line box. But when there isn't enough room, inline boxes will be broken across line boxes. The break is known as a line break.</p>
+              <p>These particular lines were broken due to content wrapping, hence known as a soft wrap break. If wrapping is enabled, the user agent has to minimise the amount of content overflowing a line by wrapping the line at a soft wrap opportunity if one exists.</p>
+              <p>For most writing systems, soft wrap opportunities occur at word boundaries, where spaces or punctuation are used to explicitly separate words.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>CSS for controlling line breaks</h2>
+            <table>
+              <tr>
+                <td style="width:22%"><code>line-break</code></td>
+                <td>allows choosing various levels of “strictness” for line breaking restrictions</td>
+              </tr>
+              <tr>
+                <td><code>word-break</code></td>
+                <td>controls what types of letters are glommed together to form unbreakable “words”, causing CJK characters to behave like non-CJK text or vice versa</td>
+              </tr>
+              <tr>
+                <td><code>hyphens</code></td>
+                <td>controls whether automatic hyphenation is allowed to break words in scripts that hyphenate</td>
+              </tr>
+              <tr>
+                <td><code>overflow-wrap</code></td>
+                <td>allows the UA to take a break anywhere in otherwise-unbreakable strings that would otherwise overflow</td>
+              </tr>
+            </table>
+            <p><a href="https://youtu.be/r5PLrAoyhv0">Line breaking</a> by Florian Rivoal @ dotCSS</p>
+            <aside class="notes">
+              <p>There is a lot of nuance because word breaking works differently depending on the language we're typesetting for.</p>
+              <p>For example, English wraps at spaces. But for Japanese or Chinese characters, the break is per character, usually but not always. Because line breaks are prohibited before certain punctuation marks. </p>
+              <p>A number of Southeast Asian scripts are written without spaces between words, then text is wrapped at syllable boundaries in addition to word boundaries. We could keep going here.</p>
+              <p>There is interplay between the 4 properties here to provide developers more precise control over line breaking, because some rules take precedence over others if both are present, or some only take affect if <code>white-space</code> property allows wrapping, for example.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Future improvements to web typography</h2>
+            <ul>
+              <li><a href="https://www.w3.org/TR/css-rhythm-1/">CSS Rhythmic Sizing</a></li>
+              <li><a href="https://www.w3.org/TR/css-inline-3/">CSS Inline Layout Module Level 3</a></li>
+              <li><a href="https://www.w3.org/TR/css-text-4/">CSS Text Module Level 4</a></li>
+              <li><a href="https://www.w3.org/TR/css-text-decor-4/">CSS Text Decoration Module Level 4</a></li>
+            </ul>
+            <aside class="notes">
+              <p>Even though we've covered quite a bit, there is still a long way to go when it comes to web typography.</p>
+              <p>The CSS line box model was invented in the 90s, when technology was not as powerful as it is today. Typographers generally don't like the way CSS handles font sizes but the CSS Working Group is trying to fix things.</p>
+              <p>They are thinking about rhythmic sizing and how to pro grammatically achieve a consistent vertical rhythm on the web, where text is often interrupted by other types and sizes of content. How to deal with situations where different font families are being used. How to support typographic features in writing systems that are not alphabetic.</p>
+              <p>A lot of work is at the ideation phase because there are so many tricky problems to work out.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>The leading problem</h2>
+            <img data-src="img/leading.svg" style="max-height:75vh" alt="Line height" class="plain">
+            <aside class="notes">
+              <p>CSS allocates leading based on the line-height by subtracting the ascent and descent from the specified line-height, then splitting the remainder in half, giving each half to the top and bottom.</p>
+              <p>Doing so allows us to get decently even line-spacing, but mostly if the paragraph of text is of the same font. When we have different font families on the same line, things don't line up as well because different fonts have different ideas of what 1em should be.</p>
+              <p>What CSS does now is guaranteeing content never overlaps at the expense of aesthetics. But the CSSWG is trying to come up with a new algorithm to calculate the optimal line size.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>The leading problem</h2>
+            <img data-src="img/leading.svg" style="max-height:75vh" alt="Line height" class="plain">
+            <aside class="notes">
+              <p>CSS allocates leading based on the line-height by subtracting the ascent and descent from the specified line-height, then splitting the remainder in half, giving each half to the top and bottom.</p>
+              <p>Doing so allows us to get decently even line-spacing, but mostly if the paragraph of text is of the same font. When we have different font families on the same line, things don't line up as well because different fonts have different ideas of what 1em should be.</p>
+              <p>What CSS does now is guaranteeing content never overlaps at the expense of aesthetics. But the CSSWG is trying to come up with a new algorithm to calculate the optimal line size.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>The interruption problem</h2>
+            <img data-src="img/rhythm.png" style="max-height:100vh" alt="Vertical rhythm when content is varied" class="plain">
+            <aside class="notes">
+              <p>Strict vertical rhythm tends to go out the window when we're trying to layout many different types of content, but it is important when it comes to things like multi-column layouts with content side-by-side.</p>
+              <p>One of the proposed new properties is called <code>block-step-size</code>, which sets the height of the line to be a multiple of the value you define. But again, where should any extra space go?</p>
+              <p>The CSS rhythmic sizing specification is currently sourcing for feedback.</p>
             </aside>
           </section>
 
           <section>
             <h2>CSS Line Layout and Vertical Rhythm</h2>
-            <p>Or the lack thereof…</p>
             <iframe width="960" height="540" src="https://www.youtube.com/embed/OtlGo48iTOk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <aside class="notes">
-              <p>The CSS line box model was invented in the 90s, when technology was not as powerful as it is today. Typographers generally don't like the way CSS handles font sizes but the CSS Working Group is trying to fix things.</p>
-              <p>This talk by Elika Etemad, AKA Fantasai, presents a deep dive into issues around line height, font sizes and font metrics. I highly recommend everyone watch it, and if you have insights or suggestions, share them with the CSS Working Group as well. They do all their work in the open on GitHub.</p>
-            </aside>
+            <aside class="notes">More granular details about this topic, I recommend watching this talk by Elika Etemad, AKA Fantasai, as she is the editor for many of the specifications I listed above.</aside>
           </section>
 
           <section>
             <h2>Imagine an alternate history…</h2>
             <aside class="notes">
-              <p>As we close off this talk, I'd like to share some thoughts I've had over the years that are sort of related to this topic of writing systems. Right now, we're living in a digital age. A world running on computers.</p>
+              <p>As we close off this talk, I'd like to circle back to the idea I mentioned at the start about the origins of digital technology. Right now, we're living in a digital age. A world running on computers.</p>
               <p>These computers were pioneered in the West, in countries that use an alphabetic, left-to-right oriented writing system. This is an irreversible first-mover advantage, because less than a century later, everyone in the world, regardless of their native writing system, is more or less used to a left-to-right, top-to-bottom orientation for digital content.</p>
               <p>This isn't a criticism. It is simply an observation. Vertical writing systems like Chinese, Japanese and Korean went horizontal as Western science and technology prevailed. Even so, I cannot help but wonder, if somewhere along the timeline something changed, if the Islamic Golden Age prevailed or if the Ming Dynasty never closed China's doors? What kind of a world we would live in, and what systems would we be using?</p>
             </aside>
@@ -1316,6 +1065,7 @@
             <li><a href="https://www.zachleat.com/web/font-smooth/">Laissez-faire Font Smoothing and Anti-aliasing</a></li>
             <li><a href="https://www.smashingmagazine.com/2012/04/a-closer-look-at-font-rendering/">A Closer Look At Font Rendering</a></li>
           </ul>
+          <aside class="notes">That being said, I'm glad that there are active efforts in improving the support of more languages and writing systems in the digital realm. Hopefully this provides greater opportunities for people from different backgrounds and cultures to share their perspectives and have their voices heard on a bigger scale than before.</aside>
         </section>
 
         <section style="text-align: left;">
