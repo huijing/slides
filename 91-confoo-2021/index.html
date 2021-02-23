@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>CSS for internationalisation</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/jing.css" id="theme">
+    <link rel="stylesheet" href="plugin/highlight/atom-one-light.css" id="highlight-theme">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>CSS for i18n</h1>
+          <p><small>By <a href="https://chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
+          <aside class="notes">Hello everyone! Thank you all for having me today. This is my first Reactive Meetup, online or otherwise. And I'm guessing a lot of folks probably do React or focus a lot on the Javascript side of things. Making me slightly nervous since I'm going to be talking about CSS. Don't get me wrong, I do like Javascript. But I love CSS more.</aside>
+        </section>
+
+        <section>
+          <div class="intro-grid">
+            <span class="emoji" role="img" tabindex="0" aria-label="Malaysia">&#x1F1F2;&#x1F1FE;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="alien monster">&#x1F47E;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="basketball">&#x1F3C0;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="bicycle">&#x1F6B2;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="paintbrush">&#x1F58C;&#xFE0F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="sneaker">&#x1F45F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="laptop computer">&#x1F4BB;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="pen">&#x1F58A;&#xFE0F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="studio microphone">&#x1F399;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="fox">&#x1F98A;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="person climbing">&#x1F9D7;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="Rainbow flag">&#x1F3F3;&#xFE0F;&#x200D;&#x1F308;</span>
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+              <img data-src="img/name.svg" alt="Chen Hui Jing" class="plain" style="max-height:25vh">
+              <div>
+                <img data-src="img/avatar.jpg" alt="Jing" style="border-radius:50%;max-height:40vh">
+              </div>
+              <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
+            </div>
+          </div>
+          <aside class="notes">A quick introduction. My name is Hui Jing, and I'm simple enough that these emojis paint a fairly comprehensive picture of who I am as a person. I happen to be Chinese, and if you're unfamiliar with Chinese names, our family names come first, followed by our first names.</aside>
+        </section>
+
+        <section>
+          <section>
+            <h2>Numeronyms</h2>
+            <div class="fragment">
+              <img class="plain" style="height:4em" data-src="img/i18n.svg" alt="internationalisation">
+              <img class="plain" style="height:4em" data-src="img/l10n.svg" alt="localisation">
+            </div>
+            <aside class="notes">
+              <p>CSS is a really big topic, so today I'm specifically going to talk about CSS that is relevant for internationalisation. But before we get into it, let's discuss Numeronyms. Numeronyms are number-based words, where a number is used to form an abbreviation.</p>
+              <p>i18n stands for internationalisation because there are 18 letters between I and N. Some of you may have also seen l10n, which is the abbreviation for localisation. But what's the difference, you may be wondering?</p>
+            </aside>
+          </section>
+
+          <section>
+            <blockquote>
+              <p><em>Internationalisation</em> is the design and development of a product, application or document that <em>enables easy localisation</em> for target audiences that vary in culture, region, or language.</p>
+            </blockquote>
+            <aside class="notes">
+              <p>There is no canonical set-in-stone definition of internationalisation, but the W3C does offer this guidance. It is designing and developing in a way that enables easy localisation for specific audiences. Localisation covers a broad range of customisations including but not limited to: numeric, time and date formats, currencies, symbols, icons and colours, even textual and graphical references.</p>
+              <p>This implies that internationalisation is a lot more than simply translating the content on a site to different languages. There are nuances to the presentation of that content which will affect the experience of a native speaker using your site. This is where CSS comes in.</p>
+              <p>To be honest, this talk originated from an article I wrote earlier, and the main reason I wrote that article was because someone said to me that CSS has nothing to do with internationalisation. It was my passive-aggressive two thousand plus word response.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>What is CSS?</h2>
+            <p class="fragment">A vocabulary for communicating with the browser.</p>
+            <p class="fragment">To inform the browser how we want elements to be styled and laid out.</p>
+            <blockquote class="fragment">
+              <p>CSS is a domain-specific, declarative programming language.<br><small>–<a href="https://twitter.com/laras126">Lara Schenck</a></small></p>
+            </blockquote>
+            <aside class="notes">
+              <p>CSS stands for Cascading Stylesheets. To me it is a vocabulary for us to communicate with the browser. The first standard for CSS was published on December 17, 1996, which makes CSS around 23 and a half years old. When CSS first came out, it wasn't even meant for doing layout, think about that for a bit.</p>
+              <p>Two decades later, we went from what seemed like trying to communicate with a toddler to having a pretty wide vocabulary for telling the browser how we want stuff to on our web pages to look like. Lara Schenck wrote a great piece about the nature of CSS, concluding that it is a domain-specific, declarative programming language. I really like that.</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <img class="plain" style="max-height:85vh" data-src="img/languages.svg" alt="A browser pondering languages">
+            <aside class="notes">
+              <p>Have you ever browsed a website using Chrome which was in a different language from your default and Chrome asked you if you wanted the page translated? How does Chrome know to ask you this? Or let me ask it another way, how come sometimes Chrome doesn't ask you?</p>
+              <p>The <code>lang</code> attribute plays a very important role because it specifies the natural language of the content of a web page and this information is used for lots of things.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Why <code>lang</code> matters?</h2>
+            <ul>
+              <li>Language-specific behaviour in browsers</li>
+              <li>Default font selection</li>
+              <li>Search engine optimisation</li>
+              <li>Spelling and grammar checks</li>
+              <li>Translation</li>
+              <li>Non-text readers</li>
+              <li>Parsers and scripts</li>
+            </ul>
+            <p><small>Source: <a href="https://www.w3.org/International/questions/qa-lang-why">Why use the language attribute?</a></small></p>
+            <aside class="notes">
+              <p>Browsers are pretty smart and they come with a lot of sensible defaults. I'm not going to go into the parts about accessibility and using semantic HTML, those are amazing in their own right. But if the browser knows what language your content is in, it gives you lots more useful stuff out the box.</p>
+              <p>We'll cover some of the browser's language-specific behaviours. I'll show what I mean by default font selection and generally talk about CSS. But seriously, look at all this good stuff.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Basics of using <code>lang</code></h2>
+            <p>Set the default language of the document:</p>
+            <pre style="width:max-content"><code>&lt;html lang="zh"&gt;</code></pre>
+            <p>If you have mixed language content on your page:</p>
+            <pre style="width:max-content"><code>&lt;p&gt;The fourth animal in the Chinese Zodiac is Rabbit (&lt;span lang="zh"&gt;兔子&lt;/span&gt;).&lt;/p&gt;</code></pre>
+            <aside class="notes">Set the overall default language on the HTML element, because if you simply set it on the body element, the stuff in the head doesn't get it. Language code information is inherited according to the following order of precedence: a <code>lang</code> attribute on the element itself, if not, then the closest parent with a <code>lang</code> attribute set, if not, then the HTTP "Content-Language" header, if not, then user agent default values and user preferences. Once we've got that settled, let's look at how to make use of this attribute.</aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>The <code>:lang()</code> pseudo-class</h2>
+            <p>A selector that represents an element based on its language</p>
+            <div class="livecode livecode-3p">
+              <pre class="markup"><code class="html"><p>We use <em>italics</em> to emphasise words in English, <span lang="zh">但是中文则是用<em>着重号</em></span>.</p></code></pre>
+              <div class="result lang-pc">
+                <p>We use <em>italics</em> to emphasise words in English, <span lang="zh">但是中文则是用<em>着重号</em></span>.</p>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.lang-pc em:lang(zh) {
+  // font-style: normal;
+  // text-emphasis: dot;
+}</style></div>
+            </div>
+            <aside class="notes">
+              <p>I'm not sure how many people are familiar with the <code>:lang()</code> pseudo-class, but this is a pretty cool selector. So we've got this mixed language sentence here marked up like so. The bit in Chinese is marked up as a span tag with <code>lang</code> set to <code>zh</code>.</p>
+              <p>Chinese writing does not have italic styles. To emphasise words, we use a type of punctuation called 着重号. And we can use CSS for this with the <code>text-emphasis</code> property and set a value of dot. There are more values available, like double circle, or triangle. You could put a string in there as well.</p>
+              <p><code>:lang</code> will recognise the language of the content of an element even if the language is declared outside the element in question. In this case, the attribute in on the <code>span</code> not the <code>em</code>, but it still picks up.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Attribute selectors</h2>
+            <p>A selector that matches elements based on the presence or value of a given selector</p>
+            <div class="l-multiple">
+              <pre style="width:max-content"><code>[lang="zh"]
+/* will match only zh */</code></pre>
+              <pre style="width:max-content"><code>[lang^="zh"]
+/* will match zh, zh-HK, zh-Hans, zhong, zh123…
+ * basically anything with zh as the first 2 characters */
+</code></pre>
+              <pre style="width:max-content"><code>[lang|="zh"]
+/* will match zh, zh-HK, zh-Hans, zh-amazing, zh-123 */</code></pre>
+            </div>
+            <aside class="notes">
+              <p>What is <code>lang</code> but simply an attribute. Hence, attribute selectors can also be used to identify content with a particular <code>lang</code> value set, but it has to be on the element you want to target. So that's a key difference from the <code>:lang()</code> pseudo-class.</p>
+              <p>Attribute selectors are pretty versatile because of the number of options it offers for matching. You can match the attribute value exactly, or you can match just the front part of the selector, or you can match anything before a dash.</p>
+              <p>There are more than I listed here but these are most relevant to language tags, in my opinion.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Some things to note…</h2>
+            <p class="fragment">The <code>:lang()</code> pseudo-class does take care of partial tag matching</p>
+            <p class="fragment">In terms of selector matching, <span class="fragment">the <code>|=</code> operator performs a comparison against a given attribute on the element,</span> <span class="fragment">while the <code>:lang()</code> pseudo-class uses the UAs knowledge of the document's semantics for the comparison</span></p>
+            <p class="fragment">You can always use normal classes or ids, but you would no longer be making use of the convenience of what already exists</p>
+            <aside class="notes">
+              <p>A couple of things to note here is that if you choose to use the <code>:lang()</code> pseudo-class, partial tag matching is already taken care of. So if you wanted to match <code>zh</code> in a document with different extended Chinese language tags, that just works.</p>
+              <p>As for the mechanics of matching, the attribute selector operates based on the attribute on the element, while the pseudo-class makes use of the document's semantics. Of course, you are free to use normal classes or ids, then you would have to give those elements language-specific CSS classes or ids. I mean, it is up to you, but I'd go the pseudo-class route.</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>The faux fonts problem</h2>
+            <div class="l-double" style="grid-template-columns:58% 42%;margin-bottom:1em">
+              <figure>
+                <img class="plain" data-src="img/faux-bold.png" alt="Faux bold effect">
+                <figcaption>Spotting faux bold</figcaption>
+              </figure>
+              <figure>
+                <img class="plain" data-src="img/faux-italic.png" alt="Faux italic effect">
+                <figcaption>Spotting faux italic</figcaption>
+              </figure>
+            </div>
+            <small>Image source: <a href="https://graphicdesign.stackexchange.com/a/76034/20360">Cai</a></small>
+            <aside class="notes">
+              <p>There are numerous CSS properties now available to us which let us fine-tune the presentation of our content, from the font level all the way to the layout level. So there's going to be quite a bit of CSS for typography coming up. An example for a font-level CSS would be the property that deals with faux fonts.</p>
+              <p>When you use a typeface that does not include styles for bold or italics, the browser will try to artificially recreate these typefaces by modifying the glyphs from the available typeface and the end results are not very aesthetically pleasing.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>font-synthesis</code></h2>
+            <p>Controls if the browser should synthesize a missing typeface or not</p>
+            <div class="livecode livecode-2p">
+              <div class="result faux">
+                <p>We use <em>italics</em> to emphasise words in English, <span lang="zh">但是中文则是用<em>着重号</em></span>.</p>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.faux em:lang(zh) {
+  // font-synthesis: none;
+}</style></div>
+            </div>
+            <aside class="notes">Or in the case of Chinese, not even necessary. We can use the <code>font-synthesis</code> property to fix this, and make use of the <code>:lang()</code> pseudo-class to target just Chinese, like we did in the example before.</aside>
+          </section>
+
+          <section>
+            <h2>Glyph differences</h2>
+            <div class="l-double">
+              <figure>
+                <p style="font-size:5em;font-family:PingFang SC" lang="zh-hans">能</p>
+                <figcaption><pre><code>lang="zh-hans"</code></pre></figcaption>
+              </figure>
+              <figure>
+                <p style="font-size:5em;font-family:PingFang SC" lang="zh-hant">能</p>
+                <figcaption><pre><code>lang="zh-hant"</code></pre></figcaption>
+              </figure>
+            </div>
+            <aside class="notes">
+              <p>The <code>lang</code> attribute also impacts default font selection. Chinese fonts are so huge that most of us don't use them as web fonts for body text. We usually fallback to system fonts. For this presentation, I did not explicitly specify any Chinese fonts, and instead, let the browser pick the appropriate font.</p>
+              <p>I'm guessing most of the audience do not read Chinese, but there are two variants of the Chinese script, simplified and traditional. There are glyphs that look exactly the same for both, there are glyphs that are completely different and there are glyphs that are essentially the same but with stylistic differences.</p>
+              <p>Like this particular glyph here, I've made it large so hopefully you can spot the differences in the styles. When I set the language to traditional Chinese, the browser knows to pick the traditional Chinese typeface instead of the simplified typeface.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>font-variant-east-asian</code></h2>
+            <p>Allows control of glyph substitution and sizing in East Asian text</p>
+            <div class="livecode livecode-2p">
+              <div class="result fvea">
+                <p class="han" lang="zh-hans" style="text-align:justify;font-family:PingFang SC">一个简体字可能对应多个繁体字，如简体字「发」，其相应的繁体字可能为「發」或「髮」；一个繁体汉字对应多个简体汉字的情况与前者相比数量极少但仍需注意，如繁体字「乾」可能对应简体字「干」或「乾」。</p>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.fvea :lang(zh) {
+  // font-variant-east-asian: traditional;
+}</style></div>
+            </div>
+            <aside class="notes">
+              <p>There's one particular font variant property for East Asian text, allowing us to control glyph substitution and positioning for Han characters. Han characters are not only used in Chinese, but Japanese and Korean as well.</p>
+              <p>Depending on the language or writing script, the same character does not necessarily use the same glyph, and this property allows us to toggle between variant glyphs of certain characters.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>font-language-override</code></h2>
+            <p>To control the use of language-specific glyph substitutions and positioning</p>
+            <div class="l-double">
+             <pre style="white-space:pre-wrap"><code style="font-family:Menlo">&lt;!-- Macedonian lang code --&gt;
+&lt;body lang="mk"&gt;
+  &lt;h4&gt;Члeн 9&lt;/h4&gt;
+  &lt;p&gt;Никoj чoвeк нeмa дa бидe пoдлoжeн нa прoизвoлнo aпсeњe, притвoр или прoгoнувaњe.&lt;/p&gt;
+&lt;/body&gt;</code></pre>
+              <pre><code>body {
+  /* Serbian OpenType language tag */
+  font-language-override: "SRB";
+}</code></pre>
+            </div>
+            <p><small>Example lifted from <a href="https://www.w3.org/TR/css-fonts-4/#propdef-font-language-override">CSS Fonts Module Level 4</a></small></p>
+            <aside class="notes">
+              <p>The user agent will refer to the <code>lang</code> attribute when rendering text but if the selected font lacks support for that language, we can ask the browser to use the typographic conventions of a related language present in the font instead.</p>
+              <p>Here's the markup for some Macedonian text. Imagine that the font being used does not support Macedonian but has characters for Serbian.</p>
+              <p>By setting <code>font-language-override</code> to <code>SRB</code>, the Macedonian text will be rendered with Serbian typographic conventions instead. But still be recognised as Macedonian.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>text-transform</code></h2>
+            <p>Transforms text for styling purposes</p>
+            <div class="livecode livecode-2p">
+              <div class="result txt-trans">
+                <p style="margin-bottom:1em">If I want [flowers], I’m going to send them to myself.</p>
+                <p lang="de" style="margin-bottom:1em">Süße Soßen-Klöße genießen maßgeblich gefräßige preußische Nutznießer.</p>
+                <p lang="gr" style="font-family:'Kochin Regular';margin-bottom:1em">Ουδέν κακόν αμιγές καλού.</p>
+                <p lang="jp">ァィゥェ ォヵㇰヶ</p>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.txt-trans p:lang(en) {
+  text-transform: normal;
+}
+
+.txt-trans p:lang(de),
+.txt-trans p:lang(gr) {
+  text-transform: normal;
+}
+
+.txt-trans p:lang(jp) {
+  text-transform: normal;
+}</style></div>
+            <aside class="notes">
+              <p>Most of the time we use <code>text-transform</code> for case adjustments and capitalisation. But it actually does take into account numerous language-specific case mapping rules. For example, the German Eszett ß becomes SS in uppercase, or the Greek vowels lose their accent when the entire word is uppercase. Stuff like that.</p>
+              <p><code>full-size-kana</code> converts all small Kana characters to their equivalent full-size Kana, mostly used for ruby annotations.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Line breaks for inline boxes</h2>
+            <div class="livecode livecode-3p">
+              <pre class="markup" style="white-space:pre-wrap"><code class="html"><p class="line-container">If an element <em>generates zero boxes</em>, was it <strong>really there</strong> at all?</p></code></pre>
+              <div class="result linebox">
+                <p class="line-container" style="text-align:left">If an element <em>generates zero boxes</em>, was it <strong>really there</strong> at all?</p>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.linebox p.line-container {
+  font-size: 65%;
+}
+
+.linebox .line-container em {
+  background-color: mediumpurple;
+  padding: 0.25em;
+}
+
+.linebox .line-container strong {
+  background-color: cornflowerblue;
+  padding: 0.25em;
+  mix-blend-mode: color-burn;
+}</style></div>
+            </div>
+            <aside class="notes">
+              <p>Okay, this example is to lay the ground work for something else I want to cover. But bear with me. Here we have 5 inline boxes. For now there is enough room so all 5 boxes fit into a single line box. But when there isn't enough room, inline boxes will be broken across line boxes. The break is known as a line break.</p>
+              <p>These particular lines were broken due to content wrapping, hence known as a soft wrap break. If wrapping is enabled, the user agent has to minimise the amount of content overflowing a line by wrapping the line at a soft wrap opportunity if one exists.</p>
+              <p>For most writing systems, soft wrap opportunities occur at word boundaries, where spaces or punctuation are used to explicitly separate words.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>CSS for controlling line breaks</h2>
+            <table>
+              <tr>
+                <td style="width:22%"><code>line-break</code></td>
+                <td>allows choosing various levels of “strictness” for line breaking restrictions</td>
+              </tr>
+              <tr>
+                <td><code>word-break</code></td>
+                <td>controls what types of letters are glommed together to form unbreakable “words”, causing CJK characters to behave like non-CJK text or vice versa</td>
+              </tr>
+              <tr>
+                <td><code>hyphens</code></td>
+                <td>controls whether automatic hyphenation is allowed to break words in scripts that hyphenate</td>
+              </tr>
+              <tr>
+                <td><code>overflow-wrap</code></td>
+                <td>allows the UA to take a break anywhere in otherwise-unbreakable strings that would otherwise overflow</td>
+              </tr>
+            </table>
+            <p><a href="https://youtu.be/r5PLrAoyhv0">Line breaking</a> by Florian Rivoal @ dotCSS</p>
+            <aside class="notes">
+              <p>Line breaking is really not that straightforward. There is a lot of nuance involved because word breaking works differently depending on the language we're typesetting for.</p>
+              <p>For example, English wraps at spaces. But for Japanese or Chinese characters, the break is per character, but on occasion it's not, because line breaks are prohibited before certain punctuation marks. </p>
+              <p>A number of Southeast Asian scripts are written without spaces between words, then text is wrapped at syllable boundaries in addition to word boundaries. We could keep going here.</p>
+              <p>There is interplay between the 4 properties here to provide developers more precise control over line breaking, because some rules take precedence over others if both are present, or some only take affect if <code>white-space</code> allows wrapping, for example.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Hyphenation</h2>
+            <blockquote>
+              <p>If you don't give a lang attribute, you don't get automatic hyphenation.</p>
+              <br><small>—Florian Rivoal</small>
+            </blockquote>
+            <p>Browsers use <strong>language-specific</strong> dictionaries to figure out where the hyphenation points should be.</p>
+            <aside class="notes">All of that was so I could say, if you don't use <code>lang</code> properly, you don't get automatic hyphenation. I highly recommend watching Florian Rivoal, co-editor of the CSS Text specification, explain all of this in his talk at DotCSS back in 2018.</aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2><code>writing-mode</code></h2>
+            <div class="l-double">
+              <figure>
+                <p lang="mon-mong" style="writing-mode:vertical-lr;width:max-content;height:13em;text-align:left">ᠬᠦᠮᠦᠨ ᠪᠦᠷ ᠲᠥᠷᠥᠵᠦ ᠮᠡᠨᠳᠡᠯᠡᠬᠦ ᠡᠷᠬᠡ ᠴᠢᠯᠥᠭᠡ ᠲᠡᠢ᠂ ᠠᠳᠠᠯᠢᠬᠠᠨ ᠨᠡᠷ᠎ᠡ ᠲᠥᠷᠥ ᠲᠡᠢ᠂ ᠢᠵᠢᠯ ᠡᠷᠬᠡ ᠲᠡᠢ ᠪᠠᠢᠠᠭ᠃ ᠣᠶᠤᠨ ᠤᠬᠠᠭᠠᠨ᠂ ᠨᠠᠨᠳᠢᠨ ᠴᠢᠨᠠᠷ ᠵᠠᠶᠠᠭᠠᠰᠠᠨ ᠬᠦᠮᠦᠨ ᠬᠡᠭᠴᠢ ᠥᠭᠡᠷ᠎ᠡ ᠬᠣᠭᠣᠷᠣᠨᠳᠣ᠎ᠨ ᠠᠬᠠᠨ ᠳᠡᠭᠦᠦ ᠢᠨ ᠦᠵᠢᠯ ᠰᠠᠨᠠᠭᠠ ᠥᠠᠷ ᠬᠠᠷᠢᠴᠠᠬᠥ ᠤᠴᠢᠷ ᠲᠠᠢ᠃</p>
+                <figcaption><pre style="width:max-content"><code>writing-mode: vertical-lr</code></pre></figcaption>
+              </figure>
+              <figure>
+                <p lang="ja" style="writing-mode:vertical-rl;width:max-content;height:13em;text-align:left">すべての人間は、生まれながらにして自由であり、かつ、尊厳と権利と について平等である。人間は、理性と良心とを授けられており、互いに同 胞の精神をもって行動しなければならない。</p>
+                <figcaption><pre style="width:max-content"><code>writing-mode: vertical-rl</code></pre></figcaption>
+              </figure>
+            </div>
+            <aside class="notes">
+              <p>Okay, let's move a level up to layout. The default value for writing-mode is <code>horizontal-tb</code>. Perfectly logical because the web was born at CERN, where the official languages are English and French. Moreover, most of web technologies were pioneered in English-speaking countries anyway (I think).</p>
+              <p>The traditional Mongolian script runs vertically from left-to-right, while East Asian languages like Japanese, Chinese and Korean, when written vertically, runs from right-to-left. The writing mode properties that let you do that are <code>vertical-lr</code> and <code>vertical-rl</code> respectively.</p>
+              <p>There are also the values of <code>sideways-lr</code> and <code>sideways-rl</code>, which rotate the glyphs sideways. Every Unicode character has a vertical orientation property that informs rendering engines how the glyph should be oriented by default.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2><code>text-orientation</code> & <code>text-combine-upright</code></h2>
+            <div class="l-double">
+              <figure>
+                <p style="writing-mode:vertical-rl;width:max-content;height:13em;text-align:left" lang="zh-tw">國家籃球協會（英語：<span lang="en">National Basketball Association</span>，縮寫：<span style="text-orientation:upright;color:#82e4b8" lang="en">NBA</span>）是北美的男子職業籃球聯盟。</p>
+                <figcaption><pre style="width:max-content"><code>text-orientation: upright</code></pre></figcaption>
+              </figure>
+              <figure>
+                <p style="writing-mode:vertical-rl;width:max-content;height:13em;text-align:left" lang="zh-tw">國家籃球協會（英語：<span lang="en">National Basketball Association</span>，縮寫：<span style="text-combine-upright:all;color:#82e4b8" lang="en">NBA</span>）是北美的男子職業籃球聯盟。</p>
+                <figcaption><pre style="width:max-content"><code>text-combine-upright: all</code></pre></figcaption>
+              </figure>
+            </div>
+            <aside class="notes">We can change the character’s orientation with the <code>text-orientation</code> property. This usually comes into play when you have vertically typeset East Asian text interspersed with Latin-based words or characters. For abbreviations, you have the option of using <code>text-combine-upright</code> to squeeze the letters into one character space.</aside>
+          </section>
+
+          <section>
+            <h2>Right-to-left languages</h2>
+            <p>CSS should <strong>not</strong> be used for bi-directional styling</p>
+            <blockquote>
+              <p>Because directionality is an integral part of the document structure, markup should be used to set the directionality for a document or chunk of information, or to identify places in the text where the Unicode bidirectional algorithm alone is insufficient to achieve desired directionality.</p>
+            </blockquote>
+            <aside class="notes">
+              <p>So what about languages like Hebrew or Arabic, which are right-to-left? Does writing-mode cover those? The answer is no. In fact, CSS should not be used for bi-directional styling. The Unicode Bidirectional Algorithm handles the display ordering of bidirectional text and for those of you who are interested, the Unicode Standard Annex #9 is a pretty fascinating read.</p>
+              <p>Styling applied via CSS has the possibility of being turned off, being overridden, going unrecognised, or being changed/replaced in different contexts. Hence the recommended approach is to use the <code>dir</code> attribute to set the base direction of text for display.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Not just for East Asian text</h2>
+            <div class="l-double">
+              <img data-src="img/gosizdat.jpg" style="max-height:80vh" alt="Gosizdat poster from 1927">
+              <img data-src="img/gosizdat-css.png" style="max-height:80vh" alt="Recreation of Gosizdat poster in HTML and CSS">
+            </div>
+            <aside class="notes">
+              <p>In spite of the fact that vertical writing is only relevant to East Asian text, that doesn't mean vertical text only involves content in those languages. Vertical text has been used in graphic design for a long time across many different cultures and the fact that we can do this on the web without too much trouble is big plus.</p>
+              <p>This is a recreation of what I think is a poster published by Gosizdat back in 1927 that I did with HTML and CSS. It's not great, I know, but I think it's not too bad.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Confusing physical directions</h2>
+            <p>Physical directions for writing modes other than horizontal top-to-bottom may be confusing</p>
+            <div class="livecode livecode-2p">
+              <div class="result vert">
+                <h3 class="title">Госиздат</h3>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.vert .title {
+  writing-mode: horizontal-tb;
+}</style></div>
+            <aside class="notes">The thing is, those bits with vertical text got confusing when I had to adjust the padding and margins on them. Because for the most part, we always refer to the physical directions of top, bottom, left and right. This mental model is hard for me to maintain when the text is in another writing direction.</aside>
+          </section>
+
+          <section>
+            <h2>Logical properties</h2>
+            <table class="matrix">
+              <thead>
+                <tr>
+                  <th colspan="2" rowspan="3"></th>
+                  <td colspan="6">writing-mode / direction</td>
+                </tr>
+                <tr>
+                  <td colspan="2">horizontal-tb</td>
+                  <td colspan="2">vertical-rl</td>
+                  <td colspan="2">vertical-lr</td>
+                </tr>
+                <tr>
+                  <td>ltr</td>
+                  <td>rtl</td>
+                  <td>ltr</td>
+                  <td>rtl</td>
+                  <td>ltr</td>
+                  <td>rtl</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="4">
+                    <div class="vertical">Edge</div>
+                  </td>
+                  <td>
+                    <div class="vertical">top</div>
+                  </td>
+                  <td>inset-block-start</td>
+                  <td>inset-block-start</td>
+                  <td>inset-inline-start</td>
+                  <td>inset-inline-end</td>
+                  <td>inset-inline-start</td>
+                  <td>inset-inline-end</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="vertical">right</div>
+                  </td>
+                  <td>inset-inline-end</td>
+                  <td>inset-inline-start</td>
+                  <td>inset-block-start</td>
+                  <td>inset-block-start</td>
+                  <td>inset-block-end</td>
+                  <td>inset-block-end</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="vertical">bottom</div>
+                  </td>
+                  <td>inset-block-end</td>
+                  <td>inset-block-end</td>
+                  <td>inset-inline-end</td>
+                  <td>inset-inline-start</td>
+                  <td>inset-inline-end</td>
+                  <td>inset-inline-start</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="vertical">left</div>
+                  </td>
+                  <td>inset-inline-start</td>
+                  <td>inset-inline-end</td>
+                  <td>inset-block-end</td>
+                  <td>inset-block-end</td>
+                  <td>inset-block-start</td>
+                  <td>inset-block-start</td>
+                </tr>
+              </tbody>
+            </table>
+            <aside class="notes">I can't be the only person with this issue because there is a CSS specification for logical properties which map to the flow of text instead of the physical directions of the viewport. The terminology references block and inline, where block flow is the direction boxes stack and inline is the direction of lines of text. This table shows the mapping for positioning.</aside>
+          </section>
+
+          <section>
+            <p class="codepen" data-height="730" data-theme-id="9162" data-default-tab="result" data-user="huijing" data-slug-hash="XWmKByZ" data-pen-title="CSS Logical properties demo for borders">
+              <span>See the Pen <a href="https://codepen.io/huijing/pen/XWmKByZ">
+              CSS Logical properties demo for borders</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>)
+              on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <aside class="notes">There are also corresponding mappings for margins, paddings and borders. Here I'm trying to illustrate the point where logical properties allow you to use the same set of code regardless of what your writing direction is. Moving forward, there will also be mappings for sizing, i.e. width and height.</aside>
+          </section>
+
+          <section>
+            <h2>Lists and counters</h2>
+            <p>Allows us to display ordered lists with international numbering systems</p>
+            <div class="livecode livecode-2p">
+              <div class="result counters">
+                <ol>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ol>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.counters ol {
+  list-style-type: upper-roman;
+  text-align: center;
+  font-size: 85%;
+}</style></div>
+            </div>
+            <aside class="notes">
+              <p>Another thing that CSS can do on the internationalisation front has to do with lists and counters. Numeral systems are writing systems for expressing numbers, and even though the most commonly used system of numerals is the Hindu-Arabic numeral system (0, 1, 2, 3 and so on), CSS allows us to display ordered lists with other numeral systems as well.</p>
+              <p>Predefined counter styles can be used with the list-style-type property, which covers 174 numeral systems from <code>afar</code> to <code>urdu</code>. You can check out the full list at MDN.</p>
+            </aside>
+          </section>
+
+          <section>
+            <h2>CSS Fizzbuzz</h2>
+            <div class="livecode livecode-2p">
+              <div class="result fizzbuzz">
+                <ol>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ol>
+              </div>
+              <div class="code"><style class="code-editor" contenteditable="true">.fizzbuzz ol li:nth-of-type(3n+3)::marker {
+  content: "Fizz"
+}
+.fizzbuzz ol li:nth-of-type(5n+5)::marker {
+  content: "Buzz"
+}
+.fizzbuzz ol li:nth-of-type(3n+3):nth-of-type(5n+5)::marker { 
+  content: "FizzBuzz"
+}</style></div>
+            </div>
+            <aside class="notes">CSS counters are pretty fascinating in my opinion. There is a surprising amount of logic you can inject into them. For example, you can do Fizzbuzz with CSS counters. This doesn't really have anything to do with internationalisation per se, but I just wanted to mention it because I thought it was cool.</aside>
+          </section>
+        </section>
+
+        <section>
+          <h2>Further reading and references</h2>
+          <ul>
+            <li><a href="https://chenhuijing.com/blog/css-for-i18n">CSS for internationalisation</a></li>
+            <li><a href="https://notlaura.com/css-is-a-programming-language/">CSS is a Declarative, Domain-Specific Programming Language</a></li>
+            <li><a href="https://www.w3.org/International/questions/qa-lang-why">Why use the language attribute?</a></li>
+            <li><a href="https://developer.paciellogroup.com/blog/2016/06/using-the-html-lang-attribute/">Using the HTML lang attribute</a></li>
+            <li><a href="https://adrianroselli.com/2015/01/on-use-of-lang-attribute.html">On Use of the Lang Attribute</a></li>
+            <li><a href="https://www.w3.org/International/questions/qa-html-language-declarations">Declaring language in HTML</a></li>
+            <li><a href="http://fantasai.inkedblade.net/style/discuss/vertical-text/paper">Robust Vertical Text Layout</a></li>
+            <li><a href="http://www.unicode.org/reports/tr9/">Unicode Bidirectional Algorithm</a></li>
+          </ul>
+          <aside class="notes">I'm still trying to learn more about internationalisation best practices and how CSS, especially the newer techniques, can help us build better experiences for users all around the world. These are some resources for those of you who want to learn more. Also feel free to reach out because I'd love to chat more about this topic, CSS and web development in general.</aside>
+        </section>
+
+        <section style="text-align:left">
+          <h1>Thank you!</h1>
+          <p class="align-icon"><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://www.chenhuijing.com">https://www.chenhuijing.com</a></p>
+          <p class="align-icon"><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen">@hj_chen</a></p>
+          <p class="align-icon"><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen">@hj_chen</a></p>
+          <p class="align-icon"><img class="j-icon plain" data-src="img/codepen_w.png" alt="Codepen"><a href="http://codepen.io/huijing/">@huijing</a></p>
+          <p style="text-align:right"><small>Font is <a href="https://github.com/Fonthausen/CrimsonPro">Crimson Pro</a> by <a href="https://www.baronvonfonthausen.com/">Jacques Le Bailly</a>.</small></p>
+        </section>
+      </div>
+
+      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://huijing.github.io/slides/91-confoo-2021</span><span style="text-align:right">@hj_chen</span></footer>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        width: 1440,
+        height: 810,
+        hash: true,
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+      });
+    </script>
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+  </body>
+</html>
