@@ -17,7 +17,7 @@
         <section>
           <h1>CSS for i18n</h1>
           <p><small>By <a href="https://chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
-          <aside class="notes">Hello everyone! Thank you all for having me today. This is my first Reactive Meetup, online or otherwise. And I'm guessing a lot of folks probably do React or focus a lot on the Javascript side of things. Making me slightly nervous since I'm going to be talking about CSS. Don't get me wrong, I do like Javascript. But I love CSS more.</aside>
+          <aside class="notes">Hello everyone! This is the first time I'm participating in ConFoo and I hope you've all had a great time so far. I know CSS isn't everyone's cup of tea, but it is my favourite topic, so thank you all for being here.</aside>
         </section>
 
         <section>
@@ -117,7 +117,7 @@
             <pre style="width:max-content"><code>&lt;html lang="zh"&gt;</code></pre>
             <p>If you have mixed language content on your page:</p>
             <pre style="width:max-content"><code>&lt;p&gt;The fourth animal in the Chinese Zodiac is Rabbit (&lt;span lang="zh"&gt;兔子&lt;/span&gt;).&lt;/p&gt;</code></pre>
-            <aside class="notes">Set the overall default language on the HTML element, because if you simply set it on the body element, the stuff in the head doesn't get it. Language code information is inherited according to the following order of precedence: a <code>lang</code> attribute on the element itself, if not, then the closest parent with a <code>lang</code> attribute set, if not, then the HTTP "Content-Language" header, if not, then user agent default values and user preferences. Once we've got that settled, let's look at how to make use of this attribute.</aside>
+            <aside class="notes">Always set the overall default language on the HTML element, because if you simply set it on the body element, the stuff in the head doesn't get it. Language code information is inherited according to the following order of precedence: a <code>lang</code> attribute on the element itself, if not, then the closest parent with a <code>lang</code> attribute set, if not, then the HTTP "Content-Language" header, if not, then user agent default values and user preferences. Once we've got that settled, let's look at how to make use of this attribute.</aside>
           </section>
         </section>
 
@@ -156,7 +156,7 @@
 /* will match zh, zh-HK, zh-Hans, zh-amazing, zh-123 */</code></pre>
             </div>
             <aside class="notes">
-              <p>What is <code>lang</code> but simply an attribute. Hence, attribute selectors can also be used to identify content with a particular <code>lang</code> value set, but it has to be on the element you want to target. So that's a key difference from the <code>:lang()</code> pseudo-class.</p>
+              <p><code>lang</code> is like any other HTML attribute. Hence, attribute selectors can also be used to identify content with a particular <code>lang</code> value set, but it has to be on the element you want to target. So that's a key difference from the <code>:lang()</code> pseudo-class.</p>
               <p>Attribute selectors are pretty versatile because of the number of options it offers for matching. You can match the attribute value exactly, or you can match just the front part of the selector, or you can match anything before a dash.</p>
               <p>There are more than I listed here but these are most relevant to language tags, in my opinion.</p>
             </aside>
@@ -222,7 +222,7 @@
             </div>
             <aside class="notes">
               <p>The <code>lang</code> attribute also impacts default font selection. Chinese fonts are so huge that most of us don't use them as web fonts for body text. We usually fallback to system fonts. For this presentation, I did not explicitly specify any Chinese fonts, and instead, let the browser pick the appropriate font.</p>
-              <p>I'm guessing most of the audience do not read Chinese, but there are two variants of the Chinese script, simplified and traditional. There are glyphs that look exactly the same for both, there are glyphs that are completely different and there are glyphs that are essentially the same but with stylistic differences.</p>
+              <p>I'm guessing most of the audience may not read Chinese, but there are two variants of the Chinese script, simplified and traditional. There are glyphs that look exactly the same for both, there are glyphs that are completely different and there are glyphs that are essentially the same but with stylistic differences.</p>
               <p>Like this particular glyph here, I've made it large so hopefully you can spot the differences in the styles. When I set the language to traditional Chinese, the browser knows to pick the traditional Chinese typeface instead of the simplified typeface.</p>
             </aside>
           </section>
@@ -317,8 +317,9 @@
 }</style></div>
             </div>
             <aside class="notes">
-              <p>Okay, this example is to lay the ground work for something else I want to cover. But bear with me. Here we have 5 inline boxes. For now there is enough room so all 5 boxes fit into a single line box. But when there isn't enough room, inline boxes will be broken across line boxes. The break is known as a line break.</p>
-              <p>These particular lines were broken due to content wrapping, hence known as a soft wrap break. If wrapping is enabled, the user agent has to minimise the amount of content overflowing a line by wrapping the line at a soft wrap opportunity if one exists.</p>
+              <p>Okay, this example is to lay the ground work for something else I want to cover, so please bear with me. Everything on the web is boxes, right? Here we have 5 inline boxes.</p>
+              <p>For now there is enough room so all 5 boxes fit into a single line box. But when there isn't enough room, inline boxes will be broken across line boxes. The break is known as a line break.</p>
+              <p>If content wrapping is enabled, the user agent has to minimise the amount of content overflowing a line by wrapping the line at a soft wrap opportunity if one exists.</p>
               <p>For most writing systems, soft wrap opportunities occur at word boundaries, where spaces or punctuation are used to explicitly separate words.</p>
             </aside>
           </section>
@@ -345,7 +346,7 @@
             </table>
             <p><a href="https://youtu.be/r5PLrAoyhv0">Line breaking</a> by Florian Rivoal @ dotCSS</p>
             <aside class="notes">
-              <p>Line breaking is really not that straightforward. There is a lot of nuance involved because word breaking works differently depending on the language we're typesetting for.</p>
+              <p>But there is a lot of nuance involved because word breaking works differently depending on the language we're typesetting for.</p>
               <p>For example, English wraps at spaces. But for Japanese or Chinese characters, the break is per character, but on occasion it's not, because line breaks are prohibited before certain punctuation marks. </p>
               <p>A number of Southeast Asian scripts are written without spaces between words, then text is wrapped at syllable boundaries in addition to word boundaries. We could keep going here.</p>
               <p>There is interplay between the 4 properties here to provide developers more precise control over line breaking, because some rules take precedence over others if both are present, or some only take affect if <code>white-space</code> allows wrapping, for example.</p>
@@ -359,7 +360,7 @@
               <br><small>—Florian Rivoal</small>
             </blockquote>
             <p>Browsers use <strong>language-specific</strong> dictionaries to figure out where the hyphenation points should be.</p>
-            <aside class="notes">All of that was so I could say, if you don't use <code>lang</code> properly, you don't get automatic hyphenation. I highly recommend watching Florian Rivoal, co-editor of the CSS Text specification, explain all of this in his talk at DotCSS back in 2018.</aside>
+            <aside class="notes">This ties back to my earlier point. If you don't use <code>lang</code> properly, you don't get out-of-the-box features like automatic hyphenation, for example.</aside>
           </section>
         </section>
 
