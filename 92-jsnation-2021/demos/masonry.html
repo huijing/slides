@@ -1,0 +1,282 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Masonry layout with pure CSS</title>
+  <meta name="description" content="Demo of the Masonry layout from CSS Grid Level 3">
+  <meta name="author" content="Chen Hui Jing">
+
+  <style>
+  @font-face {
+    font-family: "Emoji";
+    src: local("Apple Color Emoji"), local("Segoe UI Emoji"), local("Segoe UI Symbol"), local("Noto Color Emoji");
+  }
+    
+  * {
+    margin: 0;
+    padding: 0;
+  }
+    
+  html {
+    height: 100%;
+    font-size: 1.25em;
+  }
+    
+  body {
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  header {
+    padding: 1em;
+  }
+
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    padding: 0 1em;
+  }
+
+  section {
+    box-sizing: border-box;
+    height: 100%;
+    display: none;
+    flex: 1 0 100%;
+    box-sizing: border-box;
+  }
+
+  code {
+    font-weight: normal;
+  }
+
+  input[type=radio] {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  input[type=radio] ~ label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.5em;
+    border: 1px solid;
+  }
+
+  input[type=radio]:checked + label {
+    background-color: mintcream;
+  }
+
+  #option1:checked ~ .option1,
+  #option2:checked ~ .option2,
+  #option3:checked ~ .option3 {
+    display: block;
+  }
+
+  .livecode {
+    display: grid;
+    grid-gap: 0.5em;
+    margin: 0;
+    padding: 0;
+    grid-template-columns: 65% calc(35% - 0.5em);
+    height: calc(100vh - 9.25em);
+  }
+
+  .result {
+    box-sizing: border-box;
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+    border: 1px dashed;
+  }
+
+  .code {
+    text-align: left;
+    width: 100%;
+    font-family: 'Dank Mono', monospace;
+    color: #efdcbc;
+    background-color: #3f3f3f;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    overflow-y: scroll;
+    font-size: 75%;
+    box-sizing: border-box;
+  }
+
+  .code-editor {
+    display: block;
+    height: 100%;
+    white-space: pre-wrap;
+  }
+
+  .box {
+    opacity: 0.75;
+    border: 2px solid blue;
+    background-color: dodgerblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .twitter {
+    position: fixed;
+    top: 0.5em;
+    right: 0.5em;
+    color: darkgreen;
+    writing-mode: vertical-rl;
+    mix-blend-mode: luminosity;
+    opacity: 0.6;
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <header>
+    <h1>CSS Masonry layout</h1>
+  </header>
+  
+  <main>
+    <input type="radio" name="options" id="option1" checked>
+    <label for="option1">Option 1</label>
+    <input type="radio" name="options" id="option2">
+    <label for="option2">Option 2</label>
+    <input type="radio" name="options" id="option3">
+    <label for="option3">Option 3</label>
+
+    <section class="option1">
+      <div class="livecode">
+        <div class="result">
+          <div class="box" style="block-size:4em;">1</div>
+          <div class="box" style="block-size:6em;">2</div>
+          <div class="box" style="block-size:3.2em;">3</div>
+          <div class="box" style="block-size:8em;">4</div>
+          <div class="box" style="block-size:4.5em;">5</div>
+          <div class="box" style="block-size:6em;">6</div>
+          <div class="box" style="block-size:9em;">7</div>
+          <div class="box" style="block-size:2em;">8</div>
+          <div class="box" style="block-size:7em;">9</div>
+          <div class="box" style="block-size:5.6em;">10</div>
+          <div class="box" style="block-size:4em;">11</div>
+          <div class="box" style="block-size:6em;">12</div>
+          <div class="box" style="block-size:3.2em;">13</div>
+          <div class="box" style="block-size:8em;">14</div>
+          <div class="box" style="block-size:4.5em;">15</div>
+          <div class="box" style="block-size:6em;">16</div>
+          <div class="box" style="block-size:9em;">17</div>
+          <div class="box" style="block-size:2em;">18</div>
+          <div class="box" style="block-size:7em;">19</div>
+          <div class="box" style="block-size:5.6em;">20</div>
+        </div>
+        <div class="code"><style class="code-editor" contenteditable="true">.option1 .result {
+  column-count: 4;
+  column-rule-width: initial;
+  column-rule-style: initial;
+}
+
+.option1 .result .box {
+  margin-bottom: 1em;
+  break-inside: avoid;
+}
+
+.option1 .result .box:nth-child(7) {
+  border-color: green;
+  background-color: limegreen;
+  column-span: initial;
+}</style></div>
+      </div>
+    </section>
+
+    <section class="option2">
+      <div class="livecode">
+        <div class="result">
+          <div class="box" style="inline-size:4em;">1</div>
+          <div class="box" style="inline-size:6em;">2</div>
+          <div class="box" style="inline-size:3.2em;">3</div>
+          <div class="box" style="inline-size:8em;">4</div>
+          <div class="box" style="inline-size:4.5em;">5</div>
+          <div class="box" style="inline-size:6em;">6</div>
+          <div class="box" style="inline-size:9em;">7</div>
+          <div class="box" style="inline-size:2em;">8</div>
+          <div class="box" style="inline-size:7em;">9</div>
+          <div class="box" style="inline-size:5.6em;">10</div>
+          <div class="box" style="inline-size:4em;">11</div>
+          <div class="box" style="inline-size:6em;">12</div>
+          <div class="box" style="inline-size:3.2em;">13</div>
+          <div class="box" style="inline-size:8em;">14</div>
+          <div class="box" style="inline-size:4.5em;">15</div>
+          <div class="box" style="inline-size:6em;">16</div>
+          <div class="box" style="inline-size:9em;">17</div>
+          <div class="box" style="inline-size:2em;">18</div>
+          <div class="box" style="inline-size:7em;">19</div>
+          <div class="box" style="inline-size:5.6em;">20</div>
+        </div>
+        <div class="code"><style class="code-editor" contenteditable="true">.option2 .result {
+  display: grid;
+  gap: 1em;
+  grid-template-rows: repeat(3, 20vmin);
+  grid-template-columns: masonry;
+}
+
+.option2 .result .box:nth-child(7) {
+  border-color: green;
+  background-color: limegreen;
+  grid-row: initial;
+}</style></div>
+      </div>
+    </section>
+
+    <section  class="option3">
+      <div class="livecode">
+        <div class="result">
+          <div class="box" style="block-size:4em;">1</div>
+          <div class="box" style="block-size:6em;">2</div>
+          <div class="box" style="block-size:3.2em;">3</div>
+          <div class="box" style="block-size:8em;">4</div>
+          <div class="box" style="block-size:4.5em;">5</div>
+          <div class="box" style="block-size:6em;">6</div>
+          <div class="box" style="block-size:9em;">7</div>
+          <div class="box" style="block-size:2em;">8</div>
+          <div class="box" style="block-size:7em;">9</div>
+          <div class="box" style="block-size:5.6em;">10</div>
+          <div class="box" style="block-size:4em;">11</div>
+          <div class="box" style="block-size:6em;">12</div>
+          <div class="box" style="block-size:3.2em;">13</div>
+          <div class="box" style="block-size:8em;">14</div>
+          <div class="box" style="block-size:4.5em;">15</div>
+          <div class="box" style="block-size:6em;">16</div>
+          <div class="box" style="block-size:9em;">17</div>
+          <div class="box" style="block-size:2em;">18</div>
+          <div class="box" style="block-size:7em;">19</div>
+          <div class="box" style="block-size:5.6em;">20</div>
+        </div>
+        <div class="code"><style class="code-editor" contenteditable="true">.option3 .result {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: masonry;
+  overflow-y: scroll;
+  height: initial;
+  align-tracks: initial;
+}
+
+.option3 .result .box:nth-child(7) {
+  border-color: green;
+  background-color: limegreen;
+  grid-column: initial;
+}</style></div>
+      </div>
+    </section>
+  </main>
+
+  <p class="twitter">@hj_chen</p>
+</body>
+
+</html>

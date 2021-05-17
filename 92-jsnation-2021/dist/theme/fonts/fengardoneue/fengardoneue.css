@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Fengardo Neue';
+  src: url('fengardoneue_regular.woff2') format('woff2'),
+       url('fengardoneue_regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Fengardo Neue';
+  src: url('fengardoneue_black.woff2') format('woff2'),
+       url('fengardoneue_black.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}

@@ -1,0 +1,226 @@
+/**
+ * Custom theme for Reveal.js presentations.
+ *
+ * Copyright (C) 2021 Chen Hui Jing, https://chenhuijing.com/
+ */
+
+// Default mixins and settings -----------------
+@import '../template/mixins';
+@import '../template/settings';
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url('fonts/fengardoneue/fengardoneue.css');
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'Fengardo Neue', 'Segoe UI', Candara, 'Bitstream Vera Sans', 'DejaVu Sans', 'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref', sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+$mainColor: #fdfffc;
+$headingFont: 'Fengardo Neue', Impact, Haettenschweiler, 'Franklin Gothic Bold', Charcoal, 'Helvetica Inserat', 'Bitstream Vera Sans Bold', 'Arial Black', sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$headingFontWeight: bold;
+$headingColor: #f0a202;
+$backgroundColor: #222831;
+$linkColor: #acf39d;
+$linkColorHover: darken($linkColor, 20%);
+$selectionBackgroundColor: $linkColor;
+$selectionColor: #222831;
+
+// Theme template ------------------------------
+@import '../template/theme';
+// ---------------------------------------------
+
+// Customised styles for this presentation -----
+.reveal {
+  .l-multiple {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .l-double {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .j-icon {
+    margin-right: 1rem;
+  }
+
+  .align-icon {
+    display: flex;
+    align-items: center;
+  }
+
+  blockquote {
+    width: max-content;
+    max-width: 80%;
+    font-size: 150%;
+    box-shadow: none;
+    line-height: 1.55;
+    position: relative;
+    background: none;
+    font-style: normal;
+
+    p::before,
+    p::after {
+      position: absolute;
+      font-size: 2.5em;
+      font-family: Georgia, serif;
+      color: $headingColor;
+    }
+
+    p::before {
+      top: -0.125em;
+      left: -0.5em;
+      content: '\201C';
+    }
+
+    p::after {
+      bottom: -0.3em;
+      right: -0.5em;
+      content: '\201D';
+    }
+
+    small {
+      line-height: 1.8;
+    }
+  }
+}
+
+// Accessible emojis ---------------------------
+span.emoji {
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji';
+  font-style: normal;
+  font-size: 125%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+span[role=img][aria-label],
+span[role=img][aria-label] {
+  position: relative;
+}
+
+span[role=img][aria-label]:focus::after,
+span[role=img][aria-label]:hover::after {
+  font-size: 25%;
+  font-family: $mainFont;
+  font-weight: 400;
+  position: absolute;
+  display: block;
+  line-height: 1.2;
+  content: attr(aria-label);
+  z-index: 1;
+  background: $mainColor;
+  color: $backgroundColor;
+  padding: 0.25em;
+  border: 1px solid $backgroundColor;
+  box-shadow: 2px 2px 4px $mainColor;
+}
+
+// For live coding -----------------------------
+.livecode {
+  display: grid;
+  grid-gap: 0.5em;
+  margin: 0;
+  padding: 0;
+
+  .result {
+    max-height: 100%;
+    overflow-y: scroll;
+    width: 100%;
+    border: 1px dashed $headingColor;
+
+    li {
+      line-height: 0;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .code {
+    text-align: left;
+    width: 100%;
+    font-family: 'Dank Mono', monospace;
+    color: #efdcbc;
+    background-color: #3f3f3f;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    overflow-y: scroll;
+    font-size: 75%;
+  }
+}
+
+.code-editor {
+  display: block;
+  height: 100%;
+  white-space: pre-wrap;
+}
+
+.vidcode {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  height: 75vh;
+
+  video {
+    align-self: center;
+  }
+}
+
+.livecode-2p {
+  grid-template-columns: 65% calc(35% - 0.5em);
+  height: 70vh;
+}
+
+.code-editor {
+  display: block;
+  height: 100%;
+  white-space: pre-wrap;
+}
+
+// Intro grid ------------------------------
+.intro-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(12, 1.9em);
+  grid-template-rows: repeat(11, 1.9em);
+  grid-template-areas: '. . . . a . . b . . . .'
+                       '. m . . . . . . . c . .'
+                       '. . . . . . . . . . . .'
+                       'l . . . . . . . . . . d'
+                       '. . . . . . . . . . . .'
+                       'k . . . . . . . . . . e'
+                       '. . . . . . . . . . . .'
+                       'j . . . . . . . . . . .'
+                       '. . . . . . . . . . f .'
+                       '. . i . . . . . g . . .'
+                       '. . . . . h . . . . . .';
+
+  span {
+    font-size: 1.5em;
+  }
+}
+
+.intro-grid span:first-child { grid-area: a; }
+.intro-grid span:nth-child(2) { grid-area: b; }
+.intro-grid span:nth-child(3) { grid-area: c; }
+.intro-grid span:nth-child(4) { grid-area: d; }
+.intro-grid span:nth-child(5) { grid-area: e; }
+.intro-grid span:nth-child(6) { grid-area: f; }
+.intro-grid span:nth-child(7) { grid-area: g; }
+.intro-grid span:nth-child(8) { grid-area: h; }
+.intro-grid span:nth-child(9) { grid-area: i; }
+.intro-grid span:nth-child(10) { grid-area: j; }
+.intro-grid span:nth-child(11) { grid-area: k; }
+.intro-grid span:nth-child(12) { grid-area: l; }
+.intro-grid span:nth-child(13) { grid-area: m; }
+.intro-grid div {
+  grid-row: 2 / -3;
+  grid-column: 1 / -1;
+}
+// ---------------------------------------------
