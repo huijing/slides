@@ -66,6 +66,8 @@ Currently, the working group is looking for feedback on the implementation as it
 
 ---
 
-There are really plenty of exciting developments in CSS these days and even if you don't use them right now, I hope you can keep them in mind and try them out for a future project instead of reaching for a Javascript-based library first.
+As a self-proclaimed CSS lover, I must say the thing that draws me most to CSS is the fact that there is no one right way to do things. CSS is flexible enough to adapt to such a wide variety of situations. Can't touch the mark-up? All is not lost because there is a high chance a certain combination of CSS properties can workaround that problem.
+
+There are really plenty of exciting developments in CSS these days, giving us even more tools with which to style the web. It doesn't matter if you don't use the latest and greatest right now, but I do hope you can keep them in mind and try them out for a future project instead of reaching for a Javascript-based library first.
 
 Thank you.
