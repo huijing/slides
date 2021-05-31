@@ -92,6 +92,7 @@
     width: 100%;
     height: 100%;
     border: 1px dashed;
+    position: relative;
   }
 
   .code {
@@ -130,6 +131,29 @@
     writing-mode: vertical-rl;
     mix-blend-mode: luminosity;
     opacity: 0.6;
+  }
+
+  .option2 .result::before,
+  .option3 .result::before {
+    content: 'This example requires a browser that supports CSS masonry, like Firefox. Install that and give this demo a try on over there instead?';
+    display: inline-block;
+    margin-bottom: 1em;
+    line-height: 1.5;
+    padding: 0.5em;
+    border: 1px solid red;
+    background-color: mistyrose;
+    font-style: italic;
+    font-size: 85%;
+    position: absolute;
+    z-index: 1;
+  }
+
+  @supports (grid-template-rows: masonry) {
+    .option2 .result::before,
+    .option3 .result::before {
+      content: none;
+      display: none;
+    }
   }
   </style>
 
