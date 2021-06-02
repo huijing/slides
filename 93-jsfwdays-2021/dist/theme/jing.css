@@ -1,0 +1,500 @@
+@charset "UTF-8";
+/**
+ * Custom theme for Reveal.js presentations.
+ *
+ * Copyright (C) 2021 Chen Hui Jing, https://chenhuijing.com/
+ */
+@import url("fonts/gfs-artemisia/gfs-artemisia.css");
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+:root {
+  --background-color: #fff;
+  --main-font: GFS Artemisia, Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --main-font-size: 40px;
+  --main-color: #333;
+  --block-margin: 20px;
+  --heading-margin: 0 0 20px 0;
+  --heading-font: GFS Artemisia, Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --heading-color: #ac060b;
+  --heading-line-height: 1.2;
+  --heading-letter-spacing: normal;
+  --heading-text-transform: none;
+  --heading-text-shadow: none;
+  --heading-font-weight: bold;
+  --heading1-text-shadow: none;
+  --heading1-size: 3.77em;
+  --heading2-size: 2.11em;
+  --heading3-size: 1.55em;
+  --heading4-size: 1em;
+  --code-font: monospace;
+  --link-color: #2661b1;
+  --link-color-hover: #14335d;
+  --selection-background-color: #2661b1;
+  --selection-color: #fff;
+}
+
+.reveal-viewport {
+  background: #fff;
+  background-color: #fff;
+}
+
+.reveal {
+  font-family: "GFS Artemisia", Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  font-size: 40px;
+  font-weight: normal;
+  color: #333;
+}
+
+.reveal ::selection {
+  color: #fff;
+  background: #2661b1;
+  text-shadow: none;
+}
+
+.reveal ::-moz-selection {
+  color: #fff;
+  background: #2661b1;
+  text-shadow: none;
+}
+
+.reveal .slides section,
+.reveal .slides section > section {
+  line-height: 1.3;
+  font-weight: inherit;
+}
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: 0 0 20px 0;
+  color: #ac060b;
+  font-family: "GFS Artemisia", Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-transform: none;
+  text-shadow: none;
+  word-wrap: break-word;
+}
+
+.reveal h1 {
+  font-size: 3.77em;
+}
+
+.reveal h2 {
+  font-size: 2.11em;
+}
+
+.reveal h3 {
+  font-size: 1.55em;
+}
+
+.reveal h4 {
+  font-size: 1em;
+}
+
+.reveal h1 {
+  text-shadow: none;
+}
+
+/*********************************************
+ * OTHER
+ *********************************************/
+.reveal p {
+  margin: 20px 0;
+  line-height: 1.3;
+}
+
+/* Remove trailing margins after titles */
+.reveal h1:last-child,
+.reveal h2:last-child,
+.reveal h3:last-child,
+.reveal h4:last-child,
+.reveal h5:last-child,
+.reveal h6:last-child {
+  margin-bottom: 0;
+}
+
+/* Ensure certain elements are never larger than the slide itself */
+.reveal img,
+.reveal video,
+.reveal iframe {
+  max-width: 95%;
+  max-height: 95%;
+}
+
+.reveal strong,
+.reveal b {
+  font-weight: bold;
+}
+
+.reveal em {
+  font-style: italic;
+}
+
+.reveal ol,
+.reveal dl,
+.reveal ul {
+  display: inline-block;
+  text-align: left;
+  margin: 0 0 0 1em;
+}
+
+.reveal ol {
+  list-style-type: decimal;
+}
+
+.reveal ul {
+  list-style-type: disc;
+}
+
+.reveal ul ul {
+  list-style-type: square;
+}
+
+.reveal ul ul ul {
+  list-style-type: circle;
+}
+
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ol,
+.reveal ol ul {
+  display: block;
+  margin-left: 40px;
+}
+
+.reveal dt {
+  font-weight: bold;
+}
+
+.reveal dd {
+  margin-left: 40px;
+}
+
+.reveal blockquote {
+  display: block;
+  position: relative;
+  width: 70%;
+  margin: 20px auto;
+  padding: 5px;
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+}
+
+.reveal blockquote p:first-child,
+.reveal blockquote p:last-child {
+  display: inline-block;
+}
+
+.reveal q {
+  font-style: italic;
+}
+
+.reveal pre {
+  display: block;
+  position: relative;
+  width: 90%;
+  margin: 20px auto;
+  text-align: left;
+  font-size: 0.55em;
+  font-family: monospace;
+  line-height: 1.2em;
+  word-wrap: break-word;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.reveal code {
+  font-family: monospace;
+  text-transform: none;
+  tab-size: 2;
+}
+
+.reveal pre code {
+  display: block;
+  padding: 5px;
+  overflow: auto;
+  max-height: 400px;
+  word-wrap: normal;
+}
+
+.reveal .code-wrapper {
+  white-space: normal;
+}
+
+.reveal .code-wrapper code {
+  white-space: pre;
+}
+
+.reveal table {
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.reveal table th {
+  font-weight: bold;
+}
+
+.reveal table th,
+.reveal table td {
+  text-align: left;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-bottom: 1px solid;
+}
+
+.reveal table th[align=center],
+.reveal table td[align=center] {
+  text-align: center;
+}
+
+.reveal table th[align=right],
+.reveal table td[align=right] {
+  text-align: right;
+}
+
+.reveal table tbody tr:last-child th,
+.reveal table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.reveal sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+.reveal sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+
+.reveal small {
+  display: inline-block;
+  font-size: 0.6em;
+  line-height: 1.2em;
+  vertical-align: top;
+}
+
+.reveal small * {
+  vertical-align: top;
+}
+
+.reveal img {
+  margin: 20px 0;
+}
+
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal a {
+  color: #2661b1;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.reveal a:hover {
+  color: #14335d;
+  text-shadow: none;
+  border: none;
+}
+
+.reveal .roll span:after {
+  color: #fff;
+  background: #183e72;
+}
+
+/*********************************************
+ * Frame helper
+ *********************************************/
+.reveal .r-frame {
+  border: 4px solid #333;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.reveal a .r-frame {
+  transition: all 0.15s linear;
+}
+
+.reveal a:hover .r-frame {
+  border-color: #2661b1;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
+}
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls {
+  color: #2661b1;
+}
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+  color: #2661b1;
+}
+
+/*********************************************
+ * PRINT BACKGROUND
+ *********************************************/
+@media print {
+  .backgrounds {
+    background-color: #fff;
+  }
+}
+.reveal .l-multiple {
+  display: flex;
+  justify-content: space-around;
+}
+.reveal .l-double {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+}
+.reveal .j-icon {
+  margin-right: 1rem;
+}
+.reveal .align-icon {
+  display: flex;
+  align-items: center;
+}
+.reveal blockquote {
+  width: max-content;
+  max-width: 80%;
+  font-size: 150%;
+  box-shadow: none;
+  line-height: 1.55;
+  position: relative;
+  background: none;
+}
+.reveal blockquote p::before,
+.reveal blockquote p::after {
+  position: absolute;
+  font-size: 2.5em;
+  font-family: Georgia, serif;
+  color: #ac060b;
+}
+.reveal blockquote p::before {
+  top: -0.125em;
+  left: -0.5em;
+  content: "“";
+}
+.reveal blockquote p::after {
+  bottom: -0.3em;
+  right: -0.5em;
+  content: "”";
+}
+.reveal blockquote small {
+  line-height: 1.8;
+}
+.reveal code {
+  font-size-adjust: 0.49;
+}
+
+span.emoji {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji";
+  font-style: normal;
+  font-size: 125%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+span[role=img][aria-label],
+span[role=img][aria-label] {
+  position: relative;
+}
+
+span[role=img][aria-label]:focus::after,
+span[role=img][aria-label]:hover::after {
+  font-size: 25%;
+  font-family: "GFS Artemisia", Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  font-weight: 400;
+  position: absolute;
+  display: block;
+  line-height: 1.2;
+  content: attr(aria-label);
+  z-index: 1;
+  background: #333;
+  color: #fff;
+  padding: 0.25em;
+  border: 1px solid #fff;
+  box-shadow: 2px 2px 4px #333;
+}
+
+.intro-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(12, 1.9em);
+  grid-template-rows: repeat(11, 1.9em);
+  grid-template-areas: ". . . . a . . b . . . ." ". m . . . . . . . c . ." ". . . . . . . . . . . ." "l . . . . . . . . . . d" ". . . . . . . . . . . ." "k . . . . . . . . . . e" ". . . . . . . . . . . ." "j . . . . . . . . . . ." ". . . . . . . . . . f ." ". . i . . . . . g . . ." ". . . . . h . . . . . .";
+}
+.intro-grid span {
+  font-size: 1.5em;
+}
+
+.intro-grid span:first-child {
+  grid-area: a;
+}
+
+.intro-grid span:nth-child(2) {
+  grid-area: b;
+}
+
+.intro-grid span:nth-child(3) {
+  grid-area: c;
+}
+
+.intro-grid span:nth-child(4) {
+  grid-area: d;
+}
+
+.intro-grid span:nth-child(5) {
+  grid-area: e;
+}
+
+.intro-grid span:nth-child(6) {
+  grid-area: f;
+}
+
+.intro-grid span:nth-child(7) {
+  grid-area: g;
+}
+
+.intro-grid span:nth-child(8) {
+  grid-area: h;
+}
+
+.intro-grid span:nth-child(9) {
+  grid-area: i;
+}
+
+.intro-grid span:nth-child(10) {
+  grid-area: j;
+}
+
+.intro-grid span:nth-child(11) {
+  grid-area: k;
+}
+
+.intro-grid span:nth-child(12) {
+  grid-area: l;
+}
+
+.intro-grid span:nth-child(13) {
+  grid-area: m;
+}
+
+.intro-grid div {
+  grid-row: 2/-3;
+  grid-column: 1/-1;
+}

@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Wait, CSS can do that now?</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/jing.css" id="theme">
+    <link rel="stylesheet" href="plugin/highlight/atom-one-light.css" id="highlight-theme">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1 style="line-height:1.1;margin-bottom:0.5em">Wait, CSS can do that now?</h1>
+          <p><small>By <a href="https://chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <div class="intro-grid">
+            <span class="emoji" role="img" tabindex="0" aria-label="Malaysia">&#x1F1F2;&#x1F1FE;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="alien monster">&#x1F47E;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="basketball">&#x1F3C0;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="bicycle">&#x1F6B2;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="paintbrush">&#x1F58C;&#xFE0F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="sneaker">&#x1F45F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="laptop computer">&#x1F4BB;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="pen">&#x1F58A;&#xFE0F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="studio microphone">&#x1F399;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="fox">&#x1F98A;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="avocado">&#x1F951;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="person climbing">&#x1F9D7;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="Rainbow flag">&#x1F3F3;&#xFE0F;&#x200D;&#x1F308;</span>
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+              <img data-src="img/name.svg" alt="Chen Hui Jing" class="plain" style="max-height:25vh">
+              <div>
+                <img data-src="img/avatar.jpg" alt="Jing" style="border-radius:50%;max-height:40vh">
+              </div>
+              <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
+            </div>
+          </div>
+          <aside class="notes">A quick introduction. My name is Hui Jing, and I'm simple enough that these emojis paint a fairly comprehensive picture of who I am as a person. I happen to be Chinese, and if you're unfamiliar with Chinese names, our family names come first, followed by our first names.</aside>
+        </section>
+
+        <section>
+          <h2>CSS solutions for…</h2>
+          <ol>
+            <li>Responsive text</li>
+            <li>Scroll snap</li>
+            <li>Sticky elements</li>
+            <li>Masonry layout</li>
+            <li>Container queries</li>
+          </ol>
+          <aside class="notes">This is going to be a rather short 20 minute talk, so I don't expect people to instantly pick up everything I'm trying to cover. Instead, I just want you to know these things exist, and if you ever need to use them yourself, you can take your time in understanding them at a deeper level and apply them to your specific use-case.</aside>
+        </section>
+
+        <section>
+          <h2>Responsive text</h2>
+          <p><a href="demos/responsive-text.html">Try it in your browser</a></p>
+          <p class="ciu_embed fragment" data-feature="css-math-functions" data-periods="future_1,current,past_1,past_2" data-accessible-colours="true">
+            <picture>
+              <source type="image/webp" srcset="https://caniuse.bitsofco.de/image/css-math-functions.webp">
+              <source type="image/png" srcset="https://caniuse.bitsofco.de/image/css-math-functions.png">
+              <img src="https://caniuse.bitsofco.de/image/css-math-functions.jpg" alt="Data on support for the css-math-functions feature across the major browsers from caniuse.com">
+            </picture>
+          </p>
+          <aside class="notes">Let's start with responsive typography. To me, the web is fun because you can't control the environment via which your audience views your creations. For textual content on the web, a key concern is its legibility and readability.</aside>
+        </section>
+
+        <section>
+          <h2>Scroll snap</h2>
+          <p><a href="demos/scroll-snap.html">Try it in your browser</a></p>
+          <p class="ciu_embed fragment" data-feature="css-snappoints" data-periods="future_1,current,past_1,past_2" data-accessible-colours="true">
+            <picture>
+              <source type="image/webp" srcset="https://caniuse.bitsofco.de/image/css-snappoints.webp">
+              <source type="image/png" srcset="https://caniuse.bitsofco.de/image/css-snappoints.png">
+              <img src="https://caniuse.bitsofco.de/image/css-snappoints.jpg" alt="Data on support for the css-snappoints feature across the major browsers from caniuse.com">
+            </picture>
+          </p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Sticky elements</h2>
+          <p><a href="demos/sticky-elements.html">Try it in your browser</a></p>
+          <p class="ciu_embed fragment" data-feature="css-sticky" data-periods="future_1,current,past_1,past_2" data-accessible-colours="true">
+            <picture>
+              <source type="image/webp" srcset="https://caniuse.bitsofco.de/image/css-sticky.webp">
+              <source type="image/png" srcset="https://caniuse.bitsofco.de/image/css-sticky.png">
+              <img src="https://caniuse.bitsofco.de/image/css-sticky.jpg" alt="Data on support for the css-sticky feature across the major browsers from caniuse.com">
+            </picture>
+          </p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Masonry layout</h2>
+          <p><a href="demos/masonry.html">Try it in your browser</a></p>
+          <p class="fragment" style="text-align:left;width:85%;margin:0 auto">This feature is only implemented in Firefox, and can be enabled by setting the flag <code>layout.css.grid-template-masonry-value.enabled</code> to true, in order to allow testing and providing of feedback.</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Container queries</h2>
+          <p><a href="demos/container-queries.html">Try it in your browser</a></p>
+          <p class="fragment" style="text-align:left;width:85%;margin:0 auto">This feature is only implemented in Chrome Canary, and can be enabled with the "Enable CSS Container Queries" feature flag under <code>chrome://flags</code>, in order to allow testing and providing of feedback.</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <blockquote>
+            <p>There is no one right way to do things.<br>Context is everything.</p>
+          </blockquote>
+          <aside class="notes">When I write CSS, I always remind myself to keep an open mind. CSS is evolving faster than it used to, and it is also becoming more powerful than before. And yet, having new features doesn't necessarily make all the old properties obsolete. CSS may not be everyone's cup of tea, but it certainly is mine.</aside>
+        </section>
+
+        <section>
+          <h2>Further reading and references</h2>
+          <ul>
+            <li><a href="https://www.madebymike.com.au/writing/precise-control-responsive-typography/">Precise control over responsive typography</a></li>
+            <li><a href="https://web.dev/min-max-clamp/">min(), max(), and clamp(): three logical CSS functions to use today</a></li>
+            <li><a href="https://adrianroselli.com/2019/12/responsive-type-and-zoom.html">Responsive Type and Zoom</a></li>
+            <li><a href="https://css-tricks.com/practical-css-scroll-snapping/">Practical CSS Scroll Snapping</a></li>
+            <li><a href="https://chenhuijing.com/blog/understanding-positioning-in-css/">Understanding positioning in CSS</a></li>
+            <li><a href="https://drafts.csswg.org/cssom-view/#terminology">Scrolling box definition in CSSOM View Module</a></li>
+            <li><a href="https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/">Native CSS Masonry Layout In CSS Grid</a></li>
+            <li><a href="https://github.com/oddbird/css-sandbox/blob/main/src/rwd/query/explainer.md">Container Query Proposal & Explainer</a></li>
+            
+          </ul>
+          <aside class="notes"></aside>
+        </section>  
+
+        <section style="text-align:left">
+          <h1>Thank you <span style="font-family:Arial">:)</span></h1>
+          <p class="align-icon"><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://chenhuijing.com">https://chenhuijing.com</a></p>
+          <p class="align-icon"><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen">@hj_chen</a></p>
+          <p class="align-icon"><img class="j-icon plain" data-src="img/medium.png" alt="Medium"><a href="https://medium.com/@hj_chen">@hj_chen</a></p>
+          <p class="align-icon"><img class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/">@huijing</a></p>
+          <p style="text-align:right"><small>Font is <a href="https://ctan.org/pkg/gfsartemisia?lang=en">GFS Artemisia</a> by <a href="https://fonts.gr/takis_katsoulidis/en/art/43/">Takis Katsoulidis</a>.</small></p>
+        </section>
+      </div>
+
+      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://huijing.github.io/slides/93-jsfwdays-2021</span><span style="text-align:right">@hj_chen</span></footer>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="dist/theme/caniuse-embed.min.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        width: 1600,
+        height: 900,
+        hash: true,
+        transition: 'fade',
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+      });
+    </script>
+  </body>
+</html>

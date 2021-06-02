@@ -1,0 +1,255 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Container queries with CSS</title>
+  <meta name="description" content="Demo of container queries implementation from CSS Containment Module Level 3">
+  <meta name="author" content="Chen Hui Jing">
+
+  <style>
+  @font-face {
+    font-family: "Emoji";
+    src: local("Apple Color Emoji"), local("Segoe UI Emoji"), local("Segoe UI Symbol"), local("Noto Color Emoji");
+  }
+    
+  * {
+    margin: 0;
+    padding: 0;
+  }
+    
+  html {
+    height: 100%;
+    font-size: 1.25em;
+  }
+    
+  body {
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    padding: 1em;
+  }
+
+  main {
+    flex: 1;
+  }
+
+  section {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 1em;
+  }
+
+  code {
+    font-weight: normal;
+  }
+
+  .livecode {
+    display: grid;
+    grid-gap: 0.5em;
+    margin: 0;
+    padding: 0;
+    grid-template-columns: 65% calc(35% - 0.5em);
+    height: calc(100vh - 7.25em);
+  }
+
+  .result {
+    max-height: 100%;
+    overflow-y: scroll;
+    width: 100%;
+    border: 1px dashed;
+    position: relative;
+  }
+
+  .code {
+    text-align: left;
+    width: 100%;
+    font-family: 'Dank Mono', monospace;
+    color: #efdcbc;
+    background-color: #3f3f3f;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    overflow-y: scroll;
+    font-size: 75%;
+    box-sizing: border-box;
+  }
+
+  .code-editor {
+    display: block;
+    height: 100%;
+    white-space: pre-wrap;
+  }
+
+  .box {
+    height: 30vmin;
+    width: 30vmin;
+    opacity: 0.75;
+    border: 2px solid blue;
+    background-color: dodgerblue;
+    display: flex;
+    text-align: center;
+  }
+
+  .sticky {
+    border-color: green;
+    background-color: limegreen;
+  }
+
+  .twitter {
+    position: fixed;
+    top: 0.5em;
+    right: 0.5em;
+    color: darkgreen;
+    writing-mode: vertical-rl;
+    mix-blend-mode: luminosity;
+    opacity: 0.6;
+  }
+
+  .result::before {
+    content: 'This example requires a browser that supports @container, like Chrome Canary. Install that and give this demo a try on over there instead?';
+    display: inline-block;
+    margin-bottom: 1em;
+    line-height: 1.5;
+    padding: 0.5em;
+    border: 1px solid red;
+    background-color: mistyrose;
+    font-style: italic;
+    font-size: 85%;
+    position: absolute;
+    z-index: 1;
+  }
+
+  @supports (contain: block-size) {
+    .result::before {
+      content: none;
+      display: none;
+    }
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <header>
+    <h1>Container queries with <code>@container</code></h1>
+  </header>
+  
+  <main>
+    <section>
+      <div class="livecode">
+        <div class="result" style="display:flex">
+          <div class="container not-contained" style="font-size:65%;border:1px solid;padding:1em;height:calc(100% - (2em + 4px))">
+            <div class="card" style="padding:1em">
+              <div class="card__img" style="padding:1em;border-radius:0.5em;font-size:80%">Pretend this is a responsive image</div>
+              <div class="card__txt">
+                <h2 style="line-height:1.1">Cards need headers</h2>
+                <p>Most cards have blurbs. This is the epitome of a generic example. Oh well…</p>
+              </div>
+            </div></div>
+          <div class="contained" style="font-size:65%;border:1px solid;padding:1em;height:calc(100% - (2em + 4px))">
+            <div class="card" style="padding:1em">
+              <div class="card__img" style="padding:1em;border-radius:0.5em;font-size:80%">Pretend this is a responsive image</div>
+              <div class="card__txt">
+                <h2 style="line-height:1.1">Cards need headers</h2>
+                <p>Most cards have blurbs. This is the epitome of a generic example. Oh well…</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="code"><style class="code-editor" contenteditable="true">.contained {
+  resize: horizontal;
+  overflow: auto;
+  contain: layout inline-size style;
+  width: 100%;
+}
+
+.not-contained {
+  resize: horizontal;
+  overflow: auto;
+  width: 200px;
+}
+
+.card {
+  border: 1px dotted;
+}
+
+.card__img {
+  background-color: limegreen;
+  margin-bottom: 1rem;
+  aspect-ratio: 2/1;
+}
+
+.card h2 {
+  margin-bottom: 0.5rem;
+}
+
+@container (min-width: 18em) {
+  .card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    align-items: center;
+  }
+
+  .card__img {
+    height: 6em;
+    width: 6em;
+    margin-bottom: 0;
+  }
+
+  .card__txt {
+    flex: 1;
+  }
+}
+
+@container (min-width: 30em) {
+  .card {
+    text-align: center;
+    border: none;
+    background-color: mistyrose;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 2em);
+  }
+
+  .card__img {
+    background-color: hotpink;
+    width: max-content;
+    aspect-ratio: 2 / 1;
+    height: initial;
+  }
+
+  .card__txt {
+    flex: none;
+  }
+
+  .card h2::after {
+    content: ', or do they?';
+    display: inline-block;
+  }
+
+  .card h2 {
+    font-weight: normal;
+    flex: initial;
+  }
+}</style></div>
+      </div>
+    </section>
+  </main>
+
+  <p class="twitter">@hj_chen</p>
+</body>
+
+</html>

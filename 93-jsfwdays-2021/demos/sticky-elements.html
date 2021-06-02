@@ -1,0 +1,158 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Sticky elements with CSS</title>
+  <meta name="description" content="Sticky elements with position:sticky">
+  <meta name="author" content="Chen Hui Jing">
+
+  <style>
+  @font-face {
+    font-family: "Emoji";
+    src: local("Apple Color Emoji"), local("Segoe UI Emoji"), local("Segoe UI Symbol"), local("Noto Color Emoji");
+  }
+    
+  * {
+    margin: 0;
+    padding: 0;
+  }
+    
+  html {
+    height: 100%;
+    font-size: 1.25em;
+  }
+    
+  body {
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    padding: 1em;
+  }
+
+  main {
+    flex: 1;
+  }
+
+  section {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 1em;
+  }
+
+  code {
+    font-weight: normal;
+  }
+
+  .livecode {
+    display: grid;
+    grid-gap: 0.5em;
+    margin: 0;
+    padding: 0;
+    grid-template-columns: 65% calc(35% - 0.5em);
+    height: calc(100vh - 7.25em);
+  }
+
+  .result {
+    max-height: 100%;
+    overflow-y: scroll;
+    width: 100%;
+    border: 1px dashed;
+  }
+
+  .code {
+    text-align: left;
+    width: 100%;
+    font-family: 'Dank Mono', monospace;
+    color: #efdcbc;
+    background-color: #3f3f3f;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    overflow-y: scroll;
+    font-size: 75%;
+    box-sizing: border-box;
+  }
+
+  .code-editor {
+    display: block;
+    height: 100%;
+    white-space: pre-wrap;
+  }
+
+  .box {
+    height: 30vmin;
+    width: 30vmin;
+    opacity: 0.75;
+    border: 2px solid blue;
+    background-color: dodgerblue;
+    display: flex;
+    text-align: center;
+  }
+
+  .sticky {
+    border-color: green;
+    background-color: limegreen;
+  }
+
+  .twitter {
+    position: fixed;
+    top: 0.5em;
+    right: 0.5em;
+    color: darkgreen;
+    writing-mode: vertical-rl;
+    mix-blend-mode: luminosity;
+    opacity: 0.6;
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <header>
+    <h1>Sticky elements with <code>position: sticky</code></h1>
+  </header>
+  
+  <main>
+    <section>
+      <div class="livecode">
+        <div class="result">
+          <div class="wrapper">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box sticky"><span>sticky</span></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+          </div>
+        </div>
+        <div class="code"><style class="code-editor" contenteditable="true">.result .sticky {
+  position: sticky;
+  top: 1em;
+}
+
+.result .wrapper {
+  display: initial;
+}
+
+.result .box {
+  flex: initial;
+}</style></div>
+      </div>
+    </section>
+  </main>
+
+  <p class="twitter">@hj_chen</p>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'GFS Artemisia';
+  src: url('gfsartemisia.woff2') format('woff2'),
+       url('gfsartemisia.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GFS Artemisia';
+  src: url('gfsartemisiabold.woff2') format('woff2'),
+       url('gfsartemisiabold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GFS Artemisia';
+  src: url('gfsartemisiait.woff2') format('woff2'),
+       url('gfsartemisiait.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}

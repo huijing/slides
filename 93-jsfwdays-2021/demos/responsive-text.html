@@ -1,0 +1,212 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Responsive text with CSS</title>
+  <meta name="description" content="Different implementations of responsive text with CSS techniques">
+  <meta name="author" content="Chen Hui Jing">
+
+  <style>
+  @font-face {
+    font-family: "Emoji";
+    src: local("Apple Color Emoji"), local("Segoe UI Emoji"), local("Segoe UI Symbol"), local("Noto Color Emoji");
+  }
+    
+  * {
+    margin: 0;
+    padding: 0;
+  }
+    
+  html {
+    height: 100%;
+    font-size: 1.25em;
+  }
+    
+  body {
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  header {
+    padding: 1em;
+  }
+
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    padding: 0 1em;
+  }
+
+  section {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 1em;
+    display: none;
+    flex: 1 0 100%;
+    box-sizing: border-box;
+  }
+
+  code {
+    font-weight: normal;
+  }
+
+  input[type=radio] {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  input[type=radio] ~ label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.5em;
+    border: 1px solid;
+  }
+
+  input[type=radio]:checked + label {
+    background-color: mintcream;
+  }
+
+  #option1:checked ~ .option1,
+  #option2:checked ~ .option2,
+  #option3:checked ~ .option3 {
+    display: block;
+  }
+
+  .livecode {
+    display: grid;
+    grid-gap: 0.5em;
+    margin: 0;
+    padding: 0;
+    grid-template-columns: 65% calc(35% - 0.5em);
+    height: 100%;
+  }
+
+  .result {
+    max-height: 100%;
+    overflow-y: scroll;
+    width: 100%;
+    border: 1px dashed;
+  }
+
+  .code {
+    text-align: left;
+    width: 100%;
+    font-family: 'Dank Mono', monospace;
+    color: #efdcbc;
+    background-color: #3f3f3f;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    overflow-y: scroll;
+    font-size: 75%;
+    box-sizing: border-box;
+  }
+
+  .code-editor {
+    display: block;
+    height: 100%;
+    white-space: pre-wrap;
+  }
+
+  .twitter {
+    position: fixed;
+    top: 0.5em;
+    right: 0.5em;
+    color: darkgreen;
+    writing-mode: vertical-rl;
+    mix-blend-mode: luminosity;
+    opacity: 0.6;
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <header>
+    <h1>Responsive text with CSS</h1>
+  </header>
+  
+  <main>
+    <input type="radio" name="options" id="option1" checked>
+    <label for="option1">Option 1</label>
+    <input type="radio" name="options" id="option2">
+    <label for="option2">Option 2</label>
+    <input type="radio" name="options" id="option3">
+    <label for="option3">Option 3</label>
+    
+    <section class="option1">
+      <h2><code>@media</code> queries</h2>
+      <div class="livecode">
+        <div class="result">
+          <h1 style="line-height:1.1;margin-bottom:1rem">Black cat magically appears</h1>
+          <p>A black cat of unknown origin materialised inside a house earlier this morning. Residents of the house are perplexed at the appearance of this cat as there did not seem to be any visible entry points large enough to fit the black cat.</p>
+        </div>
+        <div class="code"><style class="code-editor" contenteditable="true">.option1 .result h1 {
+  font-size: 1.5em;
+}
+
+@media screen and (min-width: 42rem) {
+  .option1 .result h1 {
+    font-size: 2em;
+  }
+}
+
+@media screen and (min-width: 54rem) {
+  .option1 .result h1 {
+    font-size: 2.5em;
+  }
+}</style></div>
+      </div>
+    </section>
+
+    <section class="option2">
+      <h2><code>calc()</code> with viewport units</h2>
+      <div class="livecode">
+        <div class="result">
+          <h1 style="line-height:1.1;margin-bottom:1rem">Black cat magically appears</h1>
+          <p>A black cat of unknown origin materialised inside a house earlier this morning. Residents of the house are perplexed at the appearance of this cat as there did not seem to be any visible entry points large enough to fit the black cat.</p>
+        </div>
+        <div class="code"><style class="code-editor" contenteditable="true">.option2 .result h1 {
+  font-size: 24px;
+}
+
+@media (min-width: 400px) and (max-width: 800px) {
+  .option2 .result h1 {
+    font-size: calc(24px + (48 - 24) * ((100vw - 400px) / ( 800 - 400)));
+  }
+}
+
+@media (min-width: 800px) {
+  .option2 .result h1 {
+    font-size: 48px;
+  }
+}</style></div>
+      </div>
+    </section>
+
+    <section class="option3">
+      <h2><code>clamp()</code></h2>
+      <div class="livecode">
+        <div class="result">
+          <h1 style="line-height:1.1;margin-bottom:1rem">Black cat magically appears</h1>
+          <p>A black cat of unknown origin materialised inside a house earlier this morning. Residents of the house are perplexed at the appearance of this cat as there did not seem to be any visible entry points large enough to fit the black cat.</p>
+        </div>
+        <div class="code"><style class="code-editor" contenteditable="true">.option3 .result h1 {
+  font-size: clamp(1.5em, 4vw, 2.5em);
+}</style></div>
+      </div>
+    </section>
+  </main>
+
+  <p class="twitter">@hj_chen</p>
+</body>
+
+</html>
