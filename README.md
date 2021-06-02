@@ -169,3 +169,19 @@
 84. [CSS for i18n](https://huijing.github.io/slides/84-css-i18n)
 
 85. [Colours in CSS](https://huijing.github.io/slides/85-css-colours)
+
+86. [The prismatic world of CSS colours](https://huijing.github.io/slides/86-yglf-2020)
+
+87. [Demystify Modern CSS Layouts with DevTools](https://huijing.github.io/slides/87-css-cafe-2020)
+
+88. [Accessibility With(out) Priorities](https://huijing.github.io/slides/88-smashing-tv-2020)
+
+89. [Demystify Modern CSS Layouts with DevTools](https://huijing.github.io/slides/89-frontendconf-2020)
+
+90. [Demystify Modern CSS Layouts with DevTools](https://huijing.github.io/slides/90-jsconfmx-2020)
+
+91. [CSS for i18n](https://huijing.github.io/slides/91-confoo-2021)
+
+92. [CSS can do that too!](https://huijing.github.io/slides/92-jsnation-2021)
+
+93. [Wait, CSS can do that now?](https://huijing.github.io/slides/93-jsfwdays-2021)
