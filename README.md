@@ -160,7 +160,7 @@
 
 80. [What is this? Why must bind?](https://huijing.github.io/slides/80-what-is-this) [📹 [video](https://youtu.be/qKG7a8mTqqE?t=899)]
 
-81. [East Asian typography on the modern web](https://huijing.github.io/slides/81-typetechmunich-2020)
+81. [East Asian typography on the modern web](https://huijing.github.io/slides/81-typetechmunich-2020) [📹 [video](https://youtu.be/_wCLpryhgCE)]
 
 82. [DevTools, more than just a debugger](https://devtools-jsfwdays.herokuapp.com/devtools) [📹 [video](https://youtu.be/QRyE2cHk8Q4)]
 
@@ -170,15 +170,15 @@
 
 85. [Colours in CSS](https://huijing.github.io/slides/85-css-colours)
 
-86. [The prismatic world of CSS colours](https://huijing.github.io/slides/86-yglf-2020)
+86. [The prismatic world of CSS colours](https://huijing.github.io/slides/86-yglf-2020) [📹 [video](https://youtu.be/4_89RU9t6CA)]
 
-87. [Demystify Modern CSS Layouts with DevTools](https://huijing.github.io/slides/87-css-cafe-2020)
+87. [Demystify Modern CSS Layouts with DevTools](https://huijing.github.io/slides/87-css-cafe-2020) [📹 [video](https://youtu.be/nwmPsqX4q4I)]
 
 88. [Accessibility With(out) Priorities](https://huijing.github.io/slides/88-smashing-tv-2020)
 
 89. [Demystify Modern CSS Layouts with DevTools](https://huijing.github.io/slides/89-frontendconf-2020)
 
-90. [Demystify Modern CSS Layouts with DevTools](https://huijing.github.io/slides/90-jsconfmx-2020)
+90. [Demystify Modern CSS Layouts with DevTools](https://huijing.github.io/slides/90-jsconfmx-2020) [📹 [video](https://youtu.be/jMd82CaT100)]
 
 91. [CSS for i18n](https://huijing.github.io/slides/91-confoo-2021)
 
