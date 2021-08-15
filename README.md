@@ -130,7 +130,7 @@
 
 65. [Using DevTools to understand modern CSS layouts](https://huijing.github.io/slides/65-connectfest-2019) 
 
-66. [Using DevTools to understand modern CSS layouts](https://huijing.github.io/slides/66-wwktm-2019)
+66. [Using DevTools to understand modern CSS layouts](https://huijing.github.io/slides/66-wwktm-2019) [📹 [video](https://youtu.be/3qFqynGTxPA)]
 
 67. [Why I love data files in Jekyll](https://huijing.github.io/slides/67-jekyllconf-2019) [📹 [video](https://youtu.be/CERXESTZ5w4)]
 
