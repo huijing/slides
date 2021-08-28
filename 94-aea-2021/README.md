@@ -100,6 +100,12 @@ The style rules for all the elements within this query container can then make u
 
 The syntax is very much similar with media queries, but with a different keyword. The fact that we can control styling of elements based on the size of its parent versus the entire viewport opens up a lot more options when it comes to designing components, so it's no wonder why so many people are excited.
 
+So let's say we have a card component that we'd like to re-use across our site. But that card component might show up in different contexts at the same time, for example, as narrow sidebar as well as the wider main content area.
+
+What we would do today, would be to apply separate style rules depending on the card's parent container. And even then, it can be unwieldy because the query is based solely on the width of the entire viewport.
+
+Now, when we define the `container-type` property on an element, its children can respond according its behaviour. I'm using `inline-size` here because I'm querying along the inline axis. So if I change it to `block-size`, it's not going to work. But now, my card component styles are much less specific because I don't have to worry about the size of its parent container at different viewport sizes.
+
 We are in early days now, and the implementation we have to play with cover the dimensional queries, which are based on the sizing of the container. But if you peek into the specification, you'll see that we potentially will be getting style queries, for things like the colour of the element or some other computed style value.
 
 And also, state queries, which could allow us to query if a sticky positioned container is stuck or not, or if a box is visible on the screen or not. Both style and state queries are in the process of being worked out, because I imagine there would be a lot to iron out before browser engineers can start actual implementation. But the possibilities here are breath-taking.
