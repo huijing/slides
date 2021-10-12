@@ -182,6 +182,8 @@
 
 91. [CSS for i18n](https://huijing.github.io/slides/91-confoo-2021)
 
-92. [CSS can do that too!](https://huijing.github.io/slides/92-jsnation-2021)
+92. [CSS can do that too!](https://huijing.github.io/slides/92-jsnation-2021) [📹 [video](https://portal.gitnation.org/contents/css-can-do-that-too)]
 
-93. [Wait, CSS can do that now?](https://huijing.github.io/slides/93-jsfwdays-2021)
+93. [Wait, CSS can do that now?](https://huijing.github.io/slides/93-jsfwdays-2021) [📹 [video](https://youtu.be/EbEnaH4fkqc)]
+
+94. [Our Stylish Future](https://huijing.github.io/slides/94-aea-2021)
