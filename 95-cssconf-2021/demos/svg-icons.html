@@ -1,0 +1,246 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Using SVG icons in 2021</title>
+  <meta name="description" content="Different ways to implement SVG icons">
+  <meta name="author" content="Chen Hui Jing">
+
+  <style>
+  @font-face {
+    font-family: "Emoji";
+    src: local("Apple Color Emoji"), local("Segoe UI Emoji"), local("Segoe UI Symbol"), local("Noto Color Emoji");
+  }
+    
+  * {
+    margin: 0;
+    padding: 0;
+  }
+    
+  html {
+    height: 100%;
+    font-size: 1.25em;
+  }
+    
+  body {
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  header {
+    padding: 1em;
+  }
+
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    padding: 0 1em;
+  }
+
+  section {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 1em;
+    display: none;
+    flex: 1 0 100%;
+    box-sizing: border-box;
+  }
+
+  code {
+    font-weight: normal;
+  }
+
+  h1 {
+    line-height: 1.2;
+  }
+
+  h2 {
+    margin-bottom: 0.25em;
+  }
+
+  input[type=radio] {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  input[type=radio] ~ label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.5em;
+    border: 1px solid;
+  }
+
+  input[type=radio]:checked + label {
+    background-color: mintcream;
+  }
+
+  #option1:checked ~ .option1,
+  #option2:checked ~ .option2,
+  #option3:checked ~ .option3 {
+    display: block;
+  }
+
+  .livecode {
+    display: grid;
+    grid-gap: 0.5em;
+    margin: 0;
+    padding: 0;
+    grid-template-columns: 1fr;
+  }
+
+  @media screen and (min-width: 48em) {
+    .livecode {
+      grid-template-columns: 65% calc(35% - 0.5em);
+      height: 100%;
+    }
+  }
+
+  .result {
+    max-height: 100%;
+    overflow-y: scroll;
+    width: calc(100% - 2em);
+    border: 1px dashed;
+  }
+
+  .code {
+    text-align: left;
+    width: 100%;
+    font-family: 'Dank Mono', monospace;
+    color: #efdcbc;
+    background-color: #3f3f3f;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    overflow-y: scroll;
+    font-size: 75%;
+    box-sizing: border-box;
+  }
+
+  .code-editor {
+    display: block;
+    height: 100%;
+    white-space: pre-wrap;
+  }
+
+  .twitter {
+    position: fixed;
+    top: 0.5em;
+    right: 0.5em;
+    color: darkgreen;
+    writing-mode: vertical-rl;
+    mix-blend-mode: luminosity;
+    opacity: 0.6;
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <header>
+    <h1>SVG icons in 2021</h1>
+  </header>
+  
+  <main>
+    <input type="radio" name="options" id="option1" checked>
+    <label for="option1">Option 1</label>
+    <input type="radio" name="options" id="option2">
+    <label for="option2">Option 2</label>
+    <input type="radio" name="options" id="option3">
+    <label for="option3">Option 3</label>
+    
+    <section class="option1">
+      <h2>Pseudo-element via CSS</h2>
+      <div class="livecode">
+        <div class="result" style="padding:1em">
+          <h2>음색 요정 휘인의 첫 번째 미니앨범 [Redd]</h2>
+          <p>휘인의 첫 번째 미니앨범 [Redd]는 몸과 마음에 붙어있던 무색의 거짓된 취향을 치워버리고(Redd), 본인이 진정으로 원하는 ‘나’를(Red) 드러내자고 말하고 있다. 처음 공개된 컨셉 필름에선 아무 점하나 튀지 않은 새하얗고 예쁘기만 한 공간이었지만, 휘인의 취향과 몸짓, 표정, 향기로 가득 채워 비록 엉망이 됐을지라도 그것조차 오롯한 ‘휘인’이라는 것을 보여준다.</p>
+        </div>
+        <div class="code"><style class="code-editor" contenteditable="true">.option1 .result h2::before {
+  content: url('./mono.svg');
+  display: block;
+  height: 1.5em;
+  width: 1.5em;
+  
+}
+
+.option1 .result h2::after {
+  content: '';
+  display: block;
+  height: 1.5em;
+  width: 1.5em;
+  background-image: url('./mono.svg');
+  background-position: initial;
+  background-size: initial;
+  background-repeat: initial;
+}</style></div>
+      </div>
+      <a style="display:block;margin-top:0.5em" href="https://codepen.io/sosuke/pen/Pjoqqp">CSS filter generator</a>
+    </section>
+
+    <section class="option2">
+      <h2>Inline SVG (on page)</h2>
+      <div class="livecode">
+        <div class="result" style="padding:1em">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232 232"><path class="outer" fill-rule="evenodd" d="M0 116C0 52.037 52.04 0 116 0s116 52.037 116 116-52.04 116-116 116S0 179.963 0 116Zm8 0c0 59.55 48.45 108 108 108s108-48.45 108-108S175.55 8 116 8 8 56.45 8 116Z" clip-rule="evenodd"/><path class="inner" fill-rule="evenodd" d="M175.977 76.54v.534c-.008 7.319-.017 15.008.023 23.292v46.73c0 10.325-4.789 18.495-13.856 23.625v.002c-9.082 5.136-18.207 5.972-27.132 2.496-8.539-3.326-13.489-9.19-14.704-17.426-.996-6.721 1.051-13.148 5.918-18.588 6.446-7.199 14.879-10.705 25.317-10.398 1.481.05 2.955.226 4.406.527-.031-13.701-.027-27.4-.004-41.104-5.949.332-12.449 1.09-20.207 2.35-11.629 1.889-23.539 4.6-35.394 8.057l-.2.056c0 .065-.003.131-.003.199-.215 11.495-.18 23.166-.145 34.456l.004 1.69c.015 5.649.03 11.298.012 16.948l-.008 3.393c-.004 3.949-.008 7.896-.102 11.846-.195 8.254-3.902 15.127-10.722 19.877-6.141 4.279-12.481 6.423-18.954 6.423-4.308 0-8.675-.951-13.082-2.853-2.761-1.192-5.91-2.715-8.328-5.695-4.91-6.063-6.086-13.147-3.488-21.057 1.648-5.041 4.871-9.309 9.578-12.676 7.7-5.51 16.121-7.436 25.11-5.73-.024-27.217-.016-54.342-.008-81.467 0-1.514.008-2.93.176-4.348.238-2.027 1.422-3.57 3.332-4.336 15.164-6.051 31.421-10.289 49.711-12.961 10.121-1.478 20.261-2.21 30.628-2.89l.973-.067.172-.012c1.848-.13 3.694-.26 5.547-.202 3.18.07 5.191 2.128 5.254 5.371.197 11 .187 22.147.176 33.938Zm-17.77 87.22c6.59-3.731 9.793-9.182 9.793-16.664v-46.711a4022.11 4022.11 0 0 1-.023-23.585c.011-10.948.019-21.335-.134-31.53-.774.039-1.549.093-2.323.146l-.137.01-1 .068c-10.203.67-20.172 1.389-30 2.824-17.04 2.488-32.227 6.375-46.36 11.868-.016.502-.016 1.003-.015 1.505v.329c-.008 28.49-.016 56.881.011 85.273 0 .715 0 2.879-1.855 4.264-1.852 1.379-3.922.765-4.598.562-2.679-.801-5.265-1.201-7.777-1.201-5.012 0-9.715 1.604-14.227 4.832-3.336 2.389-5.508 5.22-6.633 8.66-1.742 5.311-1.074 9.608 2.106 13.528 1.152 1.425 2.808 2.321 5.281 3.391 8.426 3.638 16.375 2.724 24.293-2.79 4.707-3.279 7.16-7.824 7.293-13.504.094-3.89.098-7.777.102-11.666l.008-3.408c.018-5.743.003-11.486-.013-17.229l-.003-1.361c-.036-11.33-.07-23.047.144-34.59.09-4.927 1.254-6.454 5.93-7.814 12.203-3.559 24.434-6.342 36.387-8.283 9.371-1.522 17.023-2.34 24.086-2.577 1.586-.015 2.937.403 3.926 1.358.992.963 1.492 2.281 1.484 3.923-.035 15.923-.039 31.85.007 47.78 0 2.324-1.027 3.578-1.89 4.223-1.864 1.386-3.896.787-4.567.589l-.003-.001c-1.84-.546-4.016-1.112-6.192-1.176-8.031-.24-14.253 2.298-19.121 7.738-3.32 3.713-4.617 7.664-3.964 12.082.789 5.333 3.867 8.873 9.694 11.143 6.673 2.604 13.306 1.939 20.29-2.006Z" clip-rule="evenodd"/></svg>
+          <h2>음색 요정 휘인의 첫 번째 미니앨범 [Redd]</h2>
+          <svg>
+            <use href="#mono"></use>
+          </svg>
+          <p>휘인의 첫 번째 미니앨범 [Redd]는 몸과 마음에 붙어있던 무색의 거짓된 취향을 치워버리고(Redd), 본인이 진정으로 원하는 ‘나’를(Red) 드러내자고 말하고 있다. 처음 공개된 컨셉 필름에선 아무 점하나 튀지 않은 새하얗고 예쁘기만 한 공간이었지만, 휘인의 취향과 몸짓, 표정, 향기로 가득 채워 비록 엉망이 됐을지라도 그것조차 오롯한 ‘휘인’이라는 것을 보여준다.</p>
+        </div>
+        <div class="code"><style class="code-editor" contenteditable="true">.option2 .result svg {
+  height: 2.25em;
+  width: 2.25em;
+  fill: currentcolor;
+}
+
+.option2 .result {
+  color: initial;
+}</style></div>
+      </div>
+    </section>
+
+    <section class="option3">
+      <h2>SVG from external file</h2>
+      <div class="livecode">
+        <div class="result" style="padding:1em">
+          <svg>
+            <use href="./icons.svg#mono"></use>
+          </svg>
+          <h2>음색 요정 휘인의 첫 번째 미니앨범 [Redd]</h2>
+          <svg>
+            <use href="./icons.svg#colour"></use>
+          </svg>
+          <p>휘인의 첫 번째 미니앨범 [Redd]는 몸과 마음에 붙어있던 무색의 거짓된 취향을 치워버리고(Redd), 본인이 진정으로 원하는 ‘나’를(Red) 드러내자고 말하고 있다. 처음 공개된 컨셉 필름에선 아무 점하나 튀지 않은 새하얗고 예쁘기만 한 공간이었지만, 휘인의 취향과 몸짓, 표정, 향기로 가득 채워 비록 엉망이 됐을지라도 그것조차 오롯한 ‘휘인’이라는 것을 보여준다.</p>
+        </div>
+        <div class="code"><style class="code-editor" contenteditable="true">.option3 .result svg {
+  height: 2.25em;
+  width: 2.25em;
+  fill: currentcolor;
+}
+
+.option3 .result {
+  color: initial;
+}</style></div>
+      </div>
+    </section>
+  </main>
+
+  <p class="twitter">@hj_chen</p>
+
+  <svg xmlns="<http://www.w3.org/2000/svg>">
+    <symbol id="mono">
+      <svg viewBox="0 0 232 232"><path class="outer" fill-rule="evenodd" d="M0 116C0 52.037 52.04 0 116 0s116 52.037 116 116-52.04 116-116 116S0 179.963 0 116Zm8 0c0 59.55 48.45 108 108 108s108-48.45 108-108S175.55 8 116 8 8 56.45 8 116Z" clip-rule="evenodd"/><path class="inner" fill-rule="evenodd" d="M175.977 76.54v.534c-.008 7.319-.017 15.008.023 23.292v46.73c0 10.325-4.789 18.495-13.856 23.625v.002c-9.082 5.136-18.207 5.972-27.132 2.496-8.539-3.326-13.489-9.19-14.704-17.426-.996-6.721 1.051-13.148 5.918-18.588 6.446-7.199 14.879-10.705 25.317-10.398 1.481.05 2.955.226 4.406.527-.031-13.701-.027-27.4-.004-41.104-5.949.332-12.449 1.09-20.207 2.35-11.629 1.889-23.539 4.6-35.394 8.057l-.2.056c0 .065-.003.131-.003.199-.215 11.495-.18 23.166-.145 34.456l.004 1.69c.015 5.649.03 11.298.012 16.948l-.008 3.393c-.004 3.949-.008 7.896-.102 11.846-.195 8.254-3.902 15.127-10.722 19.877-6.141 4.279-12.481 6.423-18.954 6.423-4.308 0-8.675-.951-13.082-2.853-2.761-1.192-5.91-2.715-8.328-5.695-4.91-6.063-6.086-13.147-3.488-21.057 1.648-5.041 4.871-9.309 9.578-12.676 7.7-5.51 16.121-7.436 25.11-5.73-.024-27.217-.016-54.342-.008-81.467 0-1.514.008-2.93.176-4.348.238-2.027 1.422-3.57 3.332-4.336 15.164-6.051 31.421-10.289 49.711-12.961 10.121-1.478 20.261-2.21 30.628-2.89l.973-.067.172-.012c1.848-.13 3.694-.26 5.547-.202 3.18.07 5.191 2.128 5.254 5.371.197 11 .187 22.147.176 33.938Zm-17.77 87.22c6.59-3.731 9.793-9.182 9.793-16.664v-46.711a4022.11 4022.11 0 0 1-.023-23.585c.011-10.948.019-21.335-.134-31.53-.774.039-1.549.093-2.323.146l-.137.01-1 .068c-10.203.67-20.172 1.389-30 2.824-17.04 2.488-32.227 6.375-46.36 11.868-.016.502-.016 1.003-.015 1.505v.329c-.008 28.49-.016 56.881.011 85.273 0 .715 0 2.879-1.855 4.264-1.852 1.379-3.922.765-4.598.562-2.679-.801-5.265-1.201-7.777-1.201-5.012 0-9.715 1.604-14.227 4.832-3.336 2.389-5.508 5.22-6.633 8.66-1.742 5.311-1.074 9.608 2.106 13.528 1.152 1.425 2.808 2.321 5.281 3.391 8.426 3.638 16.375 2.724 24.293-2.79 4.707-3.279 7.16-7.824 7.293-13.504.094-3.89.098-7.777.102-11.666l.008-3.408c.018-5.743.003-11.486-.013-17.229l-.003-1.361c-.036-11.33-.07-23.047.144-34.59.09-4.927 1.254-6.454 5.93-7.814 12.203-3.559 24.434-6.342 36.387-8.283 9.371-1.522 17.023-2.34 24.086-2.577 1.586-.015 2.937.403 3.926 1.358.992.963 1.492 2.281 1.484 3.923-.035 15.923-.039 31.85.007 47.78 0 2.324-1.027 3.578-1.89 4.223-1.864 1.386-3.896.787-4.567.589l-.003-.001c-1.84-.546-4.016-1.112-6.192-1.176-8.031-.24-14.253 2.298-19.121 7.738-3.32 3.713-4.617 7.664-3.964 12.082.789 5.333 3.867 8.873 9.694 11.143 6.673 2.604 13.306 1.939 20.29-2.006Z" clip-rule="evenodd"/></svg>
+    </symbol>
+  </svg>
+</body>
+
+</html>

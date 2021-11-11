@@ -1,0 +1,300 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Scroll snapping with CSS</title>
+  <meta name="description" content="CSS scroll snap demo">
+  <meta name="author" content="Chen Hui Jing">
+
+  <style>
+  @font-face {
+    font-family: "Emoji";
+    src: local("Apple Color Emoji"), local("Segoe UI Emoji"), local("Segoe UI Symbol"), local("Noto Color Emoji");
+  }
+    
+  * {
+    margin: 0;
+    padding: 0;
+  }
+    
+  html {
+    height: 100%;
+    font-size: 1.25em;
+  }
+    
+  body {
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    padding: 1em;
+  }
+
+  main {
+    flex: 1;
+  }
+
+  section {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 1em;
+  }
+
+  h1 {
+    line-height: 1.2;
+  }
+
+  code {
+    font-weight: normal;
+  }
+
+  .livecode {
+    display: grid;
+    grid-gap: 0.5em;
+    margin: 0;
+    padding: 0;
+    grid-template-columns: 1fr;
+  }
+
+  @media screen and (min-width: 48em) {
+    .livecode {
+      grid-template-columns: 65% calc(35% - 0.5em);
+      height: calc(100vh - 7.25em);
+    }
+  }
+
+  .result {
+    max-height: 100%;
+    overflow-y: scroll;
+    width: 100%;
+    border: 1px dashed;
+  }
+
+  .code {
+    text-align: left;
+    width: 100%;
+    font-family: 'Dank Mono', monospace;
+    color: #efdcbc;
+    background-color: #3f3f3f;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    overflow-y: scroll;
+    font-size: 75%;
+    box-sizing: border-box;
+  }
+
+  .code-editor {
+    display: block;
+    height: 100%;
+    white-space: pre-wrap;
+  }
+
+  .o-album {
+    width: 65vmin;
+    height: 65vmin;
+    position: relative;
+    margin: 0.25em auto;
+  }
+
+  .o-logo {
+    border-radius: 50%;
+    height: 1px;
+    width: 1px;
+    position: absolute;
+  }
+
+  .o-logo-basic {
+    bottom: 10%;
+    left: 50%;
+    box-shadow: -6vmin 0 0 0.5vmin #47473f, -4vmin 0 0 0.5vmin #47473f, -2vmin 0 0 0.5vmin #47473f, 0 0 0 0.5vmin #47473f, 4vmin 0 0 0.5vmin #47473f, -6vmin 2vmin 0 0.5vmin #47473f, -4vmin 2vmin 0 0.5vmin #47473f, 0 2vmin 0 0.5vmin #47473f, 2vmin 2vmin 0 0.5vmin #47473f, 4vmin 2vmin 0 0.5vmin #47473f, 6vmin 2vmin 0 0.5vmin #47473f;
+  }
+
+  .o-logo-alt {
+    right: 15%;
+    bottom: 35%;
+    transform: rotate(-45deg);
+    box-shadow: -6vmin 0 0 0.5vmin #3d90b2, -4vmin 0 0 0.5vmin #3d90b2, -2vmin 0 0 0.5vmin #3d90b2, 0 0 0 0.5vmin #3d90b2, 4vmin 0 0 0.5vmin #3d90b2, -6vmin 2vmin 0 0.5vmin #3d90b2, -4vmin 2vmin 0 0.5vmin #3d90b2, 0 2vmin 0 0.5vmin #3d90b2, 2vmin 2vmin 0 0.5vmin #3d90b2, 4vmin 2vmin 0 0.5vmin #3d90b2, 6vmin 2vmin 0 0.5vmin #3d90b2;
+  }
+
+  .c-awake {
+    background: #dad9c8;
+  }
+
+  .c-awake:before {
+    display: block;
+    content: '';
+    width: 50%;
+    height: 50%;
+    background: linear-gradient(to bottom, #d18462 0%, #d18462 14%, #d2796a 15%, #d2796a 28%, #b56863 29%, #b56863 42%, #cf7486 43%, #cf7486 51%, #a9627c 52%, #a9627c 63%, #a16d8d 64%, #a16d8d 73%, #766d86 74%, #766d86 83%, #313d52 84%, #313d52 100%);
+    border-radius: 50%;
+    position: absolute;
+    top: 20%;
+    left: 25%;
+  }
+
+  .c-montana {
+    background: #dad9c8;
+  }
+
+  .c-montana:before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 7.5%;
+    width: 85%;
+    height: 50%;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%);
+    background: linear-gradient(63deg, #32404c 0%, #32404c 46%, #746f85 46%, #746f85 50.5%, #9c708c 50.5%, #9c708c 55%, #a4657a 55%, #a4657a 59.5%, #cc7484 59.5%, #cc7484 64%, #b4695e 64%, #b4695e 71%, #ce7966 71%, #ce7966 100%);
+  }
+
+  .c-division {
+    background: linear-gradient(45deg, #a45044 0%, #a45044 50%, #3d90b2 50%, #3d90b2 100%);
+  }
+
+  .c-division:before {
+    position: absolute;
+    display: block;
+    height: 40%;
+    width: 40%;
+    content: '';
+    background: #1e292f;
+    border-radius: 50%;
+    right: 8.8%;
+    top: 8.8%;
+  }
+
+  .c-division:after {
+    position: absolute;
+    display: block;
+    height: 12.2%;
+    width: 12.2%;
+    content: '';
+    background: #1e292f;
+    border-radius: 50%;
+    left: 31.1%;
+    bottom: 31.1%;
+  }
+
+  .c-division__inner-1 {
+    border-top: 18.75vmin solid transparent;
+    border-bottom: 18.75vmin solid transparent;
+    border-left: 18.75vmin solid #1e292f;
+  }
+
+  .c-division__inner-2 {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-top: 18.75vmin solid transparent;
+    border-bottom: 18.75vmin solid transparent;
+    border-right: 18.75vmin solid #1e292f;
+  }
+
+  .c-epoch {
+    background: #ab4334;
+  }
+
+  .c-epoch:before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 31%;
+    left: 42.2%;
+    border-radius: 50%;
+    width: 14.6%;
+    height: 14.6%;
+    background: #e1e2d3;
+  }
+
+  .c-epoch:after {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 41.5%;
+    clip-path: polygon(33% 0, 67% 0, 100% 100%, 0% 100%);
+    background: #201f27;
+  }
+
+  .twitter {
+    position: fixed;
+    top: 0.5em;
+    right: 0.5em;
+    color: darkgreen;
+    writing-mode: vertical-rl;
+    mix-blend-mode: luminosity;
+    opacity: 0.6;
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <header>
+    <h1>Scroll snapping with CSS</h1>
+  </header>
+  
+  <main>
+    <section>
+      <div class="livecode">
+        <div class="result" style="text-align:center">
+          <section>
+            <div class="o-album c-awake">
+              <div class="o-logo o-logo-basic"></div>
+            </div>
+            <p>Awake (2014)</p>
+          </section>
+
+          <section>
+            <div class="o-album c-montana">
+              <div class="o-logo o-logo-basic"></div>
+            </div>
+            <p>Montana Single (2014)</p>
+          </section>
+
+          <section>
+            <div class="o-album c-division">
+              <div class="c-division__inner-1">
+              </div>
+              <div class="c-division__inner-2">
+              </div>
+              <div class="o-logo o-logo-alt"></div>
+            </div>
+            <p>First single from Epoch: Division (2016)</p>
+          </section>
+
+          <section>
+            <div class="o-album c-epoch"></div>
+            <p>Epoch (2016)</p>
+          </section>
+        </div>
+        <div class="code"><style class="code-editor" contenteditable="true">.result {
+  white-space: nowrap;
+  scroll-snap-type: both mandatory;
+}
+
+.result section {
+  width: 100%;
+  scroll-snap-align: start;
+  display: inline-block;
+}</style></div>
+      </div>
+    </section>
+  </main>
+
+  <p class="twitter">@hj_chen</p>
+</body>
+
+</html>

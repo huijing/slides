@@ -31,7 +31,7 @@
             <span class="emoji" role="img" tabindex="0" aria-label="laptop computer">&#x1F4BB;</span>
             <span class="emoji" role="img" tabindex="0" aria-label="pen">&#x1F58A;&#xFE0F;</span>
             <span class="emoji" role="img" tabindex="0" aria-label="studio microphone">&#x1F399;</span>
-            <span class="emoji" role="img" tabindex="0" aria-label="fox">&#x1F98A;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="black cat">&#x1F408;&#x200D;&#x2B1B;</span>
             <span class="emoji" role="img" tabindex="0" aria-label="person climbing">&#x1F9D7;</span>
             <span class="emoji" role="img" tabindex="0" aria-label="Rainbow flag">&#x1F3F3;&#xFE0F;&#x200D;&#x1F308;</span>
             <div style="display:flex;flex-direction:column;align-items:center;justify-content:center">
@@ -45,8 +45,88 @@
           <aside class="notes"></aside>
         </section>
 
+        <section>
+          <h2>The web changes quickly</h2>
+          <div class="fragment">
+            <p>Some may feel, a little too quickly</p>
+            <video style="height:450px" src="img/speed.mp4" autoplay loop></video>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Common frontend scenarios</h2>
+          <ol>
+            <li>Scroll snap</li>
+            <li>SVG icons</li>
+            <li>Masonry layout</li>
+            <li>Container queries</li>
+          </ol>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Scroll snap</h2>
+          <p><a href="demos/scroll-snap.html">Try it in your browser</a></p>
+          <p class="ciu_embed fragment" data-feature="css-snappoints" data-periods="future_1,current,past_1,past_2" data-accessible-colours="true">
+            <picture>
+              <source type="image/webp" srcset="https://caniuse.bitsofco.de/image/css-snappoints.webp">
+              <source type="image/png" srcset="https://caniuse.bitsofco.de/image/css-snappoints.png">
+              <img src="https://caniuse.bitsofco.de/image/css-snappoints.jpg" alt="Data on support for the css-snappoints feature across the major browsers from caniuse.com">
+            </picture>
+          </p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>SVG icons</h2>
+          <p><a href="demos/svg-icons.html">Try it in your browser</a></p>
+          <p class="ciu_embed" data-feature="svg-fragment" data-periods="future_1,current,past_1,past_2" data-accessible-colours="true">
+            <picture>
+              <source type="image/webp" srcset="https://caniuse.bitsofco.de/image/svg-fragment.webp">
+              <source type="image/png" srcset="https://caniuse.bitsofco.de/image/svg-fragment.png">
+              <img src="https://caniuse.bitsofco.de/image/svg-fragment.jpg" alt="Data on support for the svg-fragment feature across the major browsers from caniuse.com">
+            </picture>
+          </p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Masonry layout</h2>
+          <p><a href="demos/masonry.html">Try it in your browser</a></p>
+          <p class="fragment" style="text-align:left;width:85%;margin:0 auto">This feature is only implemented in Firefox, and can be enabled by setting the flag <code>layout.css.grid-template-masonry-value.enabled</code> to true, in order to allow testing and providing of feedback.</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Container queries</h2>
+          <p><a href="demos/container-queries.html">Try it in your browser</a></p>
+          <p class="fragment" style="text-align:left;width:85%;margin:0 auto">This feature is only implemented in Chrome Canary, and can be enabled with the "Enable CSS Container Queries" feature flag under <code>chrome://flags</code>, in order to allow testing and providing of feedback.</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <blockquote>
+            <p>There is no one right way to do things.<br>Context is everything.</p>
+          </blockquote>
+          <aside class="notes">When I write CSS, I always remind myself to keep an open mind. CSS is evolving faster than it used to, and it is also becoming more powerful than before. And yet, having new features doesn't necessarily make all the old properties obsolete. CSS may not be everyone's cup of tea, but it certainly is mine.</aside>
+        </section>
+
+        <section>
+          <h2>Further reading and references</h2>
+          <ul>
+            <li><a href="https://css-tricks.com/practical-css-scroll-snapping/">Practical CSS Scroll Snapping</a></li>
+            <li><a href="https://css-tricks.com/svg-use-with-external-reference-take-2/">SVG <code>use</code> with External Reference, Take 2</a></li>
+            <li><a href="https://css-tricks.com/the-many-ways-to-change-an-svg-fill-on-hover-and-when-to-use-them/">The Many Ways to Change an SVG Fill on Hover (and When to Use Them)</a></li>
+            <li><a href="https://codepen.io/sosuke/pen/Pjoqqp">CSS filter generator to convert from black to target hex color</a></li>
+            <li><a href="https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/">Native CSS Masonry Layout In CSS Grid</a></li>
+            <li><a href="https://github.com/oddbird/css-sandbox/blob/main/src/rwd/query/explainer.md">Container Query Proposal & Explainer</a></li>
+          </ul>
+          <aside class="notes"></aside>
+        </section>
+
         <section style="text-align:left">
-          <h1>Thank you</h1>
+          <h1>շնորհակալություն</h1>
           <p class="align-icon"><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://chenhuijing.com">https://chenhuijing.com</a></p>
           <p class="align-icon"><img class="j-icon plain" data-src="img/twitter.png" alt="Twitter"><a href="https://twitter.com/hj_chen">@hj_chen</a></p>
           <p class="align-icon"><img class="j-icon plain" data-src="img/github.png" alt="GitHub"><a href="https://github.com/huijing">@huijing</a></p>
@@ -59,6 +139,7 @@
     </div>
 
     <script src="dist/reveal.js"></script>
+    <script src="dist/theme/caniuse-embed.min.js"></script>
     <script src="plugin/notes/notes.js"></script>
     <script src="plugin/markdown/markdown.js"></script>
     <script src="plugin/highlight/highlight.js"></script>
@@ -67,6 +148,7 @@
         width: 1600,
         height: 900,
         hash: true,
+        transition: 'fade',
         plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
       });
     </script>
