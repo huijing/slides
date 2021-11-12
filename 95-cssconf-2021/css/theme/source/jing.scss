@@ -53,6 +53,35 @@ $selectionColor: #fff;
     display: flex;
     align-items: center;
   }
+
+  blockquote {
+    width: 80%;
+    text-align: center;
+    box-shadow: none;
+    line-height: 1.55;
+    font-size: 130%;
+    position: relative;
+
+    p::before,
+    p::after {
+      position: absolute;
+      font-size: 2.5em;
+      font-family: Georgia, serif;
+      color: $headingColor;
+    }
+
+    p::before {
+      top: -0.125em;
+      left: 0.5em;
+      content: '\201C';
+    }
+
+    p::after {
+      bottom: -0.5em;
+      right: 0.75em;
+      content: '\201D';
+    }
+  }
 }
 
 // Accessible emojis ---------------------------

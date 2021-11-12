@@ -2,7 +2,7 @@
 
 *For CSS Conf Armenia 2021. This is a sort-of transcript plus my notes for the talk.*
 
-Բարեւ Ձեզ, I hope everyone is doing fine. I'm very happy to have this opportunity to speak with all of you at CSS Conf Armenia. Talking about CSS is one of my favourite things. Today, I'll be sharing about a few techniques that a lot of us may have come across in our frontend development career, and I want to revisit some of them to use modern CSS.
+Բարեւ Ձեզ (Barev dzez), I hope everyone is doing fine. I'm very happy to have this opportunity to speak with all of you at CSS Conf Armenia. Talking about CSS is one of my favourite things. Today, I'll be sharing about a few techniques that a lot of us may have come across in our frontend development career, and I want to revisit some of them to use modern CSS.
 
 My name is Hui Jing and I'm a frontend developer based in Singapore at the moment. These emojis summarise who I am quite well, and you can always ask me about any of them if you feel like.
 
@@ -51,8 +51,6 @@ The last option is to reference the SVG from an external file altogether. You mi
 It is possible to colour the icon via CSS because the fill property cascades in through the shadow DOM boundary as long as there is no existing fill attribute on the paths in the file, but you wouldn't be able to modify individual paths like in the second option.
 
 The benefit of this approach is that the external file can be cached for performance gains, and if your use case only requires mono-coloured icons, this is a pretty good approach. But if you have multi-coloured icons, then you're out of luck, and would probably have to use the second option.
-
----
 
 ---
 
@@ -106,8 +104,6 @@ Again, I encourage everyone to give it a try in Chrome Canary and if you have an
 
 As a self-proclaimed CSS lover, I must say the thing that draws me most to CSS is the fact that there is no one right way to do things. CSS is flexible enough to adapt to such a wide variety of situations. Can't touch the mark-up? All is not lost because there is a high chance a certain combination of CSS properties can workaround that problem.
 
-There are really plenty of exciting developments in CSS these days, giving us even more tools with which to style the web. And this is additive. It doesn't mean you can no longer use Javascript to implement these solutions now that CSS is an option. The point here is options.
+There are really plenty of exciting developments in CSS these days, giving us even more tools with which to style the web. I hope you are as excited as me about the state of CSS today, and please enjoy the rest of the conference.
 
-To close off, I just want to say that it doesn't matter if you don't use the latest and greatest right now, but I do hope you can keep these properties and techniques in the back of your mind. And try them out for a future project instead of reaching for a Javascript-based library first.
-
-Thank you.
+շնորհակալություն (shnorhakalutyun).
