@@ -187,3 +187,5 @@
 93. [Wait, CSS can do that now?](https://huijing.github.io/slides/93-jsfwdays-2021) [📹 [video](https://youtu.be/EbEnaH4fkqc)]
 
 94. [Our Stylish Future](https://huijing.github.io/slides/94-aea-2021)
+
+95. [Revisiting styling techniques in 2021](https://huijing.github.io/slides/95-cssconf-2021)
