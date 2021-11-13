@@ -179,7 +179,8 @@
         <div class="code"><style class="code-editor" contenteditable="true">.contained {
   resize: horizontal;
   overflow: auto;
-  container: inline-size;
+  container-type: inline-size;
+  container-name: card-layout;
   width: 100%;
 }
 
@@ -203,7 +204,7 @@
   margin-bottom: 0.5rem;
 }
 
-@container (min-width: 18em) {
+@container card-layout (min-width: 18em) {
   .card {
     display: flex;
     flex-wrap: wrap;
@@ -222,7 +223,7 @@
   }
 }
 
-@container (min-width: 30em) {
+@container card-layout (min-width: 30em) {
   .card {
     text-align: center;
     border: none;

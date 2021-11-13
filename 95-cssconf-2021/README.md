@@ -72,15 +72,13 @@ Currently, the working group is looking for feedback on the implementation as it
 
 ---
 
-Lastly, we have something that is really in the spotlight recently, and that is container queries. I'm not too sure about the order of the talks, but if you've already watched Miriam's talk, you would have a pretty solid understanding of the syntax for container queries. 
-
-If not, I'll touch on it by talking through the code example, and you can solidify your understanding by listening to Miriam's explanation. I call this teamwork. 
+Lastly, we have something that is really in the spotlight recently, and that is container queries.
 
 The concept behind container queries has been around for quite a long time, especially as responsive designs became the norm. The idea behind having individual components display differently based on the size of its parent, as opposed to the overall viewport, was very appealing but hard to do.
 
 I'm not a browser engineer, no where close. However, I have enough understanding behind how browsers do layout to know that implementing the logic for container queries is not a trivial affair. The idea around containment, or the isolation of a subtree from the rest of the document, was floating around since 2017, when the first public working draft for the Containment module was published.
 
-But the work really picked up end of 2020, when Miriam started championing for it. She has since done a lot of the work on the specification and is a huge reason why we have a version to play with in Chrome Canary right now.
+But the work really picked up end of 2020, when Miriam Suzanne started championing for it. She has since done a lot of the work on the specification and is a huge reason why we have a version to play with in Chrome Canary right now.
 
 The specification is currently work-in-progress and has changed since the last time I talked about container queries. The current preferred syntax to establish a query container is via the `container-type` property.
 
@@ -92,7 +90,9 @@ So let's say we have a card component that we'd like to re-use across our site. 
 
 What we would do today, would be to apply separate style rules depending on the card's parent container. And even then, it can be unwieldy because the query is based solely on the width of the entire viewport.
 
-Now, when we define the `container-type` property on an element, its children can respond according its behaviour. I'm using `inline-size` here because I'm querying along the inline axis. So if I change it to `block-size`, it's not going to work. But now, my card component styles are much less specific because I don't have to worry about the size of its parent container at different viewport sizes.
+Now, when we define the `container-type` property on an element, its children can respond according its behaviour. I've set it to `size` because I want to the layout to change based on a the size of the container. But now, my card component styles are much less specific because I don't have to worry about the size of its parent container at different viewport sizes.
+
+There is also the `container-name` property, which is used by the `@container` rules to filter which query containers are being targeted. So maybe you want to query the width of the parent container, but also the height of the main content wrapper. You can write 2 separate queries targeting each of the 2 different containers.
 
 We are in early days now, and the implementation we have to play with cover the dimensional queries, which are based on the sizing of the container. But if you peek into the specification, you'll see that we potentially will be getting style queries, for things like the colour of the element or some other computed style value.
 
