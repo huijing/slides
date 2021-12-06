@@ -88,7 +88,7 @@
 
 44. [Layout the web with CSS grid (and friends)](https://huijing.github.io/slides/44-btconfws-2018)
 
-45. [Box Alignment](https://huijing.github.io/slides/45-btconfws-2018) [📹 [video](https://vimeo.com/299215505)]
+45. [Box Alignment](https://huijing.github.io/slides/45-btconf-2018) [📹 [video](https://vimeo.com/299215505)]
 
 46. [Building layouts with modern CSS](https://huijing.github.io/slides/46-detech-2018)
 
