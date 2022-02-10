@@ -20,7 +20,7 @@
     "gulp-cssnano": "^2.1.3",
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.2",
-    "node-sass": "^4.13.1"
+    "node-sass": "^7.0.0"
   },
   "babel": {
     "presets": [
