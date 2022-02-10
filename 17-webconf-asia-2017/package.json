@@ -39,7 +39,7 @@
     "grunt-sass": "~1.2.0",
     "grunt-retire": "~0.3.10",
     "grunt-zip": "~0.17.1",
-    "node-sass": "~4.13.1"
+    "node-sass": "~7.0.0"
   },
   "license": "MIT"
 }
