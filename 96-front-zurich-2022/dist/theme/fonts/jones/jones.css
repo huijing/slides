@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Jones';
+    src: url('jones-bold.woff2') format('woff2'),
+         url('jones-bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Jones';
+    src: url('jones-book.woff2') format('woff2'),
+         url('jones-book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Jones';
+    src: url('jones-bookitalic.woff2') format('woff2'),
+         url('jones-bookitalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
