@@ -1,12 +1,16 @@
-# Building layouts the way the web intended
+# A deep dive into Flexbox and Grid
 
-*For JS fwdays conference 2022. This is a sort-of transcript plus my notes for the talk.*
+*For I/O Extended KL 2022. This is a sort-of transcript plus my notes for the talk.*
 
-добрий день!
+Hello everyone!
 
-I'm very honoured to be part of the line-up of JS fwdays this year, and I understand that this is a JS+React conference, so think of me not as the main course, but as a palate cleanser, a little something to refresh and activate a slightly different part of your brain.
+I haven't been back to KL since before COVID, so it's very nice to be here. Thank you to the organisers for allowing me to come and talk to you about my favourite topic in the world, CSS. My name is Hui Jing, and I'm currently based in Singapore, and working as a frontend developer.
 
-Today, I will be sharing with you about laying out content on the web. And honestly, regardless of which technology stack you're using, odds are you will need to render and display content on a digital screen. And that screen could be any size these days.
+I know that CSS is not everyone's cup of tea, and I'm not here to tell you to love CSS as much as I do. But regardless of your FEELINGS about CSS, if you happen to work on the frontend of the web, odds are you will still have to cross paths with CSS somehow.
 
-If your content is going to be rendered by a browser engine, then your main mode of communication with the browser for styling content has to be CSS. And I'm sure everyone today has their own opinion about CSS, some of you might love it as much as I do, while others might see of it as a hard-to-deal with API you would like to avoid as much as possible.
+Again, you don't have to love it, but I'm here to share with you that it is now easier than before to build layouts that are suitable for the web, which is a medium that is quite special. If you think about it, there are not that many places where something you design is almost never viewed in exactly the same way.
+
+Technology evolves very fast, I know, but as of now, most web interactions involve a screen. And these screens can be as small as a watch-face or as large as a 70-inch super HDTV. And you, the developer or designer or creator, can't really control this.
+
+This means, the way we think about designing layouts on the web cannot be like anything else that is fixed. It's quite a different mental model, and so, the tools we use must suit this fluid, interactive medium. Luckily for us, now that Flexbox and Grid are very well supported across all major browsers, our toolbox has been greatly upgraded.
 
