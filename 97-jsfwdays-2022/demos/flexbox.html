@@ -1,0 +1,229 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Flexbox fundamentals</title>
+  <meta name="description" content="Demo for explaining flexbox in detail">
+  <meta name="author" content="Chen Hui Jing">
+
+  <style>
+  @font-face {
+    font-family: "Emoji";
+    src: local("Apple Color Emoji"), local("Segoe UI Emoji"), local("Segoe UI Symbol"), local("Noto Color Emoji");
+  }
+    
+  * {
+    margin: 0;
+    padding: 0;
+  }
+    
+  html {
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+    
+  body {
+    height: 100%;
+  }
+
+  header {
+    padding: 1em;
+  }
+
+  section {
+    box-sizing: border-box;
+    padding: 1em;
+  }
+
+  code {
+    font-weight: normal;
+  }
+
+  h1 {
+    line-height: 1.2;
+  }
+
+  h2 {
+    margin-bottom: 0.5em;
+  }
+
+  p {
+    margin-bottom: 0.5em;
+  }
+
+  ol {
+    margin-left: 1em;
+    margin-bottom: 0.5em;
+  }
+
+  .container {
+    display: flex;
+    margin-bottom: 1em;
+  }
+  .twitter {
+    position: fixed;
+    top: 0.5em;
+    right: 0.5em;
+    color: darkgreen;
+    writing-mode: vertical-rl;
+    mix-blend-mode: luminosity;
+    opacity: 0.6;
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <header>
+    <h1>Explaining Flexbox</h1>
+    <p><em>If you want to see the calculations, you will need to use Firefox Devtools, otherwise, Chrome and Safari also have the overlay. Also, sub-pixel rounding will result in the decimal point value for the item widths to differ slightly.</em></p>
+  </header>
+  
+  <main>
+    <section>
+      <h2>Basic flexbox</h2>
+      <div class="container">
+        <span>A flex item</span>
+        <p>Another flex item</p>
+        <div>Flex items are also flex children</div>
+        <blockquote>All direct children of the flex container become flex children</blockquote>
+      </div>
+    </section>
+
+    <section>
+      <h2>Understanding <code>flex-grow</code></h2>
+      <p>Take total amount of free space and divide it according to the <code>flex-grow</code> values for each flex item</p>
+      <p>With default values of <code>flex: 0 1 auto</code></p>
+      <div class="container" style="width:800px">
+        <p style="width:170px">A</p>
+        <p style="width:140px">B</p>
+        <p style="width:160px">C</p>
+      </div>
+
+      <p>With <code>flex: 1 1 auto</code></p>
+      <div class="container" style="width:800px">
+        <p style="width:170px;flex:1 1 auto">A</p>
+        <p style="width:140px;flex:1 1 auto">B</p>
+        <p style="width:160px;flex:1 1 auto">C</p>
+      </div>
+
+      <p>With last item not growing</p>
+      <div class="container" style="width:800px">
+        <p style="width:170px;flex:1 1 auto">A</p>
+        <p style="width:140px;flex:1 1 auto">B</p>
+        <p style="width:160px;flex:initial">C</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Understanding <code>flex-shrink</code></h2>
+      <p>For each of the flex items that needs to be shrunk:</p>
+      <ol>
+        <li>Multiply its <code>flex-shrink</code> value by its <code>flex-basis</code></li>
+        <li>Divide the resultant value by the sum of <code>flex-basis</code> values of all the flex items</li>
+        <li>Take this value and multiply by the total amount of space that needs to be shrunk</li>
+        <li>That final value is the amount your flex item needs to shrink by</li>
+      </ol>
+
+      <div class="container" style="width:600px">
+        <p style="width:150px">A<br><small>150px</small></p>
+        <p style="width:450px">B<br><small>450px</small></p>
+        <p style="width:300px">C<br><small>300px</small></p>
+      </div>
+
+      <code>
+        <p>A: (1 * 150) / (150 + 450 + 300) * 300 = 50px</p>
+        <p>B: (1 * 450) / (150 + 450 + 300) * 300 = 150px</p>
+        <p>C: (1 * 300) / (150 + 450 + 300) * 300 = 100px</p>
+      </code>
+    </section>
+
+    <section>
+      <h2>Understanding <code>flex-basis</code></h2>
+      <p>With initial value of all items set to <code>auto</code>, content width of longest sentence is around <code>455px</code></p>
+      <div class="container">
+        <p>Word</p>
+        <p>This is a sentence.</p>
+        <p>This is a much longer sentence so this example can make sense.</p>
+      </div>
+
+      <p>If <code>width</code> value is present, it will become the <code>flex-basis</code> value</p>
+      <div class="container">
+        <p>Word</p>
+        <p>This is a sentence.</p>
+        <p style="width:300px">This is a much longer sentence so this example can make sense.</p>
+      </div>
+
+      <p>If <code>flex-basis</code> value is set, it will take precedence and become the <code>flex-basis</code> value</p>
+      <div class="container">
+        <p>Word</p>
+        <p>This is a sentence.</p>
+        <p style="width:300px;flex-basis:250px">This is a much longer sentence so this example can make sense.</p>
+      </div>
+
+      <p>When flex values are set to <code>flex: 1 1 auto</code></p>
+      <div class="container">
+        <p style="flex:1 1 auto">This is a sentence.</p>
+        <p style="flex:1 1 auto">This is a another sentence.</p>
+        <p style="flex:1 1 auto">We just need content that takes up space here.</p>
+      </div>
+
+      <p>When flex values are set to <code>flex: 1 1 0</code></p>
+      <div class="container">
+        <p style="flex:1 1 0">This is a sentence.</p>
+        <p style="flex:1 1 0">This is a another sentence.</p>
+        <p style="flex:1 1 0">We just need content that takes up space here.</p>
+      </div>
+    </section>
+
+    <section id="directions">
+      <h2>Flex directions</h2>
+      <p>Initial value of <code>row</code></p>
+      <div class="container">
+        <span>A flex item</span>
+        <p>Another flex item</p>
+        <div>Flex items are also flex children</div>
+        <blockquote>All direct children of the flex container become flex children</blockquote>
+      </div>
+
+      <p>With <code>flex-direction: column</code></p>
+      <div class="container" style="flex-direction:column">
+        <span>A flex item</span>
+        <p>Another flex item</p>
+        <div>Flex items are also flex children</div>
+        <blockquote>All direct children of the flex container become flex children</blockquote>
+      </div>
+
+      <p>With <code>flex-direction: row-reverse</code></p>
+      <div class="container" style="flex-direction:row-reverse">
+        <span>A flex item</span>
+        <p>Another flex item</p>
+        <div>Flex items are also flex children</div>
+        <blockquote>All direct children of the flex container become flex children</blockquote>
+      </div>
+
+      <p>With <code>flex-direction: column-reverse</code></p>
+      <div class="container" style="flex-direction:column-reverse">
+        <span>A flex item</span>
+        <p>Another flex item</p>
+        <div>Flex items are also flex children</div>
+        <blockquote>All direct children of the flex container become flex children</blockquote>
+      </div>
+    </section>
+  </main>
+    
+  <p class="twitter">@hj_chen</p>
+</body>
+
+</html>

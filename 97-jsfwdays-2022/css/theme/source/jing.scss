@@ -57,6 +57,12 @@ $selectionColor: $backgroundColor;
     display: flex;
     align-items: center;
   }
+
+  .alignment-table {
+    td {
+      vertical-align: middle;
+    }
+  }
 }
 
 // Accessible emojis ---------------------------
@@ -91,7 +97,7 @@ span[role=img][aria-label]:hover::after {
 }
 
 // For live coding -----------------------------
-.livecode {
+[class*="livecode"] {
   display: grid;
   grid-gap: 0.5em;
   margin: 0;

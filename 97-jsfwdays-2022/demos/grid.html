@@ -1,0 +1,278 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Grid fundamentals</title>
+  <meta name="description" content="Demo for explaining flexbox in detail">
+  <meta name="author" content="Chen Hui Jing">
+
+  <style>
+  @font-face {
+    font-family: "Emoji";
+    src: local("Apple Color Emoji"), local("Segoe UI Emoji"), local("Segoe UI Symbol"), local("Noto Color Emoji");
+  }
+    
+  * {
+    margin: 0;
+    padding: 0;
+  }
+    
+  html {
+    height: 100%;
+    font-size: 1.25em;
+    box-sizing: border-box;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+    
+  body {
+    height: 100%;
+  }
+
+  header {
+    padding: 1em;
+  }
+
+  section {
+    box-sizing: border-box;
+    padding: 1em;
+  }
+
+  pre {
+    text-align: left;
+    font-family: "Dank Mono", monospace;
+    color: #efdcbc;
+    background-color: #3f3f3f;
+    padding: 1em;
+    border-radius: 0.5em;
+    font-size: smaller;
+    white-space: pre-wrap;
+    margin: 1em 0;
+  }
+
+  code {
+    font-weight: normal;
+  }
+
+  h1 {
+    line-height: 1.2;
+    margin-bottom: 0.25em;
+  }
+
+  h2 {
+    margin-bottom: 0.5em;
+  }
+
+  p {
+    margin-bottom: 0.5em;
+  }
+
+  .container1 {
+    display: grid;
+    grid-template-columns: 200px 20px 200px 20px 200px 20px 200px;
+    grid-template-rows: 150px 150px;
+  }
+
+  .container2 {
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px;
+    grid-template-rows: 150px 150px;
+    gap: 20px;
+  }
+
+  .container3 {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 150px 150px;
+    gap: 20px;
+  }
+
+  .container4 {
+    display: grid;
+    grid-template-columns: calc((100% - 60px) / 4) calc((100% - 60px) / 4) calc((100% - 60px) / 4) calc((100% - 60px) / 4);
+    grid-template-rows: 150px 150px;
+    gap: 20px;
+  }
+
+  .container5 {
+    display: grid;
+    grid-template-columns: repeat(4, calc((100% - 60px) / 4));
+    grid-template-rows: 150px 150px;
+    gap: 20px;
+  }
+
+  .container6 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 150px 150px;
+    gap: 20px;
+    grid-template-areas: 'a a . c'
+                         '. b b c';
+  }
+
+  .container6 > p {
+    background-color: greenyellow;
+    margin: 0;
+  }
+
+  .twitter {
+    position: fixed;
+    top: 0.5em;
+    right: 0.5em;
+    color: darkgreen;
+    writing-mode: vertical-rl;
+    mix-blend-mode: luminosity;
+    opacity: 0.6;
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <header>
+    <h1>Explaining Grid</h1>
+    <p><em>Firefox, Chrome and Safari all support grid overlays in Devtools and they are extremely useful when building with CSS grid.</em></p>
+    <p>Today's scenario is: you would like to have a grid with 4 equal width columns that have a 20px gap between each column.</p>
+  </header>
+  
+  <main>
+    <section>
+      <h2>Basic grid</h2>
+      <div class="container1"></div>
+      <pre>.container1 {
+  display: grid;
+  grid-template-columns: 200px 20px 200px 20px 200px 20px 200px;
+  grid-template-rows: 150px 150px;
+}</pre>
+    </section>
+
+    <section>
+      <h2>The <code>gap</code> property</h2>
+      <div class="container2"></div>
+      <pre>.container2 {
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px;
+  grid-template-rows: 150px 150px;
+  gap: 20px;
+}</pre>
+    </section>
+
+    <section>
+      <h2>A responsive grid</h2>
+      <div class="container3"></div>
+      <pre>.container3 {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 150px 150px;
+  gap: 20px;
+}</pre>
+      <div class="container4"></div>
+      <pre>.container4 {
+  display: grid;
+  grid-template-columns: calc((100% - 60px) / 4) calc((100% - 60px) / 4) calc((100% - 60px) / 4) calc((100% - 60px) / 4);
+  grid-template-rows: 150px 150px;
+  gap: 20px;
+}</pre>
+    </section>
+
+    <section>
+      <h2>The <code>repeat()</code> function</h2>
+      <div class="container5"></div>
+      <pre>.container5 {
+  display: grid;
+  grid-template-columns: repeat(4, calc((100% - 60px) / 4));
+  grid-template-rows: 150px 150px;
+  gap: 20px;
+}</pre>
+    </section>
+
+    <section>
+      <h2>The <code>fr</code> unit</h2>
+      <div class="container6"></div>
+      <pre>.container6 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 150px 150px;
+  gap: 20px;
+}</pre>
+    </section>
+
+    <section>
+      <h2>Placing grid items</h2>
+      <div class="container6">
+        <p>A</p>
+        <p>B</p>
+        <p>C</p>
+        <p>D</p>
+      </div>
+      <p>Auto-placement occurs when no placement properties are applied on the children. By default, each grid item will take up the space of 1 grid cell.</p>
+      <div class="container6">
+        <p style="grid-column:2/4;grid-row:1/3">A</p>
+        <p>B</p>
+        <p>C</p>
+        <p>D</p>
+      </div>
+      <pre>p:first-child {
+  grid-column: 2 / 4;
+  grid-row: 1 / 3;
+}</pre>
+    </section>
+
+    <section>
+      <h2>Overlapping grid items</h2>
+      <div class="container6">
+        <p style="grid-column:2/span 2;grid-row:1/span 2;background-color:dodgerblue">A</p>
+        <p style="grid-column:1/span 2;grid-row:1;background-color:tomato">B</p>
+        <p style="grid-column:3/span 2;grid-row:2;background-color:gold">C</p>
+        <p>D</p>
+      </div>
+      <pre>p:first-child { grid-column: 2 / span 2;
+  grid-row: 1 / span 2;
+}
+
+p:nth-child(2) { 
+  grid-column: 1 / span 2;
+  grid-row: 1;
+}
+p:nth-child(3) { 
+  grid-column: 3/ span 2;
+  grid-row: 2;
+}</pre>
+    </section>
+
+    <section>
+      <h2>Named grid areas</h2>
+      <div class="container6">
+        <p style="grid-area:a">A</p>
+        <p style="grid-area:b">B</p>
+        <p style="grid-area:c">C</p>
+        <p>D</p>
+      </div>
+      <pre>.container6 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 150px 150px;
+  gap: 20px;
+  grid-template-areas: 'a a . c'
+                       '. b b c';
+}
+
+p:first-child { grid-area: a }
+p:nth-child(2) { grid-area: b }
+p:nth-child(3) { grid-area: c }</pre>
+    </section>
+  </main>
+    
+  <p class="twitter">@hj_chen</p>
+</body>
+
+</html>
