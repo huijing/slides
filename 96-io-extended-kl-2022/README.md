@@ -53,7 +53,7 @@ It is important to remember that the flex grow factor impacts the amount of extr
 
 The calculations for how much a flex item should shrink is not as straightforward as for flex grow. Again, if you have Firefox Devtools, you will be able to see the calculations up to 2 decimal points but that’s how the browser got to those values.
 
-If you do not want any shrinking to occur, you set the flex-shrink value on your flex item to 0. This will prevent the flex item from shrinking below its original width but may result in your flex items overflowing their parent container.
+If you do not want any shrinking to occur, you set the flex-shrink value on your flex item to `0`. This will prevent the flex item from shrinking below its original width but may result in your flex items overflowing their parent container.
 
 Lastly, `flex-basis`. This property is key for understanding how sizing works with flexbox. The `flex-basis` value determines the starting value of the flex item, which, depending on the situation, may not be the final value of the flex item.
 

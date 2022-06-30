@@ -23,7 +23,6 @@
     
   html {
     height: 100%;
-    font-size: 1.25em;
     box-sizing: border-box;
   }
 
@@ -144,15 +143,15 @@
       </div>
 
       <code>
-        <p>A: (1 * 150) / (150 + 450 + 300) * 600 = 50px</p>
-        <p>B: (1 * 150) / (150 + 450 + 300) * 600 = 150px</p>
-        <p>C: (1 * 150) / (150 + 450 + 300) * 600 = 100px</p>
+        <p>A: (1 * 150) / (150 + 450 + 300) * 300 = 50px</p>
+        <p>B: (1 * 450) / (150 + 450 + 300) * 300 = 150px</p>
+        <p>C: (1 * 300) / (150 + 450 + 300) * 300 = 100px</p>
       </code>
     </section>
 
     <section>
       <h2>Understanding <code>flex-basis</code></h2>
-      <p>With initial value of all items set to <code>auto</code>, content width of longest sentence is <code>507.1px</code></p>
+      <p>With initial value of all items set to <code>auto</code>, content width of longest sentence is around <code>455px</code></p>
       <div class="container">
         <p>Word</p>
         <p>This is a sentence.</p>

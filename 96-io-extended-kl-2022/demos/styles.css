@@ -184,6 +184,7 @@ a {
   }
 }
 
+
 .l-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -212,7 +213,21 @@ section {
   transform-style: preserve-3d;
 }
 
-@media (min-width: 0em) and (max-width: 39.9375em) {
+@media all and (min-width: 0em) and (max-width: 25.5625em) {
+  section {
+    grid-template-areas: '. . . .'
+                         '. . . .'
+                         '. . . .'
+                         'l1 l1 l1 l1'
+                         'l2 l2 l2 l2'
+                         'l3 l3 l3 l3'
+                         'sh sh sh sh'
+                         'd1 d1 d1 d1'
+                         'd2 d2 d2 d2'
+  }
+}
+
+@media (min-width: 25.625em) and (max-width: 39.9375em) {
   section {
     grid-template-areas: '. . . .'
                          '. . . .'
@@ -259,7 +274,9 @@ section {
 }
 
 .home-link {
-  width: 8em;
+  min-width: 4em;
+  max-width: 8em;
+  width: 15vmin;
   margin-right: auto;
 }
 

@@ -102,7 +102,7 @@
 
   .container5 {
     display: grid;
-    grid-template-columns: repeat(4, calc(100% - 60px));
+    grid-template-columns: repeat(4, calc((100% - 60px) / 4));
     grid-template-rows: 150px 150px;
     gap: 20px;
   }
@@ -189,7 +189,7 @@
       <div class="container5"></div>
       <pre>.container5 {
   display: grid;
-  grid-template-columns: repeat(4, calc(100% - 60px));
+  grid-template-columns: repeat(4, calc((100% - 60px) / 4));
   grid-template-rows: 150px 150px;
   gap: 20px;
 }</pre>
