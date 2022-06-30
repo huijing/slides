@@ -35,9 +35,9 @@
             <span class="emoji" role="img" tabindex="0" aria-label="person climbing">&#x1F9D7;</span>
             <span class="emoji" role="img" tabindex="0" aria-label="Rainbow flag">&#x1F3F3;&#xFE0F;&#x200D;&#x1F308;</span>
             <div style="display:flex;flex-direction:column;align-items:center;justify-content:center">
-              <img data-src="img/name.svg" alt="Chen Hui Jing" class="plain" style="max-height:15vmin;margin:0">
+              <img data-src="img/name.svg" alt="Chen Hui Jing" class="plain" style="max-height:20vmin;margin:0">
               <div>
-                <img data-src="img/avatar.jpg" alt="Jing" style="border-radius:50%;max-height:30vmin">
+                <img data-src="img/avatar.jpg" alt="Jing" style="border-radius:50%;max-height:40vmin">
               </div>
               <small><a href="https://www.twitter.com/hj_chen">@hj_chen</a></small>
             </div>
@@ -55,7 +55,95 @@
         </section>
 
         <section>
-          <h2>Flexbox basics</h2>
+          <h2>Layout technique: <code>float</code></h2>
+          <div class="livecode-2p">
+            <div class="result float" style="font-size:75%;">
+              <div class="float__item" style="border:1px solid;padding:1em 0;box-sizing:border-box">
+                <p>Item A</p>
+              </div>
+              <div class="float__item" style="border:1px solid;padding:1em 0;box-sizing:border-box">
+                <p>Item B</p>
+              </div>
+              <div class="float__item" style="border:1px solid;padding:1em 0;box-sizing:border-box">
+                <p>Item C</p>
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.float__item {
+  float: left;
+  width: calc(100% / 3);
+}</style></div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Layout technique: <code>inline-block</code></h2>
+          <div class="livecode-2p">
+            <div class="result inlineblock" style="font-size:75%;">
+              <div class="inlineblock__item" style="border:1px solid;padding:1em 0;box-sizing:border-box"><p>Item A</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;box-sizing:border-box"><p>Item B</p></div><div class="inlineblock__item" style="border:1px solid;padding:1em 0;box-sizing:border-box"><p>Item C</p></div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.inlineblock__item {
+  display: inline-block;
+  width: calc(100% / 3);
+}</style></div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>The parent-child relationship</h2>
+          <img data-src="img/parent-child.svg" alt="Diagram showing a container with 3 children elements within" style="max-height:70vh">
+        </section>
+
+        <section>
+          <h2>Layout technique: <code>flex</code></h2>
+          <div class="livecode-2p">
+            <div class="result" style="font-size:75%;">
+              <div class="flexbox">
+                <span style="border:1px solid;box-sizing:border-box">A flex item</span><p style="border:1px solid;box-sizing:border-box">Another flex item</p><div style="border:1px solid;box-sizing:border-box">Flex items are also flex children</div><blockquote style="border:1px solid;box-sizing:border-box">All direct children of the flex container become flex children</blockquote>
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.flexbox {
+  display: ;
+}</style></div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Flex formatting context</h2>
+          <div class="l-multiple" style="align-items:end">
+            <img data-src="img/flex-mc.svg" alt="No margin collapse" class="fragment plain" style="max-height:25vh">
+            <img data-src="img/flex-fc.svg" alt="No floats or clear" class="fragment plain" style="max-height:25vh">
+            <img data-src="img/flex-va.svg" alt="No vertical-align" class="fragment plain" style="max-height:25vh">
+            <img data-src="img/flex-abs.svg" alt="Absolute positioning still applies" class="fragment plain" style="max-height:40vh">
+          </div>
+          <aside class="notes">
+            <p>And now, we move on to another formatting context, the flex formatting context. Different formatting context, different set of layout rules.</p>
+            <p>Some highlights of the flex layout model include in the fact:</p>
+            <ul>
+              <li>the flex container's margins will not collapse with those of its children</li>
+              <li><code>float</code> and <code>clear</code> do not apply to flex items</li>
+              <li><code>vertical-align</code>, no effect on flex items either</li>
+              <li>flex items can still be taken out of flow with absolute positioning</li>
+              <li>flex items are flex-level boxes, not block-level boxes</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Flexbox devtools</h2>
+          <img data-src="img/flex-tools.png" alt="Screenshot of flexbox overlay in Firefox">
+        </section>
+
+        <section>
+          <h2>The <code>flex</code> property</h2>
+          <img data-src="img/shorthand.png" alt="Diagram showing each component of the flex shorthand">
+        </section>
+
+        <section>
+          <h2>Sizing in flexbox</h2>
+          <p><a href="demos/flexbox.html">View demo</a></p>
         </section>
 
         <section style="text-align:left">

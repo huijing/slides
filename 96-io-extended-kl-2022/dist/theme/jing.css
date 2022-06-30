@@ -351,6 +351,9 @@
     background-color: var(--r-background-color);
   }
 }
+.reveal code {
+  font-size-adjust: 0.49;
+}
 .reveal .l-multiple {
   display: flex;
   justify-content: space-around;
@@ -399,26 +402,26 @@ span[role=img][aria-label]:hover::after {
   box-shadow: 2px 2px 4px #333;
 }
 
-.livecode {
+[class*=livecode] {
   display: grid;
   grid-gap: 0.5em;
   margin: 0;
   padding: 0;
 }
-.livecode .result {
+[class*=livecode] .result {
   max-height: 100%;
   overflow-y: scroll;
   width: 100%;
   border: 1px dashed #223843;
 }
-.livecode .result li {
+[class*=livecode] .result li {
   line-height: 0;
 }
-.livecode .result p {
+[class*=livecode] .result p {
   margin: 0;
   padding: 0;
 }
-.livecode .code {
+[class*=livecode] .code {
   text-align: left;
   width: 100%;
   font-family: "Dank Mono", monospace;

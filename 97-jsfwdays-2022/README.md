@@ -10,3 +10,4 @@ Today, I will be sharing with you about laying out content on the web. And hones
 
 If your content is going to be rendered by a browser engine, then your main mode of communication with the browser for styling content has to be CSS. And I'm sure everyone today has their own opinion about CSS, some of you might love it as much as I do, while others might see of it as a hard-to-deal with API you would like to avoid as much as possible.
 
+Regardless of your opinions on CSS, I'm not here to tell you what to think or how to feel. The reality is that browser engines today are much more capable than before, they can lay out content much better than before. And we need to know how to make full use of the browser's web layout capabilities.

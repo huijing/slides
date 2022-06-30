@@ -32,6 +32,10 @@ $selectionColor: $backgroundColor;
 
 // Customised styles for this presentation -----
 .reveal {
+  code {
+    font-size-adjust: 0.49;
+  }
+
   .l-multiple {
     display: flex;
     justify-content: space-around;
@@ -86,7 +90,7 @@ span[role=img][aria-label]:hover::after {
 }
 
 // For live coding -----------------------------
-.livecode {
+[class*="livecode"] {
   display: grid;
   grid-gap: 0.5em;
   margin: 0;
