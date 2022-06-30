@@ -56,6 +56,12 @@ $selectionColor: $backgroundColor;
     display: flex;
     align-items: center;
   }
+
+  .alignment-table {
+    td {
+      vertical-align: middle;
+    }
+  }
 }
 
 // Accessible emojis ---------------------------

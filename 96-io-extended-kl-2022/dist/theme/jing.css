@@ -371,6 +371,9 @@
   display: flex;
   align-items: center;
 }
+.reveal .alignment-table td {
+  vertical-align: middle;
+}
 
 span.emoji {
   font-family: "Apple Color Emoji", "Segoe UI Emoji";

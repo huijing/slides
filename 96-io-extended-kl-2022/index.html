@@ -146,6 +146,105 @@
           <p><a href="demos/flexbox.html">View demo</a></p>
         </section>
 
+        <section>
+          <h2>Flex directions</h2>
+          <img data-src="img/flex-direction.png" alt="Diagrams showing the row and column flex directions" style="max-height:70vh">
+          <p><a href="demos/flexbox.html#directions">View demo</a></p>
+        </section>
+
+        <section>
+          <h2>No actual grid</h2>
+          <img data-src="img/flex-boxie.png" alt="Boxies aligned with flex showing how there is no relationship between rows and 'columns'" style="max-height:70vh">
+        </section>
+
+        <section>
+          <h2>Real two-dimensional awareness</h2>
+          <img data-src="img/grid-boxie.png" alt="Boxies aligned with grid showing how there is an actual 2-dimensional grid" style="max-height:70vh">
+        </section>
+
+        <section>
+          <h2>Layout technique: <code>grid</code></h2>
+          <div class="livecode-2p">
+            <div class="result" style="font-size:75%;">
+              <div class="grid">
+                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item A</p>
+                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item B</p>
+                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item C</p>
+                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item D</p>
+                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item E</p>
+                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item F</p>
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 200px 200px;
+}</style></div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>A better way of building grids</h2>
+          <p><a href="demos/grid.html">View demo</a></p>
+        </section>
+
+        <section>
+          <h2>The magic sauce</h2>
+          <p>No, just kidding. It's just that alignment really ties it all together.</p>
+          <img data-src="img/alignment.png" alt="Diagrams of boxies showing how alignment works for flex and grid" style="max-height:70vh">
+        </section>
+
+        <section>
+          <h2>Box alignment properties</h2>
+          <table class="alignment-table" style="font-size:70%">
+            <tr style="border-bottom:2px solid">
+              <th width="19%">Property</th>
+              <th width="10%">Axis</th>
+              <th>Aligns</th>
+              <th width="25%">Applies to</th>
+            </tr>
+            <tr>
+              <td><code>justify-content</code></td>
+              <td>main/inline</td>
+              <td rowspan="2"><p style="width:65%;display:inline-block;vertical-align:top">content within element<br>(effectively adjusts padding)</p><img class="plain" style="max-width:7em" data-src="img/content.svg" alt="Content diagram"></td>
+              <td rowspan="2">block containers, flex containers and grid containers<br></td>
+            </tr>
+            <tr style="border-bottom:2px solid">
+              <td><code>align-content</code></td>
+              <td>cross/block</td>
+            </tr>
+            <tr>
+              <td><code>justify-items</code></td>
+              <td>inline</td>
+              <td rowspan="2"><p style="width:65%;display:inline-block;vertical-align:top">items inside box<br>(controls child items)</p><img class="plain" style="max-width:7em" data-src="img/items.svg" alt="Items diagram"></td>
+              <td>block containers and grid containers<br></td>
+            </tr>
+            <tr style="border-bottom:2px solid">
+              <td><code>align-items</code></td>
+              <td>cross/block</td>
+              <td>flex-containers and grid-containers<br></td>
+            </tr>
+            <tr>
+              <td><code>justify-self</code></td>
+              <td>inline</td>
+              <td rowspan="2"><p style="width:65%;display:inline-block;vertical-align:top">element within parent<br>(effectively adjusts margins)</p><img class="plain" style="max-width:7em" data-src="img/self.svg" alt="Self diagram"></td>
+              <td>block-level boxes, absolutely-positioned boxes and grid items<br></td>
+            </tr>
+            <tr style="border-bottom:2px solid">
+              <td><code>align-self</code></td>
+              <td>cross/block</td>
+              <td>absolutely-positioned boxes, flex items and grid items<br></td>
+            </tr>
+          </table>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Can we put it all together?</h2>
+          <p><a href="demos/hotel.html">View demo</a></p>
+        </section>
+
         <section style="text-align:left">
           <h1>Thank you!</h1>
           <p class="align-icon"><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://chenhuijing.com">https://chenhuijing.com</a></p>
