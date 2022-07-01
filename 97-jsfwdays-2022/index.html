@@ -14,11 +14,19 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <section style="background-image:url('img/fwdays.png');height:100%;top:0;"></section>
+        <section style="background-image:url('img/fwdays.png');height:100%;top:0;">
+          <aside class="notes">
+            <p>добрий день!</p>
+            <p>I'm very honoured to be part of the line-up of JS fwdays this year, and I understand that this is a JS+React conference, so think of me not as the main course, but as a palate cleanser, a little something to refresh and activate a slightly different part of your brain.</p>
+          </aside>
+        </section>
 <!--         <section>
           <h1>Building layouts the way the web intended</h1>
           <p><small>By <a href="https://chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            <p>добрий день!</p>
+            <p>I'm very honoured to be part of the line-up of JS fwdays this year, and I understand that this is a JS+React conference, so think of me not as the main course, but as a palate cleanser, a little something to refresh and activate a slightly different part of your brain.</p>
+          </aside>
         </section> -->
 
         <section>
@@ -52,7 +60,20 @@
             <img data-src="img/screens.png" alt="A range of screen sizes">
             <figcaption><small>Image source: <a href="https://www.inchcalculator.com/screen-size-calculator/">Inch Calculator</a></small></figcaption>
           </figure>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            <p>Today, I will be sharing with you about laying out content on the web. And honestly, regardless of which technology stack you're using, odds are you will need to render and display content on a digital screen. And that screen could be any size these days.</p>
+            <p>If your content is going to be rendered by a browser engine, then your main mode of communication with the browser for styling content has to be CSS. And I'm sure everyone today has their own opinion about CSS, some of you might love it as much as I do, while others might see of it as a hard-to-deal with API you would like to avoid as much as possible.</p>
+            <p>Regardless of your opinions on CSS, I'm not here to tell you what to think or how to feel. The reality is that browser engines today are much more capable than before, they can lay out content much better than before. And we need to know how to make full use of the browser's web layout capabilities.</p>
+            <p>Technology evolves very fast, I know, but as of now, most web interactions involve a screen. And these screens can be as small as a watch-face or as large as a 70-inch super HDTV. And you, the developer or designer or creator, can't really control this.</p>
+          </aside>
+        </section>
+
+        <section>
+          <video data-autoplay loop src="img/responsive.mp4"></video>
+          <aside class="notes">
+            <p>This means, the way we think about designing layouts on the web cannot be like anything else that is fixed. It's quite a different mental model, and so, the tools we use must suit this fluid, interactive medium. Luckily for us, now that Flexbox and Grid are very well supported across all major browsers, our toolbox has been greatly upgraded.</p>
+            <p>These 2 layout models were introduced after the web started evolving to be more than just a document viewer. They were built to handle application interfaces which would be viewed across many different screen sizes.</p>
+          </aside>
         </section>
 
         <section>
@@ -74,7 +95,7 @@
   width: calc(100% / 3);
 }</style></div>
           </div>
-          <aside class="notes"></aside>
+          <aside class="notes">Laying out and sizing block boxes or inline boxes involves applying properties onto the boxes themselves. Block and inline boxes are, in a way, unaware of the boxes around themselves. In order to layout boxes in a specific manner, you would have to adjust each box individually.</aside>
         </section>
 
         <section>
@@ -88,12 +109,17 @@
   width: calc(100% / 3);
 }</style></div>
           </div>
-          <aside class="notes"></aside>
+          <aside class="notes">Laying out and sizing block boxes or inline boxes involves applying properties onto the boxes themselves. Block and inline boxes are, in a way, unaware of the boxes around themselves. In order to layout boxes in a specific manner, you would have to adjust each box individually.</aside>
         </section>
 
         <section>
           <h2>The parent-child relationship</h2>
           <img data-src="img/parent-child.svg" alt="Diagram showing a container with 3 children elements within" style="max-height:70vh">
+          <aside class="notes">
+            <p>Both Flexbox and Grid operate on a parent-child relationship. Relevant display properties applied onto a parent container will affect the direct children within it, and the child items themselves will have an “awareness” of their siblings within the same formatting context.</p>
+            <p>This relationship does not extend beyond the immediate child elements, so that's something to keep in mind when debugging. Especially for those of you who work in codebases where you don't have full control over the markup, or if the markup is spread over different levels of nested components.
+            </p>
+          </aside>
         </section>
 
         <section>
@@ -108,7 +134,7 @@
   display: ;
 }</style></div>
           </div>
-          <aside class="notes"></aside>
+          <aside class="notes">When you set the display property of a box to <code>flex</code>, it creates a flex formatting context for its immediate children. Elements in a flex formatting context have a different set of behaviours from those in block or inline formatting contexts.</aside>
         </section>
 
         <section>
@@ -120,8 +146,7 @@
             <img data-src="img/flex-abs.svg" alt="Absolute positioning still applies" class="fragment plain" style="max-height:40vh">
           </div>
           <aside class="notes">
-            <p>And now, we move on to another formatting context, the flex formatting context. Different formatting context, different set of layout rules.</p>
-            <p>Some highlights of the flex layout model include in the fact:</p>
+            <p>These behaviours are:</p>
             <ul>
               <li>the flex container's margins will not collapse with those of its children</li>
               <li><code>float</code> and <code>clear</code> do not apply to flex items</li>
@@ -135,32 +160,52 @@
         <section>
           <h2>Flexbox devtools</h2>
           <img data-src="img/flex-tools.png" alt="Screenshot of flexbox overlay in Firefox">
+          <aside class="notes">
+            <p>The term flexbox is short for flexible box, which means that the size of the flexbox can grow and shrink to adapt to the amount of free space available in its parent container. This concept was completely different from what most web developers were used to when it was first introduced, and many folks found it hard to understand.</p>
+            <p>This was because the size of a box was usually a direct reflection of the width or height values we set on it, but in a flex formatting context, the final size of a flexbox may not necessarily be that exact value you declared. Today, we have the benefit of Devtools that can break down and show you what the browser is doing when calculating the sizes of your flexboxes.
+            </p>
+          </aside>
         </section>
 
         <section>
           <h2>The <code>flex</code> property</h2>
           <img data-src="img/shorthand.png" alt="Diagram showing each component of the flex shorthand">
+          <aside class="notes">
+            <p>The `flex` property only applies to flex items and specifies the components of a flexible sizing. `flex` is actually the shorthand property for `flex-grow`, `flex-shrink` and `flex-basis`. The specification encourages you to use the shorthand instead of the individual longhand properties because the shorthand resets unspecified component values to accommodate the most common use-cases.</p>
+            <p>When you apply `display: flex` to an element, all its immediate children have their `flex` property set to `0 1 auto`, which resolves to a `flex-grow` of `0`, a `flex-shrink` of `1` and a `flex-basis` of `auto`.</p>
+          </aside>
         </section>
 
         <section>
           <h2>Sizing in flexbox</h2>
           <p><a href="demos/flexbox.html">View demo</a></p>
+          <aside class="notes"></aside>
         </section>
 
         <section>
           <h2>Flex directions</h2>
           <img data-src="img/flex-direction.png" alt="Diagrams showing the row and column flex directions" style="max-height:70vh">
           <p><a href="demos/flexbox.html#directions">View demo</a></p>
+          <aside class="notes">
+            <p>Content flow is closely related to the writing system being used. Most of us are familiar with the horizontal, top-to-bottom orientation used in English and Ukrainian. But writing systems can be right-to-left for Arabic or Hebrew, and vertical, right-to-left for Chinese or Japanese. Traditional Mongolian script is vertical, left-to-right.</p>
+            <p>Before flexbox came along, if you wanted to do content that flowed from bottom to top, it would be almost impossible. Not without maybe using Javascript to rearrange the source order. But with `flex-direction`, you are not limited to any particular direction at all. Any of the 4 directions are possible.</p>
+          </aside>
         </section>
 
         <section>
           <h2>No actual grid</h2>
           <img data-src="img/flex-boxie.png" alt="Boxies aligned with flex showing how there is no relationship between rows and 'columns'" style="max-height:70vh">
+          <aside class="notes">
+            <p>But as nice as flexbox is, there is still a limitation. Or maybe its more accurate to say, it is something that flexbox was not meant to do. And that is to create actual grids that recognise an x and y axis.</p>
+            <p>All other layout models on the web only provide control in a single dimension. Elements in every layout model are laid out one after another. And when we force them to be the same width, they naturally just line up in a grid. However, every element has no idea of its own position in relation to any other element around it.</p>
+            <p>Grid systems built on these single dimension layout models rely on math to get items to line up neatly in rows and columns. This is a large reason why there were numerous grid libraries that would do the math for you and provide you the appropriate CSS classes to apply to your elements instead.</p>
+          </aside>
         </section>
 
         <section>
           <h2>Real two-dimensional awareness</h2>
           <img data-src="img/grid-boxie.png" alt="Boxies aligned with grid showing how there is an actual 2-dimensional grid" style="max-height:70vh">
+          <aside class="notes">CSS grid provides an actual two-dimensional grid which you can explicitly place your grid items in based on their row and column positions. It requires the developer to have a clear picture of the entire grid’s structure and sizing so grid items can be presented in the desired manner.</aside>
         </section>
 
         <section>
@@ -182,18 +227,20 @@
   grid-template-rows: 200px 200px;
 }</style></div>
           </div>
-          <aside class="notes"></aside>
+          <aside class="notes">Grid introduces some properties and values that make building grids a lot more intuitive and convenient than before. All you need for the most basic of grids are these 3 lines.</aside>
         </section>
 
         <section>
           <h2>A better way of building grids</h2>
           <p><a href="demos/grid.html">View demo</a></p>
+          <aside class="notes">So the basic scenario we have is to have a 4 equal-width column grid with a 20px gap between each column.</aside>
         </section>
 
         <section>
           <h2>The magic sauce</h2>
           <p>No, just kidding. It's just that alignment really ties it all together.</p>
           <img data-src="img/alignment.png" alt="Diagrams of boxies showing how alignment works for flex and grid" style="max-height:70vh">
+          <aside class="notes">Alignment isn't really magic, but it is almost like the glue that pulls everything together. Alignment properties are only available for flex and grid at the moment, but there is discussion on getting this for all layout models in the further future.</aside>
         </section>
 
         <section>
@@ -238,12 +285,17 @@
               <td>absolutely-positioned boxes, flex items and grid items<br></td>
             </tr>
           </table>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            <p>There are 6 properties, and grid can use them all, but for flex, <code>justify-items</code> and <code>justify-self</code> are not applicable. If you can see the diagram for each “set“ of properties, the <code>content</code> ones are for moving all the content within any free space in the container.</p>
+            <p>The <code>items</code> ones adjust all the items within their allocated space. So for flex items, only the <code>align-items</code> property applies, because it is possible to have free space along the cross axis. But along the main axis, items are always flush against each other, with no opportunity for any free space at all.</p>
+            <p>The <code>self</code> ones work the same way as the <code>items</code> ones, except they only apply to one item, instead of adjusting all of them at once.</p>
+          </aside>
         </section>
 
         <section>
           <h2>Can we put it all together?</h2>
           <p><a href="demos/hotel.html">View demo</a></p>
+          <aside class="notes">Okay, now it's time to put it all together.</aside>
         </section>
 
         <section style="text-align:left">
