@@ -14,12 +14,6 @@
   <body>
     <div class="reveal">
       <div class="slides">
-<!--         <section style="background-image:url('img/fwdays.png');height:100%;top:0;">
-          <aside class="notes">
-            <p>добрий день!</p>
-            <p>I'm very honoured to be part of the line-up of JS fwdays this year, and I understand that this is a JS+React conference, so think of me not as the main course, but as a palate cleanser, a little something to refresh and activate a slightly different part of your brain.</p>
-          </aside>
-        </section> -->
         <section>
           <h1>Building layouts the way the web intended</h1>
           <p><small>By <a href="https://chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
@@ -70,6 +64,7 @@
 
         <section>
           <video data-autoplay loop src="img/responsive.mp4"></video>
+          <p><small>Image credit: <a href="https://www.behance.net/gallery/43716229/Responsive-Design-gif">Jyotika Sofia Lindqvist</a></small></p>
           <aside class="notes">
             <p>This means, the way we think about designing layouts on the web cannot be like anything else that is fixed. It's quite a different mental model, and so, the tools we use must suit this fluid, interactive medium. Luckily for us, now that Flexbox and Grid are very well supported across all major browsers, our toolbox has been greatly upgraded.</p>
             <p>These 2 layout models were introduced after the web started evolving to be more than just a document viewer. They were built to handle application interfaces which would be viewed across many different screen sizes.</p>
@@ -171,8 +166,8 @@
           <h2>The <code>flex</code> property</h2>
           <img data-src="img/shorthand.png" alt="Diagram showing each component of the flex shorthand">
           <aside class="notes">
-            <p>The `flex` property only applies to flex items and specifies the components of a flexible sizing. `flex` is actually the shorthand property for `flex-grow`, `flex-shrink` and `flex-basis`. The specification encourages you to use the shorthand instead of the individual longhand properties because the shorthand resets unspecified component values to accommodate the most common use-cases.</p>
-            <p>When you apply `display: flex` to an element, all its immediate children have their `flex` property set to `0 1 auto`, which resolves to a `flex-grow` of `0`, a `flex-shrink` of `1` and a `flex-basis` of `auto`.</p>
+            <p>The <code>flex</code> property only applies to flex items and specifies the components of a flexible sizing. <code>flex</code> is actually the shorthand property for <code>flex-grow</code>, <code>flex-shrink</code> and <code>flex-basis</code>. The specification encourages you to use the shorthand instead of the individual longhand properties because the shorthand resets unspecified component values to accommodate the most common use-cases.</p>
+            <p>When you apply <code>display: flex</code> to an element, all its immediate children have their <code>flex</code> property set to <code>0 1 auto</code>, which resolves to a <code>flex-grow</code> of <code>0</code>, a <code>flex-shrink</code> of <code>1</code> and a <code>flex-basis</code> of <code>auto</code>.</p>
           </aside>
         </section>
 
@@ -188,7 +183,7 @@
           <p><a href="demos/flexbox.html#directions">View demo</a></p>
           <aside class="notes">
             <p>Content flow is closely related to the writing system being used. Most of us are familiar with the horizontal, top-to-bottom orientation used in English and Ukrainian. But writing systems can be right-to-left for Arabic or Hebrew, and vertical, right-to-left for Chinese or Japanese. Traditional Mongolian script is vertical, left-to-right.</p>
-            <p>Before flexbox came along, if you wanted to do content that flowed from bottom to top, it would be almost impossible. Not without maybe using Javascript to rearrange the source order. But with `flex-direction`, you are not limited to any particular direction at all. Any of the 4 directions are possible.</p>
+            <p>Before flexbox came along, if you wanted to do content that flowed from bottom to top, it would be almost impossible. Not without maybe using Javascript to rearrange the source order. But with <code>flex-direction</code>, you are not limited to any particular direction at all. Any of the 4 directions are possible.</p>
           </aside>
         </section>
 

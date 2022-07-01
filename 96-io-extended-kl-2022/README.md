@@ -39,6 +39,8 @@ The `flex` property only applies to flex items and specifies the components of a
 
 When you apply `display: flex` to an element, all its immediate children have their `flex` property set to `0 1 auto`, which resolves to a `flex-grow` of `0`, a `flex-shrink` of `1` and a `flex-basis` of `auto`.
 
+---
+
 `flex-grow` determines how much of the available free space ought to be distributed to a particular flex item. It is only relevant when the flex container is larger than the total widths of the flex items within it, because only then will there be free space to distribute.
 
 Let’s say we have 3 boxes, A, B and C, and their widths are `170px`, `140px` and `160px` respectively. These 3 boxes live within a parent container of `800px`. Which means there is `330px` of free space within that container.
@@ -67,6 +69,8 @@ Earlier, we talked about the concept of free space being whatever space leftover
 
 There is, however, a way to let the browser treat the entire parent container as “free space“ and distribute it according to the `flex-grow` values. You can do that by setting `flex-basis` to `0`.
 
+---
+
 Content flow is closely related to the writing system being used. Most of us are familiar with the horizontal, top-to-bottom orientation used in English and Malay. But writing systems can be right-to-left for Jawi or Hebrew, and vertical, right-to-left for Chinese or Japanese. Traditional Mongolian script is vertical, left-to-right.
 
 Before flexbox came along, if you wanted to do content that flowed from bottom to top, it would be almost impossible. Not without maybe using Javascript to rearrange the source order. But with `flex-direction`, you are not limited to any particular direction at all. Any of the 4 directions are possible.
@@ -74,6 +78,8 @@ Before flexbox came along, if you wanted to do content that flowed from bottom t
 In the default horizontal, top-to-bottom writing mode, flex items along the main axis flow from left to right and if they wrap, will continue down along the cross axis. If you change the `flex-direction` value to column, then the flex items along the main axis flow from top to bottom, and wrap from left to right along the cross axis.
 
 You can even reverse things, and end up with content that flows from bottom to top.
+
+---
 
 But as nice as flexbox is, there is still a limitation. Or maybe its more accurate to say, it is something that flexbox was not meant to do. And that is to create actual grids that recognise an x and y axis.
 
@@ -83,7 +89,9 @@ Grid systems built on these single dimension layout models rely on math to get i
 
 CSS grid provides an actual two-dimensional grid which you can explicitly place your grid items in based on their row and column positions. It requires the developer to have a clear picture of the entire grid’s structure and sizing so grid items can be presented in the desired manner.
 
-Grid introduces some properties and values that make building grids a lot more intuitive and convenient than before. So the basic scenario we have is to have a 4 equal-width column grid with a 20px gap between each column. 
+Grid introduces some properties and values that make building grids a lot more intuitive and convenient than before. All you need for the most basic of grids are these 3 lines. So the basic scenario we have is to have a 4 equal-width column grid with a 20px gap between each column. 
+
+---
 
 We can do something like this, which is actually a 7x2 grid. This sort of works but there are a couple issues with this approach. In this grid, the spacing between our “main” columns are actually columns themselves, which means content could get rendered in these “faux” gaps. There is a better way.
 
@@ -114,6 +122,8 @@ The grid will first place any items that have an explicit position, e.g. if you 
 Grid also makes it much easier to do overlap designs. Because as long as you specify the row and column value, the browser knows what to do with the item. And the stacking order follows the source order, unless you define `z-index` explicitly.
 
 One more thing I want to highlight from the long list of features Grid introduces is named grid areas. This feature is really handy for building responsive layouts. After defining the grid, you can additionally div-y up the grid into specific areas with `grid-template-areas`. Then you can allocate your grid items into those areas with `grid-area`.
+
+---
 
 Alignment isn't really magic, but it is almost like the glue that pulls everything together. Alignment properties are only available for flex and grid at the moment, but there is discussion on getting this for all layout models in the further future.
 
