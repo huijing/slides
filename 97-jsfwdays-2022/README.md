@@ -85,7 +85,7 @@ Grid systems built on these single dimension layout models rely on math to get i
 
 CSS grid provides an actual two-dimensional grid which you can explicitly place your grid items in based on their row and column positions. It requires the developer to have a clear picture of the entire grid’s structure and sizing so grid items can be presented in the desired manner.
 
-Grid introduces some properties and values that make building grids a lot more intuitive and convenient than before. So the basic scenario we have is to have a 4 equal-width column grid with a 20px gap between each column. 
+Grid introduces some properties and values that make building grids a lot more intuitive and convenient than before.  All you need for the most basic of grids are these 3 lines. So the basic scenario we have is to have a 4 equal-width column grid with a 20px gap between each column. 
 
 We can do something like this, which is actually a 7x2 grid. This sort of works but there are a couple issues with this approach. In this grid, the spacing between our “main” columns are actually columns themselves, which means content could get rendered in these “faux” gaps. There is a better way.
 

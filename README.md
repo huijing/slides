@@ -189,3 +189,9 @@
 94. [Our Stylish Future](https://huijing.github.io/slides/94-aea-2021)
 
 95. [Revisiting styling techniques in 2021](https://huijing.github.io/slides/95-cssconf-2021)
+
+96. [A deep dive into Flexbox and Grid](https://huijing.github.io/slides/96-io-extended-kl-2022)
+
+97. [Building layouts the way the web intended](https://huijing.github.io/slides/97-jsfwdays-2022)
+
+98. [Architecting CSS grid in a design system](https://huijing.github.io/slides/98-front-zurich-2022)
