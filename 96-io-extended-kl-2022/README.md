@@ -83,7 +83,7 @@ You can even reverse things, and end up with content that flows from bottom to t
 
 But as nice as flexbox is, there is still a limitation. Or maybe its more accurate to say, it is something that flexbox was not meant to do. And that is to create actual grids that recognise an x and y axis.
 
-All other layout models on the web only provide control in a single dimension. Elements in every layout model are laid out one after another. And when we force them to be the same width, they naturally just line up in a grid. However, every element has no idea of its own position in relation to any other element around it.
+All other layout models on the web only provide control in a single dimension. Elements in every layout model are laid out one after another. And when we force them to be the same width, they naturally just line up in a grid. However, each element has no idea of its own position in relation to whatever is perpendicular to the flow direction.
 
 Grid systems built on these single dimension layout models rely on math to get items to line up neatly in rows and columns. This is a large reason why there were numerous grid libraries that would do the math for you and provide you the appropriate CSS classes to apply to your elements instead.
 

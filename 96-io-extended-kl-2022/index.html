@@ -186,17 +186,19 @@
 
         <section>
           <h2>No actual grid</h2>
-          <img data-src="img/flex-boxie.png" alt="Boxies aligned with flex showing how there is no relationship between rows and 'columns'" style="max-height:70vh">
+          <img data-src="img/flex-even.png" alt="Boxies aligning because they are the same width" style="max-height:70vh" class="fragment">
+          <img data-src="img/flex-uneven.png" alt="Boxies stop being aligned along columns once they are uneven widths" style="max-height:70vh;margin-left:3em" class="fragment">
           <aside class="notes">
             <p>But as nice as flexbox is, there is still a limitation. Or maybe its more accurate to say, it is something that flexbox was not meant to do. And that is to create actual grids that recognise an x and y axis.</p>
-            <p>All other layout models on the web only provide control in a single dimension. Elements in every layout model are laid out one after another. And when we force them to be the same width, they naturally just line up in a grid. However, every element has no idea of its own position in relation to any other element around it.</p>
+            <p>All other layout models on the web only provide control in a single dimension. Elements in every layout model are laid out one after another. And when we force them to be the same width, they naturally just line up in a grid. However, each element has no idea of its own position in relation to whatever is perpendicular to the flow direction.</p>
             <p>Grid systems built on these single dimension layout models rely on math to get items to line up neatly in rows and columns. This is a large reason why there were numerous grid libraries that would do the math for you and provide you the appropriate CSS classes to apply to your elements instead.</p>
           </aside>
         </section>
 
         <section>
           <h2>Real two-dimensional awareness</h2>
-          <img data-src="img/grid-boxie.png" alt="Boxies aligned with grid showing how there is an actual 2-dimensional grid" style="max-height:70vh">
+          <img data-src="img/grid-even.png" alt="Boxies aligning because there are real rows and columns" style="max-height:70vh" class="fragment">
+          <img data-src="img/grid-uneven.png" alt="Boxies aligning because there are real rows and columns, even if there are different widths" style="max-height:70vh;margin-left:3em" class="fragment">
           <aside class="notes">CSS grid provides an actual two-dimensional grid which you can explicitly place your grid items in based on their row and column positions. It requires the developer to have a clear picture of the entire grid’s structure and sizing so grid items can be presented in the desired manner.</aside>
         </section>
 
