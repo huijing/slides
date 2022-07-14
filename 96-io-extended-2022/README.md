@@ -1,10 +1,10 @@
 # A deep dive into Flexbox and Grid
 
-*For I/O Extended KL 2022. This is a sort-of transcript plus my notes for the talk.*
+*For I/O Extended 2022. This is a sort-of transcript plus my notes for the talk.*
 
 Hello everyone!
 
-I haven't been back to KL since before COVID, so it's very nice to be here. Thank you to the organisers for allowing me to come and talk to you about my favourite topic in the world, CSS. My name is Hui Jing, and I'm currently based in Singapore, and working as a frontend developer.
+I haven't been to many in-person events since before COVID, so it's very nice to be here. Thank you to the organisers for allowing me to come and talk to you about my favourite topic in the world, CSS. My name is Hui Jing, and I'm currently based in Singapore, and working as a frontend developer.
 
 I know that CSS is not everyone's cup of tea, and I'm not here to tell you to love CSS as much as I do. But regardless of your FEELINGS about CSS, if you happen to work on the frontend of the web, odds are you will still have to cross paths with CSS somehow.
 
