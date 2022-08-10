@@ -17,7 +17,10 @@
         <section>
           <h1>The many flavours of enterprise CSS grid</h1>
           <p><small>By <a href="https://chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            <p>Hello everyone! This is the first conference I'm speaking at since COVID happened so it does feel kind of surreal. I'm very happy to be here and grateful to the organisers for giving me the opportunity to talk to all of you about my favourite topic in the world, CSS.</p>
+            <p>We're at a frontend conference today, right? So I'm going to assume a lot of us are in the business of how displaying web content on a digital screen. Which could be of any and all sizes. For the next half an hour, we're going to think about, more specifically, the laying out of content these screens.</p>
+          </aside>
         </section>
 
         <section>
@@ -45,6 +48,113 @@
           <aside class="notes"></aside>
         </section>
 
+        <section>
+          Shopify
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Screens, screens, screens</h2>
+          <figure>
+            <img data-src="img/screens.png" alt="A range of screen sizes">
+            <figcaption><small>Image source: <a href="https://www.inchcalculator.com/screen-size-calculator/">Inch Calculator</a></small></figcaption>
+          </figure>
+          <aside class="notes">
+            <p>If your content is going to be rendered by a browser engine, then your main mode of communication with the browser for styling content has to be CSS. And I'm sure everyone today has their own opinion about CSS, some of you might love it as much as I do, while others might see of it as a hard-to-deal with API you would like to avoid as much as possible.</p>
+            <p>Regardless of your opinions on CSS, I'm not here to tell you what to think or how to feel. The reality is that browser engines today are much more capable than before, they can lay out content much better than before. And we need to know how to make full use of the browser's web layout capabilities.</p>
+            <p>Technology evolves very fast, I know, but as of now, most web interactions involve a screen. And these screens can be as small as a watch-face or as large as a 70-inch super HDTV. And you, the developer or designer or creator, can't really control this.</p>
+          </aside>
+        </section>
+
+        <section>
+          <video data-autoplay loop src="img/responsive.mp4" style="max-height:90vh"></video>
+          <p><small>Image credit: <a href="https://www.behance.net/gallery/43716229/Responsive-Design-gif">Jyotika Sofia Lindqvist</a></small></p>
+          <aside class="notes">
+            <p>This means, the way we think about designing layouts on the web cannot be like anything else that is fixed. It's quite a different mental model, and so, the tools we use must suit this fluid, interactive medium. Luckily for us, now that Flexbox and Grid are very well supported across all major browsers, our toolbox has been greatly upgraded.</p>
+            <p>Both of these layout models were introduced after the web had evolved into more than just a document viewer. They were built to handle application interfaces which would be viewed across many different screen sizes.</p>
+          </aside>
+        </section>
+
+        <section>
+          <pre style="font-size:larger">
+            <code>.wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+</code>
+          </pre>
+          <small><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Backwards_Compatibility_of_Flexbox">MDN: Backwards Compatibility of Flexbox</a></small>
+          <aside class="notes">Admittedly, Flexbox had a relatively more rocky rollout, as browsers implemented experimental versions of the syntax before the specification had been nailed down. But by 2015, all the major browsers had updated to use the latest specification and the implementation was considered stable.</aside>
+        </section>
+
+        <section>
+          <h2>Browser configuration pages</h2>
+          <div class="l-double" style="align-items:center">
+            <figure>
+              <img class="plain" data-src="img/firefox-config.png" alt="Browser configuration warning on Firefox">
+              <figcaption><code>about:config</code></figcaption>
+            </figure>
+            <figure>
+                <img class="plain" data-src="img/chrome-config.png" alt="Experimental features configuration in Chrome">
+              <figcaption><code>chrome:://flags</code></figcaption>
+            </figure>
+          </div>
+          <aside class="notes">
+            <p>Browser vendors and specification authors learned from the Flexbox rollout and did Grid differently. They still needed to developers like you and I to test out this new layout model, but instead of using vendor prefixes, they chose to implement the pre-finalised version of Grid behind a feature flag.</p>
+            <p>This meant that if developers wanted to use it, they had to manually go to the browser configuration, you know, that page that warns you your warranty is null and void if you change things? No, I'm kidding, but it does make it clear that you could potentially break something.</p>
+            <p>Non-developers would most likely never encounter nor attempt to, hence, this approach allowed browser vendors to still collect feedback from web developers while minimising the odds that they would actually ship to production before the implementation itself was ready and mature.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Grid release dates</h2>
+          <img class="plain" data-src="img/grid-release.png" alt="Grid release dates for all major browsers in 2017">
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <p class="ciu_embed" data-feature="flexbox" data-periods="future_1,current,past_1,past_2" data-accessible-colours="true">
+            <picture>
+              <source type="image/webp" srcset="https://caniuse.bitsofco.de/image/flexbox.webp">
+              <source type="image/png" srcset="https://caniuse.bitsofco.de/image/flexbox.png">
+              <img src="https://caniuse.bitsofco.de/image/flexbox.jpg" alt="Data on support for the flexbox feature across the major browsers from caniuse.com">
+            </picture>
+          </p>
+          <p class="ciu_embed" data-feature="css-grid" data-periods="future_1,current,past_1,past_2" data-accessible-colours="true">
+            <picture>
+              <source type="image/webp" srcset="https://caniuse.bitsofco.de/image/css-grid.webp">
+              <source type="image/png" srcset="https://caniuse.bitsofco.de/image/css-grid.png">
+              <img src="https://caniuse.bitsofco.de/image/css-grid.jpg" alt="Data on support for the css-grid feature across the major browsers from caniuse.com">
+            </picture>
+          </p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>State of CSS 2021 survey</h2>
+          <div class="l-double" style="align-items:center">
+            <figure>
+              <img class="plain" data-src="img/flex-usage.png" alt="State of CSS 2021 survey Flexbox usage">
+              <figcaption>Flexbox: 98.9%</figcaption>
+            </figure>
+            <figure>
+                <img class="plain" data-src="img/grid-usage.png" alt="State of CSS 2021 survey Grid usage">
+              <figcaption>Grid: 83.5%</figcaption>
+            </figure>
+          </div>
+          <small><a href="https://2021.stateofcss.com/en-US/">https://2021.stateofcss.com/en-US/</a></small>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          
+          <aside class="notes"></aside>
+        </section>
+
+        https://alistapart.com/article/the-story-of-css-grid-from-its-creators/
+
         <section style="text-align:left">
           <h1>Thank you</h1>
           <p class="align-icon"><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://chenhuijing.com">https://chenhuijing.com</a></p>
@@ -59,6 +169,7 @@
     </div>
 
     <script src="dist/reveal.js"></script>
+    <script src="dist/caniuse-embed.min.js"></script>
     <script src="plugin/notes/notes.js"></script>
     <script src="plugin/markdown/markdown.js"></script>
     <script src="plugin/highlight/highlight.js"></script>
@@ -67,6 +178,7 @@
         width: 1600,
         height: 900,
         hash: true,
+        transition: 'fade',
         plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
       });
     </script>

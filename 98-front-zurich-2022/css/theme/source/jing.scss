@@ -52,6 +52,15 @@ $selectionColor: #B4C5E4;
     display: flex;
     align-items: center;
   }
+
+  pre {
+    max-width: max-content;
+  }
+
+  pre code {
+    padding: 1em;
+    border-radius: 8px;
+  }
 }
 
 // Accessible emojis ---------------------------
