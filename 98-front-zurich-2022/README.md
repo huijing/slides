@@ -58,4 +58,4 @@ With the increase in scale and hence complexity, the organisation of code become
 
 I've found that I haven't encountered this aspect of CSS grid implementation as much as I would have liked. It might be because at larger organisations, with proprietary codebases, most folks probably can't directly talk about what they are doing either.
 
-Thankfully, hypothetical scenarios are not proprietary, and we can use them as a basis for discussion today. A lot of commercial web applications make use of a component-based architecture.
+Thankfully, hypothetical scenarios are not proprietary, and we can use them as a basis for discussion today. A lot of commercial web applications make use of a component-based architecture, with an emphasis on re-usable or composable components.
