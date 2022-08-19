@@ -95,7 +95,7 @@ span[role=img][aria-label]:hover::after {
 }
 
 // For live coding -----------------------------
-.livecode {
+[class*="livecode"] {
   display: grid;
   grid-gap: 0.5em;
   margin: 0;

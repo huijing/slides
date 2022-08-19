@@ -151,6 +151,10 @@
           </aside>
         </section>
 
+        <section data-background-image="img/spotify.jpg">
+          <aside class="notes">Among the 13 links I have in my bookmarks bar, I could only find Grid usage on CodePen, Discord, Imbox and Spotify. And only Spotify seemed to really embrace Grid as a page layout tool. Named grid areas and all.</aside>
+        </section>
+
         <section>
           <h2>⚠️ Disclaimer ⚠️</h2>
           <p>The following theory may or may not oppose your view on the matter, and that is PERFECTLY FINE. I am not here to tell you what to think, merely here to share a theory based on my personal observations and experiences. You are absolutely free to agree, disagree or not care at all.</p>
@@ -264,12 +268,112 @@
             <p>This term “Single Page” is so misleading to me, because my mind has anchored the word page to physical books. So even the largest book I can think of is around this size. But when you think about a lot of the SPAs out there these days, it's more like a page the size of this room.</p>
             <p>With the increase in scale and hence complexity, the organisation of code becomes a lot more crucial, and ideally, some form of process and standards would need to be introduced.</p>
             <p>I've found that I haven't encountered this aspect of CSS grid implementation as much as I would have liked. It might be because at larger organisations, with proprietary codebases, most folks probably can't directly talk about what they are doing either.</p>
+            <p>Thankfully, hypothetical scenarios are not proprietary, and we can use them as a basis for discussion today.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Parent-child relationship</h2>
+          <img data-src="img/parent-child.svg" alt="Diagram showing a container with 3 children elements within" style="max-height:70vh">
+          <aside class="notes">Let's do a quick run-through of Grid. Similar to Flexbox, it involves a parent-child relationship between the container and its immediate children. Grid properties on the container can have an impact on the grid items and items themselves have an "awareness" of their siblings.</aside>
+        </section>
+
+        <section>
+          <h2>Basic grid syntax</h2>
+          <div class="livecode-2p">
+            <div class="result" style="font-size:75%;resize:horizontal">
+              <div class="basic-grid">
+                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item A</p>
+                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item B</p>
+                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item C</p>
+                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item D</p>
+                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item E</p>
+                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item F</p>
+                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item G</p>
+                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item H</p>
+                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item I</p>
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.basic-grid {
+  display: grid;
+  grid-template-columns: ;
+  
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>The bare minimum to start using grid as a layout tool is setting <code>display</code> to <code>grid</code>, then defining some columns. Theoretically, you don't even have to be explicit with the rows unless you want to. Because the row height will naturally be whatever it needs for the content to fit.</p>
+            <p>If your grid needs to be more complicated, there are helpful properties and functions available to keep your code neat. The gap property makes it easy to have spacing between your grid items. The <code>repeat()</code> function, which can let you DRY out your code.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Named grid areas</h2>
+          <div class="livecode-2p">
+            <div class="result" style="font-size:75%">
+              <div class="named-grid" style="height:100%">
+                <p class="h" style="border:1px solid;padding:1em 0;box-sizing:border-box">Banner</p>
+                <p class="s" style="border:1px solid;padding:1em 0;box-sizing:border-box">Links and stuff?</p>
+                <p class="m" style="border:1px solid;padding:1em 0;box-sizing:border-box">Your main content</p>
+                <p class="f" style="border:1px solid;padding:1em 0;box-sizing:border-box">Footer, for copyright and moar links?</p>
+              </div>
+            </div>
+            <div class="code" style="font-size:60%"><style class="code-editor" contenteditable="true">.named-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: 'header header'
+                       'sidebar main'
+                       'footer footer';
+}
+
+.h { grid-area: header }
+.s { grid-area: sidebar }
+.m { grid-area: main }
+.f { grid-area: footer }</style></div>
+          </div>
+          <aside class="notes">
+            <p>The bare minimum to start using grid as a layout tool is setting <code>display</code> to <code>grid</code>, then defining some columns. Theoretically, you don't even have to be explicit with the rows unless you want to. Because the row height will naturally be whatever it needs for the content to fit.</p>
+            <p>If your grid needs to be more complicated, there are helpful properties and functions available to keep your code neat. The gap property makes it easy to have spacing between your grid items. The <code>repeat()</code> function, which can let you DRY out your code.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Placing grid items</h2>
+          <div class="livecode-2p">
+            <div class="result" style="font-size:75%;resize:horizontal">
+              <div class="basic-grid">
+                <div class="image" style="box-sizing:border-box"><img style="object-fit:cover;height:100%;object-position:right;max-width:100%;margin:0;max-height:100%;width:100%" data-src="img/hei.jpeg" alt="A black cat"></div>
+                <h3 class="headline" style="box-sizing:border-box;text-shadow:2px 2px 4px white;">Not my cat</h3>
+                <p class="text" style="box-sizing:border-box;background-color:rgba(255,255,255,0.5);align-self:start">He just naps in my house. But isn't he super cute?</p>
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.basic-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr 300px;
+  grid-template-rows: 1fr auto 1fr;
+}
+
+.image {
+  grid-column: 1 / span 2;
+  grid-row: 1 / -1;
+}
+.headline {
+  grid-column: 2 / 4;
+  grid-row: 2;
+}
+.text {
+  grid-column: 2 / 4;
+  grid-row: 3;
+}</style></div>
+          </div>
+          <aside class="notes">
+
           </aside>
         </section>
 
         <section>
  
-          <aside class="notes">Thankfully, hypothetical scenarios are not proprietary, and we can use them as a basis for discussion today. A lot of commercial web applications make use of a component-based architecture, with an emphasis on re-usable or composable components.</aside>
+          <aside class="notes"></aside>
         </section>
 
         <section>

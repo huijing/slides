@@ -36,6 +36,8 @@ For what it's worth, Flexbox is everywhere. It has become the go-to for many web
 
 And even though this survey has a relatively small sample size of 8075 developers, it still prompted me to wonder why and how Grid's usage numbers could be higher.
 
+Among the 13 links I have in my bookmarks bar, I could only find Grid usage on CodePen, Discord, Imbox and Spotify. And only Spotify seemed to really embrace Grid as a page layout tool. Named grid areas and all.
+
 I have a theory.
 
 It has to do with how people have been using and building for the web over the years. Once the web protocol and source code was released into the public domain, it really started to take off. People started creating websites left-right-and-centre.
@@ -58,4 +60,11 @@ With the increase in scale and hence complexity, the organisation of code become
 
 I've found that I haven't encountered this aspect of CSS grid implementation as much as I would have liked. It might be because at larger organisations, with proprietary codebases, most folks probably can't directly talk about what they are doing either.
 
-Thankfully, hypothetical scenarios are not proprietary, and we can use them as a basis for discussion today. A lot of commercial web applications make use of a component-based architecture, with an emphasis on re-usable or composable components.
+Thankfully, hypothetical scenarios are not proprietary, and we can use them as a basis for discussion today.
+
+Let's do a quick run-through of Grid. Similar to Flexbox, it involves a parent-child relationship between the container and its immediate children. Grid properties on the container can have an impact on the grid items and items themselves have an "awareness" of their siblings.
+
+Most commercial applications built on React make use of a component-based architecture, such that responsibility for specific features can be encapsulated in their respective components.
+
+Depending on the size of the application, components could even be maintained by separate teams.
+
