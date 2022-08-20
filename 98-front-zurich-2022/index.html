@@ -186,8 +186,8 @@
           <aside class="notes">Sure, maybe you'd have to figure out a modern web hosting solution, but this is a website, and it can exist on the internet today, just like it did back in 1994. It's just that when commerce and money is involved, complexity becomes inevitable, in my humble opinion.</aside>
         </section>
 
-        <section>
-          timeline
+        <section data-background-color="white">
+          <img class="plain" data-src="img/timeline.png" alt="Crude timeline of internet technologies">
           <aside class="notes">
             <p>Javascript came into the picture in 1995, because there was a need for a scripting language that could run on the client-side, apparently to do form validation. Not sure how true that part is, but needing a lightweight scripting language that could run on the client was real.</p>
             <p>A couple years later, the concept of AJAX, short for Asynchronous Javascript and XML, started to take off because it allowed content on the page to be updated dynamically without reloading the entire page. The concept on which Single Page Applications or SPAs are built on.</p>
@@ -332,8 +332,9 @@
 .f { grid-area: footer }</style></div>
           </div>
           <aside class="notes">
-            <p>The bare minimum to start using grid as a layout tool is setting <code>display</code> to <code>grid</code>, then defining some columns. Theoretically, you don't even have to be explicit with the rows unless you want to. Because the row height will naturally be whatever it needs for the content to fit.</p>
-            <p>If your grid needs to be more complicated, there are helpful properties and functions available to keep your code neat. The gap property makes it easy to have spacing between your grid items. The <code>repeat()</code> function, which can let you DRY out your code.</p>
+            <p>A particularly useful feature which I'm a big fan of is named grid areas. Which you might have noticed in the screenshot earlier of Spotify's interface. After you've set up your rows and columns, you can explicitly name specific areas of the grid via a rather visual syntax.</p>
+            <p>The structure of the grid-template-areas value is a reflection of your grid, so each of these 3 lines enclosed with quotes corresponds to the 3 rows, while each value within the line corresponds to a column.</p>
+            <p>I make use of this for designs that need to break at multiple viewport widths because all my changes can be contained on the parent selector. Once I've assigned each grid item its area, I don't need to change it regardless of what I do to the parent.</p>
           </aside>
         </section>
 
@@ -341,13 +342,13 @@
           <h2>Placing grid items</h2>
           <div class="livecode-2p">
             <div class="result" style="font-size:75%;resize:horizontal">
-              <div class="basic-grid">
+              <div class="overlap-grid">
                 <div class="image" style="box-sizing:border-box"><img style="object-fit:cover;height:100%;object-position:right;max-width:100%;margin:0;max-height:100%;width:100%" data-src="img/hei.jpeg" alt="A black cat"></div>
                 <h3 class="headline" style="box-sizing:border-box;text-shadow:2px 2px 4px white;">Not my cat</h3>
                 <p class="text" style="box-sizing:border-box;background-color:rgba(255,255,255,0.5);align-self:start">He just naps in my house. But isn't he super cute?</p>
               </div>
             </div>
-            <div class="code"><style class="code-editor" contenteditable="true">.basic-grid {
+            <div class="code" style="font-size:60%"><style class="code-editor" contenteditable="true">.overlap-grid {
   display: grid;
   grid-template-columns: 300px 1fr 300px;
   grid-template-rows: 1fr auto 1fr;
@@ -366,19 +367,408 @@
   grid-row: 3;
 }</style></div>
           </div>
-          <aside class="notes">
+          <aside class="notes">Grid makes overlapping elements in your design more controllable than other methods which involve absolute positioning, transforms or negative margins. Because you can plan how the overlap should occur across the range of viewports you're working with.</aside>
+        </section>
 
+        <section>
+          <h2>A pretty standard grid</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Size</th>
+                <th>Min</th>
+                <th>Max</th>
+                <th>Cols</th>
+                <th>Margin</th>
+                <th>Gutter</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>xs</td>
+                <td>320px</td>
+                <td>639px</td>
+                <td>4</td>
+                <td>16px</td>
+                <td>16px</td>
+              </tr>
+              <tr>
+                <td>sm</td>
+                <td>640px</td>
+                <td>899px</td>
+                <td>8</td>
+                <td>30px</td>
+                <td>16px</td>
+              </tr>
+              <tr>
+                <td>md</td>
+                <td>900px</td>
+                <td>1199px</td>
+                <td>12</td>
+                <td>50px</td>
+                <td>16px</td>
+              </tr>
+              <tr>
+                <td>lg</td>
+                <td>1200px</td>
+                <td>1599px</td>
+                <td>12</td>
+                <td>90px</td>
+                <td>24px</td>
+              </tr>
+              <tr>
+                <td>xl</td>
+                <td>1600px</td>
+                <td>-</td>
+                <td>12</td>
+                <td>&gt;180px</td>
+                <td>24px</td>
+              </tr>
+            </tbody>
+          </table>
+          <aside class="notes">
+            <p>Most applications have some sort of a design system or at least, some design guidelines to maintain consistency across different pages and components. Often, a grid system is part of that.</p>
+            <p>These are specifications for a rather standard looking 12 column grid.Building something like this with CSS is fairly straightforward with CSS grid.</p>
           </aside>
         </section>
 
         <section>
  
-          <aside class="notes"></aside>
+          <aside class="notes">There are plenty of different approaches you could take to write CSS grid code for an application powered by a Javascript framework. We'll go through a couple of them just to give you an idea. I'm using React here, but I think these ideas are transferable to other frameworks as well.</aside>
         </section>
 
         <section>
- 
-          <aside class="notes"></aside>
+          <h2>Option 1: vanilla CSS (or SCSS)</h2>
+          <pre>
+            <code>.grid {
+  min-width: 320px;
+  max-width: 1600px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+@media screen and (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(8, 1fr);
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(12, 1fr);
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .grid {
+    gap: 1.5em;
+    margin-left: 90px;
+    margin-right: 90px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .grid {
+    margin-left: 180px;
+    margin-right: 180px;
+  }
+}</code>
+          </pre>
+          <aside class="notes">
+            <p>One option is to just write the CSS. The rationale for this approach is that the grid would inform where everything on the application would sit within the interface. Hence, it could live in the global stylesheet that gets loaded everywhere, since the expectation is that it would be used everywhere.</p>
+            <p>All of the specifications from the table above would be defined on the grid container, while placement of items within the grid can be assigned to each individual grid item (if necessary) or be auto-placed by the browser.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Option 1: vanilla CSS (or SCSS)</h2>
+          <pre>
+            <code class="language-css">.grid__item--full,
+.grid__item--half,
+.grid__item--third,
+.grid__item--quarter {
+  grid-column: 1 / -1;
+}
+
+@media screen and (min-width: 640px) {
+  .grid__item--quarter {
+    grid-column: span 4;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .grid__item--half {
+    grid-column: span 6;
+  }
+
+  .grid__item--third {
+    grid-column: span 4;
+  }
+
+  .grid__item--quarter {
+    grid-column: span 3;
+  }
+}</code>
+          </pre>
+          <aside class="notes">This approach allows the item placement code to go on the component styles. And if there are common placement patterns that recur very often in the design, then you could consider having some pre-written styles to cater to those situations.</aside>
+        </section>
+
+        <section>
+          <h2>Option 1: vanilla CSS (or SCSS)</h2>
+          <pre>
+            <code class="language-css">.custom-thingy {
+  grid-column: 1 / -1;
+  font-size: var(--step-1);
+}
+
+@media screen and (min-width: 640px) {
+  .custom-thingy {
+    grid-column: 1 / 6;
+    padding-top: 2em;
+    padding-bottom: 1em;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .custom-thingy {
+    grid-column: 1 / 7;
+  }
+}</code>
+          </pre>
+          <aside class="notes">And if you do need some custom placement, that code could go into the component-specific styles instead.</aside>
+        </section>
+
+        <section>
+          <h2>Option 2: Container and Item components</h2>
+          <pre>
+            <code>src/
+└── components/
+    ├── Col/
+    │   ├── Col.module.css
+    │   └── Col.tsx
+    └── Grid/
+        ├── Grid.module.css
+        └── Grid.tsx</code>
+          </pre>
+          <aside class="notes">
+            <p>Another approach is to have wrapper components for the container and item respectively. This means the grid code is tied to the wrapper components instead of being loaded in the global stylesheet.</p>
+            <p>I ran into some specificity issues with this approach with CSS modules that I managed to workaround relatively painlessly, but it is something to take note of.</p>
+            <p>The setup involves creating a Grid component and a Col component and their corresponding stylesheets.</p>
+          </aside>
+        </section>
+
+        <section>
+          <div class="l-double" style="align-items:center">
+            <div>
+              <p>Grid.tsx</p>
+              <pre>
+                <code class="typescript">import { ReactNode, createElement } from "react";
+import styles from "./Grid.module.scss";
+
+interface GridProps extends React.HTMLProps<HTMLElement> {
+  className?: string;
+  children: ReactNode;
+  tag?: keyof JSX.IntrinsicElements;
+}
+
+export default function Grid({
+  className = "",
+  children,
+  tag = "div",
+  ...props
+}: GridProps) {
+  const Wrapper = tag;
+  return createElement(
+    Wrapper,
+    {
+      className: `${styles.grid} ${className}`,
+      ...props
+    },
+    children
+  );
+}</code>
+              </pre>
+            </div>
+            <div>
+              <p>Col.tsx</p>
+              <pre>
+                <code class="typescript">import { ReactNode, createElement } from "react";
+import cn from "classnames";
+import styles from "./Col.module.scss";
+
+interface ColProps extends React.HTMLProps<HTMLElement> {
+  className?: string;
+  children: ReactNode;
+  colWidth?: "full" | "half" | "third" | "quarter";
+  tag?: keyof JSX.IntrinsicElements;
+}
+
+export default function Col({
+  className = "",
+  children,
+  colWidth,
+  tag = "div",
+  ...props
+}: ColProps) {
+  const Wrapper = tag;
+
+  return createElement(
+    Wrapper,
+    {
+      className: cn(className, { [styles[`${colWidth}`]]: colWidth }),
+      ...props
+    },
+    children
+  );
+}</code>
+              </pre>
+            </div>
+          </div>
+          <aside class="notes">These components don’t do much other than provide grid-related styling, so they’re not very big or complicated. They have props for passing custom class names, modifying the element tag (which defaults to <code>div</code>) but generally does not restrict users from passing in other props either.</aside>
+        </section>
+
+        <section>
+          <p>Col.module.css</p>
+          <pre>
+            <code class="language-scss">.full,
+.half,
+.third,
+.quarter {
+  grid-column: 1 / -1;
+}
+
+@media screen and (min-width: 640px) {
+  .quarter {
+    grid-column: span 4;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .half {
+    grid-column: span 6;
+  }
+
+  .third {
+    grid-column: span 4;
+  }
+
+  .quarter {
+    grid-column: span 3;
+  }
+}</code>
+          </pre>
+          <aside class="notes">The styles would be the same as in option 1 but because this approach uses CSS modules, you can sort of be more “casual” with naming your classes? The grid container styles are literally exactly the same as option 1, while the item classes can look like this or however you like to name them.</aside>
+        </section>
+
+        <section>
+          <p>CustomThingy.module.scss</p>
+          <pre>
+            <code class="language-scss">p.customThingy {
+  grid-column: 1 / -1;
+  font-size: var( --step-1);
+}
+
+@media screen and (min-width: 640px) {
+  p.customThingy {
+    grid-column: 1 / 6;
+    padding-top: 2em;
+    padding-bottom: 1em;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  p.customThingy {
+    grid-column: 1 / 7;
+  }
+}</code>
+          </pre>
+          <aside class="notes">
+            <p>The issue I ran into when using these components was that, if I wanted to override the pre-written item styles, I had to bump the specificity of my component styles up a little bit because CSS modules loaded the component styles before the wrapper styles.</p>
+            <p>I like to keep specificity low in general, so I went with bumping up by 1 element tag’s worth. If someone more knowledgeable has advice on a better way of dealing with this style loading order, please let me know.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Option 3: Using Tailwind classes</h2>
+          <h3>⚠️ Yet Another Disclaimer ⚠️</h3>
+          <p>The following opinion may or may not oppose your view on the matter, and that is PERFECTLY FINE. You are absolutely free to agree, disagree or not care at all.</p>
+          <aside class="notes">I'll be up front about this, I'm not the biggest fan of how Tailwind does CSS. The major issue I have with it is, it sees the cascade as a problem to be fixed, rather than attribute to be embraced. If you use Tailwind the way it was intended, the cascade is almost completely negated.</aside>
+        </section>
+
+        <section>
+          <p>tailwind.config.js</p>
+          <pre>
+            <code class="language-js">module.exports = {
+  theme: {
+    screens: {
+      xs: "320px",
+      sm: "640px",
+      md: "900px",
+      lg: "1200px",
+      xl: "1600px",
+      maxSm: { max: "639px" },
+      maxMd: { max: "899px" },
+      btwSmMd: { min: "640px", max: "899px" }
+    },
+  },
+  prefix: "tw-"
+};</code>
+          </pre>
+          <aside class="notes">
+            <p>It is called Cascading Stylesheets for a reason. Maybe call it “Tailwind SS” instead? That being said, this is not a hill I need to die on.</p>
+            <p>For now, I accept the reality that there are quite a number of teams that use Tailwind CSS in their applications and it’s working well for them. That’s great. And if those teams want to use CSS grid? Well, it is absolutely doable.</p>
+            <p>The grid specification can be set up like so (abstracted to just show the breakpoints).</p>
+          </aside>
+        </section>
+
+        <section>
+          <p>TailwindThingy.tsx</p>
+          <pre>
+            <code class="language-ts" style="white-space:pre-wrap">export default function TailwindThingy {
+  return (
+    <section className="tw-grid xs:tw-grid-cols-4 sm:tw-grid-cols-8 md:tw-grid-cols-12 xs:tw-gap-3 lg:tw-gap-4 xs:tw-mx-3 sm:tw-mx-[30px] md:tw-mx-[50px] lg:tw-mx-[90px] xl:tw-mx-[180px]">
+      <p className="tw-col-span-full">Option 3: Use Tailwind classes</p>
+      <p className="tw-col-span-full md:tw-col-span-6">Well, this is spicy</p>
+      <p className="tw-col-span-full md:tw-col-span-6">
+        FWIW, Tailwind has managed to support grid fairly well in this latest
+        version
+      </p>
+      <p className="tw-col-span-full md:tw-col-span-4">
+        You will have to learn the tailwind classes to use them correctly
+      </p>
+      <p className="tw-col-span-full md:tw-col-span-4">
+        This basic example is able to match the previous 2 options
+      </p>
+      <p className="tw-col-span-full md:tw-col-span-4">
+        Tailwind comes out the box with opinionated defaults
+      </p>
+      <p className="tw-col-span-full md:tw-col-span-3">
+        But they do allow you to customize your own if theirs doesn't fit you
+      </p>
+      <p className="tw-col-span-full md:tw-col-span-3">
+        At some point, there will be bigger issues to think about
+      </p>
+      <p className="tw-col-span-full md:tw-col-span-3">
+        Does it make sense to abstract constantly repeated patterns into
+        something much DRY-er?
+      </p>
+      <p className="tw-col-span-full md:tw-col-span-3">
+        There also remains the issue of code maintenance, which all 3 options
+        still have
+      </p>
+    </section>
+  );
+}
+</code>
+          </pre>
+          <aside class="notes">You would then have to apply these classes to your component accordingly. I’m sure the Tailwind experts have come up with something to abstract regularly used combinations of classes into something else but this is the most basic version and it achieves the same end result as the other options.</aside>
         </section>
 
         <section>
