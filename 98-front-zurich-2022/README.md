@@ -1,10 +1,10 @@
-# The many flavours of enterprise CSS grid
+# Architecting CSS grid in a design system
 
 *For Front Conference Zurich 2022. This is a sort-of transcript plus my notes for the talk.*
 
 Hello everyone! This is the first conference I'm speaking at since COVID happened so it does feel kind of surreal. I'm very happy to be here and grateful to the organisers for giving me the opportunity to talk to all of you about my favourite topic in the world, CSS.
 
-We're at a frontend conference today, right? So I'm going to assume a lot of us are in the business of how displaying web content on a digital screen. Which could be of any and all sizes. For the next half an hour, we're going to think about, more specifically, the laying out of content these screens.
+We're at a frontend conference today, right? So I'm going to assume a lot of us are in the business of displaying web content on a digital screen. Which could be of any and all sizes. That to me, is the fun of building for the web.
 
 My name is Hui Jing. It's a Chinese name, so my family name comes first. I'm not a complicated person, so these emojis pretty much cover who I am as a person.
 
@@ -66,15 +66,23 @@ Let's do a quick run-through of Grid. Similar to Flexbox, it involves a parent-c
 
 The bare minimum to start using grid as a layout tool is setting `display` to `grid`, then defining some columns. Theoretically, you don't even have to be explicit with the rows unless you want to. Because the row height will naturally be whatever it needs for the content to fit.
 
-If your grid needs to be more complicated, there are helpful properties and functions available to keep your code neat. The gap property makes it easy to have spacing between your grid items. The `repeat()` function, which can let you DRY out your code.
+If your grid needs to be more complicated, there are helpful properties and functions available to keep your code neat. The gap property makes it easy to have spacing between your grid items. The `repeat()` function, which can let you DRY out your code. You can have a fully responsive grid without writing extra media queries.
+
+```
+.basic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+  gap: 1em;
+}
+```
 
 A particularly useful feature which I'm a big fan of is named grid areas. Which you might have noticed in the screenshot earlier of Spotify's interface. After you've set up your rows and columns, you can explicitly name specific areas of the grid via a rather visual syntax.
 
-The structure of the grid-template-areas value is a reflection of your grid, so each of these 3 lines enclosed with quotes corresponds to the 3 rows, while each value within the line corresponds to a column.
+The structure of the `grid-template-areas` value is a reflection of your grid, so each of these 3 lines enclosed with quotes corresponds to the 3 rows, while each value within the line corresponds to a column.
 
 I make use of this for designs that need to break at multiple viewport widths because all my changes can be contained on the parent selector. Once I've assigned each grid item its area, I don't need to change it regardless of what I do to the parent.
 
-Naming grid areas is optional, a “regular” way of placing items is to define it's `grid-row` and `grid-column` properties. If you turn on the grid inspector, you can see the grid line numbers and decide where you want your items to start and end.
+Naming grid areas is optional, a “regular” way of placing items is to define its `grid-row` and `grid-column` properties. If you turn on the grid inspector, you can see the grid line numbers and decide where you want your items to start and end.
 
 Grid makes overlapping elements in your design more controllable than other methods which involve absolute positioning, transforms or negative margins. Because you can plan how the overlap should occur across the range of viewports you're working with.
 
@@ -108,13 +116,15 @@ I like to keep specificity low in general, so I went with bumping up by 1 elemen
 
 I'll be up front about this, I'm not the biggest fan of how Tailwind does CSS. The major issue I have with it is, it sees the cascade as a problem to be fixed, rather than attribute to be embraced. If you use Tailwind the way it was intended, the cascade is almost completely negated.
 
-It is called Cascading Stylesheets for a reason. Maybe call it “Tailwind SS” instead? That being said, this is not a hill I need to die on. For now, I accept the reality that there are quite a number of teams that use Tailwind CSS in their applications and it’s working well for them. That’s great. And if those teams want to use CSS grid? Well, it is absolutely doable.
+It is called Cascading Stylesheets for a reason. Maybe call it “Tailwind SS” instead? That being said, this is not a hill I need to die on. If my job needs me to write Tailwind, I can still do it the way it was intended. For now, I accept the reality that there are quite a number of teams that use Tailwind CSS in their applications and it’s working well for them. That’s great. And if those teams want to use CSS grid? Well, it is absolutely doable.
+
+Tailwind has exposed almost every API possible for you to modify the default configuration to suit your custom specifications. The grid specification can be set up like so (abstracted to just show the breakpoints).
+
+You would then have to apply these classes to your component accordingly. I’m sure the Tailwind experts have come up with something to abstract regularly used combinations of classes into something else but this is the most basic version and it achieves the same end result as the other options.
 
 We've covered 3 options but I’m sure there are more possible approaches to writing styles. Are any one of these approaches the “correct” one or the “best” one? I cannot answer that. Not without taking into account the context in which the code needs to be used.
 
 Technically, every approach does the job. The level of difficulty of the technical implementation sometimes pale in comparison to the issues and considerations around code organisation, maintainability and developer experience. Especially for larger teams.
 
-Most commercial applications built on React make use of a component-based architecture, such that responsibility for specific features can be encapsulated in their respective components.
-
-Depending on the size of the application, components could even be maintained by separate teams.
+For example, maybe a particular application makes use of a component-based architecture, such that responsibility for specific features can be encapsulated in their respective components. Depending on the size of the application, components could even be maintained by separate teams. Or not.
 

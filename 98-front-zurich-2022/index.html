@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>The many flavours of enterprise CSS grid</title>
+    <title>Architecting CSS grid in a design system</title>
 
     <link rel="stylesheet" href="dist/reset.css">
     <link rel="stylesheet" href="dist/reveal.css">
@@ -14,12 +14,12 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <section>
-          <h1>The many flavours of enterprise CSS grid</h1>
+        <section style="font-size:90%">
+          <h1>Architecting CSS grid in a design system</h1>
           <p><small>By <a href="https://chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
           <aside class="notes">
             <p>Hello everyone! This is the first conference I'm speaking at since COVID happened so it does feel kind of surreal. I'm very happy to be here and grateful to the organisers for giving me the opportunity to talk to all of you about my favourite topic in the world, CSS.</p>
-            <p>We're at a frontend conference today, right? So I'm going to assume a lot of us are in the business of how displaying web content on a digital screen. Which could be of any and all sizes. For the next half an hour, we're going to think about, more specifically, the laying out of content these screens.</p>
+            <p>We're at a frontend conference today, right? So I'm going to assume a lot of us are in the business of displaying web content on a digital screen. Which could be of any and all sizes. That to me, is the fun of building for the web.</p>
           </aside>
         </section>
 
@@ -345,7 +345,7 @@
               <div class="overlap-grid">
                 <div class="image" style="box-sizing:border-box"><img style="object-fit:cover;height:100%;object-position:right;max-width:100%;margin:0;max-height:100%;width:100%" data-src="img/hei.jpeg" alt="A black cat"></div>
                 <h3 class="headline" style="box-sizing:border-box;text-shadow:2px 2px 4px white;">Not my cat</h3>
-                <p class="text" style="box-sizing:border-box;background-color:rgba(255,255,255,0.5);align-self:start">He just naps in my house. But isn't he super cute?</p>
+                <p class="text" style="box-sizing:border-box;background-color:rgba(255,255,255,0.5);align-self:start">He just naps in my house sometimes. But isn't he super cute?</p>
               </div>
             </div>
             <div class="code" style="font-size:60%"><style class="code-editor" contenteditable="true">.overlap-grid {
@@ -367,7 +367,9 @@
   grid-row: 3;
 }</style></div>
           </div>
-          <aside class="notes">Grid makes overlapping elements in your design more controllable than other methods which involve absolute positioning, transforms or negative margins. Because you can plan how the overlap should occur across the range of viewports you're working with.</aside>
+          <aside class="notes">
+            <p>Naming grid areas is optional, a “regular” way of placing items is to define its `grid-row` and `grid-column` properties. If you turn on the grid inspector, you can see the grid line numbers and decide where you want your items to start and end.</p>
+            <p>Grid makes overlapping elements in your design more controllable than other methods which involve absolute positioning, transforms or negative margins. Because you can plan how the overlap should occur across the range of viewports you're working with.</aside>
         </section>
 
         <section>
@@ -428,12 +430,11 @@
           </table>
           <aside class="notes">
             <p>Most applications have some sort of a design system or at least, some design guidelines to maintain consistency across different pages and components. Often, a grid system is part of that.</p>
-            <p>These are specifications for a rather standard looking 12 column grid.Building something like this with CSS is fairly straightforward with CSS grid.</p>
+            <p>These are specifications for a rather standard looking 12 column grid. Building something like this with CSS is fairly straightforward with CSS grid.</p>
           </aside>
         </section>
 
-        <section>
- 
+        <section data-background-image="img/figma.png">
           <aside class="notes">There are plenty of different approaches you could take to write CSS grid code for an application powered by a Javascript framework. We'll go through a couple of them just to give you an idea. I'm using React here, but I think these ideas are transferable to other frameworks as well.</aside>
         </section>
 
@@ -722,9 +723,9 @@ export default function Col({
 };</code>
           </pre>
           <aside class="notes">
-            <p>It is called Cascading Stylesheets for a reason. Maybe call it “Tailwind SS” instead? That being said, this is not a hill I need to die on.</p>
+            <p>It is called Cascading Stylesheets for a reason. Maybe call it “Tailwind SS” instead? That being said, this is not a hill I need to die on. If my job needs me to write Tailwind, I can still do it the way it was intended.</p>
             <p>For now, I accept the reality that there are quite a number of teams that use Tailwind CSS in their applications and it’s working well for them. That’s great. And if those teams want to use CSS grid? Well, it is absolutely doable.</p>
-            <p>The grid specification can be set up like so (abstracted to just show the breakpoints).</p>
+            <p>Tailwind has exposed almost every API possible for you to modify the default configuration to suit your custom specifications. The grid specification can be set up like so (abstracted to just show the breakpoints).</p>
           </aside>
         </section>
 
@@ -765,17 +766,30 @@ export default function Col({
       </p>
     </section>
   );
-}
-</code>
+}</code>
           </pre>
           <aside class="notes">You would then have to apply these classes to your component accordingly. I’m sure the Tailwind experts have come up with something to abstract regularly used combinations of classes into something else but this is the most basic version and it achieves the same end result as the other options.</aside>
+        </section>
+
+        <section>
+          <h2>But does it work?</h2>
+          <a href="https://codesandbox.io/s/enterprise-css-grid-vnjozr">CodeSandbox demo</a>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <video style="height:90vh" data-autoplay loop src="img/choices.mp4"></video>
+          <aside class="notes">
+            <p>We've covered 3 options but I’m sure there are more possible approaches to writing styles. Are any one of these approaches the “correct” one or the “best” one? I cannot answer that. Not without taking into account the context in which the code needs to be used.</p>
+            <p>Technically, every approach does the job. The level of difficulty of the technical implementation sometimes pale in comparison to the issues and considerations around code organisation, maintainability and developer experience. Especially for larger teams.</p>
+          </aside>
         </section>
 
         <section>
           <h2>Stuff worth reading</h2>
           https://alistapart.com/article/the-story-of-css-grid-from-its-creators/
           https://thehistoryoftheweb.com/timeline/
-
+          https://csswizardry.com/2014/10/the-specificity-graph/
           <aside class="notes"></aside>
         </section>
 
