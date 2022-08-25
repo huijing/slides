@@ -10,7 +10,7 @@ My name is Hui Jing. It's a Chinese name, so my family name comes first. I'm not
 
 I also have a day job, with Shopify, as a senior frontend developer. Because you know, I like being able to pay my rent and stuff.
 
-If your content is going to be rendered by a browser engine, then your main mode of communication with the browser for styling content has to be CSS. And I'm sure everyone today has their own opinion about CSS, some of you might love it as much as I do, while others might see of it as a hard-to-deal with API you would like to avoid as much as possible.
+So why are we talking about CSS today? If your content is going to be rendered by a browser engine, then your main mode of communication with the browser for styling content has to be CSS. And I'm sure everyone today has their own opinion about CSS, some of you might love it as much as I do, while others might see of it as a hard-to-deal with API you would like to avoid as much as possible.
 
 Regardless of your opinions on CSS, I'm not here to tell you what to think or how to feel. The reality is that browser engines today are much more capable than before, they can lay out content much better than before. And it's in our best interest to know how to make full use of the browser's web layout capabilities.
 
@@ -44,7 +44,7 @@ It has to do with how people have been using and building for the web over the y
 
 You could share your love of your favourite band, or talk about your life like a diary, or post pictures of cats, all from behind your keyboard. Lots of other people, whom you might never meet in person, could consume all that content, also from behind their keyboards. And you know what else people realised they could do? They could create websites to sell shit and make a buck.
 
-The dotcom bubble did burst eventually but it did not erase the fact that the web is a place where you can run an economically viable business. If we boil it down, the web is a data transmission technology, which we leverage for many different purposes.
+The dotcom bubble did burst eventually but it did not erase the fact that the web is a place where you can run an economically viable business. If we boil it down, the web is a data transmission technology, a tool that we leverage for many different purposes.
 
 I've heard opinions that express some level of dismay of how complicated the web has become. And I won't deny that the web can be complicated, but it has retained much of its original simplicity as well. I don't think it's hyperbole to say that if you knew how to create and publish a website back in 1994, you could still create and publish that same website today.
 
@@ -56,13 +56,9 @@ A couple years later, the concept of AJAX, short for Asynchronous Javascript and
 
 This term “Single Page” is so misleading to me, because my mind has anchored the word page to physical books. So even the largest book I can think of is around this size. But when you think about a lot of the commercial SPAs out there these days, it's more like a page the size of this room.
 
-With the increase in scale and hence complexity, the organisation of code becomes a lot more crucial, and ideally, some form of process and standards would need to be introduced.
+With the increase in scale and hence complexity, the organisation of code becomes a lot more crucial, and ideally, some form of process and standards would need to be introduced. I've found that I haven't encountered this aspect of CSS grid implementation as much as I would have liked. Personally, I'd love to hear how folks at different organisations deal with the constraints unique to their context.
 
-I've found that I haven't encountered this aspect of CSS grid implementation as much as I would have liked. It might be because at larger organisations, with proprietary codebases, most folks probably can't directly talk about what they are doing either.
-
-Thankfully, hypothetical scenarios are not proprietary, and we can use them as a basis for discussion today.
-
-Let's do a quick run-through of Grid. Similar to Flexbox, it involves a parent-child relationship between the container and its immediate children. Grid properties on the container can have an impact on the grid items and items themselves have an "awareness" of their siblings.
+Let's do a quick run-through of how Grid works and how to use it. Similar to Flexbox, it involves a parent-child relationship between the container and its immediate children. Grid properties on the container can have an impact on the grid items and items themselves have an "awareness" of their siblings.
 
 The bare minimum to start using grid as a layout tool is setting `display` to `grid`, then defining some columns. Theoretically, you don't even have to be explicit with the rows unless you want to. Because the row height will naturally be whatever it needs for the content to fit.
 
@@ -86,11 +82,19 @@ Naming grid areas is optional, a “regular” way of placing items is to define
 
 Grid makes overlapping elements in your design more controllable than other methods which involve absolute positioning, transforms or negative margins. Because you can plan how the overlap should occur across the range of viewports you're working with.
 
-Most applications have some sort of a design system or at least, some design guidelines to maintain consistency across different pages and components. 
+There's more to Grid than what I've mentioned, but this is sufficient for a large range of use cases already. A major difference between building layouts with Grid versus other layout models is that CSS grid layouts are “led” by the container. You implement your intended layout on the container in a sort of big-picture way, and the items are placed accordingly.
 
-Often, a grid system is part of that. These are specifications for a rather standard looking 12 column grid. Building something like this with CSS is fairly straightforward with CSS grid.
+Whereas the other layout models are item led, where the sizing and positioning of each item is determined by properties on the items themselves. It is a little different from what a lot of folks are used to, and perhaps that is a contributing factor to why CSS grid is not as widespread as it could be.
 
-There are plenty of different approaches you could take to write CSS grid code for an application powered by a Javascript framework. We'll go through a couple of them just to give you an idea. I'm using React here, but I think these ideas are transferable to other frameworks as well.
+But it's not like Grid is the end-all-be-all of layout building on the web. It is just one more additional tool we have in our toolbox. Floats are still great for actually floating content. Flexbox is great for handling free space, or the lack thereof, in your layout. Grid is perfect for when you want structured rows and columns.
+
+As an application grows bigger, with more features, more components and more pages, you end up having to adopt some sort of design system, or at least, develop some design guidelines to maintain consistency across the application. And often, a grid system is part of that.
+
+A common pattern for grid systems in frontend libraries rely on generating all the classes needed for all the percentages needed for the sizing of each item in the grid. To migrate from using floats to flexbox is actually not that drastic a refactor, because your sizing still happens on the item class. Migrating to grid, on the other hand, is not like a drop-in replacement.
+
+Let's simplify things a little bit for the sake of discussion. Say we have the luxury of implementing a brand new design system, and we want to build out the grid system for that. So here, we have these specifications for a rather standard looking grid. It has different values to accommodate a range of viewport sizes.
+
+There are plenty of different approaches you could take to write CSS grid code to implement this in an application powered by a Javascript framework. We'll go through a couple of them just to give you an idea. I'm using React here, but I think these ideas are transferable to other frameworks as well.
 
 One option is to just write the CSS. The rationale for this approach is that the grid would inform where everything on the application would sit within the interface. Hence, it could live in the global stylesheet that gets loaded everywhere, since the expectation is that it would be used everywhere.
 
@@ -122,9 +126,40 @@ Tailwind has exposed almost every API possible for you to modify the default con
 
 You would then have to apply these classes to your component accordingly. I’m sure the Tailwind experts have come up with something to abstract regularly used combinations of classes into something else but this is the most basic version and it achieves the same end result as the other options.
 
-We've covered 3 options but I’m sure there are more possible approaches to writing styles. Are any one of these approaches the “correct” one or the “best” one? I cannot answer that. Not without taking into account the context in which the code needs to be used.
+We've covered 3 options but I’m sure there are more possible approaches to implement these Grid specifications. Are any one of these approaches the “correct” one or the “best” one? I cannot answer that. Not without taking into account the context in which the code needs to be used.
 
 Technically, every approach does the job. The level of difficulty of the technical implementation sometimes pale in comparison to the issues and considerations around code organisation, maintainability and developer experience. Especially for larger teams.
 
-For example, maybe a particular application makes use of a component-based architecture, such that responsibility for specific features can be encapsulated in their respective components. Depending on the size of the application, components could even be maintained by separate teams. Or not.
+For example, maybe a particular application makes use of a component-based architecture, such that responsibility for specific features can be encapsulated in their respective components. Depending on the size of the application, components could even be maintained by separate teams. Or it might be a couple of frontend specialists maintaining a component system used by everyone else. The permutations are endless.
 
+There is always the chance that someone from above you in the hierarchy “mandates” that you use a certain technology. Have I heard some executive (who used to code) say “I could have built this myself in a day with INSERT_SUGGESTED_LIBRARY_HERE”? Well, yes.
+
+Sometimes there are things out of your control. And that’s okay. But in those instances you are able to influence technical decisions, I find that asking the following questions can help you make a more informed choice.
+
+What are the preferred technology stacks used in your organisation, if any? 
+- Usually there is one, for example, it's public knowledge that Shopify is a Ruby on Rails shop. It's not like we refuse to use anything else, and there are projects that don't but we need a good reason to deviate from the standard stack
+- From a CSS perspective, this would impact where your code lives, whether you use a preprocessor or not, how your selectors might look depending on how much control over the markup you have and so on
+
+The size and structure of your application again will also have a significant impact on the points I mentioned earlier about how your final CSS will actually look like and live
+
+The more flexible your design system is, the more complicated your code might end up becoming. Because you have to cater for more use-cases. This is where having a close relationship with the design team really helps. A design system might start out as the output from a design team, but its success hinges on the code actually reflecting what was intended.
+
+The last two points here are related, because if there are new folks being on-boarded to contribute to the project regularly, there needs to be solid documentation to explain what the expectations are, and how things work. Otherwise, the code descends into chaos fairly quickly.
+
+Maintenance. It's not the most exciting thing in the world. I've never seen executives falling over each other to advocate for a maintenance project before. But hey, systems work because someone is maintaining them and keeping them humming along. So who are these people for your project?
+
+Is it a centralised setup or spread across different teams? The skill level of the folks on these teams should also be taken into account for your choice of approach here. I have a unorthodox suggestion for decision making. And that is not to look at the pros of each approach you're considering, but rather, analyse the cons and see which ones you can live with.
+
+And after you've taken all this time and effort to figure out a suitable approach, there's one more critical thing to do before diving into writing the code. It is, to document the “Why”. 
+
+Not sure if any of you have the same experience as me when you on-board onto a new codebase, but I always have lots of questions around why certain things are done in a certain way. Especially if it is something I've not experienced before.
+
+Earlier on in my career, I had a phase where I thought I knew better, and would be kind of judgemental about some of the code I came across. Now, I tend to go spelunking through the codebase in the hopes of finding documentation of why a particular choice was made.
+
+Sometimes, you might find that it really was a bad idea and someone just put something up because they had a deadline or honestly did not know a better way. But you might also discover some constraints or dependencies that were not obvious at all at first glance.
+
+“Why” documentation is different from “How” documentation. A paper trail that explains why things are, is like whisky or cheddar cheese. It only gets better with time.
+
+Is it possible to use CSS grid in a large commercial application, from a technical perspective, definitely possible. Is there a best way to implement it? Well, there will be a best way for your team to do it, which will be different from the best way for my team to do it, because of all these factors I just talked about.
+
+So if you ever get the chance to implement CSS grid in your project, I would love to hear you talk or write about it, if you can. Even though your approach is specific to your situation, it might still inspire someone else who is working on theirs.

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * Custom theme for Reveal.js presentations.
  *
@@ -374,6 +375,30 @@
 .reveal pre code {
   padding: 1em;
   border-radius: 8px;
+}
+.reveal blockquote {
+  width: 80%;
+  text-align: left;
+  box-shadow: none;
+  line-height: 1.55;
+  font-size: 125%;
+  position: relative;
+}
+.reveal blockquote p::before,
+.reveal blockquote p::after {
+  position: absolute;
+  font-size: 2.5em;
+  font-family: Georgia, serif;
+  color: #090C9B;
+}
+.reveal blockquote p::before {
+  top: -0.125em;
+  left: -0.5em;
+  content: "“";
+}
+.reveal blockquote p::after {
+  bottom: -0.75em;
+  content: "”";
 }
 
 span.emoji {
