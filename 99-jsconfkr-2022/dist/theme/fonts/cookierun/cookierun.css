@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'CookieRun';
+  src: url('cookierun_bold.woff2') format('woff2'),
+        url('cookierun_bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CookieRun';
+  src: url('cookierun_regular.woff2') format('woff2'),
+          url('cookierun_regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
