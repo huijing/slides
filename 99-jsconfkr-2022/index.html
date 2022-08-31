@@ -225,15 +225,18 @@
           <div class="livecode-2p">
             <div class="result" style="font-size:75%;resize:horizontal">
               <div class="basic-grid">
-                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item A</p>
-                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item B</p>
-                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item C</p>
-                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item D</p>
-                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item E</p>
-                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item F</p>
-                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item G</p>
-                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item H</p>
-                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item I</p>
+                <p style="font-size:2em;border:1px solid;padding:0.25em 0;box-sizing:border-box">🐭</p>
+                <p style="font-size:2em;border:1px solid;padding:0.25em 0;box-sizing:border-box">🐮</p>
+                <p style="font-size:2em;border:1px solid;padding:0.25em 0;box-sizing:border-box">🐯</p>
+                <p style="font-size:2em;border:1px solid;padding:0.25em 0;box-sizing:border-box">🐰</p>
+                <p style="font-size:2em;border:1px solid;padding:0.25em 0;box-sizing:border-box">🐲</p>
+                <p style="font-size:2em;border:1px solid;padding:0.25em 0;box-sizing:border-box">🐍</p>
+                <p style="font-size:2em;border:1px solid;padding:0.25em 0;box-sizing:border-box">🐴</p>
+                <p style="font-size:2em;border:1px solid;padding:0.25em 0;box-sizing:border-box">🐑</p>
+                <p style="font-size:2em;border:1px solid;padding:0.25em 0;box-sizing:border-box">🐵</p>
+                <p style="font-size:2em;border:1px solid;padding:0.25em 0;box-sizing:border-box">🐔</p>
+                <p style="font-size:2em;border:1px solid;padding:0.25em 0;box-sizing:border-box">🐶</p>
+                <p style="font-size:2em;border:1px solid;padding:0.25em 0;box-sizing:border-box">🐷</p>
               </div>
             </div>
             <div class="code"><style class="code-editor" contenteditable="true">.basic-grid {
@@ -253,25 +256,25 @@
           <div class="livecode-2p">
             <div class="result" style="font-size:75%">
               <div class="named-grid" style="height:100%">
-                <p class="h" style="border:1px solid;padding:1em 0;box-sizing:border-box">Banner</p>
-                <p class="s" style="border:1px solid;padding:1em 0;box-sizing:border-box">Links and stuff?</p>
-                <p class="m" style="border:1px solid;padding:1em 0;box-sizing:border-box">Your main content</p>
-                <p class="f" style="border:1px solid;padding:1em 0;box-sizing:border-box">Footer, for copyright and moar links?</p>
+                <p class="h" style="border:1px solid;padding:1em 0;box-sizing:border-box">현수막</p>
+                <p class="s" style="border:1px solid;padding:1em 0;box-sizing:border-box">링크 및 다른 것들?</p>
+                <p class="m" style="border:1px solid;padding:1em 0;box-sizing:border-box">주요 내용</p>
+                <p class="f" style="border:1px solid;padding:1em 0;box-sizing:border-box">바닥글, 저작권 및 더 많은 링크를 위해?</p>
               </div>
             </div>
             <div class="code" style="font-size:60%"><style class="code-editor" contenteditable="true">.named-grid {
   display: grid;
   grid-template-columns: 200px 1fr;
   grid-template-rows: auto 1fr auto;
-  grid-template-areas: 'header header'
-                       'sidebar main'
-                       'footer footer';
+  grid-template-areas: '머리글 머리글'
+                       '사이드 콘텐츠'
+                       '바닥글 바닥글';
 }
 
-.h { grid-area: header }
-.s { grid-area: sidebar }
-.m { grid-area: main }
-.f { grid-area: footer }</style></div>
+.h { grid-area: 머리글 }
+.s { grid-area: 사이드 }
+.m { grid-area: 콘텐츠 }
+.f { grid-area: 바닥글 }</style></div>
           </div>
           <aside class="notes">
             <p>A particularly useful feature which I'm a big fan of is named grid areas. Which you might have noticed in the screenshot earlier of Spotify's interface. After you've set up your rows and columns, you can explicitly name specific areas of the grid via a rather visual syntax.</p>
