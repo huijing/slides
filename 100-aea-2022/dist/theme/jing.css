@@ -401,7 +401,8 @@
   content: "“";
 }
 .reveal blockquote p::after {
-  bottom: -0.75em;
+  bottom: 0.125em;
+  right: 0.125em;
   content: "”";
 }
 

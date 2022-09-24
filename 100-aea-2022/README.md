@@ -2,7 +2,7 @@
 
 *For An Event Apart Denver 2022. This is a sort-of transcript plus my notes for the talk.*
 
-Hello everyone! I hope everyone is having a great time at the conference, learning loads of stuff and meeting new people. 
+Hello everyone! I hope everyone is having a great time at the conference, learning loads of stuff and meeting new people. First off, I want to thank the organisers for giving me the opportunity to talk to you about my favourite topic on the web, CSS.
 
 My name is Hui Jing. It's a Chinese name, so my family name comes first. I'm not a complicated person, so these emojis pretty much cover who I am as a person.
 
@@ -12,7 +12,7 @@ So why are we talking about CSS today? If your content is going to be rendered b
 
 Regardless of your opinions on CSS, I'm not here to tell you what to think or how to feel. The reality is that browser engines today are much more capable than before, they can lay out content much better than before. And it's in our best interest to know how to make full use of the browser's web layout capabilities.
 
-Technology evolves very fast, I know, but as of now, most web interactions involve a screen. And these screens can be as small as a watch-face or as large as a 70-inch super HDTV. And you, the developer or designer or creator, can't really control this.
+Technology evolves very fast, some people might even think that screens will become obsolete soon. Sure. Maybe. But today, most web interactions still involve a screen. And these screens can be as small as a watch-face or as large as a 70-inch super HDTV. And you, the developer or designer or creator, can't really control this.
 
 This means, the way we think about designing layouts on the web cannot be like anything else that is fixed. It's quite a different mental model, and so, the tools we use must suit this fluid, interactive medium. Luckily for us, now that Flexbox and Grid are very well supported across all major browsers, our toolbox has been greatly upgraded.
 
@@ -30,7 +30,7 @@ Grid was rolled out in a very coordinated manner back in 2017, with the four maj
 
 Fast forward to today, the percentage of internet users surfing the web with browsers that support Flexbox and Grid is overwhelmingly high. So browser support is no longer a valid argument for why adoption rates are lower than expected.
 
-For what it's worth, Flexbox is everywhere. It has become the go-to for many web layouts, and after seeing my thousandth “how to centre something vertically” article, I'm not surprised it caught on very well.
+For what it's worth, Flexbox is everywhere. It has become the go-to for many web layouts, and after seeing my thousandth “how to centre something vertically with Flexbox” article, I'm quite convinced it caught on very well.
 
 And even though this survey has a relatively small sample size of 8075 developers, it still prompted me to wonder why and how Grid's usage numbers could be higher.
 
@@ -50,13 +50,13 @@ Sure, maybe you'd have to figure out a modern web hosting solution, but this is 
 
 Javascript came into the picture in 1995, because there was a need for a scripting language that could run on the client-side, apparently to do form validation. Not sure how true that part is, but needing a lightweight scripting language that could run on the client was real.
 
-A couple years later, the concept of AJAX, short for Asynchronous Javascript and XML, started to take off because it allowed content on the page to be updated dynamically without reloading the entire page. The concept on which Single Page Applications or SPAs are built on.
+A couple years later, the concept of AJAX, short for Asynchronous Javascript and XML, started to take off because it allowed content on the page to be updated dynamically without reloading the entire page. This is THE concept on which Single Page Applications or SPAs are built on.
 
-This term “Single Page” is so misleading to me, because my mind has anchored the word page to physical books. So even the largest book I can think of is around this size. But when you think about a lot of the commercial SPAs out there these days, it's more like a page the size of this room.
+This term “Single Page” rather misleading to me, because in my mind, a page isn't that large. But when you think about a lot of the commercial SPAs out there these days, it's more like a page the size of the room you're sitting in.
 
-With the increase in scale and hence complexity, the organisation of code becomes a lot more crucial, and ideally, some form of process and standards would need to be introduced. I've found that I haven't encountered this aspect of CSS grid implementation as much as I would have liked. Personally, I'd love to hear how folks at different organisations deal with the constraints unique to their context.
+With this increase in scale and hence complexity, the organisation of code becomes a lot more crucial. Frameworks can help provide structure, but with them come some restrictions on how to do things. But hey, the potential for interesting ideas stem from overcoming constraints, no?
 
-Let's do a quick run-through of how Grid works and how to use it. Similar to Flexbox, it involves a parent-child relationship between the container and its immediate children. Grid properties on the container can have an impact on the grid items and items themselves have an "awareness" of their siblings.
+Before that, let's do a quick run-through of how Grid works and how to use it. Similar to Flexbox, it involves a parent-child relationship between the container and its immediate children. Grid properties on the container can have an impact on the grid items and items themselves have an "awareness" of their siblings.
 
 The bare minimum to start using grid as a layout tool is setting `display` to `grid`, then defining some columns. Theoretically, you don't even have to be explicit with the rows unless you want to. Because the row height will naturally be whatever it needs for the content to fit.
 
@@ -82,13 +82,41 @@ Grid makes overlapping elements in your design more controllable than other meth
 
 There's more to Grid than what I've mentioned, but this is sufficient for a large range of use cases already. A major difference between building layouts with Grid versus other layout models is that CSS grid layouts are “led” by the container. You implement your intended layout on the container in a sort of big-picture way, and the items are placed accordingly.
 
-Whereas the other layout models are item led, where the sizing and positioning of each item is determined by properties on the items themselves. It is a little different from what a lot of folks are used to, and perhaps that is a contributing factor to why CSS grid is not as widespread as it could be.
+Whereas the other layout models are item-led, where the sizing and positioning of each item is determined by properties on the items themselves. It is a little different from what a lot of folks are used to, and perhaps that is a contributing factor to why CSS grid is not as widespread as it could be.
 
 But it's not like Grid is the end-all-be-all of layout building on the web. It is just one more additional tool we have in our toolbox. Floats are still great for actually floating content. Flexbox is great for handling free space, or the lack thereof, in your layout. Grid is perfect for when you want structured rows and columns.
 
 As an application grows bigger, with more features, more components and more pages, you end up having to adopt some sort of design system, or at least, develop some design guidelines to maintain consistency across the application. And often, a grid system is part of that.
 
-A common pattern for grid systems in frontend libraries rely on generating all the classes needed for all the percentages needed for the sizing of each item in the grid. To migrate from using floats to flexbox is actually not that drastic a refactor, because your sizing still happens on the item class. Migrating to grid, on the other hand, is not like a drop-in replacement.
+A common pattern for grid systems in frontend libraries rely on generating all the classes needed for all the percentages needed for the sizing of each item in the grid. To migrate from using floats to flexbox is actually not that drastic a refactor, because your sizing still happens on the item class. Migrating to grid though, is a little more involved, to put things mildly.
+
+You might think that if the existing grid system is already using flexbox, that's a good start because the markup should already be set up for a parent-child relationship. Well, yes and no. We'll get to that in a little bit.
+
+This line is from the Material UI documentation and I find it rather interesting. For high flexibility. Flexbox's flexibility is wonderful for allowing the browser to decide how much space an item should take up depending on the amount of content within it. That's my definition of high flexibility.
+
+But in a structured Grid, you don't actually want high flexibility. You want your items to take up pre-defined amounts of space that you've decided upon. So you're probably looking for consistency? Maybe I'm misunderstanding what the author is trying to express.
+
+Item-led grid systems rely on, or shall we say, are constrained by items always being laid out flush against each other, only dropping down to the next line when there isn't enough space. It is the same reason why the `justify-items` box alignment property does not apply for a flex formatting context.
+
+Because there is no way for an item to know where it is in relation to other items along the stack, the way libraries compensate for that is to introduce an additional wrapper for each row of items.
+
+When you see item-led grid systems use class names like `col-8`, `medium-6` and so on, it implies that an entire suite of CSS classes for sizing items exists. Each of them contain a declaration defining what the width of an item should be for it to span a specific number of columns.
+
+This ensures consistency in sizing across the different rows. Providing the illusion that a grid actually exists. And also convenience I suppose, because someone else has done the calculations and media query set up for you to build stuff within a responsive grid.
+
+So let's look into that. This whole pre-written styles thing, and see if CSS grid can fit into that style of CSS organisation. This flexbox-powered grid markup is heavily based on Bootstrap's implementation.
+
+The basic function is the ability to have items within a 12-column grid. These items can span different number of columns. And if you're using flexbox, you can do that by setting the `flex-basis` component of the flex item to the appropriate percentage.
+
+Sometimes you may want some empty space between items in your layout, and Bootstrap uses margins to achieve this "push" capability, where the amount being pushed matches up to the column percentages.
+
+As for responsive sizing across viewports, there's the extra `-md` keyword in the class name to activate the preferred size at the specified viewport width. These are patterns that have become relatively common over the past couple of years.
+
+
+
+Having a “new” grid makes it easier to do the migration in phases. You could build all new components with the new system, while slowly refactoring the existing components. Eventually, when all the components have moved over, you can remove the legacy grid code. This means you will have 2 active grid systems for a certain period of time, but I don't think that's a bad thing.
+
+Documentation is your friend. 
 
 Let's simplify things a little bit for the sake of discussion. Say we have the luxury of implementing a brand new design system, and we want to build out the grid system for that. So here, we have these specifications for a rather standard looking grid. It has different values to accommodate a range of viewport sizes.
 

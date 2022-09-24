@@ -17,10 +17,7 @@
         <section style="font-size:90%">
           <h1>Overcoming Grid Reluctance</h1>
           <p><small>By <a href="https://chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
-          <aside class="notes">
-            <p>Hello everyone! This is the first conference I'm speaking at since COVID happened so it does feel kind of surreal. I'm very happy to be here and grateful to the organisers for giving me the opportunity to talk to all of you about my favourite topic in the world, CSS.</p>
-            <p>We're at a frontend conference today, right? So I'm going to assume a lot of us are in the business of displaying web content on a digital screen. Which could be of any and all sizes. That to me, is the fun of building for the web.</p>
-          </aside>
+          <aside class="notes">Hello everyone! I hope everyone is having a great time at the conference, learning loads of stuff and meeting new people. First off, I want to thank the organisers for giving me the opportunity to talk to you about my favourite topic on the web, CSS.</aside>
         </section>
 
         <section>
@@ -62,7 +59,7 @@
           <aside class="notes">
             <p>So why are we talking about CSS today? If your content is going to be rendered by a browser engine, then your main mode of communication with the browser for styling content has to be CSS. And I'm sure everyone today has their own opinion about CSS, some of you might love it as much as I do, while others might see of it as a hard-to-deal with API you would like to avoid as much as possible.</p>
             <p>Regardless of your opinions on CSS, I'm not here to tell you what to think or how to feel. The reality is that browser engines today are much more capable than before, they can lay out content much better than before. And it's in our best interest to know how to make full use of the browser's web layout capabilities.</p>
-            <p>Technology evolves very fast, I know, but as of now, most web interactions involve a screen. And these screens can be as small as a watch-face or as large as a 70-inch super HDTV. And you, the developer or designer or creator, can't really control this.</p>
+            <p>Technology evolves very fast, some people might even think that screens will become obsolete soon. Sure. Maybe. But today, most web interactions still involve a screen. And these screens can be as small as a watch-face or as large as a 70-inch super HDTV. And you, the developer or designer or creator, can't really control this.</p>
           </aside>
         </section>
 
@@ -146,8 +143,8 @@
           </div>
           <small><a href="https://2021.stateofcss.com/en-US/">https://2021.stateofcss.com/en-US/</a></small>
           <aside class="notes">
-            <p>For what it's worth, Flexbox is everywhere. It has become the go-to for many web layouts, and after seeing my thousandth “how to centre something vertically” article, I'm not surprised it caught on very well.</p>
-            <p>And even though this survey has a relatively small sample size of 8075 developers, it still prompted me to wonder Grid's usage numbers are not as high as I expected.</p>
+            <p>FFor what it's worth, Flexbox is everywhere. It has become the go-to for many web layouts, and after seeing my thousandth “how to centre something vertically with Flexbox” article, I'm quite convinced it caught on very well.</p>
+            <p>And even though this survey has a relatively small sample size of 8075 developers, it still prompted me to wonder why and how Grid's usage numbers could be higher.</p>
           </aside>
         </section>
 
@@ -190,7 +187,7 @@
           <img class="plain" data-src="img/timeline.png" alt="Crude timeline of internet technologies">
           <aside class="notes">
             <p>Javascript came into the picture in 1995, because there was a need for a scripting language that could run on the client-side, apparently to do form validation. Not sure how true that part is, but needing a lightweight scripting language that could run on the client was real.</p>
-            <p>A couple years later, the concept of AJAX, short for Asynchronous Javascript and XML, started to take off because it allowed content on the page to be updated dynamically without reloading the entire page. The concept on which Single Page Applications or SPAs are built on.</p>
+            <p>A couple years later, the concept of AJAX, short for Asynchronous Javascript and XML, started to take off because it allowed content on the page to be updated dynamically without reloading the entire page. This is THE concept on which Single Page Applications or SPAs are built on.</p>
           </aside>
         </section>
 
@@ -265,16 +262,15 @@
             </g>
           </svg>
           <aside class="notes">
-            <p>This term “Single Page” is so misleading to me, because my mind has anchored the word page to physical books. So even the largest book I can think of is around this size. But when you think about a lot of the SPAs out there these days, it's more like a page the size of this room.</p>
-            <p>With the increase in scale and hence complexity, the organisation of code becomes a lot more crucial. Frameworks can help provide structure, but with it comes some restrictions on how to do things.</p>
-            <p>I've found that I haven't encountered folks discussing how it was like to implement CSS grid within the bounds of their framework of choice. Personally, I'd love to hear how folks at different organisations deal with the constraints unique to their context.</p>
+            <p>This term “Single Page” rather misleading to me, because in my mind, a page isn't that large. But when you think about a lot of the commercial SPAs out there these days, it's more like a page the size of the room you're sitting in.</p>
+            <p>With this increase in scale and hence complexity, the organisation of code becomes a lot more crucial. Frameworks can help provide structure, but with them come some restrictions on how to do things. But hey, the potential for interesting ideas stem from overcoming constraints, no?</p>
           </aside>
         </section>
 
         <section>
           <h2>Parent-child relationship</h2>
           <img data-src="img/parent-child.svg" alt="Diagram showing a container with 3 children elements within" style="max-height:60vh">
-          <aside class="notes">Let's do a quick run-through of how Grid works and how to use it. Similar to Flexbox, it involves a parent-child relationship between the container and its immediate children. Grid properties on the container will have an impact on the grid items, and grid items themselves have an "awareness" of their siblings.</aside>
+          <aside class="notes">Before that, let's do a quick run-through of how Grid works and how to use it. Similar to Flexbox, it involves a parent-child relationship between the container and its immediate children. Grid properties on the container can have an impact on the grid items and items themselves have an "awareness" of their siblings.</aside>
         </section>
 
         <section>
@@ -496,7 +492,244 @@
           </div>
           <aside class="notes">
             <p>As an application grows bigger, with more features, more components and more pages, you end up having to adopt some sort of design system, or at least, develop some design guidelines to maintain consistency across the application. And often, a grid system is part of that.</p>
-            <p>A common pattern for grid systems in frontend libraries rely on generating all the classes needed for all the percentages needed for the sizing of each item in the grid. To migrate from using floats to flexbox is actually not that drastic a refactor, because your sizing still happens on the item class. Migrating to grid, on the other hand, is relatively more complicated.</p>
+            <p>A common pattern for grid systems in frontend libraries rely on generating all the classes needed for all the percentages needed for the sizing of each item in the grid. To migrate from using floats to flexbox is actually not that drastic a refactor, because your sizing still happens on the item class. Migrating to grid though, is a little more involved, to put things mildly.</p>
+            <p>You might think that if the existing grid system is already using flexbox, that's a good start because the markup should already be set up for a parent-child relationship. Well, yes and no. We'll get to that in a little bit.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>🌶 Yet another spicy opinion 🌶</h2>
+          <p style="font-family:arial">¯\_(ツ)_/¯</p>
+          <blockquote style="max-width:20em">
+            <p>It uses CSS Flexbox (rather than CSS Grid) for high flexibility.</p><br><small>– <a href="https://mui.com/material-ui/react-grid2/">Material UI (Grid version 2)</a></small>
+          </blockquote>
+          <aside class="notes">
+            <p>This line is from the Material UI documentation and I find it rather interesting. For high flexibility. Flexbox's flexibility is wonderful for allowing the browser to decide how much space an item should take up depending on the amount of content within it. That's my definition of high flexibility.</p>
+            <p>But in a structured Grid, you don't actually want high flexibility. You want your items to take up pre-defined amounts of space that you've decided upon. So you're probably looking for consistency? Maybe I'm misunderstanding what the author is trying to express.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Alignment only along cross-axis</h2>
+          <img data-src="img/boxie-align.png" alt="Boxies demonstrating how only alignment in cross-axis is relevant" style="height:70vh">
+          <aside class="notes">Item-led grid systems rely on, or shall we say, are constrained by items always being laid out flush against each other, only dropping down to the next line when there isn't enough space. It is the same reason why the `justify-items` box alignment property does not apply for a flex formatting context.</aside>
+        </section>
+
+        <section>
+          <h2>Extra row wrapper required</h2>
+          <div style="display:flex">
+            <pre><code><div class="row">
+  <div class="columns small-2 large-4">4</div>
+  <div class="columns small-4 large-4">4</div>
+  <div class="columns small-6 large-4">4</div>
+</div>
+<div class="row">
+  <div class="columns large-3">3</div>
+  <div class="columns large-6">6</div>
+  <div class="columns large-3">3</div>
+</div></code></pre>
+            <pre><code><div class="container text-center">
+  <div class="row">
+    <div class="col align-self-start">
+      One of three columns
+    </div>
+    <div class="col align-self-center">
+      One of three columns
+    </div>
+    <div class="col align-self-end">
+      One of three columns
+    </div>
+  </div>
+</div></code></pre>
+            <pre><code><Grid container spacing={2}>
+  <Grid xs={8}>
+    <Item>xs=8</Item>
+  </Grid>
+  <Grid xs={4}>
+    <Item>xs=4</Item>
+  </Grid>
+  <Grid xs={4}>
+    <Item>xs=4</Item>
+  </Grid>
+  <Grid xs={8}>
+    <Item>xs=8</Item>
+  </Grid>
+</Grid></code></pre>
+          </div>
+          <aside class="notes">
+            <p>Because there is no way for an item to know where it is in relation to other items along the stack, the way libraries compensate for that is to introduce an additional wrapper for each row of items.</p>
+            <p>When you see item-led grid systems use class names like `col-8`, `medium-6` and so on, it implies that an entire suite of CSS classes for sizing items exists. Each of them contain a declaration defining what the width of an item should be for it to span a specific number of columns.</p>
+            <p>This ensures consistency in sizing across the different rows, providing the illusion that a grid actually exists. And also convenience I suppose, because someone else has done the calculations and media query set up for you to build stuff within a responsive grid.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Flexbox-powered grid markup</h2>
+          <pre><code><div class="flex-grid">
+  <div class="row">
+    <div class="col">.col</div>
+    <div class="col">.col</div>
+    <div class="col">.col</div>
+    <div class="col">.col</div>
+  </div>
+  <div class="row">
+    <div class="col col-md-8">.col-md-8</div>
+    <div class="col col-md-4">.col-md-4</div>
+  </div>
+  <div class="row">
+    <div class="col col-md-4">.col-md-4</div>
+    <div class="col col-md-4 offset-md-4">.col-md-4 .offset-md-4</div>
+  </div>
+  <div class="row">
+    <div class="col col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+    <div class="col col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+  </div>
+  <div class="row">
+    <div class="col col-md-6 offset-md-3">.col-md-6 .offset-md-3</div>
+  </div>
+</div></code></pre>
+          <aside class="notes">So let's look into that. This whole pre-written styles thing, and see if CSS grid can fit into that style of CSS organisation. This flexbox-powered grid markup is heavily based on Bootstrap's implementation.</aside>
+        </section>
+
+        <section>
+          <h2>Flexbox-powered grid</h2>
+          <div class="livecode-2p">
+            <div class="result" style="font-size:75%;resize:horizontal">
+              <div class="flex-grid">
+                <div class="row">
+                  <div style="background-color:limegreen;border:1px dashed darkgreen;padding:1em;box-sizing:border-box;font-size:75%" class="col">.col</div>
+                  <div style="background-color:limegreen;border:1px dashed darkgreen;padding:1em;box-sizing:border-box;font-size:75%" class="col">.col</div>
+                  <div style="background-color:limegreen;border:1px dashed darkgreen;padding:1em;box-sizing:border-box;font-size:75%" class="col">.col</div>
+                  <div style="background-color:limegreen;border:1px dashed darkgreen;padding:1em;box-sizing:border-box;font-size:75%" class="col">.col</div>
+                </div>
+                <div class="row">
+                  <div style="background-color:limegreen;border:1px dashed darkgreen;padding:1em;box-sizing:border-box;font-size:75%" class="col col-md-8">.col-md-8</div>
+                  <div style="background-color:limegreen;border:1px dashed darkgreen;padding:1em;box-sizing:border-box;font-size:75%" class="col col-md-4">.col-md-4</div>
+                </div>
+                <div class="row">
+                  <div style="background-color:limegreen;border:1px dashed darkgreen;padding:1em;box-sizing:border-box;font-size:75%" class="col col-md-4">.col-md-4</div>
+                  <div style="background-color:limegreen;border:1px dashed darkgreen;padding:1em;box-sizing:border-box;font-size:75%" class="col col-md-4 offset-md-4">.col-md-4 .offset-md-4</div>
+                </div>
+                <div class="row">
+                  <div style="background-color:limegreen;border:1px dashed darkgreen;padding:1em;box-sizing:border-box;font-size:75%" class="col col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+                  <div style="background-color:limegreen;border:1px dashed darkgreen;padding:1em;box-sizing:border-box;font-size:75%" class="col col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+                </div>
+                <div class="row">
+                  <div style="background-color:limegreen;border:1px dashed darkgreen;padding:1em;box-sizing:border-box;font-size:75%" class="col col-md-6 offset-md-3">.col-md-6 .offset-md-3</div>
+                </div>
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col {
+  flex: 1 0 0%;
+}
+
+@media screen and (min-width: 768px) {
+  .col-md-8 {
+    flex: 0 0 auto;
+    width: 66.66666667%;
+  }
+
+  .col-md-6 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+ 
+  .col-md-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+  }
+
+  .col-md-3 {
+    flex: 0 0 auto;
+    width: 25%;
+  }
+
+  .offset-md-3 {
+    margin-left: 25%;
+  }
+
+  .offset-md-4 {
+    margin-left: 33.33333333%;
+  }
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>The basic function is the ability to have items within a 12-column grid. These items can span different number of columns. And if you're using flexbox, you can do that by setting the `flex-basis` component of the flex item to the appropriate percentage.</p>
+            <p>Sometimes you may want some empty space between items in your layout, and Bootstrap uses margins to achieve this "push" capability, where the amount being pushed matches up to the column percentages.</p>
+            <p>As for responsive sizing across viewports, there's the extra `-md` keyword in the class name to activate the preferred size at the specified viewport width. These are patterns that have become relatively common over the past couple of years.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Grid-powered grid</h2>
+          <div class="livecode-2p">
+            <div class="result" style="font-size:75%;resize:horizontal">
+              <div class="grid">
+                <div style="background-color:dodgerblue;border:1px dashed navy;padding:1em;box-sizing:border-box;font-size:75%" class="item-3">.item-3</div>
+                <div style="background-color:dodgerblue;border:1px dashed navy;padding:1em;box-sizing:border-box;font-size:75%" class="item-3">.item-3</div>
+                <div style="background-color:dodgerblue;border:1px dashed navy;padding:1em;box-sizing:border-box;font-size:75%" class="item-3">.item-3</div>
+                <div style="background-color:dodgerblue;border:1px dashed navy;padding:1em;box-sizing:border-box;font-size:75%" class="item-3">.item-3</div>
+                <div style="background-color:dodgerblue;border:1px dashed navy;padding:1em;box-sizing:border-box;font-size:75%" class="item-md-8">.item-md-8</div>
+                <div style="background-color:dodgerblue;border:1px dashed navy;padding:1em;box-sizing:border-box;font-size:75%" class="item-md-4">.item-md-4</div>
+                <div style="background-color:dodgerblue;border:1px dashed navy;padding:1em;box-sizing:border-box;font-size:75%" class="item-md-4">.item-md-4</div>
+                <div style="background-color:dodgerblue;border:1px dashed navy;padding:1em;box-sizing:border-box;font-size:75%" class="item-md-4 col-md-pos-9">.item-md-4 .col-md-pos-9</div>
+                <div style="background-color:dodgerblue;border:1px dashed navy;padding:1em;box-sizing:border-box;font-size:75%" class="item-md-3 col-md-pos-4">.item-md-3 .col-md-pos-4</div>
+                <div style="background-color:dodgerblue;border:1px dashed navy;padding:1em;box-sizing:border-box;font-size:75%" class="item-md-3 col-md-pos-10">.item-md-3 .col-md-pos-10</div>
+                <div style="background-color:dodgerblue;border:1px dashed navy;padding:1em;box-sizing:border-box;font-size:75%" class="item-md-6 col-md-pos-4">.item-md-6 .col-md-pos-4</div>
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+[class*='item'] {
+  grid-column-end: span 6;
+}
+
+.item-3 {
+  grid-column-end: span 3;
+}
+
+@media screen and (min-width: 768px) {
+  .item-md-8 {
+    grid-column-end: span 8;
+  }
+  
+  .item-md-3 {
+    grid-column-end: span 3;
+  }
+
+  .item-md-4 {
+    grid-column-end: span 4;
+  }
+
+  .item-md-6 {
+    grid-column-end: span 6;
+  }
+
+  .col-md-pos-9 {
+    grid-column-start: 9;
+  }
+
+  .col-md-pos-10 {
+    grid-column-start: 10;
+  }
+
+  .col-md-pos-4 {
+    grid-column-start: 4;
+  }
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>The basic function is the ability to have items within a 12-column grid. These items can span different number of columns. And if you're using flexbox, you can do that by setting the `flex-basis` component of the flex item to the appropriate percentage.</p>
+            <p>Sometimes you may want some empty space between items in your layout, and Bootstrap uses margins to achieve this "push" capability, where the amount being pushed matches up to the column percentages.</p>
+            <p>As for responsive sizing across viewports, there's the extra `-md` keyword in the class name to activate the preferred size at the specified viewport width. These are patterns that have become relatively common over the past couple of years.</p>
           </aside>
         </section>
 
@@ -879,7 +1112,7 @@ export default function Col({
 
         <section>
           <h2>Option 3: Using Tailwind classes</h2>
-          <h3>⚠️ Yet Another Disclaimer ⚠️</h3>
+          <h3>⚠️ Yet Another Disclaimer 🌶</h3>
           <p>The following opinion may or may not oppose your view on the matter, and that is PERFECTLY FINE. You are absolutely free to agree, disagree or not care at all.</p>
           <aside class="notes">I'll be up front about this, I'm not the biggest fan of how Tailwind does CSS. The major issue I have with it is, it sees the cascade as a problem to be fixed, rather than attribute to be embraced. If you use Tailwind the way it was intended, the cascade is almost completely negated.</aside>
         </section>
