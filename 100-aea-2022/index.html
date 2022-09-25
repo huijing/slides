@@ -727,9 +727,41 @@
 }</style></div>
           </div>
           <aside class="notes">
-            <p>The basic function is the ability to have items within a 12-column grid. These items can span different number of columns. And if you're using flexbox, you can do that by setting the `flex-basis` component of the flex item to the appropriate percentage.</p>
-            <p>Sometimes you may want some empty space between items in your layout, and Bootstrap uses margins to achieve this "push" capability, where the amount being pushed matches up to the column percentages.</p>
-            <p>As for responsive sizing across viewports, there's the extra `-md` keyword in the class name to activate the preferred size at the specified viewport width. These are patterns that have become relatively common over the past couple of years.</p>
+            <p>Can all this be “converted” to use CSS grid? Well, to a large extent, yes. But do keep in mind that CSS grid requires a different mental model when it comes to laying out your items.</p>
+            <p>Anyway, 12 column grid? Check. This is done by defining the grid on the container with `grid-template-columns`. Items can span different number of columns? Check. This can be done in the previous style by having those column classes use <code>grid-row-end</code> with the <code>span</code> keyword.</p>
+            <p>Empty space between items in the layout? Check. For this, instead of margins, you would want to define the position of the item instead, by using <code>grid-row-start</code> so the code still works when combined with the column classes above.</p>
+          </aside>
+        </section>
+
+        <section>
+          <figure>
+            <img class="plain" style="max-height:90vh" data-src="img/bootstrap-hack.png" alt="Bootstrap documentation explaining their column break hack">
+            <figcaption><small>Source: <a href="https://getbootstrap.com/docs/5.2/layout/columns/#column-breaks">Bootstrap v5.2 documentation</a></small></figcaption>
+          </figure>
+          <aside class="notes">
+            <p>All that is cool. But organising the layout code in this style is akin to asking a badminton player to play tennis. Or vice versa. There are similarities and transferable skills for sure, but each require their own specific techniques and specialities.</p>
+            <p>Certain techniques used by the pre-CSS grid systems are workarounds or hacks to achieve the intended behaviour. For example, Bootstrap suggests adding an element with <code>width: 100%</code> wherever you want to wrap your columns to a new line as a column break hack.</p>
+            <p>With grid, you can define which row you want your item to be in and be assured that no matter how the viewport size changes, it will always be at your specified grid row. Consistent positioning in both the x and y axes of a layout is a completely new capability. One which our industry probably hasn't entirely caught on to yet.</p>
+          </aside>
+        </section>
+
+        <section data-background-image="img/meme.jpg" data-background-size="contain">
+          <aside class="notes">
+            <p>That being said, I understand that for large projects with an established frontend library that works fine, migrating to a different way of doing things is not trivial at all. Don't fix what's not broken and all.</p>
+            <p>It could also be a bit of a chicken and egg problem, where designers may not be entirely up to speed on today's possibilities and do not create designs that make full use of browsers' layout capabilities. So the old system always seems to works well enough?</p>
+          </aside>
+        </section>
+
+        <section>
+          <p>Bootstrap uses this “separate grid system” approach.</p>
+          <figure>
+            <img class="plain" style="max-height:90vh" data-src="img/bootstrap-grid.png" alt="Bootstrap documentation explaining their opt-in CSS grid implementation">
+            <figcaption><small>Source: <a href="https://getbootstrap.com/docs/5.2/layout/css-grid/#how-it-works">Bootstrap v5.2 documentation</a></small></figcaption>
+          </figure>
+          <aside class="notes">
+            <p>I'm not in a position to make a generalised statement that all frontend libraries and systems must upgrade to using CSS grid. But if you do decide to go forward with rewriting your grid system that is already widely in use, I highly suggest introducing a completely different class naming syntax rather than trying to replace the original.</p>
+            <p>Having a “new” grid makes it easier to do the migration in phases without breaking existing functionality. You could build all new components with the new system, while slowly refactoring the existing components.</p>
+            <p>Eventually, when all the components have moved over, you can remove the legacy grid code. This means you will have 2 active grid systems for a certain period of time, but I don't think that's a bad thing.</p>
           </aside>
         </section>
 
@@ -789,7 +821,7 @@
               </tr>
             </tbody>
           </table>
-          <aside class="notes">Let's simplify things a little bit for the sake of discussion. Say we have the luxury of implementing a brand new design system, and we want to build out the grid system for that. So here, we have these specifications for a rather standard looking grid. It has different values to accommodate a range of viewport sizes.</aside>
+          <aside class="notes">For this next part, I'm going to remove the migration scenario to simplify the discussion. Say we have the luxury of implementing a brand new design system, and we want to build out the grid system for that. So here, we have these specifications for a rather standard looking grid. It has different values to accommodate a range of viewport sizes.</aside>
         </section>
 
         <section data-background-image="img/figma.png">
@@ -974,7 +1006,6 @@
           </pre>
           <aside class="notes">
             <p>Another approach is to have wrapper components for the container and item respectively. This means the grid code is tied to the wrapper components instead of being loaded in the global stylesheet.</p>
-            <p>I ran into some specificity issues with this approach with CSS modules that I managed to workaround relatively painlessly, but it is something to take note of.</p>
             <p>The setup involves creating a Grid component and a Col component and their corresponding stylesheets.</p>
           </aside>
         </section>
@@ -1104,10 +1135,7 @@ export default function Col({
   }
 }</code>
           </pre>
-          <aside class="notes">
-            <p>The issue I ran into when using these components was that, if I wanted to override the pre-written item styles, I had to bump the specificity of my component styles up a little bit because CSS modules loaded the component styles before the wrapper styles.</p>
-            <p>I like to keep specificity low in general, so I went with bumping up by 1 element tag’s worth. If someone more knowledgeable has advice on a better way of dealing with this style loading order, please let me know.</p>
-          </aside>
+          <aside class="notes">Again, if you have very custom placement, you can write them into the component styles as well.</aside>
         </section>
 
         <section>
@@ -1182,7 +1210,7 @@ export default function Col({
   );
 }</code>
           </pre>
-          <aside class="notes">You would then have to apply these classes to your component accordingly. I’m sure the Tailwind experts have come up with something to abstract regularly used combinations of classes into something else but this is the most basic version and it achieves the same end result as the other options.</aside>
+          <aside class="notes">You would then have to apply these classes to your component accordingly. Maybe you could abstract the most regularly used combinations of classes into something DRY-er but this is the most basic version and it achieves the same end result as the other options.</aside>
         </section>
 
         <section>
@@ -1205,8 +1233,8 @@ export default function Col({
             <figcaption><small>Source: <a href="https://bonkersworld.net/organizational-charts">Manu Cornet, 2011-06-27 edition of Bonkers World</a> (modified to fit slide)</small></figcaption>
           </figure>
           <aside class="notes">
-            <p>For example, maybe a particular application makes use of a component-based architecture, such that responsibility for specific features can be encapsulated in their respective components. Depending on the size of the application, components could even be maintained by separate teams. Or it might be a couple of frontend specialists maintaining a component system used by everyone else. The permutations are endless.</p>
-            <p>There is always the chance that someone from above you in the hierarchy “mandates” that you use a certain technology. Have I heard some executive (who used to code) say “I could have built this myself in a day with INSERT_SUGGESTED_LIBRARY_HERE”? Well, yes.</p>
+            <p>Every organisation is different. Some applications have individual teams in charge of specific components, others could have a few frontend specialists maintaining a component library used by everyone else. The permutations are endless.</p>
+            <p>Company culture also varies between organisations. In some teams, engineers have all the autonomy to make decisions, in others, sometimes a director who used to code might come in and mandate the team to use X technology because he likes it.</p>
           </aside>
         </section>
 

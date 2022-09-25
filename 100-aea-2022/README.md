@@ -112,13 +112,29 @@ Sometimes you may want some empty space between items in your layout, and Bootst
 
 As for responsive sizing across viewports, there's the extra `-md` keyword in the class name to activate the preferred size at the specified viewport width. These are patterns that have become relatively common over the past couple of years.
 
+Can all this be “converted” to use CSS grid? Well, to a large extent, yes. But do keep in mind that CSS grid requires a different mental model when it comes to laying out your items.
 
+Anyway, 12 column grid? Check. This is done by defining the grid on the container with `grid-template-columns`. Items can span different number of columns? Check. This can be done in the previous style by having those column classes use `grid-row-end` with the `span` keyword.
 
-Having a “new” grid makes it easier to do the migration in phases. You could build all new components with the new system, while slowly refactoring the existing components. Eventually, when all the components have moved over, you can remove the legacy grid code. This means you will have 2 active grid systems for a certain period of time, but I don't think that's a bad thing.
+Empty space between items in the layout? Check. For this, instead of margins, you would want to define the position of the item instead, by using `grid-row-start` so the code still works when combined with the column classes above.
 
-Documentation is your friend. 
+All that is cool. But organising the layout code in this style is akin to asking a badminton player to play tennis. Or vice versa. There are similarities and transferable skills for sure, but each require their own specific techniques and specialities.
 
-Let's simplify things a little bit for the sake of discussion. Say we have the luxury of implementing a brand new design system, and we want to build out the grid system for that. So here, we have these specifications for a rather standard looking grid. It has different values to accommodate a range of viewport sizes.
+Certain techniques used by the pre-CSS grid systems are workarounds or hacks to achieve the intended behaviour. For example, Bootstrap suggests adding an element with `width: 100%` wherever you want to wrap your columns to a new line as a column break hack.
+
+With grid, you can define which row you want your item to be in and be assured that no matter how the viewport size changes, it will always be at your specified grid row. Consistent positioning in both the x and y axes of a layout is a completely new capability. One which our industry probably hasn't entirely caught on to yet.
+
+That being said, I understand that for large projects with an established frontend library that works fine, migrating to a different way of doing things is not trivial at all. Don't fix what's not broken and all.
+
+It could also be a bit of a chicken and egg problem, where designers may not be entirely up to speed on today's possibilities and do not create designs that make full use of browsers' layout capabilities. So the old system always seems to works well enough?
+
+I'm not in a position to make a generalised statement that all frontend libraries and systems must upgrade to using CSS grid. But if you do decide to go forward with rewriting your grid system that is already widely in use, I highly suggest introducing a completely different class naming syntax rather than trying to replace the original.
+
+Having a “new” grid makes it easier to do the migration in phases without breaking existing functionality. You could build all new components with the new system, while slowly refactoring the existing components.
+
+Eventually, when all the components have moved over, you can remove the legacy grid code. This means you will have 2 active grid systems for a certain period of time, but I don't think that's a bad thing.
+
+For this next part, I'm going to remove the migration scenario to simplify the discussion. Say we have the luxury of implementing a brand new design system, and we want to build out the grid system for that. So here, we have these specifications for a rather standard looking grid. It has different values to accommodate a range of viewport sizes.
 
 There are plenty of different approaches you could take to write CSS grid code to implement this in an application powered by a Javascript framework. We'll go through a couple of them just to give you an idea. I'm using React here, but I think these ideas are transferable to other frameworks as well.
 
@@ -132,17 +148,13 @@ And if you do need some custom placement, that code could go into the component-
 
 Another approach is to have wrapper components for the container and item respectively. This means the grid code is tied to the wrapper components instead of being loaded in the global stylesheet.
 
-I ran into some specificity issues with this approach with CSS modules that I managed to workaround relatively painlessly, but it is something to take note of.
-
 The setup involves creating a Grid component and a Col component and their corresponding stylesheets.
 
 These components don’t do much other than provide grid-related styling, so they’re not very big or complicated. They have props for passing custom class names, modifying the element tag (which defaults to `div`) but generally does not restrict users from passing in other props either.
 
 The styles would be the same as in option 1 but because this approach uses CSS modules, you can sort of be more “casual” with naming your classes? The grid container styles are literally exactly the same as option 1, while the item classes can look like this or however you like to name them.
 
-The issue I ran into when using these components was that, if I wanted to override the pre-written item styles, I had to bump the specificity of my component styles up a little bit because CSS modules loaded the component styles before the wrapper styles.
-
-I like to keep specificity low in general, so I went with bumping up by 1 element tag’s worth. If someone more knowledgeable has advice on a better way of dealing with this style loading order, please let me know.
+Again, if you have very custom placement, you can write them into the component styles as well.
 
 I'll be up front about this, I'm not the biggest fan of how Tailwind does CSS. The major issue I have with it is, it sees the cascade as a problem to be fixed, rather than attribute to be embraced. If you use Tailwind the way it was intended, the cascade is almost completely negated.
 
@@ -150,7 +162,7 @@ It is called Cascading Stylesheets for a reason. Maybe call it “Tailwind SS”
 
 Tailwind has exposed almost every API possible for you to modify the default configuration to suit your custom specifications. The grid specification can be set up like so (abstracted to just show the breakpoints).
 
-You would then have to apply these classes to your component accordingly. I’m sure the Tailwind experts have come up with something to abstract regularly used combinations of classes into something else but this is the most basic version and it achieves the same end result as the other options.
+You would then have to apply these classes to your component accordingly. Maybe you could abstract the most regularly used combinations of classes into something DRY-er but this is the most basic version and it achieves the same end result as the other options.
 
 We've covered 3 options but I’m sure there are more possible approaches to implement these Grid specifications. Are any one of these approaches the “correct” one or the “best” one? I cannot answer that. Not without taking into account the context in which the code needs to be used.
 
