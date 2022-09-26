@@ -35,7 +35,7 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-sass": "^2.0.0",
     "grunt-retire": "^1.0.7",
-    "grunt-zip": "~0.17.1",
+    "grunt-zip": "~0.20.0",
     "mustache": "^2.3.0",
     "socket.io": "^1.7.3"
   },
