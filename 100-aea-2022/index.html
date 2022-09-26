@@ -126,7 +126,7 @@
               <img src="https://caniuse.bitsofco.de/image/css-grid.jpg" alt="Data on support for the css-grid feature across the major browsers from caniuse.com">
             </picture>
           </p>
-          <aside class="notes">Fast forward to today, the percentage of internet users surfing the web with browsers that support Flexbox and Grid is overwhelmingly high. So browser support is no longer a valid argument for why adoption rates are lower than expected.</aside>
+          <aside class="notes">Fast forward to today, the percentage of internet users surfing the web with browsers that support Flexbox and Grid is overwhelmingly high. There are plenty of reasons why you would not use CSS grid in your projects, but browser support is no longer a valid one. Just saying.</aside>
         </section>
 
         <section>
@@ -143,8 +143,8 @@
           </div>
           <small><a href="https://2021.stateofcss.com/en-US/">https://2021.stateofcss.com/en-US/</a></small>
           <aside class="notes">
-            <p>FFor what it's worth, Flexbox is everywhere. It has become the go-to for many web layouts, and after seeing my thousandth “how to centre something vertically with Flexbox” article, I'm quite convinced it caught on very well.</p>
-            <p>And even though this survey has a relatively small sample size of 8075 developers, it still prompted me to wonder why and how Grid's usage numbers could be higher.</p>
+            <p>For what it's worth, Flexbox is everywhere. It has become the go-to for many web layouts, and after seeing my thousandth “how to centre something vertically with Flexbox” article, I'm quite convinced it caught on very well.</p>
+            <p>And even though this survey has a relatively small sample size of 8075 developers, it still prompted me to wonder why Grid's usage numbers are lower than I expected.</p>
           </aside>
         </section>
 
@@ -270,7 +270,7 @@
         <section>
           <h2>Parent-child relationship</h2>
           <img data-src="img/parent-child.svg" alt="Diagram showing a container with 3 children elements within" style="max-height:60vh">
-          <aside class="notes">Before that, let's do a quick run-through of how Grid works and how to use it. Similar to Flexbox, it involves a parent-child relationship between the container and its immediate children. Grid properties on the container can have an impact on the grid items and items themselves have an "awareness" of their siblings.</aside>
+          <aside class="notes">Before that, let's do a quick run-through of how Grid works and how to use it. Similar to Flexbox, it involves a parent-child relationship between the container and its immediate children. Grid properties on the container can have an impact on the grid items, and items themselves have an "awareness" of their siblings.</aside>
         </section>
 
         <section>
@@ -280,11 +280,11 @@
               <div class="basic-grid">
                 <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item A</p>
                 <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item B</p>
-                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item C</p>
+                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item C (but long)</p>
                 <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item D</p>
                 <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item E</p>
                 <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item F</p>
-                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item G</p>
+                <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item G (let's make this long too)</p>
                 <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item H</p>
                 <p style="border:1px solid;padding:1em 0;box-sizing:border-box">Item I</p>
               </div>
@@ -297,7 +297,8 @@
           </div>
           <aside class="notes">
             <p>The bare minimum to start using grid as a layout tool is setting <code>display</code> to <code>grid</code>, then defining some columns. Theoretically, you don't even have to be explicit with the rows unless you want to. Because the row height will naturally be whatever it needs for the content to fit.</p>
-            <p>If your grid needs to be more complicated, there are helpful properties and functions available to keep your code neat. The gap property makes it easy to have spacing between your grid items. The <code>repeat()</code> function, which can let you DRY out your code.</p>
+            <p>If your grid needs to be more complicated, there are helpful properties and functions available to keep your code neat. The gap property makes it easy to have spacing between your grid items. The <code>repeat()</code> function, which can let you DRY out your code. You can have a fully responsive grid without writing extra media queries.</p>
+            <p>Keywords like <code>auto-fit</code> and <code>auto-fill</code> allow you to tweak the auto-placement behaviour to suit your requirements. There are a lot of layout possibilities that can be implemented more easily than before.</p>
           </aside>
         </section>
 
@@ -512,7 +513,7 @@
         <section>
           <h2>Alignment only along cross-axis</h2>
           <img data-src="img/boxie-align.png" alt="Boxies demonstrating how only alignment in cross-axis is relevant" style="height:70vh">
-          <aside class="notes">Item-led grid systems rely on, or shall we say, are constrained by items always being laid out flush against each other, only dropping down to the next line when there isn't enough space. It is the same reason why the `justify-items` box alignment property does not apply for a flex formatting context.</aside>
+          <aside class="notes">Item-led grid systems rely on, or shall we say, are constrained by items always being laid out flush against each other, only dropping down to the next line when there isn't enough space. It is the same reason why the <code>justify-items</code> box alignment property, which aligns items along the main axis, does not apply for a flex formatting context.</aside>
         </section>
 
         <section>
@@ -557,8 +558,8 @@
 </Grid></code></pre>
           </div>
           <aside class="notes">
-            <p>Because there is no way for an item to know where it is in relation to other items along the stack, the way libraries compensate for that is to introduce an additional wrapper for each row of items.</p>
-            <p>When you see item-led grid systems use class names like `col-8`, `medium-6` and so on, it implies that an entire suite of CSS classes for sizing items exists. Each of them contain a declaration defining what the width of an item should be for it to span a specific number of columns.</p>
+            <p>Because there is no way for an item to know where it is in relation to other items along the flow in the rows below or above them, the way libraries compensate for that is to introduce an additional wrapper for each row of items.</p>
+            <p>When you see item-led grid systems use class names like <code>col-8</code>, <code>medium-6</code> and so on, it implies that an entire suite of CSS classes for sizing items exists. Each of them contain a declaration defining what the width of an item should be for it to span a specific number of columns.</p>
             <p>This ensures consistency in sizing across the different rows, providing the illusion that a grid actually exists. And also convenience I suppose, because someone else has done the calculations and media query set up for you to build stuff within a responsive grid.</p>
           </aside>
         </section>
@@ -588,7 +589,7 @@
     <div class="col col-md-6 offset-md-3">.col-md-6 .offset-md-3</div>
   </div>
 </div></code></pre>
-          <aside class="notes">So let's look into that. This whole pre-written styles thing, and see if CSS grid can fit into that style of CSS organisation. This flexbox-powered grid markup is heavily based on Bootstrap's implementation.</aside>
+          <aside class="notes">So let's look into that. This whole pre-written classes thing, and see if CSS grid can fit into that style of CSS organisation. This flexbox-powered grid markup is heavily based on Bootstrap's implementation.</aside>
         </section>
 
         <section>
@@ -659,9 +660,9 @@
 }</style></div>
           </div>
           <aside class="notes">
-            <p>The basic function is the ability to have items within a 12-column grid. These items can span different number of columns. And if you're using flexbox, you can do that by setting the `flex-basis` component of the flex item to the appropriate percentage.</p>
+            <p>The basic function of this grid system is the ability to have items within a 12-column grid. These items can span different number of columns. And if you're using flexbox, you can do that by setting the <code>width</code> value for the set of classes to the appropriate percentage for a 12-column layout.</p>
             <p>Sometimes you may want some empty space between items in your layout, and Bootstrap uses margins to achieve this "push" capability, where the amount being pushed matches up to the column percentages.</p>
-            <p>As for responsive sizing across viewports, there's the extra `-md` keyword in the class name to activate the preferred size at the specified viewport width. These are patterns that have become relatively common over the past couple of years.</p>
+            <p>As for responsive sizing across viewports, there's the extra <code>-md</code> keyword in the class name to activate the preferred size at the specified viewport width. These are patterns that have become relatively common over the past couple of years.</p>
           </aside>
         </section>
 
@@ -728,8 +729,8 @@
           </div>
           <aside class="notes">
             <p>Can all this be “converted” to use CSS grid? Well, to a large extent, yes. But do keep in mind that CSS grid requires a different mental model when it comes to laying out your items.</p>
-            <p>Anyway, 12 column grid? Check. This is done by defining the grid on the container with `grid-template-columns`. Items can span different number of columns? Check. This can be done in the previous style by having those column classes use <code>grid-row-end</code> with the <code>span</code> keyword.</p>
-            <p>Empty space between items in the layout? Check. For this, instead of margins, you would want to define the position of the item instead, by using <code>grid-row-start</code> so the code still works when combined with the column classes above.</p>
+            <p>Anyway, 12 column grid? Check. This is done by defining the grid on the container with <code>grid-template-columns</code>. Items can span different number of columns? Check. This can be done in the previous style by having those column classes use <code>grid-column-end</code> with the <code>span</code> keyword.</p>
+            <p>Empty space between items in the layout? Check. For this, instead of margins, you would want to define the position of the item instead, by using <code>grid-column-start</code> so the code still works when combined with the column classes above.</p>
           </aside>
         </section>
 
@@ -742,6 +743,53 @@
             <p>All that is cool. But organising the layout code in this style is akin to asking a badminton player to play tennis. Or vice versa. There are similarities and transferable skills for sure, but each require their own specific techniques and specialities.</p>
             <p>Certain techniques used by the pre-CSS grid systems are workarounds or hacks to achieve the intended behaviour. For example, Bootstrap suggests adding an element with <code>width: 100%</code> wherever you want to wrap your columns to a new line as a column break hack.</p>
             <p>With grid, you can define which row you want your item to be in and be assured that no matter how the viewport size changes, it will always be at your specified grid row. Consistent positioning in both the x and y axes of a layout is a completely new capability. One which our industry probably hasn't entirely caught on to yet.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2 class="fragment">But is it a grid? 🤔</h2>
+          <div class="livecode-2p" style="height:40vh">
+            <div class="result" style="font-size:75%;resize:horizontal">
+              <div class="flex-grid">
+                <div class="row">
+                  <div style="background-color:limegreen;border:1px dashed darkgreen;padding:1em;box-sizing:border-box;font-size:75%" class="col">.col</div>
+                  <div style="background-color:limegreen;border:1px dashed darkgreen;padding:1em;box-sizing:border-box;font-size:75%" class="col">.col</div>
+                  <div style="background-color:limegreen;border:1px dashed darkgreen;padding:1em;box-sizing:border-box;font-size:75%" class="col">.col</div>
+                  <div style="background-color:limegreen;border:1px dashed darkgreen;padding:1em;box-sizing:border-box;font-size:75%" class="col">.col</div>
+                  <div style="background-color:limegreen;border:1px dashed darkgreen;padding:1em;box-sizing:border-box;font-size:75%" class="col">.col</div>
+                </div>
+                <div class="row">
+                  <div style="background-color:limegreen;border:1px dashed darkgreen;padding:1em;box-sizing:border-box;font-size:75%" class="col">.col</div>
+                  <div style="background-color:limegreen;border:1px dashed darkgreen;padding:1em;box-sizing:border-box;font-size:75%" class="col">.col</div>
+                  <div style="background-color:limegreen;border:1px dashed darkgreen;padding:1em;box-sizing:border-box;font-size:75%" class="col">.col</div>
+                </div>
+                <div class="row">
+                  <div style="background-color:limegreen;border:1px dashed darkgreen;padding:1em;box-sizing:border-box;font-size:75%" class="col">.col</div>
+                  <div style="background-color:limegreen;border:1px dashed darkgreen;padding:1em;box-sizing:border-box;font-size:75%" class="col">.col</div>
+                </div>
+                <div class="row">
+                  <div style="background-color:limegreen;border:1px dashed darkgreen;padding:1em;box-sizing:border-box;font-size:75%" class="col">.col</div>
+                </div>
+              </div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col {
+  flex: 1 0 0%;
+}</style></div>
+          </div>
+          <blockquote class="fragment">
+            <p>a network of lines that cross each other to form a series of squares or rectangles.</p>
+            <small>Google's dictionary provided by <a href="https://languages.oup.com/google-dictionary-en">Oxford languages</a></small>
+          </blockquote>
+          <aside class="notes">
+            <p>There are also behaviours that flexbox can do but grid cannot. If you look at the <code>flex</code> property here which is set to <code>1 0 0%</code>, that translates to having a flex grow factor of <code>1</code>, no shrinking, and having the starting value for free space allocation be 0.</p>
+            <p>That means all the items with this <code>col</code> class, will take up an equal amount of space on the row. And the entire width of the row is allocated to the items. Because each row is it's own flex container, regardless of how many items are in there, their widths will always be divided equally.</p>
+            <p>You can't do this with grid, because either the number of columns must be defined, or the width of the column must be defined. Even if that width is a flexible range. Because, structure.</p>
+            <p>The flexbox implementation is great if this pyramid style layout is the behaviour you want though. But is it actually a grid?</p>
           </aside>
         </section>
 

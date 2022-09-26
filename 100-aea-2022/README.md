@@ -28,11 +28,11 @@ Non-developers would most likely never encounter nor attempt to access these set
 
 Grid was rolled out in a very coordinated manner back in 2017, with the four major browsers all shipping in the month of March, and by October, even Edge and Samsung Internet got it.
 
-Fast forward to today, the percentage of internet users surfing the web with browsers that support Flexbox and Grid is overwhelmingly high. So browser support is no longer a valid argument for why adoption rates are lower than expected.
+Fast forward to today, the percentage of internet users surfing the web with browsers that support Flexbox and Grid is overwhelmingly high. There are plenty of reasons why you would not use CSS grid in your projects, but browser support is no longer a valid one. Just saying.
 
 For what it's worth, Flexbox is everywhere. It has become the go-to for many web layouts, and after seeing my thousandth “how to centre something vertically with Flexbox” article, I'm quite convinced it caught on very well.
 
-And even though this survey has a relatively small sample size of 8075 developers, it still prompted me to wonder why and how Grid's usage numbers could be higher.
+And even though this survey has a relatively small sample size of 8075 developers, it still prompted me to wonder why Grid's usage numbers are lower than I expected.
 
 Among the 13 links I have in my bookmarks bar, I could only find Grid usage on CodePen, Discord, Imbox and Spotify. And only Spotify seemed to really embrace Grid as a page layout tool. Named grid areas and all.
 
@@ -62,10 +62,12 @@ The bare minimum to start using grid as a layout tool is setting `display` to `g
 
 If your grid needs to be more complicated, there are helpful properties and functions available to keep your code neat. The gap property makes it easy to have spacing between your grid items. The `repeat()` function, which can let you DRY out your code. You can have a fully responsive grid without writing extra media queries.
 
+Keywords like `auto-fit` and `auto-fill` allow you to tweak the auto-placement behaviour to suit your requirements. There are a lot of layout possibilities that can be implemented more easily than before.
+
 ```
 .basic-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
   gap: 1em;
 }
 ```
@@ -106,7 +108,7 @@ This ensures consistency in sizing across the different rows. Providing the illu
 
 So let's look into that. This whole pre-written styles thing, and see if CSS grid can fit into that style of CSS organisation. This flexbox-powered grid markup is heavily based on Bootstrap's implementation.
 
-The basic function is the ability to have items within a 12-column grid. These items can span different number of columns. And if you're using flexbox, you can do that by setting the `flex-basis` component of the flex item to the appropriate percentage.
+The basic function of this grid system is the ability to have items within a 12-column grid. These items can span different number of columns. And if you're using flexbox, you can do that by setting the `width` value for the set of classes to the appropriate percentage for a 12-column layout.
 
 Sometimes you may want some empty space between items in your layout, and Bootstrap uses margins to achieve this "push" capability, where the amount being pushed matches up to the column percentages.
 
@@ -114,15 +116,23 @@ As for responsive sizing across viewports, there's the extra `-md` keyword in th
 
 Can all this be “converted” to use CSS grid? Well, to a large extent, yes. But do keep in mind that CSS grid requires a different mental model when it comes to laying out your items.
 
-Anyway, 12 column grid? Check. This is done by defining the grid on the container with `grid-template-columns`. Items can span different number of columns? Check. This can be done in the previous style by having those column classes use `grid-row-end` with the `span` keyword.
+Anyway, 12 column grid? Check. This is done by defining the grid on the container with `grid-template-columns`. Items can span different number of columns? Check. This can be done in the previous style by having those column classes use `grid-column-end` with the `span` keyword.
 
-Empty space between items in the layout? Check. For this, instead of margins, you would want to define the position of the item instead, by using `grid-row-start` so the code still works when combined with the column classes above.
+Empty space between items in the layout? Check. For this, instead of margins, you would want to define the position of the item instead, by using `grid-column-start` so the code still works when combined with the column classes above.
 
 All that is cool. But organising the layout code in this style is akin to asking a badminton player to play tennis. Or vice versa. There are similarities and transferable skills for sure, but each require their own specific techniques and specialities.
 
 Certain techniques used by the pre-CSS grid systems are workarounds or hacks to achieve the intended behaviour. For example, Bootstrap suggests adding an element with `width: 100%` wherever you want to wrap your columns to a new line as a column break hack.
 
 With grid, you can define which row you want your item to be in and be assured that no matter how the viewport size changes, it will always be at your specified grid row. Consistent positioning in both the x and y axes of a layout is a completely new capability. One which our industry probably hasn't entirely caught on to yet.
+
+There are also behaviours that flexbox can do but grid cannot. If you look at the flex property here which is set to 1 0 0%, that translates to having a flex grow factor of 1, no shrinking, and having the starting value for free space allocation be 0.
+
+That means all the items with this col class, will take up an equal amount of space on the row. And the entire width of the row is allocated to the items. Because each row is it's own flex container, regardless of how many items are in there, their widths will always be divided equally.
+
+You can't do this with grid, because either the number of columns must be defined, or the width of the column must be defined. Even if that width is a flexible range. Because, structure.
+
+The flexbox implementation is great if this pyramid style layout is the behaviour you want though. But is it actually a grid?
 
 That being said, I understand that for large projects with an established frontend library that works fine, migrating to a different way of doing things is not trivial at all. Don't fix what's not broken and all.
 
