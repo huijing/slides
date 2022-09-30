@@ -94,6 +94,13 @@ $selectionColor: #1f271b;
       content: '\201D';
     }
   }
+
+  blockquote.single {
+    p::after {
+      bottom: -0.5em;
+      right: -0.375em;
+    }
+  }
 }
 
 // Accessible emojis ---------------------------

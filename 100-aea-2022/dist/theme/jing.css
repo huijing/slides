@@ -405,6 +405,10 @@
   right: 0.125em;
   content: "”";
 }
+.reveal blockquote.single p::after {
+  bottom: -0.5em;
+  right: -0.375em;
+}
 
 span.emoji {
   font-family: "Apple Color Emoji", "Segoe UI Emoji";

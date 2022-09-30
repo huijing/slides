@@ -1,4 +1,4 @@
-# Theming with CSS variables
+# CSS variables for work and play
 
 *For JS Fwdays Europe 2022. This is a sort-of transcript plus my notes for the talk.*
 
