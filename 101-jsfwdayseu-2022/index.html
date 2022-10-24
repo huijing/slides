@@ -21,12 +21,221 @@
         </section>
 
         <section>
+          <div class="intro-grid">
+            <span class="emoji" role="img" tabindex="0" aria-label="Malaysia">&#x1F1F2;&#x1F1FE;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="alien monster">&#x1F47E;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="basketball">&#x1F3C0;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="bicycle">&#x1F6B2;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="paintbrush">&#x1F58C;&#xFE0F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="sneaker">&#x1F45F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="laptop computer">&#x1F4BB;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="pen">&#x1F58A;&#xFE0F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="studio microphone">&#x1F399;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="black cat">&#x1F408;&#x200D;&#x2B1B;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="person climbing">&#x1F9D7;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="Rainbow flag">&#x1F3F3;&#xFE0F;&#x200D;&#x1F308;</span>
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+              <img data-src="img/name.svg" alt="Chen Hui Jing" class="plain" style="max-height:20vh">
+              <div>
+                <img data-src="img/avatar.jpg" alt="Jing" style="border-radius:50%;max-height:30vh">
+              </div>
+              <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
+            </div>
+          </div>
+          <aside class="notes">My name is Hui Jing. It's a Chinese name, so my family name comes first. I'm not a complicated person, so these emojis pretty much cover who I am as a person.</aside>
+        </section>
+
+        <section>
+          <img style="width:10em" data-src="img/shopify.svg" alt="Shopify">
+          <aside class="notes">I also have a day job, with Shopify, as a senior frontend developer. Because you know, I like being able to pay my rent and stuff.</aside>
+        </section>
+
+        <section data-background-image="img/spec.png">
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <div class="l-multiple">
+            <div>
+              <img data-src="img/sass.svg" alt="Sass logo">
+              <pre>
+                <code class="language-scss" style="white-space:pre-wrap">$base-color: #c6538c;
+$border-dark: rgba($base-color, 0.88);
+
+.alert {
+  border: 1px solid $border-dark;
+}</code>
+              </pre>
+            </div>
+            <div>
+              <img data-src="img/less.svg" alt="Less logo">
+              <pre>
+                <code class="language-less" style="white-space:pre-wrap">@link-color: #428bca;
+@link-color-hover: darken(@link-color, 10%);
+
+.link {
+  color: @link-color;
+}
+.link:hover {
+  color: @link-color-hover;
+}</code>
+              </pre>
+            </div>
+            <div>
+              <img data-src="img/stylus.svg" alt="Stylus logo" style="max-height:8em">
+              <pre>
+                <code class="language-stylus" style="white-space:pre-wrap">font-size = 14px
+font-stack = "Lucida Grande", Arial, sans-serif
+
+body
+  font font-size font-stack</code>
+              </pre>
+            </div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Sass variables</h2>
+          <div class="l-double">
+            <div>
+              <p>Source SCSS</p>
+            <pre style="width:max-content"><code>$accent-colour: cornflowerblue;
+.card {
+  border: 2px dashed $accent-colour;
+}
+
+$accent-colour: palegreen;
+.cta {
+  box-shadow: 0 5px 15px 5px $accent-colour;
+}</code></pre>
+            </div>
+            <div>
+              <p>Compiled CSS</p>
+            <pre style="width:max-content"><code>.card {
+  border: 2px dashed cornflowerblue;
+}
+
+.cta {
+  box-shadow: 0 5px 15px 5px palegreen;
+}</code></pre>
+            </div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Custom properties syntax</h2>
+          <p>A custom property is any property whose name starts with two dashes (U+002D HYPHEN-MINUS), like <code>--dinosaur</code>.</p>
+          <pre style="width:max-content;font-size:2em"><code class="language-css">--*</code></pre>
+          <p>It will be used to define the substitution value of <code>var()</code> functions.</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>So how to name your variables?</h2>
+          <div class="l-double">
+            <div>
+              <p>Acceptable 🙆🏻‍♀️</p>
+              <pre style="width:max-content;font-size:1em"><code class="language-scss">:root {
+  --dinosaur: firebrick;
+  --42: orange;
+  --waterMelon: lightcoral;
+  --watermelon: gold;
+  ----c4tz: forestgreen;
+  --_pirate: gold;
+}</code></pre>
+            </div>
+            <div>
+              <p>Sorry, but no 🙅🏻‍♀️</p>
+              <pre style="width:max-content;font-size:0.8em"><code class="language-scss">--angels: pink; // not in a selector
+
+:root {
+  fruit: tomato; // no dash, doesn't work
+  -flower: orchid; // single dash, also cannot
+  // special characters are generally a no
+  --$cargopants: olive;
+  --@weather: skyblue;
+  --bread&butter: lemonchiffon;
+}</code></pre>
+            </div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>The <code>var()</code> notation</h2>
+          <pre style="width:max-content;font-size:1.25em"><code class="language-css">var( &lt;custom-property-name&gt; , &lt;declaration-value&gt;? )</code></pre>
+          <p>where <code>&lt;custom-property-name&gt;</code> is the double-dash prefixed property, and <code>declaration-value</code> is the optional fall-back</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>The <code>var()</code> notation</h2>
+          <p>The fallback value kicks in if the custom property value is undefined</p>
+          <div class="livecode-2p">
+            <div class="result" style="font-size:75%">
+              <div class="a-box" style="width:30vmin;aspect-ratio:1;margin:auto;padding:1em">Hello, I am a box! :)</div>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.a-box {
+  --dinosaur: darkslateblue;
+  
+  background-color: var(--dinosaur, maroon)
+}</style></div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Inheriting CSS variable values</h2>
+          <div class="livecode-2p">
+            <div class="result" style="font-size:75%">
+              <div class="a-box" style="width:25vmin;aspect-ratio:1;margin:auto;padding:1em">
+                <p class="a-sentence">Hello, I am a p element in a div.</p>
+              </div>
+              <div class="b-box" style="width:25vmin;aspect-ratio:1;margin:auto;padding:1em">
+                Hello, I'm just a box
+              </div>
+            </div>
+            <div class="code" ><style class="code-editor" style="font-size:0.75em" contenteditable="true">:root {
+  --primary-bg: darkslateblue;
+}
+
+[class$="-box"] {
+  --primary-txt: pink;
+  background-color: var(--primary-bg);
+  color: var(--primary-txt);
+  border: 1px dashed plum;
+}
+
+.a-box {
+  
+}
+
+p.a-sentence {
+  
+  border: 2px dashed var(--primary-txt);
+}</style></div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
           <h2>Further reading and references</h2>
           <ul>
             <li><a href="https://increment.com/frontend/a-users-guide-to-css-variables/">A user’s guide to CSS variables</a></li>
             <li><a href="https://www.w3.org/TR/css-variables-1/">CSS Custom Properties for Cascading Variables Module Level 1</a></li>
-            <li><a href="https://ishadeed.com/article/practical-css-variables/"></a>Practical Use Cases For CSS Variables</li>
+            <li><a href="https://ishadeed.com/article/practical-css-variables/">Practical Use Cases For CSS Variables</a></li>
             <li><a href="https://css-irl.info/7-uses-for-css-custom-properties/">7 Uses for CSS Custom Properties</a></li>
+            <li><a href="https://lea.verou.me/tag/css-variables/">Lea Verou's blog articles on CSS variables</a></li>
           </ul>
         </section>
 

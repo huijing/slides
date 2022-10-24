@@ -29,7 +29,7 @@
   --r-code-font: monospace;
   --r-link-color: #FFD60A;
   --r-link-color-dark: #bd9d00;
-  --r-link-color-hover: #a38800;
+  --r-link-color-hover: #ffe770;
   --r-selection-background-color: #FFD60A;
   --r-selection-color: #003566;
 }
@@ -368,6 +368,10 @@
   display: flex;
   align-items: center;
 }
+.reveal code {
+  border-radius: 8px;
+  font-size-adjust: 0.52;
+}
 
 span.emoji {
   font-family: "Apple Color Emoji", "Segoe UI Emoji";
@@ -399,35 +403,36 @@ span[role=img][aria-label]:hover::after {
   box-shadow: 2px 2px 4px #eee;
 }
 
-.livecode {
+[class*=livecode] {
   display: grid;
   grid-gap: 0.5em;
   margin: 0;
   padding: 0;
 }
-.livecode .result {
+[class*=livecode] .result {
   max-height: 100%;
   overflow-y: scroll;
   width: 100%;
   border: 1px dashed #FFC300;
 }
-.livecode .result li {
+[class*=livecode] .result li {
   line-height: 0;
 }
-.livecode .result p {
+[class*=livecode] .result p {
   margin: 0;
   padding: 0;
 }
-.livecode .code {
+[class*=livecode] .code {
   text-align: left;
   width: 100%;
   font-family: "Dank Mono", monospace;
-  color: #efdcbc;
-  background-color: #3f3f3f;
+  color: #383a42;
+  background-color: #fafafa;
   padding: 0.5em;
   border-radius: 0.25em;
   overflow-y: scroll;
   font-size: 75%;
+  box-sizing: border-box;
 }
 
 .code-editor {
@@ -454,4 +459,68 @@ span[role=img][aria-label]:hover::after {
   display: block;
   height: 100%;
   white-space: pre-wrap;
+}
+
+.intro-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(12, 1.9em);
+  grid-template-rows: 2.4em repeat(9, 1.9em);
+  grid-template-areas: ". . . . a . . b . . . ." ". l . . . . . . . . c ." ". . . . . . . . . . . ." "k . . . . . . . . . . d" ". . . . . . . . . . . ." "j . . . . . . . . . . e" ". . . . . . . . . . . ." ". i . . . . . . . . f ." ". . . . . . . . . . . ." ". . . . h . . g . . . .";
+}
+.intro-grid span {
+  font-size: 1.5em;
+}
+
+.intro-grid span:first-child {
+  grid-area: a;
+}
+
+.intro-grid span:nth-child(2) {
+  grid-area: b;
+}
+
+.intro-grid span:nth-child(3) {
+  grid-area: c;
+}
+
+.intro-grid span:nth-child(4) {
+  grid-area: d;
+}
+
+.intro-grid span:nth-child(5) {
+  grid-area: e;
+}
+
+.intro-grid span:nth-child(6) {
+  grid-area: f;
+}
+
+.intro-grid span:nth-child(7) {
+  grid-area: g;
+}
+
+.intro-grid span:nth-child(8) {
+  grid-area: h;
+}
+
+.intro-grid span:nth-child(9) {
+  grid-area: i;
+}
+
+.intro-grid span:nth-child(10) {
+  grid-area: j;
+}
+
+.intro-grid span:nth-child(11) {
+  grid-area: k;
+}
+
+.intro-grid span:nth-child(12) {
+  grid-area: l;
+}
+
+.intro-grid div {
+  grid-row: 2/-3;
+  grid-column: 1/-1;
 }
