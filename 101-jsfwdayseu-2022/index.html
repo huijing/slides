@@ -17,7 +17,10 @@
         <section>
           <h1>CSS variables for work and play</h1>
           <p><small>By <a href="https://chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            <p>Hello everyone! I hope you all are enjoying the conference so far. I'm always very thankful when organisers give me the chance to speak to their audience about CSS. And I want to take this opportunity to give huge props to the organisers of JS Fwdays for not only continuing on with their conference series during this challenging time, but expanding the conference across Europe.</p>
+            <p>Today, I want to share with you all an aspect of CSS that I find both fun and useful, and that is CSS custom properties. Also known as CSS variables. One of the more common use cases for CSS variables has been for handling colour, but CSS variables can be used in so many other ways. We'll try to cover some of them over the next half an hour.</p>
+          </aside>
         </section>
 
         <section>
@@ -42,16 +45,20 @@
               <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
             </div>
           </div>
-          <aside class="notes">My name is Hui Jing. It's a Chinese name, so my family name comes first. I'm not a complicated person, so these emojis pretty much cover who I am as a person.</aside>
+          <aside class="notes">But first, who am I? Well, my name is Hui Jing. It's a Chinese name, so my family name comes first. These emojis paint a relatively accurate picture of me and my interests, feel free to ask me about them later.</aside>
         </section>
 
         <section>
           <img style="width:10em" data-src="img/shopify.svg" alt="Shopify">
-          <aside class="notes">I also have a day job, with Shopify, as a senior frontend developer. Because you know, I like being able to pay my rent and stuff.</aside>
+          <aside class="notes">I also have a day job as a senior frontend developer with Shopify, because my bills won't pay themselves.</aside>
         </section>
 
         <section data-background-image="img/spec.png">
-          <aside class="notes"></aside>
+          <aside class="notes">
+            <p>Okay, now back to the main topic of CSS custom properties. Unfortunately this is a fully online conference so it's a little harder to have real-time audience interaction. But at this point, I'd love to see how many of you have ever read any of the CSS specifications. I'm sure there will be some of you who have, but also many who have not.</p>
+            <p>I personally love the CSS specifications, even those that were written in the very early days and were not phrased in a way the average human being could understand. To me, knowing what the CSS was intended for and how it was designed to be used makes it easier for me to actually use it in my own projects.</p>
+            <p>The relevant CSS specification for today is the CSS Custom Properties for Cascading Variables Module Level 1. And it had been in the works for a long time, with the first public working draft published back in 2012. The original specification name was CSS Variables Module Level 1, so I guess that name still stuck.</p>
+          </aside>
         </section>
 
         <section>
@@ -92,7 +99,7 @@ body
               </pre>
             </div>
           </div>
-          <aside class="notes"></aside>
+          <aside class="notes">People have been wanting to have some way to store values that repeatedly appear in our stylesheets in variables for a long time, because that would make things so much easier if and when we needed to change something across the entire site, like a button colour, or a font size. The most popular CSS pre-processors, Sass, Less and Stylus all had support of variables, which eventually compiled into actual CSS values as output during the build step.</aside>
         </section>
 
         <section>
@@ -121,7 +128,10 @@ $accent-colour: palegreen;
 }</code></pre>
             </div>
           </div>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            <p>But if we wanted to dynamically update the variable, that was not really possible. The official Sass documentation explains this quite nicely. CSS variables, unlike Sass variables are included in the CSS output, and they can have different values for different elements. Sass variables will only ever be a single value, set at compile time.</p>
+            <p>Also, if you use a Sass variable, then modify its value down the code, the previous usage of the variable will not change. However, if you update a CSS variable, the previous use will also be modified. This implies that we can do some exciting things with CSS variables that were not possible previously.</p>
+          </aside>
         </section>
 
         <section>
@@ -129,7 +139,7 @@ $accent-colour: palegreen;
           <p>A custom property is any property whose name starts with two dashes (U+002D HYPHEN-MINUS), like <code>--dinosaur</code>.</p>
           <pre style="width:max-content;font-size:2em"><code class="language-css">--*</code></pre>
           <p>It will be used to define the substitution value of <code>var()</code> functions.</p>
-          <aside class="notes"></aside>
+          <aside class="notes">But before that, let's briefly run through the syntax of CSS variables and how to use them. First of all, there is the variable definition, with the double dash syntax. This is where we set the value of our variable for use later in our CSS rules. You're pretty free to name your CSS custom properties however you want, for the most part.</aside>
         </section>
 
         <section>
@@ -160,14 +170,14 @@ $accent-colour: palegreen;
 }</code></pre>
             </div>
           </div>
-          <aside class="notes"></aside>
+          <aside class="notes">The general guidance is to stick with letters, numbers and dashes or underscores. I tried a couple weirder combinations as well, just to see if they worked or not. Like having the property begin with double-dash number or many dashes or double-dash underscore. They actually worked. Special characters are generally a no-go. Also, they are case-sensitive.</aside>
         </section>
 
         <section>
           <h2>The <code>var()</code> notation</h2>
           <pre style="width:max-content;font-size:1.25em"><code class="language-css">var( &lt;custom-property-name&gt; , &lt;declaration-value&gt;? )</code></pre>
           <p>where <code>&lt;custom-property-name&gt;</code> is the double-dash prefixed property, and <code>declaration-value</code> is the optional fall-back</p>
-          <aside class="notes"></aside>
+          <aside class="notes">Using these defined values in your CSS requires the <code>var()</code> function. It takes 2 arguments, your custom property, and an optional fall-back. Most of the time, I almost never see people using the fall-back. Unsure if people don't know it exists, or that they're not sure how it works.</aside>
         </section>
 
         <section>
@@ -175,26 +185,26 @@ $accent-colour: palegreen;
           <p>The fallback value kicks in if the custom property value is undefined</p>
           <div class="livecode-2p">
             <div class="result" style="font-size:75%">
-              <div class="a-box" style="width:30vmin;aspect-ratio:1;margin:auto;padding:1em">Hello, I am a box! :)</div>
+              <div class="square" style="width:30vmin;aspect-ratio:1;margin:auto;padding:1em">Hello, I am a box! :)</div>
             </div>
-            <div class="code"><style class="code-editor" contenteditable="true">.a-box {
+            <div class="code"><style class="code-editor" contenteditable="true">.square {
   --dinosaur: darkslateblue;
   
   background-color: var(--dinosaur, maroon)
 }</style></div>
           </div>
-          <aside class="notes"></aside>
+          <aside class="notes">The point of the fallback value is that, if the custom property name used in the first argument is not defined, then the fallback value will be used instead. Not defined, in this case, should be familiar to most of us who do front-end. It's when the browser cannot match the variable to any value. So if I spelled <code>--dinosaur</code> wrong, it would trigger the fallback, but if I typo-ed on the value itself, fallback does not kick in.</aside>
         </section>
 
         <section>
           <h2>Inheriting CSS variable values</h2>
           <div class="livecode-2p">
-            <div class="result" style="font-size:75%">
-              <div class="a-box" style="width:25vmin;aspect-ratio:1;margin:auto;padding:1em">
-                <p class="a-sentence">Hello, I am a p element in a div.</p>
+            <div class="result" style="font-size:75%;display:flex;gap:1em">
+              <div class="a-box" style="width:30vmin;aspect-ratio:1;margin:auto;padding:1em">
+                <p class="a-sentence">Hello, I am a p element with a class of <code>a-sentence</code> in a div with the class <code>a-box</code>.</p>
               </div>
               <div class="b-box" style="width:25vmin;aspect-ratio:1;margin:auto;padding:1em">
-                Hello, I'm just a box
+                Hello, I'm just a box, with the class <code>b-box</code>.
               </div>
             </div>
             <div class="code" ><style class="code-editor" style="font-size:0.75em" contenteditable="true">:root {
@@ -215,12 +225,194 @@ $accent-colour: palegreen;
 p.a-sentence {
   
   border: 2px dashed var(--primary-txt);
+
 }</style></div>
           </div>
+          <aside class="notes">
+            <p>The selector I'm using up top is the :root selector. If you look at most tutorials and blog posts about CSS custom properties, you will see this selector used very often. Because it represents the root element, defining your variables in this scope essentially makes your CSS custom properties global.</p>
+            <p>CSS variables also has cascade and inheritance built in. Personally, I had to experiment around quite a bit before I fully understood things, but this is what I realised about inheriting these variable values.</p>
+            <p>Depending on where you declare your variables, you can scope them to specific selectors. You can then modify their values within descendants, however, for them to take effect, these values have to be used in properties on the selector you're trying to target.</p>
+            <p>In this example, I have some elements set up already. The primary background variable is set on the root, while the primary text variable is set on the <code>&lt;div&gt;</code>s. Both these variable values have been used on properties for the <code>&lt;div&gt;</code>s, i.e. the <code>background-color</code> and <code>color</code>.</p>
+            <p>When I modify <code>--primary-bg</code> on the <code>.a-box</code> class selector, the element itself already has the background-color property using that variable value, so I can just change the variable value to another colour and see it take effect.</p>
+            <p>On the <code>p</code> element, however, the <code>--primary-txt</code> value is only used on the <code>border</code> property. So if I set the <code>--primary-txt</code> value to something else, only the border changes colour but the text colour remains the one set on its parent <code>div</code>.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Basic theming example</h2>
+          <div class="livecode-2p">
+            <div class="result" style="font-size:75%">
+              <div class="basic">
+                <p>Hello, this is a frame without any themes applied.</p>
+              </div>
+              <div class="basic theme-1">
+                <p>Hello, this is a frame with the class <code>theme-1</code>.</p>
+              </div>
+              <div class="basic theme-2">
+                <p>Hello, this is a frame with the class <code>theme-2</code>.</p>
+              </div>
+            </div>
+            <div class="code" ><style class="code-editor" style="font-size:0.75em" contenteditable="true">:root {
+  --frame-outline: white;
+  --border-width: 2px;
+  --theme-1-gradient: linear-gradient(to right, coral, hotpink);
+  --theme-2-gradient: linear-gradient(to right, hotpink, turquoise);
+}
+
+.result .theme-1 {
+  --frame-outline: var(--theme-1-gradient);
+}
+
+.result .theme-2 {
+  --frame-outline: var(--theme-2-gradient);
+}
+
+.result .basic {
+  position: relative;
+  background-color: black;
+  background-clip: padding-box;
+  border: solid var(--border-width) transparent;
+  border-radius: 1em;
+  padding: 1em;
+  margin: 1em;
+}
+
+.result .basic:before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: -1;
+  margin: calc(var(--border-width) * -1);
+  border-radius: inherit;
+  background: var(--frame-outline);
+}</style></div>
+          <aside class="notes">
+            <p>We've pretty much covered most of the basic principles of CSS variables and how they can be used, so let's explore some real-world use cases. A popular use-case for CSS variables is colours and theming.</p>
+            <p>Here we are just rehashing the basics explained earlier into an actual code example. And just to make things a little fancier, we're going with a frame outline style with rounded borders, which actually isn't that straightforward to implement. But hey, it's still possible.</p>
+            <p>Ignoring the fanciness of things, this example here makes use of the inheritance of CSS variables and modifies the value of the <code>--frame-outline</code> on different theme classes. In this example here, you can see that we have 4 custom properties defined. And there's nothing stopping you from using a variable in another variable.</p>
+            <p>Like the 2 gradient values here, can be used to modify the frame-outline variable for a different CSS class. CSS variables can hold the full value of a CSS property, or just a single value within a multiple value property, like <code>border</code> or <code>background</code>.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Maintainable variant styling</h2>
+          <pre style="width:max-content;font-size:0.8em"><code>radial-gradient( [ &lt;ending-shape&gt; || &lt;size&gt; ]? [ at &lt;position&gt; ]? , &lt;color-stop-list&gt; )</code></pre>
+          <div class="livecode-2p">
+            <div class="result" style="font-size:75%;display:flex;flex-wrap:wrap;gap:1em;justify-content:center;">
+              <div class="card card--top-left">
+                <img data-src="img/solar.webp" alt="Solar">
+                <p>Solar</p>
+              </div>
+              <div class="card card--top-right">
+                <img data-src="img/moonbyul.webp" alt="Moonbyul">
+                <p>Moonbyul</p>
+              </div>
+              <div class="card card--bottom-left">
+                <img data-src="img/wheein.webp" alt="Wheein">
+                <p>Wheein</p>
+              </div>
+              <div class="card card--bottom-right">
+                <img data-src="img/hwasa.webp" alt="Hwasa">
+                <p>Hwasa</p>
+              </div>
+            </div>
+            <div class="code" ><style class="code-editor" style="font-size:0.75em" contenteditable="true">[class^=card] {
+  --pos: left top;
+  --accent-color: dodgerblue;
+  --bg-color: ghostwhite;
+  background: radial-gradient(
+    circle 250px at var(--pos),
+    var(--accent-color),
+    var(--bg-color)
+  );
+}
+
+.card--top-right {
+  --pos: right top;
+  
+}
+
+.card--bottom-left {
+  --pos: left bottom;
+  
+}
+
+.card--bottom-right {
+  --pos: right bottom;
+  
+}
+
+.card {
+  padding: 1em;
+  border-radius: 8px;
+  flex: 0 1 auto;
+  color: black;
+}</style></div>
+          <aside class="notes">
+            <p>Let's take <code>background</code> as an example, if you want to write the code for <code>radial-gradient</code>, it has lot of values for different aspects of the gradient. By assigning the component values to CSS variables, the code for variants becomes a lot neater because you only need to update the variables.</p>
+            <p>So here, we can put the parts of the gradient value that may vary into their own CSS variables, like the position of the gradient, the two colours for the gradient. But the color-stop-list can be as many colours as you'd like. Instead of rewriting the gradient for each card, we can update the variable value instead.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Combine with <code>calc()</code></h2>
+          <div class="livecode-2p">
+            <div class="result" style="font-size:75%;display:flex">
+              <div class="hei">
+                <img data-src="img/hei.jpg">
+              </div>
+              <div class="hei--small">
+                <img data-src="img/hei.jpg">
+              </div>
+              <div class="hei--big">
+                <img data-src="img/hei.jpg">
+              </div>
+            </div>
+            <div class="code" ><style class="code-editor" style="font-size:0.75em" contenteditable="true">[class^=hei] {
+  --size: 2; 
+  width: calc(var(--size) * 5em);
+  height: calc(var(--size) * 5em);
+}
+
+.hei--small {
+  
+}
+
+.hei--big {
+  
+}</style></div>
+          <aside class="notes">
+            <p>When combined with the <code>calc()</code> function, we then have the opportunity to make our code a lot neater, or at least, reduce the amount of magic numbers in our stylesheets. Like having a size multiplier to manage various image sizes, for example.</p>
+            <p>Of course, some of you might be thinking, we already do this with Sass variables. And that's true. What I've described is on-par with what Sass can achieve.</p>
+            <p>Although the fact that I can show you this demo live on the slides already demonstrates the difference between CSS and Sass variables. Being able to dynamically change the values of a CSS property and see its result in real-time opens up some creative possibilities that were either impossible or unfeasible in the past.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>CSS variables in media queries</h2>
+          <p class="codepen" data-height="558" data-default-tab="result,css" data-slug-hash="ExRxqPp" data-user="huijing" style="height: 558px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/huijing/pen/ExRxqPp">
+            Untitled</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
+          <aside class="notes">
+            <p>Being able to update CSS variable values within media queries is definitely a welcome edition, because it allows us to do things like this without having to explicitly create new variables for every point which the font size changes. It also simplifies the code logic since we can handle the font size changes with just 2 variables, <code>text-base-size</code> and <code>text-to-heading-ratio</code>, and let <code>calc()</code> handle the rest.</p>
+            <p>And such a concept can be applied to numerous things, like margins and paddings across different viewport sizes, image sizes, anything that you'd like to have some mathematical relationship can now be done with CSS alone, I think that's pretty handy.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Easier Javascript hooks</h2>
           <aside class="notes"></aside>
         </section>
 
         <section>
+          <h2>The dark/light mode toggle</h2>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>Sass is still relevant</h2>
           <aside class="notes"></aside>
         </section>
 
@@ -258,12 +450,13 @@ p.a-sentence {
     <script src="plugin/highlight/highlight.js"></script>
     <script>
       Reveal.initialize({
-        width: 1600,
-        height: 900,
+        width: 1920,
+        height: 1080,
         hash: true,
         transition: 'fade',
         plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
       });
     </script>
+    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
   </body>
 </html>
