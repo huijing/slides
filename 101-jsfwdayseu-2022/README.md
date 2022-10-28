@@ -16,13 +16,13 @@ I personally love the CSS specifications, even those that were written in the ve
 
 The relevant CSS specification for today is the [CSS Custom Properties for Cascading Variables Module Level 1](https://www.w3.org/TR/css-variables-1/). And it had been in the works for a long time, with the first public working draft published back in 2012. The original specification name was CSS Variables Module Level 1, so I guess that name still stuck.
 
-People have been wanting to have some way to store values that repeatedly appear in our stylesheets in variables for a long time, because that would make things so much easier if and when we needed to change something across the entire site, like a button colour, or a font size. The most popular CSS pre-processors, Sass, Less and Stylus all had support of variables, which eventually compiled into actual CSS values as output during the build step.
+People have been wanting to have some way to store values that repeatedly appear in their stylesheets in variables for a long time, because that would make things so much easier if and when you needed to change something across the entire site, like a button colour, or a font size. The most popular CSS pre-processors, Sass, Less and Stylus all had support of variables, which eventually compiled into actual CSS values as output during the build step.
 
-But if we wanted to dynamically update the variable, that was not really possible. The official Sass documentation explains this quite nicely. CSS variables, unlike Sass variables are included in the CSS output, and they can have different values for different elements. Sass variables will only ever be a single value, set at compile time.
+But if you wanted to dynamically update the variable, that was not really possible. The official Sass documentation explains this quite nicely. CSS variables, unlike Sass variables are included in the CSS output, and they can have different values for different elements. Sass variables will only ever be a single value, set at compile time.
 
-Also, if you use a Sass variable, then modify its value down the code, the previous usage of the variable will not change. However, if you update a CSS variable, the previous use will also be modified. This implies that we can do some exciting things with CSS variables that were not possible previously.
+Also, if you use a Sass variable, then modify its value down the code, the previous usage of the variable will not change. However, if you update a CSS variable, the previous use will also be modified. This implies that you can do some exciting things with CSS variables that were not possible previously.
 
-But before that, let's briefly run through the syntax of CSS variables and how to use them. First of all, there is the variable definition, with the double dash syntax. This is where we set the value of our variable for use later in our CSS rules. You're pretty free to name your CSS custom properties however you want, for the most part.
+But before that, let's briefly run through the syntax of CSS variables and how to use them. First of all, there is the variable definition, with the double dash syntax. This is where you set the value of your variable for use later in your CSS rules. You're pretty free to name your CSS custom properties however you want, for the most part.
 
 The general guidance is to stick with letters, numbers and dashes or underscores. I tried a couple weirder combinations as well, just to see if they worked or not. Like having the property begin with double-dash number or many dashes or double-dash underscore. They actually worked. Special characters are generally a no-go. Also, they are case-sensitive.
 
@@ -42,25 +42,42 @@ Depending on where you declare your variables, you can scope them to specific se
 
 *On the p element, however, the primary-txt value is only used on the border property. So if I set the primary-txt value to something else, only the border changes colour but the text colour remains the one set on its parent div.*
 
-We've pretty much covered most of the basic principles of CSS variables and how they can be used, so let's explore some real-world use cases. A popular use-case for CSS variables is colours and theming.
+In terms of debugging and the development process, all the major browser Devtools have pretty good support for CSS variables. In my opinion, the successful adoption of any new CSS hinges on how well the accompanying Devtool-ing is for that new feature. Anyway, if you inspect an element that uses a custom property, hovering over the variable should give you its computed value. For Chrome, if you click on the variable, it will bring you to where the property was defined, which is really nice as well.
 
-Here we are just rehashing the basics explained earlier into an actual code example. And just to make things a little fancier, we're going with a frame outline style with rounded borders, which actually isn't that straightforward to implement. But hey, it's still possible.
+We've pretty much covered most of the basic principles of CSS variables and how they can be used, so let's explore some real-world use cases. A popular use-case for CSS variables is colours and theming. So my first example is the most cliched one you can think of, the light/dark mode toggle.
 
-Ignoring the fanciness of things, this example here makes use of the inheritance of CSS variables and modifies the value of the `--frame-outline` on different theme classes. In this example here, you can see that we have 4 custom properties defined. And there's nothing stopping you from using a variable in another variable. Like the 2 gradient values here, can be used to modify the frame-outline variable for a different CSS class.
+This example only focuses on the CSS part and not the extra functionality of having persistence across reloads (you'll need some sprinkling of Javascript for that, which I will show in the next slide). But the idea here is that your theme colours are stored in CSS variables, and when the toggle is checked, the variable values are updated accordingly without having to override the original properties set on the elements.
 
-CSS variables can hold the full value of a CSS property, or just a single value within a multiple value property, like `border` or `background`.
+If you really want something a little bit more production ready, consider sprinkling on some Javascript to make use of localStorage for persistence. And also, using data attributes instead of CSS classes could be a neat way of doing things as well, from the perspective of code organisation.
+
+The dark mode colours are declared under data-theme=dark and the attribute value is modified when onchange is triggered on the toggle. localStorage can be used to store this value, and checked every time the user loads the page. But we're digressing from CSS variables now, so let's bring it back.
+
+For this next example, we'll make things a little bit fancier by going with a frame outline style with rounded borders, which actually isn't that straightforward to implement. It's this odd combination of wanting a gradient border combined with rounded corners. But hey, it's still possible.
+
+Ignoring the fanciness of things, this example here makes use of the inheritance of CSS variables and modifies the value of the `--frame-outline` on different theme classes. In this example here, you can see that there are 4 custom properties defined. And there's nothing stopping you from using a variable in another variable.
+
+Like these 2 gradient values here, can be used to modify the frame-outline variable for a different CSS class. CSS variables can hold the full value of a CSS property, or just a single value within a multiple value property, like `border` or `background`.
 
 Let's take `background` as an example, if you want to write the code for `radial-gradient`, it has lot of values for different aspects of the gradient. By assigning the component values to CSS variables, the code for variants becomes a lot neater because you only need to update the variables.
 
-*So here, we can put the parts of the gradient value that may vary into their own CSS variables, like the position of the gradient, the two colours for the gradient. But the color-stop-list can be as many colours as you'd like. Instead of rewriting the gradient for each card, we can update the variable value instead.*
+*So here, you can put the parts of the gradient value that may vary into their own CSS variables, like the position of the gradient, the two colours for the gradient. But the color-stop-list can be as many colours as you'd like. Instead of rewriting the gradient for each card, you can update the variable value instead.*
 
-When combined with the `calc()` function, we then have the opportunity to make our code a lot neater, or at least, reduce the amount of magic numbers in our stylesheets. Like having a size multiplier to manage various image sizes, for example. Of course, some of you might be thinking, we already do this with Sass variables. And that's true. What I've described is on-par with what Sass can achieve.
+When combined with the `calc()` function, you then have the opportunity to make your code a lot neater, or at least, reduce the amount of magic numbers in your stylesheets. Like having a size multiplier to manage various image sizes, for example. Of course, some of you might be thinking, you already do this with Sass variables. And that's true. What I've described is on-par with what Sass can achieve.
 
 Although the fact that I can show you this demo live on the slides already demonstrates the difference between CSS and Sass variables. Being able to dynamically change the values of a CSS property and see its result in real-time opens up some creative possibilities that were either impossible or unfeasible in the past.
 
-Being able to update CSS variable values within media queries is definitely a welcome edition, because it allows us to do things like this without having to explicitly create new variables for every point which the font size changes. It also simplifies the code logic since we can handle the font size changes with just 2 variables, `text-base-size` and `text-to-heading-ratio`, and let `calc()` handle the rest.
+Being able to update CSS variable values within media queries is definitely a welcome edition, because it allows you to do things like this without having to explicitly create new variables for every point which the font size changes. It also simplifies the code logic since you can handle the font size changes with just 2 variables, `text-base-size` and `text-to-heading-ratio`, and let `calc()` handle the rest.
 
 And such a concept can be applied to numerous things, like margins and paddings across different viewport sizes, image sizes, anything that you'd like to have some mathematical relationship can now be done with CSS alone, I think that's pretty handy.
 
+CSS variables also gives you a more convenient mechanism for Javascript to hook into your styles. You can get a property value using `getPropertyValue` and set it via `setProperty`. This means that I have a straight-forward way of updating my CSS values with values calculated from Javascript.
 
+For example, if I want to make something move with my cursor, I grab the x and y coordinates on mousemove and set those values on the transform property for the x and y translation respectively. Even with the styles that only serve to make the div look like this gradient ball, it's 5 lines of CSS. And the Javascript is almost equally short.
 
+And like I mentioned earlier in the talk, any interaction that can be translated into a mathematical relationship with an element's style property can be leveraged to do some interesting things. You generate colours based off mouse position, if that's something you wanted.
+
+If you want to look further into future possibilities, you can keep in mind the `@property` at-rule, which is part of the CSS Properties and Values API Level 1, AKA CSS Houdini. This particular CSS module defines an API for registering new CSS properties, which get a parse syntax defining its type, inheritance behaviour, and its initial value. Even though support is pretty much limited to Chromium-based browsers, it's still good to know how it works.
+
+One thing that you could not do in the past was to animate gradients which were set as background images. The `background-image` property is not an animatable property. The browser can only animate something if it knows how to interpolate between the start and end values. The `@property` has a `syntax` descriptor that allows you to tell the browser the type of property you're defining so the browser knows how it needs to interpolate the value.
+
+In this case, I'm telling the browser this property is an angle. Then the `keyframes` code becomes quite succinct, where I'm saying animate to 360 degrees, then making it go on forever with the `animation` property. And there are a lot more possibilities that just this, which I hope you are intrigued enough to play around and explore on your own.

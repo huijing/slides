@@ -239,6 +239,74 @@ p.a-sentence {
         </section>
 
         <section>
+          <h2>Debugging with Devtools</h2>
+          <div class="l-multiple">
+            <figure>
+              <img data-src="img/chrome.png" alt="Chrome Devtools for CSS custom properties" style="max-height:70vh">
+              <figcaption>Chrome</figcaption>
+            </figure>
+            <figure>
+              <img data-src="img/firefox.png" alt="Firefox Devtools for CSS custom properties" style="max-height:70vh">
+              <figcaption>Firefox</figcaption>
+            </figure>
+            <figure>
+              <img data-src="img/safari.png" alt="Safari Devtools for CSS custom properties" style="max-height:70vh">
+              <figcaption>Safari</figcaption>
+            </figure>
+          </div>
+          <aside class="notes">In terms of debugging and the development process, all the major browser Devtools have pretty good support for CSS variables. In my opinion, the successful adoption of any new CSS hinges on how well the accompanying Devtool-ing is for that new feature. Anyway, if you inspect an element that uses a custom property, hovering over the variable should give you its computed value. For Chrome, if you click on the variable, it will bring you to where the property was defined, which is really nice as well.</aside>
+        </section>
+
+        <section>
+          <h2>The dark/light mode toggle</h2>
+          <div class="livecode-2p">
+            <div class="result">
+              <input class="theme-toggle" type="checkbox" id="themeToggle">
+              <label for="themeToggle" style="cursor:pointer;margin-bottom:0.25em;display:inline-block">Light mode?</label>
+              <div class="content" style="width:85%;padding:1em;margin:auto">
+                <h3 class="content-header">森秋彩　努力の天才</h3>
+                <p style="text-align:left">多くの人が待ち望んだシニア国際大会デビュー。世界選手権では得意のリードで日本人最年少メダルを獲得。幼い頃から数々の大会を制してきた16歳は、どのような心境で2019年シーズンを過ごしてきたのか。まだ幼さの残る表情から見えてきたのは、絶え間ない向上心。クライミングの天才少女は、努力の天才だった。</p>
+              </div>
+            </div>
+            <div class="code" ><style class="code-editor" style="font-size:0.75em" contenteditable="true">.result .content {
+  --bg-colour: #333;
+  --txt-colour: #eee;
+  --header-colour: #fff;
+
+  background-color: var(--bg-colour);
+  color: var(--txt-colour);
+}
+
+.result .content-header {
+  color: var(--header-colour);
+}
+
+.theme-toggle:checked ~ .content {
+  --bg-colour: #eee;
+  --txt-colour: #333;
+  --header-colour: #444;
+}</style></div>
+          <aside class="notes">
+            <p>We've pretty much covered most of the basic principles of CSS variables and how they can be used, so let's explore some real-world use cases. A popular use-case for CSS variables is colours and theming. So my first example is the most cliched one you can think of, the light/dark mode toggle.</p>
+            <p>This example only focuses on the CSS part and not the extra functionality of having persistence across reloads (you'll need some sprinkling of Javascript for that, which I will show in the next slide). But the idea here is that your theme colours are stored in CSS variables, and when the toggle is checked, the variable values are updated accordingly without having to override the original properties set on the elements.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Sprinkle on Javascript</h2>
+          <p>Data attributes are useful for theming, <code>localStorage</code> can be used for persistence</p>
+          <p class="codepen" data-height="520" data-default-tab="js,result" data-slug-hash="OJEPdYE" data-user="huijing" style="height: 520px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/huijing/pen/OJEPdYE">
+            Untitled</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
+          <aside class="notes">
+            <p>If you really want something a little bit more production ready, consider sprinkling on some Javascript to make use of <code>localStorage</code> for persistence. And also, using data attributes instead of CSS classes could be a neat way of doing things as well, from the perspective of code organisation.</p>
+            <p>The dark mode colours are declared under <code>data-theme=dark</code> and the attribute value is modified when onchange is triggered on the toggle. <code>localStorage</code> can be used to store this value, and checked every time the user loads the page. But we're digressing from CSS variables now, so let's bring it back.</p>
+          </aside>
+        </section>
+
+        <section>
           <h2>Basic theming example</h2>
           <div class="livecode-2p">
             <div class="result" style="font-size:75%">
@@ -287,10 +355,9 @@ p.a-sentence {
   background: var(--frame-outline);
 }</style></div>
           <aside class="notes">
-            <p>We've pretty much covered most of the basic principles of CSS variables and how they can be used, so let's explore some real-world use cases. A popular use-case for CSS variables is colours and theming.</p>
-            <p>Here we are just rehashing the basics explained earlier into an actual code example. And just to make things a little fancier, we're going with a frame outline style with rounded borders, which actually isn't that straightforward to implement. But hey, it's still possible.</p>
+            <p>For this next example, we'll make things a little bit fancier by going with a frame outline style with rounded borders, which actually isn't that straightforward to implement. It's this odd combination of wanting a gradient border combined with rounded corners. But hey, it's still possible.</p>
             <p>Ignoring the fanciness of things, this example here makes use of the inheritance of CSS variables and modifies the value of the <code>--frame-outline</code> on different theme classes. In this example here, you can see that we have 4 custom properties defined. And there's nothing stopping you from using a variable in another variable.</p>
-            <p>Like the 2 gradient values here, can be used to modify the frame-outline variable for a different CSS class. CSS variables can hold the full value of a CSS property, or just a single value within a multiple value property, like <code>border</code> or <code>background</code>.</p>
+            <p>Like these 2 gradient values here, can be used to modify the frame-outline variable for a different CSS class. CSS variables can hold the full value of a CSS property, or just a single value within a multiple value property, like <code>border</code> or <code>background</code>.</p>
           </aside>
         </section>
 
@@ -402,22 +469,113 @@ p.a-sentence {
         </section>
 
         <section>
-          <h2>Easier Javascript hooks</h2>
-          <aside class="notes"></aside>
-        </section>
-
-        <section>
-          <h2>The dark/light mode toggle</h2>
-          <aside class="notes"></aside>
-        </section>
-
-        <section>
           <h2>Sass is still relevant</h2>
-          <aside class="notes"></aside>
+          <pre><code class="language-scss">@mixin defineColorHSL($color, $hue, $saturation, $lightness){
+  #{$color}: unquote("hsl(#{$hue}, #{$saturation}, #{$lightness})");#{$color}-h: #{$hue};#{$color}-s: #{$saturation};#{$color}-l: #{$lightness};
+}
+
+:root, [data-theme="default"] {
+  @include defineColorHSL(--color-primary, 220, 89%, 56%);
+  @include defineColorHSL(--color-accent, 355, 90%, 61%);
+  @include defineColorHSL(--color-black, 240, 8%, 12%);
+  @include defineColorHSL(--color-white, 0, 0%, 100%);
+}
+
+.component {
+  background-color: alpha(var(--color-primary), 0.2); // it works 🎉
+}</code></pre>
+
+<pre><code class="language-scss">@function lightness($color, $lightnessMultiplier){
+  $color: str-replace($color, 'var(');
+  $color: str-replace($color, ')');
+  $color-h: var(#{$color+'-h'});
+  $color-s: var(#{$color+'-s'});
+  $color-l: var(#{$color+'-l'});
+  @return hsl($color-h, $color-s, calc(#{$color-l} * #{$lightnessMultiplier}));
+}
+
+.component {
+  background-color: lightness(var(--color-primary), 1.2);
+}</code></pre>
+          <small><a href="https://codyhouse.co/blog/post/how-to-combine-sass-color-functions-and-css-variables">How to combine SASS color functions and CSS Variables</a></small>
+          <aside class="notes">
+            <p>All that being said, this does not mean Sass is completely obsolete. At least for now, it is still a rather useful tool. Functions and mixins are still great ways to make your code neater, and those don't ever get compiled into actual CSS.</p>
+            <p>This is an example from a rather specific problem the author was trying to solve for generating colour variations. And it makes use of Sass colour functions to alpha values and expand on other colour modification functions for lightness and saturation.</p>
+            <p>If you do want to mix up Sass variables and CSS variables, do remember that you will have to wrap the Sass variable within <code>#{}</code> so that it gets parsed correctly at compile time.</p>
+          </aside>
         </section>
 
         <section>
-          <aside class="notes"></aside>
+          <h2>Easier Javascript hooks</h2>
+          <pre style="width:max-content;font-size:0.8em"><code class="language-javascript">// get variable value from element
+getComputedStyle(element).getPropertyValue('--variable-name')
+
+// set variable value
+element.style.setProperty('--variable-name', 'RELEVANT_PROPERTY_VALUE');</code></pre>
+          <p class="codepen" data-height="500" data-default-tab="js,result" data-slug-hash="dyKPwmE" data-user="huijing" style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/huijing/pen/dyKPwmE">
+            Untitled</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
+          <aside class="notes">
+            <p>CSS variables also gives you a more convenient mechanism for Javascript to hook into your styles. You can get a property value using `getPropertyValue` and set it via `setProperty`. This means that I have a straight-forward way of updating my CSS values with values calculated from Javascript.</p>
+            <p>For example, if I want to make something move with my cursor, I grab the x and y coordinates on mousemove and set those values on the transform property for the x and y translation respectively. Even with the styles that only serve to make the div look like this gradient ball, it's 5 lines of CSS. And the Javascript is almost equally short.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Easier Javascript hooks</h2>
+          <pre style="width:max-content;font-size:0.8em"><code class="language-javascript">// get variable value from element
+getComputedStyle(element).getPropertyValue('--variable-name')
+
+// set variable value
+element.style.setProperty('--variable-name', 'RELEVANT_PROPERTY_VALUE');</code></pre>
+          <p class="codepen" data-height="500.4921875" data-default-tab="js,result" data-slug-hash="oNygQqE" data-user="huijing" style="height: 500.4921875px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/huijing/pen/oNygQqE">
+            Naive colour change on mousemove</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
+          <aside class="notes">And like I mentioned earlier in the talk, any interaction that can be translated into a mathematical relationship with an element's style property can be leveraged to do some interesting things. You generate colours based off mouse position, if that's something you wanted.</aside>
+        </section>
+
+        <section>
+          <h2>The <code>@property</code> at-rule</h2>
+          <p style="max-width:32em;margin-left:auto;margin-right:auto">The <code>@property</code> rule represents a custom property registration directly in a stylesheet without having to run any JS.</p>
+          <pre style="width:max-content;font-size:0.75em"><code class="language-css">@property --property-name {
+  syntax: "&lt;color&gt;";
+  inherits: false;
+  initial-value: #c0ffee;
+}</code></pre>
+          <aside class="notes">If we want to look further into future possibilities, we can keep in mind the <code>@property</code> at-rule, which is part of the CSS Properties and Values API Level 1, AKA CSS Houdini. This particular CSS module defines an API for registering new CSS properties, which get a parse syntax defining its type, inheritance behaviour, and its initial value. Even though support is pretty much limited to Chromium-based browsers, it's still good to know how it works.</aside>
+        </section>
+
+        <section>
+          <h2>Animate gradients with custom properties</h2>
+          <div class="livecode-2p">
+            <div class="result" style="font-size:75%;display:flex">
+              <div class="animate" style="width:50vmin;height:50vmin;border-radius:50%;margin:auto"></div>
+            </div>
+            <div class="code" ><style class="code-editor" style="font-size:0.75em" contenteditable="true">.result .animate {
+  --angle: 0deg;
+  background-image: linear-gradient(var(--angle), coral, gold);
+  animation: 4s rotate linear infinite;
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}</style></div>
+          <aside class="notes">
+            <p>One thing that you could not do in the past was to animate gradients which were set as background images. The `background-image` property is not an animatable property. The browser can only animate something if it knows how to interpolate between the start and end values. The `@property` has a `syntax` descriptor that allows you to tell the browser the type of property you're defining so the browser knows how it needs to interpolate the value.</p>
+            <p>In this case, I'm telling the browser this property is an angle. Then the `keyframes` code becomes quite succinct, where I'm saying animate to 360 degrees, then making it go on forever with the `animation` property. And there are a lot more possibilities that just this, which I hope you are intrigued enough to play around and explore on your own.</p>
+          </aside>
         </section>
 
         <section>
@@ -428,6 +586,7 @@ p.a-sentence {
             <li><a href="https://ishadeed.com/article/practical-css-variables/">Practical Use Cases For CSS Variables</a></li>
             <li><a href="https://css-irl.info/7-uses-for-css-custom-properties/">7 Uses for CSS Custom Properties</a></li>
             <li><a href="https://lea.verou.me/tag/css-variables/">Lea Verou's blog articles on CSS variables</a></li>
+            <li><a href="https://css-tricks.com/exploring-property-and-its-animating-powers/">Exploring @property and its Animating Powers</a></li>
           </ul>
         </section>
 
