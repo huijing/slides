@@ -62,7 +62,7 @@ Let's take `background` as an example, if you want to write the code for `radial
 
 *So here, you can put the parts of the gradient value that may vary into their own CSS variables, like the position of the gradient, the two colours for the gradient. But the color-stop-list can be as many colours as you'd like. Instead of rewriting the gradient for each card, you can update the variable value instead.*
 
-When combined with the `calc()` function, you then have the opportunity to make your code a lot neater, or at least, reduce the amount of magic numbers in your stylesheets. Like having a size multiplier to manage various image sizes, for example. Of course, some of you might be thinking, you already do this with Sass variables. And that's true. What I've described is on-par with what Sass can achieve.
+When combined with the `calc()` function, you then have the opportunity to make your code a lot neater, or at least, reduce the amount of magic numbers in your stylesheets. Like having a size multiplier to manage various image sizes, for example. Of course, some of you might be thinking, we already do this with Sass variables. And that's true. What I've described is on-par with what Sass can achieve.
 
 Although the fact that I can show you this demo live on the slides already demonstrates the difference between CSS and Sass variables. Being able to dynamically change the values of a CSS property and see its result in real-time opens up some creative possibilities that were either impossible or unfeasible in the past.
 
@@ -72,7 +72,7 @@ And such a concept can be applied to numerous things, like margins and paddings 
 
 CSS variables also gives you a more convenient mechanism for Javascript to hook into your styles. You can get a property value using `getPropertyValue` and set it via `setProperty`. This means that I have a straight-forward way of updating my CSS values with values calculated from Javascript.
 
-For example, if I want to make something move with my cursor, I grab the x and y coordinates on mousemove and set those values on the transform property for the x and y translation respectively. Even with the styles that only serve to make the div look like this gradient ball, it's 5 lines of CSS. And the Javascript is almost equally short.
+For example, if I want to make something move with my cursor, I grab the x and y coordinates on `mousemove` and set those values on the transform property for the `x` and `y` translation respectively. Even with the styles that only serve to make the `div` look like this gradient ball, it's 5 lines of CSS. And the Javascript is almost equally short.
 
 And like I mentioned earlier in the talk, any interaction that can be translated into a mathematical relationship with an element's style property can be leveraged to do some interesting things. You generate colours based off mouse position, if that's something you wanted.
 
