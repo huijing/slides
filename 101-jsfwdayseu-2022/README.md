@@ -70,11 +70,17 @@ Being able to update CSS variable values within media queries is definitely a we
 
 And such a concept can be applied to numerous things, like margins and paddings across different viewport sizes, image sizes, anything that you'd like to have some mathematical relationship can now be done with CSS alone, I think that's pretty handy.
 
+All that being said, this does not mean Sass is completely obsolete. At least for now, it is still a rather useful tool. Functions and mixins are still great ways to make your code neater, and those don't ever get compiled into actual CSS. If you have a design system with multiple sets of theme colours, you might end up with a lot of colour variables, and having all of them in the output CSS might not be the best idea. Sass variables don't show up in the final output, so this is something to keep in mind.
+
+This is an example from a rather specific problem the author was trying to solve for generating colour variations. And it makes use of Sass colour functions to alpha values and expand on other colour modification functions for lightness and saturation. If you do want to mix up Sass variables and CSS variables, do remember that you will have to wrap the Sass variable within `#{}` so that it gets parsed correctly at compile time.
+
 CSS variables also gives you a more convenient mechanism for Javascript to hook into your styles. You can get a property value using `getPropertyValue` and set it via `setProperty`. This means that I have a straight-forward way of updating my CSS values with values calculated from Javascript.
 
 For example, if I want to make something move with my cursor, I grab the x and y coordinates on `mousemove` and set those values on the transform property for the `x` and `y` translation respectively. Even with the styles that only serve to make the `div` look like this gradient ball, it's 5 lines of CSS. And the Javascript is almost equally short.
 
-And like I mentioned earlier in the talk, any interaction that can be translated into a mathematical relationship with an element's style property can be leveraged to do some interesting things. You generate colours based off mouse position, if that's something you wanted.
+And like I mentioned earlier in the talk, any interaction that can be translated into a mathematical relationship with an element's style property can be leveraged to do some interesting things. You generate colours based off mouse position, if that's something you wanted. The key difference between modifying styles with Javascript directly versus modifying the value of a CSS variable is the specificity advantage. 
+
+Inline styles have a notoriously high specificity, which makes things trickier to manage and styles are coming from numerous sources. You may end up in unwanted specificity battles and debugging complications. Using CSS variables allows you to keep the styles within CSS and reduce to number of overriding styles on the same element, as demonstrated in some of the previous examples we went through earlier.
 
 If you want to look further into future possibilities, you can keep in mind the `@property` at-rule, which is part of the CSS Properties and Values API Level 1, AKA CSS Houdini. This particular CSS module defines an API for registering new CSS properties, which get a parse syntax defining its type, inheritance behaviour, and its initial value. Even though support is pretty much limited to Chromium-based browsers, it's still good to know how it works.
 
