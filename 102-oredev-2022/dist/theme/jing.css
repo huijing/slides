@@ -369,6 +369,12 @@
   display: flex;
   align-items: center;
 }
+.reveal code {
+  border-radius: 8px;
+}
+.reveal strong {
+  color: #ACEB98;
+}
 .reveal blockquote {
   width: 80%;
   text-align: left;

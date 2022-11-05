@@ -53,6 +53,14 @@ $selectionColor: $backgroundColor;
     align-items: center;
   }
 
+  code {
+    border-radius: 8px;
+  }
+
+  strong {
+    color: $headingColor;
+  }
+
   blockquote {
     width: 80%;
     text-align: left;

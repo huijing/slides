@@ -17,7 +17,7 @@
         <section>
           <h1>CSS for internationalisation</h1>
           <p><small>By <a href="https://chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
-          <aside class="notes">Hello everyone! This is my first time in Sweden ever, and I'm pretty excited to be hear talking to all of you at this amazing conference. I know it's just after lunch, but hopefully, at least some of you will not fall into a food coma and humour me for the rest of this session.</aside>
+          <aside class="notes">Hello everyone! This is my first time in Sweden ever, and I'm pretty excited to be here talking to all of you at this amazing conference. I know it's just after lunch, but hopefully, at least some of you will not fall into a food coma and humour me for the rest of this session.</aside>
         </section>
 
         <section>
@@ -54,12 +54,12 @@
           <section>
             <h2>Numeronyms</h2>
             <div class="fragment">
-              <img class="plain" style="height:4em" data-src="img/i18n.svg" alt="internationalisation">
+              <img class="plain" style="height:4em;display:block;margin:1em auto" data-src="img/i18n.svg" alt="internationalisation">
               <img class="plain" style="height:4em" data-src="img/l10n.svg" alt="localisation">
             </div>
             <aside class="notes">
               <p>CSS is a really big topic, so today I'm specifically going to talk about CSS that is relevant for internationalisation. But before we get into it, let's discuss Numeronyms. Numeronyms are number-based words, where a number is used to form an abbreviation.</p>
-              <p>i18n stands for internationalisation because there are 18 letters between I and N. Some of you may have also seen l10n, which is the abbreviation for localisation. But what's the difference, you may be wondering?</p>
+              <p><em>[click]</em> i18n stands for internationalisation because there are 18 letters between I and N. Some of you may have also seen l10n, which is the abbreviation for localisation. But what's the difference, you may be wondering?</p>
             </aside>
           </section>
 
@@ -82,8 +82,8 @@
               <p>CSS is a domain-specific, declarative programming language.<br><small>–<a href="https://twitter.com/laras126">Lara Schenck</a></small></p>
             </blockquote>
             <aside class="notes">
-              <p>CSS stands for Cascading Stylesheets. To me it is a vocabulary for us to communicate with the browser. The first standard for CSS was published on December 17, 1996, which makes CSS around 23 and a half years old. When CSS first came out, it wasn't even meant for doing layout, think about that for a bit.</p>
-              <p>Two decades later, we went from what seemed like trying to communicate with a toddler to having a pretty wide vocabulary for telling the browser how we want stuff to on our web pages to look like. Lara Schenck wrote a great piece about the nature of CSS, concluding that it is a domain-specific, declarative programming language. I really like that.</p>
+              <p>CSS stands for Cascading Stylesheets. <em>[click]</em> To me it is a vocabulary for us to communicate with the browser. The first standard for CSS was published on December 17, 1996, which makes CSS an almost-26-year-old Sagittarius. Fun fact, when CSS first came out, it wasn't even meant for doing layout, think about that for a bit.</p>
+              <p><em>[click]</em> More than 2 decades later, we went from what seemed like trying to communicate with a toddler to having a pretty wide vocabulary for telling the browser how we want stuff on our web pages to look like. <em>[click]</em> Lara Schenck wrote a great piece about the nature of CSS, concluding that it is a domain-specific, declarative programming language. I really like that.</p>
             </aside>
           </section>
         </section>
@@ -111,16 +111,16 @@
             <p><small>Source: <a href="https://www.w3.org/International/questions/qa-lang-why">Why use the language attribute?</a></small></p>
             <aside class="notes">
               <p>Browsers are pretty smart and they come with a lot of sensible defaults. I'm not going to go into the parts about accessibility and using semantic HTML, those are amazing in their own right. But if the browser knows what language your content is in, it gives you lots more useful stuff out the box.</p>
-              <p>We'll cover some of the browser's language-specific behaviours. I'll show what I mean by default font selection and generally talk about CSS. But seriously, look at all this good stuff.</p>
+              <p>We'll cover some of the browser's language-specific behaviours. I'll show what I mean by default font selection and generally talk about CSS. But seriously, look at all this good stuff the <code>lang</code> attribute can give you.</p>
             </aside>
           </section>
 
           <section>
             <h2>Basics of using <code>lang</code></h2>
             <p>Set the default language of the document:</p>
-            <pre style="width:max-content"><code>&lt;html lang="zh"&gt;</code></pre>
+            <pre style="width:max-content;font-size:1em"><code class="lang-html">&lt;html lang="zh"&gt;</code></pre>
             <p>If you have mixed language content on your page:</p>
-            <pre style="width:max-content"><code>&lt;p&gt;The fourth animal in the Chinese Zodiac is Rabbit (&lt;span lang="zh"&gt;兔子&lt;/span&gt;).&lt;/p&gt;</code></pre>
+            <pre style="width:max-content;font-size:1em"><code class="lang-html">&lt;p&gt;The fourth animal in the Chinese Zodiac is Rabbit (&lt;span lang="zh"&gt;兔子&lt;/span&gt;).&lt;/p&gt;</code></pre>
             <aside class="notes">Always set the overall default language on the HTML element, because if you simply set it on the body element, the stuff in the head doesn't get it. Language code information is inherited according to the following order of precedence: a <code>lang</code> attribute on the element itself, if not, then the closest parent with a <code>lang</code> attribute set, if not, then the HTTP "Content-Language" header, if not, then user agent default values and user preferences. Once we've got that settled, let's look at how to make use of this attribute.</aside>
           </section>
         </section>
@@ -130,7 +130,7 @@
             <h2>The <code>:lang()</code> pseudo-class</h2>
             <p>A selector that represents an element based on its language</p>
             <div class="livecode livecode-3p">
-              <pre class="markup"><code class="html"><p>We use <em>italics</em> to emphasise words in English, <span lang="zh">但是中文则是用<em>着重号</em></span>.</p></code></pre>
+              <pre class="markup"><code class="html" style="white-space:pre-wrap"><p>We use <em>italics</em> to emphasise words in English, <span lang="zh">但是中文则是用<em>着重号</em></span>.</p></code></pre>
               <div class="result lang-pc">
                 <p>We use <em>italics</em> to emphasise words in English, <span lang="zh">但是中文则是用<em>着重号</em></span>.</p>
               </div>
@@ -141,8 +141,8 @@
             </div>
             <aside class="notes">
               <p>I'm not sure how many people are familiar with the <code>:lang()</code> pseudo-class, but this is a pretty cool selector. So we've got this mixed language sentence here marked up like so. The bit in Chinese is marked up as a span tag with <code>lang</code> set to <code>zh</code>.</p>
-              <p>Chinese writing does not have italic styles. To emphasise words, we use a type of punctuation called 着重号. And we can use CSS for this with the <code>text-emphasis</code> property and set a value of dot. There are more values available, like double circle, or triangle. You could put a string in there as well.</p>
-              <p><code>:lang</code> will recognise the language of the content of an element even if the language is declared outside the element in question. In this case, the attribute in on the <code>span</code> not the <code>em</code>, but it still picks up.</p>
+              <p>Chinese writing does not have italic styles. And neither does Japanese nor Korean. To emphasise words, Chinese writing uses a type of punctuation called 着重号. And we can use CSS for this with the <code>text-emphasis</code> property and set a value of dot. There are more values available, like double circle, or triangle. You could even put a string in there as well, but that's no longer relevant to Chinese typography.</p>
+              <p><code>:lang</code> will recognise the language of the content of an element even if the language is declared outside the element in question. In this case, the attribute is on the <code>span</code> not the <code>em</code>, but the browser still knows which element to apply the styles to.</p>
             </aside>
           </section>
 
@@ -150,13 +150,13 @@
             <h2>Attribute selectors</h2>
             <p>A selector that matches elements based on the presence or value of a given selector</p>
             <div class="l-multiple">
-              <pre style="width:max-content"><code>[lang="zh"]
+              <pre style="width:max-content"><code class="css">[lang="zh"]
 /* will match only zh */</code></pre>
-              <pre style="width:max-content"><code>[lang^="zh"]
+              <pre style="width:max-content"><code class="css">[lang^="zh"]
 /* will match zh, zh-HK, zh-Hans, zhong, zh123…
  * basically anything with zh as the first 2 characters */
 </code></pre>
-              <pre style="width:max-content"><code>[lang|="zh"]
+              <pre style="width:max-content"><code class="css">[lang|="zh"]
 /* will match zh, zh-HK, zh-Hans, zh-amazing, zh-123 */</code></pre>
             </div>
             <aside class="notes">
@@ -168,12 +168,12 @@
 
           <section>
             <h2>Some things to note…</h2>
-            <p class="fragment">The <code>:lang()</code> pseudo-class does take care of partial tag matching</p>
-            <p class="fragment">In terms of selector matching, <span class="fragment">the <code>|=</code> operator performs a comparison against a given attribute on the element,</span> <span class="fragment">while the <code>:lang()</code> pseudo-class uses the UAs knowledge of the document's semantics for the comparison</span></p>
-            <p class="fragment">You can always use normal classes or ids, but you would no longer be making use of the convenience of what already exists</p>
+            <p class="fragment">The <code>:lang()</code> pseudo-class does take care of <strong>partial tag matching</strong></p>
+            <p class="fragment" style="text-align:left;max-width:35em;margin:auto;margin-bottom:1em">In terms of selector matching, <span class="fragment" >the <code>|=</code> operator performs a comparison against a given <strong>attribute</strong> on the element,</span> <span class="fragment">while the <code>:lang()</code> pseudo-class uses the UAs knowledge of the document's <strong>semantics</strong> for the comparison</span></p>
+            <p class="fragment" style="text-align:left;max-width:35em;margin:auto;margin-bottom:1em">You can always use normal <strong>classes</strong> or <strong>ids</strong>, but you would no longer be making use of the convenience of what already exists</p>
             <aside class="notes">
-              <p>A couple of things to note here is that if you choose to use the <code>:lang()</code> pseudo-class, partial tag matching is already taken care of. So if you wanted to match <code>zh</code> in a document with different extended Chinese language tags, that just works.</p>
-              <p>As for the mechanics of matching, the attribute selector operates based on the attribute on the element, while the pseudo-class makes use of the document's semantics. Of course, you are free to use normal classes or ids, then you would have to give those elements language-specific CSS classes or ids. I mean, it is up to you, but I'd go the pseudo-class route.</p>
+              <p>A couple of things to note here is that if you choose to use the <code>:lang()</code> pseudo-class, <em>[click]</em> partial tag matching is already taken care of. So if you wanted to match <code>zh</code> in a document with different extended Chinese language tags, that just works.</p>
+              <p>As for the mechanics of matching, <em>[click]</em> the attribute selector operates based on the attribute on the element, <em>[click]</em> while the pseudo-class makes use of the document's semantics. <em>[click]</em> Of course, you are free to use normal classes or ids, then you would have to give those elements language-specific CSS classes or ids. I mean, it is up to you, but I'd go the pseudo-class route.</p>
             </aside>
           </section>
         </section>
@@ -217,11 +217,11 @@
             <div class="l-double">
               <figure>
                 <p style="font-size:5em;font-family:PingFang SC" lang="zh-hans">能</p>
-                <figcaption><pre><code>lang="zh-hans"</code></pre></figcaption>
+                <figcaption><pre style="font-size:1em;width:max-content"><code>lang="zh-hans"</code></pre></figcaption>
               </figure>
               <figure>
                 <p style="font-size:5em;font-family:PingFang SC" lang="zh-hant">能</p>
-                <figcaption><pre><code>lang="zh-hant"</code></pre></figcaption>
+                <figcaption><pre style="font-size:1em;width:max-content"><code>lang="zh-hant"</code></pre></figcaption>
               </figure>
             </div>
             <aside class="notes">
@@ -239,7 +239,7 @@
                 <p class="han" lang="zh-hans" style="text-align:justify;font-family:PingFang SC">一个简体字可能对应多个繁体字，如简体字「发」，其相应的繁体字可能为「發」或「髮」；一个繁体汉字对应多个简体汉字的情况与前者相比数量极少但仍需注意，如繁体字「乾」可能对应简体字「干」或「乾」。</p>
               </div>
               <div class="code"><style class="code-editor" contenteditable="true">.fvea :lang(zh) {
-  // font-variant-east-asian: traditional;
+  font-variant-east-asian: traditional;
 }</style></div>
             </div>
             <aside class="notes">
@@ -265,8 +265,8 @@
             <p><small>Example lifted from <a href="https://www.w3.org/TR/css-fonts-4/#propdef-font-language-override">CSS Fonts Module Level 4</a></small></p>
             <aside class="notes">
               <p>The user agent will refer to the <code>lang</code> attribute when rendering text but if the selected font lacks support for that language, we can ask the browser to use the typographic conventions of a related language present in the font instead.</p>
-              <p>Here's the markup for some Macedonian text. Imagine that the font being used does not support Macedonian but has characters for Serbian.</p>
-              <p>By setting <code>font-language-override</code> to <code>SRB</code>, the Macedonian text will be rendered with Serbian typographic conventions instead. But still be recognised as Macedonian.</p>
+              <p>Here's the markup for some Macedonian text. Imagine that the font being used does not support Macedonian but has characters for Serbian. You don't want to mislead the browser by telling it the wrong language, but you do want the characters to use the Serbian glyphs.</p>
+              <p>By setting <code>font-language-override</code> to <code>SRB</code>, the Macedonian text will be rendered with Serbian typographic conventions instead. But still be recognised as Macedonian content.</p>
             </aside>
           </section>
 
@@ -366,6 +366,60 @@
             <p>Browsers use <strong>language-specific</strong> dictionaries to figure out where the hyphenation points should be.</p>
             <aside class="notes">This ties back to my earlier point. If you don't use <code>lang</code> properly, you don't get out-of-the-box features like automatic hyphenation, for example.</aside>
           </section>
+
+          <section>
+            <h2>The <code>hyphens</code> property</h2>
+            <div class="livecode-2p">
+              <div class="result">
+                <div class="hyphen-lang" style="display:grid;gap:1em;justify-items:center;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr))">
+                  <div>
+                    <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                    <p lang="eo">konservatorio konservatorio</p>
+                  </div>
+                  <div>
+                    <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                    <p lang="et">põllumajandusministeerium</p>
+                  </div>
+                  <div>
+                    <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                    <p lang="nl">vervoerdersaansprakelijkheidsverzekering</p>
+                  </div>
+                  <div>
+                    <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                    <p lang="is">vaðlaheiðarvegavinnuverkfærageymsluskúr</p>
+                  </div>
+                  <div>
+                    <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                    <p lang="it">precipitevolissimevolmente</p>
+                  </div>
+                  <div>
+                    <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                    <p lang="lt">nebeprisikiškiakopūstlapiaujančiuosiuose</p>
+                  </div>
+                  <div>
+                    <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                    <p lang="pl">dziewięćdziesięciokilkuletniemu</p>
+                  </div>
+                  <div>
+                    <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                    <p lang="es">anticonstitucionalmente</p>
+                  </div>
+                  <div>
+                    <img src="https://placekitten.com/250/250" alt="a cute kitten">
+                    <p lang="cy">cyfrwngddarostynedigaeth</p>
+                  </div>
+                </div>
+              </div>
+              <div class="code">
+                <style class="code-editor" contenteditable="true">.result .hyphen-lang {
+  
+}</style></div>
+            </div>
+            <aside class="notes">
+              <p>When the <code>lang</code> attribute set correctly, browsers can automatically hyphenate words. If not, browsers will not do it at all, because incorrect hyphenation makes the text really difficult to read. Browsers use dictionaries to figure out when hyphenations need to kick in.</p>
+              <p>Even though browser support is reasonable, Chrome seems to hyphenate slightly differently. So do make sure you test if you want to go this route.</p>
+            </aside>
+          </section>
         </section>
 
         <section>
@@ -436,8 +490,13 @@
               </div>
               <div class="code"><style class="code-editor" contenteditable="true">.vert .title {
   writing-mode: horizontal-tb;
+  
+  
 }</style></div>
-            <aside class="notes">The thing is, those bits with vertical text got confusing when I had to adjust the padding and margins on them. Because for the most part, we always refer to the physical directions of top, bottom, left and right. This mental model is hard for me to maintain when the text is in another writing direction.</aside>
+            <aside class="notes">
+              <p>The thing is, those bits with vertical text got confusing when I had to adjust the padding and margins on them. Because for the most part, we always refer to the physical directions of top, bottom, left and right. This mental model is hard for me to maintain when the text is in another writing direction.</p>
+              <p>If I change the <code>writing-mode</code> to <code>vertical-lr</code>. And I want some distance between the top of the dotted container and the text, I would intuitively put in <code>margin-left</code> but that would not give me my intended outcome.</p>
+            </aside>
           </section>
 
           <section>
@@ -521,7 +580,10 @@
               CSS Logical properties demo for borders</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>)
               on <a href="https://codepen.io">CodePen</a>.</span>
             </p>
-            <aside class="notes">There are also corresponding mappings for margins, paddings and borders. Here I'm trying to illustrate the point where logical properties allow you to use the same set of code regardless of what your writing direction is. Moving forward, there will also be mappings for sizing, i.e. width and height.</aside>
+            <aside class="notes">
+              <p>There are also corresponding mappings for margins, paddings and borders. If you look at this example, with physical directions, if I had wanted styles that corresponded to the writing direction of my text, I would have to write different styles for each of the 6 writing-directions.</p>
+              <p>With logical properties, I only need to write the styles once. There are also mappings for sizing, so instead of <code>width</code> and <code>height</code>, you can use <code>block-size</code> and <code>inline-size</code>.</p>
+            </aside>
           </section>
 
           <section>
@@ -552,8 +614,8 @@
 }</style></div>
             </div>
             <aside class="notes">
-              <p>Another thing that CSS can do on the internationalisation front has to do with lists and counters. Numeral systems are writing systems for expressing numbers, and even though the most commonly used system of numerals is the Hindu-Arabic numeral system (0, 1, 2, 3 and so on), CSS allows us to display ordered lists with other numeral systems as well.</p>
-              <p>Predefined counter styles can be used with the list-style-type property, which covers 174 numeral systems from <code>afar</code> to <code>urdu</code>. You can check out the full list at MDN.</p>
+              <p>Another thing that CSS can do on the internationalisation front has to do with lists and counters. Numeral systems are writing systems for expressing numbers, and even though the most commonly used system of numerals is the Hindu-Arabic numeral system (0, 1, 2, 3 and so on), CSS allows us to display ordered lists with other numeral systems as well. <code>cjk-earthly-branch</code> and <code>cjk-heavenly-stem</code>.</p>
+              <p>Predefined counter styles can be used with the list-style-type property, which covers 174 numeral systems from <code>afar</code> to <code>urdu</code>. There is varying degrees of browser support for the different numeral systems so do check out the full list at MDN.</p>
             </aside>
           </section>
 
