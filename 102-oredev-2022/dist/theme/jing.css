@@ -372,7 +372,8 @@
 .reveal code {
   border-radius: 8px;
 }
-.reveal strong {
+.reveal strong,
+.reveal em {
   color: #ACEB98;
 }
 .reveal blockquote {

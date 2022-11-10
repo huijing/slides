@@ -68,7 +68,7 @@
               <p><em>Internationalisation</em> is the design and development of a product, application or document that <em>enables easy localisation</em> for target audiences that vary in culture, region, or language.</p>
             </blockquote>
             <aside class="notes">
-              <p>There is no canonical set-in-stone definition of internationalisation, but the W3C does offer this guidance. It is designing and developing in a way that enables easy localisation for specific audiences. Localisation covers a broad range of customisations including but not limited to: numeric, time and date formats, currencies, symbols, icons and colours, even textual and graphical references.</p>
+              <p>There is no canonical set-in-stone definition of internationalisation, but the W3C does offer this guidance. It is designing and developing in a way that enables easy localisation for specific audiences. Localisation covers a broad range of customisations including but not limited to: numerals, time and date formats, currencies, symbols, icons and colours, even textual and graphical references.</p>
               <p>This implies that internationalisation is a lot more than simply translating the content on a site to different languages. There are nuances to the presentation of that content which will affect the experience of a native speaker using your site. This is where CSS comes in.</p>
               <p>To be honest, this talk originated from an article I wrote earlier, and the main reason I wrote that article was because someone said to me that CSS has nothing to do with internationalisation. It was my passive-aggressive two thousand plus word response.</p>
             </aside>
@@ -173,7 +173,7 @@
             <p class="fragment" style="text-align:left;max-width:35em;margin:auto;margin-bottom:1em">You can always use normal <strong>classes</strong> or <strong>ids</strong>, but you would no longer be making use of the convenience of what already exists</p>
             <aside class="notes">
               <p>A couple of things to note here is that if you choose to use the <code>:lang()</code> pseudo-class, <em>[click]</em> partial tag matching is already taken care of. So if you wanted to match <code>zh</code> in a document with different extended Chinese language tags, that just works.</p>
-              <p>As for the mechanics of matching, <em>[click]</em> the attribute selector operates based on the attribute on the element, <em>[click]</em> while the pseudo-class makes use of the document's semantics. <em>[click]</em> Of course, you are free to use normal classes or ids, then you would have to give those elements language-specific CSS classes or ids. I mean, it is up to you, but I'd go the pseudo-class route.</p>
+              <p><em>[click]</em> As for the mechanics of matching, <em>[click]</em> the attribute selector operates based on the attribute on the element, <em>[click]</em> while the pseudo-class makes use of the document's semantics. <em>[click]</em> Of course, you are free to use normal classes or ids, then you would have to give those elements language-specific CSS classes or ids. I mean, it is up to you, but I'd go the pseudo-class route.</p>
             </aside>
           </section>
         </section>
@@ -322,7 +322,7 @@
             </div>
             <aside class="notes">
               <p>Okay, this example is to lay the ground work for something else I want to cover, so please bear with me. Everything on the web is boxes, right? Here we have 5 inline boxes.</p>
-              <p>For now there is enough room so all 5 boxes fit into a single line box. But when there isn't enough room, inline boxes will be broken across line boxes. The break is known as a line break.</p>
+              <p>For now there is enough room so all 5 of them fit into a single line box. But when there isn't enough room, inline boxes will be broken across line boxes. The break is known as a line break.</p>
               <p>If content wrapping is enabled, the user agent has to minimise the amount of content overflowing a line by wrapping the line at a soft wrap opportunity if one exists.</p>
               <p>For most writing systems, soft wrap opportunities occur at word boundaries, where spaces or punctuation are used to explicitly separate words.</p>
             </aside>
@@ -350,7 +350,7 @@
             </table>
             <p><a href="https://youtu.be/r5PLrAoyhv0">Line breaking</a> by Florian Rivoal @ dotCSS</p>
             <aside class="notes">
-              <p>But there is a lot of nuance involved because word breaking works differently depending on the language we're typesetting for.</p>
+              <p>But there is a lot of nuance involved because line breaking works differently depending on the language we're typesetting for.</p>
               <p>For example, English wraps at spaces. But for Japanese or Chinese characters, the break is per character, but on occasion it's not, because line breaks are prohibited before certain punctuation marks. </p>
               <p>A number of Southeast Asian scripts are written without spaces between words, then text is wrapped at syllable boundaries in addition to word boundaries. We could keep going here.</p>
               <p>There is interplay between the 4 properties here to provide developers more precise control over line breaking, because some rules take precedence over others if both are present, or some only take affect if <code>white-space</code> allows wrapping, for example.</p>
@@ -364,7 +364,7 @@
               <br><small>—Florian Rivoal</small>
             </blockquote>
             <p>Browsers use <strong>language-specific</strong> dictionaries to figure out where the hyphenation points should be.</p>
-            <aside class="notes">This ties back to my earlier point. If you don't use <code>lang</code> properly, you don't get out-of-the-box features like automatic hyphenation, for example.</aside>
+            <aside class="notes">In addition to line breaks, it is possible to break words as well. But if you don't use <code>lang</code> properly, you don't get out-of-the-box features like automatic hyphenation.</aside>
           </section>
 
           <section>
@@ -416,7 +416,7 @@
 }</style></div>
             </div>
             <aside class="notes">
-              <p>When the <code>lang</code> attribute set correctly, browsers can automatically hyphenate words. If not, browsers will not do it at all, because incorrect hyphenation makes the text really difficult to read. Browsers use dictionaries to figure out when hyphenations need to kick in.</p>
+              <p>When the <code>lang</code> attribute set correctly, browsers can automatically hyphenate words. If not, browsers will not do it at all, because incorrect hyphenation makes the text really difficult to read.</p>
               <p>Even though browser support is reasonable, Chrome seems to hyphenate slightly differently. So do make sure you test if you want to go this route.</p>
             </aside>
           </section>
@@ -495,7 +495,7 @@
 }</style></div>
             <aside class="notes">
               <p>The thing is, those bits with vertical text got confusing when I had to adjust the padding and margins on them. Because for the most part, we always refer to the physical directions of top, bottom, left and right. This mental model is hard for me to maintain when the text is in another writing direction.</p>
-              <p>If I change the <code>writing-mode</code> to <code>vertical-lr</code>. And I want some distance between the top of the dotted container and the text, I would intuitively put in <code>margin-left</code> but that would not give me my intended outcome.</p>
+              <p>If I change the <code>writing-mode</code> to <code>vertical-lr</code>. And I want some distance between the dotted container and the text, I would intuitively put in <code>margin-bottom</code> but that would not give me my intended outcome.</p>
             </aside>
           </section>
 
@@ -613,6 +613,7 @@
   font-size: 85%;
 }</style></div>
             </div>
+            <p>Full list of <code>list-style-type</code> options at <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type">MDN</a></p>
             <aside class="notes">
               <p>Another thing that CSS can do on the internationalisation front has to do with lists and counters. Numeral systems are writing systems for expressing numbers, and even though the most commonly used system of numerals is the Hindu-Arabic numeral system (0, 1, 2, 3 and so on), CSS allows us to display ordered lists with other numeral systems as well. <code>cjk-earthly-branch</code> and <code>cjk-heavenly-stem</code>.</p>
               <p>Predefined counter styles can be used with the list-style-type property, which covers 174 numeral systems from <code>afar</code> to <code>urdu</code>. There is varying degrees of browser support for the different numeral systems so do check out the full list at MDN.</p>

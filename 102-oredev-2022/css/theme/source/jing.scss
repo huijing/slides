@@ -57,7 +57,8 @@ $selectionColor: $backgroundColor;
     border-radius: 8px;
   }
 
-  strong {
+  strong,
+  em {
     color: $headingColor;
   }
 
