@@ -192,8 +192,14 @@
 
 96. [A deep dive into Flexbox and Grid](https://huijing.github.io/slides/96-io-extended-kl-2022)
 
-97. [Building layouts the way the web intended](https://huijing.github.io/slides/97-jsfwdays-2022)
+97. [Building layouts the way the web intended](https://huijing.github.io/slides/97-jsfwdays-2022) [📹 [video](https://youtu.be/z8FD3gLvTyo)]
 
-98. [Architecting CSS grid in a design system](https://huijing.github.io/slides/98-front-zurich-2022)
+98. [Architecting CSS grid in a design system](https://huijing.github.io/slides/98-front-zurich-2022) 
 
-99. [Many Flavours of Enterprise CSS Grid](https://huijing.github.io/slides/99-jsconfkr-2022)
+99. [Many Flavours of Enterprise CSS Grid](https://huijing.github.io/slides/99-jsconfkr-2022) [📹 [video](https://youtu.be/r3O3Fj1H2yw)]
+
+100. [Overcoming Grid Reluctance](https://huijing.github.io/slides/100-aea-2022)
+
+101. [CSS variables for work and play](https://huijing.github.io/slides/101-jsfwdayseu-2022) [📹 [video](https://youtu.be/KgSdrqHxbN4)]
+
+102. [CSS for internationalisation](https://huijing.github.io/slides/102-oredev-2022) [📹 [video](https://youtu.be/MTTnLmDuXxY)]
