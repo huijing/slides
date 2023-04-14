@@ -203,3 +203,5 @@
 101. [CSS variables for work and play](https://huijing.github.io/slides/101-jsfwdayseu-2022) [📹 [video](https://youtu.be/KgSdrqHxbN4)]
 
 102. [CSS for internationalisation](https://huijing.github.io/slides/102-oredev-2022) [📹 [video](https://youtu.be/MTTnLmDuXxY)]
+
+103. [Better CJK on the web](https://huijing.github.io/slides/103-fossasia-2023)

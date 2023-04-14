@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Better CJK on the web</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/jing.css" id="theme">
+    <link rel="stylesheet" href="plugin/highlight/atom-one-dark.min.css" id="highlight-theme">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section class="title-slide">
+          <h1>Better CJK on the web</h1>
+          <p><small>By <a href="https://chenhuijing.com/">Chen Hui Jing</a> / <a href="https://twitter.com/hj_chen">@hj_chen</a></small></p>
+        </section>
+
+        <section>
+          <h2>i18n at Shopify 🧐</h2>
+          <p class="fragment" style="font-size:5em">🦖🦕</p>
+        </section>
+
+        <section data-background-image="img/country-selector.png" data-background-position="bottom">
+        </section>
+
+        <section data-background-image="img/regional.jpg">
+        </section>
+
+        <section data-background-image="img/ca.jpg">
+        </section>
+
+        <section>
+          <blockquote>
+            <p>“What would happen if we translated this blog in a number of main languages like German, French, Spanish, and then Italian, Brazilian-Portuguese and then Japanese?”</p>
+            <small>–Someone from Growth…</small>
+          </blockquote>
+        </section>
+
+        <section>
+          <video data-autoplay src="img/no-understand.mp4" autoplay loop></video>
+        </section>
+
+        <section data-background-image="img/core.jpg">
+        </section>
+
+        <section data-background-image="img/expansion.jpg">
+        </section>
+
+        <section>
+          <h2>Domain? Locale? Language?</h2>
+          <p>Language: A system of communication used by a particular country or community</p>
+          <p>Script: A visual representation of verbal speech</p>
+          <p>Domain: An easy-to-remember address used to access websites</p>
+          <p>Locale: A set of language- or country-based preferences for a user interface</p>
+        </section>
+
+        <section>
+          <h2>brochure2 has 6 CJK domains, which comprise of 3 languages and 4 writing scripts</h2>
+          <ul>
+            <li><a href="https://github.com/Shopify/brochure2/issues/7545">[2017-Apr]</a> Japan (/jp, formerly known as www.shopify.jp)</li> 
+            <li><a href="https://github.com/Shopify/brochure2/pull/19032">[2020-Mar]</a> Taiwan (/tw, formerly known as www.shopify.tw)</li>
+            <li><a href="https://github.com/Shopify/brochure2/pull/20617">[2020-May]</a> Korea (/kr, formerly known as www.shopify.co.kr)</li>
+            <li><a href="https://github.com/Shopify/brochure2/pull/21748">[2020-Sep]</a> Chinese Intl (/zh, formerly known as zh.shopify.com)</li>
+            <li><a href="https://github.com/Shopify/brochure2/pull/22161">[2020-Sep]</a> Hong Kong (/hk, formerly known as www.shopify.hk)</li>
+            <li><a href="https://github.com/Shopify/brochure2/pull/23861">[2021-Jan]</a> China (still and will probably always be www.shopify.cn)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>The “Billion” problem</h2>
+          <p>The Chinese numeral system (also used by Japanese and Korean) has specific words for large numbers as per the traditional Chinese grouping of 10,000.</p>
+          <table>
+            <thead>
+              <tr>
+                <th> </th>
+                <th>Simp. Chinese</th>
+                <th>Trad. Chinese</th>
+                <th>Japanese</th>
+                <th>Korean</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>10</td>
+                <td>十 (shí)</td>
+                <td>十</td>
+                <td>十 (juu)</td>
+                <td>십 (ship)</td>
+              </tr>
+              <tr>
+                <td>100</td>
+                <td>百 (bǎi)</td>
+                <td>百</td>
+                <td>百 (hyaku)</td>
+                <td>백 (baek)</td>
+              </tr>
+              <tr>
+                <td>1000</td>
+                <td>千 (qiān)</td>
+                <td>千</td>
+                <td>千 (sen)</td>
+                <td>천 (cheon)</td>
+              </tr>
+              <tr>
+                <td>10,000</td>
+                <td>万 (wàn)</td>
+                <td>万</td>
+                <td>万 (man)</td>
+                <td>만 (man)</td>
+              </tr>
+              <tr>
+                <td>100,000,000</td>
+                <td>亿 (yì)</td>
+                <td>億</td>
+                <td>億 (ichioku)</td>
+                <td>억 (eok)</td>
+              </tr>
+              <tr>
+                <td>1,000,000,000,000*</td>
+                <td>兆 (zhào)</td>
+                <td>兆</td>
+                <td>兆 (icchou)</td>
+                <td>조 (jo)</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        
+        <section>
+          <h2>What translators see</h2>
+          <p style="margin-bottom:0">Not this:</p>
+          <img data-src="img/billion-en.png">
+          <p style="margin-bottom:0">But this:</p>
+          <pre class="language-yml" style="width:75%"><code style="white-space:pre-wrap">Over %{total_stores} businesses in %{total_countries} countries around the world have made over $%{total_gmv_billions} billion USD in sales using Shopify</code></pre>
+        </section>
+
+        <section>
+          <h2>The end result</h2>
+          <img data-src="img/billion-zh-hans.png">
+          <img data-src="img/billion-zh-hant.png">
+          <img data-src="img/billion-ko.png">
+        </section>
+
+        <section>
+          <h2>The problem</h2>
+          <p style="max-width:25em;text-align:left;margin:auto">We were literally saying our GMV is 200 ten million dollars, which is kind of a glaring grammatical error.</p>
+        </section>
+
+        <section>
+          <h2>But why didn't Japan have this problem? 🤯</h2>
+          <img data-src="img/billion-ja.png">
+          <div class="fragment">
+            <p>The Japanese team had worked around this issue previously by editing the locale files that reference our total GMV numbers like so:</p>
+            <pre class="language-yml" style="width:max-content;font-size:1em"><code style="white-space:pre-wrap">%{total_gmv_billions}0億米ドル</code></pre>
+            <p>Our Japan team spotted this error and made the adjustment of replacing 十 with a 0.</p>
+          </div>
+        </section>
+        
+        <section>
+          <h2>See solution, steal it</h2>
+          <p>This will be how it looks for each respective language:</p>
+          <pre class="language-yml" style="width:max-content;font-size:1em"><code style="white-space:pre-wrap">%{total_gmv_billions}0억 달러(USD)
+%{total_gmv_billions}0 亿美元
+%{total_gmv_billions}0 億美元</code></pre>
+        </section>
+
+        <section>
+          <h2>Lessons and best practices</h2>
+          <ul>
+            <li>Interpolate with caution</li>
+            <li>Do Not Manually Construct Sentences or Manipulate Text in Code</li>
+            <li>Let i18n Libraries Handle the Hard Stuff</li>
+          </ul>
+          <p><small><a href="https://shopify.engineering/internationalization-i18n-best-practices-front-end-developers">Lessons From Linguistics: i18n Best Practices for Front-End Developers</a> by <a href="https://www.superko.org/">Lucas Huang</a></small></p>
+        </section>
+
+        <section>
+          <h2>Shopify Sans</h2>
+          <p>Shopify Sans was designed by Commercial Type and based on their typeface, Graphik.<br>(We actually do not own it outright because of that)</p>
+        </section>
+
+        <section data-background-video="img/wakamai.mp4">
+        </section>
+
+        <section>
+          <img data-src="img/cjkv.jpg" style="max-height:90vh">
+        </section>
+
+        <section>
+          <p>The Vietnamese alphabets are listed in several non-contiguous Unicode ranges:</p>
+          <ul>
+            <li>Basic Latin {U+0000..U+007F}</li>
+            <li>Latin-1 Supplement {U+0080..U+00FF}</li>
+            <li>Latin Extended-A, -B {U+0100..U+024F}</li>
+            <li>Latin Extended Additional {U+1E00..U+1EFF}</li>
+            <li>Combining Diacritical Marks {U+0300.. U+036F}</li>
+            <li>The Vietnamese đồng currency symbol is ₫ (U+20AB)</li>
+          </ul>
+          <p><small><a href="https://vietunicode.sourceforge.net/charset/">Unicode & Vietnamese Legacy Character Encodings</a></small></p>
+        </section>
+
+        <section>
+          <h2>Missing Vietnamese glyphs (now fixed)</h2>
+          <img data-src="img/vietnamese.png" style="max-height:90vh">
+        </section>
+
+        <section>
+          <h2>The <code>:lang()</code> pseudo-class</h2>
+          <pre style="width:max-content;font-size:xx-large">
+            <code>:lang(vi) {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}</code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Korean typographic issues (now fixed)</h2>
+          <img data-src="img/kr-font.png"">
+          <img data-src="img/kr-wordbreak.png"">
+        </section>
+
+        <section>
+          <h2>Korean typographic fixes</h2>
+          <div class="l-double" style="grid-template-columns:58% 42%;margin-bottom:1em">
+            <div><video data-autoplay src="img/word-break.mp4" autoplay loop></video></div>
+            <div>
+              <pre><code style="white-space:pre-wrap">:lang(ko) {
+  font-family: ShopifySans, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  [class*='heading--'] {
+    word-break: keep-all;
+  }
+}</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Links</h2>
+          <ul>
+            <li><a href="https://www.shopify.com/blog/shopify-localized">Building a Commerce Platform for Everyone</a></li>
+            <li><a href="https://www.getblend.com/blog/localization-leaders-meet-shopifys-giulia-greco/">Localization Leaders: Meet Shopify’s Giulia Greco</a></li>
+            <li><a href="https://docs.google.com/document/d/14LDZkOvSmpfbV8Uv0JZYEzQQpFabgebLknEzlblcIe0/edit#">Shopify typography issues</a></li>
+            <li><a href="https://shopify.engineering/internationalization-i18n-best-practices-front-end-developers">Lessons From Linguistics: i18n Best Practices for Front-End Developers</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>谢谢</h2>
+          <h2>감사합니다</h2>
+          <h2>ありがとう ございます</h2>
+          <h2>Cảm ơn</h2>
+          <p style="font-size:3em">🙇🏻</p>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        width: 1600,
+        height: 900,
+        hash: true,
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+        transition: 'fade',
+      });
+    </script>
+  </body>
+</html>

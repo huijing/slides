@@ -1,0 +1,174 @@
+/**
+ * Custom theme for Reveal.js presentations.
+ *
+ * Copyright (C) 2021 Chen Hui Jing, https://chenhuijing.com/
+ */
+
+// Default mixins and settings -----------------
+@import '../template/mixins';
+@import '../template/settings';
+// ---------------------------------------------
+
+// Include theme-specific fonts
+// @import url('fonts/TYPEFACE/TYPEFACE.css');
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif; 
+$mainColor: #333;
+$headingFont: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif; 
+$headingColor: #333;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$headingFontWeight: bold;
+$backgroundColor: #fff;
+$linkColor: #008060;
+$linkColorHover: darken($linkColor, 20%);
+$selectionBackgroundColor: $mainColor;
+$selectionColor: #fff;
+
+// Theme template ------------------------------
+@import '../template/theme';
+// ---------------------------------------------
+
+// Customised styles for this presentation -----
+.reveal-viewport:has(.title-slide.present) {
+  background-image:
+    radial-gradient(30vw 30vh at 35% 35%, #cde2f8 35%, transparent 100%),
+    radial-gradient(25vw 40vh at 35% 45%, #aff6d0 45%, transparent 100%),
+    radial-gradient(12vmin 12vmin at 80% 80%, #e8caff 12%, transparent 100%);
+
+  &::before {
+    content: '';
+    display: block;
+    border-radius: 50%;
+    transform: rotate(30deg) translate(95%, 40%);
+    position: absolute;
+    z-index: 0;
+    height: 40%;
+    width: 50%;
+    background-image: radial-gradient(50% 50% at center, #aff6d0, transparent);
+  }
+}
+
+.reveal {
+  pre code {
+    padding: 8px 12px;
+    border-radius: 4px;
+  }
+
+  .l-multiple {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .l-double {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .j-icon {
+    margin-right: 1rem;
+  }
+
+  .align-icon {
+    display: flex;
+    align-items: center;
+  }
+}
+
+// Accessible emojis ---------------------------
+span.emoji {
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji';
+  font-style: normal;
+  font-size: 125%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+span[role=img][aria-label],
+span[role=img][aria-label] {
+  position: relative;
+}
+
+span[role=img][aria-label]:focus::after,
+span[role=img][aria-label]:hover::after {
+  font-size: 25%;
+  font-family: $mainFont;
+  font-weight: 400;
+  position: absolute;
+  display: block;
+  line-height: 1.2;
+  content: attr(aria-label);
+  z-index: 1;
+  background: $mainColor;
+  color: $backgroundColor;
+  padding: 0.25em;
+  border: 1px solid $backgroundColor;
+  box-shadow: 2px 2px 4px $mainColor;
+}
+
+// For live coding -----------------------------
+.livecode {
+  display: grid;
+  grid-gap: 0.5em;
+  margin: 0;
+  padding: 0;
+
+  .result {
+    max-height: 100%;
+    overflow-y: scroll;
+    width: 100%;
+    border: 1px dashed $headingColor;
+
+    li {
+      line-height: 0;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .code {
+    text-align: left;
+    width: 100%;
+    font-family: 'Dank Mono', monospace;
+    color: #efdcbc;
+    background-color: #3f3f3f;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    overflow-y: scroll;
+    font-size: 75%;
+  }
+}
+
+.code-editor {
+  display: block;
+  height: 100%;
+  white-space: pre-wrap;
+}
+
+.vidcode {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  height: 75vh;
+
+  video {
+    align-self: center;
+  }
+}
+
+.livecode-2p {
+  grid-template-columns: 65% calc(35% - 0.5em);
+  height: 70vh;
+}
+
+.code-editor {
+  display: block;
+  height: 100%;
+  white-space: pre-wrap;
+}
+// ---------------------------------------------
