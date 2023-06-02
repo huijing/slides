@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Chen Hui Jing <huijing@hey.com>",
+  "author": "Chen Hui Jing <1461498+huijing@users.noreply.github.com>",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.10.3",
