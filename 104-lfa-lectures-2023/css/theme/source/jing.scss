@@ -55,6 +55,73 @@ $selectionColor: $backgroundColor;
     display: flex;
     align-items: center;
   }
+
+  .title-case-highlight {
+    span {
+      display: inline-block;
+      color: $mainColor;
+    }
+
+    span::first-letter {
+      color: $headingColor;
+      font-size: 115%;
+    }
+  }
+
+  blockquote {
+    width: 80%;
+    text-align: left;
+    box-shadow: none;
+    line-height: 1.55;
+    font-size: 115%;
+    position: relative;
+    background: none;
+
+    p::before,
+    p::after {
+      position: absolute;
+      font-size: 2.5em;
+      font-family: Georgia, serif;
+      color: $headingColor;
+    }
+
+    p::before {
+      top: -0.125em;
+      left: -0.5em;
+      content: "\201C";
+    }
+
+    p::after {
+      bottom: -0.5em;
+      right: 0.125em;
+      content: "\201D";
+    }
+  }
+
+  table,
+  pre {
+    font-size: 75%;
+  }
+
+  td {
+    vertical-align: middle;
+  }
+
+  .l-logo {
+    height: 1.25em;
+    margin: 0 0.25em;
+  }
+
+  footer {
+    position: absolute;
+    width: calc(100% - 1em);
+    bottom: 0;
+    font-size: 40%;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em;
+  }
 }
 
 // Accessible emojis ---------------------------

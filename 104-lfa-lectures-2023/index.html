@@ -2,21 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
     <title>Working with CSS doesn’t have to make you cry</title>
 
     <link rel="stylesheet" href="dist/reset.css" />
     <link rel="stylesheet" href="dist/reveal.css" />
     <link rel="stylesheet" href="dist/theme/jing.css" id="theme" />
-    <link
-      rel="stylesheet"
-      href="plugin/highlight/atom-one-light.css"
-      id="highlight-theme"
-    />
+    <link rel="stylesheet" href="plugin/highlight/atom-one-light.css" id="highlight-theme" />
   </head>
   <body>
     <div class="reveal">
@@ -24,159 +17,206 @@
         <section>
           <h1>Working with CSS <small>doesn’t have to make you cry</small></h1>
           <p>
-            <small
-              >By <a href="https://chenhuijing.com/">Chen Hui Jing</a> /
-              <a href="http://twitter.com/hj_chen">@hj_chen</a></small
-            >
+            <small>By <a href="https://chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small>
           </p>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            <p>Hello everyone! Thank you all for being here today. I've been a member of the Letterform Archive since 2018 and I think I managed to visit once back then. So having this opportunity to present a Letterform Lecture is pretty mind-blowing to me.</p>
+            <p>As you can see from the title, this talk is probably slightly different from the other Letterform Lectures in that it leans a little more toward technology than design. More similar to the excellent "A Byte Sized History of Computer Typography" with Ben Zotto back in February, do watch it if you haven't.</p>
+          </aside>
         </section>
 
         <section>
           <div class="intro-grid">
-            <span class="emoji" role="img" tabindex="0" aria-label="Malaysia"
-              >&#x1F1F2;&#x1F1FE;</span
-            >
-            <span
-              class="emoji"
-              role="img"
-              tabindex="0"
-              aria-label="alien monster"
-              >&#x1F47E;</span
-            >
-            <span class="emoji" role="img" tabindex="0" aria-label="basketball"
-              >&#x1F3C0;</span
-            >
-            <span class="emoji" role="img" tabindex="0" aria-label="bicycle"
-              >&#x1F6B2;</span
-            >
-            <span class="emoji" role="img" tabindex="0" aria-label="paintbrush"
-              >&#x1F58C;&#xFE0F;</span
-            >
-            <span class="emoji" role="img" tabindex="0" aria-label="sneaker"
-              >&#x1F45F;</span
-            >
-            <span
-              class="emoji"
-              role="img"
-              tabindex="0"
-              aria-label="laptop computer"
-              >&#x1F4BB;</span
-            >
-            <span class="emoji" role="img" tabindex="0" aria-label="pen"
-              >&#x1F58A;&#xFE0F;</span
-            >
-            <span
-              class="emoji"
-              role="img"
-              tabindex="0"
-              aria-label="studio microphone"
-              >&#x1F399;</span
-            >
-            <span class="emoji" role="img" tabindex="0" aria-label="black cat"
-              >&#x1F408;&#x200D;&#x2B1B;</span
-            >
-            <span
-              class="emoji"
-              role="img"
-              tabindex="0"
-              aria-label="person climbing"
-              >&#x1F9D7;</span
-            >
-            <span
-              class="emoji"
-              role="img"
-              tabindex="0"
-              aria-label="Rainbow flag"
-              >&#x1F3F3;&#xFE0F;&#x200D;&#x1F308;</span
-            >
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-              "
-            >
-              <img
-                data-src="img/name.svg"
-                alt="Chen Hui Jing"
-                class="plain"
-                style="max-height: 20vh"
-              />
+            <span class="emoji" role="img" tabindex="0" aria-label="Malaysia">&#x1F1F2;&#x1F1FE;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="alien monster">&#x1F47E;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="basketball">&#x1F3C0;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="bicycle">&#x1F6B2;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="paintbrush">&#x1F58C;&#xFE0F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="sneaker">&#x1F45F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="laptop computer">&#x1F4BB;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="pen">&#x1F58A;&#xFE0F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="studio microphone">&#x1F399;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="black cat">&#x1F408;&#x200D;&#x2B1B;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="person climbing">&#x1F9D7;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="Rainbow flag">&#x1F3F3;&#xFE0F;&#x200D;&#x1F308;</span>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center">
+              <img data-src="img/name.svg" alt="Chen Hui Jing" class="plain" style="max-height: 20vh" />
               <div>
-                <img
-                  data-src="img/avatar.jpg"
-                  alt="Jing"
-                  style="border-radius: 50%; max-height: 30vh"
-                />
+                <img data-src="img/avatar.jpg" alt="Jing" style="border-radius: 50%; max-height: 30vh" />
               </div>
               <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
+            </div>
+          </div>
+          <aside class="notes">
+            <p>My name is Hui Jing. It's a Chinese name, so our family name comes first. And these are my representative emojis, if you will. I've been gainfully employed as a web developer for more than a decade. Also managed to work with a lot of different designers, and I wanted to share some knowledge that might help improve communication between us.</p>
+            <p>So I want to start off with a little bit of history, just to build up more context on how we got to where we are now.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2 class="title-case-highlight">
+            <span>Cascading</span>
+            <span>Style</span>
+            <span>Sheets</span>
+          </h2>
+          <p style="max-width:28em;margin-left:auto;margin-right:auto">is a simple mechanism for adding style (e.g., fonts, colors, spacing) to Web documents.</p>
+          <small>Source: <a href="https://www.w3.org/Style/CSS/">W3C Cascading Style Sheets home page</a></small>
+          <aside class="notes">
+            <p>I don't want to assume everybody knows what CSS stands for. It's short for cascading style sheets, and is a mechanism for adding styles to web documents. There's a defined syntax for it such that all the different browsers can understand and parse our instructions correctly.</p>
+            <p>When a designer asks us to make that logo larger, or move this banner to another position, CSS is what we use to make those changes to a web page. We will go into typography specific CSS later on in the talk. But back to context portion of this talk.</p>
+          </aside>
+        </section>
+
+        <section data-background-image="img/patent.png">
+          <aside class="notes">
+            <p>Fonts on the web are essentially digital fonts, which is a significant change from what was being used for the physical process of printing. Instead of metal alloys, or stone or wood, which are things we can touch and feel, digital fonts exist as light.</p>
+            <p>One thing that came up during my research and is important for me to mention is that the first Japanese patent for phototypesetting was filed by Nobuo Morisawa and Ishii Mokichi in 1924.</p>
+            <p>That was the same Morisawa who founded Morisawa Inc., currently still one of Japan's leading font foundries. They did hardware back then. It's just that this isn't always mentioned when phototypesetting history is talked about, but in my opinion it should.</p>
+          </aside>
+        </section>
+
+        <section>
+          <blockquote>
+            <p>I had a hard time making Univers too. To think of the sort of aberrations I had to produce in order to see a good result on Lumitype! V and W needed huge crotches in order to stay open.</p>
+            <small>Adrian Frutiger – Typefaces: The Complete Works</small>
+          </blockquote>
+          <aside class="notes">A change in medium brought about new design constraints. Projected light is less sharp and crisp when compared with solid metal types, so type designers had to modify their characters to suit the technology that was manifesting their designs in real life. Adrian Frutiger, when talking about redrawing his fonts for the Lumitype, called them aberrations.</aside>
+        </section>
+
+        <section data-background-image="img/digiset.jpg">
+          <aside class="notes">The first instance of digital typesetting, where no physical material was involved in the creation of the characters was the Digiset 50 T 1, a 3rd-generation CRT typesetter. It was developed by Dr. Rudolf Hell in 1964, and made commercially available in 1965. The Digiset used cathode-ray tubes which swept electron beams across the screen one row at a time from top to bottom. Each illuminated screen point is a single pixel.</aside>
+        </section>
+
+        <section data-background-image="img/postscript.png" data-background-size="contain">
+          <aside class="notes">
+            <p>The introduction of CRT screens for typesetting was significant for type design itself because of how the technology worked. Characters had to be converted into a bitmap form, which was terribly low-resolution. Adobe then released PostScript in 1984, the first ever vector font format, which was yet again a significant development in type history.</p>
+            <p>Back in 1987 when Adobe only had around 70 employees worldwide, current CEO of Morisawa, Akihiko Morisawa went to the USA to take a training course at Adobe and was mentored by Adobe founders, John Warnock and Charles Geschke. Morisawa and Adobe worked together to further develop the PostScript format.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Font formats for web use</h2>
+          <table>
+            <tr>
+              <td>WOFF2 (Web Open Font Format 2)</td>
+              <td style="line-height:0;">
+                <img class="plain l-logo" data-src="img/microsoft.svg">
+                <img class="plain l-logo" data-src="img/mozilla.svg">
+                <img class="plain l-logo" data-src="img/opera.svg">
+              </td>
+            </tr>
+            <tr>
+              <td>WOFF (Web Open Font Format)</td>
+              <td style="line-height:0;">
+                <img class="plain l-logo" data-src="img/microsoft.svg">
+                <img class="plain l-logo" data-src="img/mozilla.svg">
+                <img class="plain l-logo" data-src="img/opera.svg">
+              </td>
+            </tr>
+            <tr>
+              <td>OTF (OpenType)</td>
+              <td style="line-height:0;">
+                <img class="plain l-logo" data-src="img/microsoft.svg">
+                <img class="plain l-logo" data-src="img/adobe.svg">
+              </td>
+            </tr>
+            <tr>
+              <td>TTF (TrueType)</td>
+              <td style="line-height:0;">
+                <img class="plain l-logo" data-src="img/microsoft.svg">
+                <img class="plain l-logo" data-src="img/apple.svg">
+              </td>
+            </tr>
+            <tr>
+              <td>EOT (Embedded Open Type)</td>
+              <td style="line-height:0;">
+                <img class="plain l-logo" data-src="img/microsoft.svg">
+              </td>
+            </tr>
+            <tr>
+              <td>SVG (Scalable Vector Graphics)</td>
+              <td style="line-height:0;">
+                <img class="plain l-logo" data-src="img/svg.svg">
+              </td>
+            </tr>
+          </table>
+          <aside class="notes">
+            <p>Which is now a great segue to start going into font formats. Different font formats store information about the font, like their glyphs, encodings, metadata about the font etc., differently based on how their specifications were written.</p>
+            <p>Given how successful PostScript was, TrueType was Apple and Microsoft's answer to Adobe's font monopoly. Microsoft came up with TrueType Open in 1994 and eventually Adobe joined in and together they developed OpenType.</p>
+            <p>Microsoft also came up with EOT or embedded OpenType, a proprietary format for use on web pages. Although they tried to submit this as a W3C recommendation, it was rejected in favour of WOFF, or the Web Open Font Format. WOFF2 is an improvement over WOFF with significantly better compression rates.</p>
+            <p>Compression rates are significant when it comes to web pages because of how fonts get delivered to our end users. Most people probably don't give a second thought to how content appears on their screen when they click on a link, but most do notice when the page takes forever to load. It's not a great experience.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Abridged explanation of the web (1)</h2>
+          <img class="plain" data-src="img/url.svg" style="width:12em;display:block;margin:0 auto 1em">
+          <img class="plain fragment" data-src="img/overview.svg" style="width:20em">
+          <aside class="notes">
+            <p></p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Abridged explanation of the web (2)</h2>
+          <div class="l-double">
+            <div>
+              <img class="plain" data-src="img/request-html.svg" style="width:15em;display:block;margin:0 auto 1em">
+              <img class="plain fragment" data-src="img/request-css.svg" style="width:15em;display:block;margin:0 auto">
+            </div>
+            <div>
+              <img class="plain fragment" data-src="img/request-fonts.svg" style="width:15em;display:block;margin:0 auto 1em">
+              <img class="plain fragment" data-src="img/request-img.svg" style="width:15em;display:block;margin:0 auto">
             </div>
           </div>
           <aside class="notes"></aside>
         </section>
 
+        <section>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>References</h2>
+          <ul>
+            <li><a href="https://www.w3.org/Style/CSS/Overview.en.html">W3C CSS homepage</a></li>
+            <li><a href="https://www.worldcat.org/title/220011204">Adrian Frutiger – Typefaces: The Complete Works</a></li>
+            <li><a href="https://www.hell-kiel.de/en/hell-development/197-typesetting-technology/digiset-en/405-digiset-50-t-en">Digiset 50 T 1</a></li>
+            <li><a href="https://medium.com/@fpeulrich/a-brief-overview-of-developments-in-digital-type-design-561d9e63a122">A brief overview of developments in digital type design</a></li>
+            <li><a href="https://archive.org/details/FundamentalsOfModernPhotoComposition/page/n144/mode/1up">Fundamentals of modern photo-composition</a></li>
+            <li><a href="https://blog.typekit.com/2014/07/18/the-adobe-originals-silver-anniversary-story-typographic-tales-from-japan/">The Adobe Originals Silver Anniversary Story: Typographic Tales from Japan</a></li>
+          </ul>
+          <aside class="notes"></aside>
+        </section>
+
+        
         <section style="text-align: left">
           <h1>Thank you</h1>
           <p class="align-icon">
-            <img class="j-icon plain" data-src="img/home.png" alt="Website" /><a
-              href="https://chenhuijing.com"
-              >https://chenhuijing.com</a
-            >
+            <img class="j-icon plain" data-src="img/home.png" alt="Website" />
+            <a href="https://chenhuijing.com">https://chenhuijing.com</a>
           </p>
           <p class="align-icon">
-            <img
-              class="j-icon plain"
-              data-src="img/twitter.png"
-              alt="Twitter"
-            /><a href="https://twitter.com/hj_chen">@hj_chen</a>
+            <img class="j-icon plain" data-src="img/twitter.png" alt="Twitter" />
+            <a href="https://twitter.com/hj_chen">@hj_chen</a>
           </p>
           <p class="align-icon">
-            <img
-              class="j-icon plain"
-              data-src="img/github.png"
-              alt="GitHub"
-              style="filter: invert(100%)"
-            /><a href="https://github.com/huijing">@huijing</a>
+            <img class="j-icon plain" data-src="img/github.png" alt="GitHub" style="filter: invert(100%)" />
+            <a href="https://github.com/huijing">@huijing</a>
           </p>
           <p class="align-icon">
-            <img
-              class="j-icon plain"
-              data-src="img/linkedin.png"
-              alt="Linkedin"
-            /><a href="https://sg.linkedin.com/in/huijingchen">@huijingchen</a>
+            <img class="j-icon plain" data-src="img/linkedin.png" alt="Linkedin" />
+            <a href="https://sg.linkedin.com/in/huijingchen" >@huijingchen</a>
           </p>
           <p style="text-align: right">
-            <small
-              >Font is
-              <a href="http://weiweihuanghuang.github.io/Work-Sans/"
-                >Work Sans</a
-              >
-              by <a href="https://weiweihuanghuang.github.io/">Wei Huang</a> and
-              <a href="https://github.com/sebsan/Bagnard">Bagnard</a> by
-              <a href="https://www.futurefonts.xyz/loveletters"
-                >Sebastien Sanfilippo</a
-              >.</small
-            >
+            <small>Font is <a href="http://weiweihuanghuang.github.io/Work-Sans/">Work Sans</a> by <a href="https://weiweihuanghuang.github.io/">Wei Huang</a> and <a href="https://github.com/sebsan/Bagnard">Bagnard</a> by <a href="https://www.futurefonts.xyz/loveletters">Sebastien Sanfilippo</a>.</small>
           </p>
         </section>
       </div>
 
-      <footer
-        style="
-          position: absolute;
-          width: calc(100% - 1em);
-          bottom: 0;
-          font-size: 40%;
-          z-index: 1;
-          display: flex;
-          justify-content: space-between;
-          padding: 0.5em;
-        "
-      >
-        <span>https://huijing.github.io/slides/104-lfa-lectures-2023</span
-        ><span style="text-align: right">@hj_chen</span>
+      <footer>
+        <span>https://huijing.github.io/slides/104-lfa-lectures-2023</span>
+        <span style="text-align: right">@hj_chen</span>
       </footer>
     </div>
 
@@ -190,6 +230,7 @@
         height: 900,
         hash: true,
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+        transition: 'fade',
       });
     </script>
   </body>
