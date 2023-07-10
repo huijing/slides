@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "Work Sans";
+  src: url("WorkSans-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Work Sans";
+  src: url("WorkSans-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Work Sans";
+  src: url("WorkSans-Italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: italic;
+}
