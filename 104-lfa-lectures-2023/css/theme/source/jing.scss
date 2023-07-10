@@ -12,6 +12,8 @@
 // Include theme-specific fonts
 @import url("fonts/bagnard/bagnard.css");
 @import url("fonts/work-sans/work-sans.css");
+@import url("fonts/movement/movement.css");
+@import url("fonts/fraunces/fraunces.css");
 
 // Override theme settings (see ../template/settings.scss)
 $mainFont: "Work Sans", -apple-system, BlinkMacSystemFont, avenir next, avenir,
@@ -68,6 +70,11 @@ $selectionColor: $backgroundColor;
     }
   }
 
+  .code-wrapper code {
+    padding: 0.5em;
+    border-radius: 8px;
+  }
+
   blockquote {
     width: 80%;
     text-align: left;
@@ -121,6 +128,18 @@ $selectionColor: $backgroundColor;
     display: flex;
     justify-content: space-between;
     padding: 0.5em;
+  }
+
+  .movement {
+    font-family: "Movement";
+    font-variation-settings: "SPAC" var(--spac, 100), "wght" var(--wght, 100);
+    font-size: 3em;
+  }
+
+  .fraunces {
+    font-family: "Fraunces";
+    font-variation-settings: "SOFT" var(--soft, 0), "opsz" var(--opsz, 9);
+    font-size: 3em;
   }
 }
 
@@ -208,7 +227,7 @@ span[role="img"][aria-label]:hover::after {
 }
 
 .livecode-2p {
-  grid-template-columns: 65% calc(35% - 0.5em);
+  grid-template-columns: 63% calc(35% - 0.5em);
   height: 70vh;
 }
 
@@ -216,6 +235,10 @@ span[role="img"][aria-label]:hover::after {
   display: block;
   height: 100%;
   white-space: pre-wrap;
+}
+
+.cp_embed_wrapper {
+  width: 100%;
 }
 
 // Intro grid ------------------------------

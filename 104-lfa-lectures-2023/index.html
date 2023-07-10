@@ -153,7 +153,8 @@
           <img class="plain" data-src="img/url.svg" style="width:12em;display:block;margin:0 auto 1em">
           <img class="plain fragment" data-src="img/overview.svg" style="width:20em">
           <aside class="notes">
-            <p></p>
+            <p>Whether you enter a URL into the address bar or click a link, they all have this format of a protocol, a server and a file path. People love to talk about the cloud like it's some invisible sea of data floating above our heads, but it's all physical servers housed across the world, most likely in lower temperature countries, all connected via reams and reams of fibreglass or copper cables.</p>
+            <p>Anyway, the .com portion is the human-readable address for the server on which the content lives in. Once you click the link or press enter on your address bar, your browser sends a request to the server, which will then handle the request and returns the correct content that you asked for.</p>
           </aside>
         </section>
 
@@ -169,11 +170,753 @@
               <img class="plain fragment" data-src="img/request-img.svg" style="width:15em;display:block;margin:0 auto">
             </div>
           </div>
-          <aside class="notes"></aside>
+          <aside class="notes">The first request returns you the base HTML file, which the browser on your device will start to read from top to bottom, and if it encounters any additional required resources like CSS, Javascript, images etc., it will make additional requests to the server to get them. The imagined conversation would go something like this.</aside>
+        </section>
+
+        <section data-background-video="img/network.mp4">
+          <aside class="notes">
+            <p>A major reason why web pages take so long to load these days is because of all these additional required resources being requested from the server, and sometimes, you're requesting from multiple different servers if those resources need more resources. Think ad banners and all kinds of 3rd party extensions. Every resource takes up bandwidth, so it's important that we only send what is necessary and ensure we have optimised them beforehand.</p>
+            <p>I found this website on a forum thread where people were asked what's the most bloated website they've encountered and this was just one of them. I'm sure it's not the most bloated website on the internet but, it's sort of a news site, right? Showing us a list of articles. It can definitely afford to be lighter in page weight, is all I'm saying.</p>
+          </aside>
         </section>
 
         <section>
-          <aside class="notes"></aside>
+          <h2>Subsetting web fonts</h2>
+          <div class="l-multiple">
+            <figure>
+              <img class="plain" style="max-height:65vh" data-src="img/font-squirrel.png" alt="Screenshot of Font Squirrel website">
+              <figcaption><a href="https://www.fontsquirrel.com/tools/webfont-generator">Font Squirrel</a></figcaption>
+            </figure>
+            <figure>
+              <img class="plain" style="max-height:65vh" data-src="img/fontplop.png" alt="Screenshot of FontPlop interface">
+              <figcaption><a href="https://github.com/matthewgonzalez/fontplop">FontPlop</a></figcaption>
+            </figure>
+            <figure>
+              <img class="plain" style="max-height:65vh" data-src="img/font-spider.png" alt="Screenshot of FontSpider website">
+              <figcaption><a href="http://font-spider.org/">Font Spider</a></figcaption>
+            </figure>
+          </div>
+          <aside class="notes">
+            <p>When it comes to page weight, images are the lowest hanging fruit, but there are savings to be had for font files as well. There is a concept known as font subsetting, where you can choose to only provide a limited range of characters to your users. And there are numerous applications both online and offline that allow you to do this, like the ones shown here.</p>
+            <p>Font services like Monotype and Typekit even offer the option of dynamic sub-setting, where font files are served with only the glyphs needed on each page. However, these solutions have limitations, like losing OpenType features during sub-setting, as well as caching issues, given you're requesting new font files for every page.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Variable fonts</h2>
+          <p class="movement">Working with CSS</p>
+          <div class="l-double" style="justify-items:center;max-width:50%;margin:1em auto">
+            <div style="display:flex;flex-direction:column;width:75%">
+              <input type="range" id="space" name="space" min="100" max="120" value="100">
+              <label class="input-spac" for="space">Space</label>
+            </div>
+              
+            <div style="display:flex;flex-direction:column;width:75%">
+              <input type="range" id="weight" name="weight" min="100" max="900" value="100">
+              <label class="input-wght" for="weight">Weight</label>
+            </div>
+          </div>
+          <aside class="notes">
+            <p>Variable fonts are a relatively recent development which allow a single font file to contain all the styles and weights the designer intended via variation axes. Developers can then access these options with CSS.</p>
+            <p>Sending a single font file to your users can yield performance benefits, as the overall size of font files is reduced, and fewer file requests are made. In addition, there is an on-going industry wide collaboration between Adobe, Apple, Google, Monotype and Mozilla plus a number of type foundries and software vendors to resolve some of the issues I mentioned earlier.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Incremental Font Transfer</h2>
+          <blockquote>
+            <p>Incremental transfer allows clients to load only the portions of the font they actually need which speeds up font loads and reduces data transfer needed to load the fonts. A font can be loaded over multiple requests where each request incrementally adds additional data.</p>
+            <br><small>—<a href="https://www.w3.org/TR/IFT/">Incremental Font Transfer</a> W3C Working Draft</small>
+          </blockquote>
+          <aside class="notes">The proposed solution is being developed into a formal W3C specification, which browser makers can eventually refer to when implementing this feature. The premise is to allow the sub-setting of a font request to only what's required on a page, but progressively add on to that original font request for subsequent pages. There's still a lot to be ironed out but this is really promising stuff.</aside>
+        </section>
+
+        <section>
+          <video autoplay controls loop>
+            <source data-src="img/incremental.mp4" type="video/mp4">
+            Sorry, your browser doesn't support embedded img, 
+            but don't worry, you can <a href="img/incremental.mp4">download it</a>
+            and watch it with your favourite video player!
+          </video>
+          <p><small><a href="https://fonts.gstatic.com/experimental/incxfer_demo">Google Fonts’ Incremental Transfer Demo</a></small></p>
+          <aside class="notes">
+           <p>We can see a prototype of this concept in action on the incremental transfer demo by the Google Fonts team. As text is continually added from various different scripts, no less, you can see the vast difference between what we do today, and what could be possible in the future.</p>
+           <p>The savings are quite significant, and much closer to the optimal subset than our current implementation, which sends everything over the wire. So this pretty much covers the logistics of font file delivery. Now, let's get into how to properly use these files on the web page.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>@font-face rule</h2>
+          <p>1. Declare the font</p>
+          <pre style="font-size:50%;width:max-content;margin-bottom:2em"><code>@font-face {
+  font-family: 'Magnetic Pro';
+  src: url('../fonts/magnetic-pro-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Magnetic Pro';
+  src: url('../fonts/magnetic-pro-italic.woff2') format('woff2');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Magnetic Pro';
+  src: url('../fonts/magnetic-pro-bold.woff2') format('woff2');
+  font-weight: bold;
+}</code></pre>
+          <div class="fragment">
+            <p>2. Use the font</p>
+            <pre style="font-size:75%;width:max-content"><code>h1 {
+  font-family: 'Magnetic Pro', Helvetica, sans-serif;
+}</code></pre>
+          </div>
+          <aside class="notes">
+            <p>Even if you're designing something, when you get a hold of some new fonts, you have to install them before you can use them, right? Back in the earliest days of the web, there was no way for you to use fonts that had not already been pre-installed with the system. But eventually, browsers evolved to being able to download additional font files from a specified location just so they could be used on a web page.</p>
+            <p>You can tell the browser where to get these font files using CSS, and this is how it looks. Now the point of this lecture is not to make all you start writing CSS, although I would be very happy if you found it interesting enough to decide to learn. I just wanted to give you an idea of how the developers you work with go through their day.</p>
+            <p>This is called a <code>font-face</code> rule, and it tells the browser the name of the font and where to find it. Once we have this rule declared, we can then tell the browser which elements on which this font should be used. Like so. As you can see, I have provided a list of different fonts for the font-family property, also known as a font stack. This is because browsers use a font-matching algorithm to determine which font to use every single character on the screen.</p>
+          </aside>
+        </section>
+
+        <section>
+          <svg viewBox="0 0 1648 621">
+            <defs>
+              <linearGradient id="a" x1="0%" x2="102%" y1="0%" y2="101%">
+                <stop stop-color="#3023AE" offset="0%"/>
+                <stop stop-color="#C96DD8" offset="100%"/>
+              </linearGradient>
+            </defs>
+            <g fill="none" fill-rule="evenodd">
+              <g fill-rule="nonzero" transform="translate(0 121)">
+                <rect width="225" height="500" fill="#E4FFD4" rx="15"/>
+                <path fill="#FDC794" d="M177.674 118.582c-2.995-16.145-9.523-27.592-17.3-35.737l.5 1.616L56.82 98.85c-2.72 5.655-4.92 12.166-6.324 19.736-2.884 15.538.11 31.786 9.404 44.563 8.996 12.36 25.175 24.04 54.184 23.64 29.006.4 45.188-11.27 54.184-23.64 9.293-12.78 12.287-29.03 9.404-44.56l.002-.01z"/>
+                <path fill="#556080" d="M168.518 113.872c-7.84-4.466-16.755-6.828-25.782-6.828-9.027 0-17.944 2.362-25.782 6.828l-.882.5h-3.418l-.882-.5c-7.838-4.466-16.754-6.828-25.782-6.828-9.027 0-17.943 2.362-25.78 6.828l-1.3.74v1.493c0 6.505 0 21.747 16.302 23.507 3.002.324 5.865.486 8.52.486 22.5 0 28.125-11.674 29.144-20.58h2.974c1.02 8.906 6.642 20.58 29.145 20.58h.003c2.65 0 5.514-.162 8.516-.486 16.304-1.76 16.304-17 16.304-23.507v-1.492l-1.3-.74z"/>
+                <path fill="#8697CB" d="M81.368 115.127c-1.008-1.006-2.638-1.006-3.647 0l-7.73 7.717c-1.01 1.006-1.01 2.632 0 3.638.51.502 1.17.754 1.83.754.66 0 1.32-.252 1.83-.754l7.74-7.717c1.01-1.004 1.01-2.632 0-3.638h-.02zm11.83 0L80.3 127.99c-1.008 1.005-1.008 2.63 0 3.637.504.502 1.164.754 1.824.754.66 0 1.32-.25 1.824-.75l12.896-12.86c1.008-1 1.008-2.63 0-3.64-1.01-1-2.64-1-3.647 0zm44.912 0c-1.007-1.006-2.637-1.006-3.646 0l-7.737 7.717c-1.01 1.006-1.01 2.632 0 3.638.503.502 1.163.754 1.823.754.66 0 1.32-.252 1.824-.754l7.737-7.717c1.01-1.004 1.01-2.632 0-3.638zm15.477 0c-1.01-1.006-2.64-1.006-3.647 0l-12.897 12.862c-1.008 1-1.008 2.63 0 3.63.503.5 1.164.75 1.824.75.66 0 1.32-.25 1.823-.76l12.897-12.86c1.005-1.01 1.005-2.63 0-3.64v.01z"/>
+                <path fill="#556080" d="M151.763 46.172c-.807-2.727-2.39-5.196-4.578-7.144-2.92-2.598-6.9-4.028-11.204-4.028-2.79 0-5.61.61-8.15 1.767l-22.37 10.156c-2.52 1.148-5.46 1.526-8.19 1.035l-21.02-3.733c-1.1-.196-2.24-.296-3.37-.296-9.06 0-16.66 5.96-17.68 13.86-.07.57-.11 1.15-.12 1.71l-.34 15 101.45-14.02-4.41-14.32-.01.01zm5.953 19.294L54.604 79.72l-.44 19.075c-.02.756.298 1.48.863 1.98.474.425 1.086.654 1.715.654.12 0 .237-.01.356-.03L161.23 87c.75-.102 1.415-.53 1.822-1.165.405-.635.51-1.417.29-2.138l-5.626-18.24v.01z"/>
+                <path fill="#8697CB" d="M156.18 60.485L54.722 74.51l-.12 5.21 103.113-14.254"/>
+                <path fill="#F9A671" d="M49.88 122.793c-1.17-1.104-2.542-1.767-4.022-1.767-4.186 0-7.58 5.096-7.58 11.38 0 6.285 3.394 11.38 7.58 11.38 1.772 0 3.38-.95 4.67-2.48-1.168-6.052-1.37-12.308-.65-18.513h.002zm137.536-9.845c-1.452-6.115-5.933-10.287-10.005-9.317-1.26.31-2.31 1.11-3.16 2.2 1.39 3.9 2.57 8.12 3.43 12.76.4 2.16.68 4.32.85 6.49 1.34.73 2.77 1.04 4.15.71 4.08-.97 6.2-6.71 4.75-12.82l-.01-.02zm-89.82 60.98c-.53 0-1.062-.162-1.523-.5-1.148-.837-1.396-2.448-.552-3.592 8.54-11.605 24.43-19.34 36.18-17.565 6.03.9 10.36 4.27 12.19 9.49.47 1.34-.24 2.81-1.58 3.28-1.34.47-2.81-.24-3.28-1.58-1.2-3.43-3.91-5.48-8.07-6.1-9.83-1.45-23.88 5.5-31.26 15.52-.5.69-1.29 1.05-2.08 1.05h-.02z"/>
+                <g transform="translate(45 310)">
+                  <path fill="#424A60" d="M135.255 22.51C133.202 9.956 103.865 0 67.96 0S2.718 9.955.664 22.51H.538v104.112h.126c2.054 12.553 31.393 22.51 67.296 22.51 35.902 0 65.242-9.957 67.295-22.51h.127V22.51h-.127z"/>
+                  <path fill="#424A60" d="M67.96 115.367c-37.237 0-67.422-10.71-67.422-23.918v35.17h.126c2.054 12.55 31.393 22.51 67.296 22.51 35.902 0 65.242-9.96 67.295-22.51h.127V91.45c0 13.208-30.186 23.917-67.422 23.917zM.538 90.043v1.406c0-.48.05-.94.126-1.41H.538zm134.717 0c.076.467.127.934.127 1.406v-1.41h-.127z"/>
+                  <path fill="#556080" d="M67.96 81.6C30.723 81.6.538 70.893.538 57.684v35.173h.126c2.054 12.553 31.393 22.51 67.296 22.51 35.902 0 65.242-9.957 67.295-22.51h.127V57.683c0 13.21-30.186 23.918-67.422 23.918zM.538 56.277v1.406c0-.472.05-.94.126-1.406H.538zm134.717 0c.076.467.127.934.127 1.406v-1.406h-.127z"/>
+                  <ellipse cx="67.96" cy="23.918" fill="#7FABDA" rx="67.422" ry="23.918"/>
+                  <g fill="#7383BF">
+                    <path d="M67.96 47.835C30.723 47.835.538 37.125.538 23.918V59.09h.126C2.718 71.643 32.057 81.6 67.96 81.6c35.902 0 65.242-9.957 67.295-22.51h.127V23.918c0 13.208-30.186 23.917-67.422 23.917z"/>
+                    <path d="M.538 22.51v1.408c0-.473.05-.94.126-1.407H.538zm134.717 0c.076.468.127.935.127 1.408V22.51h-.127z"/>
+                  </g>
+                </g>
+                <g transform="translate(75 209)">
+                  <path fill="#ECE7EA" d="M27.326 49.296l-1.765-1.764 10.99-10.986 1.77 1.764"/>
+                  <circle cx="51.782" cy="23.072" r="23.072" fill="#F14742"/>
+                  <circle cx="51.782" cy="23.072" r="18.131" fill="#ECE7EA"/>
+                  <path fill="#FFF" d="M42.526 15.063c-.32 0-.64-.122-.882-.366-.488-.487-.488-1.277 0-1.764 2.708-2.708 6.31-4.2 10.14-4.2 3.83 0 7.43 1.492 10.137 4.2.49.487.49 1.277 0 1.764-.48.487-1.27.487-1.76 0-2.23-2.237-5.21-3.47-8.37-3.47-3.16 0-6.13 1.233-8.37 3.47-.24.244-.56.366-.88.366h-.01z"/>
+                  <path fill="#1B4145" d="M27.544 54.57L8.3 73.814c-2.005 2.004-4.085.832-6.09-1.172C.208 70.64-.964 68.56 1.04 66.555L20.284 47.31l5.982 1.277 1.277 5.982z"/>
+                  <path fill="#C2B8B9" d="M29.888 52.225l-2.344 2.344-7.26-7.26 2.345-2.35c2-2.01 5.25-2.01 7.25 0 2 2 2 5.25 0 7.26z"/>
+                </g>
+                <path fill="#3D324C" d="M40.72 103.644c-1.266 0-2.373-.932-2.55-2.218-.197-1.41.788-2.71 2.2-2.902l133.5-18.454c1.416-.227 2.713.787 2.91 2.194.195 1.41-.79 2.71-2.2 2.902L41.077 103.618c-.12.018-.24.026-.358.026z"/>
+              </g>
+              <g class="fragment" transform="translate(225.333 171)">
+                <rect width="225" height="400" x="183" fill="#D4FFF6" fill-rule="nonzero" rx="15"/>
+                <path fill="#E9E9E0" fill-rule="nonzero" d="M320.077 218h-78.11c-2.174 0-3.937 1.754-3.937 5.16v142.16c0 .926 1.763 2.68 3.937 2.68h107.855c2.175 0 3.938-1.754 3.938-2.68V252.763c0-1.864-.25-2.464-.692-2.906L321.75 218.69c-.442-.44-1.045-.69-1.672-.69z"/>
+                <path fill="#D9D7CA" fill-rule="nonzero" d="M321.463 218.404v31.74h31.89"/>
+                <path fill="#8697CB" fill-rule="nonzero" d="M270.327 252.82h-16.15c-1.484 0-2.69-1.2-2.69-2.677 0-1.48 1.206-2.68 2.69-2.68h16.15c1.485 0 2.69 1.2 2.69 2.68 0 1.478-1.205 2.678-2.69 2.678zm8.073 13.394h-24.22c-1.485 0-2.69-1.2-2.69-2.678 0-1.48 1.205-2.68 2.69-2.68h24.22c1.486 0 2.692 1.2 2.692 2.68 0 1.478-1.206 2.678-2.69 2.678h-.002zm10.766 0c-.7 0-1.4-.294-1.91-.776-.485-.51-.78-1.206-.78-1.902 0-.697.295-1.393.78-1.902.995-.99 2.825-.99 3.82 0 .486.51.782 1.205.782 1.902 0 .696-.296 1.393-.78 1.9-.512.484-1.212.778-1.912.778zm32.297 0h-21.53c-1.487 0-2.693-1.2-2.693-2.678 0-1.48 1.206-2.68 2.692-2.68h21.53c1.487 0 2.692 1.2 2.692 2.68 0 1.478-1.205 2.678-2.69 2.678zm-67.285 40.18c-.7 0-1.4-.296-1.91-.778-.485-.51-.78-1.205-.78-1.902 0-.696.295-1.393.78-1.9.995-.993 2.825-.993 3.82-.002.486.51.782 1.18.782 1.902 0 .697-.296 1.393-.78 1.902-.512.482-1.212.777-1.912.777zm32.297 0h-21.53c-1.487 0-2.693-1.2-2.693-2.68 0-1.478 1.206-2.678 2.692-2.678h21.53c1.487 0 2.692 1.2 2.692 2.678 0 1.48-1.205 2.68-2.69 2.68zm51.135-40.18h-5.382c-1.485 0-2.69-1.2-2.69-2.678 0-1.48 1.205-2.68 2.69-2.68h5.383c1.49 0 2.7 1.2 2.7 2.68 0 1.478-1.2 2.678-2.69 2.678h-.01zm-24.22 13.393h-59.212c-1.485 0-2.69-1.2-2.69-2.678 0-1.48 1.205-2.68 2.69-2.68h59.21c1.486 0 2.692 1.2 2.692 2.68 0 1.47-1.206 2.67-2.69 2.67zm24.22 0h-16.147c-1.486 0-2.69-1.2-2.69-2.678 0-1.48 1.204-2.68 2.69-2.68h16.148c1.49 0 2.7 1.2 2.7 2.68 0 1.47-1.2 2.67-2.69 2.67h-.01zM264.944 293h-10.766c-1.485 0-2.69-1.2-2.69-2.68 0-1.477 1.205-2.677 2.69-2.677h10.766c1.485 0 2.69 1.2 2.69 2.678 0 1.48-1.205 2.68-2.69 2.68zm37.68 0H275.71c-1.486 0-2.692-1.2-2.692-2.68 0-1.477 1.206-2.677 2.69-2.677h26.915c1.486 0 2.692 1.2 2.692 2.678 0 1.48-1.206 2.68-2.692 2.68zm34.986 0h-24.22c-1.487 0-2.693-1.2-2.693-2.68 0-1.477 1.206-2.677 2.692-2.677h24.22c1.48 0 2.69 1.2 2.69 2.678 0 1.48-1.21 2.68-2.69 2.68z"/>
+                <path fill="#0096E6" fill-rule="nonzero" d="M349.822 368H241.967c-2.174 0-3.937-1.754-3.937-3.92v-41.616h115.73v41.617c0 2.17-1.763 3.92-3.938 3.92z"/>
+                <path fill="#FFF" fill-rule="nonzero" d="M250.778 358v-26.016h14.59v2.76h-10.885v8.72h9.138v2.724h-9.13V358h-3.71zm29.884.65c-3.622 0-6.536-1.25-8.74-3.753-2.206-2.502-3.31-5.81-3.31-9.922 0-4.137 1.11-7.445 3.326-9.923 2.217-2.48 5.178-3.718 8.883-3.718 3.7 0 6.65 1.236 8.88 3.71 2.23 2.472 3.34 5.77 3.34 9.895 0 4.2-1.11 7.54-3.33 10.01-2.22 2.46-5.23 3.7-9.03 3.7h-.01zm.053-2.76c2.67 0 4.733-.957 6.192-2.873 1.458-1.916 2.187-4.62 2.187-8.113 0-3.386-.732-6.035-2.196-7.945-1.464-1.91-3.49-2.87-6.077-2.87-2.59 0-4.62.96-6.08 2.87-1.46 1.91-2.19 4.58-2.19 7.99 0 3.39.73 6.07 2.17 8.01 1.45 1.94 3.45 2.92 6 2.92v.01zm17.5 2.11v-26.016h3.634l13.14 20.092v-20.092h3.17V358h-3.62l-13.16-20.092V358h-3.18.01zm32.9 0v-23.256h-9.262v-2.76h22.228v2.76h-9.26V358h-3.7z"/>
+                <g fill-rule="nonzero">
+                  <path fill="#FDC794" d="M360.674 116.582c-2.995-16.145-9.523-27.592-17.3-35.737l.5 1.616L239.82 96.85c-2.72 5.655-4.92 12.166-6.324 19.736-2.884 15.538.11 31.786 9.404 44.563 8.996 12.36 25.175 24.04 54.184 23.64 29.006.4 45.188-11.27 54.184-23.64 9.293-12.78 12.287-29.03 9.404-44.56l.002-.01z"/>
+                  <path fill="#556080" d="M351.518 111.872c-7.84-4.466-16.755-6.828-25.782-6.828-9.027 0-17.944 2.362-25.782 6.828l-.882.5h-3.418l-.882-.5c-7.838-4.466-16.754-6.828-25.782-6.828-9.027 0-17.943 2.362-25.78 6.828l-1.3.74v1.493c0 6.505 0 21.747 16.302 23.507 3.002.324 5.865.486 8.52.486 22.5 0 28.125-11.674 29.144-20.58h2.974c1.02 8.906 6.642 20.58 29.145 20.58h.003c2.65 0 5.514-.162 8.516-.486 16.304-1.76 16.304-17 16.304-23.507v-1.492l-1.3-.74z"/>
+                  <path fill="#8697CB" d="M264.368 113.127c-1.008-1.006-2.638-1.006-3.647 0l-7.73 7.717c-1.01 1.006-1.01 2.632 0 3.638.51.502 1.17.754 1.83.754.66 0 1.32-.252 1.83-.754l7.74-7.717c1.01-1.004 1.01-2.632 0-3.638h-.02zm11.83 0L263.3 125.99c-1.008 1.005-1.008 2.63 0 3.637.504.502 1.164.754 1.824.754.66 0 1.32-.25 1.824-.75l12.896-12.86c1.008-1 1.008-2.63 0-3.64-1.01-1-2.64-1-3.647 0zm44.912 0c-1.007-1.006-2.637-1.006-3.646 0l-7.737 7.717c-1.01 1.006-1.01 2.632 0 3.638.503.502 1.163.754 1.823.754.66 0 1.32-.252 1.824-.754l7.737-7.717c1.01-1.004 1.01-2.632 0-3.638zm15.477 0c-1.01-1.006-2.64-1.006-3.647 0l-12.897 12.862c-1.008 1-1.008 2.63 0 3.63.503.5 1.164.75 1.824.75.66 0 1.32-.25 1.823-.76l12.897-12.86c1.005-1.01 1.005-2.63 0-3.64v.01z"/>
+                  <path fill="#556080" d="M334.763 44.172c-.807-2.727-2.39-5.196-4.578-7.144-2.92-2.598-6.9-4.028-11.204-4.028-2.79 0-5.61.61-8.15 1.767l-22.37 10.156c-2.52 1.148-5.46 1.526-8.19 1.034l-21.01-3.732c-1.1-.196-2.24-.296-3.37-.296-9.06 0-16.66 5.96-17.68 13.86-.07.57-.11 1.15-.12 1.71l-.34 15 101.44-14.03-4.41-14.32-.01.02zm5.953 19.294L237.604 77.72l-.44 19.075c-.02.756.298 1.48.863 1.98.474.425 1.086.654 1.715.654.12 0 .237-.01.356-.03L344.23 85c.75-.102 1.415-.53 1.822-1.165.405-.635.51-1.417.29-2.138l-5.626-18.24v.01z"/>
+                  <path fill="#8697CB" d="M339.18 58.485L237.722 72.51l-.12 5.21 103.113-14.254"/>
+                  <path fill="#F9A671" d="M232.88 120.793c-1.17-1.104-2.542-1.767-4.022-1.767-4.186 0-7.58 5.096-7.58 11.38 0 6.285 3.394 11.38 7.58 11.38 1.772 0 3.38-.95 4.67-2.48-1.168-6.052-1.37-12.308-.65-18.513h.002zm137.536-9.845c-1.452-6.115-5.933-10.287-10.005-9.317-1.26.31-2.31 1.11-3.16 2.2 1.39 3.9 2.57 8.12 3.43 12.76.4 2.16.68 4.32.85 6.49 1.34.73 2.77 1.04 4.15.71 4.08-.97 6.2-6.71 4.75-12.82l-.01-.02zm-89.82 60.98c-.53 0-1.062-.162-1.523-.5-1.148-.837-1.396-2.448-.552-3.592 8.54-11.605 24.43-19.34 36.18-17.565 6.03.9 10.36 4.27 12.19 9.49.47 1.34-.24 2.81-1.58 3.28-1.34.47-2.81-.24-3.28-1.58-1.2-3.43-3.91-5.48-8.07-6.1-9.83-1.45-23.88 5.5-31.26 15.52-.5.69-1.29 1.05-2.08 1.05h-.02z"/>
+                  <path fill="#3D324C" d="M223.72 101.644c-1.266 0-2.373-.932-2.55-2.218-.197-1.41.788-2.71 2.2-2.902l133.5-18.454c1.416-.227 2.713.787 2.91 2.194.195 1.41-.79 2.71-2.2 2.902l-133.502 18.452c-.12.018-.24.026-.358.026z"/>
+                </g>
+                <path stroke="#fff" stroke-width="10" d="M.164 200H174.17"/>
+                <path stroke="#fff" stroke-width="10" d="M140.86 177l33.135 23.055-33.135 23.054" stroke-linecap="round"/>
+                <g fill="#fff" font-size="24" font-family="Monaco">
+                  <text transform="translate(44.667 123)">
+                    <tspan x=".908" y="24">Picks</tspan>
+                  </text>
+                  <text transform="translate(44.667 123)">
+                    <tspan x="8.109" y="54">font</tspan>
+                  </text>
+                </g>
+              </g>
+              <g class="fragment">
+                <path fill="#FFF0D4" fill-rule="nonzero" d="M966 221.02L1115.98 371 966 520.98 816.02 371"/>
+                <g fill-rule="nonzero">
+                  <path fill="#E37948" d="M933.48 368.015h66.005c1.52 0 2.75 1.23 2.75 2.748v79.69c0 1.518-1.23 2.747-2.75 2.747H933.48c-1.52 0-2.75-1.23-2.75-2.748v-79.69c0-1.516 1.23-2.747 2.75-2.747z"/>
+                  <path fill="#FFF" d="M938.98 376.26h55.005v68.696H938.98"/>
+                  <path fill="#E4E7E7" d="M944.396 370.764h13.723v-5.496h16.6l.06 5.496h13.69v8.244h-44.08"/>
+                  <path fill="#CDCFCF" d="M944.48 376.28h44.005v2.744H944.48"/>
+                  <path fill="#51BBA8" d="M944.48 409.234h8.25v-8.27h-8.25v8.27zm13.752-8.274v8.238h30.252v-8.238h-30.252z"/>
+                  <path fill="#CCD0D2" d="M944.48 395.522h8.25v-8.27h-8.25v8.27zm13.752-8.27v8.24h30.252v-8.24h-30.252zm-13.75 35.693h8.25v-8.186h-8.25v8.18zm13.75.06h30.252v-8.237h-30.252v8.238zm-13.75 13.683h8.25v-8.186h-8.25v8.186zm13.75.057h30.252v-8.238h-30.252v8.238z"/>
+                </g>
+                <g fill="#000" font-size="24" font-family="Monaco">
+                  <text transform="translate(901 293)">
+                    <tspan x="14.831" y="24.633">Matches</tspan>
+                  </text>
+                  <text transform="translate(901 293)">
+                    <tspan x=".428" y="54.633">criteria?</tspan>
+                  </text>
+                </g>
+                <g stroke="#fff" stroke-width="10">
+                  <path d="M633.497 371h174.006"/>
+                  <path d="M774.193 348l33.135 23.055-33.135 23.054" stroke-linecap="round"/>
+                </g>
+              </g>
+              <g class="fragment">
+                <path stroke="#fff" stroke-width="10" d="M965.27 220.614V44H517v119.604"/>
+                <path stroke="#fff" stroke-width="10" d="M540.11 129l-23.055 33.135L494 129" stroke-linecap="round"/>
+                <text fill="#000" transform="translate(983 117)" font-size="24" font-family="Monaco">
+                  <tspan x=".098" y="24">No</tspan>
+                </text>
+                <text fill="#fff" font-family="Monaco" font-size="24" transform="translate(494 -4)">
+                  <tspan x="31.465" y="24">Next alternative ‘font-family’</tspan>
+                </text>
+              </g>
+              <g class="fragment">
+                <path stroke="#fff" stroke-width="10" d="M1115.497 371h174.006"/>
+                <path stroke="#fff" stroke-width="10" d="M1256.193 348l33.135 23.055-33.135 23.054" stroke-linecap="round"/>
+                <text fill="#fff" transform="translate(1169 324)" font-size="24" font-family="Monaco">
+                  <tspan x=".396" y="24">Yes</tspan>
+                </text>
+              </g>
+              <g class="fragment" fill-rule="nonzero" transform="translate(1298 196)">
+                <circle cx="175" cy="175" r="175" fill="url(#a)"/>
+                <g transform="translate(60 30)">
+                  <path fill="#F09EA0" d="M122.485 183.36L3.57 249.33c-1.536.852-4.026-1.44-3.304-3.043L56.09 122.23"/>
+                  <path fill="#EF8990" d="M111.49 173.237L7.07 231.164.267 246.288c-.72 1.604 1.767 3.895 3.305 3.042l118.916-65.97-10.995-10.123h-.003z"/>
+                  <ellipse cx="91.084" cy="151.214" fill="#59D3C4" transform="rotate(-47.383 91.084 151.214)" rx="19.631" ry="45.477"/>
+                  <path fill="#88E2E2" d="M104.373 136.754c-18.47-17.006-39.394-24.32-46.735-16.335-2.27 2.46-2.972 6.11-2.318 10.47 9.747 1.04 23.17 8.06 35.502 19.42 12.758 11.74 21.003 25.04 22.466 34.77 4.85.52 8.794-.44 11.234-3.09 7.342-7.98-1.68-28.24-20.15-45.25v.01z"/>
+                  <g fill="#F9DE8F" transform="translate(15.068 175.584)">
+                    <ellipse cx="42.533" cy="9.522" rx="9.129" ry="9.135"/>
+                    <path d="M7.925 41.562c5.042 0 9.13-4.09 9.13-9.135s-4.088-9.135-9.13-9.135c-.494 0-.976.05-1.45.126L.223 37.315c1.62 2.55 4.46 4.247 7.703 4.247z"/>
+                  </g>
+                  <path fill="#F09EA0" d="M124.5 95.368c-1.445 0-2.86-.726-3.68-2.046-1.26-2.032-.637-4.702 1.393-5.964 6.554-4.073 15.487-11.53 20.83-23.92 2.78-6.452 4.198-13.356 4.21-20.52.004-2.39 1.94-4.324 4.328-4.324h.01c2.39.004 4.33 1.946 4.32 4.338-.01 8.346-1.67 16.4-4.91 23.938-6.23 14.45-16.6 23.118-24.21 27.845-.71.442-1.5.653-2.28.653h-.01z"/>
+                  <path fill="#F9DE8F" d="M128.15 132.823c-.386 0-.78-.053-1.17-.162-2.3-.64-3.643-3.03-2.997-5.34 4.813-17.16 12.8-28.81 23.743-34.62 6.9-3.66 13.08-4.08 19.058-4.49 5.55-.37 10.794-.73 17.117-3.55 8.91-3.97 16.43-11.34 22.33-21.91 1.17-2.08 3.81-2.83 5.89-1.66 2.09 1.17 2.83 3.81 1.67 5.9-6.84 12.23-15.71 20.84-26.36 25.59-7.72 3.45-14.27 3.89-20.05 4.29-5.53.38-10.31.7-15.58 3.5-8.77 4.66-15.32 14.53-19.47 29.32-.53 1.91-2.27 3.16-4.16 3.16l-.02-.02zm-45.463-25.346c.16.352.37.69.63 1 1.54 1.832 4.268 2.068 6.098.53 13.64-11.47 20.95-23.56 21.725-35.93.49-7.804-1.678-13.61-3.774-19.227-1.946-5.215-3.785-10.142-3.827-17.07-.06-9.76 3.55-19.65 10.73-29.393 1.41-1.924 1.01-4.634-.92-6.056-1.93-1.41-4.64-1-6.05.92-8.31 11.28-12.49 22.92-12.42 34.59.05 8.47 2.35 14.62 4.37 20.05 1.94 5.2 3.61 9.7 3.24 15.66-.62 9.92-6.9 19.96-18.66 29.85-1.52 1.28-1.94 3.38-1.16 5.1l.01-.02z"/>
+                  <path fill="#F09EA0" d="M193.386 154.03c-1.902 0-3.77-.202-5.603-.602-5.316-1.16-8.643-3.68-11.58-5.902-1.888-1.43-3.672-2.78-5.993-3.812-7.33-3.26-17.27-1.946-29.548 3.91-2.16 1.03-4.74.114-5.77-2.045-1.028-2.16-.113-4.75 2.045-5.78 14.666-7 27.044-8.35 36.79-4.01 3.23 1.43 5.604 3.23 7.698 4.81 2.652 2.01 4.746 3.59 8.205 4.35 5.52 1.2 11.816-.35 18.705-4.63 2.03-1.26 4.7-.64 5.958 1.39 1.26 2.03.635 4.7-1.396 5.96-6.783 4.21-13.323 6.33-19.51 6.33v.03z"/>
+                  <path fill="#88E2E2" d="M194.992 119.83c-.953 0-1.913-.314-2.713-.96-1.87-1.502-2.16-4.227-.66-6.09 4.03-5 9.16-9.123 14.84-11.924 4.1-2.024 8.49-3.388 13.05-4.054 2.37-.345 4.56 1.29 4.91 3.658.34 2.367-1.29 4.565-3.66 4.912-3.67.536-7.19 1.63-10.48 3.253-4.56 2.25-8.69 5.567-11.94 9.593-.86 1.06-2.11 1.612-3.38 1.612h.03zm-25.912 2.57c-2.523 0-4.57-2.047-4.57-4.57 0-2.522 2.047-4.57 4.57-4.57 2.52 0 4.566 2.048 4.566 4.57 0 2.523-2.046 4.57-4.567 4.57z"/>
+                  <path fill="#F09EA0" d="M179.276 59.825c-2.52 0-4.568-2.048-4.568-4.57 0-2.523 2.047-4.57 4.568-4.57 2.52 0 4.567 2.047 4.567 4.57 0 2.522-2.046 4.57-4.567 4.57z"/>
+                  <path fill="#88E2E2" d="M142.607 13.54c-2.52 0-4.568-2.047-4.568-4.57 0-2.522 2.04-4.57 4.56-4.57 2.52 0 4.56 2.048 4.56 4.57 0 2.523-2.05 4.57-4.57 4.57h.01zm80.337 30.756c-2.522 0-4.568-2.048-4.568-4.57 0-2.523 2.046-4.57 4.568-4.57 2.52 0 4.567 2.047 4.567 4.57.01 2.522-2.04 4.57-4.56 4.57z"/>
+                  <path fill="#F9DE8F" d="M193.122 22.68c-2.52 0-4.568-2.047-4.568-4.57 0-2.52 2.047-4.57 4.568-4.57 2.52 0 4.567 2.05 4.567 4.57 0 2.523-2.05 4.57-4.57 4.57z"/>
+                  <path fill="#F09EA0" d="M124.497 39.725c-2.52 0-4.567-2.048-4.567-4.57 0-2.523 2.046-4.57 4.567-4.57 2.522 0 4.568 2.047 4.568 4.57 0 2.522-2.046 4.57-4.568 4.57z"/>
+                  <path fill="#F9DE8F" d="M224.72 131.37c-2.522 0-4.568-2.048-4.568-4.57 0-2.523 2.046-4.57 4.567-4.57 2.52 0 4.56 2.047 4.56 4.57 0 2.522-2.05 4.57-4.57 4.57h.01zM82.303 77.472c-2.52 0-4.567-2.048-4.567-4.57 0-2.523 2.046-4.57 4.567-4.57 2.522 0 4.568 2.047 4.568 4.57s-2.04 4.57-4.56 4.57z"/>
+                </g>
+              </g>
+            </g>
+          </svg>
+          <aside class="notes">
+            <p>The browser will take the first name on the list, and if it is <strong>not</strong> a generic family keyword, it will try to find the font by checking if it had been declared as a font-face rule or not. Once the family has been found, the browser then has to assemble the set of different variations, like weight, style etc. then determine if a specific character exists in that set of fonts.</p>
+            <p>If not, the browser will move on to the next font on the list, and run through that entire process again until all the fonts on the list have been exhausted. With the widespread adoption of Unicode these days, odds that the browser encounters a character is just cannot render even with system fonts is rather low.</p>
+          </aside>
+        </section>
+
+        <section data-background-image="img/toufu.png" data-background-size="cover">
+          <aside class="notes">But in the event the browser runs into a character that it cannot find a font for, you will see a blank rectangle. Sometimes that blank rectangle might have a hexadecimal Unicode codepoint value in there. It's the browser's way of telling you, sorry, I don't know how to deal with this character.</aside>
+        </section>
+
+        <section>
+          <div class="l-double" style="justify-items:center">
+            <img data-src="img/subset-fail.png" style="max-height:75vh" alt="Subsetting gone wrong on Medium for letters beyond the basic Latin set" class="plain">
+            <img data-src="img/subset-fail2.jpg" style="max-height:75vh" alt="Subsetting gone wrong on Medium for Lithuanian characters" class="plain">
+          </div>
+          <aside class="notes">The more common issue we see today is fallback font choice not matching the main font well enough, hence making it painfully obvious the font is missing specific glyphs. Ideally, your font stack should be made up of fonts that share similar characteristics, so it is not that obvious a fallback has been invoked for a particular missing glyph. Go for similar visual style, x-heights and stroke weights.</aside>
+        </section>
+
+        <section>
+          <video loop autoplay>
+            <source data-src="img/font-highlighter.mp4" type="video/mp4">
+            Sorry, your browser doesn't support embedded img, 
+            but don't worry, you can <a href="img/font-highlighter.mp4">download it</a>
+            and watch it with your favourite video player!
+          </video>
+          <p><small>Slides for <a href="https://speak.wgao19.cc/slides/1904-mixed-and-blended/#/9/3"><em>This world mixed and blended</em></a> by <a href="https://wgao19.cc/">Gao Wei</a>.</small></p>
+          <aside class="notes">In terms of browser tools, the Firefox Font Tools is the most full-featured tool available right now. Right-click on some text on a webpage and select "Inspect" to bring up the Devtools. From there, navigate to the Fonts panel, and it will show you which fonts are loaded on the page, and which fonts are being loaded for which characters on your page. There's also information about all the fonts on the page in the bottom section there as well.</aside>
+        </section>
+
+        <section>
+          <div class="l-double" style="align-items:center">
+            <img data-src="img/raleway.png" alt="Raleway font specimen" class="plain">
+            <img data-src="img/comfortaa.png" alt="Comfortaa font specimen" class="plain">
+          </div>
+          <aside class="notes">
+            <p>This tool comes in very handy especially for those of you who build multilingual websites or even sites with a handful of foreign words, and you are using a typeface that may not support all the required characters.</p>
+            <p>For example, this round sans-serif is Raleway, designed by the League of Moveable Type. It's pretty nice, in my opinion, but unfortunately, does not support Cyrillic characters. Which is a bummer, if I wanted to use it for a talk I'm giving in Ukraine, for example.</p>
+            <p>So what we can do, is try to find a font that does contain those characters, and somewhat resembles the design of chosen font, then utilise the <code>unicode-range</code> descriptor to create a “composite font”.</p>
+          </aside>
+        </section>
+
+        <section>
+          <pre><code style="max-height:initial">@font-face {
+  font-family: 'Raleway';
+  src: url('fonts/raleway-regular.woff2') format('woff2');
+  /* no range specified, defaults to entire range */
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('fonts/comfortaa_regular.woff2') format('woff2');
+  unicode-range: U+0400–U+04FF; /* Unicode range for Cyrillic characters */
+}</code></pre>
+          <aside class="notes">
+            <p>It's called a composite font because it mixes glyphs from different fonts for different scripts. To deal with the fact that <em>Raleway</em> does not support Cyrillic letters, we can use the <code>unicode-range</code> descriptor to tell the browser to load <em>Comfortaa</em>, which is a font that does, when it encounters any Cyrillic characters.</p>
+            <p>Remember that for font-face rules, the font-family is simply a label, so what we've done is create a composite font that uses the name <em>Raleway</em>, but in actuality, loads 2 different font files depending on what characters need to be displayed.</p>
+          </aside>
+        </section>
+
+        <section>
+          <video loop autoplay>
+            <source data-src="img/composite.mp4" type="video/mp4">
+            Sorry, your browser doesn't support embedded videos, 
+            but don't worry, you can <a href="img/composite.mp4">download it</a>
+            and watch it with your favourite video player!
+          </video>
+          <aside class="notes">And the font highlighter reveals what the browser does when it encounters such a scenario. Raleway is the font-family descriptor, but you can see that Firefox has loaded both Raleway and Comfortaa. The font tools can also tell you which font format the browser loaded for a particular run of text.</aside>
+        </section>
+
+        <section>
+          <h2>Typesetting on the web</h2>
+          <blockquote>
+            <p>Authors should language-tag their content accurately for the best typographic behaviour.</p>
+            <br><small>—CSS Text Module Level 3</small>
+          </blockquote>
+          <div class="l-double">
+            <pre style="width:max-content"><code>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;</code></pre>
+            <pre><code style="white-space:pre-wrap">&lt;p&gt;비비는 오는 24일 오후 1시 더블 싱글 형태로 '모토스피드 24시(&lt;span lang="en"&gt;Motospeed 24&lt;/span&gt;)'와 '불륜(&lt;span lang="en"&gt;Sweet Sorrow of Mother&lt;/span&gt;)' 2곡을 공개한다.&lt;/p&gt;</code></pre>
+          </div>
+          <aside class="notes">
+            <p>Browsers do have a number of sensible typographic defaults out-of-the-box and it hinges on us telling the browser what language our content is written in. This is important because language and writing system conventions affect lots of typographic effects like line breaking, hyphenation, justification, glyph selection and more.</p>
+            <p>For CSS, language-specific typographic tailorings are only applied when the content language is explicitly declared. So it is in our best interest to tell the browser exactly what language our content is in to ensure a higher quality typographic experience for our users.</p>
+            <p>Usually, you would set the language of your content on the HTML element itself, but if there are phrases or sentences in other languages, those should be appropriately tagged as well.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>CSS font properties</h2>
+          <table style="font-size: 85%">
+            <tr>
+              <td width="25%"><code>font-family</code></td>
+              <td>specifies a prioritized list of one or more font family names and/or generic family names for the selected element.</td>
+            </tr>
+            <tr>
+              <td><code>font-size</code></td>
+              <td >Indicates the desired height of the glyphs. Takes absolute or relative values.</td>
+            </tr>
+            <tr>
+              <td><code>font-weight</code></td>
+              <td>Specifies the weight of the glyphs in the font. Can use keywords or numerical values.</td>
+            </tr>
+            <tr>
+              <td><code>font-style</code></td>
+              <td>Allows italic or oblique faces to be selected.</td>
+            </tr>
+            <tr>
+              <td><code>font-stretch</code></td>
+              <td>Selects a normal, condensed or expanded face from a font family. Range spans over 9 keywords.</td>
+            </tr>
+            <tr>
+              <td><code>font-size-adjust</code></td>
+              <td>Adjusts the font-size to preserve the x-height of the first choice font.</td>
+            </tr>
+            <tr>
+              <td><code>font-synthesis</code></td>
+              <td>Controls whether user agents are allowed to synthesize bold or oblique font faces when missing.</td>
+            </tr>
+          </table>
+          <aside class="notes">
+            <p>Since CSS is our one and only typesetting tool for web pages, let's better understand what we can do with it. CSS today provides developers a lot more granular typographic control as compared to the early days. There are CSS properties for adjustments at the character level, at the line level and at the layout level.</p>
+            <p>This list here consists of the most commonly seen basic font properties. Mostly self-explanatory but let's go through the last 2, since they are fairly web-specific.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2><code>font-size-adjust</code></h2>
+          <div class="l-double">
+            <img class="plain" data-src="img/font-size-adjust.png" alt="Font-size adjust example">
+            <p class="codepen" data-height="600" data-default-tab="css,result" data-slug-hash="xLvYNw" data-user="huijing" style="box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+              <span>See the Pen <a href="https://codepen.io/huijing/pen/xLvYNw">
+              Demo of font-size-adjust</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>)
+              on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+          </div>
+          <aside class="notes"><code>font-size-adjust</code> is meant to address legibility issues. Faces with low x-heights may sometimes be less legible, especially when they are triggered as fallback fonts. We can set the value of this property to the aspect ratio of the first choice font. Any fallback fonts triggered will have their font-size adjusted to match this ratio.</aside>
+        </section>
+
+        <section>
+          <h2><code>font-synthesis</code></h2>
+          <div class="l-double" style="grid-template-columns: 58% 42%;">
+            <figure>
+              <img class="plain" data-src="img/faux-bold.png" alt="Faux bold effect">
+              <figcaption></figcaption>
+            </figure>
+            <figure>
+              <img class="plain" data-src="img/faux-italic.png" alt="Faux italic effect">
+              <figcaption></figcaption>
+            </figure>
+          </div>
+          <small>Image credit: Piotr Grochowski</small>
+          <aside class="notes"><code>font-synthesis</code> is meant to address the issue of faux bolds and faux italics. Sometimes the true italic or heavier version of a font does not exist so the browser will try to compensate. Unfortunately, many designers have informed me that the end result isn't pretty. With this property, you can set a value of <code>none</code>, to tell the browser, it's fine, appreciate the effort, but no thanks.</aside>
+        </section>
+
+        <section>
+          <h2><code>font-synthesis</code></h2>
+          <div class="livecode livecode-2p">
+            <div class="result faux" style="font-size:1.2em;text-align:left">
+              <p>We use <em>italics</em> to emphasise words in English, <span lang="zh">但是中文则是用<em>着重号</em></span>.</p>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.faux em:lang(zh) {
+  font-synthesis: auto;
+}</style></div>
+          </div>
+          <aside class="notes">In the case of Chinese, synthesizing italics is not even necessary. Making this situation a good use-case for <code>font-synthesis</code>. Here I'm telling the browser leave the Chinese text alone even if the font style is being set to italic.</aside>
+        </section>
+
+        <section>
+          <h2>OpenType features</h2>
+          <ul style="font-size:65%;column-count:8;column-gap:1.5em">
+            <li>aalt</li>
+            <li>abvf</li>
+            <li>abvm</li>
+            <li>abvs</li>
+            <li>afrc</li>
+            <li>akhn</li>
+            <li>blwf</li>
+            <li>blwm</li>
+            <li>blws</li>
+            <li>calt</li>
+            <li>case</li>
+            <li>ccmp</li>
+            <li>cfar</li>
+            <li>cjct</li>
+            <li>clig</li>
+            <li>cpct</li>
+            <li>cpsp</li>
+            <li>cswh</li>
+            <li>curs</li>
+            <li>cv01 – cv99</li>
+            <li>c2pc</li>
+            <li>c2sc</li>
+            <li>dist</li>
+            <li>dlig</li>
+            <li>dnom</li>
+            <li>dtls</li>
+            <li>expt</li>
+            <li>falt</li>
+            <li>fin2</li>
+            <li>fin3</li>
+            <li>fina</li>
+            <li>flac</li>
+            <li>frac</li>
+            <li>fwid</li>
+            <li>half</li>
+            <li>haln</li>
+            <li>halt</li>
+            <li>hist</li>
+            <li>hkna</li>
+            <li>hlig</li>
+            <li>hngl</li>
+            <li>hojo</li>
+            <li>hwid</li>
+            <li>init</li>
+            <li>isol</li>
+            <li>ital</li>
+            <li>jalt</li>
+            <li>jp78</li>
+            <li>jp83</li>
+            <li>jp90</li>
+            <li>jp04</li>
+            <li>kern</li>
+            <li>lfbd</li>
+            <li>liga</li>
+            <li>ljmo</li>
+            <li>lnum</li>
+            <li>locl</li>
+            <li>ltra</li>
+            <li>ltrm</li>
+            <li>mark</li>
+            <li>med2</li>
+            <li>medi</li>
+            <li>mgrk</li>
+            <li>mkmk</li>
+            <li>mset</li>
+            <li>nalt</li>
+            <li>nlck</li>
+            <li>nukt</li>
+            <li>numr</li>
+            <li>onum</li>
+            <li>opbd</li>
+            <li>ordn</li>
+            <li>ornm</li>
+            <li>palt</li>
+            <li>pcap</li>
+            <li>pkna</li>
+            <li>pnum</li>
+            <li>pref</li>
+            <li>pres</li>
+            <li>pstf</li>
+            <li>psts</li>
+            <li>pwid</li>
+            <li>qwid</li>
+            <li>rand</li>
+            <li>rclt</li>
+            <li>rkrf</li>
+            <li>rlig</li>
+            <li>rphf</li>
+            <li>rtbd</li>
+            <li>rtla</li>
+            <li>rtlm</li>
+            <li>ruby</li>
+            <li>rvrn</li>
+            <li>salt</li>
+            <li>sinf</li>
+            <li>size</li>
+            <li>smcp</li>
+            <li>smpl</li>
+            <li>ss01</li>
+            <li>ss02</li>
+            <li>ss03</li>
+            <li>ss04</li>
+            <li>ss05</li>
+            <li>ss06</li>
+            <li>ss07</li>
+            <li>ss08</li>
+            <li>ss09</li>
+            <li>ss10</li>
+            <li>ss11</li>
+            <li>ss12</li>
+            <li>ss13</li>
+            <li>ss14</li>
+            <li>ss15</li>
+            <li>ss16</li>
+            <li>ss17</li>
+            <li>ss18</li>
+            <li>ss19</li>
+            <li>ss20</li>
+            <li>ssty</li>
+            <li>stch</li>
+            <li>subs</li>
+            <li>sups</li>
+            <li>swsh</li>
+            <li>titl</li>
+            <li>tjmo</li>
+            <li>tnam</li>
+            <li>tnum</li>
+            <li>trad</li>
+            <li>twid</li>
+            <li>unic</li>
+            <li>valt</li>
+            <li>vatu</li>
+            <li>vert</li>
+            <li>vhal</li>
+            <li>vjmo</li>
+            <li>vkna</li>
+            <li>vkrn</li>
+            <li>vpal</li>
+            <li>vrt2</li>
+            <li>vrtr</li>
+            <li>zero</li>
+          </ul>
+          <aside class="notes">The OpenType font format has provide a big boost to web fonts, as OTF fonts can include an expanded character set and layout features, which gives us much broader linguistic support and more precise typographic control. And this typographic control is exposed to developers via CSS.</aside>
+        </section>
+
+        <section>
+          <h2>Font feature properties</h2>
+          <table>
+            <tr style="background-color:transparent">
+              <td style="width:30%;vertical-align:top">
+                <code style="font-size:85%">font-kerning</code>
+                <img class="plain" data-src="img/kerning.svg">
+              </td>
+              <td style="width:35%;vertical-align:top">
+                <code style="font-size:85%">font-variant-position</code>
+                <img class="plain" data-src="img/fv-position.jpg">
+              </td>
+              <td style="width:35%;vertical-align:top">
+                <code style="font-size:85%">font-variant-position-ligatures</code>
+                <img class="plain" data-src="img/fv-ligatures.jpg">
+              </td>
+            </tr>
+            <tr>
+              <td style="width:30%;vertical-align:top">
+                <code style="font-size:85%">font-variant-numeric</code>
+                <img class="plain" data-src="img/fv-numeric.jpg">
+              </td>
+              <td style="width:35%;vertical-align:top">
+                <code style="font-size:85%">font-variant-caps</code>
+                <img class="plain" data-src="img/fv-caps.jpg">
+              </td>
+              <td style="width:35%;vertical-align:top">
+                <code style="font-size:85%">font-variant-alternates</code>
+                <img class="plain" data-src="img/fv-alternates.jpg">
+              </td>
+            </tr>
+          </table>
+          <aside class="notes">
+            <p>These font feature properties are what gives developers access to things like swashes, ligatures, old-style numerals, as well as language-specific ones. However, there is a caveat. We can toggle them with CSS as long as the font supports them. So if the font does not have alternative ligatures, naturally, we cannot use them.</p>
+            <p>I would love for more type designers to include these properties in their fonts, even though it does add to the amount of effort required, because the end result is a much more aesthetic typographic experience on the web.</p>
+            <p>Prefined font variation properties like these cover more generic use-cases where you want to adjust kerning or ligatures and the like. But there are also more quirky possibilities that font designers can come up with specifically for a dynamic medium like the web.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2><code>font-variation-settings</code></h2>
+          <p class="fraunces">Working with CSS</p>
+          <div class="l-double" style="justify-items:center;max-width:50%;margin:1em auto">
+            <div style="display:flex;flex-direction:column;width:75%">
+              <input type="range" id="opsz" name="opsz" min="9" max="144" value="9">
+              <label class="input-opsz" for="opsz">Optical Sizing</label>
+            </div>
+            <div style="display:flex;flex-direction:column;width:75%">
+              <input type="range" id="soft" name="soft" min="0" max="100" value="0">
+              <label class="input-soft" for="soft">Softness</label>
+            </div>
+          </div>
+          <aside class="notes">
+            <p>With <code>font-variation-settings</code>, font designers expose low-level control over specific characteristics of their variable fonts to developers like me, who can then manipulate the font via CSS. We can hook onto these 4-letter axes names and modify their values based on specific user actions, for example.</p>
+            <p>We've talked quite a bit about the character-level CSS, and that's not all of it. But let's move on to CSS for typography at the line-level. Remember earlier when I talked extensively about the importance of telling the browser what language your content is in? This is because the browser depends on that to know when and how to break lines.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>CSS for controlling line breaks</h2>
+          <table style="max-width:36em">
+            <tr>
+              <td style="width:22%"><code>line-break</code></td>
+              <td>allows choosing various levels of “strictness” for line breaking restrictions</td>
+            </tr>
+            <tr>
+              <td><code>word-break</code></td>
+              <td>controls what types of letters are glommed together to form unbreakable “words”, causing CJK characters to behave like non-CJK text or vice versa</td>
+            </tr>
+            <tr>
+              <td><code>hyphens</code></td>
+              <td>controls whether automatic hyphenation is allowed to break words in scripts that hyphenate</td>
+            </tr>
+            <tr>
+              <td><code>overflow-wrap</code></td>
+              <td>allows the UA to take a break anywhere in otherwise-unbreakable strings that would otherwise overflow</td>
+            </tr>
+          </table>
+          <p><a href="https://youtu.be/r5PLrAoyhv0">Line breaking</a> by Florian Rivoal @ dotCSS</p>
+          <aside class="notes">
+            <p>There is a lot of nuance because word breaking works differently depending on the language we're typesetting for.</p>
+            <p>For example, English wraps at spaces. But for Japanese or Chinese characters, the break is per character, usually but not always. Because line breaks are prohibited before certain punctuation marks.</p>
+            <p>A number of Southeast Asian scripts, like Thai, are written without spaces between words, then text is wrapped at syllable boundaries in addition to word boundaries. We could keep going here.</p>
+            <p>There is a lot of logic going on behind the scenes to determine exactly where a break should occur because some of these rules take precedence over others, then there's this other property called <code>white-space</code> that might also affect things. The point I'm trying to make is that, it's complicated.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>The complexity of line-breaking</h2>
+          <div class="livecode livecode-2p">
+            <div class="result linebox" style="resize:horizontal;text-align:left;font-size:larger">
+              <p style="margin-bottom:1em">Cats use their long tails to balance themselves when they’re jumping or walking along narrow ledges.</p>
+              <p style="margin-bottom:1em" lang="ko">고양이는 좁은 가장자리를 따라 달리거나 걸을 때 균형을 잡기 위해 긴 꼬리를 사용합니다.</p>
+              <p style="margin-bottom:1em" lang="zh" font-family="PingFang SC">当猫在狭窄的壁架上跳跃或行走时，它们会用长尾巴来平衡自己。</p>
+              <p style="margin-bottom:1em" lang="de">Katzen nutzen ihren langen Schwanz, um beim Springen oder Laufen über schmale Felsvorsprünge das Gleichgewicht zu halten.</p>
+              <p style="margin-bottom:1em" lang="th">แมวใช้หางยาวเพื่อทรงตัวเมื่อกระโดดหรือเดินไปตามหิ้งแคบๆ</p>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.linebox p {
+  word-break: normal;
+  hyphens: manual;
+  overflow-wrap: normal;
+  width: initial;
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>But just to have an idea of these work. <code>word-break</code> specifies soft wrap opportunities between characters. Setting <code>break-all</code> means that you can drop to the next line at any point just to fit the space. While <code>keep-all</code> prevents any breakage between adjacent characters at all.</p>
+            <p><code>hyphens</code> are more applicable to the Latin-based scripts where we commonly see words broken up between lines at syllable boundaries. For this to work correctly, you must have the <code>lang</code> attribute set, because the browser relies on dictionaries to determine where the syllable boundary is.</p>
+            <p><code>overflow-wrap</code> is more relevant for really long words, or even URLs, so let's resize this more extremely. Setting this to <code>anywhere</code> will break a really long word when there is no space left. Whereas <code>word-break: break-all</code> will break the word regardless of space.</p>
+            <p>Another value for <code>overflow-wrap</code> is <code>break-word</code>, and is of consequence when you set the width of your content to a value called <code>min-content</code>.</p>
+            <p><code>min-content</code> is the amount of space needed for the longest unbreaking word in a run of text. So this differs based on the nature of the script you're dealing with. If you set the value to <code>break-word</code>, it affects how the browser recognises how wide <code>min-content</code> should be.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>New CSS: <code>text-wrap</code></h2>
+          <div class="livecode livecode-2p">
+            <div class="result textwrap" style="resize:horizontal;text-align:left;font-size:larger">
+              <p style="margin-bottom:1em">Cats use their long tails to balance themselves when they’re jumping or walking along narrow ledges.</p>
+              <p style="margin-bottom:1em" lang="ko">고양이는 좁은 가장자리를 따라 달리거나 걸을 때 균형을 잡기 위해 긴 꼬리를 사용합니다.</p>
+              <p style="margin-bottom:1em" lang="zh" font-family="PingFang SC">当猫在狭窄的壁架上跳跃或行走时，它们会用长尾巴来平衡自己。</p>
+              <p style="margin-bottom:1em" lang="de">Katzen nutzen ihren langen Schwanz, um beim Springen oder Laufen über schmale Felsvorsprünge das Gleichgewicht zu halten.</p>
+              <p style="margin-bottom:1em" lang="th">แมวใช้หางยาวเพื่อทรงตัวเมื่อกระโดดหรือเดินไปตามหิ้งแคบๆ</p>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.textwrap p {
+  text-wrap: wrap;
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>This particular CSS is new. It's only available in Chrome right now, so I'm going to switch browsers real quick. But I really really want it widely available as soon as possible because it's so very useful to me as a developer.</p>
+            <p>This property totally resolves the orphan character/word problem that has caused all of us so much distress. From the developers who have to write extra code to make sure the text never has orphans, to the content writers who try to impose character limits on their headlines.</p>
+            <p>Now with 1 single line of CSS, I can tell the browser to go figure it out on its own.</p>
+          </aside>
+        </section>
+
+        <section>
+          <blockquote style="text-align:center;font-size:2.25em">
+            <p>Websites do <strong style="border-bottom:0.125em solid;">NOT</strong> have to look the same in every browser.</p>
+          </blockquote>
+          <aside class="notes">
+            <p>Which brings me to an important point about CSS that I would like everyone to internalise. CSS are browser features. You know how when you update apps on your phone, you get something new? Same goes when you update your browser. Sometimes you get new CSS.</p>
+            <p>The sort of downside is that, browsers don't all support the newest features at the same time in the beginning, so you'd have a bit of a mixed bag when something is released for the first time. But that's fine, it's just the nature of the medium.</p>
+            <p>If you're a designer, my personal opinion is that, you can help your developers out by viewing the page on as many different devices or browsers as possible and letting them know if something looks broken. Now broken and “looks different” are completely separate issues.</p>
+            <p>It does not matter if the design looks different on different devices and browsers as long as it doesn't look broken.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>The leading problem</h2>
+          <img data-src="img/leading.svg" style="max-height:75vh" alt="Line height" class="plain">
+          <aside class="notes">
+            <p>CSS allocates leading based on the line-height by subtracting the ascent and descent from the specified line-height, then splitting the remainder in half, giving each half to the top and bottom.</p>
+            <p>Doing so allows us to get decently even line-spacing, but mostly if the paragraph of text is of the same font. When we have different font families on the same line, things don't line up as well because different fonts have different ideas of what 1em should be.</p>
+            <p>What CSS does now is guaranteeing content never overlaps at the expense of aesthetics. But the CSSWG is trying to come up with a new algorithm to calculate the optimal line size.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>New CSS: <code>text-box-*</code></h2>
+          <div class="livecode livecode-2p">
+            <div class="result textbox" style="resize:horizontal;text-align:left;font-size:larger">
+              <p style="margin-bottom:1em;border:1px solid hotpink;">Cats use their long tails to balance themselves when they’re jumping or walking along narrow ledges.</p>
+              <p style="margin-bottom:1em;border:1px solid hotpink;" lang="ko">고양이는 좁은 가장자리를 따라 달리거나 걸을 때 균형을 잡기 위해 긴 꼬리를 사용합니다.</p>
+              <p style="margin-bottom:1em;border:1px solid hotpink;" lang="zh" font-family="PingFang SC">当猫在狭窄的壁架上跳跃或行走时，它们会用长尾巴来平衡自己。</p>
+              <p style="margin-bottom:1em;border:1px solid hotpink;" lang="de">Katzen nutzen ihren langen Schwanz, um beim Springen oder Laufen über schmale Felsvorsprünge das Gleichgewicht zu halten.</p>
+              <p style="margin-bottom:1em;border:1px solid hotpink;" lang="th">แมวใช้หางยาวเพื่อทรงตัวเมื่อกระโดดหรือเดินไปตามหิ้งแคบๆ</p>
+            </div>
+            <div class="code"><style class="code-editor" contenteditable="true">.textbox p {
+  text-box-edge: leading;
+  text-box-trim: none;
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>This particular CSS is even newer and is still subject to changes. It's only available in Safari Technology Preview right now, so I'm going to switch browsers again.</p>
+            <p>This property allows you to remove the leading whitespace from a block of text and give you a clean text box which hugs your text. Its different values allows us more fine-grained control over the spacing between lines.</p>
+            <p>Practically speaking, the most common complain I get from designers is that the text of a button isn't exactly at the centre of the button. This is a feature that could potentially resolve this issue.</p>
+            <p>For example, you could set the <code>text-box-edge</code> to <code>cap</code>, and <code>text-box-trim</code> to <code>both</code> to make it obvious, and you can see that the spaces are now completely cut off, and the border is hugging your text tightly.</p>
+            <p>For scripts that do not have cap-heights or ex-heights, different values are required. Like <code>ideographic</code>, but it doesn't seem to be fully implemented yet.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>The interruption problem</h2>
+          <img data-src="img/rhythm.png" style="max-height:100vh" alt="Vertical rhythm when content is varied" class="plain">
+          <p><a href="https://github.com/w3c/csswg-drafts/labels/css-rhythm-1">CSS Rhythmic Sizing</a> discussion threads</p>
+          <aside class="notes">
+            <p>Another thing that designers are irked about is that strict vertical rhythm tends to go out the window when we're trying to layout many different types of content. However, it is important when it comes to things like multi-column layouts with content side-by-side.</p>
+            <p>One of the proposed new properties is called <code>block-step-size</code>, which sets the height of the line to be a multiple of the value you define. But again, where should any extra space go?</p>
+            <p>The CSS rhythmic sizing specification is currently sourcing for feedback. Because all CSS specification development is done in the open on a platform called Github.</p>
+          </aside>
+        </section>
+
+        <section>
+          <img data-src="img/contribute.jpg" style="max-height:100vh" alt="Yes, you can contribute to CSS" class="plain">
+          <aside class="notes">
+            <p>You don't have to be an engineer to be involved in these specifications. In fact, it'd be great to have folks from varying backgrounds who all need to use the web for different reasons to chime in on what they'd like to see on the web.</p>
+            <p>Especially in this area of typography, greater collaboration between type designers and the folks who create and implement CSS will result in a better typographic experience for everyone.</p>
+          </aside>
         </section>
 
         <section>
@@ -185,11 +928,15 @@
             <li><a href="https://medium.com/@fpeulrich/a-brief-overview-of-developments-in-digital-type-design-561d9e63a122">A brief overview of developments in digital type design</a></li>
             <li><a href="https://archive.org/details/FundamentalsOfModernPhotoComposition/page/n144/mode/1up">Fundamentals of modern photo-composition</a></li>
             <li><a href="https://blog.typekit.com/2014/07/18/the-adobe-originals-silver-anniversary-story-typographic-tales-from-japan/">The Adobe Originals Silver Anniversary Story: Typographic Tales from Japan</a></li>
+            <li><a href="https://youtu.be/r5PLrAoyhv0">Line breaking</a> by Florian Rivoal @ dotCSS</li>
+            <li><a href="https://medium.com/microsoft-design/leading-trim-the-future-of-digital-typesetting-d082d84b202">Leading-Trim: The Future of Digital Typesetting</a></li>
+            <li><a href="https://github.com/jantimon/text-box-trim-examples">CSS Text Box Trim examples</a></li>
+            <li><a href="https://youtu.be/OtlGo48iTOk">CSS Line Layout and Vertical Rhythm</a> by Elika J. Etemad @ dotCSS</li>
+            <li><a href="https://github.com/w3c/csswg-drafts/issues">CSS working group</a> discussion threads</li>
           </ul>
-          <aside class="notes"></aside>
+          <aside class="notes">Anyway, I think we're at time, so this is a list of relevant links to what I've talked about today.</aside>
         </section>
 
-        
         <section style="text-align: left">
           <h1>Thank you</h1>
           <p class="align-icon">
@@ -221,17 +968,44 @@
     </div>
 
     <script src="dist/reveal.js"></script>
+    <script src="dist/ei.js"></script>
     <script src="plugin/notes/notes.js"></script>
     <script src="plugin/markdown/markdown.js"></script>
     <script src="plugin/highlight/highlight.js"></script>
     <script>
       Reveal.initialize({
-        width: 1600,
-        height: 900,
+        width: 1920,
+        height: 1080,
         hash: true,
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
         transition: 'fade',
       });
+    </script>
+    <script>
+      const softInput = document.getElementById("soft");
+      const opszInput = document.getElementById("opsz");
+      const spacInput = document.getElementById("space");
+      const wghtInput = document.getElementById("weight");
+      if (softInput) {
+        softInput.addEventListener("input", function (event) {
+          document.documentElement.style.setProperty("--soft", event.target.value);
+        });
+      }
+      if (opszInput) {
+        opszInput.addEventListener("input", function (event) {
+          document.documentElement.style.setProperty("--opsz", event.target.value);
+        });
+      }
+      if (spacInput) {
+        spacInput.addEventListener("input", function (event) {
+          document.documentElement.style.setProperty("--spac", event.target.value);
+        });
+      }
+      if (wghtInput) {
+        wghtInput.addEventListener("input", function (event) {
+          document.documentElement.style.setProperty("--wght", event.target.value);
+        });
+      }
     </script>
   </body>
 </html>
