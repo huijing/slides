@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Do your regional websites talk funny?</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/jing.css" id="theme">
+    <link rel="stylesheet" href="plugin/highlight/atom-one-light.css" id="highlight-theme">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section class="title-slide">
+          <h1 style="text-wrap:balance">Do your regional websites talk funny?</h1>
+          <p><small>By <a href="https://chenhuijing.com/">Chen Hui Jing</a> / <a href="https://twitter.com/hj_chen">@hj_chen</a></small></p>
+          <aside class="notes">
+            <p>Hello everybody. Welcome to CityJS. Thank you for being here on this lovely Friday morning. I'm not sure why the organisers put me in the opening slot because there's really not a lot of Javascript going on in my talk. So maybe that's why.</p>
+            <p>All of you clearly paid money to see the hard-hitting hardcore Javascript rockstars later in the day, but you need to warm up first. That's what opening acts are for. Like how Paramore opened for Taylor Swift, right?</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2><span class="emoji" role="img" tabindex="0" aria-label="smirking face">&#x1F60F;</span> Singlish-o-meter <span class="emoji" role="img" tabindex="0" aria-label="thinking face">&#x1F914;</span></h2>
+          <div class="singlish-o-meter">
+            <hr>
+            <input type="range">
+          </div>
+          <aside class="notes">
+            <p>Because this is the Singapore edition of CityJS, I feel obliged to stay true to the culture. For the benefit of the audience who are unfamiliar with English spoken in Singapore, there is a range. Best explained in a graphical form. FYI, this is a legitimate HTML range input. Come ask me how it's built later.</p>
+            <p>So today, I will try to keep the level somewhere in the middle of Queen's english, and extreme Singlish. In general, the “R” sound sometimes becomes “L”, like ready will may sound like leddy. Also, the “ver” sound may often just be omiited. Like, government, will become gahmen. Or nevermind, will become nehmind. Also, grammar is optional.</p>
+          </aside>
+        </section>
+
+        <section>
+          <video data-autoplay src="img/no-understand.mp4" autoplay loop></video>
+          <aside class="notes">Other than that, it should be mostly comprehensible. If you feel a lack of confidence, please sit next to a friendly Singlish-speaking attendee. They will decipher all of this for you.</aside>
+        </section>
+
+        <section>
+          <div class="intro-grid">
+            <span class="emoji" role="img" tabindex="0" aria-label="Malaysia">&#x1F1F2;&#x1F1FE;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="alien monster">&#x1F47E;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="basketball">&#x1F3C0;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="bicycle">&#x1F6B2;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="paintbrush">&#x1F58C;&#xFE0F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="sneaker">&#x1F45F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="laptop computer">&#x1F4BB;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="pen">&#x1F58A;&#xFE0F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="studio microphone">&#x1F399;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="black cat">&#x1F408;&#x200D;&#x2B1B;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="person climbing">&#x1F9D7;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="Rainbow flag">&#x1F3F3;&#xFE0F;&#x200D;&#x1F308;</span>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center">
+              <img data-src="img/name.svg" alt="Chen Hui Jing" class="plain" style="max-height: 20vh" />
+              <div>
+                <img data-src="img/avatar.jpg" alt="Jing" style="border-radius: 50%; max-height: 30vh" />
+              </div>
+              <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
+            </div>
+          </div>
+          <aside class="notes">
+            <p>My name is Hui Jing. It's a Chinese name, so our family name comes first. And these are my representative emojis, if you will. I've been gainfully employed as a web developer for more than a decade. Of course not with the same employer, but regardless of who it is, an employer who pays your CPF on time is a good employer.</p>
+            <p>Anyway, today you'll hear me talk to you about stuff mostly related to i18n, which is short for internationalisation. Maybe you'll learn something, maybe you won't. It's my hope you will be at least mildly entertained, and if you fall asleep, just try not to snore too loudly.</p>
+          </aside>
+        </section>
+
+        <section>
+          <blockquote style="width:74%">
+            <p><em>Internationalisation</em> is the design and development of a product, application or document that <em>enables easy localisation</em> for target audiences that vary in culture, region, or language.</p>
+          </blockquote>
+          <aside class="notes">
+            <p>There is no canonical set-in-stone definition of i18n, but the W3C does offer this guidance. It is designing and developing in a way that enables easy localisation for specific audiences. Localisation covers a broad range of customisations including but not limited to: numerals, time and date formats, currencies, symbols, icons and colours, even textual and graphical references.</p>
+            <p>This implies that i18n is a lot more than simply translating the content on a site to different languages. There are nuances to the presentation of that content which will affect the experience of a native speaker using your site.</p>
+          </aside>
+        </section>
+
+        <section data-background-image="img/fail.jpg">
+          <aside class="notes">I've had the opportunity to work on a number of different projects that required internationalisation. Even though internationalisation is more than just translation, getting the translation part correct is really important.</aside>
+        </section>
+
+        <section>
+          <h2>Domain? Locale? Language?</h2>
+          <p>Language: A system of communication used by a particular country or community</p>
+          <p>Script: A visual representation of verbal speech</p>
+          <p>Domain: An easy-to-remember address used to access websites</p>
+          <p>Locale: A set of language- or country-based preferences for a user interface</p>
+          <aside class="notes">\
+            <p>There are some common terms you might encounter when you start doing i18n-related work so let's briefly clarify them. Language is a system of communication, from what you're hearing me say, to what you're reading on the screen, the whole package deal is language. Script is how we visually express speech.</p>
+            <p>Domain is the more technical term in this context because its the easy-to-remember address where your website lives on the web. And then locale is the set of language or sometimes country-based preferences a UI.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>The “Billion” problem</h2>
+          <p>The Chinese numeral system (also used by Japanese and Korean) has specific words for large numbers as per the traditional Chinese grouping of 10,000.</p>
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Simp. Chinese</th>
+                <th>Trad. Chinese</th>
+                <th>Japanese</th>
+                <th>Korean</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>10</td>
+                <td>十 (shí)</td>
+                <td>十</td>
+                <td>十 (juu)</td>
+                <td>십 (ship)</td>
+              </tr>
+              <tr>
+                <td>100</td>
+                <td>百 (bǎi)</td>
+                <td>百</td>
+                <td>百 (hyaku)</td>
+                <td>백 (baek)</td>
+              </tr>
+              <tr>
+                <td>1000</td>
+                <td>千 (qiān)</td>
+                <td>千</td>
+                <td>千 (sen)</td>
+                <td>천 (cheon)</td>
+              </tr>
+              <tr>
+                <td>10,000</td>
+                <td>万 (wàn)</td>
+                <td>万</td>
+                <td>万 (man)</td>
+                <td>만 (man)</td>
+              </tr>
+              <tr>
+                <td>100,000,000</td>
+                <td>亿 (yì)</td>
+                <td>億</td>
+                <td>億 (ichioku)</td>
+                <td>억 (eok)</td>
+              </tr>
+              <tr>
+                <td>1,000,000,000,000*</td>
+                <td>兆 (zhào)</td>
+                <td>兆</td>
+                <td>兆 (icchou)</td>
+                <td>조 (jo)</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        
+        <section>
+          <h2>What translators see</h2>
+          <p style="margin-bottom:0">Not this:</p>
+          <img data-src="img/billion-en.png">
+          <p style="margin-bottom:0">But this:</p>
+          <pre class="language-yml" style="width:75%"><code style="white-space:pre-wrap">Over %{total_stores} businesses in %{total_countries} countries around the world have made over $%{total_gmv_billions} billion USD in sales using Shopify</code></pre>
+        </section>
+
+        <section>
+          <h2>The end result</h2>
+          <img data-src="img/billion-zh-hans.png">
+          <img data-src="img/billion-zh-hant.png">
+          <img data-src="img/billion-ko.png">
+        </section>
+
+        <section>
+          <h2>The problem</h2>
+          <p style="max-width:26em;text-align:left;margin:auto">Saying that the GMV is 200 ten million dollars is quite a glaring grammatical error, if you speak the language.</p>
+        </section>
+
+        <section>
+          <h2>But why didn't Japan have this problem? 🤯</h2>
+          <img data-src="img/billion-ja.png">
+          <div class="fragment">
+            <p>The Japanese team had worked around this issue previously by editing the locale files that reference our total GMV numbers like so:</p>
+            <pre class="language-yml" style="width:max-content;font-size:1em"><code style="white-space:pre-wrap">%{total_gmv_billions}0億米ドル</code></pre>
+            <p>Our Japan team spotted this error and made the adjustment of replacing 十 with a 0.</p>
+          </div>
+        </section>
+        
+        <section>
+          <h2>See solution, steal it</h2>
+          <p>This will be how it looks for each respective language:</p>
+          <pre class="language-yml" style="width:max-content;font-size:1em"><code style="white-space:pre-wrap">%{total_gmv_billions}0억 달러(USD)
+%{total_gmv_billions}0 亿美元
+%{total_gmv_billions}0 億美元</code></pre>
+        </section>
+
+        <section>
+          <h2>Lessons and best practices</h2>
+          <ul>
+            <li>Interpolate with caution</li>
+            <li>Do Not Manually Construct Sentences or Manipulate Text in Code</li>
+            <li>Let i18n Libraries Handle the Hard Stuff</li>
+          </ul>
+          <p><small><a href="https://shopify.engineering/internationalization-i18n-best-practices-front-end-developers">Lessons From Linguistics: i18n Best Practices for Front-End Developers</a> by <a href="https://www.superko.org/">Lucas Huang</a></small></p>
+        </section>
+
+        <section data-background-video="img/wakamai.mp4">
+        </section>
+
+        <section>
+          <img data-src="img/cjkv.jpg" style="max-height:90vh">
+        </section>
+
+        <section>
+          <p>The Vietnamese alphabets are listed in several non-contiguous Unicode ranges:</p>
+          <ul>
+            <li>Basic Latin {U+0000..U+007F}</li>
+            <li>Latin-1 Supplement {U+0080..U+00FF}</li>
+            <li>Latin Extended-A, -B {U+0100..U+024F}</li>
+            <li>Latin Extended Additional {U+1E00..U+1EFF}</li>
+            <li>Combining Diacritical Marks {U+0300.. U+036F}</li>
+            <li>The Vietnamese đồng currency symbol is ₫ (U+20AB)</li>
+          </ul>
+          <p><small><a href="https://vietunicode.sourceforge.net/charset/">Unicode & Vietnamese Legacy Character Encodings</a></small></p>
+        </section>
+
+        <section>
+          <h2>Missing Vietnamese glyphs</h2>
+          <img data-src="img/vietnamese.png" style="max-height:90vh">
+        </section>
+
+        <section>
+          <h2>The <code>:lang()</code> pseudo-class</h2>
+          <pre style="width:max-content;font-size:xx-large">
+            <code>:lang(vi) {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}</code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Korean typographic issues</h2>
+          <img data-src="img/kr-font.png"">
+          <img data-src="img/kr-wordbreak.png"">
+        </section>
+
+        <section>
+          <h2>Korean typographic fixes</h2>
+          <div class="l-double" style="grid-template-columns:58% 42%;margin-bottom:1em">
+            <div><video data-autoplay src="img/word-break.mp4" autoplay loop></video></div>
+            <div>
+              <pre><code style="white-space:pre-wrap">:lang(ko) {
+  font-family: ShopifySans, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  [class*='heading--'] {
+    word-break: keep-all;
+  }
+}</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Links</h2>
+          <ul>
+            <li><a href="https://www.shopify.com/blog/shopify-localized">Building a Commerce Platform for Everyone</a></li>
+            <li><a href="https://www.getblend.com/blog/localization-leaders-meet-shopifys-giulia-greco/">Localization Leaders: Meet Shopify’s Giulia Greco</a></li>
+            <li><a href="https://shopify.engineering/internationalization-i18n-best-practices-front-end-developers">Lessons From Linguistics: i18n Best Practices for Front-End Developers</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 lang="zh">谢谢</h2>
+          <h2 lang="ko">감사합니다</h2>
+          <h2 lang="jp">ありがとう ございます</h2>
+          <h2 lang="vn">Cảm ơn</h2>
+          <p style="font-size:3em">🙇🏻</p>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        width: 1920,
+        height: 1080,
+        hash: true,
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+        transition: 'fade',
+      });
+    </script>
+  </body>
+</html>
