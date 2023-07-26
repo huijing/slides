@@ -10,12 +10,15 @@
  *********************************************/
 :root {
   --r-background-color: #f4fffd;
-  --r-main-font: Museo Sans, -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  --r-main-font: Museo Sans, -apple-system, BlinkMacSystemFont, avenir next,
+    avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial,
+    sans-serif;
   --r-main-font-size: 40px;
   --r-main-color: #333;
   --r-block-margin: 20px;
   --r-heading-margin: 0 0 20px 0;
-  --r-heading-font: HVD Comic Serif, TimesNewRoman, Times New Roman, Times, Baskerville, Georgia, serif;
+  --r-heading-font: HVD Comic Serif, TimesNewRoman, Times New Roman, Times,
+    Baskerville, Georgia, serif;
   --r-heading-color: #900404;
   --r-heading-line-height: 1.2;
   --r-heading-letter-spacing: normal;
@@ -252,13 +255,13 @@
   border-bottom: 1px solid;
 }
 
-.reveal table th[align=center],
-.reveal table td[align=center] {
+.reveal table th[align="center"],
+.reveal table td[align="center"] {
   text-align: center;
 }
 
-.reveal table th[align=right],
-.reveal table td[align=right] {
+.reveal table th[align="right"],
+.reveal table td[align="right"] {
   text-align: right;
 }
 
@@ -370,7 +373,8 @@
   align-items: center;
 }
 .reveal :lang(vn) {
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
+    helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
 }
 .reveal blockquote {
   width: 80%;
@@ -410,15 +414,17 @@ span.emoji {
   vertical-align: middle;
 }
 
-span[role=img][aria-label],
-span[role=img][aria-label] {
+span[role="img"][aria-label],
+span[role="img"][aria-label] {
   position: relative;
 }
 
-span[role=img][aria-label]:focus::after,
-span[role=img][aria-label]:hover::after {
+span[role="img"][aria-label]:focus::after,
+span[role="img"][aria-label]:hover::after {
   font-size: 25%;
-  font-family: "Museo Sans", -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  font-family: "Museo Sans", -apple-system, BlinkMacSystemFont, avenir next,
+    avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial,
+    sans-serif;
   font-weight: 400;
   position: absolute;
   display: block;
@@ -580,7 +586,7 @@ span[role=img][aria-label]:hover::after {
   top: 0;
 }
 
-input[type=range] {
+input[type="range"] {
   -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
   width: 100%; /* Specific width is required for Firefox. */
   background: transparent; /* Otherwise white in Chrome */
@@ -589,15 +595,15 @@ input[type=range] {
   z-index: 1;
 }
 
-input[type=range]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
 }
 
-input[type=range]:focus {
+input[type="range"]:focus {
   outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
 }
 
-input[type=range]::-ms-track {
+input[type="range"]::-ms-track {
   width: 100%;
   cursor: pointer;
   /* Hides the slider so custom styles can be added */
@@ -607,7 +613,7 @@ input[type=range]::-ms-track {
 }
 
 /* Special styling for WebKit/Blink */
-input[type=range]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
   background-image: url("../../img/slider-thumb.png");
   background-size: cover;
   height: 300px;
@@ -617,7 +623,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 /* All the same stuff for Firefox */
-input[type=range]::-moz-range-thumb {
+input[type="range"]::-moz-range-thumb {
   background-image: url("../../img/slider-thumb.png");
   background-size: cover;
   height: 300px;
@@ -626,26 +632,26 @@ input[type=range]::-moz-range-thumb {
 }
 
 /* All the same stuff for IE */
-input[type=range]::-ms-thumb {
+input[type="range"]::-ms-thumb {
   background-image: url("../../img/slider-thumb.png");
   height: 400px;
   width: 203px;
   cursor: pointer;
 }
 
-input[type=range]::-webkit-slider-runnable-track {
+input[type="range"]::-webkit-slider-runnable-track {
   width: 100%;
   height: 1em;
   cursor: pointer;
 }
 
-input[type=range]::-moz-range-track {
+input[type="range"]::-moz-range-track {
   width: 100%;
   height: 1em;
   cursor: pointer;
 }
 
-input[type=range]::-ms-track {
+input[type="range"]::-ms-track {
   width: 100%;
   height: 1em;
   cursor: pointer;
