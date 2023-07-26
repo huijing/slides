@@ -1,0 +1,656 @@
+@charset "UTF-8";
+/**
+ * Custom theme for Reveal.js presentations.
+ *
+ * Copyright (C) 2021 Chen Hui Jing, https://chenhuijing.com/
+ */
+@import url("fonts/fonts.css");
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+:root {
+  --r-background-color: #f4fffd;
+  --r-main-font: Museo Sans, -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  --r-main-font-size: 40px;
+  --r-main-color: #333;
+  --r-block-margin: 20px;
+  --r-heading-margin: 0 0 20px 0;
+  --r-heading-font: HVD Comic Serif, TimesNewRoman, Times New Roman, Times, Baskerville, Georgia, serif;
+  --r-heading-color: #900404;
+  --r-heading-line-height: 1.2;
+  --r-heading-letter-spacing: normal;
+  --r-heading-text-transform: none;
+  --r-heading-text-shadow: none;
+  --r-heading-font-weight: bold;
+  --r-heading1-text-shadow: none;
+  --r-heading1-size: 3.052em;
+  --r-heading2-size: 2.441em;
+  --r-heading3-size: 1.953em;
+  --r-heading4-size: 1.563em;
+  --r-code-font: monospace;
+  --r-link-color: #465362;
+  --r-link-color-dark: #262d35;
+  --r-link-color-hover: #73869b;
+  --r-selection-background-color: #465362;
+  --r-selection-color: #f4fffd;
+}
+
+.reveal-viewport {
+  background: #f4fffd;
+  background-color: var(--r-background-color);
+}
+
+.reveal {
+  font-family: var(--r-main-font);
+  font-size: var(--r-main-font-size);
+  font-weight: normal;
+  color: var(--r-main-color);
+}
+
+.reveal ::selection {
+  color: var(--r-selection-color);
+  background: var(--r-selection-background-color);
+  text-shadow: none;
+}
+
+.reveal ::-moz-selection {
+  color: var(--r-selection-color);
+  background: var(--r-selection-background-color);
+  text-shadow: none;
+}
+
+.reveal .slides section,
+.reveal .slides section > section {
+  line-height: 1.3;
+  font-weight: inherit;
+}
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: var(--r-heading-margin);
+  color: var(--r-heading-color);
+  font-family: var(--r-heading-font);
+  font-weight: var(--r-heading-font-weight);
+  line-height: var(--r-heading-line-height);
+  letter-spacing: var(--r-heading-letter-spacing);
+  text-transform: var(--r-heading-text-transform);
+  text-shadow: var(--r-heading-text-shadow);
+  word-wrap: break-word;
+}
+
+.reveal h1 {
+  font-size: var(--r-heading1-size);
+}
+
+.reveal h2 {
+  font-size: var(--r-heading2-size);
+}
+
+.reveal h3 {
+  font-size: var(--r-heading3-size);
+}
+
+.reveal h4 {
+  font-size: var(--r-heading4-size);
+}
+
+.reveal h1 {
+  text-shadow: var(--r-heading1-text-shadow);
+}
+
+/*********************************************
+ * OTHER
+ *********************************************/
+.reveal p {
+  margin: var(--r-block-margin) 0;
+  line-height: 1.3;
+}
+
+/* Remove trailing margins after titles */
+.reveal h1:last-child,
+.reveal h2:last-child,
+.reveal h3:last-child,
+.reveal h4:last-child,
+.reveal h5:last-child,
+.reveal h6:last-child {
+  margin-bottom: 0;
+}
+
+/* Ensure certain elements are never larger than the slide itself */
+.reveal img,
+.reveal video,
+.reveal iframe {
+  max-width: 95%;
+  max-height: 95%;
+}
+
+.reveal strong,
+.reveal b {
+  font-weight: bold;
+}
+
+.reveal em {
+  font-style: italic;
+}
+
+.reveal ol,
+.reveal dl,
+.reveal ul {
+  display: inline-block;
+  text-align: left;
+  margin: 0 0 0 1em;
+}
+
+.reveal ol {
+  list-style-type: decimal;
+}
+
+.reveal ul {
+  list-style-type: disc;
+}
+
+.reveal ul ul {
+  list-style-type: square;
+}
+
+.reveal ul ul ul {
+  list-style-type: circle;
+}
+
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ol,
+.reveal ol ul {
+  display: block;
+  margin-left: 40px;
+}
+
+.reveal dt {
+  font-weight: bold;
+}
+
+.reveal dd {
+  margin-left: 40px;
+}
+
+.reveal blockquote {
+  display: block;
+  position: relative;
+  width: 70%;
+  margin: var(--r-block-margin) auto;
+  padding: 5px;
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+}
+
+.reveal blockquote p:first-child,
+.reveal blockquote p:last-child {
+  display: inline-block;
+}
+
+.reveal q {
+  font-style: italic;
+}
+
+.reveal pre {
+  display: block;
+  position: relative;
+  width: 90%;
+  margin: var(--r-block-margin) auto;
+  text-align: left;
+  font-size: 0.55em;
+  font-family: var(--r-code-font);
+  line-height: 1.2em;
+  word-wrap: break-word;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.reveal code {
+  font-family: var(--r-code-font);
+  text-transform: none;
+  tab-size: 2;
+}
+
+.reveal pre code {
+  display: block;
+  padding: 5px;
+  overflow: auto;
+  max-height: 400px;
+  word-wrap: normal;
+}
+
+.reveal .code-wrapper {
+  white-space: normal;
+}
+
+.reveal .code-wrapper code {
+  white-space: pre;
+}
+
+.reveal table {
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.reveal table th {
+  font-weight: bold;
+}
+
+.reveal table th,
+.reveal table td {
+  text-align: left;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-bottom: 1px solid;
+}
+
+.reveal table th[align=center],
+.reveal table td[align=center] {
+  text-align: center;
+}
+
+.reveal table th[align=right],
+.reveal table td[align=right] {
+  text-align: right;
+}
+
+.reveal table tbody tr:last-child th,
+.reveal table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.reveal sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+.reveal sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+
+.reveal small {
+  display: inline-block;
+  font-size: 0.6em;
+  line-height: 1.2em;
+  vertical-align: top;
+}
+
+.reveal small * {
+  vertical-align: top;
+}
+
+.reveal img {
+  margin: var(--r-block-margin) 0;
+}
+
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal a {
+  color: var(--r-link-color);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.reveal a:hover {
+  color: var(--r-link-color-hover);
+  text-shadow: none;
+  border: none;
+}
+
+.reveal .roll span:after {
+  color: #fff;
+  background: var(--r-link-color-dark);
+}
+
+/*********************************************
+ * Frame helper
+ *********************************************/
+.reveal .r-frame {
+  border: 4px solid var(--r-main-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.reveal a .r-frame {
+  transition: all 0.15s linear;
+}
+
+.reveal a:hover .r-frame {
+  border-color: var(--r-link-color);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
+}
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls {
+  color: var(--r-link-color);
+}
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--r-link-color);
+}
+
+/*********************************************
+ * PRINT BACKGROUND
+ *********************************************/
+@media print {
+  .backgrounds {
+    background-color: var(--r-background-color);
+  }
+}
+.reveal .l-multiple {
+  display: flex;
+  justify-content: space-around;
+}
+.reveal .l-double {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+}
+.reveal .j-icon {
+  margin-right: 1rem;
+}
+.reveal .align-icon {
+  display: flex;
+  align-items: center;
+}
+.reveal :lang(vn) {
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+}
+.reveal blockquote {
+  width: 80%;
+  text-align: left;
+  box-shadow: none;
+  line-height: 1.55;
+  font-size: 115%;
+  position: relative;
+  background: none;
+}
+.reveal blockquote p::before,
+.reveal blockquote p::after {
+  position: absolute;
+  font-size: 2.5em;
+  font-family: Georgia, serif;
+  color: #900404;
+}
+.reveal blockquote p::before {
+  top: -0.125em;
+  left: -0.5em;
+  content: "“";
+}
+.reveal blockquote p::after {
+  bottom: -0.5em;
+  right: 0.125em;
+  content: "”";
+}
+.reveal pre code {
+  padding: 0.5em;
+}
+
+span.emoji {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji";
+  font-style: normal;
+  font-size: 125%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+span[role=img][aria-label],
+span[role=img][aria-label] {
+  position: relative;
+}
+
+span[role=img][aria-label]:focus::after,
+span[role=img][aria-label]:hover::after {
+  font-size: 25%;
+  font-family: "Museo Sans", -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  font-weight: 400;
+  position: absolute;
+  display: block;
+  line-height: 1.2;
+  content: attr(aria-label);
+  z-index: 1;
+  background: #333;
+  color: #f4fffd;
+  padding: 0.25em;
+  border: 1px solid #f4fffd;
+  box-shadow: 2px 2px 4px #333;
+}
+
+.livecode {
+  display: grid;
+  grid-gap: 0.5em;
+  margin: 0;
+  padding: 0;
+}
+.livecode .result {
+  max-height: 100%;
+  overflow-y: scroll;
+  width: 100%;
+  border: 1px dashed #900404;
+}
+.livecode .result li {
+  line-height: 0;
+}
+.livecode .result p {
+  margin: 0;
+  padding: 0;
+}
+.livecode .code {
+  text-align: left;
+  width: 100%;
+  font-family: "Dank Mono", monospace;
+  color: #efdcbc;
+  background-color: #3f3f3f;
+  padding: 0.5em;
+  border-radius: 0.25em;
+  overflow-y: scroll;
+  font-size: 75%;
+}
+
+.code-editor {
+  display: block;
+  height: 100%;
+  white-space: pre-wrap;
+}
+
+.vidcode {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  height: 75vh;
+}
+.vidcode video {
+  align-self: center;
+}
+
+.livecode-2p {
+  grid-template-columns: 65% calc(35% - 0.5em);
+  height: 70vh;
+}
+
+.code-editor {
+  display: block;
+  height: 100%;
+  white-space: pre-wrap;
+}
+
+.intro-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(12, 1.9em);
+  grid-template-rows: 2.4em repeat(9, 1.9em);
+  grid-template-areas: ". . . . a . . b . . . ." ". l . . . . . . . . c ." ". . . . . . . . . . . ." "k . . . . . . . . . . d" ". . . . . . . . . . . ." "j . . . . . . . . . . e" ". . . . . . . . . . . ." ". i . . . . . . . . f ." ". . . . . . . . . . . ." ". . . . h . . g . . . .";
+}
+.intro-grid span {
+  font-size: 1.5em;
+}
+
+.intro-grid span:first-child {
+  grid-area: a;
+}
+
+.intro-grid span:nth-child(2) {
+  grid-area: b;
+}
+
+.intro-grid span:nth-child(3) {
+  grid-area: c;
+}
+
+.intro-grid span:nth-child(4) {
+  grid-area: d;
+}
+
+.intro-grid span:nth-child(5) {
+  grid-area: e;
+}
+
+.intro-grid span:nth-child(6) {
+  grid-area: f;
+}
+
+.intro-grid span:nth-child(7) {
+  grid-area: g;
+}
+
+.intro-grid span:nth-child(8) {
+  grid-area: h;
+}
+
+.intro-grid span:nth-child(9) {
+  grid-area: i;
+}
+
+.intro-grid span:nth-child(10) {
+  grid-area: j;
+}
+
+.intro-grid span:nth-child(11) {
+  grid-area: k;
+}
+
+.intro-grid span:nth-child(12) {
+  grid-area: l;
+}
+
+.intro-grid div {
+  grid-row: 2/-3;
+  grid-column: 1/-1;
+}
+
+.singlish-o-meter {
+  position: relative;
+  margin-top: 2em;
+}
+.singlish-o-meter hr {
+  border: none;
+  height: 0.25em;
+  width: 100%;
+  background-color: #465362;
+  position: absolute;
+  top: 80%;
+}
+
+.singlish-o-meter::before {
+  content: url("../../img/singlish.jpg");
+  position: absolute;
+  left: 0;
+  z-index: 1;
+}
+
+.singlish-o-meter::after {
+  content: url("../../img/english.jpg");
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+  margin-top: 200px;
+  position: relative;
+  z-index: 1;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+  background-image: url("../../img/slider-thumb.png");
+  background-size: cover;
+  height: 300px;
+  width: 150px;
+  cursor: pointer;
+  margin-top: -150px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  background-image: url("../../img/slider-thumb.png");
+  background-size: cover;
+  height: 300px;
+  width: 150px;
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+  background-image: url("../../img/slider-thumb.png");
+  height: 400px;
+  width: 203px;
+  cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 1em;
+  cursor: pointer;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 1em;
+  cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 1em;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}

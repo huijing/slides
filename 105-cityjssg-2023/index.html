@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Do your regional websites talk funny?</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/jing.css" id="theme">
+    <link rel="stylesheet" href="plugin/highlight/atom-one-light.css" id="highlight-theme">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section class="title-slide">
+          <h1 style="text-wrap:balance">Do your regional websites talk funny?</h1>
+          <p><small>By <a href="https://chenhuijing.com/">Chen Hui Jing</a> / <a href="https://twitter.com/hj_chen">@hj_chen</a></small></p>
+          <aside class="notes">
+            <p>Hello everybody. Welcome to CityJS. Thank you for being here on this lovely Friday morning. I'm not sure why the organisers put me in the opening slot because there's really not a lot of Javascript going on in my talk. So maybe that's why.</p>
+            <p>All of you clearly paid money to see the hard-hitting hardcore Javascript rockstars later in the day, but you need to warm up first. That's what opening acts are for. Like how Paramore opened for Taylor Swift, right?</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2><span class="emoji" role="img" tabindex="0" aria-label="smirking face">&#x1F60F;</span> Singlish-o-meter <span class="emoji" role="img" tabindex="0" aria-label="thinking face">&#x1F914;</span></h2>
+          <div class="singlish-o-meter">
+            <hr>
+            <input type="range">
+          </div>
+          <aside class="notes">
+            <p>Because this is the Singapore edition of CityJS, I feel obliged to stay true to the culture. For the benefit of the audience who are unfamiliar with English spoken in Singapore, there is a range. Best explained in a graphical form. FYI, this is a legitimate HTML range input. Come ask me how it's built later.</p>
+            <p>So today, I will try to keep the level somewhere in the middle of Queen's english, and extreme Singlish. In general, the “R” sound sometimes becomes “L”, like ready will may sound like leddy. Also, the “ver” sound may often just be omiited. Like, government, will become gahmen. Or nevermind, will become nehmind. Also, grammar is optional.</p>
+          </aside>
+        </section>
+
+        <section>
+          <video data-autoplay src="img/no-understand.mp4" autoplay loop></video>
+          <aside class="notes">Other than that, it should be mostly comprehensible. If you feel a lack of confidence, please sit next to a friendly Singlish-speaking attendee. They will decipher all of this for you.</aside>
+        </section>
+
+        <section>
+          <div class="intro-grid">
+            <span class="emoji" role="img" tabindex="0" aria-label="Malaysia">&#x1F1F2;&#x1F1FE;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="alien monster">&#x1F47E;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="basketball">&#x1F3C0;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="bicycle">&#x1F6B2;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="paintbrush">&#x1F58C;&#xFE0F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="sneaker">&#x1F45F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="laptop computer">&#x1F4BB;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="pen">&#x1F58A;&#xFE0F;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="studio microphone">&#x1F399;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="black cat">&#x1F408;&#x200D;&#x2B1B;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="person climbing">&#x1F9D7;</span>
+            <span class="emoji" role="img" tabindex="0" aria-label="Rainbow flag">&#x1F3F3;&#xFE0F;&#x200D;&#x1F308;</span>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center">
+              <img data-src="img/name.svg" alt="Chen Hui Jing" class="plain" style="max-height: 20vh" />
+              <div>
+                <img data-src="img/avatar.jpg" alt="Jing" style="border-radius: 50%; max-height: 30vh" />
+              </div>
+              <a href="https://www.twitter.com/hj_chen">@hj_chen</a>
+            </div>
+          </div>
+          <aside class="notes">
+            <p>My name is Hui Jing. It's a Chinese name, so our family name comes first. And these are my representative emojis, if you will. I've been gainfully employed as a web developer for more than a decade. Of course not with the same employer, but regardless of who it is, an employer who pays your CPF on time is a good employer.</p>
+            <p>Anyway, today you'll hear me talk to you about stuff mostly related to i18n, which is short for internationalisation. Maybe you'll learn something, maybe you won't. It's my hope you will be at least mildly entertained, and if you fall asleep, just try not to snore too loudly.</p>
+          </aside>
+        </section>
+
+        <section>
+          <blockquote style="width:74%">
+            <p><em>Internationalisation</em> is the design and development of a product, application or document that <em>enables easy localisation</em> for target audiences that vary in culture, region, or language.</p>
+          </blockquote>
+          <aside class="notes">
+            <p>There is no canonical set-in-stone definition of i18n, but the W3C does offer this guidance. It is designing and developing in a way that enables easy localisation for specific audiences. Localisation covers a broad range of customisations including but not limited to: numerals, time and date formats, currencies, symbols, icons and colours, even textual and graphical references.</p>
+            <p>This implies that i18n is a lot more than simply translating the content on a site to different languages. There are nuances to the presentation of that content which will affect the experience of a native speaker using your site.</p>
+          </aside>
+        </section>
+
+        <section data-background-image="img/fail.jpg">
+          <aside class="notes">I've had the opportunity to work on a number of different projects that required internationalisation. Even though internationalisation is more than just translation, getting the translation part correct is really important. For this talk, because of time constraints, I picked a couple things that I encountered personally.</aside>
+        </section>
+
+        <section>
+          <h2>The “Billion” problem</h2>
+          <p>The Chinese numeral system (also used by Japanese and Korean) has specific words for large numbers as per the traditional Chinese grouping of 10,000.</p>
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Simp. Chinese</th>
+                <th>Trad. Chinese</th>
+                <th>Japanese</th>
+                <th>Korean</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>10</td>
+                <td>十 (shí)</td>
+                <td>十</td>
+                <td>十 (juu)</td>
+                <td>십 (ship)</td>
+              </tr>
+              <tr>
+                <td>100</td>
+                <td>百 (bǎi)</td>
+                <td>百</td>
+                <td>百 (hyaku)</td>
+                <td>백 (baek)</td>
+              </tr>
+              <tr>
+                <td>1000</td>
+                <td>千 (qiān)</td>
+                <td>千</td>
+                <td>千 (sen)</td>
+                <td>천 (cheon)</td>
+              </tr>
+              <tr>
+                <td>10,000</td>
+                <td>万 (wàn)</td>
+                <td>万</td>
+                <td>万 (man)</td>
+                <td>만 (man)</td>
+              </tr>
+              <tr>
+                <td>100,000,000</td>
+                <td>亿 (yì)</td>
+                <td>億</td>
+                <td>億 (ichioku)</td>
+                <td>억 (eok)</td>
+              </tr>
+              <tr>
+                <td>1,000,000,000,000*</td>
+                <td>兆 (zhào)</td>
+                <td>兆</td>
+                <td>兆 (icchou)</td>
+                <td>조 (jo)</td>
+              </tr>
+            </tbody>
+          </table>
+          <aside class="notes">
+            <p>Let's talk about numbers. Specifically large numbers. I am Chinese, so I can only talk about this numeral system here. But there are also other languages that have specific words for powers of the base. Like India has lakh for 100 thousand and crore for 10 million.</p>
+            <p>For us, we have a word for 10,000, 万, and after that it goes up by power 4. So the next word is for 100 million, which is 亿. So 1 billion is 9 zeroes, and we don't have a specific word for that.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Translation strings</h2>
+          <div class="l-double">
+<pre style="width:max-content"><code>import {useTranslation} from "react-i18next";
+
+function HeaderComponent() {
+  const {t, i18n} = useTranslation('common');
+  return <h1>{t('welcome.title')}</h1>
+}</code></pre>
+<div>
+  <pre style="width:100%"><code>{
+  "welcome": {
+    "title": "Welcome to the app!"
+  }
+}</code></pre>
+
+<pre style="width:100%"><code>{
+  "welcome": {
+    "title": "Laipni lūdzam lietotnē!"
+  }
+}</code></pre>
+</div>
+          </div>
+          <aside class="notes">
+            <p>Translation strings are a way for us to mark strings to be extracted from the source code to be passed over to translators to translate.</p>
+            <p>Most languages have some similar pattern, where the translation strings are all kept in separate data files, could be JSON, could be YAML. Then those strings are used in your application code via t functions.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Interpolation</h2>
+          <pre style="width:max-content" class="language-javascript"><code>/* src/translations/en.json */
+{
+  "welcome": {
+    "title": "Welcome to {{framework}}"
+  }
+}</code></pre>
+          <pre style="width:max-content" class="language-javascript"><code>/* src/translations/de.json */
+{
+  "welcome": {
+    "title": "Willkommen bei {{framework}}"
+  }
+}</code></pre>
+          <aside class="notes">
+            <p>There will inevitably be instances where it makes sense to pass in variables into these translation strings, especially for things like data, where consistency across languages is important information.</p>
+            <p>You'd think this would be a relatively straight-forward affair, and I think most of the time it is. But this does depend on exactly what you're passing into the string, and how your translation flow hands this off to the folks doing the translation.</p>
+          </aside>
+        </section>
+        
+        <section>
+          <h2>What translators see</h2>
+          <p style="margin-bottom:0">Not this:</p>
+          <img data-src="img/billion-en.png">
+          <p style="margin-bottom:0">But this:</p>
+          <pre class="language-yml" style="width:75%"><code style="white-space:pre-wrap">Over %{total_stores} businesses in %{total_countries} countries around the world have made over $%{total_gmv_billions} billion USD in sales using Shopify</code></pre>
+          <aside class="notes">
+            <p>For example, in my previous place of employment, we did it like this. There was a set of stats that should be consistent throughout the entire site and across all languages, so those were substituted into the translation strings like so.</p>
+            <p>The source string is what the different translation teams see on the other end of the system, and they return the translations accordingly.</p>
+            <p>This was not a problem for the most part, in fact, there was only 1 instance where a problem arose. Because the number returned for <code>{total_gmv_billions}</code> was 200. I don't know who made the decision, but I'm betting the person only spoke English? I don't know, man.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>The end result</h2>
+          <img data-src="img/billion-zh-hans.png">
+          <img data-src="img/billion-zh-hant.png">
+          <img data-src="img/billion-ko.png">
+          <aside class="notes">This was what we got back from the translators. For those of you who don't speak Korean or Chinese, let me explain the problem. The following translations have expressed the value of 200 billion as 200 ten million.</aside>
+        </section>
+
+        <section>
+          <h2>The problem</h2>
+          <p style="max-width:26em;text-align:left;margin:auto">Saying that the GMV is 200 ten million dollars is quite a glaring grammatical error, if you speak the language.</p>
+          <aside class="notes">
+            <p>Definitely not the translators fault that the end result is like this because if I put myself in their shoes, and I see a variable for X billion. I would intuitively think it's like oh maybe 5 or 6 billion. They didn't know the number was 200.</p>
+            <p>But regardless, a mistake is a mistake. Users don't care why, they only see that we made a rookie error.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>But why didn't Japan have this problem? 🤯</h2>
+          <img data-src="img/billion-ja.png">
+          <div class="fragment">
+            <p>The Japanese team had worked around this issue previously by editing the locale files that reference our total GMV numbers like so:</p>
+            <pre class="language-yml" style="width:max-content;font-size:1em"><code style="white-space:pre-wrap">%{total_gmv_billions}0億米ドル</code></pre>
+            <p>Our Japan team spotted this error and made the adjustment of replacing 十 with a 0.</p>
+          </div>
+          <aside class="notes">
+            <p>It was actually a Korean language reviewer who was meant to review some other content that flagged this to us. They were like, I know you told us only to look at the designated section, but this is too glaring to ignore.</p>
+            <p>When I got the ticket, I was like, the other CJK locales must have this also. But only the Chinese site got. Japan was fine. Because back then, our Japan team was quite stacked with native Japanese speakers. And they manually went into the translation file to replace the character for 十 (juu) with a 0. Perfect.</p>
+          </aside>
+        </section>
+        
+        <section>
+          <h2>See solution, steal it</h2>
+          <p>This will be how it looks for each respective language:</p>
+          <pre class="language-yml" style="width:max-content;font-size:1em"><code style="white-space:pre-wrap">%{total_gmv_billions}0억 달러(USD)
+%{total_gmv_billions}0 亿美元
+%{total_gmv_billions}0 億美元</code></pre>
+          <aside class="notes">
+            <p>So of course I just stole it for the fix. Another thing that tends to get overlooked is spaces between words or characters. Again, I can only talk about the CJK languages because I don't know about others.</p>
+            <p>For Chinese, there is no space between characters, but there is usually a space between a Chinese character and a non-Chinese character. Korean has its own spacing rules, called 띄어쓰기 (ttiosseugi).</p>
+            <p>This is important when dealing with translation strings and interpolation because sometimes the spaces literally get lost in translation.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Lessons and best practices</h2>
+          <ul>
+            <li>Interpolate with caution</li>
+            <li>Do Not Manually Construct Sentences or Manipulate Text in Code</li>
+            <li>Let i18n Libraries Handle the Hard Stuff</li>
+          </ul>
+          <p><small><a href="https://shopify.engineering/internationalization-i18n-best-practices-front-end-developers">Lessons From Linguistics: i18n Best Practices for Front-End Developers</a> by <a href="https://www.superko.org/">Lucas Huang</a></small></p>
+          <aside class="notes">
+            <p>Interpolation is super useful but needs to be done very deliberately. Other than what I described earlier, things like pluralization can also become an issue. There are six plural forms identified in the Unicode Common Locale Repository, for zero, one, two, few, many and other. Some languages also have gendered nouns.</p>
+            <p>The point is, hard-coding word order or trying to manipulate text at the code level tends to make translation very difficult to get right. The folks that built and maintain the i18n libraries have done a lot of the tricky work for us, so it's probably a good idea to use those tried and tested packages, like for Javascript, we have <code>i18next</code> which exists in many popular framework flavours.</p>
+          </aside>
+        </section>
+
+        <section>
+          <img data-src="img/cjkv.jpg" style="max-height:90vh">
+          <aside class="notes">The next story involves Vietnamese characters. Some of you might have heard of the acronym CJK, I've also mentioned it earlier, but sometimes the acronym is CJKV, which includes Vietnamese as well. Because historically, Vietnamese also used Chinese characters and original Vietnamese characters in their writing system previously.</aside>
+        </section>
+
+        <section>
+          <h2>Unicode character ranges</h2>
+          <ul style="font-size:40%;column-count:4;column-gap:1.5em">
+            <li><code>0020—007F</code> Basic Latin</li>
+            <li><code>00A0—00FF</code> Latin-1 Supplement</li>
+            <li><code>0100—017F</code> Latin Extended-A</li>
+            <li><code>0180—024F</code> Latin Extended-B</li>
+            <li><code>0250—02AF</code> IPA Extensions</li>
+            <li><code>02B0—02FF</code> Spacing Modifier Letters</li>
+            <li><code>0300—036F</code> Combining Diacritical Marks</li>
+            <li><code>0370—03FF</code> Greek and Coptic</li>
+            <li><code>0400—04FF</code> Cyrillic</li>
+            <li><code>0500—052F</code> Cyrillic Supplementary</li>
+            <li><code>0530—058F</code> Armenian</li>
+            <li><code>0590—05FF</code> Hebrew</li>
+            <li><code>0600—06FF</code> Arabic</li>
+            <li><code>0700—074F</code> Syriac</li>
+            <li><code>0780—07BF</code> Thaana</li>
+            <li><code>0900—097F</code> Devanagari</li>
+            <li><code>0980—09FF</code> Bengali</li>
+            <li><code>0A00—0A7F</code> Gurmukhi</li>
+            <li><code>0A80—0AFF</code> Gujarati</li>
+            <li><code>0B00—0B7F</code> Oriya</li>
+            <li><code>0B80—0BFF</code> Tamil</li>
+            <li><code>0C00—0C7F</code> Telugu</li>
+            <li><code>0C80—0CFF</code> Kannada</li>
+            <li><code>0D00—0D7F</code> Malayalam</li>
+            <li><code>0D80—0DFF</code> Sinhala</li>
+            <li><code>0E00—0E7F</code> Thai</li>
+            <li><code>0E80—0EFF</code> Lao</li>
+            <li><code>0F00—0FFF</code> Tibetan</li>
+            <li><code>1000—109F</code> Myanmar</li>
+            <li><code>10A0—10FF</code> Georgian</li>
+            <li><code>1100—11FF</code> Hangul Jamo</li>
+            <li><code>1200—137F</code> Ethiopic</li>
+            <li><code>13A0—13FF</code> Cherokee</li>
+            <li><code>1400—167F</code> Unified Canadian Aboriginal Syllabics</li>
+            <li><code>1680—169F</code> Ogham</li>
+            <li><code>16A0—16FF</code> Runic</li>
+            <li><code>1700—171F</code> Tagalog</li>
+            <li><code>1720—173F</code> Hanunoo</li>
+            <li><code>1740—175F</code> Buhid</li>
+            <li><code>1760—177F</code> Tagbanwa</li>
+            <li><code>1780—17FF</code> Khmer</li>
+            <li><code>1800—18AF</code> Mongolian</li>
+            <li><code>1900—194F</code> Limbu</li>
+            <li><code>1950—197F</code> Tai Le</li>
+            <li><code>19E0—19FF</code> Khmer Symbols</li>
+            <li><code>1D00—1D7F</code> Phonetic Extensions</li>
+            <li><code>1E00—1EFF</code> Latin Extended Additional</li>
+            <li><code>1F00—1FFF</code> Greek Extended</li>
+            <li><code>2000—206F</code> General Punctuation</li>
+            <li><code>2070—209F</code> Superscripts and Subscripts</li>
+            <li><code>20A0—20CF</code> Currency Symbols</li>
+            <li><code>20D0—20FF</code> Combining Diacritical Marks for Symbols</li>
+            <li><code>2100—214F</code> Letterlike Symbols</li>
+            <li><code>2150—218F</code> Number Forms</li>
+            <li><code>2190—21FF</code> Arrows</li>
+            <li><code>2200—22FF</code> Mathematical Operators</li>
+            <li><code>2300—23FF</code> Miscellaneous Technical</li>
+            <li><code>2400—243F</code> Control Pictures</li>
+            <li><code>2440—245F</code> Optical Character Recognition</li>
+            <li><code>2460—24FF</code> Enclosed Alphanumerics</li>
+            <li><code>2500—257F</code> Box Drawing</li>
+            <li><code>2580—259F</code> Block Elements</li>
+            <li><code>25A0—25FF</code> Geometric Shapes</li>
+            <li><code>2600—26FF</code> Miscellaneous Symbols</li>
+            <li><code>2700—27BF</code> Dingbats</li>
+            <li><code>27C0—27EF</code> Miscellaneous Mathematical Symbols-A</li>
+            <li><code>27F0—27FF</code> Supplemental Arrows-A</li>
+            <li><code>2800—28FF</code> Braille Patterns</li>
+            <li><code>2900—297F</code> Supplemental Arrows-B</li>
+            <li><code>2980—29FF</code> Miscellaneous Mathematical Symbols-B</li>
+            <li><code>2A00—2AFF</code> Supplemental Mathematical Operators</li>
+            <li><code>2B00—2BFF</code> Miscellaneous Symbols and Arrows</li>
+            <li><code>2E80—2EFF</code> CJK Radicals Supplement</li>
+            <li><code>2F00—2FDF</code> Kangxi Radicals</li>
+            <li><code>2FF0—2FFF</code> Ideographic Description Characters</li>
+            <li><code>3000—303F</code> CJK Symbols and Punctuation</li>
+            <li><code>3040—309F</code> Hiragana</li>
+            <li><code>30A0—30FF</code> Katakana</li>
+            <li><code>3100—312F</code> Bopomofo</li>
+            <li><code>3130—318F</code> Hangul Compatibility Jamo</li>
+            <li><code>3190—319F</code> Kanbun</li>
+            <li><code>31A0—31BF</code> Bopomofo Extended</li>
+            <li><code>31F0—31FF</code> Katakana Phonetic Extensions</li>
+            <li><code>3200—32FF</code> Enclosed CJK Letters and Months</li>
+            <li><code>3300—33FF</code> CJK Compatibility</li>
+            <li><code>3400—4DBF</code> CJK Unified Ideographs Extension A</li>
+            <li><code>4DC0—4DFF</code> Yijing Hexagram Symbols</li>
+            <li><code>4E00—9FFF</code> CJK Unified Ideographs</li>
+            <li><code>A000—A48F</code> Yi Syllables</li>
+            <li><code>A490—A4CF</code> Yi Radicals</li>
+            <li><code>AC00—D7AF</code> Hangul Syllables</li>
+            <li><code>D800—DB7F</code> High Surrogates</li>
+            <li><code>DB80—DBFF</code> High Private Use Surrogates</li>
+            <li><code>DC00—DFFF</code> Low Surrogates</li>
+            <li><code>E000—F8FF</code> Private Use Area</li>
+            <li><code>F900—FAFF</code> CJK Compatibility Ideographs</li>
+            <li><code>FB00—FB4F</code> Alphabetic Presentation Forms</li>
+            <li><code>FB50—FDFF</code> Arabic Presentation Forms-A</li>
+            <li><code>FE00—FE0F</code> Variation Selectors</li>
+            <li><code>FE20—FE2F</code> Combining Half Marks</li>
+            <li><code>FE30—FE4F</code> CJK Compatibility Forms</li>
+            <li><code>FE50—FE6F</code> Small Form Variants</li>
+            <li><code>FE70—FEFF</code> Arabic Presentation Forms-B</li>
+            <li><code>FF00—FFEF</code> Halfwidth and Fullwidth Forms</li>
+            <li><code>FFF0—FFFF</code> Specials</li>
+            <li><code>10000—1007F</code> Linear B Syllabary</li>
+            <li><code>10080—100FF</code> Linear B Ideograms</li>
+            <li><code>10100—1013F</code> Aegean Numbers</li>
+            <li><code>10300—1032F</code> Old Italic</li>
+            <li><code>10330—1034F</code> Gothic</li>
+            <li><code>10380—1039F</code> Ugaritic</li>
+            <li><code>10400—1044F</code> Deseret</li>
+            <li><code>10450—1047F</code> Shavian</li>
+            <li><code>10480—104AF</code> Osmanya</li>
+            <li><code>10800—1083F</code> Cypriot Syllabary</li>
+            <li><code>1D000—1D0FF</code> Byzantine Musical Symbols</li>
+            <li><code>1D100—1D1FF</code> Musical Symbols</li>
+            <li><code>1D300—1D35F</code> Tai Xuan Jing Symbols</li>
+            <li><code>1D400—1D7FF</code> Mathematical Alphanumeric Symbols</li>
+            <li><code>20000—2A6DF</code> CJK Unified Ideographs Extension B</li>
+            <li><code>2F800—2FA1F</code> CJK Compatibility Ideographs Supplement</li>
+            <li><code>E0000—E007F</code> Tags</li>
+          </ul>
+          <p><small><a href="https://www.unicode.org/charts/">Unicode 15.0 Character Code Charts</a></small></p>
+          <aside class="notes">Not sure if everyone is familiar with Unicode, but it is a standard for character encoding. And the Unicode Consortium's mission statement is that everyone in the world should be able to use their own language on phones and computers. In general, characters for a particular script are found in defined Unicode ranges. For example, Thai is from 0E00 to 0E7F.</aside>
+        </section>
+
+        <section>
+          <p>The Vietnamese alphabets are listed in several non-contiguous Unicode ranges:</p>
+          <ul>
+            <li>Basic Latin {U+0000..U+007F}</li>
+            <li>Latin-1 Supplement {U+0080..U+00FF}</li>
+            <li>Latin Extended-A, -B {U+0100..U+024F}</li>
+            <li>Latin Extended Additional {U+1E00..U+1EFF}</li>
+            <li>Combining Diacritical Marks {U+0300.. U+036F}</li>
+            <li>The Vietnamese đồng currency symbol is ₫ (U+20AB)</li>
+          </ul>
+          <p><small><a href="https://vietunicode.sourceforge.net/charset/">Unicode & Vietnamese Legacy Character Encodings</a></small></p>
+          <aside class="notes">Vietnamese is interesting, because the current writing system uses the 29-letter Latin-script based Vietnamese alphabet. It is tricky because the Vietnamese alphabets exist across several non-contiguous Unicode ranges. Because designing fonts is a lot of work, most fonts are not going to support every single Unicode range in the universe. Even the Latin-based scripts probably cover until Latin-1 Supplement, unless they explicitly want to support specific languages.</aside>
+        </section>
+
+        <section>
+          <h2>Missing Vietnamese glyphs</h2>
+          <img data-src="img/vietnamese.png" style="max-height:90vh">
+          <aside class="notes">
+            <p>So when choosing web fonts for your project, make sure to check the font's language support, otherwise, you might end up with the situation where missing glyphs look very obvious on your site. This situation occurs because when the browser cannot find a corresponding glyph in your chosen font to represent a character, it will use a fallback font that has that glyph.</p>
+            <p>If your fallback font doesn't really match well to your chosen font, then it will become like this. And I am aware that some people cannot tell if there is a problem here. But the point is I can tell, it's glaring to me, and I think this shouldn't happen. It looks unprofessional.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>The <code>:lang()</code> pseudo-class</h2>
+          <pre style="width:max-content;font-size:xx-large">
+            <code>:lang(vi) {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}</code>
+          </pre>
+          <aside class="notes">
+            <p>Some products have commissioned fonts, and those are really quite expensive, so you're probably going to want to use them in as many places as possible. And that's totally justifiable. So we can use an alternative font stack only for those languages that your font doesn't support. CSS lets you do that.</p>
+            <p>Basic web development best practice is that you must declare a <code>lang</code> attribute. If you want to know why, come ask me later, I explain to you. Assuming you (or most likely your framework) dutifully set the <code>lang</code> attribute, you can use this pseudo-class to target only Vietnamese content. And provide an appropriate alternative font stack that fits your branding and all that.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Issue with Apple SD Gothic Neo</h2>
+          <img data-src="img/kr-font.png">
+          <pre style="width:max-content;font-size:xx-large"><code>:lang(ko) {
+  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}</code></pre>
+          <aside class="notes">
+            <p>Since we've talked about commissioned fonts, this one is a bit of an edge-case, I would think. It has to do with Apple's choice of default font for Korean. Most CJK fonts will also have a Latin-based character set simply because we cannot escape from English on the web. That's just how it is. But anyway, Apple uses Apple SD Gothic Neo for Korean.</p>
+            <p>I discovered that it does not have support for the Latin-1 Supplement range, which means that we end up with a blasphemous situation where Beyoncé would not render correctly. Sacrilegious. For cases like this, specifying the Latin-based font first would fix it, even if that font doesn't have Korean language support because then the default fallback Korean will trigger for the Hangul characters. And everything will render properly. Talk to your designers about crafting a nice font stack.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Links</h2>
+          <ul>
+            <li><a href="https://www.w3.org/blog/international/">W3C Internationalization (I18n) Activity</a></li>
+            <li><a href="https://www.i18next.com/principles/best-practices">i18next, internationalisation-framework for Javascript: Best Practices</a></li>
+            <li><a href="https://shopify.engineering/internationalization-i18n-best-practices-front-end-developers">Lessons From Linguistics: i18n Best Practices for Front-End Developers</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 lang="zh">谢谢</h2>
+          <h2 lang="ko">감사합니다</h2>
+          <h2 lang="jp">ありがとう ございます</h2>
+          <h2 lang="vn">Cảm ơn</h2>
+          <p style="font-size:3em">🙇🏻</p>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        width: 1920,
+        height: 1080,
+        hash: true,
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+        transition: 'fade',
+      });
+    </script>
+  </body>
+</html>
