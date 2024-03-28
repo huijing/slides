@@ -22,7 +22,7 @@
     "node": ">=4.0.0"
   },
   "dependencies": {
-    "express": "~4.18.2",
+    "express": "~4.19.2",
     "grunt-cli": "~1.2.0",
     "mustache": "~2.2.1",
     "socket.io": "^2.4.0"
