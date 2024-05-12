@@ -104,7 +104,7 @@
 
 52. [The value of sharing our perspectives](https://huijing.github.io/slides/52-devrelcon-2019) [📹 [video](https://youtu.be/m9Bp3GGKz8s)]
 
-53. [新时代CSS布局](https://huijing.github.io/slides/53-cssconfcn-2019) [📹 [video](https://youtu.be/-tZNci6Ajos)]
+53. [新时代 CSS 布局](https://huijing.github.io/slides/53-cssconfcn-2019) [📹 [video](https://youtu.be/-tZNci6Ajos)]
 
 54. [网络的四面八方](https://huijing.github.io/slides/54-web-is-not-just-ltr)
 
@@ -128,7 +128,7 @@
 
 64. [Creating art with CSS](https://huijing.github.io/slides/64-connect-asia-2019) [📹 [video](https://youtu.be/SXwBxro6y40)]
 
-65. [Using DevTools to understand modern CSS layouts](https://huijing.github.io/slides/65-connectfest-2019) 
+65. [Using DevTools to understand modern CSS layouts](https://huijing.github.io/slides/65-connectfest-2019)
 
 66. [Using DevTools to understand modern CSS layouts](https://huijing.github.io/slides/66-wwktm-2019) [📹 [video](https://youtu.be/3qFqynGTxPA)]
 
@@ -194,7 +194,7 @@
 
 97. [Building layouts the way the web intended](https://huijing.github.io/slides/97-jsfwdays-2022) [📹 [video](https://youtu.be/z8FD3gLvTyo)]
 
-98. [Architecting CSS grid in a design system](https://huijing.github.io/slides/98-front-zurich-2022) 
+98. [Architecting CSS grid in a design system](https://huijing.github.io/slides/98-front-zurich-2022)
 
 99. [Many Flavours of Enterprise CSS Grid](https://huijing.github.io/slides/99-jsconfkr-2022) [📹 [video](https://youtu.be/r3O3Fj1H2yw)]
 
@@ -204,4 +204,10 @@
 
 102. [CSS for internationalisation](https://huijing.github.io/slides/102-oredev-2022) [📹 [video](https://youtu.be/MTTnLmDuXxY)]
 
-103. [Do your regional websites talk funny?](https://huijing.github.io/slides/103-fossasia-2023)
+103. [Do your regional websites talk funny?](https://huijing.github.io/slides/103-fossasia-2023) [📹 [video](https://youtu.be/9dcwDcKUWao)]
+
+104. [Working with CSS doesn’t have to make you cry](https://huijing.github.io/slides/104-lfa-lectures-2023/) [📹 [video](hhttps://vimeo.com/channels/letterformlectures/844452656)]
+
+105. [Do your regional websites talk funny?](https://huijing.github.io/slides/105-cityjssg-2023/) [📹 [video](https://youtu.be/myGDCC-LUPA)]
+
+106. [The State of CSS](https://huijing.github.io/slides/106-code-2024)
