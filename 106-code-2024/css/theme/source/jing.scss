@@ -150,4 +150,67 @@ span[role="img"][aria-label]:hover::after {
   height: 100%;
   white-space: pre-wrap;
 }
-// ---------------------------------------------
+
+// Intro grid ------------------------------
+.intro-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(12, 1.9em);
+  grid-template-rows: 2.4em repeat(9, 1.9em);
+  grid-template-areas:
+    ". . . . a . . b . . . ."
+    ". l . . . . . . . . c ."
+    ". . . . . . . . . . . ."
+    "k . . . . . . . . . . d"
+    ". . . . . . . . . . . ."
+    "j . . . . . . . . . . e"
+    ". . . . . . . . . . . ."
+    ". i . . . . . . . . f ."
+    ". . . . . . . . . . . ."
+    ". . . . h . . g . . . .";
+
+  span {
+    font-size: 1.5em;
+  }
+}
+
+.intro-grid span:first-child {
+  grid-area: a;
+}
+.intro-grid span:nth-child(2) {
+  grid-area: b;
+}
+.intro-grid span:nth-child(3) {
+  grid-area: c;
+}
+.intro-grid span:nth-child(4) {
+  grid-area: d;
+}
+.intro-grid span:nth-child(5) {
+  grid-area: e;
+}
+.intro-grid span:nth-child(6) {
+  grid-area: f;
+}
+.intro-grid span:nth-child(7) {
+  grid-area: g;
+}
+.intro-grid span:nth-child(8) {
+  grid-area: h;
+}
+.intro-grid span:nth-child(9) {
+  grid-area: i;
+}
+.intro-grid span:nth-child(10) {
+  grid-area: j;
+}
+.intro-grid span:nth-child(11) {
+  grid-area: k;
+}
+.intro-grid span:nth-child(12) {
+  grid-area: l;
+}
+.intro-grid div {
+  grid-row: 2 / -3;
+  grid-column: 1 / -1;
+}
