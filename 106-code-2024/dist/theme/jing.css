@@ -521,3 +521,16 @@ span[role=img][aria-label]:hover::after {
   grid-row: 2/-3;
   grid-column: 1/-1;
 }
+
+.devographics-team {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.devographics-team figure {
+  max-width: 12rem;
+}
+.devographics-team img {
+  border-radius: 50%;
+}
