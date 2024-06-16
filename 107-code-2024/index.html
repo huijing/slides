@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>The State of CSS</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/jing.css" id="theme">
+    <link rel="stylesheet" href="plugin/highlight/atom-one-light.css" id="highlight-theme">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>The State of CSS</h1>
+          <p><small>By <a href="https://chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
+          <aside class="notes">Hello everyone! It's really nice to be here at Web Directions Code in person again. The last time I was in Melbourne for this was 2018, so yeah, it's been a while. Also, can I just say, the weather is fantastic for me. It's frustratingly hot and humid where I come from.</aside>
+        </section>
+
+        <section>
+          <figure>
+            <img data-src="img/ilf.svg" alt="Interledger Foundation" class="plain" style="max-height: 30vh" />
+            <figcaption><a href="https://interledger.org">https://interledger.org</a></figcaption>
+          </figure>
+          <aside class="notes">I currently work at the Interledger Foundation. In a nutshell, we are developing a new protocol to enable an interoperable global payments network. If any of those words mean anything to you and you'd like to find out more, happy to have a chat later. Or just talk to me about CSS, I'd love that too.</aside>
+        </section>
+
+        <section>
+          <img data-src="img/2016-js.svg" alt="2016 State of JS survey" class="plain" style="max-height:40vh;background-color:#fff8ea;border-radius:1em;padding:1em" />
+          <aside class="notes">
+            <p>That was a segue back to what I'm here to talk about. CSS! Or more specifically, the state of CSS, both in general, and also the survey that I helped out with last year.</p>
+            <p>How many of you fine folks have heard of or participated in any of the State Of surveys before? Only last week, I realised there are a some of State Of surveys run by different organisations as well, but nobody has a monopoly on the term "State Of". And rightfully so, otherwise all the wonderful speakers later today would have had to rename their talks.</p>
+            <p>So the series which the State of CSS surveys belong to started back in 2016 with Sacha Grief feeling confused about what Javascript technologies to spend his time learning, so he decided to start a State of JS survey.</p>
+          </aside>
+        </section>
+
+        <section>
+          <figure style="margin-block-end:2em">
+            <img data-src="img/devographics-logo.png" alt="The Devographics Collective" class="plain" style="max-height: 30vh" />
+            <figcaption><a href="https://www.devographics.com">https://www.devographics.com</a></figcaption>
+          </figure>
+          <div class="devographics-team">
+            <figure>
+              <img data-src="/img/alexey.png" alt="Alexey Pyltsyn">
+              <figcaption><a href="https://github.com/lex111">Alexey Pyltsyn</a></figcaption>
+            </figure>
+            <figure>
+              <img data-src="/img/chris.jpg" alt="Chris Kirk-Nielsen">
+              <figcaption><a href="chriskirknielsen.com">Chris Kirk-Nielsen</a></figcaption>
+            </figure>
+            <figure>
+              <img data-src="/img/eric.jpg" alt="Eric Burel">
+              <figcaption><a href="https://www.ericburel.tech/">Eric Burel</a></figcaption>
+            </figure>
+            <figure>
+              <img data-src="/img/kilian.jpg" alt="Kilian Valkhof">
+              <figcaption><a href="https://kilianvalkhof.com/">Kilian Valkhof</a></figcaption>
+            </figure>
+            <figure>
+              <img data-src="/img/philip.jpg" alt="Philip Jägenstedt">
+              <figcaption><a href="https://foolip.org/">Philip Jägenstedt</a></figcaption>
+            </figure>
+            <figure>
+              <img data-src="/img/raphaël.png" alt="Raphaël Benitte">
+              <figcaption><a href="https://nivo.rocks/">Raphaël Benitte</a></figcaption>
+            </figure>
+            <figure>
+              <img data-src="/img/sacha.svg" alt="Sacha Greif">
+              <figcaption><a href="https://sachagreif.com/">Sacha Greif</a></figcaption>
+            </figure>
+            <figure>
+              <img data-src="/img/sarah.png" alt="Sarah Fossheim">
+              <figcaption><a href="https://fossheim.io/">Sarah Fossheim</a></figcaption>
+            </figure>
+          </div>
+          <aside class="notes">One thing led to another, and the project grew from a one-man operation to a small team. The Devographics Collective (not sure if that's their official name or not) is now the team working on the much larger series of State Of surveys. It's a collective of these fine folks plus other contributors, volunteers, and translators that allow this project to continue year after year.</aside>
+        </section>
+
+        <section>
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:2em;justify-content:center">
+            <a href="https://stateofjs.com/en-US"><img data-src="img/2023-js.png" alt="State of JS" class="plain" style="max-width:40rem" /></a>
+            <a href="https://stateofcss.com/en-US/"><img data-src="img/2023.png" alt="State of CSS" class="plain" style="max-width:25rem" /></a>
+            <a href="https://stateofgraphql.com/en-US"><img data-src="img/2022-graphql.png" alt="State of GraphQL" class="plain" style="max-width:35rem" /></a>
+            <a href="https://stateofreact.com/en-US"><img data-src="img/2023-react.png" alt="State of React" class="plain" style="max-width:32rem" /></a>
+            <a href="https://stateofhtml.com/en-US"><img data-src="img/2023-html.png" alt="State of HTML" class="plain" style="max-width:38rem" /></a>
+          </div>
+          <aside class="notes">
+            <p>The State of JS survey has been running annually since 2016. And the most recent survey whose results has been released is the State of HTML survey. Even if you did not participate, I think it's still interesting to see the results.</p>
+            <p>Lea Verou was the key person who helped craft this survey and in her conclusion she made an excellent point that these surveys are only a snapshot of developer perspectives, and reflects the state of the web platform at the time.</p>
+            <p>It is one of numerous data points that the folks working on web standards and browser implementations use to push the web platform forward, so I do encourage all of you to participate whenever a new survey comes out.</p>
+          </aside>
+        </section>
+
+        <section>
+          <img style="max-height:90vh" data-src="img/custom-query.png" alt="Chart showing rates of usage of highest-rating CSS properties over time">
+          <p>Join us on <a href="https://discord.gg/zRDb35jfrt">Discord</a>.</p>
+          <p>Check out the code on <a href="https://github.com/Devographics/Monorepo/issues" target="_blank">GitHub</a>.</p>
+          <aside class="notes">
+            <p>The survey itself is an application that gets less attention that the survey questions and results, but work is consistently done to improve its features and user experience. For example, The State Of surveys from 2019 onwards had started to allow users to customise data queries via GraphQL. Eventually, you could also update the charts to reflect the new query.</p>
+            <p>This allows folks who are versed in the ways of data analytics to explore even more insights and dive deeper into the data if they so wished. The 2023 version also introduced the concept of a reading list, such that folks going through the survey and found a property they wanted to learn more about, they could add it to their reading list and come back to it later.</p>
+            <p>If you too are interested to contribute in any way at all, you can join us on Discord or go check out the code on Github.</p>
+          </aside>
+        </section>
+
+        <section>
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:2em;justify-content:center">
+            <a href="https://2019.stateofcss.com/"><img data-src="img/2019.png" alt="State of CSS 2019" class="plain" style="max-width:45rem" /></a>
+            <a href="https://2020.stateofcss.com/"><img data-src="img/2020.png" alt="State of CSS 2020" class="plain" style="max-width:45rem" /></a>
+            <a href="https://2021.stateofcss.com/"><img data-src="img/2021.png" alt="State of CSS 2021" class="plain" style="max-width:28rem" /></a>
+            <a href="https://2022.stateofcss.com/"><img data-src="img/2022.png" alt="State of CSS 2022" class="plain" style="max-width:28rem" /></a>
+            <a href="https://2023.stateofcss.com/"><img data-src="img/2023.png" alt="State of CSS 2023" class="plain" style="max-width:28rem" /></a>
+          </div>
+          <aside class="notes">
+            <p>The State of CSS survey has had 5 editions so far, and the 2024 version will probably be out later in the year. And when looking over 5 years worth of data all at once, it reminded me of how much faster CSS is evolving today as compared to 5 years ago.</p>
+            <p>I mean, I'm far from someone like John, who has seen most, if not all of the web platform's evolution, but still, I came in just at the tail-end of table-based layouts.</p>
+          </aside>
+        </section>
+
+        <section data-background-image="img/eras.jpg" data-background-size="cover">
+          <aside class="notes">
+            <p>If we talk about eras (of CSS, not Taylor Swift), the early part of my career was the entirety of the floats era. And there will be eras to come, even if we cannot fully imagine what those might look like yet.</p>
+            <p>Layout is a striking part of visual design because it encompasses the broad structure of what we see in entirety, but I'll have you know, CSS wasn't even meant to be used for layout back when it was introduced.</p>
+          </aside>
+        </section>
+
+        <section data-background-image="img/properties.jpg" data-background-size="cover">
+          <aside class="notes">
+            <p>CSS is a lot more than layouts. As of last week when I checked, there are 589 distinct property names from 81 technical reports and 83 editors' drafts. My personal opinion is that for the average web developer, there is really no practical reason to know each and every one of these properties and what they do, although I'm sure somebody does.</p>
+            <p>My take on things is to have a vague idea that something exists and can be used to do a thing. You don't have to know exactly how the property works, all its values etc. until you encounter an use-case where that something might be useful.
+            <p>Like, I'm clearly not from here, I've heard of the AFL. And this might sound blasphemous but I don't know the rules, nor any of the teams or players. Now, my friend Chris suggested we go watch a game this evening, and if I had said yes, then I would probably have taken some time to at least learn what the rules are. Otherwise, ¯\_(ツ)_/¯</p>
+          </aside>
+        </section>
+
+        <section>
+          <div style="display:flex;align-items:center;justify-content:center">
+            <a href="https://2019.stateofcss.com/features"><img data-src="img/2019-features.png" alt="State of CSS 2019" class="plain" style="max-width:25rem" /></a>
+            <a href="https://2020.stateofcss.com/features"><img data-src="img/2020-features.png" alt="State of CSS 2020" class="plain" style="max-width:25rem" /></a>
+            <a href="https://2021.stateofcss.com/features"><img data-src="img/2021-features.png" alt="State of CSS 2021" class="plain" style="max-width:25rem" /></a>
+            <a href="https://2022.stateofcss.com/en-US/features/"><img data-src="img/2022-features.png" alt="State of CSS 2022" class="plain" style="max-width:25rem" /></a>
+            <a href="https://2023.stateofcss.com/en-US/features/"><img data-src="img/2023-features.png" alt="State of CSS 2023" class="plain" style="max-width:25rem" /></a>
+          </div>
+          <aside class="notes">
+            <p>The survey has evolved over the past 5 years based on external feedback as well as internal reflection. For the 2023 edition, it started with Sacha and myself going through the list of CSS properties from 2022 to figure out if we still wanted to keep them for this year. Generally, we want to observe trends around new CSS features, but take Flex for example, after 3 straight years of more than 95% usage numbers, we figured there wasn't much insight to be gleaned.</p>
+            <p>Another reason why features are "graduated" is to make room for new ones, because we also understand that if the survey grows beyond a certain number of questions, nobody is going to finish it. Which brought us to the next bit, of which new features to add. Our criteria was that the feature had to be usable by developers, so those that did not have implementations were not considered.</p>
+          </aside>
+        </section>
+
+        <section>
+          <div style="display:flex">
+            <img data-src="img/blend-modes.png" style="max-width:48%" alt="Awareness of the blend-mode property over the past 4 years">
+            <img data-src="img/overscroll-behavior.png" style="max-width:48%" alt="Awareness of the overscroll-behavior property over the past 4 years">
+          </div>
+          <aside class="notes">
+            <p>Generally, we expect the awareness of new CSS properties to gradually increase over time, usually it's the rate of increase that varies. Then, at some point, properties relate to more specific or narrow use-cases will see some sort of plateau, because if you never encounter a scenario that requires those properties, you probably will never learn it, much less use it.</p>
+            <p>Like blend-mode for example, which is used to determine how 2 colours are mixed when overlaid one on top of another. That is a rather specific use-case, which is why I think the awareness and usage has been stable over time.</p>
+            <p>Same goes for overscroll-behavior, which allows developers to deal with the default behaviour of scroll chaining, where scrolling is propagated from one scroll container to another. It is one of those properties where it's meant to change the default behaviour, which most of the time is an acceptable experience.</p>
+          </aside>
+        </section>
+
+        <section>
+          <img style="max-height:90vh" data-src="img/content-visibility.png" alt="Awareness of the content-visiblity property over the past 4 years">
+          <aside class="notes">
+            <p>The only property that bucked the trend was content-visibility. It is a property that controls whether or not an element renders its contents at all. As part of the entire concept of containment, you can think of it as a performance optimisation category of CSS features.</p>
+            <p>However, the proper usage of these properties usually requires in-depth knowledge of browser optimisations in order to achieve the intended results. I think a good way to describe it is that it needs the developer to be very deliberate in where and when to apply it. Otherwise, it could even cause unnecessary overheads and make performance worse.</p>
+          </aside>
+        </section>
+
+        <section>
+          <blockquote>
+            <p>Caution: The browser is only able to skip rendering work if you are also careful not to call any DOM API that forces some of rendering to occur on one of the skipped subtrees. If you're using content-visibility to improve performance, audit your code to make sure these APIs are not getting called.</p>
+            <small>–<a href="https://web.dev/articles/content-visibility">content-visibility: the new CSS property that boosts your rendering performance</a></small>
+          </blockquote>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>References</h2>
+          <ul>
+            <li><a href="https://www.w3.org/Style/CSS/all-properties.en.html">List of CSS properties, both proposed and standard</a></li>
+            <li><a href="https://drafts.fxtf.org/compositing/#csskeywords">Compositing and Blending Level 2</a></li>
+            <li><a href="https://drafts.csswg.org/css-overscroll-1/v">CSS Overscroll Behavior Module Level 1</a></li>
+            <li><a href="https://web.dev/articles/content-visibility">content-visibility: the new CSS property that boosts your rendering performance</a></li>
+          </ul>
+        </section>
+
+        <section style="text-align:left">
+          <h1>Thank you</h1>
+          <p class="align-icon"><img class="j-icon plain" data-src="img/home.png" alt="Website"><a href="https://chenhuijing.com">https://chenhuijing.com</a></p>
+          <p class="align-icon"><img style="filter: invert(89%) sepia(8%) saturate(814%) hue-rotate(324deg) brightness(109%) contrast(107%)" class="j-icon plain" data-src="img/github.png" alt="GitHub"><a href="https://github.com/huijing">@huijing</a></p>
+          <p class="align-icon"><img style="filter: invert(89%) sepia(8%) saturate(814%) hue-rotate(324deg) brightness(109%) contrast(107%)" class="j-icon plain" data-src="img/mastadon.png" alt="Mastadon"><a href="https://tech.lgbt/@huijing">@huijing@tech.lgbt</a></p>
+          <p class="align-icon"><img style="filter: invert(89%) sepia(8%) saturate(814%) hue-rotate(324deg) brightness(109%) contrast(107%)" class="j-icon plain" data-src="img/codepen.png" alt="Codepen"><a href="http://codepen.io/huijing/">@huijing</a></p>
+          <p style="text-align:right"><small>Font is <a href="https://www.oliviaking.com/inclusive-sans">Inclusive Sans</a> by <a href="https://www.oliviaking.com/about">Olivia King</a>.</small></p>
+        </section>
+      </div>
+
+      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://huijing.github.io/slides/106-code-2024</span><span style="text-align:right">@hj_chen</span></footer>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        width: 1920,
+        height: 1080,
+        hash: true,
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+        transition: 'fade',
+      });
+    </script>
+  </body>
+</html>
