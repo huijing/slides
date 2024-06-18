@@ -20,6 +20,7 @@
           <aside class="notes">Hello everyone! It's really nice to be here at Web Directions in person again. This is the first time I'm doing Code Leaders though. The last time I was in Melbourne for Web Directions was 2018, so yeah, it's been a while. Also, can I just say, the weather is fantastic for me. It's frustratingly hot and humid where I come from.</aside>
         </section>
 
+<!--
         <section>
           <figure>
             <img data-src="img/ilf.svg" alt="Interledger Foundation" class="plain" style="max-height: 30vh" />
@@ -27,12 +28,16 @@
           </figure>
           <aside class="notes">I currently work at the Interledger Foundation. In a nutshell, we are developing a new protocol to enable an interoperable global payments network. If any of those words mean anything to you and you'd like to find out more, happy to have a chat later. Or just talk to me about CSS, I'd love that too.</aside>
         </section>
+-->
 
-        <section data-background-color="#fffef0">
-          <img data-src="img/first-survey.png" alt="2016 State of JS survey" class="plain" />
+        <section>
+          <div class="fragment" style="display:flex;align-items:center;gap:1em;justify-content:center">
+            <img data-src="img/not-us2.jpg" alt="" class="plain" />
+            <img data-src="img/not-us.jpg" alt="" class="plain" style="max-height:80vh"/>
+          </div>
           <aside class="notes">
             <p>How many of you fine folks have heard of or participated in any of the State Of surveys before? Only last week, I realised there are a some of State Of surveys run by different organisations as well, but nobody has a monopoly on the term "State Of". I mean, here I am with the "State of the Web Platform" as my session title.</p>
-            <p>But I digress. The State Of series of surveys that I'm talking about started back in 2016 when Sacha Greif (spelled G-R-E-I-F) was feeling confused about what JavaScript technologies to spend his time learning, so he decided to start a State of JS survey.</p>
+            <p>But I digress. The State Of series of surveys that I'm talking about started back in 2016 when Sacha Greif (spelled G-R-E-I-F) was feeling confused about what JavaScript technologies to spend his time learning, so he decided to start a State of JS survey, which was mostly around Javascript frameworks and libraries.</p>
           </aside>
         </section>
 
@@ -86,12 +91,7 @@
             <a href="https://stateofreact.com/en-US"><img data-src="img/2023-react.png" alt="State of React" class="plain" style="max-width:32rem" /></a>
             <a href="https://stateofhtml.com/en-US"><img data-src="img/2023-html.png" alt="State of HTML" class="plain" style="max-width:38rem" /></a>
           </div>
-          <aside class="notes">
-            <p>The State of JS survey has been running annually since 2016. And the most recent survey whose results has been released is the State of HTML survey. Even if you did not participate, I think it's still interesting to see the results.</p>
-            <p>Lea Verou was the key person who helped craft the HTML survey and in her conclusion she made an excellent point that these surveys are only a snapshot of developer perspectives, and reflects the state of the web platform at a specific time.</p>
-            <p>It is one of numerous data points that the folks working on web standards and browser implementations use to push the web platform forward. Even though in many other industries, especially the very established one, standards are created and maintained in a closed manner, web standards and browser implementations are discussed and evolved in the open.</p> 
-            <p>And it is in these fine folks' best interests to develop features that developers like you and I want to use. So they do keep a look out for what developers are saying on social media, blog posts, GitHub issues for the CSSWG and TC39, surveys like ours and so on. So if you do write code at all, professionally or otherwise, I encourage you to participate the next time a new one comes out.</p>
-          </aside>
+          <aside class="notes">There are have been 5 different surveys in the series so far, with the JS and CSS ones being the more established of the lot. There might not be another GraphQL one moving forward, and I'll mention why in a little bit.</aside>
         </section>
 
         <section>
@@ -106,6 +106,167 @@
         </section>
 
         <section>
+          <a href="https://stateofgraphql.com/en-US"><img data-src="img/2022-graphql.png" alt="State of GraphQL" class="plain" style="max-width:60rem" /></a>
+          <aside class="notes">
+            <p>So, the GraphQL survey. What exactly is GraphQL anyway? GraphQL is a query language, specifically, an open-source data query and manipulation language for APIs and a query runtime engine. And it has implementations in almost every programming language you can think of.</p>
+            <p>GraphQL was invented by Facebook as a central intermediary layer between their many end-user-facing clients and many data sources. It was a specific problem that Facebook had, and they created a specific tool to deal with their problem. And back in 2022, GraphQL was something that had quite a bit of uncertainty and unclear best practices, and so Sacha decided to run the survey. But these days, it seems like the consensus is that GraphQL is best limited to niche use cases and use alternative less heavy-handed solutions.</p>
+            <p>Does this mean GraphQL is not useful? On the contrary. In fact, it is very useful when you encounter problems like slow loading times due to request waterfalls and overfetching or if your application has too many duplicative one-off endpoints. But if you don't need GraphQL, then you don't have to use it at all. Someone else could decide they wanted to know more about the GraphQL ecosystem moving forward, but it won't be run by the Devographics Collective.</p>
+          </aside>
+        </section>
+
+        <section>
+          <div style="display:flex;justify-content:space-around;align-items:center;margin-block-end:1em">
+            <img data-src="img/no-war.png" alt="No more browser wars" class="plain" style="max-width:30rem" />
+            <img data-src="img/interop.png" alt="Interop 2024" class="plain" style="max-width:35rem" />
+          </div>
+          <a href="https://wpt.fyi/interop-2024">https://wpt.fyi/interop-2024</a>
+          <aside class="notes">Before we really dig into things, I want to highlight the Interop initiative, which is a strong collaboration between all major browser vendors and friends for improving the web platform across the board and to make the web platform more usable and reliable for developers, so that they can spend more time building great web experiences instead of working around browser inconsistencies.</aside>
+        </section>
+
+        <section>
+          <img data-src="img/baseline.png" alt="Baseline" class="plain" />
+          <p><a href="https://web.dev/baseline">https://web.dev/baseline</a></p>
+          <aside class="notes">The initiative introduced the concept of Baseline, which seeks to provide more clarity to information about browser support for web platform features. There are 2 stages, a feature can be newly available when it becomes supported by all the core browsers, and it can be widely available after 30 months has passed since the newly interoperable date. Baseline is now part of caniuse.com so features that are in Baseline will show a badge, along with the year they became available.</aside>
+        </section>
+
+        <section>
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:2em;justify-content:center">
+            <a href="https://2019.stateofcss.com/"><img data-src="img/2019-css.png" alt="State of CSS 2019" class="plain" style="max-width:45rem" /></a>
+            <a href="https://2020.stateofcss.com/"><img data-src="img/2020-css.png" alt="State of CSS 2020" class="plain" style="max-width:45rem" /></a>
+            <a href="https://2021.stateofcss.com/"><img data-src="img/2021-css.png" alt="State of CSS 2021" class="plain" style="max-width:28rem" /></a>
+            <a href="https://2022.stateofcss.com/"><img data-src="img/2022-css.png" alt="State of CSS 2022" class="plain" style="max-width:28rem" /></a>
+            <a href="https://2023.stateofcss.com/"><img data-src="img/2023-css.png" alt="State of CSS 2023" class="plain" style="max-width:28rem" /></a>
+          </div>
+          <aside class="notes">
+            <p>The State of CSS survey has had 5 editions so far, and the 2024 version will probably be out later in the year. And when looking over 5 years worth of data all at once, it reminded me of how much faster CSS is evolving today as compared to 5 years ago.</p>
+            <p>If you are coming to Code, I will be talking more in-depth about the State of CSS survey and CSS features, so if you are coming, it will not be déjà vu if you think you've seen some of these slides before. I do overlap a little bit.</p>
+            <p>When the State of CSS survey came about in 2019, in contrast to the State of JS survey, the CSS one was centred around CSS features themselves. The evolution of CSS has sped up over the past 5 years, and to be fair, browsers are also shipping new JavaScript features at a faster pace than before. This is why from the 2019 version onwards, features were also added to the JS survey.</p>
+          </aside>
+        </section>
+
+        <section data-background-image="img/properties.jpg" data-background-size="cover">
+          <aside class="notes">
+            <p>As for CSS features, there are a lot of them. The last I checked (some time last week), there are 589 distinct property names from 81 technical reports and 83 editors' drafts. My personal opinion is that for the average web developer, there is really no practical reason to know each and every one of these properties and what they do, although I'm sure somebody does.</p>
+            <p>My take on things is to have a vague idea that something exists and can be used to do a thing. You don't have to know exactly how the property works, all its values etc. until you encounter an use-case where that something might be useful.</p>
+            <p>Like, I'm clearly not from here, I've heard of the AFL. And this might sound blasphemous but I don't know the rules, nor any of the teams or players. Now, my friend Chris suggested we go watch a game on Friday after the conference, and if I decide to say yes, then I would take the time to at least learn what the rules are. As of now, I do not.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Container queries</h2>
+          <div class="livecode livecode-2p">
+            <div class="result" style="display:flex">
+              <div class="contained" style="resize: horizontal;overflow:auto;font-size:0.5em;width:100%">
+                <div class="card" style="padding:5cqmin;border:1px dotted">
+                  <div class="card__img" style="padding:5cqmin;border-radius:0.5em;font-size:80%">Pretend this is a responsive image</div>
+                  <div class="card__txt">
+                    <h2 style="line-height:1.1;margin-block-end:2cqh;font-size:1.5em">Cards need headers</h2>
+                    <p>Most cards have blurbs. This is the epitome of a generic example. Oh well…</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="code" style="font-size:0.6em"><style class="code-editor" contenteditable="true">.contained {
+  container-type: inline-size;
+}
+
+.card__img {
+  background-color: darkgreen;
+  margin-block-end: 2cqh;
+  aspect-ratio: 2 / 1;
+}
+
+@container (min-width: 20em) {
+  .card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    align-items: center;
+  }
+
+  .card__img {
+    height: 20cqmax;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+  }
+
+  .card__txt {
+    flex: 1;
+  }
+}
+
+@container (min-width: 40em) {
+  .card {
+    background-color: firebrick;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .card__img {
+    background-color: maroon;
+    width: max-content;
+    aspect-ratio: 2 / 1;
+  }
+
+  .card h2::after {
+    content: ', or do they?';
+    display: inline-block;
+  }
+
+  .card h2 {
+    font-weight: normal;
+    flex: initial;
+  }
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>A new feature that has seen a lot of attention this year is container queries, which allows you to apply styles based on attributes of a container rather than the entire viewport. With component-based architecture becoming the de facto design pattern for web applications, allowing components to adjust their styles based on the size of the container allows the same component to be shared across various different contexts in a more predictable manner.</p>
+            <p>Furthermore, the queries themselves are measured based on computed values on tha container element, so whichever width you specify for the query is based on the font size being used by the container, and not the site's base font size. Container queries also shipped with new <code>cq</code> units which specify lengths relatives to the dimensions of a query container.</p>
+          </aside>
+        </section>
+
+        <section>
+          <p class="codepen" data-height="700" data-default-tab="result" data-slug-hash="XWMrMOp" data-pen-title="Container Query Bookstore" data-user="mxbck" style="height: 700px">
+            <span>See the Pen <a href="https://codepen.io/mxbck/pen/XWMrMOp">
+            Container Query Bookstore</a> by Max Böck (<a href="https://codepen.io/mxbck">@mxbck</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
+          <small><a href="https://codepen.io/mxbck/pen/XWMrMOp">Container Query Bookstore</a> by <a href="https://mxb.dev/">Max Böck</a></small>
+          <aside class="notes">The code to implement something like this is simplified since every book uses the same code, and adapts itself based on the context it needs to be displayed. This presents a refactoring opportunity for codebases that rely on duplicates to achieve a similar effect.</aside>
+        </section>
+
+        <section>
+          <h2>The <code>:has()</code> selector</h2>
+          <pre style="font-size:inherit">
+            <code style="padding:0.5em;border-radius:0.25em">/* Matches menu items with submenus in them */
+nav li:has(menu) a::after { … }
+
+/* Matches &lt;h1&gt; elements only if they have a &lt;p&gt; element directly after */
+h1:has(+ p) { … }
+
+/* Matches all &lt;section&gt; elements that do NOT contain headings */
+section:not(:has(h1, h2, h3, h4, h5, h6)) { … }
+
+/* Matches all &lt;section&gt; elements that have empty &lt;div&gt;s */
+section:has(div:empty) { … }</code>
+          </pre>
+          <aside class="notes">
+            <p>Another feature ended up being widely talked about is the <code>:has()</code> selector, which is one of the many pseudo-classes that got released recently. People like to refer to it as the parent selector, or the family selector or the god selector. The specification just calls it the relational pseudo-class, and it represents an element if any of the relative selectors passed in as arguments would match at least one element when anchored against this element.</p>
+            <p>That is a mouthful but practically, it opens up a cleaner approach to dealing with component variants. Maybe you have a product card that may or may not have an image within it, or menu items that may or may not have submenus, or heading components that may or may not have subtitles within them, or sections that just happen to have no content in them. You can select them without having to add more specialised CSS classes, I have seen and personally used ternary operators in my component markup for this purpose.</p>
+          </aside>
+        </section>
+
+        <section>
+          <video loop autoplay style="max-width:90rem">
+            <source data-src="img/css-frameworks.mp4" type="video/mp4">
+            Sorry, your browser doesn't support embedded img, 
+            but don't worry, you can <a href="img/css-frameworks.mp4">download it</a>
+            and watch it with your favourite video player!
+          </video>
+          <aside class="notes">Overall, in contrast to JavaScript frameworks, which will still continue to be mainstream, at least in the near future, CSS frameworks seeing a gradual downward trend. Given how much faster CSS features are being broadly supported these days, it has gotten to a point where the frameworks are starting to fall behind in terms of supporting the latest features. I don't think they will die out altogether but I do think people will reach for them less and less moving forward.</aside>
+        </section>
+
+        <section>
           <div style="display:flex;flex-wrap:wrap;align-items:center;gap:2em;justify-content:center">
             <a href="https://2016.stateofjs.com/"><img data-src="img/2016-js.svg" alt="State of JS 2016" class="plain" style="max-width:21rem;background-color:#fffef0;padding:1rem;border-radius:1rem" /></a>
             <a href="https://2017.stateofjs.com/"><img data-src="img/2017-js.svg" alt="State of JS 2017" class="plain" style="max-width:21rem;background-color:#edefed;padding:1rem;border-radius:1rem" /></a>
@@ -117,7 +278,7 @@
             <a href="https://2023.stateofjs.com/"><img data-src="img/2023-js.png" alt="State of JS 2023" class="plain" style="max-width:23rem" /></a>
           </div>
           <aside class="notes">
-            <p>The State of JS survey is the longest running survey and there have been 8 editions. The first survey back in 2016 mostly covered frameworks and libraries. And looking back, it gives a reminder of the state of the industry back then. This was the time when frontend frameworks started to really go mainstream.</p>
+            <p>The State of JS survey is the longest running survey and there have been 8 editions. And looking back, it gives a reminder of the state of the industry back then. This was the time when frontend frameworks started to really go mainstream.</p>
             <p>AngularJS, which is now discontinued, was released in 2010. Ember came out in 2011, with Meteor coming out the following year. React was released in 2013. Then Vue came the year after. The rewritten Angular or Angular 2 as some people call it, was made official in 2016. It is relatively safe to consider the 2010s the boom times of JavaScript frontend frameworks.</p>
             <p>But, why though? Why did various frontend frameworks get developed and adopted? Now I'm no expert, but I have a theory.</p>
           </aside>
@@ -144,7 +305,7 @@
         <section>
           <img data-src="img/react-usage.png" alt="NodeJS" class="plain" style="max-width:90rem"/>
           <aside class="notes">
-            <p>A lot of these frontend frameworks were created to allow web developers to recreate the smooth experience native mobile applications provided. A component-based architecture that allowed modularity and reusability across various parts of the website became a pattern that many applications were built upon.</p>
+            <p>I posit that a lot of these frontend frameworks were created to allow web developers to recreate the smooth experience native mobile applications provided. A component-based architecture that allowed modularity and reusability across various parts of the website became a pattern that many applications were built upon.</p>
             <p>I am, however, not in the position to explain why React gained so much traction. I did find a theory proposed by Brian Knapp who stated that there were 3 reasons. Firstly, it was because React was created by Facebook. Number 2: it solved major issues for Single Page Applications at the right time, and lastly, the concept of self-reinforcing popularity. The "because everyone else is using it" reasoning. You can agree with these reasons, you can not. But React does still sit on the top of usage charts in the State of JS survey.</p>
           </aside>
         </section>
@@ -167,8 +328,18 @@
           <img data-src="img/unicorn.png" alt="A Unicorn pooping rainbows" class="plain" />
           <aside class="notes">
             <p>In an ideal world where unicorns shit rainbows, we would have clearly defined project requirements plus an experienced team with the time and freedom to analyse which framework would best suit the project's needs, or if a framework would be necessary at all. But the reality is that either one or all of those factors are missing in our context.</p>
-            <p>Some of you might work in places were specific frameworks are mandated because all projects should use the same technology stack. Maybe it is to facilitate consistent and scalable deployment environments. Or the organisation wants engineers to be able to move between projects without spending too much time onboarding.</p>
-            <p>More often than not, we end up having to use a framework that might not be the best choice for the project at hand. The next best thing we can do is to be aware of the gaps, and document the whys of technical decisions. Especially when faced with constraints, since it is more likely that we make unorthodox decisions. Having a decision log where people can trace back why certain parts of the codebase ended up the way it did.</p>
+            <p>Some of you might work in places where specific frameworks are mandated because all projects need to use the same technology stack. Maybe it is to facilitate consistent and scalable deployment environments. Or the organisation wants engineers to be able to move between projects without spending too much time onboarding.</p>
+          </aside>
+        </section>
+
+        <section>
+          <figure>
+            <img data-src="img/horse.jpg" alt="A Unicorn pooping rainbows" class="plain" style="max-height:80vh"/>
+            <figcaption><small><a href="https://www.alibati.com/horse">The horse that became a meme</a> by <a href="https://www.alibati.com/about">Ali Bati</a></small></figcaption>
+          </figure>
+          <aside class="notes">
+            <p>I mean, if you are in the position to create an environment similar to the unicorn-rainbow-poop-land that I just described, it would be great if you simply considered this as an idea. I fully acknowledge that organisational change is difficult. I do hope you try. For the rest of us, more often than not, some framework just ends up getting shoehorned into the project whether we like it or not.</p>
+            <p>The next best thing we can do is to be aware of the gaps, and document the whys of technical decisions. Especially when faced with constraints, since it is more likely that we make unorthodox decisions. Having a decision log where people can trace back why certain parts of the codebase ended up the way it did. I want whoever inherits my project to be able to figure out the gotchas quickly and hit the ground running. Because I think developer karma is real. Who knows, that person might be future you, think about it.</p>
           </aside>
         </section>
 
@@ -203,6 +374,7 @@
         </section>
 
         <section>
+          <img data-src="img/jquery.svg" alt="jQuery" class="plain" style="max-width:30rem;background-color:#fffef0;padding:1rem;border-radius:1rem" />
           <blockquote>
             <p>At the very least, make sure you know what jQuery is doing for you, and what it's not.</p>
             <small>–<a href="https://youmightnotneedjquery.com/">You might not need jQuery</a></small>
@@ -214,70 +386,67 @@
         </section>
 
         <section>
-          <a href="https://stateofgraphql.com/en-US"><img data-src="img/2022-graphql.png" alt="State of GraphQL" class="plain" style="max-width:60rem" /></a>
+          <a href="https://stateofhtml.com/en-US"><img data-src="img/2023-html.png" alt="State of HTML" class="plain" style="max-width:60rem" /></a>
           <aside class="notes">
-            <p>And to wrap up the JavaScript portion of this session, I'm just briefly going to mention the State of GraphQL survey. To be fair, GraphQL is a query language, specifically, an open-source data query and manipulation language for APIs and a query runtime engine. And it has implementations in almost every programming language you can think of, not just JavaScript.</p>
-            <p>GraphQL was invented by Facebook as a central intermediary layer between their many end-user-facing clients and many data sources. It was a specific problem that Facebook had, and they created a specific tool to deal with their problem. And back in 2022, GraphQL was something that had quite a bit of uncertainty and unclear best practices, and so Sacha decided to run the survey. But these days, it seems like the consensus is that GraphQL is best limited to niche use cases and use alternative less heavy-handed solutions.</p>
-            <p>Does this mean GraphQL is not useful? On the contrary. In fact, it is very useful when you encounter problems like slow loading times due to request waterfalls and overfetching or if your application has too many duplicative one-off endpoints. But if you don't need GraphQL, then you don't have to use it at all.</p>
+            <p>And finally, the most recent survey whose results has been released is the State of HTML survey. Even if you did not participate, I think it's still interesting to see the results. The key person who did the heavy-lifting for the crafting of this survey was Lea Verou, W3C Technical Architecture Group member and contributor to numerous CSS specifications.</p>
+            <p>HTML is the OG of the web, the key pillar that has existed since everything began back in 1989. In spite of the lack of hype around HTML, things are continually evolving in this space. The State of HTML survey does go beyond pure HTML alone and almost seems like a catch-all for the things that did not make it into the JS and CSS surveys.</p>
           </aside>
         </section>
 
         <section>
-          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:2em;justify-content:center">
-            <a href="https://2019.stateofcss.com/"><img data-src="img/2019-css.png" alt="State of CSS 2019" class="plain" style="max-width:45rem" /></a>
-            <a href="https://2020.stateofcss.com/"><img data-src="img/2020-css.png" alt="State of CSS 2020" class="plain" style="max-width:45rem" /></a>
-            <a href="https://2021.stateofcss.com/"><img data-src="img/2021-css.png" alt="State of CSS 2021" class="plain" style="max-width:28rem" /></a>
-            <a href="https://2022.stateofcss.com/"><img data-src="img/2022-css.png" alt="State of CSS 2022" class="plain" style="max-width:28rem" /></a>
-            <a href="https://2023.stateofcss.com/"><img data-src="img/2023-css.png" alt="State of CSS 2023" class="plain" style="max-width:28rem" /></a>
-          </div>
+          <img data-src="img/missing-elements.png" alt="Top 10 missing elements from the State of HTML survey" class="plain" style="max-width:70rem" />
           <aside class="notes">
-            <p>The State of CSS survey has had 5 editions so far, and the 2024 version will probably be out later in the year. And when looking over 5 years worth of data all at once, it reminded me of how much faster CSS is evolving today as compared to 5 years ago.</p>
-            <p>If you are coming to Code, I will be talking more in-depth about the State of CSS survey and CSS features, so if you are coming, it's not déjà vu if you think you've seen some of these slides before. I do overlap a little bit.</p>
-            <p>When the State of CSS survey came about in 2019, in contrast to the State of JS survey, the CSS one was centred around CSS features themselves. The evolution of CSS has sped up over the past 5 years, and to be fair, browsers are also shipping new JavaScript features at a faster pace than before. This is why from the 2019 version onwards, features were also added to the JS survey.</p>
-          </aside>
-        </section>
-
-        <section data-background-image="img/properties.jpg" data-background-size="cover">
-          <aside class="notes">
-            <p>As for CSS features, there are a lot of them. The last I checked (some time last week), there are 589 distinct property names from 81 technical reports and 83 editors' drafts. My personal opinion is that for the average web developer, there is really no practical reason to know each and every one of these properties and what they do, although I'm sure somebody does.</p>
-            <p>My take on things is to have a vague idea that something exists and can be used to do a thing. You don't have to know exactly how the property works, all its values etc. until you encounter an use-case where that something might be useful.</p>
-            <p>Like, I'm clearly not from here, I've heard of the AFL. And this might sound blasphemous but I don't know the rules, nor any of the teams or players. Now, my friend Chris suggested we go watch a game on Friday after the conference, and if I decide to say yes, then I would take the time to at least learn what the rules are. As of now, I do not.</p>
+            <p>Turns out that developers want more interactive HTML elements, with the top missing elements all being interactive widgets of sorts. I do wonder if this ties into my mobile applications taking over the world and changing the nature of web development hypothesis. A lot of developers have spent the last decade building components that are mostly interactive widgets.</p>
+            <p>And given the rate at which developers move around, a big chunk of them must have built similarly functioning interactive widgets again and again in different frameworks, in different styles, in different design systems, you get the picture. Maybe, just maybe, we're warming to the idea that the browser could provide them for us.</p>
           </aside>
         </section>
 
         <section>
-          <h2><code>font-synthesis</code></h2>
-          <div class="livecode livecode-2p">
-            <div class="result faux" style="font-size:1.2em;text-align:left">
-              <p>We use <em>italics</em> to emphasise words in English, <span lang="zh">但是中文则是用<em>着重号</em></span>.</p>
-            </div>
-            <div class="code"><style class="code-editor" contenteditable="true">.faux em:lang(zh) {
-  font-synthesis: auto;
-}</style></div>
-          </div>
+          <img data-src="img/form-pain-points.png" alt="Top form related pain points from the State of HTML survey" class="plain" style="max-width:70rem" />
           <aside class="notes">
-            <p>A new feature that has seen a lot of attention this year is container queries, which allows you to apply styles based on attributes of a container rather than the entire viewport. And what is a container? Well, you have to define it.</p>
+            <p>But we are a tricky bunch to please, us developers. Because based on the feedback on interactive elements that already exist, largely for form inputs, the biggest pain point is styling and customisation. It seems like the message we are sending is that we want the browser to do complex things for us, but we also want to be able to make those complex things look like we built them ourselves.</p>
+            <p>But in all seriousness, this is a reasonable ask, and the folks who work on specifications and browser implementations are actively developing new initiatives to improve the situation.</p>
           </aside>
         </section>
 
         <section>
-          ending maybe?
-          <aside class="notes">
-            <p>If you ask most developers who have stuck around the industry long enough, I don't think there will be too many folks who disagree with you when you say, hype surrounding frameworks and libraries will come and go. It is a natural progression of things. The reality is that usage numbers in live websites will linger far longer than the hype.</p>
-            <p>Do keep in mind that these State Of surveys' purpose is to try to glimpse into what the future will become. By asking folks what their pain points are, what features they are looking out for, what they are interested in. And these survey results are a helpful data point for the folks who make the web platform a reality.</p>
-          </aside>
+          <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="KKLQzqW" data-pen-title="Untitled" data-user="huijing" style="height: 300px">
+            <span>See the Pen <a href="https://codepen.io/huijing/pen/KKLQzqW">
+            Untitled</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
+          <aside class="notes">For example, a feature that has recently become Baseline newly available is the Popover API. All you need is a button to trigger the popover and an element that serves as the popover. On the element, set a popoverattribute and give it a unique ID. Then set the popovertargetto attribute on the button to the value the popover element's ID. Without any additional scripting, you have a popover that can be dismissable by the escape key or clicking outside of it. And you are free to style it with CSS however you like. Amazing.</aside>
         </section>
 
         <section>
-          <aside class="notes"></aside>
+          <h2>Web Components</h2>
+          <figure>
+            <img data-src="img/keith-cirkel.webp" alt="Keith Cirkel" class="plain" style="border-radius:15%;background-color:#25C7D9" />
+            <figcaption>Keith Cirkel</figcaption>
+          </figure>
+          <aside class="notes">As for web components, that's what we have Keith for. But seriously, the results albeit a relatively small sample size have indicated that although people do use web components, the consensus is that the developer experience leaves much to be desired.</aside>
+        </section>
+
+        <section>
+          <img data-src="img/www.svg" alt="Historical World Wide Web logo designed by Robert Cailliau" class="plain" style="max-width:60rem" />
+          <aside class="notes">
+            <p>In her conclusion for the State of HTML survey, Lea Verou made an excellent point that these State Of surveys are only a snapshot of developer perspectives, and reflects the state of the web platform at a specific time.</p>
+            <p>They are one of numerous data points that the folks working on web standards and browser implementations use to push the web platform forward. Even though in many other industries, especially the very established one, standards are created and maintained in a closed manner, web standards and browser implementations are discussed and evolved in the open.</p> 
+            <p>And it is in these fine folks' best interests to develop features that developers like you and I want to use. So they do keep a look out for what developers are saying on social media, blog posts, GitHub issues for the CSSWG and TC39, surveys like ours and so on. So if you do write code at all, professionally or otherwise, I encourage you to participate the next time a new one comes out.</p>
+          </aside>
         </section>
 
         <section>
           <h2>References</h2>
           <ul>
-            <li><a href="https://brianknapp.substack.com/p/why-is-reactjs-so-popular">Why is ReactJS so popular?</a></li>
             <li><a href="https://mxstbr.com/thoughts/graphql">You probably don't need GraphQL</a></li>
             <li><a href="https://www.w3.org/Style/CSS/all-properties.en.html">List of CSS properties, both proposed and standard</a></li>
+            <li><a href="https://lab.ishadeed.com/container-queries/">iShadeed Lab - Container queries</a></li>
+            <li><a href="https://www.bram.us/2021/12/21/the-css-has-selector-is-way-more-than-a-parent-selector/">The CSS :has() selector is way more than a “Parent Selector”</a></li>
+            <li><a href="https://brianknapp.substack.com/p/why-is-reactjs-so-popular">Why is ReactJS so popular?</a></li>
+            <li><a href="https://lea.verou.me/blog/2023/state-of-html-2023/">State of HTML 2023 now open!</a></li>
+            <li><a href="https://css-irl.info/anchor-positioning-and-the-popover-api/">Anchor Positioning and the Popover API for a JS-Free Site Menu</a></li>
+            <li><a href="https://nolanlawson.com/2023/08/23/use-web-components-for-what-theyre-good-at/">Use web components for what they’re good at</a></li>
           </ul>
         </section>
 
@@ -295,6 +464,7 @@
     </div>
 
     <script src="dist/reveal.js"></script>
+    <script src="dist/ei.js"></script>
     <script src="plugin/notes/notes.js"></script>
     <script src="plugin/markdown/markdown.js"></script>
     <script src="plugin/highlight/highlight.js"></script>

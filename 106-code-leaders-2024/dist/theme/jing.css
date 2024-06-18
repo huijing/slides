@@ -353,6 +353,9 @@
     background-color: var(--r-background-color);
   }
 }
+.reveal pre code {
+  max-height: initial;
+}
 .reveal .l-multiple {
   display: flex;
   justify-content: space-around;
@@ -533,4 +536,14 @@ span[role=img][aria-label]:hover::after {
 }
 .devographics-team img {
   border-radius: 50%;
+}
+
+.cp_embed_wrapper {
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+}
+
+.cp_embed_wrapper iframe {
+  height: 100%;
 }
