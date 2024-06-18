@@ -91,7 +91,7 @@
             <a href="https://stateofreact.com/en-US"><img data-src="img/2023-react.png" alt="State of React" class="plain" style="max-width:32rem" /></a>
             <a href="https://stateofhtml.com/en-US"><img data-src="img/2023-html.png" alt="State of HTML" class="plain" style="max-width:38rem" /></a>
           </div>
-          <aside class="notes">There are have been 5 different surveys in the series so far, with the JS and CSS ones being the more established of the lot. There might not be another GraphQL one moving forward, and I'll mention why in a little bit.</aside>
+          <aside class="notes">There have been 5 different surveys in the series so far, with the JS and CSS ones being the more established of the lot. There might not be another GraphQL one moving forward, and I'll mention why in a little bit.</aside>
         </section>
 
         <section>
@@ -329,6 +329,7 @@ section:has(div:empty) { … }</code>
           <aside class="notes">
             <p>In an ideal world where unicorns shit rainbows, we would have clearly defined project requirements plus an experienced team with the time and freedom to analyse which framework would best suit the project's needs, or if a framework would be necessary at all. But the reality is that either one or all of those factors are missing in our context.</p>
             <p>Some of you might work in places where specific frameworks are mandated because all projects need to use the same technology stack. Maybe it is to facilitate consistent and scalable deployment environments. Or the organisation wants engineers to be able to move between projects without spending too much time onboarding.</p>
+            <p>To be fair, those are perfectly good reasons, I think the issue most of the time is that these reasons are not clear nor well articulated to the team. In the best case scenario, it might be a matter of developing processes that ensure such information made known throughout the entire tech team. In the worst case scenario, the decision was arbitrary and has no good reason.</p>
           </aside>
         </section>
 
@@ -338,8 +339,9 @@ section:has(div:empty) { … }</code>
             <figcaption><small><a href="https://www.alibati.com/horse">The horse that became a meme</a> by <a href="https://www.alibati.com/about">Ali Bati</a></small></figcaption>
           </figure>
           <aside class="notes">
-            <p>I mean, if you are in the position to create an environment similar to the unicorn-rainbow-poop-land that I just described, it would be great if you simply considered this as an idea. I fully acknowledge that organisational change is difficult. I do hope you try. For the rest of us, more often than not, some framework just ends up getting shoehorned into the project whether we like it or not.</p>
-            <p>The next best thing we can do is to be aware of the gaps, and document the whys of technical decisions. Especially when faced with constraints, since it is more likely that we make unorthodox decisions. Having a decision log where people can trace back why certain parts of the codebase ended up the way it did. I want whoever inherits my project to be able to figure out the gotchas quickly and hit the ground running. Because I think developer karma is real. Who knows, that person might be future you, think about it.</p>
+            <p>After listening to the day's sessions, I realised that many of you might be in the position to create an environment similar to the unicorn-rainbow-poop-land that I just described. I'm not a code leader, more a code acolyte, so to offer some perspective from the ground, we feel like more often than not, some framework just ends up getting shoehorned into the project whether we like it or not. Knowing the reason was not arbitrary is a morale booster.</p>
+            <p>The next best thing we can do is to be aware of the gaps, and document the whys of technical decisions. Especially when faced with constraints, since it is more likely that we make unorthodox decisions. Having a decision log where people can trace back why certain parts of the codebase ended up the way it did can be extremely helpful.</p>
+            <p>I want whoever inherits my project to be able to figure out the gotchas quickly and hit the ground running. I believe developer karma is real. Because at some point in our careers, we are going to inherit someone else's project. Think about that.</p>
           </aside>
         </section>
 
@@ -415,7 +417,7 @@ section:has(div:empty) { … }</code>
             Untitled</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>)
             on <a href="https://codepen.io">CodePen</a>.</span>
           </p>
-          <aside class="notes">For example, a feature that has recently become Baseline newly available is the Popover API. All you need is a button to trigger the popover and an element that serves as the popover. On the element, set a popoverattribute and give it a unique ID. Then set the popovertargetto attribute on the button to the value the popover element's ID. Without any additional scripting, you have a popover that can be dismissable by the escape key or clicking outside of it. And you are free to style it with CSS however you like. Amazing.</aside>
+          <aside class="notes">For example, a feature that has recently become Baseline newly available is the Popover API. All you need is a button to trigger the popover and an element that serves as the popover. On the element, set a <code>popover</code> attribute and give it a unique ID. Then set the <code>popovertarget</code> attribute on the button to the value the popover element's ID. Without any additional scripting, you have a popover that can be dismissable by the escape key or clicking outside of it. And you are free to style it with CSS however you like. Amazing.</aside>
         </section>
 
         <section>
@@ -447,6 +449,7 @@ section:has(div:empty) { … }</code>
             <li><a href="https://lea.verou.me/blog/2023/state-of-html-2023/">State of HTML 2023 now open!</a></li>
             <li><a href="https://css-irl.info/anchor-positioning-and-the-popover-api/">Anchor Positioning and the Popover API for a JS-Free Site Menu</a></li>
             <li><a href="https://nolanlawson.com/2023/08/23/use-web-components-for-what-theyre-good-at/">Use web components for what they’re good at</a></li>
+            <li><a href="https://github.com/WICG/webcomponents/issues/986">Web components should be able to easily adapt to the host page while maintaining enapsulation</a></li>
           </ul>
         </section>
 
