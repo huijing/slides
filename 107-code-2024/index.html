@@ -162,10 +162,7 @@
 
         <section>
           <img style="max-height:90vh" data-src="img/content-visibility.png" alt="Awareness of the content-visiblity property over the past 4 years">
-          <aside class="notes">
-            <p>The only property that bucked the trend was content-visibility. It is a property that controls whether or not an element renders its contents at all. As part of the entire concept of containment, you can think of it as a performance optimisation category of CSS features.</p>
-            <p>However, the proper usage of these properties usually requires in-depth knowledge of browser optimisations in order to achieve the intended results. I think a good way to describe it is that it needs the developer to be very deliberate in where and when to apply it. Otherwise, it could even cause unnecessary overheads and make performance worse.</p>
-          </aside>
+          <aside class="notes">The only property that bucked the trend was content-visibility. It is a property that controls whether or not an element renders its contents at all. As part of the bigger concept of containment, you can think of it as a performance optimisation category of CSS features.</aside>
         </section>
 
         <section>
@@ -173,7 +170,21 @@
             <p>Caution: The browser is only able to skip rendering work if you are also careful not to call any DOM API that forces some of rendering to occur on one of the skipped subtrees. If you're using content-visibility to improve performance, audit your code to make sure these APIs are not getting called.</p>
             <small>–<a href="https://web.dev/articles/content-visibility">content-visibility: the new CSS property that boosts your rendering performance</a></small>
           </blockquote>
-          <aside class="notes"></aside>
+          <aside class="notes">However, the proper usage of these properties usually requires in-depth knowledge of browser optimisations in order to achieve the intended results. I think a good way to describe it is that it needs the developer to be very deliberate in where and when to apply it. Otherwise, it could even cause unnecessary overheads and make performance worse.</aside>
+        </section>
+
+        <section>
+          <aside class="notes">
+            <p>The <code>content-visibility</code> property sits in the CSS Containment Module Level 2. This specification was meant for the <code>contain</code> property, used to indicate that an element's subtree is independent from the rest of the page. Such a feature would allow user agents to use stronger optimisations during page rendering, provided <code>contain</code> was used properly.</p>
+            <p>The ideas introduced in this specification also helped pave the way for container queries. Container queries was one of those feature requests that browser implementers found particularly hard to solve. Miriam Suzanne, who played a pivotal role in the development of the container queries specification explains it as, container queries fundamentally breaks the idea of how flow works on the web.</p>
+            <p>Flow is a powerful concept unique to the web platform where content reflows to a container and containers that grow based on content. Layout information goes in both directions from context in and also from content out in this layout loop. But then, you also can't measure something in the middle of that loop.</p>
+          </aside>
+        </section>
+
+        <section>
+          <aside class="notes">
+            <p>David Baron of the CSSWG came up with a proposal that container queries should be possible if an element has both layout containment and has size containment in the axis used for the container queries. As Miriam Suzanne puts it, CSS containment is a promise from a container that certain things will not escape that container. So for container queries to become a reality, the approach was to </p>
+          </aside>
         </section>
 
         <section>
@@ -183,6 +194,8 @@
             <li><a href="https://drafts.fxtf.org/compositing/#csskeywords">Compositing and Blending Level 2</a></li>
             <li><a href="https://drafts.csswg.org/css-overscroll-1/v">CSS Overscroll Behavior Module Level 1</a></li>
             <li><a href="https://web.dev/articles/content-visibility">content-visibility: the new CSS property that boosts your rendering performance</a></li>
+            <li><a href="https://github.com/dbaron/container-queries-implementability">Thoughts on an implementable path forward for Container Queries</a></li>
+            <li><a href="https://www.miriamsuzanne.com/specs/contain-3/#resources">CSS Containment Level 3 resources by Miriam Suzanne</a></li>
           </ul>
         </section>
 

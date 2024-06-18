@@ -126,7 +126,7 @@
     z-index: 1;
   }
 
-  @supports (contain: block-size) {
+  @supports (container-type: inline-size) {
     .result::before {
       content: none;
       display: none;
@@ -169,7 +169,7 @@
         <div class="code"><style class="code-editor" contenteditable="true">.contained {
   resize: horizontal;
   overflow: auto;
-  contain: layout inline-size style;
+  container-type: inline-size;
   width: 100%;
 }
 
