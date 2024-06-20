@@ -17,7 +17,7 @@
         <section>
           <h1>The State of CSS</h1>
           <p><small>By <a href="https://chenhuijing.com/">Chen Hui Jing</a> / <a href="http://twitter.com/hj_chen">@hj_chen</a></small></p>
-          <aside class="notes">Hello everyone! It's really nice to be here at Web Directions Code in person again. The last time I was in Melbourne for this was 2018, so yeah, it's been a while. Also, can I just say, the weather is fantastic for me. It's frustratingly hot and humid where I come from.</aside>
+          <aside class="notes">Hello everyone! It's really nice to be here at Web Directions Code in person again. The last time I was in Melbourne for this was 2018, so yeah, it's been a while. And I said it before yesterday, but I'll say it again, as a child of the tropics, I love this frigid weather. The tropics are frustratingly hot and humid right now.</aside>
         </section>
 
         <section>
@@ -29,11 +29,14 @@
         </section>
 
         <section>
-          <img data-src="img/2016-js.svg" alt="2016 State of JS survey" class="plain" style="max-height:40vh;background-color:#fff8ea;border-radius:1em;padding:1em" />
+          <div class="fragment" style="display:flex;align-items:center;gap:1em;justify-content:center">
+            <img data-src="img/not-us2.jpg" alt="" class="plain" />
+            <img data-src="img/not-us.jpg" alt="" class="plain" style="max-height:80vh"/>
+          </div>
           <aside class="notes">
             <p>That was a segue back to what I'm here to talk about. CSS! Or more specifically, the state of CSS, both in general, and also the survey that I helped out with last year.</p>
             <p>How many of you fine folks have heard of or participated in any of the State Of surveys before? Only last week, I realised there are a some of State Of surveys run by different organisations as well, but nobody has a monopoly on the term "State Of". And rightfully so, otherwise all the wonderful speakers later today would have had to rename their talks.</p>
-            <p>So the series which the State of CSS surveys belong to started back in 2016 with Sacha Grief feeling confused about what Javascript technologies to spend his time learning, so he decided to start a State of JS survey.</p>
+            <p>So the series which the State of CSS surveys belong to started back in 2016 with Sacha Grief (spelled G-R-E-I-F) feeling confused about what Javascript technologies to spend his time learning, so he decided to crowdsource an answer by starting a State of JS survey.</p>
           </aside>
         </section>
 
@@ -89,7 +92,7 @@
           </div>
           <aside class="notes">
             <p>The State of JS survey has been running annually since 2016. And the most recent survey whose results has been released is the State of HTML survey. Even if you did not participate, I think it's still interesting to see the results.</p>
-            <p>Lea Verou was the key person who helped craft this survey and in her conclusion she made an excellent point that these surveys are only a snapshot of developer perspectives, and reflects the state of the web platform at the time.</p>
+            <p>Lea Verou was the key person who helped craft the HTML survey and in her conclusion she made an excellent point that these surveys are only a snapshot of developer perspectives, and reflects the state of the web platform at the time.</p>
             <p>It is one of numerous data points that the folks working on web standards and browser implementations use to push the web platform forward, so I do encourage all of you to participate whenever a new survey comes out.</p>
           </aside>
         </section>
@@ -99,10 +102,25 @@
           <p>Join us on <a href="https://discord.gg/zRDb35jfrt">Discord</a>.</p>
           <p>Check out the code on <a href="https://github.com/Devographics/Monorepo/issues" target="_blank">GitHub</a>.</p>
           <aside class="notes">
-            <p>The survey itself is an application that gets less attention that the survey questions and results, but work is consistently done to improve its features and user experience. For example, The State Of surveys from 2019 onwards had started to allow users to customise data queries via GraphQL. Eventually, you could also update the charts to reflect the new query.</p>
+            <p>The survey itself is an application that gets less attention than the survey questions and results, but work is consistently done to improve its features and user experience. For example, The State Of surveys from 2019 onwards had started to allow users to customise data queries via GraphQL. Eventually, you could also update the charts to reflect the new query.</p>
             <p>This allows folks who are versed in the ways of data analytics to explore even more insights and dive deeper into the data if they so wished. The 2023 version also introduced the concept of a reading list, such that folks going through the survey and found a property they wanted to learn more about, they could add it to their reading list and come back to it later.</p>
             <p>If you too are interested to contribute in any way at all, you can join us on Discord or go check out the code on Github.</p>
           </aside>
+        </section>
+
+        <section>
+          <div style="display:flex;justify-content:space-around;align-items:center;margin-block-end:1em">
+            <img data-src="img/no-war.png" alt="No more browser wars" class="plain" style="max-width:30rem" />
+            <img data-src="img/interop.png" alt="Interop 2024" class="plain" style="max-width:35rem" />
+          </div>
+          <a href="https://wpt.fyi/interop-2024">https://wpt.fyi/interop-2024</a>
+          <aside class="notes">Before we really dig into things, I want to highlight the Interop initiative, which is a strong collaboration between all major browser vendors and friends for improving the web platform across the board and to make the web platform more usable and reliable for developers, so that they can spend more time building great web experiences instead of working around browser inconsistencies.</aside>
+        </section>
+
+        <section>
+          <img data-src="img/baseline.png" alt="Baseline" class="plain" />
+          <p><a href="https://web.dev/baseline">https://web.dev/baseline</a></p>
+          <aside class="notes">The initiative introduced the concept of Baseline, which seeks to provide more clarity to information about browser support for web platform features. There are 2 stages, a feature can be newly available when it becomes supported by all the core browsers, and it can be widely available after 30 months has passed since the newly interoperable date. Baseline is now part of caniuse.com so features that are in Baseline will show a badge, along with the year they became available.</aside>
         </section>
 
         <section>
@@ -114,14 +132,14 @@
             <a href="https://2023.stateofcss.com/"><img data-src="img/2023.png" alt="State of CSS 2023" class="plain" style="max-width:28rem" /></a>
           </div>
           <aside class="notes">
-            <p>The State of CSS survey has had 5 editions so far, and the 2024 version will probably be out later in the year. And when looking over 5 years worth of data all at once, it reminded me of how much faster CSS is evolving today as compared to 5 years ago.</p>
+            <p>The State of CSS survey has had 5 editions so far, and the 2024 version will probably be out later in the year. We covered quite a few CSS features, impossible to cover them all in 30 minutes. So I made some executive decisions and picked a handful to talk about today. While crafting this talk and looking over 5 years worth of data all at once, I was reminded once again of how much faster CSS is evolving today as compared to 5 years ago. </p>
             <p>I mean, I'm far from someone like John, who has seen most, if not all of the web platform's evolution, but still, I came in just at the tail-end of table-based layouts.</p>
           </aside>
         </section>
 
         <section data-background-image="img/eras.jpg" data-background-size="cover">
           <aside class="notes">
-            <p>If we talk about eras (of CSS, not Taylor Swift), the early part of my career was the entirety of the floats era. And there will be eras to come, even if we cannot fully imagine what those might look like yet.</p>
+            <p>Similar to Ben, I too have an eras reference, what can I say, it's a great descriptor for time periods. If we talk about eras (of CSS, not Taylor Swift), the early part of my career was the entirety of the floats era. And there will be eras to come, even if we cannot fully imagine what those might look like yet.</p>
             <p>Layout is a striking part of visual design because it encompasses the broad structure of what we see in entirety, but I'll have you know, CSS wasn't even meant to be used for layout back when it was introduced.</p>
           </aside>
         </section>
@@ -130,7 +148,7 @@
           <aside class="notes">
             <p>CSS is a lot more than layouts. As of last week when I checked, there are 589 distinct property names from 81 technical reports and 83 editors' drafts. My personal opinion is that for the average web developer, there is really no practical reason to know each and every one of these properties and what they do, although I'm sure somebody does.</p>
             <p>My take on things is to have a vague idea that something exists and can be used to do a thing. You don't have to know exactly how the property works, all its values etc. until you encounter an use-case where that something might be useful.
-            <p>Like, I'm clearly not from here, I've heard of the AFL. And this might sound blasphemous but I don't know the rules, nor any of the teams or players. Now, my friend Chris suggested we go watch a game this evening, and if I had said yes, then I would probably have taken some time to at least learn what the rules are. Otherwise, ¯\_(ツ)_/¯</p>
+            <p>Like, I'm clearly not from here, I've heard of the AFL. And this might sound blasphemous but I don't know the rules, nor any of the teams or players. Now, my friend Chris suggested we go watch a game this evening, and if I do decide to go, then I'm going to sneak off later to at least learn what the rules are. As of now, ¯\_(ツ)_/¯</p>
           </aside>
         </section>
 
@@ -155,8 +173,8 @@
           </div>
           <aside class="notes">
             <p>Generally, we expect the awareness of new CSS properties to gradually increase over time, usually it's the rate of increase that varies. Then, at some point, properties relate to more specific or narrow use-cases will see some sort of plateau, because if you never encounter a scenario that requires those properties, you probably will never learn it, much less use it.</p>
-            <p>Like blend-mode for example, which is used to determine how 2 colours are mixed when overlaid one on top of another. That is a rather specific use-case, which is why I think the awareness and usage has been stable over time.</p>
-            <p>Same goes for overscroll-behavior, which allows developers to deal with the default behaviour of scroll chaining, where scrolling is propagated from one scroll container to another. It is one of those properties where it's meant to change the default behaviour, which most of the time is an acceptable experience.</p>
+            <p>Like <code>blend-mode </code> for example, which is used to determine how 2 colours are mixed when overlaid one on top of another. That is a rather specific use-case, which is why I think the awareness and usage has been stable over time.</p>
+            <p>Same goes for <code>overscroll-behavior</code>, which allows developers to deal with the default behaviour of scroll chaining, where scrolling is propagated from one scroll container to another. It is one of those properties where it's meant to change the default behaviour, which most of the time is an acceptable experience.</p>
           </aside>
         </section>
 
@@ -167,35 +185,792 @@
 
         <section>
           <blockquote>
-            <p>Caution: The browser is only able to skip rendering work if you are also careful not to call any DOM API that forces some of rendering to occur on one of the skipped subtrees. If you're using content-visibility to improve performance, audit your code to make sure these APIs are not getting called.</p>
+            <p>❗️ Caution: The browser is only able to skip rendering work if you are also careful not to call any DOM API that forces some of rendering to occur on one of the skipped subtrees. If you're using content-visibility to improve performance, audit your code to make sure these APIs are not getting called.</p>
             <small>–<a href="https://web.dev/articles/content-visibility">content-visibility: the new CSS property that boosts your rendering performance</a></small>
           </blockquote>
-          <aside class="notes">However, the proper usage of these properties usually requires in-depth knowledge of browser optimisations in order to achieve the intended results. I think a good way to describe it is that it needs the developer to be very deliberate in where and when to apply it. Otherwise, it could even cause unnecessary overheads and make performance worse.</aside>
+          <aside class="notes">However, the proper usage of these properties usually requires in-depth knowledge of browser optimisations in order to achieve the intended results. I think a good way to describe it is that it needs the developer to be very deliberate in where and when to apply them. Otherwise, it could even cause unnecessary overheads and make performance worse.</aside>
         </section>
 
         <section>
+          <img style="max-height:90vh" data-src="img/containment-2.png" alt="content-visibility in the CSS Containment Module Level 2">
+          <aside class="notes">The <code>content-visibility</code> property sits in the CSS Containment Module Level 2. This specification was meant for the <code>contain</code> property, used to indicate that an element's subtree is independent from the rest of the page. Such a feature would allow user agents to use stronger optimisations during page rendering, provided <code>contain</code> was used properly.</aside>
+        </section>
+
+        <section>
+          <img style="max-height:90vh" data-src="img/container-queries.png" alt="Awareness of container queries from the State of CSS 2023 survey">
           <aside class="notes">
-            <p>The <code>content-visibility</code> property sits in the CSS Containment Module Level 2. This specification was meant for the <code>contain</code> property, used to indicate that an element's subtree is independent from the rest of the page. Such a feature would allow user agents to use stronger optimisations during page rendering, provided <code>contain</code> was used properly.</p>
             <p>The ideas introduced in this specification also helped pave the way for container queries. Container queries was one of those feature requests that browser implementers found particularly hard to solve. Miriam Suzanne, who played a pivotal role in the development of the container queries specification explains it as, container queries fundamentally breaks the idea of how flow works on the web.</p>
             <p>Flow is a powerful concept unique to the web platform where content reflows to a container and containers that grow based on content. Layout information goes in both directions from context in and also from content out in this layout loop. But then, you also can't measure something in the middle of that loop.</p>
           </aside>
         </section>
 
         <section>
+          <p style="margin-inline:auto;padding-inline-start:0.25em;text-align:left;text-transform:uppercase;border:3px solid;aspect-ratio:1/1;width:3.45em;font-size:2em">CSS <span style="display:block">is</span> awesome</p>
           <aside class="notes">
-            <p>David Baron of the CSSWG came up with a proposal that container queries should be possible if an element has both layout containment and has size containment in the axis used for the container queries. As Miriam Suzanne puts it, CSS containment is a promise from a container that certain things will not escape that container. So for container queries to become a reality, the approach was to </p>
+            <p>David Baron of the CSSWG came up with a proposal that container queries should be possible if an element has both layout containment and has size containment in the axis used for the container queries. As Miriam Suzanne puts it, CSS containment is a promise from a container that certain things will not escape that container.</p>
+            <p>Size containment turns off intrinsic sizing, where content influences the size of the box. But it can be dangerous, see CSS is Awesome meme. As an aside, this meme is not as straightforward to perfect as it seems, especially if you want each word on its own line and the border to be between O and M, just saying.</p>
+          </aside>
+        </section>
+
+        <section>
+          <pre style="font-size:inherit"><code style="width:max-content;padding:0.5em;border-radius:0.25em;margin-inline:auto">contain: inline-size</code></pre>
+          <p>Proposed in <a href="https://github.com/dbaron/container-queries-implementability">Thoughts on an implementable path forward for Container Queries</a></p>
+          <aside class="notes">But anyway, for container queries to become a reality, the discussion turned toward containment in a single dimension, specifically the inline axis. A new value had to be introduced to the <code>contain</code> property, namely <code>inline-size</code>, which prevents the inline-size of an element from directly depending on its contents.</aside>
+        </section>
+
+        <section>
+          <img data-src="img/size-cq.png" alt="CanIUse chart for size container queries" class="plain" />
+          <aside class="notes">From a browser implementation engineering perspective, there was a lot to work on, and it wasn't clear if this was possible at all, but they got it done. It is Baseline newly available now.</aside>
+        </section>
+
+        <section>
+          <h2>CSS Container Queries (Size)</h2>
+          <div class="livecode livecode-2p">
+            <div class="result" style="display:flex">
+              <div class="contained" style="resize: horizontal;overflow:auto;font-size:0.5em;width:100%">
+                <small style="margin-block:1em">I'm the container!</small>
+                <div class="card" style="padding:5cqmin;border:1px dotted">
+                  <div class="card__img" style="padding:5cqmin;border-radius:0.5em;font-size:80%">Pretend this is a responsive image</div>
+                  <div class="card__txt">
+                    <h2 style="line-height:1.1;margin-block-end:2cqh;font-size:1.5em">Cards need headers</h2>
+                    <p>Most cards have blurbs. This is the epitome of a generic example. Oh well…</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="code" style="font-size:0.6em"><style class="code-editor" contenteditable="true">.contained {
+  container-type: inline-size;
+  background-color: lch(from maroon 1% c h)
+}
+
+.card {
+  background-color: forestgreen;
+}
+
+.card__img {
+  background-color: darkgreen;
+  margin-block-end: 2cqh;
+  aspect-ratio: 2 / 1;
+}
+
+@container (min-width: 20em) {
+  .card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    align-items: center;
+  }
+
+  .card__img {
+    height: 20cqmax;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+  }
+
+  .card__txt {
+    flex: 1;
+  }
+}
+
+@container (min-width: 40em) {
+  .card {
+    background-color: firebrick;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .card__img {
+    background-color: maroon;
+    width: max-content;
+    aspect-ratio: 2 / 1;
+  }
+
+  .card h2::after {
+    content: ', or do they?';
+    display: inline-block;
+  }
+
+  .card h2 {
+    font-weight: normal;
+    flex: initial;
+  }
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>The recommended syntax to define a container by setting a <code>container-type</code> on the element in question. For size container queries, the value you want is <code>inline-size</code>. Now you can query the size of the container and apply styles based on the container's size.</p>
+            <p>What's cool is that the size used by the query is relative to the container's computed font size rather than the root font-size, commonly 16px. And to complete the suite of properties, we now have something called container query units, or <code>cq</code> units that allow you to set sizes of things relative to the size of the container.</p>
+          </aside>
+        </section>
+
+        <section>
+          <p class="codepen" data-height="700" data-default-tab="result" data-slug-hash="XWMrMOp" data-pen-title="Container Query Bookstore" data-user="mxbck" style="height: 700px">
+            <span>See the Pen <a href="https://codepen.io/mxbck/pen/XWMrMOp">
+            Container Query Bookstore</a> by Max Böck (<a href="https://codepen.io/mxbck">@mxbck</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
+          <small><a href="https://codepen.io/mxbck/pen/XWMrMOp">Container Query Bookstore</a> by <a href="https://mxb.dev/">Max Böck</a></small>
+          <aside class="notes">
+            <p>The ability to apply styles based on the attributes of a container rather than the entire viewport fits very well in the component-based architecture that is fairly prevalent today. Such an approach allows the same component to be shared across various different contexts in a more predictable manner.</p>
+            <p>The code to implement something like this bookstore interface is more simplified than without container queries since every book uses the same code, and adapts itself based on the context where it needs to be displayed. This presents a refactoring opportunity for codebases that rely on duplicates to achieve a similar effect.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Colour in CSS</h2>
+          <img style="max-height:90vh" data-src="img/colors.png" alt="Visualisation of the color features section of the State of CSS 2023 survey">
+          <aside class="notes">Moving on, we going into colour in CSS. I personally love colours. I also love CSS. Therefore, CSS multiplied by colours equals much fun and happiness. A lot of colour-related features shipped in 2023, so much that we were able to have an entire category for colour.</aside>
+        </section>
+
+        <section>
+          <h2><code>currentColor</code></h2>
+          <div class="livecode livecode-3p">
+            <pre class="markup"><code class="html" style="padding:0.5em;border-radius:0.25em;white-space:pre-wrap;max-height:5em"><button type="button" class="theme">
+  <svg height="64" width="64" viewBox="0 0 74 70"><path fill="currentColor" d="M6.184 27.715c.563.258 1.168.473 1.836.672 1.027.305 2.352.785 3.422.785-.445 0 .324 6.328.41 6.91.727 5.024 3.063 9.239 5.461 13.621 1.172 2.14 3.059 3.828 3.89 6.14.239.641 1.329 7.04.712 7.173-2.641.531-3.801 2.941-2.36 5.27 1.14 1.859 5.2 1.671 6.68.507 2.648-2.059 3.512-6.45 4.36-9.469.35-1.258.542-2.554.89-3.816.797-2.883 1.887-2.985 4.797-2.91 2.96.078 5.969-.157 8.492 1.734 1.211.922 1.988 2.188 2.488 3.61.211.601 1.38 5.269.86 5.558-.782.43-1.73.879-2.36 1.531-3.437 3.54 4.172 5.29 6.63 4.68 3.448-.84 4.589-4.352 5.62-7.32 1.399-3.98 2.91-7.938 3.82-12.07.712-3.242 1.122-6.72.891-10.11-.187-2.827-.828-5.609-2.11-8.148-.198-.39-.41-.77-.64-1.148-1.672-2.762-4.281-5.148-7.199-6.512-5.043-2.37-10.625-2.644-15.973-1.402-3.242.75-8.309 2.73-11.242.308-3.828-3.171-2.219-9.921-4.32-13.969-1.79-3.449-4.742-6.16-7.121-9.171C13.34 2.782 12.57 5.39 11.789 8c-.25.836-3.183 1.226-3.917 1.636-1.184.664-2.293 1.551-3.02 2.711-.719 1.14-.973 2.5-1.41 3.758-.711 2.04-1.313 4.21-2.508 6.016-.277.43 1.852 2.757 2.152 3.136.93 1.176 1.915 1.91 3.098 2.457Zm1.426-8.176c-1.078.34-1.5.32-1.2-.949.29-1.238 1.423-2.68 2.72-2.96.511-.11.808.01.949.269.832 1.5-1.258 3.273-2.469 3.64Z"/><path fill="currentColor" d="M58.953 33c4.45-2.203 6.89-5.695 6.906-10.664.016-4.265-1.328-9.96-5.398-12.289-3.852-2.203-5.235 2.977-8.532 3.535-3.675.621-3.53-5.508-2.597-7.472C51.152 2.28 56.949-.07 60.957.992 66.129 2.364 68.875 7.614 71.117 12c2.523 4.93 2.398 11.141.898 16.328-1.883 6.52-5.41 9.559-11.062 13.008l-2-8.336Z"/></svg>
+  <span>Tumbleweed</span>
+</button></code></pre>
+            <div class="result currentcolor" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-evenly">
+              <button type="button" class="theme1" style="transition:color 300ms ease-out;cursor:pointer;font-size:inherit;background-color:transparent;display:flex;align-items:center;border:2px solid;padding:0.5em;border-radius:0.25em;gap:0.5em">
+                <svg height="64" width="64" viewBox="0 0 74 70"><path fill="currentColor" d="M6.184 27.715c.563.258 1.168.473 1.836.672 1.027.305 2.352.785 3.422.785-.445 0 .324 6.328.41 6.91.727 5.024 3.063 9.239 5.461 13.621 1.172 2.14 3.059 3.828 3.89 6.14.239.641 1.329 7.04.712 7.173-2.641.531-3.801 2.941-2.36 5.27 1.14 1.859 5.2 1.671 6.68.507 2.648-2.059 3.512-6.45 4.36-9.469.35-1.258.542-2.554.89-3.816.797-2.883 1.887-2.985 4.797-2.91 2.96.078 5.969-.157 8.492 1.734 1.211.922 1.988 2.188 2.488 3.61.211.601 1.38 5.269.86 5.558-.782.43-1.73.879-2.36 1.531-3.437 3.54 4.172 5.29 6.63 4.68 3.448-.84 4.589-4.352 5.62-7.32 1.399-3.98 2.91-7.938 3.82-12.07.712-3.242 1.122-6.72.891-10.11-.187-2.827-.828-5.609-2.11-8.148-.198-.39-.41-.77-.64-1.148-1.672-2.762-4.281-5.148-7.199-6.512-5.043-2.37-10.625-2.644-15.973-1.402-3.242.75-8.309 2.73-11.242.308-3.828-3.171-2.219-9.921-4.32-13.969-1.79-3.449-4.742-6.16-7.121-9.171C13.34 2.782 12.57 5.39 11.789 8c-.25.836-3.183 1.226-3.917 1.636-1.184.664-2.293 1.551-3.02 2.711-.719 1.14-.973 2.5-1.41 3.758-.711 2.04-1.313 4.21-2.508 6.016-.277.43 1.852 2.757 2.152 3.136.93 1.176 1.915 1.91 3.098 2.457Zm1.426-8.176c-1.078.34-1.5.32-1.2-.949.29-1.238 1.423-2.68 2.72-2.96.511-.11.808.01.949.269.832 1.5-1.258 3.273-2.469 3.64Z"/><path fill="currentColor" d="M58.953 33c4.45-2.203 6.89-5.695 6.906-10.664.016-4.265-1.328-9.96-5.398-12.289-3.852-2.203-5.235 2.977-8.532 3.535-3.675.621-3.53-5.508-2.597-7.472C51.152 2.28 56.949-.07 60.957.992 66.129 2.364 68.875 7.614 71.117 12c2.523 4.93 2.398 11.141.898 16.328-1.883 6.52-5.41 9.559-11.062 13.008l-2-8.336Z"/></svg>
+                <span>Tumbleweed</span>
+              </button>
+              <button type="button" class="theme2" style="transition:color 300ms ease-out;cursor:pointer;font-size:inherit;background-color:transparent;display:flex;align-items:center;border:2px solid;padding:0.5em;border-radius:0.25em;gap:0.5em">
+                <svg height="64" width="64" viewBox="0 0 74 70"><path fill="currentColor" d="M6.184 27.715c.563.258 1.168.473 1.836.672 1.027.305 2.352.785 3.422.785-.445 0 .324 6.328.41 6.91.727 5.024 3.063 9.239 5.461 13.621 1.172 2.14 3.059 3.828 3.89 6.14.239.641 1.329 7.04.712 7.173-2.641.531-3.801 2.941-2.36 5.27 1.14 1.859 5.2 1.671 6.68.507 2.648-2.059 3.512-6.45 4.36-9.469.35-1.258.542-2.554.89-3.816.797-2.883 1.887-2.985 4.797-2.91 2.96.078 5.969-.157 8.492 1.734 1.211.922 1.988 2.188 2.488 3.61.211.601 1.38 5.269.86 5.558-.782.43-1.73.879-2.36 1.531-3.437 3.54 4.172 5.29 6.63 4.68 3.448-.84 4.589-4.352 5.62-7.32 1.399-3.98 2.91-7.938 3.82-12.07.712-3.242 1.122-6.72.891-10.11-.187-2.827-.828-5.609-2.11-8.148-.198-.39-.41-.77-.64-1.148-1.672-2.762-4.281-5.148-7.199-6.512-5.043-2.37-10.625-2.644-15.973-1.402-3.242.75-8.309 2.73-11.242.308-3.828-3.171-2.219-9.921-4.32-13.969-1.79-3.449-4.742-6.16-7.121-9.171C13.34 2.782 12.57 5.39 11.789 8c-.25.836-3.183 1.226-3.917 1.636-1.184.664-2.293 1.551-3.02 2.711-.719 1.14-.973 2.5-1.41 3.758-.711 2.04-1.313 4.21-2.508 6.016-.277.43 1.852 2.757 2.152 3.136.93 1.176 1.915 1.91 3.098 2.457Zm1.426-8.176c-1.078.34-1.5.32-1.2-.949.29-1.238 1.423-2.68 2.72-2.96.511-.11.808.01.949.269.832 1.5-1.258 3.273-2.469 3.64Z"/><path fill="currentColor" d="M58.953 33c4.45-2.203 6.89-5.695 6.906-10.664.016-4.265-1.328-9.96-5.398-12.289-3.852-2.203-5.235 2.977-8.532 3.535-3.675.621-3.53-5.508-2.597-7.472C51.152 2.28 56.949-.07 60.957.992 66.129 2.364 68.875 7.614 71.117 12c2.523 4.93 2.398 11.141.898 16.328-1.883 6.52-5.41 9.559-11.062 13.008l-2-8.336Z"/></svg>
+                <span>Tumbleweed</span>
+              </button>
+              <button type="button" class="theme3" style="transition:color 300ms ease-out;cursor:pointer;font-size:inherit;background-color:transparent;display:flex;align-items:center;border:2px solid;padding:0.5em;border-radius:0.25em;gap:0.5em">
+                <svg height="64" width="64" viewBox="0 0 74 70"><path fill="currentColor" d="M6.184 27.715c.563.258 1.168.473 1.836.672 1.027.305 2.352.785 3.422.785-.445 0 .324 6.328.41 6.91.727 5.024 3.063 9.239 5.461 13.621 1.172 2.14 3.059 3.828 3.89 6.14.239.641 1.329 7.04.712 7.173-2.641.531-3.801 2.941-2.36 5.27 1.14 1.859 5.2 1.671 6.68.507 2.648-2.059 3.512-6.45 4.36-9.469.35-1.258.542-2.554.89-3.816.797-2.883 1.887-2.985 4.797-2.91 2.96.078 5.969-.157 8.492 1.734 1.211.922 1.988 2.188 2.488 3.61.211.601 1.38 5.269.86 5.558-.782.43-1.73.879-2.36 1.531-3.437 3.54 4.172 5.29 6.63 4.68 3.448-.84 4.589-4.352 5.62-7.32 1.399-3.98 2.91-7.938 3.82-12.07.712-3.242 1.122-6.72.891-10.11-.187-2.827-.828-5.609-2.11-8.148-.198-.39-.41-.77-.64-1.148-1.672-2.762-4.281-5.148-7.199-6.512-5.043-2.37-10.625-2.644-15.973-1.402-3.242.75-8.309 2.73-11.242.308-3.828-3.171-2.219-9.921-4.32-13.969-1.79-3.449-4.742-6.16-7.121-9.171C13.34 2.782 12.57 5.39 11.789 8c-.25.836-3.183 1.226-3.917 1.636-1.184.664-2.293 1.551-3.02 2.711-.719 1.14-.973 2.5-1.41 3.758-.711 2.04-1.313 4.21-2.508 6.016-.277.43 1.852 2.757 2.152 3.136.93 1.176 1.915 1.91 3.098 2.457Zm1.426-8.176c-1.078.34-1.5.32-1.2-.949.29-1.238 1.423-2.68 2.72-2.96.511-.11.808.01.949.269.832 1.5-1.258 3.273-2.469 3.64Z"/><path fill="currentColor" d="M58.953 33c4.45-2.203 6.89-5.695 6.906-10.664.016-4.265-1.328-9.96-5.398-12.289-3.852-2.203-5.235 2.977-8.532 3.535-3.675.621-3.53-5.508-2.597-7.472C51.152 2.28 56.949-.07 60.957.992 66.129 2.364 68.875 7.614 71.117 12c2.523 4.93 2.398 11.141.898 16.328-1.883 6.52-5.41 9.559-11.062 13.008l-2-8.336Z"/></svg>
+                <span>Tumbleweed</span>
+              </button>
+              <button type="button" class="theme4" style="transition:color 300ms ease-out;cursor:pointer;font-size:inherit;background-color:transparent;display:flex;align-items:center;border:2px solid;padding:0.5em;border-radius:0.25em;gap:0.5em">
+                <svg height="64" width="64" viewBox="0 0 74 70"><path fill="currentColor" d="M6.184 27.715c.563.258 1.168.473 1.836.672 1.027.305 2.352.785 3.422.785-.445 0 .324 6.328.41 6.91.727 5.024 3.063 9.239 5.461 13.621 1.172 2.14 3.059 3.828 3.89 6.14.239.641 1.329 7.04.712 7.173-2.641.531-3.801 2.941-2.36 5.27 1.14 1.859 5.2 1.671 6.68.507 2.648-2.059 3.512-6.45 4.36-9.469.35-1.258.542-2.554.89-3.816.797-2.883 1.887-2.985 4.797-2.91 2.96.078 5.969-.157 8.492 1.734 1.211.922 1.988 2.188 2.488 3.61.211.601 1.38 5.269.86 5.558-.782.43-1.73.879-2.36 1.531-3.437 3.54 4.172 5.29 6.63 4.68 3.448-.84 4.589-4.352 5.62-7.32 1.399-3.98 2.91-7.938 3.82-12.07.712-3.242 1.122-6.72.891-10.11-.187-2.827-.828-5.609-2.11-8.148-.198-.39-.41-.77-.64-1.148-1.672-2.762-4.281-5.148-7.199-6.512-5.043-2.37-10.625-2.644-15.973-1.402-3.242.75-8.309 2.73-11.242.308-3.828-3.171-2.219-9.921-4.32-13.969-1.79-3.449-4.742-6.16-7.121-9.171C13.34 2.782 12.57 5.39 11.789 8c-.25.836-3.183 1.226-3.917 1.636-1.184.664-2.293 1.551-3.02 2.711-.719 1.14-.973 2.5-1.41 3.758-.711 2.04-1.313 4.21-2.508 6.016-.277.43 1.852 2.757 2.152 3.136.93 1.176 1.915 1.91 3.098 2.457Zm1.426-8.176c-1.078.34-1.5.32-1.2-.949.29-1.238 1.423-2.68 2.72-2.96.511-.11.808.01.949.269.832 1.5-1.258 3.273-2.469 3.64Z"/><path fill="currentColor" d="M58.953 33c4.45-2.203 6.89-5.695 6.906-10.664.016-4.265-1.328-9.96-5.398-12.289-3.852-2.203-5.235 2.977-8.532 3.535-3.675.621-3.53-5.508-2.597-7.472C51.152 2.28 56.949-.07 60.957.992 66.129 2.364 68.875 7.614 71.117 12c2.523 4.93 2.398 11.141.898 16.328-1.883 6.52-5.41 9.559-11.062 13.008l-2-8.336Z"/></svg>
+                <span>Tumbleweed</span>
+              </button>
+            </div>
+            <div class="code" style="font-size:0.6em"><style class="code-editor" contenteditable="true">.currentcolor .theme1 { color: salmon }
+
+.currentcolor .theme2 { color: papayawhip }
+
+.currentcolor .theme3 { color: limegreen }
+
+.currentcolor .theme4 { color: goldenrod }
+
+
+</style></div>
+          </div>
+         <p><small>Icon by <a href="https://thenounproject.com/icon/cat-6937363/">DaeSung LEE</a></small></p>
+          <aside class="notes">
+            <p>I did find it surprising that <code>currentColor</code>, which has been supported for the longest time, even IE had it, didn't have higher awareness numbers among our respondents. 30% of them had not heard of it.</p>
+            <p>I tend to use it for inline SVG icons quite a bit. Especially for icons that are fairly generic and get used in various different contexts and need to be in different colours. If you set the SVG fill to <code>currentColor</code>, changing the color of the element will apply to the SVG as well.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2><code>accent-color</code></h2>
+          <div class="livecode livecode-2p">
+            <div class="result accent-color" style="display:flex;align-items:center;justify-content:space-evenly">
+              <input style="width:2em;height:2em" type="checkbox">
+              <input style="width:2em;height:2em" type="radio">
+              <input type="range">
+              <progress>
+            </div>
+            <div class="code" style="font-size:0.6em"><style class="code-editor" contenteditable="true">.accent-color {
+  --accent-color: tomato              
+}
+.accent-color input {
+  accent-color: var(--accent-color)
+}
+
+.accent-color progress {
+  accent-color: var(--accent-color)
+}</style></div>
+          </div>
+          <aside class="notes"><code>accent-color</code> is genuinely newer, and hence less surprisingly that half our respondents never heard of it. But basically it allows us to change to the colour of these 4 input elements. And I know people want more customisability on input elements in general, but I think this is a good basic low-effort tweak we can make use of right now.</aside>
+        </section>
+
+        <section>
+          <h2>HSL colours</h2>
+          <img style="max-height:90vh;border-radius:0.5em" data-src="img/hsl.jpg" alt="Sadly drawn visualisation of HSL colour space">
+          <aside class="notes">
+            <p>And this is the point where I might lose people because we're going to gently touch on colour spaces, which is a way we organise colours.</p>
+            <p>sRGB (standard Red Green Blue) is an RGB colour space created by HP and Microsoft for monitors, printers and the Web. Even though there were better systems available at the time, RGB was deemed “good enough” and colours in CSS ended up being first specified in this format.</p>
+            <p>HSL is an alternative representation of the RGB colour model, but utilises a cylindrical geometry, with hue being in the angular dimension, saturation along the radial direction and lightness from top to bottom.</p>
+            <p>It's based on the organisation and conceptualisation of colours in human vision and was added to CSS in 2002 from the desire to have some sort of hue wheel system. But due to the cylindrical nature of the HSL colour space, it does not account for the complexity of how our eyes perceive maximum saturations for different colour hues.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>HSL colours</h2>
+          <div style="display:flex;justify-content:space-evenly;margin-block-end:1em">
+            <figure style="text-align:center">
+              <div style="background-color:hsl(60 100% 25%);width:4em;aspect-ratio:1/1;border-radius:50%;margin-inline:auto;margin-block-end:0.5em"></div>
+              <figcaption>hsl(60 100% 25%)</figcaption>
+            </figure>
+            <figure style="text-align:center">
+              <div style="background-color:hsl(240 100% 25%);width:4em;aspect-ratio:1/1;border-radius:50%;margin-inline:auto;margin-block-end:0.5em"></div>
+              <figcaption>hsl(240 100% 25%)</figcaption>
+            </figure>
+          </div>
+          <div style="display:flex;justify-content:space-evenly;margin-block-end:1em">
+            <figure style="text-align:center">
+              <div style="background-color:hsl(60 100% 50%);width:4em;aspect-ratio:1/1;border-radius:50%;margin-inline:auto;margin-block-end:0.5em"></div>
+              <figcaption>hsl(60 100% 50%)</figcaption>
+            </figure>
+            <figure style="text-align:center">
+              <div style="background-color:hsl(240 100% 50%);width:4em;aspect-ratio:1/1;border-radius:50%;margin-inline:auto;margin-block-end:0.5em"></div>
+              <figcaption>hsl(240 100% 50%)</figcaption>
+            </figure>
+          </div>
+          <div style="display:flex;justify-content:space-evenly">
+            <figure style="text-align:center">
+              <div style="background-color:hsl(60 100% 80%);width:4em;aspect-ratio:1/1;border-radius:50%;margin-inline:auto;margin-block-end:0.5em"></div>
+              <figcaption>hsl(60 100% 80%)</figcaption>
+            </figure>
+            <figure style="text-align:center">
+              <div style="background-color:hsl(240 100% 80%);width:4em;aspect-ratio:1/1;border-radius:50%;margin-inline:auto;margin-block-end:0.5em"></div>
+              <figcaption>hsl(240 100% 80%)</figcaption>
+            </figure>
+          </div>
+          <aside class="notes">
+            <p>What we end up with is an inaccurate lightness component. If you remember my poorly drawn diagram, you'll notice that blue and yellow are directly opposite from each other on the hue colour wheel. It just so happens that humans are least sensitive to blue, but perceive yellow as brightest.</p>
+            <p>Changing the lightness on HSL doesn't affect our perception of yellows and blues in the same way, and the perceived hue also seems a little wonky.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>LAB and LCH</h2>
+          <div style="display:flex;gap:1em;align-items:center;justify-content:space-evenly">
+            <img style="max-height:90vh;border-radius:0.5em" data-src="img/lab.png" alt="Sadly drawn visualisation of LAB colour space">
+            <img style="max-height:90vh;border-radius:0.5em" data-src="img/lch.png" alt="Sadly drawn visualisation of LCH colour space">
+          </div>
+          <aside class="notes">
+            <p>The CIELAB colour space was defined by the International Commission on Illumination in 1976 and was meant to approximate human vision and aspires to perceptual uniformity. Without going into the details of colour science which I am not qualified to do, the long and short of it, is that LCH and LAB have theoretically unbounded chroma values, and should be able to represent the entire spectrum of human vision.</p>
+            <p>TLDR: more colours. And also, a lightness component that is more intuitive to humans. The only issue was a bug in the math that resulted in an unexpected hue shift on chroma and lightness changes in blue colors. A Swedish software engineer, Björn Ottosson, created the OKLab colour space to resolve the bug and improve upon the math behind the colour axes.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>OKLCH colours</h2>
+          <div style="display:flex;justify-content:space-evenly;margin-block-end:1em">
+            <figure>
+              <div style="background-color:oklch(60% 0.3 110);width:4em;aspect-ratio:1/1;border-radius:50%;margin-inline:auto;margin-block-end:0.5em"></div>
+              <figcaption>oklch(60% 0.3 110)</figcaption>
+            </figure>
+            <figure>
+              <div style="background-color:oklch(60% 0.3 260);width:4em;aspect-ratio:1/1;border-radius:50%;margin-inline:auto;margin-block-end:0.5em"></div>
+              <figcaption>oklch(60% 0.3 260)</figcaption>
+            </figure>
+          </div>
+          <div style="display:flex;justify-content:space-evenly;margin-block-end:1em">
+            <figure>
+              <div style="background-color:oklch(80% 0.3 110);width:4em;aspect-ratio:1/1;border-radius:50%;margin-inline:auto;margin-block-end:0.5em"></div>
+              <figcaption>oklch(80% 0.3 110)</figcaption>
+            </figure>
+            <figure>
+              <div style="background-color:oklch(80% 0.3 260);width:4em;aspect-ratio:1/1;border-radius:50%;margin-inline:auto;margin-block-end:0.5em"></div>
+              <figcaption>oklch(80% 0.3 260)</figcaption>
+            </figure>
+          </div>
+          <div style="display:flex;justify-content:space-evenly">
+            <figure>
+              <div style="background-color:oklch(100% 0.3 110);width:4em;aspect-ratio:1/1;border-radius:50%;margin-inline:auto;margin-block-end:0.5em"></div>
+              <figcaption>oklch(100% 0.3 110)</figcaption>
+            </figure>
+            <figure>
+              <div style="background-color:oklch(100% 0.3 260);width:4em;aspect-ratio:1/1;border-radius:50%;margin-inline:auto;margin-block-end:0.5em"></div>
+              <figcaption>oklch(100% 0.3 260)</figcaption>
+            </figure>
+          </div>
+          <aside class="notes">When modify the lightness value of OKLCH colours, even between yellow and blue, the perceived lightness matches much better.</aside>
+        </section>
+
+        <section>
+          <h2>Interpolation differences</h2>
+          <div class="livecode livecode-2p">
+            <div class="result interpolation" style="text-align:left;font-size:0.75em"> 
+              <div style="padding:0.5em" class="black-to-white">
+                <em style="display:block;margin-block-end:0.25em">black to white</em>
+                <p>sRGB</p>
+                <p>HSL</p>
+                <p>LAB</p>
+                <p>okLAB</p>
+                <p>LCH</p>
+                <p>okLCH</p>
+              </div>
+              <div style="padding:0.5em" class="red-to-white">
+                <em style="display:block;margin-block-end:0.25em">red to white</em>
+                <p>sRGB</p>
+                <p>HSL</p>
+                <p>LAB</p>
+                <p>okLAB</p>
+                <p>LCH</p>
+                <p>okLCH</p>
+              </div>
+              <div style="padding:0.5em" class="blue-to-white">
+                <em style="display:block;margin-block-end:0.25em">blue to white</em>
+                <p>sRGB</p>
+                <p>HSL</p>
+                <p>LAB</p>
+                <p>okLAB</p>
+                <p>LCH</p>
+                <p>okLCH</p>
+              </div>
+              <div style="padding:0.5em" class="blue-to-black">
+                <em style="display:block;margin-block-end:0.25em">blue to black</em>
+                <p>sRGB</p>
+                <p>HSL</p>
+                <p>LAB</p>
+                <p>okLAB</p>
+                <p>LCH</p>
+                <p>okLCH</p>
+              </div>
+              <div style="padding:0.5em" class="red-to-green">
+                <em style="display:block;margin-block-end:0.25em">red to green</em>
+                <p>sRGB</p>
+                <p>HSL</p>
+                <p>LAB</p>
+                <p>okLAB</p>
+                <p>LCH</p>
+                <p>okLCH</p>
+              </div>
+              <div style="padding:0.5em" class="purple-to-gold">
+                <em style="display:block;margin-block-end:0.25em">purple to gold</em>
+                <p>sRGB</p>
+                <p>HSL</p>
+                <p>LAB</p>
+                <p>okLAB</p>
+                <p>LCH</p>
+                <p>okLCH</p>
+              </div>
+              <div style="padding:0.5em" class="blue-to-red">
+                <em style="display:block;margin-block-end:0.25em">blue to red</em>
+                <p>sRGB</p>
+                <p>HSL</p>
+                <p>LAB</p>
+                <p>okLAB</p>
+                <p>LCH</p>
+                <p>okLCH</p>
+              </div>
+              <div style="padding:0.5em" class="mediumvioletred-to-gold">
+                <em style="display:block;margin-block-end:0.25em">mediumvioletred to gold</em>
+                <p>sRGB</p>
+                <p>HSL</p>
+                <p>LAB</p>
+                <p>okLAB</p>
+                <p>LCH</p>
+                <p>okLCH</p>
+              </div>
+              <div style="padding:0.5em" class="indigo-to-lightseagreen">
+                <em style="display:block;margin-block-end:0.25em">indigo to lightseagreen</em>
+                <p>sRGB</p>
+                <p>HSL</p>
+                <p>LAB</p>
+                <p>okLAB</p>
+                <p>LCH</p>
+                <p>okLCH</p>
+              </div>
+              <div style="padding:0.5em" class="same-perceptual-lightness">
+                <em style="display:block;margin-block-end:0.25em">same perceptual lightness origins</em>
+                <p>sRGB</p>
+                <p>HSL</p>
+                <p>LAB</p>
+                <p>okLAB</p>
+                <p>LCH</p>
+                <p>okLCH</p>
+              </div>
+              <div style="padding:0.5em" class="extreme-gamut">
+                <em style="display:block;margin-block-end:0.25em">Max LCH chroma</em>
+                <p>sRGB</p>
+                <p>HSL</p>
+                <p>LAB</p>
+                <p>okLAB</p>
+                <p>LCH</p>
+                <p>okLCH</p>
+              </div>
+            </div>
+            <div class="code" style="font-size:0.6em"><style class="code-editor" contenteditable="true">.interpolation p {
+  --colorspace: srgb;
+}
+
+.black-to-white p {
+  background-image: linear-gradient(
+    to right in var(--colorspace), 
+    black, white 
+  );
+}
+
+.red-to-white p {
+  background-image: linear-gradient(
+    to right in var(--colorspace), 
+    red, white
+  );
+}
+
+.blue-to-white p {
+  background-image: linear-gradient(
+    to right in var(--colorspace), 
+    blue, white
+  );
+}
+
+.blue-to-black p {
+  background-image: linear-gradient(
+    to right in var(--colorspace), 
+    blue, black
+  );
+}
+
+.red-to-green p {
+  background-image: linear-gradient(
+    to right in var(--colorspace), 
+    red, green
+  );
+}
+
+.purple-to-gold p {
+  background-image: linear-gradient(
+    to right in var(--colorspace), 
+    purple, gold
+  );
+}
+
+.blue-to-red p {
+  background-image: linear-gradient(
+    to right in var(--colorspace), 
+    blue, red
+  );
+}
+
+.mediumvioletred-to-gold p {
+  background-image: linear-gradient(
+    to right in var(--colorspace), 
+    mediumvioletred, gold
+  );
+}
+
+.indigo-to-lightseagreen p {
+  background-image: linear-gradient(
+    to right in var(--colorspace), 
+    indigo, lightseagreen
+  );
+}
+
+.same-perceptual-lightness p {
+  background-image: linear-gradient(
+    to right in var(--colorspace), 
+    lch(50% 100 150), lch(50% 100 250)
+  );
+}
+
+.extreme-gamut p {
+  background-image: linear-gradient(
+    to right in var(--colorspace), 
+    lch(50% 230 0), lch(50% 230 250)
+  );
+}
+
+.interpolation p:nth-of-type(2) { --colorspace: hsl }
+.interpolation p:nth-of-type(3) { --colorspace: lab }
+.interpolation p:nth-of-type(4) { --colorspace: oklab }
+.interpolation p:nth-of-type(5) { --colorspace: lch }
+.interpolation p:nth-of-type(6) { --colorspace: oklch }
+</style></div>
+          </div>
+          <p>Adapted from <a href="https://codepen.io/argyleink/pen/OJObWEW">Gradient Color Spaces Exploration</a> by <a href="https://nerdy.dev/">Adam Argyle</a></p>
+          <aside class="notes">
+            <p>Colour spaces are three-dimensional, which can be tricky to imagine but a linear gradient can offer us a look at what a slice of the colour space would look like when we move between the same start and end values.</p>
+            <p>This is adapted from Adam Argyle's colour exploration but you can see how each colour space differs for all the colours in between. Generally speaking, the gradients in OKLCH are more vibrant, and doesn't have the issue of stretches of dullness or greyness between the 2 colour stops.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Relative colours with CSS</h2>
+          <img style="display:block;margin-inline:auto" data-src="img/relative-colour.png" alt="Relative colour syntax">
+          <p style="margin-block-start:1em"><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1701488">Pending Firefox: Implement CSS Color 5 Relative Color Syntax</a></p>
+          <aside class="notes">
+            <p>So what can we do with these fresh new colour formats? A lot more, it turns out. How many of us have used a preprocessor to generate darker or lighter colours from a main accent colour? CSS Colors Level 5 introduces a new relative colour syntax that lets us do this with plain CSS.</p>
+            <p>You have to start with a colour, and that's the "from colour" bit. Then you can pick which colourspace you want the output colour to be in. And each of the 3 colour component values can either be a percentage between 0% to 100% or absolute numbers between 0 and 1. Opacity is optional.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Opacity adjustments</h2>
+          <div class="livecode livecode-2p">
+            <div class="result opacity" style="display:flex;align-items:center;justify-content:space-evenly">
+              <div style="border-radius:50%;width:5em;aspect-ratio:1/1;display:flex" class="input-colour">
+                <span style="margin:auto;line-height:1">Input colour</span>
+              </div>
+              <div class="hsl" style="border-radius:50%;width:5em;aspect-ratio:1/1;display:flex" class="input-colour">
+                <span style="margin:auto;line-height:1">HSL</span>
+              </div>
+              <div class="oklab" style="border-radius:50%;width:5em;aspect-ratio:1/1;display:flex" class="input-colour">
+                <span style="margin:auto;line-height:1">OKLAB</span>
+              </div>
+              <div class="oklch" style="border-radius:50%;width:5em;aspect-ratio:1/1;display:flex" class="input-colour">
+                <span style="margin:auto;line-height:1">OKLCH</span>
+              </div>
+            </div>
+            <div class="code" style="font-size:0.6em"><style class="code-editor" contenteditable="true">.opacity {
+  --input: royalblue;
+  --opacity: 0.5;
+}
+
+.opacity .hsl {
+  background-color: hsl(from var(--input) h s l / var(--opacity));
+}
+
+.opacity .oklab {
+  background-color: oklab(from var(--input) l a b / var(--opacity));
+}
+
+.opacity .oklch {
+  background-color: oklch(from var(--input) l c h / var(--opacity));
+}</style></div>
+          </div>
+          <p style="margin-block-start:1em"><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1701488">Pending Firefox: Implement CSS Color 5 Relative Color Syntax</a></p>
+          <aside class="notes">Optional, but highly useful in my opinion. Regardless of what format your original colour was in, be it hex or named CSS colour, you can add transparency to it. And all the colour spaces return the same result. A lovely bit of consistency for once, if you ask me.</aside>
+        </section>
+
+        <section>
+          <h2>Programmatically generate colours</h2>
+          <div class="livecode livecode-2p">
+            <div class="result relative" style="display:flex">
+              <div style="flex:1" class="input-colour">Input colour</div>
+              <div style="flex:1" class="output-colour">
+                <div class="output-lightness">
+                  <p>50% darker</p>
+                  <p>40% darker</p>
+                  <p>30% darker</p>
+                  <p>20% darker</p>
+                  <p>10% darker</p>
+                  <p>Base</p>
+                  <p>10% lighter</p>
+                  <p>20% lighter</p>
+                  <p>30% lighter</p>
+                  <p>40% lighter</p>
+                  <p>50% lighter</p>
+                </div>
+              </div>
+            </div>
+            <div class="code" style="font-size:0.6em"><style class="code-editor" contenteditable="true">.relative {
+  --input: maroon
+}
+
+.input-colour {
+  background-color: var(--input)
+}
+
+.output-lightness p:first-child { background-color: oklch(from var(--input) calc(l - 0.5) c h / 1) }
+.output-lightness p:nth-child(2) { background-color: oklch(from var(--input) calc(l - 0.4) c h / 1) }
+.output-lightness p:nth-child(3) { background-color: oklch(from var(--input) calc(l - 0.3) c h / 1) }
+.output-lightness p:nth-child(4) { background-color: oklch(from var(--input) calc(l - 0.2) c h / 1) }
+.output-lightness p:nth-child(5) { background-color: oklch(from var(--input) calc(l - 0.1) c h / 1) }
+.output-lightness p:nth-child(6) { background-color: oklch(from var(--input) l c h / 1) }
+.output-lightness p:nth-child(7) { background-color: oklch(from var(--input) calc(l + 0.1) c h / 1) }
+.output-lightness p:nth-child(8) { background-color: oklch(from var(--input) calc(l + 0.2) c h / 1) }
+.output-lightness p:nth-child(9) { background-color: oklch(from var(--input) calc(l + 0.3) c h / 1) }
+.output-lightness p:nth-child(10) { background-color: oklch(from var(--input) calc(l + 0.4) c h / 1) }
+.output-lightness p:nth-child(11) { background-color: oklch(from var(--input) calc(l + 0.5) c h / 1) }</style></div>
+          </div>
+          <p style="margin-block-start:1em"><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1701488">Pending Firefox: Implement CSS Color 5 Relative Color Syntax</a></p>
+          <aside class="notes">
+            <p>The syntax destructures the colour into its component parts such that you can start playing around with them. You can use this syntax in any of the colourspace functions, I'm going with OKLCH for this example.</p>
+            <p>And since we can reliably use the lightness component now, the entire palette of colours can be reliably generated based off the main colour. We are fairly close to Baseline newly available because it will be shipped in the next stable Firefox release.</p>
+          </aside>
+        </section>
+
+        <section>
+          <img style="max-height:90vh" data-src="img/has().png" alt="Awareness of :has() from the State of CSS 2023 survey">
+          <aside class="notes">                                                  
+            <p>We do an Awards section at the end of every survey just for fun, and the feature that won "Most Adopted Feature", which is awarded to the feature with the largest year-over-year ”have used” progression was the <code>:has()</code> selector.</p>
+            <p>The <code>:has()</code> selector sits in the Selectors Level 4 specification under the Logical Combinations section, and it has been in there since around early 2018. But we only added it to the survey in 2022 because that was when browsers started shipping it.</p>
+            <p>Parent selectors have been requested for years, and it is not for the lack of trying. If I did not lose you during the container queries explanation, this is a rather similar situation where the challenge for browser implementers is how to manage the performance implications.</p>
+            <p>I have included links to some history in the references, but to summarise, Igalia finally made some forays into a workable prototype in 2021, and things started to move forward from there.</p>
+          </aside>
+        </section>
+
+        <section>
+          <img style="max-height:90vh" data-src="img/caniuse-has.png" alt="CanIUse chart for the :has() selector">
+          <aside class="notes"><code>:has()</code> reached Baseline newly available in December 2023, and folks from the browser side of things are trying to encourage developers to think of <code>:has()</code> as more than just a parent selector.</aside>
+        </section>
+
+        <section>
+          <h2>The <code>:has()</code> selector</h2>
+          <pre style="font-size:inherit">
+            <code style="padding:0.5em;border-radius:0.25em">/* Matches menu items with submenus in them */
+nav li:has(menu) a::after { … }
+
+/* Matches &lt;h1&gt; elements only if they have a &lt;p&gt; element directly after */
+h1:has(+ p) { … }
+
+/* Matches all &lt;section&gt; elements that do NOT contain headings */
+section:not(:has(h1, h2, h3, h4, h5, h6)) { … }
+
+/* Matches all &lt;section&gt; elements that have empty &lt;div&gt;s */
+section:has(div:empty) { … }</code>
+          </pre>
+          <aside class="notes">
+            <p>The specification calls it the relational pseudo-class, and it represents an element if any of the relative selectors passed in as arguments would match at least one element when anchored against this element.</p>
+            <p>That is a mouthful but practically, it opens up a cleaner approach to dealing with component variants. Maybe you have a product card that may or may not have an image within it, or menu items that may or may not have submenus, or heading components that may or may not have subtitles within them, or sections that just happen to have no content in them. You can select them without having to add more specialised CSS classes, I have seen and personally used ternary operators in my component markup for this purpose.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>No CSS class? No problem</h2>
+          <div class="livecode livecode-2p">
+            <div class="result" style="text-align:left;font-size:0.6em">
+              <form class="has-selector" style="padding:1em">
+                <h2>Some form</h2>
+                <div class="input">
+                  <label style="display:block;font-size:smaller;margin-block-end:0.25em">An important field</label>
+                  <input style="font:inherit;width:100%" type="text" required>
+                </div>
+                <div class="input">
+                  <label style="display:block;font-size:smaller;margin-block-end:0.25em">Also important field</label>
+                  <input style="font:inherit;width:100%" type="text" required>
+                </div>
+                <div class="input">
+                  <label style="display:block;font-size:smaller;margin-block-end:0.25em">Not important field</label>
+                  <input style="font:inherit;width:100%" type="text">
+                </div>
+                <div class="input">
+                  <label style="display:block;font-size:smaller;margin-block-end:0.25em">Up-to-you field</label>
+                  <input style="font:inherit;width:100%" type="text">
+                </div>
+                <button style="font:inherit;margin-block-start:1em">Submit</button>
+              </form>
+            </div>
+            <div class="code" style="font-size:0.6em"><style class="code-editor" contenteditable="true">.input {
+  margin-block-end: 1em;
+  width: 15em;
+}
+
+.input:has(:required) label::after {
+  content: "*";
+  color: hotpink;
+  font-size: smaller;
+  vertical-align: super;
+}</style></div>
+          </div>
+          <aside class="notes">In the event that you are somehow unable to add CSS classes for whatever reason, all is not lost. Depending on your context, you might be able to chain enough pseudo-classes together and things will all work out. Like this run-of-the-mill form with required fields, for example.</aside>
+        </section>
+
+        <section>
+          <img style="max-height:90vh" data-src="img/missing-features.png" alt="Missing features in CSS from State of CSS 2023">
+          <aside class="notes">
+            <p>We also ask people what they think are missing from CSS and the winner of that poll was "Animating to <code>auto</code>". It has been one of those things that developers have had to write JavaScript for.</p>
+            <p>More often than not, the use-case is animating to auto height, be it for accordions or dropdown menus. That's where we see hacks like animating to <code>max-height</code> instead, often using some arbitrarily large value for that.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Animating grid rows or grid columns</h2>
+          <div class="grid4 chess">
+            <div class="grid4__item"><span class="emoji">♟</span></div>
+          </div>
+          <p>Also see <a href="https://codepen.io/huijing/pen/LoPEYV">CSS Fool's Mate</a> on CodePen.</p>
+          <aside class="notes">
+            <p>The one feature that I felt we missed out during the survey was people's awareness of the animating of grid rows and grid columns. Firefox has shipped this in 2019, I remember because I excitedly built a CodePen that made use of this feature which had been in the specification from the start, but browsers deferred its implementation till later.</p>
+            <p>It would take all the other browsers until 2022 before this was implemented in the other major browsers. But this also presented a rather slick CSS-only solution to the animate to auto height problem.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Animating <code>0fr</code> to <code>1fr</code></h2>
+          <div class="livecode livecode-2p">
+            <div class="result animate-grid">
+              <input type="checkbox" id="disclosure" style="height:2em;width:2em">
+              <label for="disclosure">Show content</label>
+              <hr>
+              <div class="disclosure-wrapper">
+                <div class="disclosure" style="margin-block-end:0.5em">
+                  <p>Content that is meant to hidden</p>
+                  <p>For all intents and purposes</p>
+                  <p>Let's have multi-line content</p>
+                </div>
+              </div>
+              <div class="undisclosed">
+                <p>Content that is meant to always shown</p>
+                <p>For all intents and purposes</p>
+                <p>Let's have multi-line content</p>
+              </div>
+            </div>
+            <div class="code" style="font-size:0.6em"><style class="code-editor" contenteditable="true">.animate-grid .disclosure-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-out;
+}
+
+.animate-grid #disclosure:checked ~ .disclosure-wrapper {
+  grid-template-rows: 1fr;
+}
+
+.animate-grid .disclosure {
+  overflow: hidden;
+}</style></div>
+          </div>
+          <aside class="notes">
+            <p>Nelson Menezes proposed this solution back in 2021. The crux of the technique involves setting the grid track size to 0fr when the content is hidden, and back to 1fr when the content is expanded.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Animate to <code>auto</code></h2>
+          <p>Have to enable “Experimental Web Platform features” from <code>chrome://flags</code> on Chrome Canary</p>
+          <div class="livecode livecode-2p">
+            <div class="result animate-auto">
+              <input type="checkbox" id="disclosure2" style="height:2em;width:2em">
+              <label for="disclosure2">Show content</label>
+              <hr>
+              <div class="disclosure2" style="margin-block-end:0.5em">
+                <p>Content that is meant to hidden</p>
+                <p>For all intents and purposes</p>
+                <p>Let's have multi-line content</p>
+              </div>
+              <div class="undisclosed">
+                <p>Content that is meant to always shown</p>
+                <p>For all intents and purposes</p>
+                <p>Let's have multi-line content</p>
+              </div>
+            </div>
+            <div class="code" style="font-size:0.6em"><style class="code-editor" contenteditable="true">.disclosure2 {
+  overflow: clip;
+  height: 0;
+  transition: 0.2s ease-in-out;
+}
+
+#disclosure2:checked ~ .disclosure2 {
+  height: calc-size(auto);
+}</style></div>
+          </div>
+          <aside class="notes">The issue with interpolating to or from <code>auto</code>, there must be some way to describe the interpolation states in between. In the CSSWG discussions, it was suggested that <code>calc()</code> could be used for this purpose, except that currently <code>calc()</code> does not support <code>auto</code> as an argument. Interested parties can read the 177 comment thread on GitHub, but the resolution was to add a new math function, final syntax yet to be determined.</aside>
+        </section>
+
+        <section>
+          <img data-src="img/survey-home.svg" alt="QR code to https://stateofcss.com/" class="plain" style="max-width:45rem" />
+          <p><a href="https://stateofcss.com">https://stateofcss.com</a></p>
+          <aside class="notes">
+            <p>And I think we are at time. If you want to be notified about the next CSS survey, you can sign up on the State of CSS home page.</p>
           </aside>
         </section>
 
         <section>
           <h2>References</h2>
-          <ul>
+          <ul style="column-count:2;font-size:85%">
             <li><a href="https://www.w3.org/Style/CSS/all-properties.en.html">List of CSS properties, both proposed and standard</a></li>
             <li><a href="https://drafts.fxtf.org/compositing/#csskeywords">Compositing and Blending Level 2</a></li>
             <li><a href="https://drafts.csswg.org/css-overscroll-1/v">CSS Overscroll Behavior Module Level 1</a></li>
             <li><a href="https://web.dev/articles/content-visibility">content-visibility: the new CSS property that boosts your rendering performance</a></li>
             <li><a href="https://github.com/dbaron/container-queries-implementability">Thoughts on an implementable path forward for Container Queries</a></li>
             <li><a href="https://www.miriamsuzanne.com/specs/contain-3/#resources">CSS Containment Level 3 resources by Miriam Suzanne</a></li>
+            <li><a href="https://snook.ca/archives/html_and_css/css-parent-selectors">Why we don't have a parent selector</a></li>
+            <li><a href="https://bkardell.com/blog/canihas.html">Can I :has()</a></li>
+            <li><a href="https://webkit.org/blog/13096/css-has-pseudo-class/">Using :has() as a CSS Parent Selector and much more</a></li>
+            <li><a href="https://lea.verou.me/blog/2020/04/lch-colors-in-css-what-why-and-how/">LCH colors in CSS: what, why, and how?</a></li>
+            <li><a href="https://bottosson.github.io/posts/oklab/">A perceptual color space for image processing</a></li>
+            <li><a href="https://www.w3.org/Graphics/Color/Workshop/slides/talk/lilley">W3C Workshop on Wide Color Gamut and High Dynamic Range for the Web</a></li>
+            <li><a href="https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl">OKLCH in CSS: why we moved from RGB and HSL</a></li>
+            <li><a href="https://nemzes.net/posts/animating-height-auto/">Animating height: auto</a></li>
+            <li><a href="https://www.youtube.com/watch?v=E-EVOYyZj58">fantasai | Defining “auto” | CSS Day 2015</a></li>
             <li><a href="https://github.com/w3c/csswg-drafts/issues/626">[css-transitions] Transition to height (or width) "auto"</a></li>
             <li><a href="https://frontendmasters.com/blog/one-of-the-boss-battles-of-css-is-almost-won-transitioning-to-auto/">One of the Boss Battles of CSS is Almost Won! Transitioning to Auto</a></li>
           </ul>
@@ -211,10 +986,12 @@
         </section>
       </div>
 
-      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://huijing.github.io/slides/106-code-2024</span><span style="text-align:right">@hj_chen</span></footer>
+      <footer style="position:absolute;width:calc(100% - 1em);bottom:0;font-size:40%;z-index:1;display:flex;justify-content:space-between;padding:0.5em"><span>https://huijing.github.io/slides/106-code-2024</span><span style="text-align:right">@huijing@tech.lgbt</span></footer>
     </div>
 
     <script src="dist/reveal.js"></script>
+    <script src="dist/ei.js"></script>
+    <script src="dist/caniuse-embed.min.js"></script>
     <script src="plugin/notes/notes.js"></script>
     <script src="plugin/markdown/markdown.js"></script>
     <script src="plugin/highlight/highlight.js"></script>

@@ -35,6 +35,10 @@ $selectionColor: $mainColor;
 
 // Customised styles for this presentation -----
 .reveal {
+  pre code {
+    max-height: initial;
+  }
+
   .l-multiple {
     display: flex;
     justify-content: space-around;
@@ -91,13 +95,13 @@ span[role="img"][aria-label]:hover::after {
 // For live coding -----------------------------
 .livecode {
   display: grid;
-  grid-gap: 0.5em;
+  gap: 0.5em;
   margin: 0;
   padding: 0;
 
   .result {
     max-height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
     width: 100%;
     border: 1px dashed $headingColor;
 
@@ -119,7 +123,7 @@ span[role="img"][aria-label]:hover::after {
     background-color: #3f3f3f;
     padding: 0.5em;
     border-radius: 0.25em;
-    overflow-y: scroll;
+    overflow-y: auto;
     font-size: 75%;
   }
 }
@@ -143,6 +147,27 @@ span[role="img"][aria-label]:hover::after {
 .livecode-2p {
   grid-template-columns: 65% calc(35% - 0.5em);
   height: 70vh;
+}
+
+.livecode-3p {
+  gap: 1em;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 50vh;
+  grid-template-areas:
+    "a a"
+    "b c";
+
+  .markup {
+    grid-area: a;
+  }
+
+  .result {
+    grid-area: b;
+  }
+
+  .code {
+    grid-area: c;
+  }
 }
 
 .code-editor {
@@ -228,5 +253,105 @@ span[role="img"][aria-label]:hover::after {
 
   img {
     border-radius: 50%;
+  }
+}
+
+// Embedded CodePen styles ------------------------------
+.cp_embed_wrapper {
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+}
+
+.cp_embed_wrapper iframe {
+  height: 100%;
+}
+
+// Animated grid styles ------------------------------
+.grid4 {
+  display: grid;
+  margin: 2em auto;
+  background-color: seashell;
+  background-image: linear-gradient(
+      45deg,
+      sandybrown 25%,
+      transparent 25%,
+      transparent 75%,
+      sandybrown 75%,
+      sandybrown
+    ),
+    linear-gradient(
+      45deg,
+      sandybrown 25%,
+      transparent 25%,
+      transparent 75%,
+      sandybrown 75%,
+      sandybrown
+    );
+  animation: move 10s infinite ease;
+}
+
+.chess {
+  background-size: 30vmin 30vmin;
+  background-position: 0 0, 15vmin 15vmin;
+  width: 45vmin;
+  height: 45vmin;
+}
+
+.grid4 div {
+  height: 15vmin;
+  width: 15vmin;
+  display: flex;
+  place-self: end;
+}
+
+.emoji {
+  font-size: 6vmin;
+  font-family: "Emoji";
+  margin: auto;
+}
+
+@keyframes move {
+  0% {
+    grid-template-columns: 15vmin 1fr;
+    grid-template-rows: 15vmin 1fr;
+  }
+  25% {
+    grid-template-columns: 45vmin 1fr;
+    grid-template-rows: 15vmin 1fr;
+  }
+  50% {
+    grid-template-columns: 45vmin 1fr;
+    grid-template-rows: 45vmin 1fr;
+  }
+  75% {
+    grid-template-columns: 15vmin 1fr;
+    grid-template-rows: 45vmin 1fr;
+  }
+  100% {
+    grid-template-columns: 15vmin 1fr;
+    grid-template-rows: 15vmin 1fr;
+  }
+}
+
+// Aniamte to auto styles ------------------------------
+.animate-auto {
+  position: relative;
+}
+
+.animate-auto::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: pink;
+  font-size: smaller;
+  color: maroon;
+  content: "This feature doesn't work on your browser yet, you need to try with Chrome Canary after enabling the Experimental Web Platform features";
+}
+
+@supports (height: calc-size(auto)) {
+  .animate-auto::before {
+    content: "";
   }
 }
