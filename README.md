@@ -210,6 +210,6 @@
 
 105. [Do your regional websites talk funny?](https://huijing.github.io/slides/105-cityjssg-2023/) [📹 [video](https://youtu.be/myGDCC-LUPA)]
 
-106. [The State of CSS](https://huijing.github.io/slides/106-code-leaders-2024)
+106. [The State of the Web Platform](https://huijing.github.io/slides/106-code-leaders-2024)
 
 107. [The State of CSS](https://huijing.github.io/slides/107-code-2024)
