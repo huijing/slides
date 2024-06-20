@@ -35,7 +35,7 @@
           </div>
           <aside class="notes">
             <p>That was a segue back to what I'm here to talk about. CSS! Or more specifically, the state of CSS, both in general, and also the survey that I helped out with last year.</p>
-            <p>How many of you fine folks have heard of or participated in any of the State Of surveys before? Only last week, I realised there are a some of State Of surveys run by different organisations as well, but nobody has a monopoly on the term "State Of". And rightfully so, otherwise all the wonderful speakers later today would have had to rename their talks.</p>
+            <p>How many of you fine folks have heard of or participated in any of the State Of surveys before? Only last week, I realised there are a some of State Of surveys run by different organisations as well, but nobody has a monopoly on the term “State Of”. And rightfully so, otherwise all the wonderful speakers later today would have had to rename their talks.</p>
             <p>So the series which the State of CSS surveys belong to started back in 2016 with Sacha Grief (spelled G-R-E-I-F) feeling confused about what Javascript technologies to spend his time learning, so he decided to crowdsource an answer by starting a State of JS survey.</p>
           </aside>
         </section>
@@ -114,7 +114,7 @@
             <img data-src="img/interop.png" alt="Interop 2024" class="plain" style="max-width:35rem" />
           </div>
           <a href="https://wpt.fyi/interop-2024">https://wpt.fyi/interop-2024</a>
-          <aside class="notes">Before we really dig into things, I want to highlight the Interop initiative, which is a strong collaboration between all major browser vendors and friends for improving the web platform across the board and to make the web platform more usable and reliable for developers, so that they can spend more time building great web experiences instead of working around browser inconsistencies.</aside>
+          <aside class="notes">Before we really dig into things, I want to highlight the Interop initiative, which is a strong collaboration between all major browser vendors and friends for improving the web platform across the board. The point is to make the web platform more usable and reliable for developers, like you and I, so that we can spend more time building great web experiences instead of working around browser inconsistencies.</aside>
         </section>
 
         <section>
@@ -140,7 +140,7 @@
         <section data-background-image="img/eras.jpg" data-background-size="cover">
           <aside class="notes">
             <p>Similar to Ben, I too have an eras reference, what can I say, it's a great descriptor for time periods. If we talk about eras (of CSS, not Taylor Swift), the early part of my career was the entirety of the floats era. And there will be eras to come, even if we cannot fully imagine what those might look like yet.</p>
-            <p>Layout is a striking part of visual design because it encompasses the broad structure of what we see in entirety, but I'll have you know, CSS wasn't even meant to be used for layout back when it was introduced.</p>
+            <p>Layout is a striking part of visual design because it encompasses the broad structure of what we see in entirety, but I'll have you know, CSS wasn't even meant to be used for layout back when it first became a W3C recommendation back in 1996. If you don't believe me, you can go check CSS Level 1 under Appendix E: The applicability and extensibility of CSS1.</p>
           </aside>
         </section>
 
@@ -161,7 +161,7 @@
             <a href="https://2023.stateofcss.com/en-US/features/"><img data-src="img/2023-features.png" alt="State of CSS 2023" class="plain" style="max-width:25rem" /></a>
           </div>
           <aside class="notes">
-            <p>The survey has evolved over the past 5 years based on external feedback as well as internal reflection. For the 2023 edition, it started with Sacha and myself going through the list of CSS properties from 2022 to figure out if we still wanted to keep them for this year. Generally, we want to observe trends around new CSS features, but take Flex for example, after 3 straight years of more than 95% usage numbers, we figured there wasn't much insight to be gleaned.</p>
+            <p>The survey has evolved over the past 5 years based on external feedback as well as internal reflection. For the 2023 edition, it started with Sacha and myself going through the list of CSS properties from the 2022 survey to figure out if we still wanted to keep them for 2023. Generally, we want to observe trends around new CSS features. Take Flex, for example, after 3 straight years of more than 95% usage numbers, we figured there wasn't much insight to be gleaned.</p>
             <p>Another reason why features are "graduated" is to make room for new ones, because we also understand that if the survey grows beyond a certain number of questions, nobody is going to finish it. Which brought us to the next bit, of which new features to add. Our criteria was that the feature had to be usable by developers, so those that did not have implementations were not considered.</p>
           </aside>
         </section>
@@ -173,14 +173,14 @@
           </div>
           <aside class="notes">
             <p>Generally, we expect the awareness of new CSS properties to gradually increase over time, usually it's the rate of increase that varies. Then, at some point, properties relate to more specific or narrow use-cases will see some sort of plateau, because if you never encounter a scenario that requires those properties, you probably will never learn it, much less use it.</p>
-            <p>Like <code>blend-mode </code> for example, which is used to determine how 2 colours are mixed when overlaid one on top of another. That is a rather specific use-case, which is why I think the awareness and usage has been stable over time.</p>
+            <p>Like <code>blend-mode</code> for example, which is used to determine how 2 colours are mixed when overlaid one on top of another. That is a rather specific use-case, which is why I think the awareness and usage has been stable over time.</p>
             <p>Same goes for <code>overscroll-behavior</code>, which allows developers to deal with the default behaviour of scroll chaining, where scrolling is propagated from one scroll container to another. It is one of those properties where it's meant to change the default behaviour, which most of the time is an acceptable experience.</p>
           </aside>
         </section>
 
         <section>
           <img style="max-height:90vh" data-src="img/content-visibility.png" alt="Awareness of the content-visiblity property over the past 4 years">
-          <aside class="notes">The only property that bucked the trend was content-visibility. It is a property that controls whether or not an element renders its contents at all. As part of the bigger concept of containment, you can think of it as a performance optimisation category of CSS features.</aside>
+          <aside class="notes">The only property that bucked the trend was <code>content-visibility</code>. It is a property that controls whether or not an element renders its contents at all. As part of the bigger concept of containment, you can think of it as belonging to the performance optimisation category of CSS features.</aside>
         </section>
 
         <section>
@@ -188,7 +188,7 @@
             <p>❗️ Caution: The browser is only able to skip rendering work if you are also careful not to call any DOM API that forces some of rendering to occur on one of the skipped subtrees. If you're using content-visibility to improve performance, audit your code to make sure these APIs are not getting called.</p>
             <small>–<a href="https://web.dev/articles/content-visibility">content-visibility: the new CSS property that boosts your rendering performance</a></small>
           </blockquote>
-          <aside class="notes">However, the proper usage of these properties usually requires in-depth knowledge of browser optimisations in order to achieve the intended results. I think a good way to describe it is that it needs the developer to be very deliberate in where and when to apply them. Otherwise, it could even cause unnecessary overheads and make performance worse.</aside>
+          <aside class="notes">However, the proper usage of such properties usually requires in-depth knowledge of browser optimisations in order to achieve the intended results. I think a good way to describe this category of CSS is that it needs the developer to be very deliberate in where and when to apply them. Otherwise, it could even cause unnecessary overheads and make performance worse.</aside>
         </section>
 
         <section>
@@ -318,7 +318,7 @@
         <section>
           <h2>Colour in CSS</h2>
           <img style="max-height:90vh" data-src="img/colors.png" alt="Visualisation of the color features section of the State of CSS 2023 survey">
-          <aside class="notes">Moving on, we going into colour in CSS. I personally love colours. I also love CSS. Therefore, CSS multiplied by colours equals much fun and happiness. A lot of colour-related features shipped in 2023, so much that we were able to have an entire category for colour.</aside>
+          <aside class="notes">Moving on, we are going into colour in CSS. I personally love colours. I also love CSS. Therefore, CSS multiplied by colours equals much fun and happiness. A lot of colour-related features shipped over the past 2 years, so much that we were able to have an entire category for just for colour.</aside>
         </section>
 
         <section>
@@ -359,7 +359,7 @@
           </div>
          <p><small>Icon by <a href="https://thenounproject.com/icon/cat-6937363/">DaeSung LEE</a></small></p>
           <aside class="notes">
-            <p>I did find it surprising that <code>currentColor</code>, which has been supported for the longest time, even IE had it, didn't have higher awareness numbers among our respondents. 30% of them had not heard of it.</p>
+            <p>I was surprised by the awareness numbers for <code>currentColor</code>, which had been supported for the longest time, it even works on IE. 30% of our respondents had not heard of it.</p>
             <p>I tend to use it for inline SVG icons quite a bit. Especially for icons that are fairly generic and get used in various different contexts and need to be in different colours. If you set the SVG fill to <code>currentColor</code>, changing the color of the element will apply to the SVG as well.</p>
           </aside>
         </section>
@@ -384,14 +384,14 @@
   accent-color: var(--accent-color)
 }</style></div>
           </div>
-          <aside class="notes"><code>accent-color</code> is genuinely newer, and hence less surprisingly that half our respondents never heard of it. But basically it allows us to change to the colour of these 4 input elements. And I know people want more customisability on input elements in general, but I think this is a good basic low-effort tweak we can make use of right now.</aside>
+          <aside class="notes"><code>accent-color</code> is genuinely newer, and hence less surprisingly that half our respondents never heard of it. But basically it allows us to change to the colour of these 4 input elements. And I know people want more customisability on input elements in general, but I think this is a good low-effort tweak we can make use of right now.</aside>
         </section>
 
         <section>
           <h2>HSL colours</h2>
           <img style="max-height:90vh;border-radius:0.5em" data-src="img/hsl.jpg" alt="Sadly drawn visualisation of HSL colour space">
           <aside class="notes">
-            <p>And this is the point where I might lose people because we're going to gently touch on colour spaces, which is a way we organise colours.</p>
+            <p>And we have come to the point in the talk where I might lose people because we're going to gently touch on colour spaces, which is a way we organise colours in the digital world.</p>
             <p>sRGB (standard Red Green Blue) is an RGB colour space created by HP and Microsoft for monitors, printers and the Web. Even though there were better systems available at the time, RGB was deemed “good enough” and colours in CSS ended up being first specified in this format.</p>
             <p>HSL is an alternative representation of the RGB colour model, but utilises a cylindrical geometry, with hue being in the angular dimension, saturation along the radial direction and lightness from top to bottom.</p>
             <p>It's based on the organisation and conceptualisation of colours in human vision and was added to CSS in 2002 from the desire to have some sort of hue wheel system. But due to the cylindrical nature of the HSL colour space, it does not account for the complexity of how our eyes perceive maximum saturations for different colour hues.</p>
@@ -480,7 +480,7 @@
               <figcaption>oklch(100% 0.3 260)</figcaption>
             </figure>
           </div>
-          <aside class="notes">When modify the lightness value of OKLCH colours, even between yellow and blue, the perceived lightness matches much better.</aside>
+          <aside class="notes">When we modify the lightness value of OKLCH colours, even between yellow and blue, the perceived lightness between the 2 now matches much better.</aside>
         </section>
 
         <section>
@@ -688,7 +688,7 @@
           <p style="margin-block-start:1em"><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1701488">Pending Firefox: Implement CSS Color 5 Relative Color Syntax</a></p>
           <aside class="notes">
             <p>So what can we do with these fresh new colour formats? A lot more, it turns out. How many of us have used a preprocessor to generate darker or lighter colours from a main accent colour? CSS Colors Level 5 introduces a new relative colour syntax that lets us do this with plain CSS.</p>
-            <p>You have to start with a colour, and that's the "from colour" bit. Then you can pick which colourspace you want the output colour to be in. And each of the 3 colour component values can either be a percentage between 0% to 100% or absolute numbers between 0 and 1. Opacity is optional.</p>
+            <p>You have to start with a colour, and that's the "from colour" bit. Then you can pick which colour space you want the output colour to be in. And each of the 3 colour component values can either be a percentage between 0% to 100% or absolute numbers between 0 and 1. Opacity is optional.</p>
           </aside>
         </section>
 
@@ -774,7 +774,7 @@
           <p style="margin-block-start:1em"><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1701488">Pending Firefox: Implement CSS Color 5 Relative Color Syntax</a></p>
           <aside class="notes">
             <p>The syntax destructures the colour into its component parts such that you can start playing around with them. You can use this syntax in any of the colourspace functions, I'm going with OKLCH for this example.</p>
-            <p>And since we can reliably use the lightness component now, the entire palette of colours can be reliably generated based off the main colour. We are fairly close to Baseline newly available because it will be shipped in the next stable Firefox release.</p>
+            <p>And since we can reliably use the lightness component in OKLCH, an entire palette of colours can be reliably generated based off our main colour. We are fairly close to Baseline newly available because it will be shipped in Firefox 128, which is the next stable Firefox release.</p>
           </aside>
         </section>
 
@@ -858,7 +858,7 @@ section:has(div:empty) { … }</code>
           <img style="max-height:90vh" data-src="img/missing-features.png" alt="Missing features in CSS from State of CSS 2023">
           <aside class="notes">
             <p>We also ask people what they think are missing from CSS and the winner of that poll was "Animating to <code>auto</code>". It has been one of those things that developers have had to write JavaScript for.</p>
-            <p>More often than not, the use-case is animating to auto height, be it for accordions or dropdown menus. That's where we see hacks like animating to <code>max-height</code> instead, often using some arbitrarily large value for that.</p>
+            <p>More often than not, the use-case is animating to auto height, be it for accordions or dropdown menus. That's where we see hacks like animating to <code>max-height</code> instead, often using some arbitrarily large value for that. Or resorting to JavaScript.</p>
           </aside>
         </section>
 
@@ -869,8 +869,8 @@ section:has(div:empty) { … }</code>
           </div>
           <p>Also see <a href="https://codepen.io/huijing/pen/LoPEYV">CSS Fool's Mate</a> on CodePen.</p>
           <aside class="notes">
-            <p>The one feature that I felt we missed out during the survey was people's awareness of the animating of grid rows and grid columns. Firefox has shipped this in 2019, I remember because I excitedly built a CodePen that made use of this feature which had been in the specification from the start, but browsers deferred its implementation till later.</p>
-            <p>It would take all the other browsers until 2022 before this was implemented in the other major browsers. But this also presented a rather slick CSS-only solution to the animate to auto height problem.</p>
+            <p>The one feature that I felt we missed out during the survey was people's awareness of the ability to animate grid rows and grid columns. Firefox shipped this in 2019. I remember the year because that was when I excitedly built a CodePen that made use of this feature. Grid tracks were meant to be animatable from the start. But due to implementation complications, browsers deferred this implementation till later.</p>
+            <p>It would take all the other browsers until 2022 to implement this in their stable versions. But this also presented a rather slick CSS-only solution to the animate to auto height problem.</p>
           </aside>
         </section>
 
@@ -942,7 +942,7 @@ section:has(div:empty) { … }</code>
   height: calc-size(auto);
 }</style></div>
           </div>
-          <aside class="notes">The issue with interpolating to or from <code>auto</code>, there must be some way to describe the interpolation states in between. In the CSSWG discussions, it was suggested that <code>calc()</code> could be used for this purpose, except that currently <code>calc()</code> does not support <code>auto</code> as an argument. Interested parties can read the 177 comment thread on GitHub, but the resolution was to add a new math function, final syntax yet to be determined.</aside>
+          <aside class="notes">The issue with interpolating to or from <code>auto</code>, is that there must be some way to describe the interpolation states in between. In the CSSWG discussions, it was suggested that <code>calc()</code> could be used for this purpose, except that currently <code>calc()</code> does not support <code>auto</code> as an argument. Interested parties can read the 177 comment thread on GitHub, but the resolution was to add a new math function that can take <code>auto</code> as an argument, final syntax yet to be determined.</aside>
         </section>
 
         <section>
