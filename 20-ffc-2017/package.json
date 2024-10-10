@@ -23,7 +23,7 @@
     "node": ">=4.0.0"
   },
   "devDependencies": {
-    "express": "~4.19.2",
+    "express": "~4.21.1",
     "grunt": "~1.5.3",
     "grunt-autoprefixer": "~3.0.3",
     "grunt-cli": "~1.2.0",
@@ -38,7 +38,7 @@
     "grunt-zip": "~0.17.1",
     "mustache": "~2.2.1",
     "node-sass": "~7.0.0",
-    "socket.io": "^2.4.0"
+    "socket.io": "^4.8.0"
   },
   "license": "MIT"
 }
