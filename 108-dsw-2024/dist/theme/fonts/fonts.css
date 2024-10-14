@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "Redaction";
+  src: url("redaction-italic.woff2") format("woff2");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Redaction";
+  src: url("redaction-regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Redaction";
+  src: url("redaction-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
