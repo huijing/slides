@@ -41,7 +41,7 @@
     "core-js": "^3.6.5",
     "glob": "^7.1.6",
     "gulp": "^5.0.0",
-    "gulp-autoprefixer": "^7.0.1",
+    "gulp-autoprefixer": "^10.0.0",
     "gulp-clean-css": "^4.2.0",
     "gulp-connect": "^5.7.0",
     "gulp-eslint": "^6.0.0",
